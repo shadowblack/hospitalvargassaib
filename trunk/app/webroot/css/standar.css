@@ -1,0 +1,37 @@
+/**
+* Css estandar para todo el proyecto
+*/
+
+.font_estandar{
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+/*
+*Formato de los label
+*/
+
+label{
+    width: 100px;
+    display: inline-block;
+    line-height: 1.8;
+    vertical-align: top;  
+    text-align:left; 
+}
+
+label.error{
+    width: 100%;
+    border:1px solid #B8650A;  
+    color: #B8650A;
+    font-family:Arial;
+    font-size: 10pt;
+    color: #B8650A;  
+    text-align:center;    
+}
+
+/*
+* Formato de formularios
+*/
+input{
+    width:100px
+}

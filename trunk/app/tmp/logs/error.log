@@ -1,0 +1,4 @@
+2011-02-19 19:56:47 Warning: Warning (2): date() expects at least 1 parameter, 0 given in [C:\wamp\www\saib\app\views\index\index.ctp, line 4]
+2011-02-20 23:58:52 Warning: Warning (2): Missing argument 1 for PruebaController::prueba2() in [C:\wamp\www\saib\app\controllers\prueba_controller.php, line 9]
+2011-03-20 03:54:52 Warning: Warning (512): Method HtmlHelper::baseUrl does not exist in [C:\wamp\www\saib\cake\libs\view\helper.php, line 154]
+2011-03-20 03:55:08 Warning: Warning (512): Method HtmlHelper::baseUrl does not exist in [C:\wamp\www\saib\cake\libs\view\helper.php, line 154]
