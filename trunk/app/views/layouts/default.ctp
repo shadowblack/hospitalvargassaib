@@ -17,9 +17,8 @@
         
         <?php echo $this->Html->script("jquery/jquery-1.5.1.min.js"); ?>
         <?php echo $this->Html->script("jquery/jquery-ui-1.8.10.custom/js/jquery-ui-1.8.10.custom.min.js"); ?>
-        <?php echo $this->Html->script("jquery/jquery-validate/jquery.validate.min.js"); ?>
+        <?php echo $this->Html->script("jquery/jquery-validate/jquery.validate.min.js"); ?>        
         <?php echo $this->Html->script("jquery/jquery-validate/localization/messages_es.js"); ?>
-        <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>
         <?php echo $scripts_for_layout; ?>       
     </head>
     <body style="width: 100%;text-align: center;padding: 0 0 0 0;margin: 0 auto 0 auto;overflow: auto; background-color: #EAF8F8;">

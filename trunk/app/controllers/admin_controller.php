@@ -14,5 +14,13 @@
         function login(){
             
         }
+        /**
+         * Validando usuario 
+         */
+        function val_usu(){
+           $pas_usu = $_POST["pas_log"];
+           $log_usu = $_POST["txt_log"];
+           
+        }
     }
 ?>
