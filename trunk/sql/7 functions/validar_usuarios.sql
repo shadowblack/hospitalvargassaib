@@ -17,7 +17,7 @@ DECLARE
 	_log_usu_adm		usuarios_administrativos.log_usu_adm%TYPE;
 	_tel_usu_adm		usuarios_administrativos.tel_usu_adm%TYPE;
 	_id_tip_usu		usuarios_administrativos.id_tip_usu%TYPE;
-	_cod_tip_usu
+	_cod_tip_usu		Tipos_usuarios.cod_tip_usu%TYPE;
 	_t_val_usu		t_validar_usuarios%ROWTYPE;
 	_vr_usu_adm		RECORD;
 BEGIN
@@ -31,7 +31,7 @@ BEGIN
 				
 				SELECT ua.id_usu_adm,ua.nom_usu_adm,ua.ape_usu_adm,ua.log_usu_adm,ua.id_tip_usu,ua  INTO _vr_usu_adm FROM 
 				usuarios_administrativos ua
-				LEFT JOIN
+				LEFT JOIN tipos_usuarios tu ON (ua.id_tip_usu = tu.id_tip_usu)
 
 				WHERE lod_usu_adm = _log_usu LIMIT 1;
 				
