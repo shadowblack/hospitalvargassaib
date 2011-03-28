@@ -16,8 +16,8 @@ DECLARE
 	_pas_usu_adm		usuarios_administrativos.pas_usu_adm%TYPE;
 	_log_usu_adm		usuarios_administrativos.log_usu_adm%TYPE;
 	_tel_usu_adm		usuarios_administrativos.tel_usu_adm%TYPE;
-	_id_tip_usu		usuarios_administrativos.id_tip_usu%TYPE;
-	_cod_tip_usu		Tipos_usuarios.cod_tip_usu%TYPE;
+	_id_tip_usu		tipos_usuarios.id_tip_usu%TYPE;
+	_cod_tip_usu		tipos_usuarios.cod_tip_usu%TYPE;
 	_t_val_usu		t_validar_usuarios%ROWTYPE;
 	_vr_usu_adm		RECORD;
 BEGIN
@@ -29,19 +29,47 @@ BEGIN
 
 			IF EXISTS( SELECT 1 FROM usuarios_administrativos WHERE log_usu_adm = _log_usu) THEN
 				
-				SELECT ua.id_usu_adm,ua.nom_usu_adm,ua.ape_usu_adm,ua.log_usu_adm,ua.id_tip_usu,ua  INTO _vr_usu_adm FROM 
+				SELECT ua.id_usu_adm, ua.nom_usu_adm, ua.ape_usu_adm, ua.log_usu_adm, ua.tel_usu_adm, tu.id_tip_usu, tu.cod_tip_usu, tu.des_tip_usu, tuu.id_tip_usu_usu INTO _vr_usu_adm  FROM 
 				usuarios_administrativos ua
-				LEFT JOIN tipos_usuarios tu ON (ua.id_tip_usu = tu.id_tip_usu)
+				LEFT JOIN tipos_usuarios__usuarios tuu ON (ua.id_usu_adm = tuu.id_usu_adm)
+				LEFT JOIN tipos_usuarios tu ON (tuu.id_tip_usu = tu.id_tip_usu)
+				WHERE ua.log_usu_adm = _log_usu
+				AND ua.pas_usu_adm = _pas_usu
+				AND tu.cod_tip_usu = _tip_usu;
 
-				WHERE lod_usu_adm = _log_usu LIMIT 1;
+				_t_val_usu.str_mods := ARRAY_TO_STRING (
+					ARRAY	(
+							SELECT m.cod_mod FROM modulos m LEFT JOIN modulo_usuarios mu 
+							ON(m.id_mod = mu.id_mod)							
+							WHERE mu.id_tip_usu_usu = _vr_usu_adm.id_tip_usu_usu
+					)
+				,',');
 				
-			END IF;
-			--RETURN 1;
+				_t_val_usu.str_trans := ARRAY_TO_STRING (
+					ARRAY	(
+							SELECT t.cod_tip_tra FROM transacciones_usuarios tu LEFT JOIN transacciones t 
+							ON(tu.id_tip_tra = t.id_tip_tra)
+							WHERE tu.id_tip_usu_usu = _vr_usu_adm.id_tip_usu_usu
+					)
+				,',');
+
+				_t_val_usu.id_usu_adm 		:=	_vr_usu_adm.id_usu_adm;
+				_t_val_usu.nom_usu_adm 		:=	_vr_usu_adm.nom_usu_adm;
+				_t_val_usu.ape_usu_adm 		:=	_vr_usu_adm.ape_usu_adm;
+				_t_val_usu.pas_usu_adm 		:=	'no colocado';
+				_t_val_usu.log_usu_adm 		:=	_vr_usu_adm.log_usu_adm;
+				_t_val_usu.tel_usu_adm 		:=	_vr_usu_adm.tel_usu_adm;
+				_t_val_usu.id_tip_usu 		:=	_vr_usu_adm.id_tip_usu;
+				_t_val_usu.cod_tip_usu 		:=	_vr_usu_adm.cod_tip_usu;				
+				_t_val_usu.des_tip_usu 		:=	_vr_usu_adm.des_tip_usu;
+				
+						END IF;
+			
 		WHEN 'doc' THEN		
 		
 	END CASE;
 	
-	--RETURN 0;
+	RETURN NEXT _t_val_usu;
 	
 END;
 $BODY$
@@ -56,7 +84,9 @@ PARAMETROS:
 	2:  Login de la empresa
 	3:  Password de seguridad
 
+EJEMPLO: SELECT str_mods FROM validar_usuarios(''hitokiri83'',''123'',''adm'');
+
 ';
 
 -- 
-	SELECT validar_usuarios('A','B','adm');
+	SELECT * FROM validar_usuarios('hitokiri83','123','adm');
