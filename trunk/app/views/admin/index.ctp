@@ -1,7 +1,22 @@
-<?php   
+﻿<?php   
     echo $url_img =  $this->webroot."img/menu_top/"; 
     //echo "http://127.0.0.1$url_img"."img/menu_top/8_01.jpg";die;
 ?>
+<script type="text/javascript">
+	jQuery(function(){
+		// Accordion
+		jQuery("#accordion").accordion({ header: "h3" });
+        
+        jQuery("#reg_usu_adm").click(function(){
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/registrar')?>");
+		});
+    });
+</script>
+<style type="text/css">
+    .font_estandar{
+        font-size: 8pt;
+    }
+</style>
 <!-- Save for Web Slices (8.psd) -->
 <table id="Tabla_01" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 0;">
 	<tr>
@@ -171,13 +186,10 @@
 		<td rowspan="2">
 			<img src="<?php echo $url_img?>8_65.jpg" width="42" height="417" alt=""></td>
 		<td rowspan="2">
-            
-            
-        	<div style="position:absolute; width:710px; height: 433px;.margin-left: -240px;margin-right: auto;margin-top: -225px;border: 1px solid black;">
-            	<iframe src="http://www.google.com" width="100%" height="100%" frameborder="0"></iframe>	        	
+            <div style="position:absolute; width:710px; height: 433px;.margin-left: -240px;margin-right: auto;margin-top: -225px;border: 1px solid black;">
+            	<iframe id="frame_content" src="http://www.google.com" width="100%" height="100%" frameborder="0"></iframe>	        	
             </div>
-            
-</td>
+        </td>
 		<td rowspan="2" style="background-image:url(<?php echo $url_img?>8_67.jpg);background-repeat:repeat-x">
 			<img src="<?php echo $url_img?>8_67.jpg" width="19" height="417" alt=""></td>
 		<td rowspan="2">
@@ -192,7 +204,26 @@
 	<tr>
 		<td colspan="2" valign="center">
         	<div style="position:absolute; margin-left:10px; width:180px; height:427px; vertical-align:text-bottom; margin-top: -10px;">	
-            	<div style="">Menu</div>               
+            	<div id="accordion">
+        			<div>
+        				<h3 class="font_estandar"><a href="#"><?php __("Usuarios Administrativo");?></a></h3>
+                        <div>
+                            <a href="#" id="reg_usu_adm" class="font_estandar"><?php __("Registrar usuarios");?></a>
+                            <!--<a href="#" class="font_estandar"><?php __("Modificar usuarios");?></a>
+                            <a href="#" class="font_estandar"><?php __("Eliminar usuarios");?></a>
+                            <a href="#" class="font_estandar"><?php __("Consultar usuarios");?></a>-->
+                        </div>
+        			</div>
+        			<div>
+        				<h3 class="font_estandar"><a href="#">Second</a></h3>
+        				<div></div>
+        			</div>
+        			<div>
+        
+        				<h3 class="font_estandar"><a href="#">Third</a></h3>
+        				<div></div>
+        			</div>
+        		</div>
             </div>
 	    <img src="<?php echo $url_img?>8_71.jpg" width="190" height="416" alt=""></td>
 		<td>
