@@ -19,13 +19,13 @@
         <table border="0" style="width: 250px;" align="center">
             <tr>
                 <td>
-                     <label for="log_usu"  class="font_estandar"><?php echo __("Login");?>:</label>
+                     <label for="log_usu"  class="standar_font"><?php echo __("Login");?>:</label>
     			     <input type="text" id="log_usu" name="log_usu" class="text required" minlength="3" maxlength="100" />
                 </td>
             </tr>
             <tr>
                 <td>    
-                     <label for="pas_log" class="font_estandar"><?php echo __("Contraseña");?>:</label>
+                     <label for="pas_log" class="standar_font"><?php echo __("Contraseña");?>:</label>
     			     <input type="password" id="pas_log" name="pas_log" class="password required" minlength="3" maxlength="100"/>
                 </td>
             </tr>

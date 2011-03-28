@@ -1,11 +1,12 @@
 ﻿<?php
     class AdminController extends Controller{
         var $name = "Admin";
-        var $uses = Array();
+        var $uses = Array("UsuariosAdministrativo");
         /**
          * Entrando a la aplicacion administrativa
          */
-        function index(){            
+        function index(){ 
+            print_r($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('hitokiri83','123','adm')"));die;
             //$this->redirect("/admin/login");
         }
        

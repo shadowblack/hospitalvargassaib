@@ -1,4 +1,4 @@
-<?php echo $this->Html->docType("html4-trans"); ?>
+﻿<?php echo $this->Html->docType("html4-trans"); ?>
 <html>
     <head>
         <?php echo $html->charset(); ?>

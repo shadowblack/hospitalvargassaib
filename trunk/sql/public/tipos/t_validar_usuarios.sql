@@ -2,13 +2,17 @@
 DROP TYPE IF EXISTS  t_validar_usuarios;
 CREATE TYPE t_validar_usuarios AS
    (
-	id_usu_adm INTEGER,
-	nom_usu_adm TEXT,
-	ape_usu_adm TEXT,
-	pas_usu_adm TEXT,
-	log_usu_adm TEXT,
-	tel_usu_adm TEXT,
-	id_tip_usu INTEGER
+	id_usu_adm 	INTEGER,
+	nom_usu_adm 	TEXT,
+	ape_usu_adm 	TEXT,
+	pas_usu_adm 	TEXT,
+	log_usu_adm 	TEXT,
+	tel_usu_adm 	TEXT,
+	id_tip_usu 	INTEGER,
+	cod_tip_usu 	TEXT,
+	str_mods	TEXT,
+	str_trans	TEXT,
+	des_tip_usu 	TEXT
    );
 ALTER TYPE t_validar_usuarios OWNER TO postgres;
 COMMENT ON TYPE t_validar_usuarios IS '
