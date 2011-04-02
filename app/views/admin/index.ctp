@@ -26,7 +26,7 @@
 			<img src="<?php echo $url_img?>8_02.jpg" width="9" height="105" alt=""></td>
 		<td width="33">
 			<img src="<?php echo $url_img?>8_03.jpg" width="33" height="105" alt=""></td>
-		<td  width="157">
+		<td width="157">
 			<img src="<?php echo $url_img?>8_04.jpg" width="157" height="105" alt=""></td>
 		<td width="42">
 			<img src="<?php echo $url_img?>8_05.jpg" width="42" height="105" alt=""></td>
@@ -69,55 +69,55 @@
 			<img src="<?php echo $url_img?>espacio.gif" width="1" height="126" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="2">
+		<td rowspan="2" valign="top">
 			<img src="<?php echo $url_img?>8_21.jpg" width="1" height="32" alt=""></td>
-		<td style="background-image:url(<?php echo $url_img?>8_22.jpg);background-repeat:repeat-x;">
+		<td valign="top" style="background-image:url(<?php echo $url_img?>8_22.jpg);background-repeat:repeat-x;">
 			<img src="<?php echo $url_img?>8_22.jpg" width="9" height="31" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_23.jpg" width="33" height="31" alt=""></td>
-		<td rowspan="2">
+		<td rowspan="2" valign="top">
 			<img src="<?php echo $url_img?>8_24.jpg" width="157" height="32" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_25.jpg" width="42" height="31" alt=""></td>
-		<td rowspan="2">
+		<td rowspan="2" valign="top">
 			<img src="<?php echo $url_img?>8_26.jpg" width="485" height="32" alt=""></td>
-		<td rowspan="2" style="background-image:url(<?php echo $url_img?>8_27.jpg);background-repeat:repeat-x">
+		<td rowspan="2" valign="top" style="background-image:url(<?php echo $url_img?>8_27.jpg);background-repeat:repeat-x">
 			<img src="<?php echo $url_img?>8_27.jpg" width="19" height="32" alt=""></td>
-		<td rowspan="2">
+		<td rowspan="2" valign="top">
 			<img src="<?php echo $url_img?>8_28.jpg" width="18" height="32" alt=""></td>
-		<td rowspan="2" style="background-image:url(<?php echo $url_img?>8_28.jpg);background-repeat:repeat-x">
+		<td valign="top" rowspan="2" style="background-image:url(<?php echo $url_img?>8_28.jpg);background-repeat:repeat-x">
 			<img src="<?php echo $url_img?>8_29.jpg" width="14" height="32" alt=""></td>
-		<td rowspan="2">
+		<td valign="top" rowspan="2">
 			<img src="<?php echo $url_img?>8_30.jpg" width="2" height="32" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>espacio.gif" width="1" height="31" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="2" style="background-image:url(<?php echo $url_img?>8_31.jpg);background-repeat:repeat-x;">
+		<td valign="top" rowspan="2" style="background-image:url(<?php echo $url_img?>8_31.jpg);background-repeat:repeat-x;">
 			<img src="<?php echo $url_img?>8_31.jpg" width="9" height="18" alt=""></td>
-		<td rowspan="2">
+		<td valign="top" rowspan="2">
 			<img src="<?php echo $url_img?>8_32.jpg" width="33" height="18" alt=""></td>
-		<td rowspan="2">
+		<td valign="top" rowspan="2">
 			<img src="<?php echo $url_img?>8_33.jpg" width="42" height="18" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>espacio.gif" width="1" height="1" alt=""></td>
 	</tr>
 	<tr>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_34.jpg" width="1" height="17" alt=""></td>
-		<td>
+		<td valign="top" >
 			<img src="<?php echo $url_img?>8_35.jpg" width="157" height="17" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_36.jpg" width="485" height="17" alt=""></td>
-		<td style="background-image:url(<?php echo $url_img?>8_37.jpg);background-repeat:repeat-x">
+		<td valign="top" style="background-image:url(<?php echo $url_img?>8_37.jpg);background-repeat:repeat-x">
 			<img src="<?php echo $url_img?>8_37.jpg" width="19" height="17" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_38.jpg" width="18" height="17" alt=""></td>
-		<td style="background-image:url(<?php echo $url_img?>8_40.jpg);background-repeat:repeat-x;">
+		<td valign="top" style="background-image:url(<?php echo $url_img?>8_40.jpg);background-repeat:repeat-x;">
 			<img src="<?php echo $url_img?>8_39.jpg" width="14" height="17" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>8_40.jpg" width="2" height="17" alt=""></td>
-		<td>
+		<td valign="top">
 			<img src="<?php echo $url_img?>espacio.gif" width="1" height="17" alt=""></td>
 	</tr>
 	<tr>
@@ -185,9 +185,9 @@
 			<img src="<?php echo $url_img?>8_64.jpg" width="157" height="1" alt=""></td>
 		<td rowspan="2">
 			<img src="<?php echo $url_img?>8_65.jpg" width="42" height="417" alt=""></td>
-		<td rowspan="2">
-            <div style="position:absolute; width:710px; height: 433px;.margin-left: -240px;margin-right: auto;margin-top: -225px;border: 1px solid black;">
-            	<iframe id="frame_content" src="http://www.google.com" width="100%" height="100%" frameborder="0"></iframe>	        	
+		<td rowspan="2">&nbsp;
+            <div style="position:absolute; width:720px; height: 443px;.margin-left: -10px;margin-top: -225px;border: 1px solid black;">
+            	<iframe id="frame_content" src="http://www.google.com" width="100%" height="100%" frameborder="0" marginheight="0"></iframe>	        	
             </div>
         </td>
 		<td rowspan="2" style="background-image:url(<?php echo $url_img?>8_67.jpg);background-repeat:repeat-x">
@@ -208,7 +208,7 @@
         			<div>
         				<h3 class="font_estandar"><a href="#"><?php __("Usuarios Administrativo");?></a></h3>
                         <div>
-                            <a href="#" id="reg_usu_adm" class="font_estandar"><?php __("Registrar usuarios");?></a>
+                            <a href="javascript:void(0)" id="reg_usu_adm" class="font_estandar"><?php __("Registrar usuarios");?></a>
                             <!--<a href="#" class="font_estandar"><?php __("Modificar usuarios");?></a>
                             <a href="#" class="font_estandar"><?php __("Eliminar usuarios");?></a>
                             <a href="#" class="font_estandar"><?php __("Consultar usuarios");?></a>-->

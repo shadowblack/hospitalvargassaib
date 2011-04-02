@@ -21,11 +21,9 @@
         <?php echo $this->Html->script("jquery/jquery-validate/localization/messages_es.js"); ?>
         <?php echo $scripts_for_layout; ?>       
     </head>
-    <body style="width: 100%;text-align: center;padding: 0 0 0 0;margin: 0 auto 0 auto;overflow: auto; background-color: #EAF8F8;">
-        <div id="container">
-            <div id="content" style="">
+    <body style="border-spacing: 0; height:100%;width: 100%;text-align: center;padding: 0 0 0 0;margin: 0 auto 0 auto;overflow: auto; background-color: #EAF8F8;">
+        
                 <?php echo $content_for_layout ?>
-            </div>        
-        </div>
+           
     </body>
 </html>
