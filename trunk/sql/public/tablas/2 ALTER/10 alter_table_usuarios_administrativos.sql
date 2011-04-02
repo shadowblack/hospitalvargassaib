@@ -1,5 +1,5 @@
 ﻿ALTER TABLE usuarios_administrativos
-	DROP COLUMN fec_reg_usu_adm;
+	DROP COLUMN IF EXISTS fec_reg_usu_adm;
 
 ALTER TABLE usuarios_administrativos
 	ADD COLUMN fec_reg_usu_adm TIMESTAMP;

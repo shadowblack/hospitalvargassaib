@@ -1,5 +1,5 @@
 ﻿ALTER TABLE tipos_usuarios__usuarios
-	RENAME COLUMN it_usu_adm TO id_usu_adm;
+	RENAME COLUMN id_tip_adm TO id_usu_adm;
 
 ALTER TABLE tipos_usuarios__usuarios
 	DROP CONSTRAINT tipos_usuarios__usuarios_id_doc_fkey,

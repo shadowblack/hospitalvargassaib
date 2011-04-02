@@ -18,54 +18,54 @@
         width: 310px;
         text-align: center;
     }
-    .font_estandar{
+    .standar_font{
         font-weight: bold;
     }
     
     
 </style>
-<div style="margin-top: 10%; width: 75%; margin-left: auto;margin-right: auto; text-align: center;">
-    <div id="dialog" title="Basic dialog"></div>
+<div style="border: 10px solid red; margin: 0px;padding: 0;display: inline-block;vertical-align: 0px; width: 100%;">asdfs
+    <div id="dialog" title="Basic dialog" ></div>
     <form action="" id="reg_usu_adm" name="login" method="post">    
-        <fieldset id="fieldMaq" ><legend class="font_estandar">Registrar Usuario Administrativo</legend>
-        <!--<table width="240px" border="0" align="center">-->
+        <fieldset id="fieldMaq" style='width:433px'><legend class="standar_font">Registrar Usuario Administrativo</legend>
+        <table style='width:100%' border="0" align="center">
             <tr>
                 <td>
-                     <label for="nom_usu_adm"  class="font_estandar"><?php echo __("Nombre");?>:</label>
+                     <label for="nom_usu_adm"  class="standar_font"><?php echo __("Nombre");?>:</label>
     			     <input type="text" id="nom_usu_adm" name="nom_usu_adm" class="text required" minlength="3" maxlength="25" />
                 </td>
                 <td>    
-                     <label for="ape_usu_adm" class="font_estandar"><?php echo __("Apellido");?>:</label>
+                     <label for="ape_usu_adm" class="standar_font"><?php echo __("Apellido");?>:</label>
     			     <input type="password" id="ape_usu_adm" name="ape_usu_adm" class="text required" minlength="3" maxlength="25" />
                 </td>
             </tr>
             <tr>
                 <td>
-                     <label for="pas_usu_adm"  class="font_estandar"><?php echo __("Clave");?>:</label>
+                     <label for="pas_usu_adm"  class="standar_font"><?php echo __("Clave");?>:</label>
     			     <input type="password" id="pas_usu_adm" name="pas_usu_adm" class="password required" minlength="3" maxlength="50" />
                 </td>
                 <td>    
-                     <label for="rep_pas_usu_adm" class="font_estandar"><?php echo __("Repetir Clave");?>:</label>
+                     <label for="rep_pas_usu_adm" class="standar_font"><?php echo __("Repetir Clave");?>:</label>
     			     <input type="text" id="rep_pas_usu_adm" name="rep_pas_usu_adm" class="password required" minlength="3" maxlength="50" />
                 </td>
             </tr>
             <tr>
                 <td>
-                     <label for="log_usu_adm"  class="font_estandar"><?php echo __("Usuario");?>:</label>
+                     <label for="log_usu_adm"  class="standar_font"><?php echo __("Usuario");?>:</label>
     			     <input type="text" id="log_usu_adm" name="log_usu_adm" class="text required" minlength="3" maxlength="50" />
                 </td>
                 <td>    
-                     <label for="tel_usu_adm" class="font_estandar"><?php echo __("Teléfono");?>:</label>
+                     <label for="tel_usu_adm" class="standar_font"><?php echo __("Teléfono");?>:</label>
     			     <input type="text" id="tel_usu_adm" name="tel_usu_adm" class="numbers required" minlength="3" maxlength="11" />
                 </td>
             </tr>
             <tr>
                 <td>
-                     <label for="cor_ele_adm"  class="font_estandar"><?php echo __("Correo");?>:</label>
+                     <label for="cor_ele_adm"  class="standar_font"><?php echo __("Correo");?>:</label>
     			     <input type="text" id="cor_ele_adm" name="cor_ele_adm" class="text required" minlength="3" maxlength="50"/>
                 </td>
                 <td>    
-                     <label for="tip_usu" class="font_estandar"><?php echo __("Tipo Usuario");?>:</label>
+                     <label for="tip_usu" class="standar_font"><?php echo __("Tipo Usuario");?>:</label>
                      <select name="tip_usu" id="tip_usu">
                         <option value="0"><?php echo __("Sin selección");?></option>
                         <option value="1"><?php echo __("Administrador");?></option>
@@ -85,7 +85,7 @@
                     <input type="reset" value="<?php echo __("Cancelar");?>" name="btn_can" id="btn_can">
                 </td>
             </tr>
-        <!--</table>-->
+        </table>
         </fieldset>
     </form>
 </div>
