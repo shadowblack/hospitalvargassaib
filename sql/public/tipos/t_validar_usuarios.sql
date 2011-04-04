@@ -2,12 +2,12 @@
 DROP TYPE IF EXISTS  t_validar_usuarios;
 CREATE TYPE t_validar_usuarios AS
    (
-	id_usu_adm 	INTEGER,
-	nom_usu_adm 	TEXT,
-	ape_usu_adm 	TEXT,
-	pas_usu_adm 	TEXT,
-	log_usu_adm 	TEXT,
-	tel_usu_adm 	TEXT,
+	id_usu 	INTEGER,
+	nom_usu 	TEXT,
+	ape_usu 	TEXT,
+	pas_usu 	TEXT,
+	log_usu 	TEXT,
+	tel_usu 	TEXT,
 	id_tip_usu 	INTEGER,
 	cod_tip_usu 	TEXT,
 	str_mods	TEXT,
