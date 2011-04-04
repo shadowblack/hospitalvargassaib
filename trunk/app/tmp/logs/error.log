@@ -2,3 +2,5 @@
 2011-02-20 23:58:52 Warning: Warning (2): Missing argument 1 for PruebaController::prueba2() in [C:\wamp\www\saib\app\controllers\prueba_controller.php, line 9]
 2011-03-20 03:54:52 Warning: Warning (512): Method HtmlHelper::baseUrl does not exist in [C:\wamp\www\saib\cake\libs\view\helper.php, line 154]
 2011-03-20 03:55:08 Warning: Warning (512): Method HtmlHelper::baseUrl does not exist in [C:\wamp\www\saib\cake\libs\view\helper.php, line 154]
+2011-04-04 02:38:07 Warning: Warning (2): pg_fetch_array() expects parameter 1 to be resource, array given in [C:\wamp\www\saib\app\controllers\admin_controller.php, line 12]
+2011-04-04 02:38:35 Warning: Warning (2): pg_fetch_array() expects parameter 1 to be resource, array given in [C:\wamp\www\saib\app\controllers\admin_controller.php, line 12]

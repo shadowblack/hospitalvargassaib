@@ -9,6 +9,7 @@
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>
+        <?php echo $this->Html->css('menu_top');?>        
         <!-- Css acordion -->
          <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-ui-1.8.10.custom/css/cupertino/jquery-ui-1.8.10.custom.css"?>" />
          
@@ -20,10 +21,11 @@
         <?php echo $this->Html->script("jquery/jquery-validate/jquery.validate.min.js"); ?>        
         <?php echo $this->Html->script("jquery/jquery-validate/localization/messages_es.js"); ?>
         <?php echo $scripts_for_layout; ?>       
-    </head>
-    <body style="border-spacing: 0; height:100%;width: 100%;text-align: center;padding: 0 0 0 0;margin: 0 auto 0 auto;overflow: auto; background-color: #EAF8F8;">
         
-                <?php echo $content_for_layout ?>
-           
+        <!-- Css Modificacion de librerias -->
+        <?php echo $this->Html->css('ui_jquery');?>
+    </head>
+    <body style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; background-color: #EAF8F8;">         
+        <?php echo $content_for_layout ?>                                           
     </body>
 </html>
