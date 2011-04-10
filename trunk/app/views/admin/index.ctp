@@ -71,13 +71,16 @@
                                 <td valign="top" class="top_menu_window_body_center" colspan="2"  style="width:200px;height: 400px;">
                                     <!-- Dinamic -->
                                     <div id="accordion">
+                                        <?php if ($cua){?>
                             			<div>
-                            				<h3><a href="#">First</a></h3>
+                            				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
                                                 <div style="height: 200px;">
+                                                    <a href="javascript:void(0)"><?php __("Agregar Administrador")?></a>
                                                 </div>
                                             </div>
                             			</div>
+                                        <?php } ?>
                             			<div>
                             				<h3><a href="#">Second</a></h3>
                             				<div>Phasellus mattis tincidunt nibh.</div>

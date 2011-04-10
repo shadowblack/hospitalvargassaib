@@ -6,7 +6,35 @@
 
 <script type="text/javascript">
     jQuery(function(){
-       jQuery("#login").validate({            
+       jQuery("#login").validate({  
+            submitHandler: function(form) {                
+   	            //jQuery(form).ajaxSubmit();
+                var array_form = jQuery("input[type=text],input[type=password]").serializeArray();
+                
+                jQuery.ajax({
+                    url:"<?php echo $this->Html->url("/admin/validar_usuario")?>",                    
+                    type: "POST",
+                    data: array_form,
+                    dataType: "json", 
+                                     
+                    error:function(){alert("error")},
+                    success: function(data){                         
+                        eval('var data='+data);
+                       if (data.event == 1){
+                            window.location.href = "<?php echo $this->Html->url("/admin") ?>";
+                       } else {
+                            var _coment = data.coment;   
+                            alert(_coment);                                                      
+                       }
+                    }
+                   
+
+                    
+                    
+
+                });
+            }
+
        });        
     });
 </script>
