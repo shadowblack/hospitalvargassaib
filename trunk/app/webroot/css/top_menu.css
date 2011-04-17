@@ -1,23 +1,6 @@
 .no_mostrar{
 	display:none;
 }
-.top_menu_fondo{
-    background-image: url('../img/menu_top/fondo.png'); 
-    margin:0; 
-    top: 0;
-    padding: 0; 
-    width: 100%;
-    border-spacing: 0;
-    height: 900px;      
-    overflow: hidden;  
-    position: fixed;  
-}
-
-/*Window*/
-    table.menu_top_window{
-        padding: 0;        
-        margin-top: 0px;
-    }
 
     /*top*/
 .top_menu_window_top_left{
@@ -31,13 +14,12 @@
     background-repeat: no-repeat;
     width:27px;
     height: 48px;
+    
 }
 .top_menu_window_top_center{
     background-image: url('../img/menu_top/windows/images/windows_03.gif');
     background-repeat:repeat-x; 
     height: 48px;    
-    
-
 }
 .top_menu_window_top_right{
     background-image: url('../img/menu_top/windows/images/windows_05.gif');
