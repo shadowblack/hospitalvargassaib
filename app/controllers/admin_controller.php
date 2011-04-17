@@ -7,7 +7,8 @@
         /**
          * Entrando a la aplicacion administrativa
          */
-        function index(){                 
+        function index(){ 
+            $this->Login->no_cache();
            if (!$this->Session->read("id_usu"))
                 $this->redirect("/admin/login");
                 
@@ -65,8 +66,7 @@
                 }                               
                 die;                                             
         }
-        function salir(){
-            $this->Login->no_cache();
+        function salir(){           
             $this->Session->destroy();
             $this->redirect("/admin/login");
         }
