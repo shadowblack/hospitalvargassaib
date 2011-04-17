@@ -21,10 +21,14 @@ class LoginComponent extends Object
     * Borrando la cache del navegador
     */
     function no_cache(){
-        header ("Expires: Thu, 27 Mar 1980 23:59:00 GMT"); //la pagina expira en una fecha pasada
-        header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); //ultima actualizacion ahora cuando la cargamos
-        header ("Cache-Control: no-cache, must-revalidate"); //no guardar en CACHE
-        header ("Pragma: no-cache");
+        //print_r($_COOKIE);die;
+        //setcookie("CAKEPHP", "", 0);
+        header("Expires: Mon, 20 Mar 1998 12:01:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+
     }
     
     /*
