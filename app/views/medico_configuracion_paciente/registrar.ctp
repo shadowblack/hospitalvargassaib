@@ -1,4 +1,3 @@
-
 		<script type="text/javascript">
 			jQuery(function()
 			//Esta funcion es solo para el acordeon...
@@ -13,9 +12,8 @@
 		});	
 			});
 		</script>
-			
-	    <link href="Librerias/Tab.css" rel="stylesheet" type="text/css">
-	
+</head>
+	<body>	
            <div id="tabs">
 			<ul>
 				<li><a href="#tabs-1">Nuevo Paciente</a></li>
@@ -38,7 +36,7 @@
     	</legend>
         
     <form id="for_Pac" name="for_Pac" method="post" action="null" onSubmit="return false">
-<table width="494" border="0" align="center" bgcolor="">
+<table width="494" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
 	<tr>
 	   <td width="131" ><ul>Nombre:</ul></td>
 			<td width="64">&nbsp;</td>
@@ -223,7 +221,7 @@
   </legend>
        
   <form id="for_Eva" name="for_Eva" method="post" action="">
-    <table width="200" border="0" align="center">
+    <table width="200" border="0" align="center"  cellpadding="0" cellspacing="0">
       <tr>
         <td width="127" class="titulos style2" style="font-size: 12px;">
         
@@ -379,7 +377,7 @@
             <input type="checkbox" name="che_ant_inm" id="che_ant_inm" />
         </div>        </td>
         <td>&nbsp;</td>
-        <td style="font-size: 12px;"><div align="right">Uso de Esteroides</div></td>
+        <td style="font-size: 12px;"><div align="right">Esteroides</div></td>
       
         <td>        
         <div align="center">
@@ -456,7 +454,7 @@
   <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
       <tr>
         <td width="180" style="font-size: 12px;">
-        <div align="right">Uso antimic&oacute;ticos</div>        </td>
+        <div align="right">Antimic&oacute;ticos</div>        </td>
         
         <td width="21">
       <div align="center">
@@ -466,7 +464,7 @@
         <td width="6">&nbsp;</td>
         
         <td width="110" style="font-size: 12px;">
-        <div align="right">Uso antibi&oacute;ticos</div>        </td>
+        <div align="right">Antibi&oacute;ticos</div>        </td>
         
         <td width="20">
         <div align="center">
