@@ -9,10 +9,12 @@
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>
-        <?php echo $this->Html->css('menu_top');?>        
+        <?php echo $this->Html->css('menu_top');?> 
+        <?php echo $this->Html->css('medico_clase_formulario');?> 
+       
+              
         <!-- Css acordion -->
-         <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-ui-1.8.11.custom/css/cupertino/jquery-ui-1.8.11.custom.css"?>" />
-         
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-ui-1.8.11.custom/css/cupertino/jquery-ui-1.8.11.custom.css"?>"/>        
     
         
         <?php #echo $this->Html->script("jquery/jquery-1.5.2.js"); ?>
