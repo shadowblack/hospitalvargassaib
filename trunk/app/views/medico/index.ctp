@@ -1,60 +1,17 @@
-	    
-        <!--------------Esto es para agregar el Iframe dentro del acordeon-------------->
-        <link rel="stylesheet" href="Librerias/Tab.css" type="text/css" media="screen">
-        <!----------------------------------------------------------------------------->
-       
+      
 		<script type="text/javascript">
 			jQuery(function(){
-
-				// Accordion
-				jQuery("#accordion").accordion({ header: "h3" });
-	
-				// Tabs
-				jQuery('#tabs').tabs();
-	
-
-				// Dialog			
-				jQuery('#dialog').dialog({
-					autoOpen: false,
-					width: 600,
-					buttons: {
-						"Ok": function() { 
-							jQuery(this).dialog("close"); 
-						}, 
-						"Cancel": function() { 
-							jQuery(this).dialog("close"); 
-						} 
-					}
-				});
-				
-				// Dialog Link
-				jQuery('#dialog_link').click(function(){
-					jQuery('#dialog').dialog('open');
-					return false;
-				});
-
-				// Datepicker
-				jQuery('#datepicker').datepicker({
-					inline: true
-				});
-				
-				// Slider
-				jQuery('#slider').slider({
-					range: true,
-					values: [17, 67]
-				});
-				
-				// Progressbar
-				jQuery("#progressbar").progressbar({
-					value: 20 
-				});
-				
-				//hover states on the static widgets
-				jQuery('#dialog_link, ul#icons li').hover(
-					function() { jQuery(this).addClass('ui-state-hover'); }, 
-					function() { jQuery(this).removeClass('ui-state-hover'); }
-				);
-				
+			 
+                jQuery("body").addClass('medico_clase_formulario_fondo');
+                 jQuery("#accordion").accordion({
+        		      header: "h3",              
+                      autoHeight:false,
+                      alwaysOpen: false		                                   
+                });                
+                jQuery("#reg_usu_adm").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/medico/content_iframe')?>");
+        		});
+    				
 			});
 		</script>      
 		<!--style type="text/css">
@@ -79,66 +36,154 @@ body {
 </style>
     
     
+    
+ <!-- base -->
+ <div class="standar_content">
+  
+   <table style="width:100%" border="0" class="menu_top_window" align="center">
+    <tr>
+        <td style="height: 125px;">
+            <!-- Banner -->banner
+        </td>
+    </tr>    
+    <tr>
+         <td style="height: 35px;">
+            
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 400px;" valign="top" align="center">
+            <table border="0" style="margin-top: 2px;">
+                <tr>
+                    <td  valign="top">
+                        <!-- windows -->
+                        <table class="" border="0" cellpadding="0" cellspacing="0" >
+                           <!--Top-->
+                            <tr>
+                                <td class="top_menu_window_top_left">
+                                    &nbsp;
+                                </td>
+                                <td class="top_menu_window_top_circle">
+                                    &nbsp;
+                                </td>
+                                <td class="top_menu_window_top_center" style="width:200px">
+                                    <!-- Dinamic -->
+                                    &nbsp;
+                                </td>
+                                <td class="top_menu_window_top_right">                    
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <!--Cuerpo-->
+                            <tr>
+                                <td class="top_menu_window_body_left">
+                                    &nbsp;
+                                </td>                
+                                <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 300px;">
+                                    <!-- Dinamic -->
+                                    <div id="accordion" style="width: 220px;text-align: center;">
+                                        
+                            			<div>
+                            				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
+                            				<div style="">                                               
+                                                <div style="height: 150px;text-align: left;">
+                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
+                                                    <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>                                                    
+                                                </div>
+                                            </div>
+                            			</div>
+                                        
+                            			<div>
+                            				<h3><a href="#">Second</a></h3>
+                            				<div>Phasellus mattis tincidunt nibh.</div>
+                            			</div>
+                            			<div>
+                            				<h3><a href="#">Third</a></h3>
+                            				<div>Nam dui erat, auctor a, dignissim quis.</div>
+                            			</div>
+                            		</div>                                  
+                                </td>
+                                <td class="top_menu_window_body_right">                    
+                                    
+                                </td>
+                            </tr>
+                            <!--Footer-->
+                            <tr>
+                                <td class="top_menu_window_footer_left">
+                                    
+                                </td>
+                               
+                                <td class="top_menu_window_footer_center" colspan="2">
+                                    <!-- Dinamic -->
+                                    
+                                </td>
+                                <td class="top_menu_window_footer_right">                    
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <table class="" border="0" cellpadding="0" cellspacing="0" >
+                           <!--Top-->
+                            <tr>
+                                <td class="top_menu_window_top_left">
+                                   
+                                </td>
+                                <td class="top_menu_window_top_circle">
+                                   
+                                </td>
+                                <td class="top_menu_window_top_center" style="width:700px;">
+                                    <!-- Dinamic -->
+                                    
+                                </td>
+                                <td class="top_menu_window_top_right">                    
+                                   
+                                </td>
+                            </tr>
+                            <!--Cuerpo-->
+                            <tr>
+                                <td class="top_menu_window_body_left">
+                                    
+                                </td>                
+                                <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
+                                    <!-- Dinamic -->
+                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                  
+                                </td>
+                                <td class="top_menu_window_body_right">                    
+                                    
+                                </td>
+                            </tr>
+                            <!--Footer-->
+                            <tr>
+                                <td class="top_menu_window_footer_left">
+                                    
+                                </td>
+                               
+                                <td class="top_menu_window_footer_center" colspan="2">
+                                    <!-- Dinamic -->
+                                    
+                                </td>
+                                <td class="top_menu_window_footer_right">                    
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+           
+        </td>                
+    </tr>    
+   </table>
+   </div>
+ <!-- fin base -->   
+    
 	
 
 	
-		<!-- Tabs -->
-		<table border="0" width="837" align="center">
-          <tr>
-            <td width="831">Paginas</td>
-          </tr>
-          <tr>
-            <td>
-            
-            
-            
-            <h1>Sistema de Micología</h1>
-    <!--El id="accordion" pertenece a JQUERY -->
-<div id="accordion">
-			
-				<h3><a href="#">Agregar Nuevo Paciente</a></h3>
-                <div>  	
-                <!--La clase ContenidoPestana esta en la carpeta librerias Tab-->              
-    					<iframe class="ContenidoPestana" src="<?php echo $this->Html->url("/MedicoConfiguracionPaciente/registrar")?>" height="500" width="100%"></iframe>  					
-				</div>
 		
-<!------------------------TODOOOOO LO DEMAS---------------------------->
-		
-				<h3><a href="#">Micosis Superficial</a></h3>
-				<div>                 
-    					<iframe class="ContenidoPestana" src="<?php echo $this->Html->url("/MedicoConfiguracionMicosisSuperficial/registrar")?>" height="500" width="100%"></iframe>  									
-                </div>
-			
-            
-<!------------------------TODOOOOO LO DEMAS---------------------------->            
-			
-				<h3><a href="#">Micosis SubCutaneas</a></h3>
-				<div>               
-    				<iframe class="ContenidoPestana" src="pag3.html" height="500" width="100%"></iframe>							
-                </div>
-<!------------------------TODOOOOO LO DEMAS---------------------------->            
-			
-				<h3><a href="#">Micosis Profunda</a></h3>
-				<div>               
-    					<iframe class="ContenidoPestana" src="pag4.html" height="500" width="100%"></iframe>	 									
-                </div>
-<!------------------------TODOOOOO LO DEMAS---------------------------->            
-			
-				<h3><a href="#">Micosis Oportunista</a></h3>
-				<div>               
-    					<iframe class="ContenidoPestana" src="pag5.html" height="500" width="100%"></iframe>								
-                </div>                                
-<!------------------------TODOOOOO LO DEMAS---------------------------->            
-			<h3><a href="#">Estadisticas</a></h3>
-				<div>               
-    					<iframe class="ContenidoPestana" src="pag6.html" height="500" width="100%"></iframe>								
-                </div>                 
-                
-<!--CIERRE FINAL DEL ACORDEON-->		
-</div>            
-			</td>
-          </tr>
-        </table>
-	
-
-

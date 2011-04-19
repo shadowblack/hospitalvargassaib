@@ -12,15 +12,14 @@
 		});	
 			});
 		</script>
-</head>
-	<body>	
-           <div id="tabs">
-			<ul>
-				<li><a href="#tabs-1">Nuevo Paciente</a></li>
-				<li><a href="#tabs-2">Evaluación Consulta</a></li>
-				<li><a href="#tabs-3">Evolución Tratamiento</a></li>
-                <li><a href="#tabs-4">Muestra Clinica</a></li>
-			</ul>
+	
+    <div id="tabs">
+	   <ul>
+	       <li><a href="#tabs-1">Nuevo Paciente</a></li>
+	       <li><a href="#tabs-2">Evaluación Consulta</a></li>
+            <li><a href="#tabs-3">Evolución Tratamiento</a></li>
+            <li><a href="#tabs-4">Muestra Clinica</a></li>
+        </ul>
 			
     
 <!--Inicio de la pestaña "tabs-1" -->    	 
@@ -28,20 +27,24 @@
 	<h2 class="texPrincipal">Agregar Datos Personales del Paciente</h2>
     
   
-  <fieldset>	   
-<legend>
-    		<strong>
+    <fieldset>	   
+        <legend>
+  		    <strong>
     			Identificacion:
     		</strong>    
     	</legend>
-        
-    <form id="for_Pac" name="for_Pac" method="post" action="null" onSubmit="return false">
-<table width="494" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
-	<tr>
-	   <td width="131" ><ul>Nombre:</ul></td>
-			<td width="64">&nbsp;</td>
+<form id="for_Pac" name="for_Pac" method="post" action="null" onSubmit="return false">
+    
+<table width="494" border="1" align="center" bgcolor="" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="131" height="0">
+            <ul>Nombre:</ul>
+        </td>
+			<td width="0">&nbsp;</td>
                                 
-	        <td width="110" ><ul>Apellido</ul>    </td>
+	        <td width="110" height="">
+                <ul>Apellido</ul>
+            </td>
 	
     <td width="55" >
                                 <!--select name="sel_pac_ven" maxlength="20" style="font-size: 10px;">

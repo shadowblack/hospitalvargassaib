@@ -10,6 +10,9 @@
         function index(){
             
         }
+        function content_iframe(){
+            
+        }
     
     }
 ?>
