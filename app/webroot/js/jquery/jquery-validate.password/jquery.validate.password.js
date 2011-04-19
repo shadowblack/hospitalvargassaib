@@ -53,12 +53,12 @@
 	}
 	
 	$.validator.passwordRating.messages = {
-		"similar-to-username": "Too similar to username",
-		"too-short": "Too short",
-		"very-weak": "Very weak",
-		"weak": "Weak",
-		"good": "Good",
-		"strong": "Strong"
+		"similar-to-username": "Similar a un nombre de usuario",
+		"too-short": "Demasiado corto",
+		"very-weak": "Muy débil",
+		"weak": "Débil",
+		"good": "Buena",
+		"strong": "Fuerte"
 	}
 	
 	$.validator.addMethod("password", function(value, element, usernameField) {

@@ -77,8 +77,8 @@ class DATABASE_CONFIG {
 		'driver' => 'postgres',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'postgres',
-		'password' => '1234',
+		'login' => 'lmarin',
+		'password' => '-.Ayanami909.-',
 		'database' => 'saib',
 		'prefix' => '',
 	);
