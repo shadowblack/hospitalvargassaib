@@ -4,7 +4,7 @@ body{
 	
 }
 .fondo{
-background-image:url(saib/app/webroot/js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png) no-repeat;
+background-image:url(../js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png) no-repeat;
 }
 
 
@@ -12,7 +12,7 @@ iframe.ContenidoPestana
 {
 
   border: 0px;
-  background-image:url(saib/app/webroot/js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png) no-repeat;
+  background-image:url(../js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png) no-repeat;
 }
 
 input.textos 

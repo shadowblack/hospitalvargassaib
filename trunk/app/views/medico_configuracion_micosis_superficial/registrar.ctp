@@ -67,19 +67,16 @@
         </strong>
     </legend>
         <!------------------------------BOTON DE PREGUNTA--------------------------------------->  
-    <h2 class="demoHeaders">&nbsp;
-    </h2>
-    <p>
         <a href="#" id="dialog_link" class="ui-state-default ui-corner-all">
             <span class="ui-icon ui-icon-help">
             </span>
             Ayuda
         </a>
-    </p>
+   
 		  
  	<div id="dialog" title="Ayuda sobre descripción de la lesión">
-		<p>Aqui colocamos una pequeña descripcion de ayuda sobre 
-        esta pantalla para que el usuario tenga material de apoyo</p>
+		Aqui colocamos una pequeña descripcion de ayuda sobre 
+        esta pantalla para que el usuario tenga material de apoyo
 	</div>
     <!-- FIN DEL DIALOGO REALIZADO CON jQuery ui-dialog -->
     <!--form>

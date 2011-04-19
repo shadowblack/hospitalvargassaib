@@ -14,7 +14,7 @@
                    
         });
         
-        jQuery("#reg_usu_adm").click(function(){
+        jQuery("#reg_usu_adm").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/registrar')?>");
 		});
         
@@ -75,8 +75,9 @@
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
-                                                <div style="height: 200px;">
-                                                    <a href="javascript:void(0)"><?php __("Agregar Administrador")?></a>
+                                                <div style="height: 150px;text-align: left;">
+                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
+                                                    <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>                                                    
                                                 </div>
                                             </div>
                             			</div>
@@ -139,7 +140,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
                                     <!-- Dinamic -->
-                                    <iframe src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    
