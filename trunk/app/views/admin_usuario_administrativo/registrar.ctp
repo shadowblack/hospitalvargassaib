@@ -7,12 +7,25 @@
 <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>  
 <script type="text/javascript">
     jQuery(function(){        
-       jQuery("#reg_usu_adm").validate({ }); 
-       //jQuery("#pas_usu_adm").valid();
-       
-       jQuery(function() {
-		  //jQuery("#dialog").dialog();
-	   });
+       jQuery("#reg_usu_adm").validate({
+    		rules: {    			
+    			pas_usu_adm: {    				
+    				minlength: 5
+    			},
+    			rep_pas_usu_adm: {
+    				required: true,
+    				minlength: 5,
+    				equalTo: "#pas_usu_adm"
+    			}
+    		}
+    	}); 
+        
+        jQuery("#pas_usu_adm").valid();
+              
+        jQuery("#dialog").dialog({
+            modal:true,
+            minHeight: 150
+        }).css("display","block");	   
               
     });
 </script>
@@ -26,17 +39,25 @@
     td.tam_cel{
         width:50%;
     }      
+    body{
+        font-size: 9pt;
+    }
 </style>
 
-
-<div id="dialog" title="Basic dialog" ></div>
-<div style="padding: 0;position: absolute; width: 700px">
-    
+<div id="dialog" title="Basic dialog" style="text-align:center;display:none;">
+    <table style="height: 80px;" align="center">
+        <tr>
+            <td valign="center" class="standar_font">
+               <?php echo __("El Usuario se a insertado con exito",true)?> 
+            </td>
+        </tr>
+    </table>              
+</div>
+<div style="padding: 0;position: absolute; width: 700px;margin-top: 60px;">    
     <form action="" id="reg_usu_adm" name="login" method="post">  
         <table border="0" align="center" style="position: relative;">
             <tr>
-                <td align="center">
-                    <fieldset id="fieldMaq" style='width:583px'><legend class="standar_font">Registrar Usuario Administrativo</legend>
+                <td align="center">            
                         <table style='width:483px' border="0" align="center">
                             <tr>
                                 <td class="tam_cel">
@@ -54,19 +75,18 @@
                     			     <input type="password" id="pas_usu_adm" name="pas_usu_adm" class="password" minlength="3" maxlength="50" />
                                 </td>
                                 <td>
-                                    <div class="password-meter">
-                                		<div class="password-meter-message">&nbsp;</div>
-                                		<div class="password-meter-bg">
-                                			<div class="password-meter-bar"></div>
+                                    <div class="password-meter " style="width: 210px;height: 3px;text-align: right;">
+                                		<div class="password-meter-message" style="font-size: 9pt;" style="height: 3px;">&nbsp;</div>
+                                		<div class="password-meter-bg" style="height: 3px;">
+                                			<div class="password-meter-bar" style="height: 2px;"></div>
                                 		</div>
                                 	</div>
-                                </td>
-                                
+                                </td>                                
                             </tr>
                             <tr>
                                 <td >    
                                      <label for="rep_pas_usu_adm" class="standar_font"><?php echo __("Repetir Clave");?>:</label>
-                    			     <input type="text" id="rep_pas_usu_adm" name="rep_pas_usu_adm" class="password required" minlength="3" maxlength="50" />
+                    			     <input type="password" id="rep_pas_usu_adm" name="rep_pas_usu_adm" class="required" minlength="3" maxlength="50" />
                                 </td>                                
                                 <td>
                                     &nbsp;
@@ -88,13 +108,7 @@
                     			     <input type="text" id="cor_ele_adm" name="cor_ele_adm" class="text required" minlength="3" maxlength="50"/>
                                 </td>
                                 <td>    
-                                     <label for="tip_usu" class="standar_font"><?php echo __("Tipo Usuario");?>:</label>
-                                     <select name="tip_usu" id="tip_usu">
-                                        <option value="0"><?php echo __("Sin selección");?></option>
-                                        <option value="1"><?php echo __("Administrador");?></option>
-                                        <option value="2"><?php echo __("Doctor");?></option>
-                                     </select>
-                                    
+                                    &nbsp;                                    
                                 </td>
                             </tr>
                             <tr>
@@ -114,8 +128,7 @@
                                     </table>                                                                    
                                 </td>                                
                             </tr>
-                        </table>
-                    </fieldset>
+                        </table>                    
                 </td>
             </tr>
         </table>

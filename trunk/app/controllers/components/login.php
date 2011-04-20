@@ -23,8 +23,8 @@ class LoginComponent extends Object
     function no_cache(){
         //print_r($_COOKIE);die;
         //setcookie("CAKEPHP", "", 0);
-        header("Expires: Mon, 20 Mar 1998 12:01:00 GMT");
-        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        #header("Expires: Mon, 20 Mar 1998 12:01:00 GMT");
+        #header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: no-store, no-cache, must-revalidate");
         header("Cache-Control: post-check=0, pre-check=0", false);
         header("Pragma: no-cache");
