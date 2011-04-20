@@ -24,7 +24,7 @@
 </script>
 <style type="text/css">
     .font_estandar{
-        font-size: 8pt;
+        font-size: 9pt;
     }
 </style>
   <div class="standar_content">
@@ -75,9 +75,19 @@
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
-                                                <div style="height: 150px;text-align: left;">
-                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
-                                                    <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>                                                    
+                                                <div style="height: 150px;text-align: left;width: 150px;">                                                
+                                                <table>
+                                                    <tr>
+                                                        <td class="standar_font_menu">
+                                                            <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="standar_font_menu">
+                                                            <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>                                                                                                                                                                                                          
                                                 </div>
                                             </div>
                             			</div>

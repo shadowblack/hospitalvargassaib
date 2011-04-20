@@ -1,7 +1,7 @@
-body{
+/*body{
 	font: 62.5% "Trebuchet MS", sans-serif;
 	margin: 50px;	
-}
+}*/
 
 .fondo{
 background-image:url(../js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png) no-repeat;
