@@ -40,6 +40,64 @@
 		
 	    <?php echo $this->Html->css('medico_clase_formulario');?>
    	
+<script type="text/javascript">
+    jQuery(function(){
+       
+			 
+			     //jQuery("body:eq(0)").css('background-color','black');
+                 
+                 //jQuery("body").removeClass('');
+
+				// Accordion
+				jQuery("#accordion").accordion({ header: "h3" });
+	
+				// Tabs
+				jQuery('#tabs').tabs();
+	
+
+				// Dialog			
+				jQuery('#dialog').dialog({
+					autoOpen: false,
+					width: 600,
+					buttons: {
+						"Ok": function() { 
+							jQuery(this).dialog("close"); 
+						}, 
+						"Cancel": function() { 
+							jQuery(this).dialog("close"); 
+						} 
+					}
+				});
+				
+				// Dialog Link
+				jQuery('#dialog_link').click(function(){
+					jQuery('#dialog').dialog('open');
+					return false;
+				});
+
+				// Datepicker
+				jQuery('#datepicker').datepicker({
+					inline: true
+				});
+				
+				// Slider
+				jQuery('#slider').slider({
+					range: true,
+					values: [17, 67]
+				});
+				
+				// Progressbar
+				jQuery("#progressbar").progressbar({
+					value: 20 
+				});
+				
+				//hover states on the static widgets
+				jQuery('#dialog_link, ul#icons li').hover(
+					function() { jQuery(this).addClass('ui-state-hover'); }, 
+					function() { jQuery(this).removeClass('ui-state-hover'); }
+				); 
+    });
+</script>
     <div id="tabs">
         <ul>
             <li>
@@ -72,8 +130,6 @@
             </span>
             Ayuda
         </a>
-   
-		  
  	<div id="dialog" title="Ayuda sobre descripción de la lesión">
 		Aqui colocamos una pequeña descripcion de ayuda sobre 
         esta pantalla para que el usuario tenga material de apoyo
@@ -849,7 +905,7 @@
 <!--Inicio de la 9na fila-->    
     <tr>
         
-        <td height="22">
+        <td height="20">
         </td>
         
         <td>
@@ -860,7 +916,7 @@
 <!--Inicio de la 10ma fila-->    
     <tr>
         
-        <td height="22">
+        <td height="20">
         </td>
         
         <td>
@@ -871,7 +927,7 @@
 <!--Inicio de la 11ava fila-->    
     <tr>
         
-        <td height="22">
+        <td height="20">
         </td>
         
         <td>
@@ -882,7 +938,7 @@
 <!--Inicio de la 12ava fila-->    
     <tr>
         
-        <td height="22">
+        <td height="20">
         </td>
         
         <td>
@@ -905,12 +961,12 @@
     <table width="267" border="1" align="center" cellpadding="0" cellspacing="0">
 <!--Inicio de la 1era fila-->        
         <tr>
-            <td width="20">
-                <label>
+            <td height="20">
+                
                     <div align="left">
                         <input type="checkbox" name="checkbox27" id="formulario_check"/>
                     </div>
-                </label>
+                
             </td>
   
             <td>
@@ -924,7 +980,7 @@
 <!--Inicio de la 2da fila-->
         
     <tr>
-        <td>
+        <td height="20">
             <div align="left">
                 <input type="checkbox" name="checkbox28" id="formulario_check"/>    
             </div>
@@ -946,7 +1002,7 @@
             </div>
         </td>
         
-        <td>
+        <td height="20">
             <div align="left">
                 Microsporum nanum
             </div>
@@ -957,55 +1013,57 @@
 <!--Inicio de la 4ta fila-->
 
   <tr>
-    <td>      <div align="left">
+    <td height="20">      
+    <div align="left">
       <input type="checkbox" name="checkbox30" id="formulario_check"/>    
     </div></td>
     <td><div align="left">Trichophyton rubrum      </div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20">
+    <div align="left">
       <input type="checkbox" name="checkbox31" id="formulario_check"/>
     </div></td>
     <td><div align="left">Trichophyton mentagrophytes</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox32" id="formulario_check"/>
     </div></td>
     <td><div align="left">Trichophyton Tonsurans</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox33" id="formulario_check"/>
     </div></td>
     <td><div align="left">Trichophyton Verrucosum</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox34" id="formulario_check"/>
     </div></td>
     <td><div align="left">Trichophyton Violaceum</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox35" id="formulario_check"/>
     </div></td>
     <td><div align="left">Epidermophyton Floccosum</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox36" id="formulario_check"/>
     </div></td>
     <td><div align="left">Malassezia Furfur</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox37" id="formulario_check"/>
     </div></td>
     <td><div align="left">Malassezia Pachydermatis</div></td>
   </tr>
   <tr>
-    <td><div align="left">
+    <td height="20"><div align="left">
       <input type="checkbox" name="checkbox38" id="formulario_check"/>
     </div></td>
     <td><div align="left">Malassezia Spp</div></td>

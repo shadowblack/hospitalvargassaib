@@ -84,23 +84,76 @@ body {
                                     <div id="accordion" style="width: 220px;text-align: center;">
                                         
                             			<div>
-                            				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
+                            				<h3><a href="#"><?php __("Pacientes")?></a></h3>
                             				<div style="">                                               
                                                 <div style="height: 150px;text-align: left;">
-                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
-                                                    <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>                                                    
+                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Paciente")?></a>
+                                                    <br/>
+                                                    <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Paciente")?></a> 
+                                                    <br/>
+                                                    <a id="eli_med_pac" href="javascript:void(0)" ><?php __("Eliminar Paciente")?></a>                                                   
                                                 </div>
                                             </div>
                             			</div>
+<!--------------------Inicio de Tab Micosis Superficial-------------------->                                        
+                            			<div>
+                            				<h3><a href="#"><?php __("Micosis Superficial")?></a></h3>
+                            				<div style="height: 150px;text-align: left;">
+                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <br/>
+                                                    <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
+                                                    <br/>
+                                                    <a id="eli_med_pac" href="javascript:void(0)" ><?php __("Eliminar Micosis")?></a>                                                   
+                                                </div>
+                            			</div>   
+<!--------------------Fin de Tab Micosis Superficial-------------------->                                        
+                            			
                                         
-                            			<div>
-                            				<h3><a href="#">Second</a></h3>
-                            				<div>Phasellus mattis tincidunt nibh.</div>
-                            			</div>
-                            			<div>
-                            				<h3><a href="#">Third</a></h3>
-                            				<div>Nam dui erat, auctor a, dignissim quis.</div>
-                            			</div>
+<!--------------------Inicio de Tab Micosis Subcutaneas-------------------->                                        
+                                        <div>
+                            				<h3><a href="#"><?php __("Micosis Subcutaneas")?></a></h3>
+                            				<div style="height: 150px;text-align: left;">
+                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <br/>
+                                                    <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
+                                                    <br/>
+                                                    <a id="eli_med_pac" href="javascript:void(0)" ><?php __("Eliminar Micosis")?></a>                                                   
+                                                </div>
+                            			</div>   
+<!--------------------Fin de Tab Micosis Subcutaneas-------------------->                                        
+                                        
+<!--------------------Inicio de Tab Micosis Profundas-------------------->                                        
+                                        <div>
+                            				<h3><a href="#"><?php __("Micosis Profunda")?></a></h3>
+                            				<div style="height: 150px;text-align: left;">
+                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <br/>
+                                                    <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
+                                                    <br/>
+                                                    <a id="eli_med_pac" href="javascript:void(0)" ><?php __("Eliminar Micosis")?></a>                                                   
+                                                </div>
+                            			</div>   
+<!--------------------Fin de Tab Micosis Subcutaneas--------------------> 
+
+
+<!--------------------Inicio de Tab Micosis Oportunista-------------------->                                        
+                                        <div>
+                            				<h3><a href="#"><?php __("Micosis Oportunista")?></a></h3>
+                            				<div style="height: 150px;text-align: left;">
+                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <br/>
+                                                    <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
+                                                    <br/>
+                                                    <a id="eli_med_pac" href="javascript:void(0)" ><?php __("Eliminar Micosis")?></a>                                                   
+                                                </div>
+                            			</div>   
+<!--------------------Fin de Tab Micosis Oportunista-------------------->                                       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                             		</div>                                  
                                 </td>
                                 <td class="top_menu_window_body_right">                    

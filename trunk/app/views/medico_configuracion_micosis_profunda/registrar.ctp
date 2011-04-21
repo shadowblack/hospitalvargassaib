@@ -37,9 +37,8 @@
 				
 			});
 		</script>
-			
-	    
-	
+
+
            <div id="tabs">
 			<ul>
 				<li><a href="#tabs-1">Descripción</a></li>
@@ -110,44 +109,44 @@
     <legend><strong>Descripci&oacute;n:</strong></legend>
     <table width="235" border="0">
   <tr>
-    <td width="20"><label>
-      <input type="checkbox" name="che_cut" id="che_cut">
-    </label></td>
+    <td width="20">
+      <input type="checkbox" name="che_cut" id="formulario_check"/>
+    </td>
     <td width="200">Cut&aacute;nea</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_pul" id="che_pul"></td>
+    <td><input type="checkbox" name="che_pul" id="formulario_check"/></td>
     <td>Pulmonar</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_pul_lev" id="che_pul_lev"></td>
+    <td><input type="checkbox" name="che_pul_lev" id="formulario_check"/></td>
     <td>Pulmonar leve</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_pul_mod" id="che_pul_mod"></td>
+    <td><input type="checkbox" name="che_pul_mod" id="formulario_check"/></td>
     <td>Pulmonar moderada</td>
   </tr>
   
   <tr>
-    <td><input type="checkbox" name="che_pul_agu" id="che_pul_agu"></td>
+    <td><input type="checkbox" name="che_pul_agu" id="formulario_check"/></td>
     <td>Pulmonar aguda</td>
   </tr>
   
   
   <tr>
-    <td><input type="checkbox" name="che_pul_cro" id="che_pul_cro"></td>
+    <td><input type="checkbox" name="che_pul_cro" id="formulario_check"/></td>
     <td>Pulmonar cr&oacute;nica benigna</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_pul_pro" id="che_pul_pro"></td>
+    <td><input type="checkbox" name="che_pul_pro" id="formulario_check"/></td>
     <td>Pulmonar progresiva</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_dis" id="che_adis"></td>
+    <td><input type="checkbox" name="che_dis" id="formulario_check"/></td>
     <td>Diseminada</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_teg" id="che_teg"></td>
+    <td><input type="checkbox" name="che_teg" id="formulario_check"/></td>
     <td>Tegumentaria (mucocut&aacute;nea)</td>
   </tr>
 </table>
@@ -157,37 +156,37 @@
     <legend><strong>Descripci&oacute;n:</strong></legend>
    <table width="235" border="0">
   <tr>
-    <td width="25"><label>
-      <input type="checkbox" name="che_gan" id="che_gan">
-    </label></td>
+    <td width="25">
+      <input type="checkbox" name="che_gan" id="formulario_check"/>
+    </td>
     <td width="200">Ganclionar</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_vic" id="che_vic"></td>
+    <td><input type="checkbox" name="che_vic" id="formulario_check"/></td>
     <td>Visceral</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_mix" id="che_mix"></td>
+    <td><input type="checkbox" name="che_mix" id="formulario_check"/></td>
     <td>Mixta</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_men" id="che_men"></td>
+    <td><input type="checkbox" name="che_men" id="formulario_check"/></td>
     <td>Men&iacute;ngea</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_hep" id="che_hep"></td>
+    <td><input type="checkbox" name="che_hep" id="formulario_check"/></td>
     <td>Hepatoesplenomegalia</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_gen" id="che_gen"></td>
+    <td><input type="checkbox" name="che_gen" id="formulario_check"/></td>
     <td>Generalizada</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_hit" id="che_hit"></td>
+    <td><input type="checkbox" name="che_hit" id="formulario_check"/></td>
     <td>Hitoplasmoma</td>
   </tr>
   <tr>
-    <td><input type="checkbox" name="che_otr" id="che_otr"></td>
+    <td><input type="checkbox" name="che_otr" id="formulario_check"/></td>
     <td>Otra</td>
   </tr>
   <tr>
@@ -245,25 +244,25 @@
           <legend><strong>Directo</strong></legend>
           <table width="221" height="122" border="0">
             <tr>
-              <td width="20" height="22"><label>
-                <input type="checkbox" name="che_Exa_Lev_Sim" id="che_Exa_Lev_Sim">
-              </label></td>
+              <td width="20" height="22">
+                <input type="checkbox" name="che_Exa_Lev_Sim" id="formulario_check"/>
+              </td>
               <td width="191">Levaduras Simples</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox" id="checkbox2"></td>
+              <td height="22"><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Levaduras Multi</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox" id="checkbox3"></td>
+              <td height="22"><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Esf&eacute;rulas pared doble</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox" id="checkbox4"></td>
+              <td height="22"><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Levaduras Intracelulares</td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="checkbox" id="checkbox5"></td>
+              <td><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Otro</td>
             </tr>
           </table>
@@ -272,21 +271,21 @@
           <legend><strong>Cultivo</strong></legend>
           <table width="244" height="122" border="0">
             <tr>
-              <td width="20" height="22"><label>
-                <input type="checkbox" name="checkbox" id="checkbox">
-              </label></td>
+              <td width="20" height="22">
+                <input type="checkbox" name="checkbox" id="formulario_check"/>
+              </td>
               <td width="214">Coccidioides posadasii</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox" id="checkbox2"></td>
+              <td height="22"><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Histoplasma Capsulatum</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox" id="checkbox3"></td>
+              <td height="22"><input type="checkbox" name="checkbox" id="formulario_check"/></td>
               <td>Paracoccidioides Brasiliensis</td>
             </tr>
             <tr>
-              <td height="22"><input type="checkbox" name="checkbox2" id="checkbox6"></td>
+              <td height="22"><input type="checkbox" name="checkbox2" id="formulario_check"/></td>
               <td>Otro</td>
             </tr>
             <tr>
@@ -309,11 +308,11 @@
         
         <table width="549" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="20"><input type="checkbox" name="checkbox7" id="checkbox7"></td>
+    <td width="20"><input type="checkbox" name="checkbox7" id="formulario_check"/></td>
     <td width="150"><div align="left">Coccidioides posadasii</div></td>
-    <td width="20"><input type="checkbox" name="checkbox8" id="checkbox8"></td>
+    <td width="20"><input type="checkbox" name="checkbox8" id="formulario_check"/></td>
     <td width="150"><div align="left">Histoplasma Capsulatum</div></td>
-    <td width="20"><input type="checkbox" name="checkbox9" id="checkbox9"></td>
+    <td width="20"><input type="checkbox" name="checkbox9" id="formulario_check"/></td>
     <td width="150"><div align="left">Paracoccidioides Brasiliensis</div></td>
   </tr>
 </table>
@@ -342,7 +341,8 @@
         <table border="1" class="circular" align="center">
   <tr>
     <th>
-<table border="0" cellpadding="0" cellspacing="0">
+    
+    <table border="1" cellpadding="0" cellspacing="0">
 <tr>
 <th width="160">&nbsp;</th>
 <th width="90">0-4,99 mm</th>
@@ -401,7 +401,10 @@
   <td class="fontd"><input type="radio" name="rad_can" id="rad_3" value="radio" /></td>
   <td class="fontd"><input type="radio" name="rad_can" id="rad_4" value="radio" /></td>
 </tr>
-</table></th>
+</table>
+    
+    
+    </th>
   </tr>
 </table>
 
@@ -457,13 +460,13 @@
     <th>Candida</th>
     <form name="form1" method="post" action="">
     <td class="fontd">
-      <label>
-        <input type="checkbox" name="checkbox10" id="checkbox10">
-        </label>    </td>
+      
+        <input type="checkbox" name="checkbox10" id="formulario_check"/>
+        </td>
     <td class="fontd">
-          <label>
-        <input type="checkbox" name="checkbox10" id="checkbox10">
-        </label>    </td>
+          
+        <input type="checkbox" name="checkbox10" id="formulario_check"/>
+        </td>
     </form>
     <td class="fontd"><input name="" type="radio" value="" /></td>
     <td class="fontd"><input name="" type="radio" value="" /></td>
@@ -472,138 +475,138 @@
     <td class="fontd"><input name="" type="radio" value="" /></td>
     <td class="fontd"><input name="" type="radio" value="" /></td>
 
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>S. Schenckii</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>P. Brasiliensis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>C. Posadasii</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>H. Capsulatum</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Aspergillus</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Criptococcus </th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
 </table>
 
@@ -668,13 +671,13 @@
     <th>Candidiasis</th>
     <form name="form1" method="post" action="">
     <td class="fontd">
-      <label>
-        <input type="checkbox" name="checkbox10" id="checkbox10">
-        </label>    </td>
+      
+        <input type="checkbox" name="checkbox10" id="checkbox10"/>
+            </td>
     <td class="fontd">
-          <label>
-        <input type="checkbox" name="checkbox10" id="checkbox10">
-        </label>    </td>
+          
+        <input type="checkbox" name="checkbox10" id="checkbox10"/>
+            </td>
     </form>
     <td class="fontd"><input name="" type="radio" value="" /></td>
     <td class="fontd"><input name="" type="radio" value="" /></td>
@@ -683,138 +686,138 @@
     <td class="fontd"><input name="" type="radio" value="" /></td>
     <td class="fontd"><input name="" type="radio" value="" /></td>
 
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="checkbox10"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="checkbox10"/>
+          </td>
     </tr>
   <tr>
     <th>Esporotricosis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="checkbox10"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="checkbox10"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Cromomicosis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Histoplasmosis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Paracoccidioidomicosis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Coccidioidomicosis</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
   <tr>
     <th>Aspergil</th>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"></td>
-    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"></td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
-    <td class="fontd"><label>
-      <input type="checkbox" name="checkbox10" id="checkbox10">
-      </label>    </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd"><input type="radio" name="radio" id="radio3" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio4" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio5" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio6" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio7" value="radio"/></td>
+    <td class="fontd"><input type="radio" name="radio" id="radio8" value="radio"/></td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
+    <td class="fontd">
+      <input type="checkbox" name="checkbox10" id="formulario_check"/>
+          </td>
     </tr>
 </table>
 

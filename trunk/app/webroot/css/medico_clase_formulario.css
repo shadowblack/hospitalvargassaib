@@ -117,14 +117,17 @@ th {
 	padding: 6px 6px 6px 12px;
 	color: #6D929B;
 	text-align:center;
+    
+    
 }
 
-.fontd:hover{color: white; background: #BBE3A8;}
+.fontd:hover{color: white; background: #BBE3A8; }
 
 
 /*Finaliza las tablas*/
 
 #formulario_check
  {
-    width: 1px;
+    width: 10px;
+    height: 10px;
  }
