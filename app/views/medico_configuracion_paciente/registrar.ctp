@@ -1,25 +1,25 @@
-		<script type="text/javascript">
-			jQuery(function()
+	<script type="text/javascript">
+			$(function()
 			//Esta funcion es solo para el acordeon...
 			{
 			
 				// Pestañas
-				jQuery('#tabs').tabs();
+				$('#tabs').tabs();
 				//Calendario
-				jQuery( "#datepicker" ).datepicker({
+				$( "#datepicker" ).datepicker({
 			showWeek: true,
 			firstDay: 1
 		});	
 			});
 		</script>
 	
-    <div id="tabs">
-	   <ul>
-	       <li><a href="#tabs-1">Nuevo Paciente</a></li>
-	       <li><a href="#tabs-2">Evaluación Consulta</a></li>
-            <li><a href="#tabs-3">Evolución Tratamiento</a></li>
-            <li><a href="#tabs-4">Muestra Clinica</a></li>
-        </ul>
+           <div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Nuevo Paciente</a></li>
+				<li><a href="#tabs-2">Evaluación Consulta</a></li>
+				<li><a href="#tabs-3">Evolución Tratamiento</a></li>
+                <li><a href="#tabs-4">Muestra Clinica</a></li>
+			</ul>
 			
     
 <!--Inicio de la pestaña "tabs-1" -->    	 
@@ -27,45 +27,36 @@
 	<h2 class="texPrincipal">Agregar Datos Personales del Paciente</h2>
     
   
-    <fieldset>	   
-        <legend>
-  		    <strong>
+  <fieldset>	   
+<legend>
+    		<strong>
     			Identificacion:
     		</strong>    
     	</legend>
-<form id="for_Pac" name="for_Pac" method="post" action="null" onSubmit="return false">
-    
-<table width="494" border="1" align="center" bgcolor="" cellpadding="0" cellspacing="0">
-    <tr>
-        <td width="131" height="0">
-            <ul>Nombre:</ul>
-        </td>
-			<td width="0">&nbsp;</td>
+        
+    <form id="for_Pac" name="for_Pac" method="post" action="null" onSubmit="return false">
+<table width="494" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
+	<tr>
+	   <td width="163">Nombre:</td>
+	  <td width="8">&nbsp;</td>
                                 
-	        <td width="110" height="">
-                <ul>Apellido</ul>
-            </td>
+      <td width="152" height="0">Apellido    </td>
 	
-    <td width="55" >
-                                <!--select name="sel_pac_ven" maxlength="20" style="font-size: 10px;">
-                                  <option>-- --</option>
-                                  <option>V-</option>
-                                  <option>E-</option>
-                                </select-->	</td>
-	<td width="112"><ul>Cedula de Identidad:   </ul> </td>
-    </tr>
+    <td width="8" >      </td>
+	<td width="151" height="0">Cedula de Identidad:    </td>
+  </tr>
     <tr>
-	<td ><ul>
+	<td >
 	  <input type="text" name="tex_pac_nom" value="" class="textos"/>
-	  </ul>	</td>
+	  	</td>
 	<td>&nbsp;</td>
-	<td ><ul>
+	<td >
 	  <input type="text" name="tex_pac_ape" value="" class="textos"/>
-	  </ul>	</td>
+	  	</td>
     <td >&nbsp;</td>
-	<td><ul>
+	<td>
 	  <input type="text" name="tex_pac_ced" value="" class="textos"/>
-	  </ul>	</td>
+	  	</td>
 	</tr>
 	<tr>
     
@@ -77,22 +68,22 @@
       <td>&nbsp;      </td>
 	</tr>
 		<tr>
-			<td ><ul>Fecha de Nacimiento:</ul></td>
+			<td >Fecha de Nacimiento:</td>
 			<td>&nbsp;</td>
 			<td >Edad:</td>
 			<td >&nbsp;</td>
-			<td><ul>Ocupaci&oacute;n:</ul></td>
+			<td>Ocupaci&oacute;n:</td>
 		</tr>
 	<tr>
-    <td ><ul>
+    <td >
       <input type="text" name="tex_pac_fec" value="" class="textos"/>
-    </ul></td>
+    </td>
 			<td>&nbsp;</td>
-			<td ><ul>
+			<td >
 			  <input type="text" name="tex_pac_eda" value="" class="textos"/>
-			  </ul></td>
+		  </td>
 			<td >&nbsp;</td>
-			<td><ul><select id="sel_pac_ocu" name="sel_pac_ocu" value="" class="textos">
+			<td><select id="sel_pac_ocu" name="sel_pac_ocu" value="" class="textos">
               <option>-- --</option>
               <option>Profesional</option>
               <option>Tecnico</option>
@@ -100,7 +91,7 @@
               <option>Agricultor</option>
               <option>Jardinero</option>
               <option>Otro</option>
-            </select></ul></td>
+          </select></td>
       </tr>
                               <tr>
                                 <td >&nbsp;</td>
@@ -110,16 +101,16 @@
                                 <td>&nbsp;</td>
                               </tr>
                               <tr>
-                                <td ><ul>Estado:</ul></td>
+                                <td >Estado:</td>
                                 <td>&nbsp;</td>
                                 
-                                <td ><ul>Municipio: </ul>                               </td>
+                                <td >Municipio:                                </td>
                                 <td >&nbsp;</td>
                                 
-                                <td><ul>Parroquia:</ul>                                </td>
+                                <td>Parroquia:                                </td>
                               </tr>
                               <tr>
-                                <td ><ul>
+                                <td >
                                   <select id="sel_pac_ciu" name="sel_pac_ciu" value="" class="textos">
                                     <option>Estado</option>
                                     <option>Anzoátegui</option>
@@ -146,15 +137,15 @@
                                     <option>Zulia</option>
                                     <option>Distrito Capital</option>
                                   </select>
-                                </ul>                                </td>
+                                </td>
                                 <td>&nbsp;</td>
-                                <td ><ul>
+                                <td >
                                   <input type="text" name="tex_pac_mun" id="tex_pac_mun" value="" class="textos"/>
-                                </ul>                                </td>
+                                </td>
                                 <td >&nbsp;</td>
-                                <td><ul>
+                                <td>
                                   <input type="text" name="tex_pac_par" id="tex_pac_par" value="" class="textos"/>
-                                </ul>                                </td>
+                                </td>
                               </tr>
                               <tr>
                                 <td >&nbsp;</td>
@@ -164,14 +155,14 @@
                                 <td>&nbsp;</td>
                               </tr>
                               <tr>
-                                <td ><ul>Referido por:</ul></td>
+                                <td >Referido por:</td>
                                 <td>&nbsp;</td>
-                                <td ><ul>Nombre del medico:</ul></td>
+                                <td >Nombre del medico:</td>
                                 <td >&nbsp;</td>
-                                <td><ul>Tipo de consulta:</ul></td>
+                                <td>Tipo de consulta:</td>
                               </tr>
                               <tr>
-                                <td ><ul>
+                                <td >
                                   <select id="sel_pac_ref" name="sel_pac_ref" class="textos">
                                     <option>Referido por:</option>
                                     <option>Hospital General</option>
@@ -187,13 +178,13 @@
                                     <option>Barrio Adentro III</option>
                                     <option>Otros</option>
                                   </select>
-                                </ul>                                </td>
+                                </td>
                                 <td>&nbsp;</td>
-                                <td ><ul>
+                                <td >
                                   <input type="text" name="tex_pac_nom6"  value="" class="textos"/>
-                                </ul>                                </td>
+                                </td>
                                 <td >&nbsp;</td>
-                                <td><ul><select id="sel_pac_con" name="sel_pac_con" class="textos">
+                                <td><select id="sel_pac_con" name="sel_pac_con" class="textos">
                                   <option>Consulta</option>
                                   <option>Dermatologia</option>
                                   <option>Pediatria</option>
@@ -202,7 +193,7 @@
                                   <option>Geriatria</option>
                                   <option>Urologia</option>
                                   <option>Infectologia</option>
-                                </select></ul></td>
+                                </select></td>
                               </tr>
       </table>    
     </form>
@@ -226,11 +217,9 @@
   <form id="for_Eva" name="for_Eva" method="post" action="">
     <table width="200" border="0" align="center"  cellpadding="0" cellspacing="0">
       <tr>
-        <td width="127" class="titulos style2" style="font-size: 12px;">
-        
-        <ul>
+        <td width="127" class="titulos style2" style="font-size: 12px;">       
             <div align="right">Perro</div>
-        </ul>        </td>
+        </td>
         
          <td width="105">
          <div align="left">
@@ -238,9 +227,9 @@
           </div>          </td>
           
         <td width="127" class="titulos style2" style="font-size: 12px;">
-        <ul>
+        
             <div align="right">Gato</div>
-        </ul>        </td>
+                </td>
         
          <td width="105" class="titulos style2" style="font-size: 12px;">
          <div align="left">
@@ -250,9 +239,9 @@
       
       <tr>
         <td width="127" class="titulos style2" style="font-size: 12px;">
-        <ul>
+        
             <div align="right">Aves</div>
-        </ul>        </td>
+                </td>
         
         <td width="105" class="titulos style2" style="font-size: 12px;">
         <div align="left">
@@ -260,9 +249,9 @@
         </div>        </td>
         
         <td width="127" class="titulos style2" style="font-size: 12px;">
-        <ul>
+        
             <div align="right">Corral</div>
-        </ul>        </td>
+                </td>
         
          <td width="105" class="titulos style2" style="font-size: 12px;">
          <div align="left">
@@ -665,4 +654,4 @@
     </div>
 <!--Final de la pestaña "tabs-4" -->            
     
-</div>    
+</div>
