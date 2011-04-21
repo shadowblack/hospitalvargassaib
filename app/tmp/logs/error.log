@@ -18,3 +18,90 @@
 2011-04-19 01:19:13 Warning: Warning (2): pg_connect() [<a href='http://php.net/function.pg-connect'>function.pg-connect</a>]: Unable to connect to PostgreSQL server: FATAL:  la autentificación password falló para el usuario «postgres» in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 119]
 2011-04-19 01:19:13 Warning: Warning (2): pg_query() expects parameter 1 to be resource, boolean given in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
 2011-04-19 01:19:13 Warning: Warning (2): pg_last_error() expects parameter 1 to be resource, boolean given in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 339]
+2011-04-20 16:01:32 Warning: Warning (2): session_destroy() [<a href='http://php.net/function.session-destroy'>function.session-destroy</a>]: Session object destruction failed in [C:\wamp\www\saib\cake\libs\cake_session.php, line 458]
+2011-04-20 19:37:43 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  no existe la función adm_registrar_usuario_admin(text[])
+LINE 1: SELECT adm_registrar_usuario_admin(ARRAY['Lisseth', 'Lozada'...
+               ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede desear agregar conversión explícita de tipos. in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 19:37:43 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  no existe la función adm_registrar_usuario_admin(text[])
+LINE 1: SELECT adm_registrar_usuario_admin(ARRAY['Lisseth', 'Lozada'...
+               ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede desear agregar conversión explícita de tipos.</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 22:26:14 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  no existe la columna «id_tip_usu» en la relación «usuarios_administrativos»
+LINE 8:    id_tip_usu,
+           ^
+QUERY:  INSERT INTO usuarios_administrativos
+		(
+			nom_usu_adm,
+			ape_usu_adm,
+			pas_usu_adm,
+			log_usu_adm,
+			tel_usu_adm,
+			id_tip_usu,
+			fec_reg_usu_adm
+		)
+		VALUES 
+		(
+			_nom_usu_adm,
+			_ape_usu_adm,
+			_pas_usu_adm,
+			_log_usu_adm,
+			_tel_usu_adm,
+			_id_tip_usu,
+			NOW()
+		)
+CONTEXT:  PL/pgSQL function &quot;adm_registrar_usuario_admin&quot; line 27 at sentencia SQL in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 22:26:14 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  no existe la columna «id_tip_usu» en la relación «usuarios_administrativos»
+LINE 8:    id_tip_usu,
+           ^
+QUERY:  INSERT INTO usuarios_administrativos
+		(
+			nom_usu_adm,
+			ape_usu_adm,
+			pas_usu_adm,
+			log_usu_adm,
+			tel_usu_adm,
+			id_tip_usu,
+			fec_reg_usu_adm
+		)
+		VALUES 
+		(
+			_nom_usu_adm,
+			_ape_usu_adm,
+			_pas_usu_adm,
+			_log_usu_adm,
+			_tel_usu_adm,
+			_id_tip_usu,
+			NOW()
+		)
+CONTEXT:  PL/pgSQL function "adm_registrar_usuario_admin" line 27 at sentencia SQL</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 22:36:42 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^ in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 22:36:42 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 22:45:57 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^ in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 22:45:57 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 22:46:09 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^ in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 22:46:09 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 23:06:18 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^ in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 23:06:18 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-04-20 23:36:16 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^ in [C:\wamp\www\saib\cake\libs\model\datasources\dbo\dbo_postgres.php, line 167]
+2011-04-20 23:36:16 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  error de sintaxis en o cerca de «]»
+LINE 7:             ]) AS result
+                    ^</span> in [C:\wamp\www\saib\cake\libs\model\datasources\dbo_source.php, line 684]

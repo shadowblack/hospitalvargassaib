@@ -12,12 +12,12 @@
            if (!$this->Session->read("id_usu"))
                 $this->redirect("/admin/login");
                 
-           $mod = $this->Session->read("str_mods");
-           
+           //$mod = $this->Session->read("str_mods");
+           /*
            $data = Array(
             "cua"=>$this->Login->validar_permisos($mod,"cua")
            );
-           $this->set($data);           
+           $this->set($data);  */         
         }
         /*
         function __construct(){            

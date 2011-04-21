@@ -10,6 +10,12 @@
         function index(){
             
         }
+        /**
+         * Login de la aplicacion
+         */
+        function login(){
+            
+        }
         function content_iframe(){
             
         }
