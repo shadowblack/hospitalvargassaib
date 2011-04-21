@@ -17,7 +17,9 @@
         jQuery("#reg_usu_adm").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/registrar')?>");
 		});
-        
+        jQuery("#lis_usu_adm").click(function(){            
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/listar')?>");
+		});        
        
     
     });
@@ -70,8 +72,7 @@
                                 </td>                
                                 <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 300px;">
                                     <!-- Dinamic -->
-                                    <div id="accordion" style="width: 220px;text-align: center;">
-                                        <?php if ($cua){?>
+                                    <div id="accordion" style="width: 220px;text-align: center;">                                       
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
@@ -84,14 +85,13 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="standar_font_menu">
-                                                            <a id="edi_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
+                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
                                                         </td>
                                                     </tr>
                                                 </table>                                                                                                                                                                                                          
                                                 </div>
                                             </div>
-                            			</div>
-                                        <?php } ?>
+                            			</div>                                        
                             			<div>
                             				<h3><a href="#">Second</a></h3>
                             				<div>Phasellus mattis tincidunt nibh.</div>
@@ -150,7 +150,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto" marginwidth="0" marginheight="0"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    

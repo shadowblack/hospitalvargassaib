@@ -3,12 +3,13 @@
     <head>
         <?php echo $html->charset(); ?>
         <title>
-            <?php echo __("Sistema de integración de las enfermedades dermatologicas"); ?>
+            <?php echo __("Sistema de integración de las enfermedades dermatologicas",true); ?>
            	<?php echo $scripts_for_layout;?>
         </title>        
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>
+        <?php echo $this->Html->css('lista');?>
         <?php echo $this->Html->css('menu_top');?> 
         <?php echo $this->Html->css('medico_clase_formulario');?> 
        

@@ -1,7 +1,9 @@
 .no_mostrar{
 	display:none;
 }
-
+    /**
+    * Estilos de fondo
+    */
     /*top*/
 .top_menu_window_top_left{
     background-image: url('../img/menu_top/windows/images/windows_01.gif');
@@ -66,3 +68,19 @@
     width: 5px;
 }
 
+/**
+*   Login del doctor
+*/
+.top_menu_login_doc_izquierdo{
+    background-image: url('../img/img_formulari_inicio/fondo_inici_izq.png');
+    height: 768px;
+}
+.top_menu_login_doc_center{
+    background-image: url('../img/img_formulari_inicio/fondo_inicio_total.png');
+    height: 768px;
+    width: 1024px;
+}
+.top_menu_login_doc_derecho{
+    background-image: url('../img/img_formulari_inicio/fondo_inici_dere.png');
+    height: 768px;
+}

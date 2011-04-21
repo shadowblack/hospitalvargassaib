@@ -89,3 +89,9 @@ a:hover {
 li{
     /*list-style: none;*/
 }
+
+.standar_position{
+    position: absolute;
+    padding: 0;
+    top:0;
+}
