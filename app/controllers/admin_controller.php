@@ -2,15 +2,14 @@
     class AdminController extends Controller{
         var $name = "Admin";
         var $uses = Array("UsuariosAdministrativo");
-        var $components = Array("Login","Session");
+        var $components = Array("Login","Session","SqlData");
         
         /**
          * Entrando a la aplicacion administrativa
          */
         function index(){ 
-            $this->Login->no_cache();
-           if (!$this->Session->read("id_usu"))
-                $this->redirect("/admin/login");
+           $this->Login->no_cache();
+           $this->Login->autenticacion_usuario($this,"/admin/login");
                 
            //$mod = $this->Session->read("str_mods");
            /*
@@ -41,11 +40,10 @@
                     die(json_encode("{event:0,coment:'".__("Error de validación",true)."'}"));
                 }                
                 $log_usu = $_POST["log_usu"];    
-                $pas_usu = $_POST["pas_log"];
+                $pas_usu = md5($_POST["pas_log"]);
                                                 
-                $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','adm') AS result"));
-                $row = $arr_query[0][0];
-                $usuario = $this->Login->array_to_object($row);
+                $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','adm') AS result"));                
+                $usuario = $this->SqlData->array_to_object($arr_query);
                 if (!empty($usuario->id_usu)){
                     //print_r($usuario);
                     

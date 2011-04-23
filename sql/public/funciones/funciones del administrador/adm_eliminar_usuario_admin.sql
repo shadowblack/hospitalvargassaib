@@ -4,25 +4,34 @@ $BODY$
 DECLARE
 	
 	--Variables
-	_ids_usu_eli 	ALIAS FOR $1;
-	_consulta 	varchar := '';
+	_id_usu_adm 	ALIAS FOR $1;
+	--_consulta 	varchar := '';
 
 	--Variable record
-	_registro_usu	record;
+	--_registro_usu	record;
 
 BEGIN
 
-	_consulta := 'SELECT * FROM usuarios_administrativos WHERE id_usu_adm IN (' || _ids_usu_eli || ')';
+	/*_consulta := 'SELECT * FROM usuarios_administrativos WHERE id_usu_adm IN (' || _ids_usu_eli || ')';*/
 
 
 	/* Se obtienen los datos de cada uno de los usuario eliminados */
-	FOR _registro_usu IN EXECUTE _consulta 
-	LOOP
+	/*FOR _registro_usu IN EXECUTE _consulta 
+	LOOP*/
 	       /* Se borran los registros asociados a los usuarios */
-	       DELETE FROM usuarios_administrativos WHERE id_usu_adm = _registro_usu.id_usu_adm;
+	       --DELETE FROM usuarios_administrativos WHERE id_usu_adm = _registro_usu.id_usu_adm;
 
-	END LOOP;
-	RETURN 0;
+	/*END LOOP;
+	RETURN 0;*/
+
+	IF EXISTS(SELECT 1 FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm::INTEGER)THEN
+		DELETE FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm::INTEGER;
+		RETURN 1;
+	ELSE
+		RETURN 0;
+	END IF;
+
+	
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
 COMMENT ON FUNCTION adm_eliminar_usuario_admin(character varying) IS '
@@ -30,11 +39,8 @@ NOMBRE: adm_eliminar_usuario_admin
 TIPO: Function (store procedure)
 
 PARAMETROS: Recibe 7 Parámetros
-	1:  Identificador del usuario administrativo
-	2:  Nombre del usuario administrativo
-	3:  Apellido del usuario administrativo
-	4:  Teléfono del usuario administrativo
-	5:  Tipo de usuario
+	0:  El usuario no se encuentra registrado en el sistema
+	1:  Se eliminó el usuario con éxito	
 
 DESCRIPCION: 
 	Elimina la información del usuario administrativo 
@@ -48,4 +54,9 @@ EJEMPLO DE LLAMADA:
 
 AUTOR DE CREACIÓN: Lisseth Lozada
 FECHA DE CREACIÓN: 27/03/2011      
+
+AUTOR DE CREACIÓN: Luis Marin
+FECHA DE CREACIÓN: 22/04/2011  
+DESCRIPCIÓN: Modificación de las estructuras de control
 ';
+SELECT adm_eliminar_usuario_admin('1');

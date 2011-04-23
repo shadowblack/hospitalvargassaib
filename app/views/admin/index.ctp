@@ -25,9 +25,7 @@
     });
 </script>
 <style type="text/css">
-    .font_estandar{
-        font-size: 9pt;
-    }
+   
 </style>
   <div class="standar_content">
   
@@ -135,9 +133,11 @@
                                 <td class="top_menu_window_top_circle">
                                    
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:700px;">
+                                <td class="top_menu_window_top_center" style="width:700px;" valign="top">
                                     <!-- Dinamic -->
                                     
+                                    <!-- Title -->
+                                    <div id="title_content" class="standar_font" style="margin: 6px;">&nbsp;</div>
                                 </td>
                                 <td class="top_menu_window_top_right">                    
                                    
