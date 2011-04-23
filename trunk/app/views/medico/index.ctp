@@ -8,10 +8,26 @@
                       autoHeight:false,
                       alwaysOpen: false		                                   
                 });                
-                jQuery("#reg_usu_adm").click(function(){            
-                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/medico/content_iframe')?>");
+                jQuery("#reg_med_pac").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('../medico_configuracion_paciente/registrar')?>");
+                   
         		});
-    				
+                
+                 jQuery("#reg_med_pac_mic_sup").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('../medico_configuracion_micosis_superficial/registrar')?>");
+        		});
+    			
+                jQuery("#reg_med_pac_mic_sub").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('../medico_configuracion_micosis_subcutaneas/registrar')?>");
+        		});	
+                
+                jQuery("#reg_med_pac_mic_pro").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('../medico_configuracion_micosis_profunda/registrar')?>");
+        		});
+                
+                jQuery("#reg_med_pac_mic_opo").click(function(){            
+                   jQuery("#frame_content").attr("src","<?php echo $this->Html->url('../medico_configuracion_micosis_oportunista/registrar')?>");
+        		});
 			});
 		</script>      
 		<!--style type="text/css">
@@ -26,14 +42,8 @@
 			ul#icons {margin: 0; padding: 0;}
 			ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
 			ul#icons span.ui-icon {float: left; margin: 0 4px;}
-		</style-->	
-<style type="text/css">
-<!--
-body {
-	background-image: url(Img/Fondo1.png);
-}
--->
-</style>
+		</style-->
+        <?php echo $this->Html->css('medico_clase_formulario');?>	
     
     
     
@@ -48,6 +58,38 @@ body {
     </tr>    
     <tr>
          <td style="height: 35px;">
+    <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="100" align="right" height="1">
+            <div class="boton_medico_conf" id="boton_medico_conf">
+                <a href="#">
+                    <br/>
+                        Configuración
+                </a>
+            </div>
+        </td>
+        
+        <td width="100" align="right" height="1">
+            <div class="boton_medico_conf" id="boton_medico_conf">
+                <a href="#">
+                    <br/>
+                        Reportes
+                    </a>
+                </div>
+            </td>
+        
+        <td width="100" align="right" height="1">
+            <div class="boton_medico_conf" id="boton_medico_conf">
+                <a href="#">
+                    <br/>
+                        Estadisticas
+                    </a>
+                </div>
+            </td>
+    </tr>
+    </table>
+            
+            
             
         </td>
     </tr>
@@ -87,7 +129,7 @@ body {
                             				<h3><a href="#"><?php __("Pacientes")?></a></h3>
                             				<div style="">                                               
                                                 <div style="height: 150px;text-align: left;">
-                                                    <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Paciente")?></a>
+                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Paciente")?></a>
                                                     <br/>
                                                     <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Paciente")?></a> 
                                                     <br/>
@@ -99,7 +141,7 @@ body {
                             			<div>
                             				<h3><a href="#"><?php __("Micosis Superficial")?></a></h3>
                             				<div style="height: 150px;text-align: left;">
-                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <a id="reg_med_pac_mic_sup" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
                                                     <br/>
                                                     <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
                                                     <br/>
@@ -113,7 +155,7 @@ body {
                                         <div>
                             				<h3><a href="#"><?php __("Micosis Subcutaneas")?></a></h3>
                             				<div style="height: 150px;text-align: left;">
-                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <a id="reg_med_pac_mic_sub" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
                                                     <br/>
                                                     <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
                                                     <br/>
@@ -126,7 +168,7 @@ body {
                                         <div>
                             				<h3><a href="#"><?php __("Micosis Profunda")?></a></h3>
                             				<div style="height: 150px;text-align: left;">
-                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <a id="reg_med_pac_mic_pro" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
                                                     <br/>
                                                     <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
                                                     <br/>
@@ -140,7 +182,7 @@ body {
                                         <div>
                             				<h3><a href="#"><?php __("Micosis Oportunista")?></a></h3>
                             				<div style="height: 150px;text-align: left;">
-                                                    <a id="reg_med_pac" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
+                                                    <a id="reg_med_pac_mic_opo" href="javascript:void(0)" ><?php __("Agregar Micosis")?></a>
                                                     <br/>
                                                     <a id="edi_med_pac" href="javascript:void(0)" ><?php __("Modificar Micosis")?></a> 
                                                     <br/>
@@ -234,9 +276,4 @@ body {
     </tr>    
    </table>
    </div>
- <!-- fin base -->   
-    
-	
-
-	
-		
+ <!-- fin base -->

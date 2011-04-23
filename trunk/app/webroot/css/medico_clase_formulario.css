@@ -131,3 +131,36 @@ th {
     width: 10px;
     height: 10px;
  }
+ 
+/*Boton Configuracion*/ 
+.boton_medico_conf 
+    {
+        margin-top: -10px; 
+        font:11px georgia;
+    	font-weight:bold;
+    	text-align:center;
+	}
+
+#boton_medico_conf 
+    {
+    	
+    	width: 125px;
+    	height: 39px;
+    	background-image:url(../img/img_formulari_inicio/medico_bot_0.png);
+ 	}
+	
+#boton_medico_conf a
+    {
+        text-decoration:none;
+        width: 125px;
+        height: 39px;
+        display: block;
+        color:#2779AA;
+    }
+
+#boton_medico_conf a:hover
+    {
+        text-decoration:none;
+        background:url(../img/img_formulari_inicio/medico_bot_1.png);
+        color: white;
+    }
