@@ -83,6 +83,9 @@ a:active {
 a:hover {       
     color: red;
 }
+.border{
+    border: none;
+}
 
 
 /*Estandar de las lsitas*/

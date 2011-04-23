@@ -1,22 +1,6 @@
 <?php
 class LoginComponent extends Object
-{
-    /*
-    * Combirtiendo array en obejto
-    */
-    function array_to_object($array = array()) {
-        if (!empty($array)) {
-            $data = false;
-    
-            foreach ($array as $akey => $aval) {
-                $data -> {$akey} = $aval;
-            }
-    
-            return $data;
-        }
-    
-        return false;
-    }
+{    
     /*
     * Borrando la cache del navegador
     */
@@ -31,12 +15,28 @@ class LoginComponent extends Object
 
     }
     
-    /*
+    /**
     * Validando transacciones
     */
     function validar_permisos($mods, $mod){
         $arr_mod = explode(",",$mods);
         return in_array($mod,$arr_mod);
+    }
+    
+    /**
+     * Validando que el usuario este logeado en el sistema
+     */
+    function autenticacion_usuario($self,$page){
+        if (!$self->Session->read("id_usu"))
+                $self->redirect($page);
+    }
+    
+    /**
+     * Validando que el usuario este logeado en el sistema json
+     */
+    function autenticacion_usuario_json($self){
+        if (!$self->Session->read("id_usu"))
+                die($self->FormatMessege->box_style(20,"Por favor inicie session en el sistema."));
     }
 }
 ?>

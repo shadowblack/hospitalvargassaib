@@ -4,7 +4,7 @@
         <?php echo $html->charset(); ?>
         <title>
             <?php echo __("Sistema de integración de las enfermedades dermatologicas",true); ?>
-           	<?php echo $scripts_for_layout;?>
+           	<?php echo $title_for_layout;?>
         </title>        
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
@@ -21,9 +21,9 @@
         <?php #echo $this->Html->script("jquery/jquery-1.5.2.js"); ?>
         <?php echo $this->Html->script("jquery/jquery-1.5.1.min.js"); ?>                            
         <?php echo $this->Html->script("jquery/jquery-validation-1.8.0/jquery.validate.min.js"); ?>        
-        <?php echo $this->Html->script("jquery/jquery-validation-1.8.0/localization/messages_es.js"); ?>                                
-                                        
+        <?php echo $this->Html->script("jquery/jquery-validation-1.8.0/localization/messages_es.js"); ?>                                                                       
         <?php echo $this->Html->script("jquery/jquery-ui-1.8.11.custom/js/jquery-ui-1.8.11.custom.min.js"); ?>
+        <?php echo $this->Html->script("script/util.js"); ?>
 
         <?php echo $scripts_for_layout; ?>       
         

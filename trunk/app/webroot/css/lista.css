@@ -1,3 +1,6 @@
 div.lista_standar{
     border:1px solid #A9DFC0;
 }
+td.lista_fondo{
+    background-color: #D7D7D7;
+}
