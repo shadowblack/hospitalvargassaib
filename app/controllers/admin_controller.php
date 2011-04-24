@@ -40,7 +40,7 @@
                     die(json_encode("{event:0,coment:'".__("Error de validación",true)."'}"));
                 }                
                 $log_usu = $_POST["log_usu"];    
-                $pas_usu = md5($_POST["pas_log"]);
+                $pas_usu = ($_POST["pas_log"]);
                                                 
                 $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','adm') AS result"));                
                 $usuario = $this->SqlData->array_to_object($arr_query);

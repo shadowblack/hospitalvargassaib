@@ -36,7 +36,7 @@ BEGIN
 				WHERE ua.log_usu_adm = _log_usu
 				AND ua.pas_usu_adm = _pas_usu
 				AND tu.cod_tip_usu = _tip_usu;
-
+				
 				_t_val_usu.str_mods := ARRAY_TO_STRING (
 					ARRAY	(
 							SELECT m.cod_mod FROM modulos m LEFT JOIN modulo_usuarios mu 
@@ -47,9 +47,10 @@ BEGIN
 				
 				_t_val_usu.str_trans := ARRAY_TO_STRING (
 					ARRAY	(
-							SELECT t.cod_tip_tra FROM transacciones_usuarios tu LEFT JOIN transacciones t 
-							ON(tu.id_tip_tra = t.id_tip_tra)
-							WHERE tu.id_tip_usu_usu = _vr_usu_adm.id_tip_usu_usu
+							SELECT t.cod_tip_tra FROM transacciones_usuarios tu 
+							LEFT JOIN transacciones t ON(tu.id_tip_tra = t.id_tip_tra)
+							LEFT JOIN modulo_usuarios mu ON(tu.id_mod_usu = mu.id_mod_usu)
+							WHERE mu.id_tip_usu_usu = _vr_usu_adm.id_tip_usu_usu
 					)
 				,',');
 
@@ -89,4 +90,4 @@ EJEMPLO: SELECT str_mods FROM validar_usuarios(''hitokiri83'',''123'',''adm'');
 ';
 
 -- 
-	SELECT * FROM validar_usuarios('hitokiri83','123','adm');
+	SELECT * FROM validar_usuarios('hitokiri83','Ayanami909','adm');

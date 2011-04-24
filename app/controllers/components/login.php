@@ -1,6 +1,5 @@
 <?php
-class LoginComponent extends Object
-{    
+class LoginComponent extends Object{       
     /*
     * Borrando la cache del navegador
     */

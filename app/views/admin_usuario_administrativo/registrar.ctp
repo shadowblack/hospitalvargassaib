@@ -7,7 +7,7 @@
 <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>  
 <script type="text/javascript">
     jQuery(function(){ 
-        
+        parent.jQuery("#title_content").html("<?php echo $title;?>");        
        jQuery("#reg_usu_adm").validate({
     		rules: {    			
     			pas_usu_adm: {    				
@@ -45,6 +45,7 @@
                         jQuery(_select).attr("class","");
                         jQuery(_select).addClass(data.class_icon);
                         
+                        jQuery("#dialog").dialog("destroy");
                         jQuery("#dialog").dialog({
                             modal:true,
                             minHeight: 150,                            
@@ -59,6 +60,7 @@
                     }                   
                 });
                 
+                jQuery("#dialog").dialog("destroy");
                 jQuery("#dialog #dialog_messege").css("display","none");jQuery("#dialog img").css("display","block");                
                 jQuery("#dialog").dialog({                            
                     resizable: false

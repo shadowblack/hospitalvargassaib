@@ -11,7 +11,7 @@ class SqlDataComponent extends Object
     
     /**
     * Convirtiendo array en objeto
-    * return object or false
+    * return object or array zero
     */
     function array_to_object($array = array()) {
         $array = $array[0][0];
@@ -25,11 +25,11 @@ class SqlDataComponent extends Object
             return $data;
         }
     
-        return false;
+        return Array();
     }
      /**
     * Convirtiendo array en objetos cuando son multiples registros
-    * return object or false
+    * return object or array zero
     */
     function array_to_objects($array = array()) {
         
@@ -37,7 +37,7 @@ class SqlDataComponent extends Object
         if (!empty($array)) {
             $data = Array();
             $dataArray = Array();
-            $i=0;
+            $i=0;        
              foreach ($array as $akey => $val_arr) {
                 $data = false;
                 foreach ($val_arr[0] as $arr_akey => $arr_aval) {                    
@@ -50,7 +50,7 @@ class SqlDataComponent extends Object
             return $dataArray;
         }
     
-        return false;
+        return Array();
     }
 }
 ?>

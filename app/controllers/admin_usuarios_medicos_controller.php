@@ -1,9 +1,8 @@
-﻿<?php
-    class AdminUsuarioAdministrativoController extends Controller{
-        var $name = "AdminUsuarioAdministrativo";
-        var $uses = Array("UsuariosAdministrativo");
+<?php
+    class AdminUsuariosMedicosController extends Controller{
+        var $name = "AdminUsuariosMedicos";
+        var $uses = Array("Doctore");
         var $components = Array("Login","SqlData","FormatMessege","Session");
-       
        
         function index(){   
             $this->Login->autenticacion_usuario($this,"/admin/login");
@@ -14,10 +13,15 @@
         */
         function registrar(){            
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $title =  __("Agregar usuarios administrativos",true);
+                        
+            $sql = "SELECT * FROM modulos m JOIN transacciones t ON (m.id_mod = t.id_mod)";
+            $arr_query = ($this->Doctore->query($sql));            
+            $result = $this->SqlData->array_to_objects($arr_query);
+            $title =  __("Agregar usuarios médicos",true);
             
             $data = Array(               
-                "title"     => $title,               
+                "title"     => $title,
+                "result"    => $result,               
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);    
@@ -67,26 +71,26 @@
         */
         function listar(){    
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $title =  __("Lista de usuarios administrativos",true);            
+            $title =  __("Lista de usuarios médicos",true);            
             $data = Array(                
                 "title"     => $title                
             ); 
-            $this->set($data);
+            $this->set($data);            
             $this->set('title_for_layout', $title);            
         }  
         
         /**
         * Listando de usuarios administrativos
         */
-        function event_listar($str){
+        function event_listar($str){  
+            $this->Login->autenticacion_usuario($this,"/admin/login");
             
             $param_array = explode(",",$str);
             
             $nombre     = $param_array[0];
             $apellido   = $param_array[1];
-            $login      = $param_array[2];            
-                        
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $login      = $param_array[2];                                                
+            
             $sql = "SELECT * FROM usuarios_administrativos
                     WHERE nom_usu_adm ilike('%$nombre%') 
                     AND ape_usu_adm ilike('%$apellido%')
@@ -111,7 +115,7 @@
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));        
                         
-            $title =  __("Modificación de usuarios administrativos",true);
+            $title =  __("Modificación de usuarios médicos",true);
             
             $data = Array(
                 "result"    => $result,

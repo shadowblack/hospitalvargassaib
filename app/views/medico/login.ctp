@@ -53,7 +53,7 @@
                 </tr>
                 <tr>
                     <td align="center" colspan="3" class="standar_font">
-                        <a href="javascript:void(0)" style="margin-left: 60px;"><?php echo __("Aceptar",true)?></a>
+                        <a href="<?php echo $html->url("/medico")?>" style="margin-left: 60px;"><?php echo __("Aceptar",true)?></a>                                                
                     </td>
                 </tr>
             </table>
