@@ -9,7 +9,7 @@ DECLARE
 	_pas_usu_adm	usuarios_administrativos.pas_usu_adm%TYPE;
 	_log_usu_adm 	usuarios_administrativos.log_usu_adm%TYPE;
 	_tel_usu_adm 	usuarios_administrativos.tel_usu_adm%TYPE;
-	
+	_vr_tip_usu 	RECORD;
 	
 BEGIN
 
@@ -44,6 +44,16 @@ BEGIN
 			_tel_usu_adm,			
 			NOW(),
 			TRUE
+		);		
+		
+		/*Insertando tipo de usuario como administrador*/
+		INSERT INTO tipos_usuarios__usuarios(
+			id_usu_adm,
+			id_tip_usu
+		)VALUES
+		(
+			(CURRVAL('usuarios_administrativos_id_usu_adm_seq')),
+			(SELECT id_tip_usu FROM tipos_usuarios WHERE cod_tip_usu = 'adm')
 		);
 
 		-- La función se ejecutó exitosamente
@@ -85,3 +95,4 @@ FECHA DE CREACIÓN: 27/03/2011
 
 ';
 
+--SELECT adm_registrar_usuario_admin(ARRAY['Lisseth', 'Lozada', '123', 'llozada2','04269150722']);

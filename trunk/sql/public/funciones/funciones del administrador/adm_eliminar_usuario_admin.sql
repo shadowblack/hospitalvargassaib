@@ -59,4 +59,4 @@ AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 22/04/2011  
 DESCRIPCIÓN: Modificación de las estructuras de control
 ';
-SELECT adm_eliminar_usuario_admin('1');
+--SELECT adm_eliminar_usuario_admin('1');

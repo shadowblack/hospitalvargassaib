@@ -19,7 +19,13 @@
 		});
         jQuery("#lis_usu_adm").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/listar')?>");
-		});        
+		}); 
+        jQuery("#reg_usu_med").click(function(){            
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuarios_medicos/registrar')?>");
+		});
+        jQuery("#lis_usu_med").click(function(){            
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuarios_medicos/listar')?>");
+		});          
        
     
     });
@@ -74,7 +80,7 @@
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
-                                                <div style="height: 150px;text-align: left;width: 150px;">                                                
+                                                <div style="height: 45px;text-align: left;width: 150px;">                                                
                                                 <table>
                                                     <tr>
                                                         <td class="standar_font_menu">
@@ -91,8 +97,23 @@
                                             </div>
                             			</div>                                        
                             			<div>
-                            				<h3><a href="#">Second</a></h3>
-                            				<div>Phasellus mattis tincidunt nibh.</div>
+                            				<h3><a href="#"><?php __("Usuarios Médicos")?></a></h3>
+                            				<div>
+                                                <div style="height: 45px;text-align: left;width: 150px;">                                               
+                                                    <table>
+                                                        <tr>
+                                                            <td class="standar_font_menu">
+                                                                <a id="reg_usu_med" href="javascript:void(0)" ><?php __("Agregar Médicos")?></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="standar_font_menu">
+                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Médicos")?></a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>                                                                                                                                                                                                          
+                                                </div>
+                                            </div>
                             			</div>
                             			<div>
                             				<h3><a href="#">Third</a></h3>

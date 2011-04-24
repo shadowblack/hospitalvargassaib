@@ -1,6 +1,7 @@
 <script type="text/javascript"> 
    
-   jQuery(function(){
+   jQuery(function(){        
+        
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
             
@@ -20,20 +21,28 @@
         window.location.href = "<?php echo $this->Html->url("/AdminUsuarioAdministrativo/modificar/")?>"+id;
    }  
    function del(id,str){ 
+                /*Destrucccion del dialogo*/
+                jQuery("#dialog").dialog("destroy");
                 
+                /*Insertando texto en el dialogo*/
                 var _select = "#dialog #dialog_text";                      
                 jQuery(_select).empty();
                 jQuery(_select).text("<?php echo __("¿Desea eliminar el usuario administrativo",true) ?> '"+str+"'?");
                 
+                /*Limpiando clases del dialogo*/
                 _select = "#dialog td > div > div";
                 jQuery(_select).attr("class","");
                 jQuery(_select).addClass("ui-state-highlight ui-corner-all");
                 
+                /*Definiendo icono a mostrar*/
                 _select = "#dialog span";
                 jQuery(_select).attr("class","");
                 jQuery(_select).addClass("ui-icon ui-icon-info");
                 
-                jQuery("#dialog #dialog_messege").css("display","block");jQuery("#dialog img").css("display","none");
+                /*Mostrando el mensaje del dialogo*/
+                jQuery("#dialog #dialog_messege").css("display","block");
+                jQuery("#dialog img").css("display","none");
+                
                 jQuery("#dialog").dialog({                   
                     minHeight: 150,                            
                     buttons: [
@@ -52,7 +61,8 @@
                                             eval("data="+data);   
                                             
                                             jQuery("#dialog #dialog_messege").css("display","block");jQuery("#dialog img").css("display","none"); 
-                                                                                         
+                                               
+                                            /* Construyendo dialogo con json de php*/                                          
                                             var _select = "#dialog #dialog_text";                      
                                             jQuery(_select).empty();
                                             jQuery(_select).text(data.coment);
