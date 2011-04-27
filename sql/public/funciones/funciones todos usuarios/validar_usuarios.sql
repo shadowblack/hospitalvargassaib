@@ -34,7 +34,7 @@ BEGIN
 				LEFT JOIN tipos_usuarios__usuarios tuu ON (ua.id_usu_adm = tuu.id_usu_adm)
 				LEFT JOIN tipos_usuarios tu ON (tuu.id_tip_usu = tu.id_tip_usu)
 				WHERE ua.log_usu_adm = _log_usu
-				AND ua.pas_usu_adm = _pas_usu
+				AND ua.pas_usu_adm = md5(_pas_usu)
 				AND tu.cod_tip_usu = _tip_usu;
 				
 				_t_val_usu.str_mods := ARRAY_TO_STRING (
