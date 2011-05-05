@@ -9,6 +9,7 @@ CREATE TYPE t_validar_usuarios AS
 	log_usu 	TEXT,
 	tel_usu 	TEXT,
 	id_tip_usu 	INTEGER,
+	id_tip_usu_usu 	INTEGER,
 	cod_tip_usu 	TEXT,
 	str_mods	TEXT,
 	str_trans	TEXT,

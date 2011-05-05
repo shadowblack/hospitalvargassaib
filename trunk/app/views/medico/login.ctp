@@ -1,3 +1,8 @@
+<script type="text/javascript">
+        /*Agregando Clase CSS para el fondo del login*/
+       jQuery("body:eq(0)").addClass("standar_fondo_login");    
+</script>
+
 <table align="center" cellpadding="0" cellspacing="0"  border="0" >
     <tr>
         <td class="top_menu_login_doc_izquierdo" style="width: 50%;">
@@ -15,21 +20,24 @@
 <table class="standar_position" style="width: 100%;top: 350px; z-index: 1;" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td align="center" style="">            
-            <table border="0" style="width: 220px;">
+            <table border="0" style="width: 222px;">
                 <tr>
                     <td align="right" class="standar_font" style="width: 210px;">
                         <?php echo __("Login",true)?>:
                     </td>
-                    <td style="width: 2px;">
+                    <td style="width: 4px;">
                         &nbsp;                        
                     </td>
                     <td align="center" style="">
-                        <input type="text" id="log_med_usu" style="border: none;">
+                        <input type="text" id="log_med_usu" name="log_med_usu" style="border: 0px; color: #FFFFFF;">
                     </td>
                 </tr>
                 <tr>
-                    <td style="height: 30px;">
+                    <td style="_height: 20px;height: 30px;">
                         &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;                        
                     </td>
                     <td>
                         &nbsp;                        
@@ -43,7 +51,7 @@
                         &nbsp;                        
                     </td>
                     <td align="center">
-                        <input type="text" id="log_med_usu" style="border: none;">
+                        <input type="password" id="pas_med_usu" name="pas_med_usu" style="border: 0px; color: #FFFFFF;">
                     </td>
                 </tr>
                 <tr>
@@ -52,17 +60,13 @@
                     </td>                    
                 </tr>
                 <tr>
-                    <td align="center" colspan="3" class="standar_font">
-                        <div class="boton_medico_conf" id="boton_medico_conf">
+                    <td align="center" colspan="3" class="standar_font">                    
+                        <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
                             <a href="<?php echo $html->url("/medico")?>">
                                 <br/>
                                 <?php echo __("Aceptar",true)?></a>
                             </a>
-                        </div>   
-                        
-                        
-                        
-                                                                        
+                        </div>                                                                         
                     </td>
                 </tr>
             </table>

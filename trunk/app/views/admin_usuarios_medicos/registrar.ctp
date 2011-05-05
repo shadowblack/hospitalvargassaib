@@ -66,7 +66,8 @@
                     resizable: false
                 }).css("display","block");    
             }
-    	});         
+    	});   
+        /*Validando la contraseña con la libreria Valid()*/      
         jQuery("#pas_usu_doc").valid();
                	
        /*Seleccionando todas las transacciones hijos al seleccionar el módulo padre*/          

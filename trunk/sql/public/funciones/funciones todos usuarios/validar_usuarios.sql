@@ -61,6 +61,7 @@ BEGIN
 				_t_val_usu.log_usu 		:=	_vr_usu_adm.log_usu_adm;
 				_t_val_usu.tel_usu 		:=	_vr_usu_adm.tel_usu_adm;
 				_t_val_usu.id_tip_usu 		:=	_vr_usu_adm.id_tip_usu;
+				_t_val_usu.id_tip_usu_usu 	:=	_vr_usu_adm.id_tip_usu_usu;				
 				_t_val_usu.cod_tip_usu 		:=	_vr_usu_adm.cod_tip_usu;				
 				_t_val_usu.des_tip_usu 		:=	_vr_usu_adm.des_tip_usu;
 				
