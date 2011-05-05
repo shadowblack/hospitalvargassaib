@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-validate.password/jquery.validate.password.css"?>" />
+
 <script type="text/javascript">
     jQuery(function(){
         //jQuery("body:eq(0)").css('background-color','black');
@@ -369,6 +372,9 @@ function() { jQuery(this).removeClass('ui-state-hover'); }
                             <input type="text" name="tex_pac_mun" id="tex_pac_mun" value="" class="textos"/>
                         </td>
                             <br />
+                        </td>
+                        <td>
+                            &nbsp;
                         </td>
                                         <td>
                                           <input type="text" name="tex_pac_par" id="tex_pac_par" value="" class="textos"/>
