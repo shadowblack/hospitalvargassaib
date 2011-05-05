@@ -73,14 +73,47 @@
 */
 .top_menu_login_doc_izquierdo{
     background-image: url('../img/img_formulari_inicio/fondo_inici_izq.png');
-    height: 768px;
+    height: 600px;
 }
 .top_menu_login_doc_center{
     background-image: url('../img/img_formulari_inicio/fondo_inicio_total.png');
-    height: 768px;
+    height: 600px;
     width: 1024px;
 }
 .top_menu_login_doc_derecho{
     background-image: url('../img/img_formulari_inicio/fondo_inici_dere.png');
-    height: 768px;
+    height: 600px;
 }
+/*Boton Configuracion*/ 
+.boton_medico_conf 
+    {
+        margin-top: -10px; 
+        font:11px georgia;
+    	font-weight:bold;
+    	text-align:center;
+	}
+
+#boton_medico_conf 
+    {
+    	
+    	width: 125px;
+    	height: 39px;
+    	background-image:url(../img/img_formulari_inicio/medico_bot_0.png);
+ 	}
+	
+#boton_medico_conf a
+    {
+        text-decoration:none;
+        width: 125px;
+        height: 39px;
+        display: block;
+        color:#2779AA;
+    }
+
+#boton_medico_conf a:hover
+    {
+        text-decoration:none;
+        background:url(../img/img_formulari_inicio/medico_bot_1.png);
+        color: white;
+    }
+
