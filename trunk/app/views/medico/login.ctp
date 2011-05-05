@@ -29,7 +29,7 @@
                         &nbsp;                        
                     </td>
                     <td align="center" style="">
-                        <input type="text" id="log_med_usu" name="log_med_usu" style="border: 0px; color: #FFFFFF;">
+                        <input type="text" id="log_med_usu" name="log_med_usu" style="border: 0px; #FFFFFF;">
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         &nbsp;                        
                     </td>
                     <td align="center">
-                        <input type="password" id="pas_med_usu" name="pas_med_usu" style="border: 0px; color: #FFFFFF;">
+                        <input type="password" id="pas_med_usu" name="pas_med_usu" style="border: 0px; #FFFFFF;">
                     </td>
                 </tr>
                 <tr>
