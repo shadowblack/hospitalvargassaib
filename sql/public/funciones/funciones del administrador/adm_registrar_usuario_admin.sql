@@ -88,7 +88,7 @@ RETORNO:
 	0: Existe un usuario administrativo con el mismo login
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_registrar_usuario_admin(ARRAY[''Lisseth'', ''Lozada'', ''123'', ''llozada'',''04269150722'']);
+	SELECT adm_registrar_usuario_admin(ARRAY[''Lisseth'', ''Lozada'', ''123'', ''llozada'',''04269150722'',1]);
 
 AUTOR DE CREACIÓN: Lisseth Lozada
 FECHA DE CREACIÓN: 27/03/2011

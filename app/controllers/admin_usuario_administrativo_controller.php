@@ -32,14 +32,16 @@
             $ape_usu_adm = $_POST["ape_usu_adm"];
             $pas_usu_adm = $_POST["pas_usu_adm"];
             $log_usu_adm = $_POST["log_usu_adm"];
-            $tel_usu_adm = $_POST["tel_usu_adm"];           
+            $tel_usu_adm = $_POST["tel_usu_adm"]; 
+            $id_tip_usu_usu = $this->Session->read("id_tip_usu_usu");          
                         
             $sql = "SELECT adm_registrar_usuario_admin(ARRAY[
                 '$nom_usu_adm', 
                 '$ape_usu_adm', 
                 '$pas_usu_adm',  
                 '$log_usu_adm',
-                '$tel_usu_adm' 
+                '$tel_usu_adm',                
+                '$id_tip_usu_usu'
             ]) AS result";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              
@@ -128,12 +130,13 @@
         */ 
         function event_modificar(){
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $id_usu_adm  = $_POST["id_usu_adm"];
-            $nom_usu_adm = $_POST["nom_usu_adm"];
-            $ape_usu_adm = $_POST["ape_usu_adm"];
-            $pas_usu_adm = $_POST["pas_usu_adm"];
-            $log_usu_adm = $_POST["log_usu_adm"];
-            $tel_usu_adm = $_POST["tel_usu_adm"];           
+            $id_usu_adm     = $_POST["id_usu_adm"];
+            $nom_usu_adm    = $_POST["nom_usu_adm"];
+            $ape_usu_adm    = $_POST["ape_usu_adm"];
+            $pas_usu_adm    = $_POST["pas_usu_adm"];
+            $log_usu_adm    = $_POST["log_usu_adm"];
+            $tel_usu_adm    = $_POST["tel_usu_adm"];  
+            $id_tip_usu_usu = $this->Session->read("id_tip_usu_usu");
                         
             $sql = "SELECT adm_modificar_usuario_admin(ARRAY[
                 '$id_usu_adm',
@@ -141,7 +144,8 @@
                 '$nom_usu_adm', 
                 '$ape_usu_adm', 
                 '$pas_usu_adm',                  
-                '$tel_usu_adm' 
+                '$tel_usu_adm',
+                '$id_tip_usu_usu'
             ]) AS result";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              

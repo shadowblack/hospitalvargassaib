@@ -77,6 +77,7 @@
 }
 .top_menu_login_doc_center{
     background-image: url('../img/img_formulari_inicio/fondo_inicio_total.png');
+    background-repeat: no-repeat;
     height: 600px;
     width: 1024px;
 }

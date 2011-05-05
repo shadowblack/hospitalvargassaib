@@ -53,6 +53,8 @@
                     $this->Session->write("log_usu",$usuario->log_usu);
                     $this->Session->write("tel_usu",$usuario->tel_usu);
                     $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("id_tip_usu_usu",$usuario->id_tip_usu_usu);
                     $this->Session->write("cod_tip_usu",$usuario->cod_tip_usu);
                     $this->Session->write("str_mods",$usuario->str_mods);
                     $this->Session->write("str_trans",$usuario->str_trans);

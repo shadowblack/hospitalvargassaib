@@ -32,18 +32,18 @@
         */
         function event_registrar(){           
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $nom_usu_adm = $_POST["nom_usu_adm"];
-            $ape_usu_adm = $_POST["ape_usu_adm"];
-            $pas_usu_adm = $_POST["pas_usu_adm"];
-            $log_usu_adm = $_POST["log_usu_adm"];
-            $tel_usu_adm = $_POST["tel_usu_adm"];           
+            $nom_usu_adm = $_POST["nom_usu_doc"];
+            $ape_usu_doc = $_POST["ape_usu_doc"];
+            $pas_usu_doc = $_POST["pas_usu_doc"];
+            $log_usu_doc = $_POST["log_usu_doc"];
+            $tel_usu_doc = $_POST["tel_usu_doc"];           
                         
             $sql = "SELECT adm_registrar_usuario_admin(ARRAY[
-                '$nom_usu_adm', 
-                '$ape_usu_adm', 
-                '$pas_usu_adm',  
-                '$log_usu_adm',
-                '$tel_usu_adm' 
+                '$nom_usu_doc', 
+                '$ape_usu_doc', 
+                '$pas_usu_doc',  
+                '$log_usu_doc',
+                '$tel_usu_doc' 
             ]) AS result";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              

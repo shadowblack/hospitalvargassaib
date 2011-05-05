@@ -137,7 +137,7 @@
                         <?php echo __("Apellido",true)?>:
                     </td>                   
                     <td>
-                        <input type="text" id="log_usu_adm" name="log_usu_adm">
+                        <input type="text" id="ape_usu_adm" name="ape_usu_adm">
                     </td>                                        
                 </tr>    
                 <tr>
@@ -145,7 +145,7 @@
                         <?php echo __("Login",true)?>:
                     </td>
                     <td>
-                        <input type="text" id="ape_usu_adm" name="ape_usu_adm">
+                        <input type="text" id="log_usu_adm" name="log_usu_adm">
                     </td>                    
                     <td colspan="0" align="right">                        
                         <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
