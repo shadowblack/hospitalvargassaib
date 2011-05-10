@@ -248,7 +248,7 @@
                                             </td>
                                             <td>
                                                 <input type="reset" value="<?php echo __("Cancelar");?>" name="btn_can" id="btn_can">
-                                            </td>
+                                            </td>                                           
                                         </tr>
                                     </table>                                                                    
                                 </td>                                

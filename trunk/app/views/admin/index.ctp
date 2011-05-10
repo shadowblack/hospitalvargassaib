@@ -114,11 +114,7 @@
                                                     </table>                                                                                                                                                                                                          
                                                 </div>
                                             </div>
-                            			</div>
-                            			<div>
-                            				<h3><a href="#">Third</a></h3>
-                            				<div>Nam dui erat, auctor a, dignissim quis.</div>
-                            			</div>
+                            			</div>                            		
                             		</div>                                  
                                 </td>
                                 <td class="top_menu_window_body_right">                    

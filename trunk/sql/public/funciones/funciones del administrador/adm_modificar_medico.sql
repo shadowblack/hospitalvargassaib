@@ -13,23 +13,22 @@ DECLARE
 	_arr_trans_doc	INTEGER[]; 	-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
 	_vr_tip_usu 	RECORD;
 
-	_vc_id_tip_usu_usu	INTEGER;
+	_id_tip_usu_usu	INTEGER;
 	
 BEGIN
 
 	_id_doc		:= datos[1];
-	_nom_doc 	:= datos[2];
-	_ape_doc 	:= datos[3];
-	_pas_doc	:= md5(datos[4]);	
-	_log_doc 	:= datos[5];
+	_log_doc 	:= datos[2];
+	_nom_doc 	:= datos[3];
+	_ape_doc 	:= datos[4];
+	_pas_doc	:= md5(datos[5]);		
 	_tel_doc 	:= datos[6];
 	_trans_doc	:= datos[7];
 	
 	
 	IF EXISTS(SELECT 1 FROM doctores WHERE id_doc = _id_doc)THEN
 		/* El usuario administrativo puede ser registrado */
-		IF NOT EXISTS (SELECT 1 FROM doctores WHERE log_doc = _log_doc AND id_doc <> _id_doc) THEN     		
-			
+		IF NOT EXISTS (SELECT 1 FROM doctores WHERE log_doc = _log_doc AND id_doc <> _id_doc) THEN     					
 			/*Inserta registro en la tabla usuarios_administrativos*/	
 
 			UPDATE doctores SET 
@@ -44,11 +43,12 @@ BEGIN
 			;
 			
 			/* Insertando las transacciones del usuario*/
-			_vc_id_tip_usu_usu := (CURRVAL('tipos_usuarios__usuarios_id_tip_usu_usu_seq'));
-			DELETE FROM transacciones_usuarios WHERE id_tip_tra_usu = _vc_id_tip_usu_usu;	
-							
-			IF (ARRAY_UPPER(_arr_trans_doc,1) > 0)THEN
-				_arr_trans_doc := STRING_TO_ARRAY(_trans_doc,',');
+			_id_tip_usu_usu := (SELECT id_tip_usu_usu FROM tipos_usuarios__usuarios WHERE id_doc = _id_doc);
+			DELETE FROM transacciones_usuarios WHERE id_tip_usu_usu = _id_tip_usu_usu;	
+			
+			_arr_trans_doc := STRING_TO_ARRAY(_trans_doc,',');
+					
+			IF (ARRAY_UPPER(_arr_trans_doc,1) > 0)THEN							
 				FOR i IN 1..(ARRAY_UPPER(_arr_trans_doc,1)) LOOP
 					INSERT INTO transacciones_usuarios(
 						id_tip_usu_usu,
@@ -56,7 +56,7 @@ BEGIN
 					)
 					VALUES
 					(					
-						_vc_id_tip_usu_usu,
+						_id_tip_usu_usu,
 						_arr_trans_doc[i]
 					);
 				END LOOP;

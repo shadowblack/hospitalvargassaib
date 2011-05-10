@@ -114,16 +114,22 @@
         */ 
         function modificar($id){
             $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->no_cache();
             $sql = "SELECT * FROM doctores WHERE id_doc=$id";
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));
             
             $sql = "
                 SELECT m.id_mod,m.cod_mod,m.des_mod,t.id_tip_tra,t.cod_tip_tra,t.des_tip_tra,tuu.id_tip_usu_usu
-                FROM modulos m JOIN
-                transacciones t ON (m.id_mod = t.id_mod) 
-                LEFT JOIN transacciones_usuarios tu ON (t.id_tip_tra = tu.id_tip_tra)
-                LEFT JOIN tipos_usuarios__usuarios tuu ON (tuu.id_tip_usu_usu = tu.id_tip_usu_usu and tuu.id_doc = $id)
+                    FROM modulos m JOIN
+                    transacciones t ON (m.id_mod = t.id_mod) 
+                LEFT JOIN
+                (
+                    SELECT tuu.id_tip_usu_usu, tu.id_tip_tra FROM transacciones_usuarios tu 
+                    JOIN tipos_usuarios__usuarios tuu ON (tuu.id_tip_usu_usu = tu.id_tip_usu_usu )
+                    WHERE tuu.id_doc = $id
+                ) tuu
+                ON (t.id_tip_tra = tuu.id_tip_tra)                
             ";
             //die($sql);
             $arr_query = ($this->Doctore->query($sql));            
@@ -145,7 +151,7 @@
         /**
         * Editando usuarios administrativos
         */ 
-        function event_modificar(){
+        function event_modificar(){            
             $this->Login->autenticacion_usuario($this,"/admin/login");
             $id_doc  = $_POST["id_doc"];
             $nom_doc = $_POST["nom_doc"];
@@ -153,16 +159,18 @@
             $pas_doc = $_POST["pas_doc"];
             $log_doc = $_POST["log_doc"];
             $tel_doc = $_POST["tel_doc"];           
-                        
-            $sql = "SELECT adm_modificar_usuario_admin(ARRAY[
+            $val_str_tra = $_POST["val_str_tra"];
+            $sql = "SELECT adm_modificar_medico(ARRAY[
                 '$id_doc',
                 '$log_doc',
                 '$nom_doc', 
                 '$ape_doc', 
                 '$pas_doc',                  
-                '$tel_doc' 
+                '$tel_doc',
+                '$val_str_tra'
             ]) AS result";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
+           // die($sql);
+            $arr_query = ($this->Doctore->query($sql));
                              
             $result = $this->SqlData->result_num($arr_query);            
                         
@@ -187,11 +195,11 @@
          function event_eliminar($id,$log_usu=""){
             $this->Login->autenticacion_usuario($this,"/admin/login");
                                    
-            $sql = "SELECT adm_eliminar_usuario_admin(
-                '$id'              
+            $sql = "SELECT adm_eliminar_medico(
+                '{\"$id\"}'              
             ) AS result";
                         
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
+            $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->result_num($arr_query);            
                         
