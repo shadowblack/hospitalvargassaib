@@ -90,19 +90,7 @@
                 .attr("class","")
                 .addClass()                              
                 .css("display","block");  
-                
-                
-                /*jQuery("#dialog").dialog("destroy");
-                             
-               
-                
-                
-                jQuery("#dialog").dialog("destroy");
-                jQuery("#dialog #dialog_messege").css("display","none");jQuery("#dialog img").css("display","block");                
-                jQuery("#dialog").dialog({                            
-                    resizable: false
-                }).css("display","block");  */
-            
+              
                 
    } 
 </script>

@@ -7,10 +7,18 @@
 <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>  
 <script type="text/javascript">
     jQuery(function(){ 
+        /*Parametrizando los ids de las transacciones*/
+        _arr_str = new Array();
+        jQuery("[name^='mod_tra_chk_']:checked").each(function(i,obj){
+            _arr_str.push(obj.value)
+        });        
+        _str = _arr_str.join(",");
+        jQuery("#val_str_tra").val(_str);    
+        
         parent.jQuery("#title_content").html("<?php echo $title;?>");        
        jQuery("#reg_usu_doc").validate({
     		rules: {    			
-    			pas_usu_adm: {    				
+    			pas_doc: {    				
     				minlength: 5
     			},
     			rep_pas_usu_doc: {
@@ -72,9 +80,17 @@
                	
        /*Seleccionando todas las transacciones hijos al seleccionar el módulo padre*/          
        jQuery("[id^='mod_chk_']").click(function(){
-    	  var _mod = jQuery(this).attr("value"); 
-          _select = "[name^='mod_tra_chk_"+_mod+"']";         
-          jQuery(_select).attr("checked",this.checked);                           
+            var _mod = jQuery(this).attr("value"); 
+            _select = "[name^='mod_tra_chk_"+_mod+"']";         
+            jQuery(_select).attr("checked",this.checked); 
+            
+            /*Parametrizando los ids de las transacciones*/
+            _arr_str = new Array();
+            jQuery("[name^='mod_tra_chk_']:checked").each(function(i,obj){
+                _arr_str.push(obj.value)
+            });        
+            _str = _arr_str.join(",");
+            jQuery("#val_str_tra").val(_str);                          
 	   });
             
        /*Selecionando check del modulo cuando se seleccionan todos las transacciones hijos*/

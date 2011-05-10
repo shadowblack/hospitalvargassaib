@@ -10,7 +10,7 @@
                         +jQuery("#log_usu_adm").val()+"/"; 
                                            
             jQuery("#cargador").css("display","block")
-            jQuery("#content").load("<?php echo $this->Html->url("/AdminUsuarioAdministrativo/event_listar")?>"+_str,function(){
+            jQuery("#content").load("<?php echo $this->Html->url("/AdminUsuariosMedicos/event_listar")?>"+_str,function(){
                 jQuery("#cargador").css("display","none")
             });
         })
@@ -18,7 +18,7 @@
         jQuery("#btn_buscar").trigger("click");
    });
    function edit(id){
-        window.location.href = "<?php echo $this->Html->url("/AdminUsuarioAdministrativo/modificar/")?>"+id;
+        window.location.href = "<?php echo $this->Html->url("/AdminUsuariosMedicos/modificar/")?>"+id;
    }  
    function del(id,str){ 
                 /*Destrucccion del dialogo*/
@@ -27,7 +27,7 @@
                 /*Insertando texto en el dialogo*/
                 var _select = "#dialog #dialog_text";                      
                 jQuery(_select).empty();
-                jQuery(_select).text("<?php echo __("¿Desea eliminar el usuario administrativo",true) ?> '"+str+"'?");
+                jQuery(_select).text("<?php echo __("¿Desea eliminar el usuario médico",true) ?> '"+str+"'?");
                 
                 /*Limpiando clases del dialogo*/
                 _select = "#dialog td > div > div";
@@ -54,7 +54,7 @@
                             text: '<?php echo __("Aceptar",true)?>',
                             click: function() {      
                                jQuery.ajax({
-                                        url:"<?php echo $this->Html->url("/AdminUsuarioAdministrativo/event_eliminar/")?>"+id+"/"+str+"/",                                                type: "POST",    
+                                        url:"<?php echo $this->Html->url("/AdminUsuariosMedicos/event_eliminar/")?>"+id+"/"+str+"/",                                                type: "POST",    
                                         dataType: "json",                                      
                                         error:function(){alert("Error json")},
                                         success: function(data){                                                                     
@@ -100,18 +100,7 @@
                 .attr("class","")
                 .addClass()                              
                 .css("display","block");  
-                
-                
-                /*jQuery("#dialog").dialog("destroy");
-                             
-               
-                
-                
-                jQuery("#dialog").dialog("destroy");
-                jQuery("#dialog #dialog_messege").css("display","none");jQuery("#dialog img").css("display","block");                
-                jQuery("#dialog").dialog({                            
-                    resizable: false
-                }).css("display","block");  */
+                                
             
                 
    } 
