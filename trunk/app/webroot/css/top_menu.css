@@ -21,8 +21,8 @@
 .top_menu_window_top_center{
     background-image: url('../img/menu_top/windows/images/windows_03.gif');
     background-repeat:repeat-x; 
-    height: 48px;    
-}
+    height: 48px;
+    }
 .top_menu_window_top_right{
     background-image: url('../img/menu_top/windows/images/windows_05.gif');
     background-repeat: repeat-x;   
@@ -118,3 +118,25 @@
         color: white;
     }
 
+/*css para el index de la aplicacion*/
+
+.top_menu_login_index_izquierdo{
+    background-image: url('../img/img_formulari_index/fondo_inici_izq.png');
+    height: 600px;
+}
+.top_menu_login_index_center{
+    background-image: url('../img/img_formulari_index/img_index.png');
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 1024px;
+}
+.top_menu_login_index_derecho{
+    background-image: url('../img/img_formulari_index/fondo_inici_dere.png');
+    height: 600px;
+ }   
+.top_menu_login_index_center_adm{
+    background-image: url('../img/img_formulari_index/img_index_adm.png');
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 1024px;
+}
