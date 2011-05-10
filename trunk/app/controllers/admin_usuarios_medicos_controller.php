@@ -32,20 +32,23 @@
         */
         function event_registrar(){           
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $nom_usu_adm = $_POST["nom_usu_doc"];
+            $nom_usu_doc = $_POST["nom_usu_doc"];
             $ape_usu_doc = $_POST["ape_usu_doc"];
             $pas_usu_doc = $_POST["pas_usu_doc"];
             $log_usu_doc = $_POST["log_usu_doc"];
-            $tel_usu_doc = $_POST["tel_usu_doc"];           
+            $tel_usu_doc = $_POST["tel_usu_doc"];
+            $trans_usu   = $_POST["val_str_tra"];           
                         
-            $sql = "SELECT adm_registrar_usuario_admin(ARRAY[
+            $sql = "SELECT adm_registrar_medico(ARRAY[
                 '$nom_usu_doc', 
                 '$ape_usu_doc', 
                 '$pas_usu_doc',  
                 '$log_usu_doc',
-                '$tel_usu_doc' 
+                '$tel_usu_doc',
+                '$trans_usu'
             ]) AS result";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
+            //die($sql);
+            $arr_query = ($this->Doctore->query($sql));
                              
             $result = $this->SqlData->result_num($arr_query);
             /*App::import("Lib",Array("FirePhp","fb"));
@@ -58,7 +61,7 @@
                     die($this->FormatMessege->box_style($result,"El usuario se a insertado con éxito"));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_adm\' ya se encuentra registrado en el sistema"));                    
+                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_doc\' ya se encuentra registrado en el sistema"));                    
                     break;
                     
             }                   
@@ -91,11 +94,11 @@
             $apellido   = $param_array[1];
             $login      = $param_array[2];                                                
             
-            $sql = "SELECT * FROM usuarios_administrativos
-                    WHERE nom_usu_adm ilike('%$nombre%') 
-                    AND ape_usu_adm ilike('%$apellido%')
-                    AND log_usu_adm ilike('%$login%')";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
+            $sql = "SELECT * FROM doctores
+                    WHERE nom_doc ilike('%$nombre%') 
+                    AND ape_doc ilike('%$apellido%')
+                    AND log_doc ilike('%$login%')";
+            $arr_query = ($this->Doctore->query($sql));
             $results = ($this->SqlData->array_to_objects($arr_query));        
             
             $data = Array(
@@ -111,14 +114,26 @@
         */ 
         function modificar($id){
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $sql = "SELECT * FROM usuarios_administrativos WHERE id_usu_adm=$id";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
-            $result = ($this->SqlData->array_to_object($arr_query));        
+            $sql = "SELECT * FROM doctores WHERE id_doc=$id";
+            $arr_query = ($this->Doctore->query($sql));
+            $result = ($this->SqlData->array_to_object($arr_query));
+            
+            $sql = "
+                SELECT m.id_mod,m.cod_mod,m.des_mod,t.id_tip_tra,t.cod_tip_tra,t.des_tip_tra,tuu.id_tip_usu_usu
+                FROM modulos m JOIN
+                transacciones t ON (m.id_mod = t.id_mod) 
+                LEFT JOIN transacciones_usuarios tu ON (t.id_tip_tra = tu.id_tip_tra)
+                LEFT JOIN tipos_usuarios__usuarios tuu ON (tuu.id_tip_usu_usu = tu.id_tip_usu_usu and tuu.id_doc = $id)
+            ";
+            //die($sql);
+            $arr_query = ($this->Doctore->query($sql));            
+            $result_tran = $this->SqlData->array_to_objects($arr_query);          
                         
             $title =  __("Modificación de usuarios médicos",true);
             
             $data = Array(
                 "result"    => $result,
+                "result_tran"    => $result_tran,
                 "title"     => $title,
                 "id"        => $id
             ); 
@@ -132,20 +147,20 @@
         */ 
         function event_modificar(){
             $this->Login->autenticacion_usuario($this,"/admin/login");
-            $id_usu_adm  = $_POST["id_usu_adm"];
-            $nom_usu_adm = $_POST["nom_usu_adm"];
-            $ape_usu_adm = $_POST["ape_usu_adm"];
-            $pas_usu_adm = $_POST["pas_usu_adm"];
-            $log_usu_adm = $_POST["log_usu_adm"];
-            $tel_usu_adm = $_POST["tel_usu_adm"];           
+            $id_doc  = $_POST["id_doc"];
+            $nom_doc = $_POST["nom_doc"];
+            $ape_doc = $_POST["ape_doc"];
+            $pas_doc = $_POST["pas_doc"];
+            $log_doc = $_POST["log_doc"];
+            $tel_doc = $_POST["tel_doc"];           
                         
             $sql = "SELECT adm_modificar_usuario_admin(ARRAY[
-                '$id_usu_adm',
-                '$log_usu_adm',
-                '$nom_usu_adm', 
-                '$ape_usu_adm', 
-                '$pas_usu_adm',                  
-                '$tel_usu_adm' 
+                '$id_doc',
+                '$log_doc',
+                '$nom_doc', 
+                '$ape_doc', 
+                '$pas_doc',                  
+                '$tel_doc' 
             ]) AS result";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              
@@ -156,10 +171,10 @@
                     die($this->FormatMessege->box_style($result,"El usuario se a modificado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_adm\' no se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_doc\' no se encuentra registrado en el sistema."));                    
                     break;  
                 case 2:
-                    die($this->FormatMessege->box_style($result,"Existe un usuario con el login \'$log_usu_adm\' por favor intente con otro."));                  
+                    die($this->FormatMessege->box_style($result,"Existe un usuario con el login \'$log_doc\' por favor intente con otro."));                  
                     break;            
             }                               
             die;
