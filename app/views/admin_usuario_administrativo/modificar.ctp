@@ -51,7 +51,12 @@
                             buttons: [
                                 {
                                     text: '<?php echo __("Aceptar",true)?>',
-                                    click: function() { jQuery(this).dialog("close"); }
+                                    click: function() {
+                                        if (data.event == 1)
+                                            history.back(-1);
+                                        else
+                                            jQuery(this).dialog("close");                                         
+                                    }
                                 }
                             ],
                             resizable: false
@@ -161,6 +166,9 @@
                                             </td>
                                             <td>
                                                 <input type="reset" value="<?php echo __("Cancelar");?>" name="btn_can" id="btn_can">
+                                            </td>
+                                            <td>
+                                                <input type="button" value="<?php echo __("Regresar");?>" name="btn_vol" id="btn_vol" onclick="javascript:history.back(-1)">
                                             </td>
                                         </tr>
                                     </table>                                                                    

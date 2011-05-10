@@ -7,6 +7,15 @@
 <script type="text/javascript">
     jQuery(function(){ 
         
+        /*Checkeando el padre de los checkbox cuando se detecta que esta lleno por defecto*/
+        jQuery("[id^=mod_chk_]").each(function(i,obj){
+            var nom_id = jQuery(this).attr("id"),
+            arr_str = new Array();
+            arr_str = nom_id.split("mod_chk_");            
+            var _checked = ((jQuery("[name='mod_tra_chk_"+arr_str[1]+"']:checked").length) == (jQuery("[name='mod_tra_chk_"+arr_str[1]+"']").length));            
+            jQuery(this).attr("checked",_checked); 
+        });
+        
         /*Parametrizando los ids de las transacciones*/
         _arr_str = new Array();
         jQuery("[name^='mod_tra_chk_']:checked").each(function(i,obj){
@@ -16,7 +25,7 @@
         jQuery("#val_str_tra").val(_str);      
                     
        parent.jQuery("#title_content").html("<?php echo $title;?>");        
-       jQuery("#reg_usu_adm").validate({
+       jQuery("#mod_usu_adm").validate({
     		rules: {    			
     			pas_doc: {    				
     				minlength: 5
@@ -27,7 +36,8 @@
     				equalTo: "#pas_doc"
     			}
     		},
-            submitHandler: function(form) {                
+            submitHandler: function(form) {     
+                
    	            //jQuery(form).ajaxSubmit();
                 var array_form = jQuery("form").serializeArray();              
                 jQuery.ajax({
@@ -60,7 +70,12 @@
                             buttons: [
                                 {
                                     text: '<?php echo __("Aceptar",true)?>',
-                                    click: function() { jQuery(this).dialog("close"); }
+                                    click: function() {
+                                        if (data.event == 1)
+                                            history.back(-1);
+                                        else
+                                            jQuery(this).dialog("close");                                         
+                                    }
                                 }
                             ],
                             resizable: false
@@ -138,9 +153,10 @@
         </tr>
     </table>              
 </div>
-<div style="padding: 0;position: absolute; width: 700px;margin-top: 40px;">    
-    <form action="" id="reg_doc" name="login" method="post">  
+<div style="padding: 0;position: absolute; width: 700px;margin-top: 30px;">    
+    <form action="" id="mod_usu_adm" name="login" method="post">  
         <input type="hidden" id="id_doc" name="id_doc" value="<?php echo $id?>">
+        <input type="hidden" value="" name="val_str_tra" id="val_str_tra">
         <table border="0" align="center" style="position: relative;">
             <tr>
                 <td align="center">            
@@ -246,6 +262,9 @@
                                             </td>
                                             <td>
                                                 <input type="reset" value="<?php echo __("Cancelar");?>" name="btn_can" id="btn_can">
+                                            </td>
+                                            <td>
+                                                <input type="button" value="<?php echo __("Regresar");?>" name="btn_vol" id="btn_vol" onclick="history.back(-1)">
                                             </td>
                                         </tr>
                                     </table>                                                                    
