@@ -14,7 +14,7 @@
             //jQuery(form).ajaxSubmit();
                 var array_form = jQuery("form").serializeArray();              
                 jQuery.ajax({
-                    url:"<?php echo $this->Html->url("/admin/validar_usuario")?>",                    
+                    url:"<?php echo $this->Html->url("/medico/validar_usuario")?>",                    
                     type: "POST",
                     data: array_form,
                     dataType: "json",                                      
@@ -50,7 +50,7 @@
                             ],
                             resizable: false
                         }).css("display","block");                                                                                                            if (data.event == 1){
-                             window.location.href = "<?php echo $this->Html->url("/admin") ?>";
+                             window.location.href = "<?php echo $this->Html->url("/medico") ?>";
                         }
                     }                   
                 });

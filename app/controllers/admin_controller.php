@@ -37,7 +37,7 @@
         function validar_usuario(){
           
                 if (!isset($_POST["log_usu"]) || !isset($_POST["pas_log"])){
-                    die(json_encode("{event:0,coment:'".__("Error de validación",true)."'}"));
+                    die($this->FormatMessege->box_style(2,"Error de validación."));
                 }                
                 $log_usu = $_POST["log_usu"];    
                 $pas_usu = ($_POST["pas_log"]);

@@ -2,7 +2,7 @@
     class MedicoController extends Controller{
         var $name = "Medico";
         var $uses = Array("UsuariosAdministrativo");
-        var $components = Array("Login","Session");
+         var $components = Array("Login","Session","SqlData","FormatMessege");
         
         /**
          * Entrando a la aplicacion administrativa
@@ -14,12 +14,51 @@
         /**
          * Login de la aplicacion
          */
+        /*
+        * Mostrando pagina de inicio de login
+        */
         function login(){
             
         }
-        function content_iframe(){
-            
+               
+        /**
+         * Validando usuario 
+         */
+        function validar_usuario(){
+          
+                if (!isset($_POST["log_usu"]) || !isset($_POST["pas_log"])){                    
+                    die($this->FormatMessege->box_style(2,"Error de validación."));
+                }                
+                $log_usu = $_POST["log_usu"];    
+                $pas_usu = ($_POST["pas_log"]);
+                                                
+                $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','med') AS result"));                
+                $usuario = $this->SqlData->array_to_object($arr_query);
+                if (!empty($usuario->id_usu)){
+                    //print_r($usuario);
+                    
+                    $this->Session->write("id_usu",$usuario->id_usu);
+                    $this->Session->write("nom_usu",$usuario->nom_usu);
+                    $this->Session->write("ape_usu",$usuario->ape_usu);
+                    $this->Session->write("log_usu",$usuario->log_usu);
+                    $this->Session->write("tel_usu",$usuario->tel_usu);
+                    $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("id_tip_usu_usu",$usuario->id_tip_usu_usu);
+                    $this->Session->write("cod_tip_usu",$usuario->cod_tip_usu);
+                    $this->Session->write("str_mods",$usuario->str_mods);
+                    $this->Session->write("str_trans",$usuario->str_trans);
+                    $this->Session->write("des_tip_usu",$usuario->des_tip_usu);
+
+                    die($this->FormatMessege->box_style(1,"Usuario verificado."));
+                } else {
+                    die($this->FormatMessege->box_style(2,"Por favor verifique sus datos."));    
+                }                               
+                die;                                             
         }
-    
+        function salir(){           
+            $this->Session->destroy();
+            $this->redirect("/medico/login");
+        }
     }
 ?>
