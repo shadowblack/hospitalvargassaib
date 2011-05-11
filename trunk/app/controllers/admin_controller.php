@@ -2,7 +2,7 @@
     class AdminController extends Controller{
         var $name = "Admin";
         var $uses = Array("UsuariosAdministrativo");
-        var $components = Array("Login","Session","SqlData");
+        var $components = Array("Login","Session","SqlData","FormatMessege");
         
         /**
          * Entrando a la aplicacion administrativa
@@ -59,10 +59,10 @@
                     $this->Session->write("str_mods",$usuario->str_mods);
                     $this->Session->write("str_trans",$usuario->str_trans);
                     $this->Session->write("des_tip_usu",$usuario->des_tip_usu);
-                    
-                    die(json_encode("{event:1}"));
+
+                    die($this->FormatMessege->box_style(1,"Usuario verificado."));
                 } else {
-                    die(json_encode("{event:'0',coment:'".__("El usuario no existe por favor intente nuevamente",true)."'}"));    
+                    die($this->FormatMessege->box_style(2,"Por favor verifique sus datos."));    
                 }                               
                 die;                                             
         }
