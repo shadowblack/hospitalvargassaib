@@ -124,7 +124,7 @@
     }            
 </style>
 
-<div id="dialog" title="Basic dialog" style="text-align:center;display:none;overflow: hidden;">
+<div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">
     <table style="height: 70px;" align="center">
         <tr>
             <td valign="center" class="">    

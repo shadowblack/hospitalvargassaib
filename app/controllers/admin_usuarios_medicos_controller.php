@@ -3,16 +3,17 @@
         var $name = "AdminUsuariosMedicos";
         var $uses = Array("Doctore");
         var $components = Array("Login","SqlData","FormatMessege","Session");
+        protected $group_session = "admin";
        
         function index(){   
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
         }
   
         /**
         * View registro de usuarios administrativos
         */
         function registrar(){            
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
                         
             $sql = "SELECT * FROM modulos m JOIN transacciones t ON (m.id_mod = t.id_mod)";
             $arr_query = ($this->Doctore->query($sql));            
@@ -31,7 +32,7 @@
         * Registrando usuarios administrativos
         */
         function event_registrar(){           
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $nom_usu_doc = $_POST["nom_usu_doc"];
             $ape_usu_doc = $_POST["ape_usu_doc"];
             $pas_usu_doc = $_POST["pas_usu_doc"];
@@ -73,7 +74,7 @@
         * View lista de usuarios administrativos
         */
         function listar(){    
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");            
             $title =  __("Lista de usuarios médicos",true);            
             $data = Array(                
                 "title"     => $title                
@@ -86,7 +87,7 @@
         * Listando de usuarios administrativos
         */
         function event_listar($str){  
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             
             $param_array = explode(",",$str);
             
@@ -113,7 +114,7 @@
         * View editar usuarios administrativos
         */ 
         function modificar($id){
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $this->Login->no_cache();
             $sql = "SELECT * FROM doctores WHERE id_doc=$id";
             $arr_query = ($this->Doctore->query($sql));
@@ -152,7 +153,7 @@
         * Editando usuarios administrativos
         */ 
         function event_modificar(){            
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $id_doc  = $_POST["id_doc"];
             $nom_doc = $_POST["nom_doc"];
             $ape_doc = $_POST["ape_doc"];
@@ -193,7 +194,7 @@
          */
          
          function event_eliminar($id,$log_usu=""){
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
                                    
             $sql = "SELECT adm_eliminar_medico(
                 '{\"$id\"}'              

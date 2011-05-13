@@ -3,20 +3,22 @@
         var $name = "Admin";
         var $uses = Array("UsuariosAdministrativo");
         var $components = Array("Login","Session","SqlData","FormatMessege");
+        protected $group_session = "admin";        
         
         /**
          * Entrando a la aplicacion administrativa
          */
         function index(){ 
            $this->Login->no_cache();
-           $this->Login->autenticacion_usuario($this,"/admin/login");
+           //$this->cakeError('errors404');          
+           $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session);
                 
            //$mod = $this->Session->read("str_mods");
            /*
            $data = Array(
             "cua"=>$this->Login->validar_permisos($mod,"cua")
            );
-           $this->set($data);  */         
+           $this->set($data);  */     
         }
         /*
         function __construct(){            
@@ -42,23 +44,25 @@
                 $log_usu = $_POST["log_usu"];    
                 $pas_usu = ($_POST["pas_log"]);
                                                 
-                $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','adm') AS result"));                
+                $arr_query = ($this->UsuariosAdministrativo->query("SELECT * FROM validar_usuarios('".$log_usu."','".$pas_usu."','adm') AS result"));     
+                               
                 $usuario = $this->SqlData->array_to_object($arr_query);
-                if (!empty($usuario->id_usu)){
+                
+                if (!empty($usuario->id_usu) && $this->UsuariosAdministrativo->getNumRows() > 0){
                     //print_r($usuario);
                     
-                    $this->Session->write("id_usu",$usuario->id_usu);
-                    $this->Session->write("nom_usu",$usuario->nom_usu);
-                    $this->Session->write("ape_usu",$usuario->ape_usu);
-                    $this->Session->write("log_usu",$usuario->log_usu);
-                    $this->Session->write("tel_usu",$usuario->tel_usu);
-                    $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
-                    $this->Session->write("id_tip_usu",$usuario->id_tip_usu);
-                    $this->Session->write("id_tip_usu_usu",$usuario->id_tip_usu_usu);
-                    $this->Session->write("cod_tip_usu",$usuario->cod_tip_usu);
-                    $this->Session->write("str_mods",$usuario->str_mods);
-                    $this->Session->write("str_trans",$usuario->str_trans);
-                    $this->Session->write("des_tip_usu",$usuario->des_tip_usu);
+                    $this->Session->write("admin.id_usu",$usuario->id_usu);
+                    $this->Session->write("admin.nom_usu",$usuario->nom_usu);
+                    $this->Session->write("admin.ape_usu",$usuario->ape_usu);
+                    $this->Session->write("admin.log_usu",$usuario->log_usu);
+                    $this->Session->write("admin.tel_usu",$usuario->tel_usu);
+                    $this->Session->write("admin.id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("admin.id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("admin.id_tip_usu_usu",$usuario->id_tip_usu_usu);
+                    $this->Session->write("admin.cod_tip_usu",$usuario->cod_tip_usu);
+                    $this->Session->write("admin.str_mods",$usuario->str_mods);
+                    $this->Session->write("admin.str_trans",$usuario->str_trans);
+                    $this->Session->write("admin.des_tip_usu",$usuario->des_tip_usu);
 
                     die($this->FormatMessege->box_style(1,"Usuario verificado."));
                 } else {
@@ -67,7 +71,8 @@
                 die;                                             
         }
         function salir(){           
-            $this->Session->destroy();
+            //$this->Session->destroy();
+            $this->Session->delete("admin");
             $this->redirect("/admin/login");
         }
     }
