@@ -1,6 +1,7 @@
 ﻿<?php   
     //echo $url_img =  $this->webroot."img/menu_top/"; 
     //echo "http://127.0.0.1$url_img"."img/menu_top/8_01.jpg";die;
+    //$this->error(404, 'Not found', 'This page was not found, sorry');die;
 ?>
 <script type="text/javascript">
 	jQuery(function(){

@@ -64,16 +64,16 @@
                                             _select = "#dialog span";
                                             jQuery(_select).attr("class","");
                                             jQuery(_select).addClass(data.class_icon);
-                                            
-                                            jQuery("#btn_buscar").trigger("click");
-                                            
-                                            jQuery("#dialog").dialog("destroy");
+                                            alert("demo");
+                                            jQuery("#btn_buscar").trigger("click");                                            
+                                            jQuery(this).dialog("close");
+                                            jQuery(this).dialog("destroy");
                                             jQuery("#dialog").dialog({
                                                 modal:true,
                                                 minHeight: 150,                            
                                                 buttons: [
                                                     {
-                                                        text: '<?php echo __("Aceptar",true)?>',
+                                                        text: '<?php echo __("Aceptarr",true)?>',
                                                         click: function() { jQuery(this).dialog("close"); }
                                                     }
                                                 ],
@@ -94,7 +94,7 @@
                 
    } 
 </script>
-<div id="dialog" title="Basic dialog" style="text-align:center;display:none;overflow: hidden;">
+<div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">
     <table style="height: 70px;" align="center">
         <tr>
             <td valign="center" class="">    

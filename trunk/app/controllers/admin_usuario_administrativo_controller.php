@@ -3,17 +3,17 @@
         var $name = "AdminUsuarioAdministrativo";
         var $uses = Array("UsuariosAdministrativo");
         var $components = Array("Login","SqlData","FormatMessege","Session");
-       
+       protected $group_session = "admin";
        
         function index(){   
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
         }
   
         /**
         * View registro de usuarios administrativos
         */
         function registrar(){            
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $title =  __("Agregar usuarios administrativos",true);
             
             $data = Array(               
@@ -27,7 +27,7 @@
         * Registrando usuarios administrativos
         */
         function event_registrar(){           
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $nom_usu_adm = $_POST["nom_usu_adm"];
             $ape_usu_adm = $_POST["ape_usu_adm"];
             $pas_usu_adm = $_POST["pas_usu_adm"];
@@ -68,7 +68,7 @@
         * View lista de usuarios administrativos
         */
         function listar(){    
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $title =  __("Lista de usuarios administrativos",true);            
             $data = Array(                
                 "title"     => $title                
@@ -81,14 +81,13 @@
         * Listando de usuarios administrativos
         */
         function event_listar($str){
-            
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $param_array = explode(",",$str);
             
             $nombre     = $param_array[0];
             $apellido   = $param_array[1];
             $login      = $param_array[2];            
-                        
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+                                    
             $sql = "SELECT * FROM usuarios_administrativos
                     WHERE nom_usu_adm ilike('%$nombre%') 
                     AND ape_usu_adm ilike('%$apellido%')
@@ -108,7 +107,7 @@
         * View editar usuarios administrativos
         */ 
         function modificar($id){
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $sql = "SELECT * FROM usuarios_administrativos WHERE id_usu_adm=$id";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));        
@@ -129,7 +128,7 @@
         * Editando usuarios administrativos
         */ 
         function event_modificar(){
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $id_usu_adm     = $_POST["id_usu_adm"];
             $nom_usu_adm    = $_POST["nom_usu_adm"];
             $ape_usu_adm    = $_POST["ape_usu_adm"];
@@ -170,7 +169,7 @@
          */
          
          function event_eliminar($id,$log_usu=""){
-            $this->Login->autenticacion_usuario($this,"/admin/login");
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
                                    
             $sql = "SELECT adm_eliminar_usuario_admin(
                 '$id'              

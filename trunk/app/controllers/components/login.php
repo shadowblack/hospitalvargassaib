@@ -25,9 +25,29 @@ class LoginComponent extends Object{
     /**
      * Validando que el usuario este logeado en el sistema
      */
-    function autenticacion_usuario($self,$page){
-        if (!$self->Session->read("id_usu"))
+    function autenticacion_usuario($self,$page,$group = "",$config = ""){           
+       if (!$self->Session->check($group)){ 
+        
+            switch($config){
+                case "iframe":
+                    $self->cakeError('session_expired',Array("name"=>"Session Out","message"=>"ha expirado."));
+                break;
+                /*Es necesario tener habilitado el componente FormatMessege para que funcione*/
+                case "json":
+                    die($self->FormatMessege->box_style(20,"Session Out, por favor ingresar nuevamente al sistema."));
+                break;
+                default:
+                    $self->redirect($page);
+                    die;
+                break;
+            }                  
+            
+       }
+       
+       /*
+        if (!$self->Session->read(($group <> "" ? $group."." : "")."id_usu"))        
                 $self->redirect($page);
+                */
     }
     
     /**
@@ -35,7 +55,8 @@ class LoginComponent extends Object{
      */
     function autenticacion_usuario_json($self){
         if (!$self->Session->read("id_usu"))
-                die($self->FormatMessege->box_style(20,"Por favor inicie session en el sistema."));
+            /*Es necesario tener habilitado el componente FormatMessege para que funcione*/
+            die($self->FormatMessege->box_style(20,"Por favor inicie session en el sistema."));
     }
 }
 ?>
