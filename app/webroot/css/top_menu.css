@@ -76,7 +76,7 @@
     height: 600px;
 }
 .top_menu_login_doc_center{
-    background-image: url('../img/img_formulari_inicio/fondo_inicio_total.png');
+    background-image: url('../img/img_formulari_inicio/fondo_inicio_total.jpg');
     background-repeat: no-repeat;
     height: 600px;
     width: 1024px;
@@ -125,7 +125,7 @@
     height: 600px;
 }
 .top_menu_login_index_center{
-    background-image: url('../img/img_formulari_index/img_index.png');
+    background-image: url('../img/img_formulari_index/img_index.jpg');
     background-repeat: no-repeat;
     height: 600px;
     width: 1024px;
@@ -135,7 +135,7 @@
     height: 600px;
  }   
 .top_menu_login_index_center_adm{
-    background-image: url('../img/img_formulari_index/img_index_adm.png');
+    background-image: url('../img/img_formulari_index/img_index_adm.jpg');
     background-repeat: no-repeat;
     height: 600px;
     width: 1024px;
