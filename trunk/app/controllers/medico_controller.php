@@ -58,7 +58,7 @@
         }
         function salir(){           
             //$this->Session->destroy();
-            $this->Sesssion->delete("medico");
+            $this->Session->delete("medico");
             $this->redirect("/medico/login");
         }
     }

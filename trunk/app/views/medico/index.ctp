@@ -110,7 +110,7 @@
                                 <td class="top_menu_window_top_circle">
                                     &nbsp;
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:200px;">
+                                <td class="top_menu_window_top_center" style="width:210px;">
                                     <!-- Dinamic -->
                                     &nbsp;
                                 </td>
