@@ -25,7 +25,8 @@ class LoginComponent extends Object{
     /**
      * Validando que el usuario este logeado en el sistema
      */
-    function autenticacion_usuario($self,$page,$group = "",$config = ""){           
+    function autenticacion_usuario($self,$page,$group = "",$config = ""){ 
+       // print_r($self->Session);
        if (!$self->Session->check($group)){ 
         
             switch($config){
