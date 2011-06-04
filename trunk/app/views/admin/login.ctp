@@ -108,61 +108,73 @@
 <table class="standar_position" style="width: 100%;top: 350px; z-index: 1;" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td align="center" style="">   
+            
             <table style="width: 1024px;" align="center">
                 <tr>
                     <td align="center">                        
-                        <table border="0" style="width: 825px;" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td align="right" class="standar_font" style="width: 409px;">
-                                    <label for="log_usu"  class="standar_font"><?php echo __("Login");?>:</label>
+                    	<table border="0" style="width: 825px;" cellpadding="0" cellspacing="0">
+                        	<tr>
+                            	<td align="right" class="standar_font" style="width: 400px;">
+                                	<label for="log_usu"  class="standar_font"><?php echo __("Login");?>:</label>                                </td>
+                                <td style="width: 15px;">
+                                	&nbsp;                                
                                 </td>
-                                <td style="width: 15px;">&nbsp;
-                                                            
-                                </td>
+                                
                                 <td align="left" style="">
-                                    <input type="text" id="log_usu" name="log_usu" class="text required" minlength="3" maxlength="100" style="border: 0px; #FFFFFF;"/>
-                                </td>
+                                    <input type="text" id="log_usu" name="log_usu" class="text required" minlength="3" maxlength="100" style="border: 0px; color: black;"/>                                
+                                 </td>
+                                 
                             </tr>
+                            
                             <tr>
-                                <td style="_height: 20px;height: 33px;">&nbsp;
-                                    
+                                <td style="_height: 20px;height: 33px;">
+                                	&nbsp;                                
                                 </td>
-                                <td>&nbsp;
-                                                            
+                                
+                                <td>
+                                	&nbsp;                                
                                 </td>
-                                <td>&nbsp;
-                                                            
+                                
+                                <td>
+                                	&nbsp;                                
                                 </td>
                             </tr>
-                             <tr>
+                            
+                            <tr>
                                 <td align="right" class="standar_font">
-                                    <label for="pas_log" class="standar_font"><?php echo __("Contraseña");?>:</label>
+                                    <label for="pas_log" class="standar_font"><?php echo __("Clave");?>:</label>                                </td>
+                                
+                                <td>
+                                	&nbsp;                                
                                 </td>
-                                <td>&nbsp;
-                                                            
-                                </td>
+                                
                                 <td align="left">
-                                    <input type="password" id="pas_log" name="pas_log" class="password required" minlength="3" maxlength="100" style="border: 0px; #FFFFFF;"/>
+                                    <input type="password" id="pas_log" name="pas_log" class="password required" minlength="3" maxlength="100" style="border: 0px; color: black ;"/>                                
                                 </td>
                             </tr>
+                            
                             <tr>
-                                <td colspan="3" style="height: 73px;">&nbsp;
-                                    
-                                </td>                    
+                                <td colspan="3" style="height: 73px;">
+                                	&nbsp;                                
+                            	</td>                    
                             </tr>
+                            
                             <tr>
                                 <td align="center" colspan="3" class="standar_font">                    
-                                    <input type="submit" value="Aceptar" name="btn_ace" id="btn_ace" >                                                                     
+                                    <input type="submit" value="Aceptar" name="btn_ace" id="btn_ace" >                                			
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-            </table>         
-            
+            </table>
+ 		
+        
         </td>
     </tr>
 </table>
+</form>
+        
 
 <table class="standar_position" style="width: 100%;top: 258px;" cellpadding="0" cellspacing="0" border="0">
     <tr>
@@ -171,4 +183,3 @@
         </td>
     </tr>
 </table>
-</form>
