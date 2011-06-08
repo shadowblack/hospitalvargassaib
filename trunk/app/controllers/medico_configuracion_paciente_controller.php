@@ -8,6 +8,45 @@
         function index(){   
             
         }
+        
+        /**
+        * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
+        */
+        function listar(){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
+            $title =  __("Configuración de Pacientes",true);            
+            $data = Array(                
+                "title"     => $title                
+            ); 
+            $this->set($data);
+            $this->set('title_for_layout', $title);                                     
+        }
+        
+         /**
+        * Listando de usuarios administrativos
+        */
+        function event_listar($str){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            $param_array = explode(",",$str);
+            
+            $nombre     = $param_array[0];
+            $apellido   = $param_array[1];
+            $login      = $param_array[2];            
+                                    
+            $sql = "SELECT * FROM pacientes
+                    WHERE nom_pac ilike('%$nombre%') 
+                    AND ape_pac ilike('%$apellido%')
+                    AND ced_pac ilike('%$login%')";
+            $arr_query = ($this->Doctore->query($sql));
+            $results = ($this->SqlData->array_to_objects($arr_query));        
+            
+            $data = Array(
+                "results" => $results
+            );  
+            $this->set($data);  
+            $this->layout = 'ajax';
+            
+        } 
    
         function registrar(){   
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                                                                    

@@ -111,7 +111,6 @@
                                     &nbsp;
                                 </td>
                                 <td class="top_menu_window_top_center" style="width:210px;">
-                                    <!-- Dinamic -->
                                     &nbsp;
                                 </td>
                                 <td class="top_menu_window_top_right">                    
@@ -126,8 +125,7 @@
                                 <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:237px;height: 330px;">
                                     <!--Aqui va el iframe izquierdo-->
 
-                                <iframe id="men_izq_reg" src="" height="350" width="200" frameborder="0" scrolling="auto">
-                                </iframe>
+                                <iframe id="men_izq_reg" src="medico_menu/registrar" height="350" width="200" frameborder="0" scrolling="auto"></iframe>
 
 
 
@@ -175,8 +173,11 @@
                                 <td class="top_menu_window_top_circle">
                                    
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:700px;">
-                                    <!-- Dinamic -->
+                                <td class="top_menu_window_top_center" style="width:700px;" valign="top">
+                                   <!-- Dinamic -->
+                                    
+                                    <!-- Title -->
+                                    <div id="title_content" class="standar_font" style="margin: 6px;">&nbsp;</div>
                                     
                                 </td>
                                 <td class="top_menu_window_top_right">                    
@@ -190,7 +191,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    

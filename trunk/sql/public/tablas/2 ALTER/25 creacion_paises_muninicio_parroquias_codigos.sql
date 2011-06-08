@@ -115,3 +115,17 @@ ALTER TABLE paises OWNER TO desarrollo_g;
 ALTER TABLE estados OWNER TO desarrollo_g;
 ALTER TABLE municipios OWNER TO desarrollo_g;
 ALTER TABLE parroquias OWNER TO desarrollo_g;
+
+ALTER TABLE pacientes
+	DROP CONSTRAINT pacientes_id_est_fkey,
+	ADD CONSTRAINT pacientes_id_est_fkey FOREIGN KEY(id_est) REFERENCES estados(id_est) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT;
+
+ALTER TABLE pacientes
+	DROP CONSTRAINT pacientes_id_mun_fkey,
+	ADD CONSTRAINT pacientes_id_mun_fkey FOREIGN KEY(id_mun) REFERENCES municipios(id_mun) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT,
+	
+	DROP CONSTRAINT pacientes_id_par_fkey,
+	ADD CONSTRAINT pacientes_id_par_fkey FOREIGN KEY(id_par) REFERENCES parroquias(id_par) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT,
+
+	DROP CONSTRAINT pacientes_id_pai_fkey,
+	ADD CONSTRAINT pacientes_id_pai_fkey FOREIGN KEY(id_pai) REFERENCES paises(id_pai) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT;
