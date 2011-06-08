@@ -24,17 +24,28 @@
             $animales = ($this->SqlData->array_to_objects($arr_query));                        
             
             
+            $sql = "SELECT id_ant_per, nom_ant FROM antecedentes_personales ORDER BY nom_ant ASC";
+            $arr_query = ($this->Doctore->query($sql));
+            $antecedentes = ($this->SqlData->array_to_objects($arr_query));        
             
+            $sql = "SELECT id_tra, nom_tra FROM tratamientos ORDER BY nom_tra ASC";
+            $arr_query = ($this->Doctore->query($sql));
+            $tratamientos = ($this->SqlData->array_to_objects($arr_query));
             
-            
+            $sql = "SELECT id_mue_cli, nom_mue_cli FROM muestras_clinicas ORDER BY nom_mue_cli ASC";
+            $arr_query = ($this->Doctore->query($sql));
+            $muestras = ($this->SqlData->array_to_objects($arr_query));
             
             $title = __("Registro de paciente",true);
             
             $data = Array(
-                "estados"    => $estados,
-                "centro"     => $cen_sal,  
-                "animal"     => $animales,
-                "title"      => $title                
+                "estados"           => $estados,
+                "centro"            => $cen_sal,  
+                "animal"            => $animales,
+                "tratamiento"       => $tratamientos,
+                "muestra"           => $muestras,                
+                "antecedente"       =>$antecedentes,                
+                "title"             => $title                
             ); 
             
             $this->set($data);

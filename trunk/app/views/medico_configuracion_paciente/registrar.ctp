@@ -450,158 +450,20 @@
                     </legend>
                     
                         <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
-                            <tr>
-                                <td width="180" style="font-size: 12px;">
-                                    <div align="right">
-                                        Obesidad
-                                    </div>
-                                </td>
-                                <td width="21">
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_obe" id="che_ant_obe" class="required"/>
-                                    </div>
-                                </td>
-                                <td width="6">
-                                    &nbsp;
-                                </td>
-                                <td width="110" style="font-size: 12px;">
-                                    <div align="right">
-                                        Diabetes
-                                    </div>
-                                </td>
-                                <td width="20">
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_dia" id="che_ant_dia" />
-                                    </div>
-                                </td>
-                                <td width="6">
-                                    &nbsp;
-                                </td>
-                                <td width="79" style="font-size: 12px;">
-                                    <div align="right">
-                                        Traumatismo
-                                    </div>
-                                </td>
-                                <td width="21">
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_tra" id="che_ant_tra" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Cirug&iacute;a
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_cir" id="che_ant_cir" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        HIV/SIDA
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_hiv" id="che_ant_hiv" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        C&aacute;ncer
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_can" id="che_ant_can" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Inmunosupresi&oacute;n/Neutropenia
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_inm" id="che_ant_inm" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Esteroides
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_est" id="che_ant_est" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Embarazo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_emb" id="che_ant_emb" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Neoplasias
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_neo" id="che_ant_neo" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Inanici&oacute;n
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_ina" id="che_ant_ina" />
-                                    </div>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                                <td style="font-size: 12px;">
-                                    <div align="right">
-                                        Otra
-                                    </div>
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        <input type="checkbox" name="che_ant_otr" id="che_ant_otr" />
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td style="width: 120px;text-align: center;"><?php echo __("Antecedentes",true)?></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <?php foreach($antecedente as $row){?>   
+                                <tr>
+                                    <td>
+                                        <?php echo __($row->nom_ant, true)?>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="ant" value="<?php echo $row->id_ant_per?>"/>
+                                    </td>
+                                </tr>
+                        <?php    }?>
                         </table>
                         <br>
                         <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -630,149 +492,19 @@
                         
                             <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
                                 <tr>
-                                    <td width="180" style="font-size: 12px;">
-                                        <div align="right">
-                                            Antimic&oacute;ticos
-                                        </div>
-                                    </td>
-                                    <td width="21">
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_ant" id="che_tra_ant" />
-                                        </div>
-                                    </td>
-                                    <td width="6">
-                                        &nbsp;
-                                    </td>
-                                    <td width="110" style="font-size: 12px;">
-                                        <div align="right">
-                                            Antibi&oacute;ticos
-                                        </div>
-                                    </td>
-                                    <td width="20">
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_anti" id="che_tra_anti" />
-                                        </div>
-                                    </td>
-                                    <td width="6">
-                                        &nbsp;
-                                    </td>
-                                    <td width="79" style="font-size: 12px;">
-                                        <div align="right">
-                                            T&oacute;picos
-                                        </div>
-                                    </td>
-                                    <td width="21">
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_top" id="che_tra_top" />
-                                        </div>
-                                    </td>
-                                </tr>
+                            <td style="width: 120px;text-align: center;"><?php echo __("Tratamiento previo",true)?></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <?php foreach($tratamiento as $row){?>   
                                 <tr>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Inmunosupresores
-                                        </div>
+                                    <td>
+                                        <?php echo __($row->nom_tra, true)?>
                                     </td>
                                     <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_inm" id="che_tra_inm" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Glucorticoides
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_glu" id="che_tra_glu" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Citot&oacute;xicos
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_cit" id="che_tra_cit" />
-                                        </div>
+                                        <input type="checkbox" name="tra" value="<?php echo $row->id_tra?>"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Hormonas sexuales
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_hor" id="che_tra_hor" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Radioterapia
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_rad" id="che_tra_rad" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Sist&eacute;micos
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_sist" id="che_tra_sist" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 12px;">
-                                        <div align="right">
-                                            Otra
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div align="center">
-                                            <input type="checkbox" name="che_tra_otr" id="che_tra_otr" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                </tr>
+                        <?php    }?>
                             </table>
                             <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
                                 <tr>
@@ -806,120 +538,19 @@
                 
                     <table width="443" border="0" cellpadding="0" cellspacing="0" align="center">
                         <tr>
-                            <td width="136">
-                            </td>
-                            <td width="307">
-                                <ul>
-                                    <label>
-                                        <span class="titulos">
-                                            <select id="sel_pac_mue" name="sel_pac_mue" class="textos">
-                                                <option>
-                                                    Muestra a Procesar
-                                                </option>
-                                                <option>
-                                                    Aspira ocular
-                                                </option>
-                                                <option>
-                                                    Aspirado traqueal
-                                                </option>
-                                                <option>
-                                                    Biopsia otros órganos
-                                                </option>
-                                                <option>
-                                                    Biopsia piel
-                                                </option>
-                                                <option>
-                                                    Catéteres diálisis peritoneal
-                                                </option>
-                                                <option>
-                                                    Catéteres intravascular
-                                                </option>
-                                                <option>
-                                                    Cateterismo
-                                                </option>
-                                                <option>
-                                                    Cavidad oral
-                                                </option>
-                                                <option>
-                                                    Cepillado protegido
-                                                </option>
-                                                <option>
-                                                    Escama
-                                                </option>
-                                                <option>
-                                                    Esputo espontaneo
-                                                </option>
-                                                <option>
-                                                    Esputo inducido
-                                                </option>
-                                                <option>
-                                                    Exudado
-                                                </option>
-                                                <option>
-                                                    Exudado conjuntival
-                                                </option>
-                                                <option>
-                                                    Exudado nasal
-                                                </option>
-                                                <option>
-                                                    Exudado vaginal
-                                                </option>
-                                                <option>
-                                                    Haces
-                                                </option>
-                                                <option>
-                                                    Lavado bronquial
-                                                </option>
-                                                <option>
-                                                    Lentes de contacto
-                                                </option>
-                                                <option>
-                                                    Liquido cefalorraquídeo (LCR)
-                                                </option>
-                                                <option>
-                                                    Liquido peritoneal
-                                                </option>
-                                                <option>
-                                                    Liquido pleural
-                                                </option>
-                                                <option>
-                                                    Liquido sinovial
-                                                </option>
-                                                <option>
-                                                    Medula Ósea
-                                                </option>
-                                                <option>
-                                                    Muestra ópticas
-                                                </option>
-                                                <option>
-                                                    Orina
-                                                </option>
-                                                <option>
-                                                    Pelos
-                                                </option>
-                                                <option>
-                                                    Prótesis
-                                                </option>
-                                                <option>
-                                                    Puntación pleural
-                                                </option>
-                                                <option>
-                                                    Raspado corneal
-                                                </option>
-                                                <option>
-                                                    Sangre
-                                                </option>
-                                                <option>
-                                                    Uñas
-                                                </option>
-                                                <option>
-                                                    Otros
-                                                </option>
-                                            </select>
-                                        </span>
-                                    </label>
-                                </ul>
-                            </td>
+                            <td style="width: 120px;text-align: center;"><?php echo __("Muestras",true)?></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <?php foreach($muestra as $row){?>   
+                                <tr>
+                                    <td>
+                                        <?php echo __($row->nom_mue_cli, true)?>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="mues" value="<?php echo $row->id_mue_cli?>"/>
+                                    </td>
+                                </tr>
+                        <?php    }?>
                         </tr>
                         <tr>
                             <td>
