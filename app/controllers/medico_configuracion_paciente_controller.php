@@ -23,6 +23,11 @@
             $arr_query = ($this->Doctore->query($sql));
             $animales = ($this->SqlData->array_to_objects($arr_query));                        
             
+            
+            
+            
+            
+            
             $title = __("Registro de paciente",true);
             
             $data = Array(
