@@ -138,21 +138,10 @@
     }            
 </style>
 
-<div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">
-    <table style="height: 70px;" align="center">
-        <tr>
-            <td valign="center" class="">    
-                <img src="<?php echo $this->webroot."img/icon/loadinfo.net.gif"?>" style="margin-top: 15px;">                          
-                <div id="dialog_messege" class="ui-widget">
-        			<div class="" style="margin-top: 15px; padding: 0 .7em;">         				
-                            <span class="" style="float: left; margin-right: .3em;"></span>
-        				    <div id="dialog_text" class="" style="text-align: left;">&nbsp;</div>                        
-        			</div>
-        		</div>
-            </td>
-        </tr>
-    </table>              
-</div>
+<?php 
+    $T_V_TIPE = 1;
+    include_once("../libs/_dialog.php");  
+?>
 <div style="padding: 0;position: absolute; width: 700px;margin-top: 30px;">    
     <form action="" id="mod_usu_adm" name="login" method="post">  
         <input type="hidden" id="id_doc" name="id_doc" value="<?php echo $id?>">

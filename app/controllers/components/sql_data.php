@@ -52,5 +52,22 @@ class SqlDataComponent extends Object
     
         return Array();
     }
+    
+    /**
+     * Convirtiendo fecha 25/12/2011 a data current PostGres  2011-12-25
+     */     
+     function date_to_postgres($str){
+        $exp = "^([0-9]{1,2})+\/([0-9]{1,2})+\/([0-9]{1,4})$";
+        preg_match_all("/$exp/",$str,$out,PREG_PATTERN_ORDER);                
+        return $out[3][0]."-".$out[1][0]."-".$out[2][0];    
+     }
+     /**
+     * Convirtiendo fecha 2011-12-25 a data current PostGres  25/12/2011
+     */     
+     function postgres_to_date($str){
+        $exp = "^([0-9]{1,4})+\-([0-9]{1,2})+\-([0-9]{1,2})$";
+        preg_match_all("/$exp/",$str,$out,PREG_PATTERN_ORDER);                
+        return $out[3][0]."/".$out[2][0]."/".$out[1][0];        
+     }
 }
 ?>

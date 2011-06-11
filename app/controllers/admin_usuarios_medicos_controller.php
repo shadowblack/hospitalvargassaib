@@ -205,6 +205,9 @@
             $result = $this->SqlData->result_num($arr_query);            
                         
             switch($result){
+                case 2:
+                    die($this->FormatMessege->box_style($result,"No se puede eliminar este doctor porque tiene pacientes asociados."));
+                    break;
                 case 1:
                     die($this->FormatMessege->box_style($result,"El usuario se ha eliminado con éxito."));
                     break;

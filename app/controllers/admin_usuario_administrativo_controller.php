@@ -33,7 +33,7 @@
             $pas_usu_adm = $_POST["pas_usu_adm"];
             $log_usu_adm = $_POST["log_usu_adm"];
             $tel_usu_adm = $_POST["tel_usu_adm"]; 
-            $id_tip_usu_usu = $this->Session->read("id_tip_usu_usu");          
+            $id_tip_usu_usu = $this->Session->read("admin.id_tip_usu_usu");          
                         
             $sql = "SELECT adm_registrar_usuario_admin(ARRAY[
                 '$nom_usu_adm', 

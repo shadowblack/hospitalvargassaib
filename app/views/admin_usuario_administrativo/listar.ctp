@@ -1,6 +1,13 @@
-<script type="text/javascript"> 
-   
-   jQuery(function(){
+<?php
+    $_V_LIST    = $this->Html->url("/AdminUsuarioAdministrativo/event_listar");
+    $_V_EDIT    = $this->Html->url("/AdminUsuarioAdministrativo/modificar");
+    $_V_DEL     = $this->Html->url("/AdminUsuarioAdministrativo/event_eliminar");
+    $_V_DEL_MEN = __("¿Desea eliminar el usuario administrativo?",TRUE);
+    include_once("../libs/_list_ajax.php");
+?>
+
+<script type="text/javascript">
+    jQuery(function(){
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
             
@@ -9,106 +16,20 @@
                         +jQuery("#log_usu_adm").val()+"/"; 
                                            
             jQuery("#cargador").css("display","block")
-            jQuery("#content").load("<?php echo $this->Html->url("/AdminUsuarioAdministrativo/event_listar")?>"+_str,function(){
+            jQuery("#content").load("<?php echo $_V_LIST?>"+_str,function(){
                 jQuery("#cargador").css("display","none")
             });
         })
         
         jQuery("#btn_buscar").trigger("click");
    });
-   function edit(id){
-        window.location.href = "<?php echo $this->Html->url("/AdminUsuarioAdministrativo/modificar/")?>"+id;
-   }  
-   function del(id,str){ 
-                
-                var _select = "#dialog #dialog_text";                      
-                jQuery(_select).empty();
-                jQuery(_select).text("<?php echo __("¿Desea eliminar el usuario administrativo",true) ?> '"+str+"'?");
-                
-                _select = "#dialog td > div > div";
-                jQuery(_select).attr("class","");
-                jQuery(_select).addClass("ui-state-highlight ui-corner-all");
-                
-                _select = "#dialog span";
-                jQuery(_select).attr("class","");
-                jQuery(_select).addClass("ui-icon ui-icon-info");
-                
-                jQuery("#dialog #dialog_messege").css("display","block");jQuery("#dialog img").css("display","none");
-                jQuery("#dialog").dialog({                   
-                    minHeight: 150,                            
-                    buttons: [
-                        {
-                            text: '<?php echo __("Cancelar",true)?>',
-                            click: function() { jQuery(this).dialog("close"); }
-                        },                    
-                        {
-                            text: '<?php echo __("Aceptar",true)?>',
-                            click: function() {      
-                               jQuery.ajax({
-                                        url:"<?php echo $this->Html->url("/AdminUsuarioAdministrativo/event_eliminar/")?>"+id+"/"+str+"/",                                                type: "POST",    
-                                        dataType: "json",                                      
-                                        error:function(){alert("Error json")},
-                                        success: function(data){                                                                     
-                                            eval("data="+data);   
-                                            
-                                            jQuery("#dialog #dialog_messege").css("display","block");jQuery("#dialog img").css("display","none"); 
-                                                                                         
-                                            var _select = "#dialog #dialog_text";                      
-                                            jQuery(_select).empty();
-                                            jQuery(_select).text(data.coment);
-                                            
-                                            _select = "#dialog td > div > div";
-                                            jQuery(_select).attr("class","");
-                                            jQuery(_select).addClass(data.class_background);
-                                            
-                                            _select = "#dialog span";
-                                            jQuery(_select).attr("class","");
-                                            jQuery(_select).addClass(data.class_icon);
-                                            alert("demo");
-                                            jQuery("#btn_buscar").trigger("click");                                            
-                                            jQuery(this).dialog("close");
-                                            jQuery(this).dialog("destroy");
-                                            jQuery("#dialog").dialog({
-                                                modal:true,
-                                                minHeight: 150,                            
-                                                buttons: [
-                                                    {
-                                                        text: '<?php echo __("Aceptarr",true)?>',
-                                                        click: function() { jQuery(this).dialog("close"); }
-                                                    }
-                                                ],
-                                                resizable: false
-                                            }).css("display","block");                                                                                            
-                                        }                   
-                                    });    
-                                   
-                            }
-                        }
-                    ],
-                    resizable: false
-                })
-                .attr("class","")
-                .addClass()                              
-                .css("display","block");  
-              
-                
-   } 
 </script>
-<div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">
-    <table style="height: 70px;" align="center">
-        <tr>
-            <td valign="center" class="">    
-                <img src="<?php echo $this->webroot."img/icon/loadinfo.net.gif"?>">                          
-                <div id="dialog_messege" class="ui-widget">
-        			<div class="" style="margin-top: 15px; padding: 0 .7em;">         				
-                            <span class="" style="float: left; margin-right: .3em;"></span>
-        				    <div id="dialog_text" class="" style="text-align: left;">&nbsp;</div>                        
-        			</div>
-        		</div>
-            </td>
-        </tr>
-    </table>              
-</div>
+
+<?php
+    $T_V_TIPE = 1;
+    include_once("../libs/_dialog.php");    
+?>
+
 <form name="consulta" id="consulta" onsubmit="return false">
     <table style="width: 100%;" border="0" class="standar_position">
     <tr>
