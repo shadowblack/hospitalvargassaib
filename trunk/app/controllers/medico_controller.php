@@ -48,8 +48,7 @@
                     $this->Session->write("medico.ape_usu",$usuario->ape_usu);
                     $this->Session->write("medico.log_usu",$usuario->log_usu);
                     $this->Session->write("medico.tel_usu",$usuario->tel_usu);
-                    $this->Session->write("medico.id_tip_usu",$usuario->id_tip_usu);
-                    $this->Session->write("medico.id_tip_usu",$usuario->id_tip_usu);
+                    $this->Session->write("medico.id_tip_usu",$usuario->id_tip_usu);                    
                     $this->Session->write("medico.id_tip_usu_usu",$usuario->id_tip_usu_usu);
                     $this->Session->write("medico.cod_tip_usu",$usuario->cod_tip_usu);
                     $this->Session->write("medico.str_mods",$usuario->str_mods);

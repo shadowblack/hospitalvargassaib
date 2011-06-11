@@ -173,7 +173,7 @@
                                 <td class="top_menu_window_top_circle">
                                    
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:700px;" valign="top">
+                                <td class="top_menu_window_top_center" style="width:700px;text-align: left;" valign="top">
                                    <!-- Dinamic -->
                                     
                                     <!-- Title -->

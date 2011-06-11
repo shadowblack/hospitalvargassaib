@@ -1,6 +1,6 @@
-    <?php
-    
-    ?>
+<?php if (count($results)==0){  ?>
+    <span class="font-standar"><?php __("No existen registros actualmente")?></span>        
+<?php die;} ?>    
     
     
 <table style="width: 450px;" align="center">

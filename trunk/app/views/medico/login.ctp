@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
     /*Agregando Clase CSS para el fondo del login*/       
     jQuery("body:eq(0)").addClass("standar_fondo_login");    
@@ -9,9 +8,8 @@
        jQuery("#login").validate({  
             submitHandler: function(form) {                
    	            //jQuery(form).ajaxSubmit();
-             var array_form = jQuery("input[type=text],input[type=password]").serializeArray();                
-            
-            //jQuery(form).ajaxSubmit();
+             var array_form = jQuery("input[type=text],input[type=password]").serializeArray();                            
+                jQuery("#cargador_volatile").css("display","block");
                 var array_form = jQuery("form").serializeArray();              
                 jQuery.ajax({
                     url:"<?php echo $this->Html->url("/medico/validar_usuario")?>",                    
@@ -50,6 +48,7 @@
                             ],
                             resizable: false
                         }).css("display","block");                                                                                                            if (data.event == 1){
+                             jQuery("#cargador_volatile").css("display","block");
                              window.location.href = "<?php echo $this->Html->url("/medico") ?>";
                         }
                     }                   
@@ -75,21 +74,10 @@
         width: auto;
     }
 </style>
-<div id="dialog" title="<?php echo __("Validando Usuario",true)?>" style="text-align:center;display:none;overflow: hidden;">
-    <table style="height: 70px;" align="center">
-        <tr>
-            <td valign="center" class="">    
-                <img src="<?php echo $this->webroot."img/icon/loadinfo.net.gif"?>">                          
-                <div id="dialog_messege" class="ui-widget" style="width: 240px;">
-        			<div class="" style="margin-top: 15px; padding: 0 .7em;">         				
-                            <span class="" style="float: left; margin-right: .3em;"></span>
-        				    <div id="dialog_text" class="" style="text-align: left;">&nbsp;</div>                        
-        			</div>
-        		</div>
-            </td>
-        </tr>
-    </table>              
-</div>
+<?php 
+    $T_V_TIPE = 2;
+    include_once("../libs/_dialog.php");  
+?>
 <table align="center" cellpadding="0" cellspacing="0"  border="0" >
     <tr>
         <td class="top_menu_login_doc_izquierdo" style="width: 50%;">

@@ -1,6 +1,6 @@
 <?php if (count($results)==0){  ?>
     <span class="font-standar"><?php __("No existen registros actualmente")?></span>        
-<?php } die;?>    
+<?php die;} ?>    
     
     
 <table style="width: 450px;" align="center">
@@ -36,8 +36,8 @@
                 <td class="standar_font"><?php echo $row->log_usu_adm ?></td>
                 <td class="standar_font"><?php echo $row->nom_usu_adm ?></td>
                 <td class="standar_font"><?php echo $row->ape_usu_adm ?></td>
-                <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->id_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar usuario administrador",true)." ".$row->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>/img/icon/page_white_edit.png"></a></td>
-                <td class="standar_font" align="center"><a onclick="del('<?php echo $row->id_usu_adm?>','<?php echo $row->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar usuario administrador",true)." ".$row->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>/img/icon/cancel.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->id_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar usuario administrador",true)." ".$row->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/page_white_edit.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="del('<?php echo $row->id_usu_adm?>','<?php echo $row->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar usuario administrador",true)." ".$row->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/cancel.png"></a></td>
             </tr>        
         <?php
     }

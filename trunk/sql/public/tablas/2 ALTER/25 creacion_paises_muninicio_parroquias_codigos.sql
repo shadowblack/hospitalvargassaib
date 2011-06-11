@@ -111,6 +111,17 @@ INSERT INTO estados(
 )
 ;
 
+INSERT INTO estados (
+	id_est,
+	id_pai,
+	des_est
+)
+VALUES
+(	25,
+	1,
+	'Amazonas'
+);
+
 ALTER TABLE paises OWNER TO desarrollo_g;
 ALTER TABLE estados OWNER TO desarrollo_g;
 ALTER TABLE municipios OWNER TO desarrollo_g;
