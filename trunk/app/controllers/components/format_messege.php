@@ -25,6 +25,12 @@ class FormatMessegeComponent extends Object
                     class_icon:'ui-icon ui-icon-alert'
                  ";
             break; 
+            case 3:
+                $class =    "
+                    ,class_background:'ui-state-error ui-corner-all',
+                    class_icon:'ui-icon ui-icon-alert'
+                 ";
+            break; 
             /* >= 20 Errores de validacion de usuarios o que no existe en la Session*/  
             case 20:
                 $class =    "

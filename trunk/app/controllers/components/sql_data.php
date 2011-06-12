@@ -59,7 +59,7 @@ class SqlDataComponent extends Object
      function date_to_postgres($str){
         $exp = "^([0-9]{1,2})+\/([0-9]{1,2})+\/([0-9]{1,4})$";
         preg_match_all("/$exp/",$str,$out,PREG_PATTERN_ORDER);                
-        return $out[3][0]."-".$out[1][0]."-".$out[2][0];    
+        return $out[3][0]."-".$out[2][0]."-".$out[1][0];    
      }
      /**
      * Convirtiendo fecha 2011-12-25 a data current PostGres  25/12/2011

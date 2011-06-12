@@ -180,7 +180,8 @@
                     			     <input type="password" id="rep_pas_doc" name="rep_pas_doc" class="required" minlength="3" maxlength="100" />
                                 </td>                                
                                 <td>
-                                    &nbsp;
+                                     <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
+                                     <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="3" maxlength="8" value="<?php echo $result->ced_doc?>"/>
                                 </td>
                             </tr>
                             <tr>

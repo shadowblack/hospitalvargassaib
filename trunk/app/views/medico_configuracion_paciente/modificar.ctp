@@ -7,6 +7,7 @@
             
            
     		jQuery( "#txt_fec_nac_pac" ).datepicker({
+                dateFormat: "dd/mm/yy",
     			showOn: "button",
     			buttonImage: "<?php echo $this->webroot?>/img/icon/calendar.png",
     			buttonImageOnly: true,
@@ -28,7 +29,7 @@
                     //jQuery(form).ajaxSubmit();
                     var array_form = jQuery("form").serializeArray();
                     jQuery.ajax({
-                        url: "event_registrar",
+                        url: "<?php echo $this->Html->url("/MedicoConfiguracionPaciente/event_modificar")?>",
                         type: "POST",
                         data: array_form,
                         dataType: "json",
@@ -78,12 +79,15 @@
             }); 
             
             // cascade estados y municipios 
-            
+            municipios();
             jQuery("#sel_est_pac").change(function(){     
-                jQuery("#indicator").css("display","block");
-                jQuery("#sel_mun_pac").load("<?php echo $this->Html->url("/MedicoConfiguracionPaciente/event_ubicacion")?>/3/"+jQuery(this).val(),function(){jQuery("#indicator").css("display","none");});  
+               municipios();
             });    
     });
+    function municipios(){
+            jQuery("#indicator").css("display","block");
+            jQuery("#sel_mun_pac").load("<?php echo $this->Html->url("/MedicoConfiguracionPaciente/event_ubicacion")?>/3/"+jQuery("#sel_est_pac").val()+"/<?php echo $result->id_mun?>",function(){jQuery("#indicator").css("display","none");});  
+    }
 </script>
 <style type="text/css">
     label.error { width: 150px; text-align: left; }    
@@ -93,7 +97,7 @@
     include_once("../libs/_dialog.php");  
 ?>
 <form name="pacientes" id="pacientes">
-   
+   <input type="hidden" name="hdd_id_pac" id="hdd_id_pac" value="<?php echo $result->id_pac?>">
         <div id="tabs-1">           
             <fieldset style="height: 370px;">
                 <legend>
@@ -294,8 +298,11 @@
                     </table>                      
                     <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
                         <tr>
-                            <td  align="center" style="height: 0" valign="bottom">
+                            <td  align="right" style="height: 0" valign="bottom">
                                 <input type="submit" name="btn_aceptar" value="Aceptar">
+                            </td>
+                            <td  align="left" style="height: 0" valign="bottom">
+                                <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
                             </td>
                         </tr>
                     </table>              

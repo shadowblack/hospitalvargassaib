@@ -35,6 +35,7 @@
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $nom_usu_doc = $_POST["nom_usu_doc"];
             $ape_usu_doc = $_POST["ape_usu_doc"];
+            $ced_usu_doc     = $_POST["ced_usu_doc"];
             $pas_usu_doc = $_POST["pas_usu_doc"];
             $log_usu_doc = $_POST["log_usu_doc"];
             $tel_usu_doc = $_POST["tel_usu_doc"];
@@ -42,7 +43,8 @@
                         
             $sql = "SELECT adm_registrar_medico(ARRAY[
                 '$nom_usu_doc', 
-                '$ape_usu_doc', 
+                '$ape_usu_doc',
+                '$ced_usu_doc', 
                 '$pas_usu_doc',  
                 '$log_usu_doc',
                 '$tel_usu_doc',
@@ -59,12 +61,14 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El usuario se a insertado con éxito"));
+                    die($this->FormatMessege->box_style($result,"El usuario se a insertado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_doc\' ya se encuentra registrado en el sistema"));                    
+                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_doc\' ya se encuentra registrado en el sistema."));                    
                     break;
-                    
+                case 2:
+                     die($this->FormatMessege->box_style($result,"El usuario/a con la cédula \'$ced_usu_doc\' ya se encuentra registrado en el sistema."));                    
+                    break;
             }                   
             
             die;
@@ -98,7 +102,7 @@
             $sql = "SELECT * FROM doctores
                     WHERE nom_doc ilike('%$nombre%') 
                     AND ape_doc ilike('%$apellido%')
-                    AND log_doc ilike('%$login%')";
+                    AND log_doc ilike('%$login%') ORDER BY nom_doc ASC";
             $arr_query = ($this->Doctore->query($sql));
             $results = ($this->SqlData->array_to_objects($arr_query));        
             
@@ -156,7 +160,8 @@
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $id_doc  = $_POST["id_doc"];
             $nom_doc = $_POST["nom_doc"];
-            $ape_doc = $_POST["ape_doc"];
+            $ced_doc = $_POST["ced_usu_doc"];
+            $ape_doc = $_POST["ape_doc"];           
             $pas_doc = $_POST["pas_doc"];
             $log_doc = $_POST["log_doc"];
             $tel_doc = $_POST["tel_doc"];           
@@ -164,6 +169,7 @@
             $sql = "SELECT adm_modificar_medico(ARRAY[
                 '$id_doc',
                 '$log_doc',
+                '$ced_doc',
                 '$nom_doc', 
                 '$ape_doc', 
                 '$pas_doc',                  
@@ -184,7 +190,10 @@
                     break;  
                 case 2:
                     die($this->FormatMessege->box_style($result,"Existe un usuario con el login \'$log_doc\' por favor intente con otro."));                  
-                    break;            
+                    break;
+                case 3:
+                    die($this->FormatMessege->box_style($result,"Existe un usuario con la cédula \'$ced_doc\' por favor intente con otro."));                  
+                    break;              
             }                               
             die;
         }

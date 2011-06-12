@@ -16,9 +16,10 @@
             var _str =  "/"+jQuery("#nom_usu_adm").val()+","
                         +jQuery("#ape_usu_adm").val()+","
                         +jQuery("#log_usu_adm").val()+"/"; 
-                                           
-            jQuery("#cargador").css("display","block")
-            jQuery("#content").load("<?php echo $this->Html->url("/AdminUsuariosMedicos/event_listar")?>"+_str,function(){
+                                                       
+            jQuery("#content").html('<img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">');
+            
+            jQuery("#content").load("<?php echo $_V_LIST?>"+_str,function(){
                 jQuery("#cargador").css("display","none")
             });
         })
@@ -67,7 +68,7 @@
     <tr>
         <td align="center" style="">
             <div id="content" style="height: 300px;width:460px ; overflow-y:auto ;" class="lista_standar">
-                <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
+                <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">
             </div>
         </td>
     </tr>

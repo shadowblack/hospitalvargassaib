@@ -1,66 +1,62 @@
-﻿CREATE OR REPLACE FUNCTION adm_eliminar_medico(character varying[])
+﻿CREATE OR REPLACE FUNCTION adm_eliminar_usuario_admin(character varying)
   RETURNS smallint AS
 $BODY$
 DECLARE
-	datos ALIAS 	FOR $1;
-	_id_doc		doctores.id_doc%TYPE;
-	_nom_doc 	doctores.nom_doc%TYPE;	
+	
+	--Variables
+	_id_usu_adm 	ALIAS FOR $1;
+	--_consulta 	varchar := '';
+
+	--Variable record
+	--_registro_usu	record;
+
 BEGIN
 
-	_id_doc		:= datos[1];
+	/*_consulta := 'SELECT * FROM usuarios_administrativos WHERE id_usu_adm IN (' || _ids_usu_eli || ')';*/
 
-	-- Si existe un paciente que tenga una id del doctor retorna 2
-	IF (EXISTS(SELECT 1 FROM pacientes JOIN doctores USING(id_doc) WHERE id_doc = _id_doc))THEN
-		RETURN 2;
-	END IF;
-			
-	IF EXISTS(SELECT 1 FROM doctores WHERE id_doc = _id_doc)THEN
-		/* El usuario administrativo puede ser eliminado */
-					
-			/*Eliminando doctor*/	
 
-			DELETE FROM doctores 
-			WHERE 
-			id_doc = _id_doc
-			;
-						
+	/* Se obtienen los datos de cada uno de los usuario eliminados */
+	/*FOR _registro_usu IN EXECUTE _consulta 
+	LOOP*/
+	       /* Se borran los registros asociados a los usuarios */
+	       --DELETE FROM usuarios_administrativos WHERE id_usu_adm = _registro_usu.id_usu_adm;
 
-			-- La función se ejecutó exitosamente
-			RETURN 1;
+	/*END LOOP;
+	RETURN 0;*/
+
+	IF EXISTS(SELECT 1 FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm::INTEGER)THEN
+		DELETE FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm::INTEGER;
+		RETURN 1;
 	ELSE
 		RETURN 0;
 	END IF;
-	/*EXCEPTION
-	WHEN foreign_key_violation THEN
-		IF (STRPOS(SQLERRM,))THEN
-		--RAISE EXCEPTION '%','';
-		 --RAISE LOG '%, via LOG','msg';
-		--RAISE EXCEPTION  '%',SQLERRM;
-	RETURN 2;*/
+
 	
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
-COMMENT ON FUNCTION adm_eliminar_medico(character varying[]) IS '
-NOMBRE: adm_eliminar_medico
+COMMENT ON FUNCTION adm_eliminar_usuario_admin(character varying) IS '
+NOMBRE: adm_eliminar_usuario_admin
 TIPO: Function (store procedure)
 
-PARAMETROS: Recibe 1 Parámetros
-	1:  Id del usuario doctor
-	
+PARAMETROS: Recibe 7 Parámetros
+	0:  El usuario no se encuentra registrado en el sistema
+	1:  Se eliminó el usuario con éxito	
+
 DESCRIPCION: 
-	Almacena la información del doctor
+	Elimina la información del usuario administrativo 
 
 RETORNO:
-	1: La función se ejecutó exitosamente.
-	0: Existe un usuario administrativo con el mismo login.
-	2: No se puede eliminar este doctor porque tiene pacientes asociados.
+	0: La función se ejecutó exitosamente
+	
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_modificar_medico(ARRAY[''1'']);
+	SELECT adm_eliminar_usuario_admin(''1,2'');
+
+AUTOR DE CREACIÓN: Lisseth Lozada
+FECHA DE CREACIÓN: 27/03/2011      
 
 AUTOR DE CREACIÓN: Luis Marin
-FECHA DE CREACIÓN: 10/05/2011
-
+FECHA DE CREACIÓN: 22/04/2011  
+DESCRIPCIÓN: Modificación de las estructuras de control
 ';
-
---SELECT adm_modificar_medico(ARRAY['1','Lisseth', 'Lozada', '123', 'llozada3','04269150722','1']);
+--SELECT adm_eliminar_usuario_admin('1');
