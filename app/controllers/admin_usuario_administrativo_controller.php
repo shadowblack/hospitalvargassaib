@@ -91,7 +91,7 @@
             $sql = "SELECT * FROM usuarios_administrativos
                     WHERE nom_usu_adm ilike('%$nombre%') 
                     AND ape_usu_adm ilike('%$apellido%')
-                    AND log_usu_adm ilike('%$login%')";
+                    AND log_usu_adm ilike('%$login%') ORDER BY nom_usu_adm ASC";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
             $results = ($this->SqlData->array_to_objects($arr_query));        
             

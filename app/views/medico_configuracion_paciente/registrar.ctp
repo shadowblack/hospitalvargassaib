@@ -7,6 +7,7 @@
             
            
     		jQuery( "#txt_fec_nac_pac" ).datepicker({
+                dateFormat: "dd/mm/yy",
     			showOn: "button",
     			buttonImage: "<?php echo $this->webroot?>/img/icon/calendar.png",
     			buttonImageOnly: true,
@@ -279,13 +280,16 @@
                             </td>
                         </tr>                                        
                     </table>                      
-                    <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
+                     <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
                         <tr>
-                            <td  align="center" style="height: 0" valign="bottom">
+                            <td  align="right" style="height: 0" valign="bottom">
                                 <input type="submit" name="btn_aceptar" value="Aceptar">
                             </td>
+                            <td  align="left" style="height: 0" valign="bottom">
+                                <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
+                            </td>
                         </tr>
-                    </table>              
+                    </table>         
             </fieldset>
         </div> 
         

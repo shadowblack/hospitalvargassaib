@@ -10,3 +10,7 @@ ALTER TABLE pacientes
 
 ALTER TABLE pacientes
 	ALTER COLUMN tel_cel_pac TYPE CHARACTER VARYING(12);
+
+ALTER TABLE pacientes
+	ADD COLUMN fec_reg_pac timestamp WITH TIME ZONE DEFAULT NOW();
+COMMENT ON COLUMN pacientes.fec_reg_pac IS 'Fecha de registro del paciente';

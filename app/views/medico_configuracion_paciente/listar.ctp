@@ -16,8 +16,8 @@
                         +jQuery("#ape_usu_adm").val()+","
                         +jQuery("#log_usu_adm").val()+"/"; 
                                            
-            jQuery("#cargador").css("display","block")
-            jQuery("#content").load("event_listar"+_str,function(){
+            jQuery("#content").html('<img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">');
+            jQuery("#content").load("<?php echo $_V_LIST ?>"+_str,function(){
                 jQuery("#cargador").css("display","none")
             });
         })
