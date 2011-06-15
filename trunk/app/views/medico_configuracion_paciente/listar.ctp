@@ -2,6 +2,7 @@
     $_V_LIST    = "event_listar";
     $_V_EDIT    = "modificar";
     $_V_DEL     = "event_eliminar";
+    $_V_CONS    = "consultar";
     $_V_DEL_MEN = __("¿Desea eliminar al paciente",TRUE);
     include_once("../libs/_list_ajax.php");
 ?>

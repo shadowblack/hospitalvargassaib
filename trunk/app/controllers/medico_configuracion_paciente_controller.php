@@ -70,6 +70,45 @@
             $this->layout = 'default';
              
         }
+        
+        /**
+        * View editar usuarios administrativos
+        */ 
+        function consultar($id){            
+            $this->Login->no_cache();
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            
+            $sql = "SELECT  p.nom_pac, 
+                            p.ape_pac, 
+                            p.ced_pac, 
+                            p.fec_nac_pac, 
+                            p.nac_pac, 
+                            p.tel_hab_pac, 
+                            p.tel_cel_pac, 
+                            p.ocu_pac,
+                            p.ciu_pac, 
+                            e.des_est,                             
+                            m.des_mun 
+                            FROM 
+                            pacientes p 
+                            JOIN estados e  USING(id_est) 
+                            JOIN municipios m USING(id_mun) 
+                            WHERE id_pac = 7 ";
+                            
+            $arr_query = ($this->Doctore->query($sql));
+            $result = ($this->SqlData->array_to_object($arr_query));                                                
+            
+            $title =  __("Consuta de pacientes",true);
+            
+            $data = Array(
+                "result"    => $result,                
+                "title"     => $title                          
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);            
+            $this->layout = 'default';
+        }
          
         /**
         * View editar usuarios administrativos
@@ -91,8 +130,7 @@
             $data = Array(
                 "result"    => $result,
                 "estados"   => $estados,
-                "title"     => $title,
-                "id"        => $id               
+                "title"     => $title                             
             ); 
             
             $this->set($data);
