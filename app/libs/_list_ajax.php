@@ -1,5 +1,10 @@
 <script type="text/javascript"> 
-      
+    
+   function consult(id){
+        <?php if(isset($_V_CONS)){?>
+            window.location.href = "<?php echo $_V_CONS?>/"+id;   
+        <?php }  ?>                                   
+   }
    function edit(id){
         window.location.href = "<?php echo $_V_EDIT?>/"+id;
    }  
