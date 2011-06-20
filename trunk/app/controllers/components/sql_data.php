@@ -53,6 +53,31 @@ class SqlDataComponent extends Object
         return Array();
     }
     
+     /**
+    * Convirtiendo array en objetos cuando son multiples registros de cakePHP
+    * return object or array zero
+    */
+    function CakeArrayToObjects($array = array()) {
+                
+        if (!empty($array)) {
+            $data = Array();
+            $dataArray = Array();
+            $i=0;  
+            foreach ($array as $akey => $val_arr) {  
+                 foreach ($val_arr as $akey_b => $val_arr_b) {                    
+                    $data = false;
+                    foreach ($val_arr_b as $akey_c => $val_arr_c) {                            
+                        $data -> {$akey_b} ->{$akey_c} = $val_arr_c;
+                        $dataArray[$i] = $data;        
+                    }                    
+                 }
+                 $i++;
+            }
+            return $dataArray;
+        }    
+        return Array();
+    }
+    
     /**
      * Convirtiendo fecha 25/12/2011 a data current PostGres  2011-12-25
      */     

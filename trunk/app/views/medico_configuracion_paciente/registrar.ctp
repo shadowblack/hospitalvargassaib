@@ -80,7 +80,7 @@
     label.error { width: 150px; text-align: left; }    
 </style>
 <?php 
-    $T_V_TIPE = 1;
+    $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
 <form name="pacientes" id="pacientes">

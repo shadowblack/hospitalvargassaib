@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
   
 ?>
@@ -86,7 +86,7 @@
 </style>
 
 <?php 
-    $T_V_TIPE = 1;
+    $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
 <div style="padding: 0;position: absolute; width: 700px;margin-top: 60px;">    

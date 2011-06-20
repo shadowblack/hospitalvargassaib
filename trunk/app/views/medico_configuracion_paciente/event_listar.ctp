@@ -33,21 +33,19 @@
     </tr>
 
 <?php    
-    
-    $i = 0;
-    foreach ($results as $row){
-        $i ++;
+        
+    foreach ($results as $row){                               
         ?>
             <tr>
-                <td class="standar_font"><?php echo $i ?></td>
-                <td class="standar_font">0000<?php echo $row->num_pac ?></td>
-                <td class="standar_font"><?php echo $row->ced_pac ?></td>
-                <td class="standar_font"><?php echo $row->nom_pac ?></td>
-                <td class="standar_font"><?php echo $row->ape_pac ?></td>
-                <td class="standar_font" align="center"><a onclick="consult('<?php echo $row->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Consultar Pacientes :",true)." ".$row->nom_pac." ".$row->ape_pac.", ".__("Cédula",true)." ".$row->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/document-scroll-icon.png"></a></td>
-                <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar Pacientes :",true)." ".$row->nom_pac." ".$row->ape_pac.", ".__("Cédula",true)." ".$row->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/page_white_edit.png"></a></td>
-                <td class="standar_font" align="center"><a onclick="his('<?php echo $row->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Historia del paciente :")." ".$row->nom_pac." ".$row->ape_pac.", ".__("Cédula",true)." ".$row->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/URL-historial-icon-24.png"></a></td>
-                <td class="standar_font" align="center"><a onclick="del('<?php echo $row->id_pac?>','<?php echo $row->nom_pac." ".$row->ape_pac.", ".__("Cédula",true)." ".$row->ced_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar Pacientes:",true)." ".$row->nom_pac." ".$row->ape_pac.", ".__("Cédula",true)." ".$row->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/cancel.png"></a></td>
+                <td class="standar_font"><?php echo $paginator->NumRowPre() ?></td>
+                <td class="standar_font"><?php echo $this->FormatString->NumbersZero($row->Paciente->num_pac,6)?></td>
+                <td class="standar_font"><?php echo $row->Paciente->ced_pac ?></td>
+                <td class="standar_font"><?php echo $row->Paciente->nom_pac ?></td>
+                <td class="standar_font"><?php echo $row->Paciente->ape_pac ?></td>
+                <td class="standar_font" align="center"><a onclick="consult('<?php echo $row->Paciente->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Consultar Pacientes :",true)." ".$row->Paciente->nom_pac." ".$row->Paciente->ape_pac.", ".__("Cédula",true)." ".$row->Paciente->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/document-scroll-icon.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->Paciente->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar Pacientes :",true)." ".$row->Paciente->nom_pac." ".$row->Paciente->ape_pac.", ".__("Cédula",true)." ".$row->Paciente->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/page_white_edit.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="his('<?php echo $row->Paciente->id_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Historia del paciente :")." ".$row->Paciente->nom_pac." ".$row->Paciente->ape_pac.", ".__("Cédula",true)." ".$row->Paciente->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/URL-historial-icon-24.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="del('<?php echo $row->Paciente->id_pac?>','<?php echo $row->Paciente->nom_pac." ".$row->Paciente->ape_pac.", ".__("Cédula",true)." ".$row->Paciente->ced_pac?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar Pacientes:",true)." ".$row->Paciente->nom_pac." ".$row->Paciente->ape_pac.", ".__("Cédula",true)." ".$row->Paciente->ced_pac?>" class="border" src="<?php echo $this->webroot?>img/icon/cancel.png"></a></td>
                 
                 
             </tr>        
@@ -55,5 +53,6 @@
     }   
 ?>
 </table>
+<?php echo $paginator->numbers();?>
  
     

@@ -8,7 +8,7 @@
 ?>
 
 <script type="text/javascript"> 
-   
+   <?php echo $this->Loader->DivPaginator()?>
    jQuery(function(){
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
@@ -17,10 +17,7 @@
                         +jQuery("#ape_usu_adm").val()+","
                         +jQuery("#log_usu_adm").val()+"/"; 
                                            
-            jQuery("#content").html('<img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">');
-            jQuery("#content").load("<?php echo $_V_LIST ?>"+_str,function(){
-                jQuery("#cargador").css("display","none")
-            });
+            paginator_div("<?php echo $_V_LIST ?>"+_str);
         })
         
         jQuery("#btn_buscar").trigger("click");
@@ -28,13 +25,11 @@
         // Mostrando ventana para crear usuarios
         jQuery("#btn_crear").click(function(){            
             parent.document.getElementById("frame_content").src = "MedicoConfiguracionPaciente/Registrar";
-        });
-        
-   });
-
+        });                       
+   });       
 </script>
 <?php 
-    $T_V_TIPE = 1;
+    $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
 <form name="consulta" id="consulta" onsubmit="return false">

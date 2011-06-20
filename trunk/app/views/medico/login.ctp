@@ -75,7 +75,7 @@
     }
 </style>
 <?php 
-    $T_V_TIPE = 2;
+    $T_V_TYPE = 2;
     include_once("../libs/_dialog.php");  
 ?>
 <table align="center" cellpadding="0" cellspacing="0"  border="0" >
