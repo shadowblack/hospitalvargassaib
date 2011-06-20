@@ -1,5 +1,5 @@
 <?php 
-    switch($T_V_TIPE){
+    switch($T_V_TYPE){
         case 1:
             ?>
                 <div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">

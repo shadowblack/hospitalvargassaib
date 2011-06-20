@@ -1,9 +1,10 @@
 <?php
     class MedicoConfiguracionPacienteController extends Controller{
         var $name = "MedicoConfiguracionPaciente";
-        var $uses =         Array("Doctore");
+        var $uses =         Array("Doctore","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat");   
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader");                  
+        
         protected $group_session = "medico";                   
        
         function index(){   
@@ -33,18 +34,30 @@
             
             $nombre     = $param_array[0];
             $apellido   = $param_array[1];
-            $cedula     = $param_array[2];            
-                                    
-            $sql = "SELECT * FROM pacientes
-                    WHERE nom_pac ilike('%$nombre%') 
-                    AND ape_pac ilike('%$apellido%')
-                    AND ced_pac ilike('%$cedula%') ORDER BY nom_pac ASC";
-            $arr_query = ($this->Doctore->query($sql));
-            $results = ($this->SqlData->array_to_objects($arr_query));        
+            $cedula     = $param_array[2];                                                    
+                                               
+            $this->paginate = array(
+                'limit' => 12,
+                /*'fields' => Array(
+                                    "Paciente.id_pac",
+                                    "Paciente.nom_pac",                                    
+                                    "Paciente.prueba"
+                ),*/
+                "conditions" => Array(
+                                    "Paciente.nom_pac ilike" => "%$nombre%",
+                                    "Paciente.ape_pac ilike" =>  "%$apellido%",
+                                    "Paciente.ced_pac ilike" => "%$cedula%"
+                ),
+                "order" => "Paciente.nom_pac ASC"
+            ); 
+                                                           
             
-            $data = Array(
-                "results" => $results
+            
+            $data = Array(                
+                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("Paciente"))
             );  
+            
+            
             $this->set($data);  
             $this->layout = 'ajax';
             
@@ -304,5 +317,8 @@
             $this->set($data);  
             $this->layout = 'ajax';
         }
+        
+      
+        
     }
 ?>

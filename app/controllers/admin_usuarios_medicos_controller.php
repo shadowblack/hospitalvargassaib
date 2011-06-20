@@ -3,6 +3,7 @@
         var $name = "AdminUsuariosMedicos";
         var $uses = Array("Doctore");
         var $components = Array("Login","SqlData","FormatMessege","Session");
+        var $helpers    = Array("Paginator","FormatString","Loader");
         protected $group_session = "admin";
        
         function index(){   
@@ -97,17 +98,23 @@
             
             $nombre     = $param_array[0];
             $apellido   = $param_array[1];
-            $login      = $param_array[2];                                                
-            
-            $sql = "SELECT * FROM doctores
-                    WHERE nom_doc ilike('%$nombre%') 
-                    AND ape_doc ilike('%$apellido%')
-                    AND log_doc ilike('%$login%') ORDER BY nom_doc ASC";
-            $arr_query = ($this->Doctore->query($sql));
-            $results = ($this->SqlData->array_to_objects($arr_query));        
-            
+            $login      = $param_array[2];                                                                     
+                        
+          
+            $this->paginate =
+                Array(
+                    "limit"=>12,
+                    "conditions"=>
+                        Array(
+                            "Doctore.nom_doc ilike" => "%$nombre%",                                        
+                            "Doctore.ape_doc ilike" => "%$apellido%",
+                            "Doctore.log_doc ilike" => "%$login%"
+                        ),
+                    "order" => "Doctore.nom_doc"                
+                )                        
+            ;                    
             $data = Array(
-                "results" => $results
+                "results" => $this->SqlData->CakeArrayToObjects($this->paginate("Doctore"))
             );  
             $this->set($data);  
             $this->layout = 'ajax';

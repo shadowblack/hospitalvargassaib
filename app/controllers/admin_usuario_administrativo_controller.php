@@ -3,6 +3,7 @@
         var $name = "AdminUsuarioAdministrativo";
         var $uses = Array("UsuariosAdministrativo");
         var $components = Array("Login","SqlData","FormatMessege","Session");
+        var $helpers    = Array("Paginator","Loader");
        protected $group_session = "admin";
        
         function index(){   
@@ -92,11 +93,21 @@
                     WHERE nom_usu_adm ilike('%$nombre%') 
                     AND ape_usu_adm ilike('%$apellido%')
                     AND log_usu_adm ilike('%$login%') ORDER BY nom_usu_adm ASC";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
-            $results = ($this->SqlData->array_to_objects($arr_query));        
+            $arr_query = ($this->UsuariosAdministrativo->query($sql));                   
+            
+            $this->paginate = Array(
+                "conditions" => Array(
+                    "UsuariosAdministrativo.ape_usu_adm ilike" => "%$apellido%",
+                    "UsuariosAdministrativo.log_usu_adm ilike" => "%$login%",
+                    "UsuariosAdministrativo.nom_usu_adm ilike" => "%$nombre%"
+                ),
+                "order" => "UsuariosAdministrativo.nom_usu_adm",
+                "limit" => 12
+                
+            );
             
             $data = Array(
-                "results" => $results
+                "results" => $this->SqlData->CakeArrayToObjects($this->paginate("UsuariosAdministrativo"))
             );  
             $this->set($data);  
             $this->layout = 'ajax';
