@@ -147,6 +147,16 @@
                             </tr>
                             <tr>
                                 <td valign="top">
+                                    <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
+                                    <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="3" maxlength="8" />
+                                </td>
+                                <td valign="top">
+                                     <label for="log_usu_doc"  class="standar_font"><?php echo __("Usuario");?>:</label>
+                    			     <input type="text" id="log_usu_doc" name="log_usu_doc" class="text required" minlength="3" maxlength="100" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
                                      <label for="pas_usu_doc"  class="standar_font"><?php echo __("Clave");?>:</label>
                     			     <input type="password" id="pas_usu_doc" name="pas_usu_doc" class="password" minlength="3" maxlength="100" />
                                 </td>
@@ -164,21 +174,26 @@
                                      <label for="rep_pas_usu_doc" class="standar_font"><?php echo __("Repetir Clave");?>:</label>
                     			     <input type="password" id="rep_pas_usu_doc" name="rep_pas_usu_doc" class="required" minlength="3" maxlength="100" />
                                 </td>                                
-                                <td valign="top">
-                                    <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
-                                    <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="3" maxlength="8" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top">
-                                     <label for="log_usu_doc"  class="standar_font"><?php echo __("Usuario");?>:</label>
-                    			     <input type="text" id="log_usu_doc" name="log_usu_doc" class="text required" minlength="3" maxlength="100" />
-                                </td>
                                 <td valign="top">    
                                      <label for="tel_usu_doc" class="standar_font"><?php echo __("Teléfono");?>:</label>
                     			     <input type="text" id="tel_usu_doc" name="tel_usu_doc" class="number required" minlength="7" maxlength="11" />
                                 </td>
-                            </tr>                            
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                     <label for="cor_usu_doc"  class="standar_font"><?php echo __("Correo");?>:</label>
+                    			     <input type="text" id="cor_usu_doc" name="cor_usu_doc" class="text required" minlength="10" maxlength="100" />
+                                </td>
+                                <td class="font-standar" valign="top">
+                                    <?php echo __("Centro de Salud")?>:
+                                    <select id="sel_cen_sal" name="sel_cen_sal" class="required" style="width: 109px;;">
+                                        <option value="">--<?php echo __("Seleccione",true)?>--</option>
+                                        <?php foreach($centros_salud as $row){?>   
+                                                <option value="<?php echo $row->id_cen_sal;?>" title="<?php echo $row->des_cen_sal;?>"><?php echo $row->des_cen_sal;?></option>
+                                        <?php }?>
+                                    </select>                             
+                                </td>
+                            </tr>                               
                             <tr>
                                 <td height="20px;"></td>
                             </tr>
@@ -242,7 +257,6 @@
                                     </table>                                                                    
                                 </td>                                
                             </tr>
-
                         </table>                    
                     </td>
                 </tr>

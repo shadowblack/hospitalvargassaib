@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION adm_registrar_medico(character varying[])
+﻿-- Function: adm_registrar_medico(character varying[])
+
+-- DROP FUNCTION adm_registrar_medico(character varying[]);
+
+CREATE OR REPLACE FUNCTION adm_registrar_medico(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
@@ -10,8 +14,10 @@ DECLARE
 	_pas_doc	doctores.pas_doc%TYPE;
 	_log_doc	doctores.log_doc%TYPE;
 	_tel_doc 	doctores.tel_doc%TYPE;
-	_trans_doc	TEXT; 		-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
-	_arr_trans_doc	INTEGER[]; 	-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
+	_cor_doc 	doctores.cor_doc%TYPE;
+	_cen_sal 	centro_salud_doctores.id_cen_sal%TYPE;
+	_trans_doc	TEXT; 	-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
+	_arr_trans_doc	INTEGER[]; -- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
 	_vr_tip_usu 	RECORD;
 	
 	
@@ -23,7 +29,9 @@ BEGIN
 	_pas_doc	:= md5(datos[4]);	
 	_log_doc 	:= datos[5];
 	_tel_doc 	:= datos[6];
-	_trans_doc	:= datos[7];
+	_cor_doc 	:= datos[7];
+	_cen_sal 	:= datos[8];
+	_trans_doc	:= datos[9];
 		
 	/* El usuario administrativo puede ser registrado */
 	IF NOT EXISTS (SELECT 1 FROM doctores WHERE log_doc = _log_doc) THEN     		
@@ -37,7 +45,8 @@ BEGIN
 				ced_doc,
 				pas_doc,
 				log_doc,
-				tel_doc,			
+				tel_doc,
+				cor_doc,			
 				fec_reg_doc			
 			)
 			VALUES 
@@ -47,15 +56,30 @@ BEGIN
 				_ced_doc,
 				_pas_doc,
 				_log_doc,
-				_tel_doc,			
+				_tel_doc,
+				_cor_doc,			
 				NOW()			
-			);		
+			);
+
+			INSERT INTO centro_salud_doctores(
+				id_cen_sal, 
+				id_doc, 
+				otr_cen_sal
+			)
+			VALUES 
+			(
+				_cen_sal, 
+				(CURRVAL('doctores_id_doc_seq')),
+				null
+			);
+    		
 			
 			/*Insertando tipo de usuario como administrador*/
 			INSERT INTO tipos_usuarios__usuarios(
 				id_doc ,
 				id_tip_usu
-			)VALUES
+			)
+			VALUES
 			(
 				(CURRVAL('doctores_id_doc_seq')),
 				(SELECT id_tip_usu FROM tipos_usuarios WHERE cod_tip_usu = 'med')
@@ -80,7 +104,7 @@ BEGIN
 			-- La función se ejecutó exitosamente
 			RETURN 1;
 		ELSE
-			RETURN 2;
+			RETURN 2;-- Existe un usuario medico con la misma cedula.
 		END IF;
 	
 	ELSE
@@ -89,7 +113,9 @@ BEGIN
 	END IF;
 
 END;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION adm_registrar_medico(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION adm_registrar_medico(character varying[]) IS '
 NOMBRE: adm_registrar_medico
 TIPO: Function (store procedure)
@@ -101,7 +127,9 @@ PARAMETROS: Recibe 6 Parámetros
 	4:  Password del usuario doctor	
 	5:  Login del usuario doctor
 	6:  Teléfono del usuario doctor
-	7:  Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
+	7:  Correo Electrónico del usuario doctor
+	8:  Centro de salud del usuario doctor
+	9:  Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
 
 DESCRIPCION: 
 	Almacena la información del usuario administrativo 
@@ -112,11 +140,11 @@ RETORNO:
 	2: Existe un usuario medico con la misma cedula.
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_registrar_medico(ARRAY[''Lisseth'', ''Lozada'',''123456'', ''123'', ''llozada'',''04269150722'',''1,2,3'']);
+	SELECT adm_registrar_medico(ARRAY[''Lisseth'', ''Lozada'',''123456'', ''123'', ''llozada'',''04269150722'',''risusefu@gmail.com'',''7'',''1,2,3'']);
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 04/05/2011
 
+AUTOR DE MODIFICACIÓN: Lisseth Lozada
+FECHA DE MODIFICACIÓN: 24/06/2011
 ';
-
---SELECT adm_registrar_medico(ARRAY['Lisseth', 'Lozada', '123', 'llozada3','04269150722']);

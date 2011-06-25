@@ -1,0 +1,1 @@
+﻿ALTER TABLE doctores DROP COLUMN doc;
