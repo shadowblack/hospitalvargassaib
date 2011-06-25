@@ -8,7 +8,7 @@
        jQuery("#login").validate({  
             submitHandler: function(form) {                
    	            //jQuery(form).ajaxSubmit();
-             var array_form = jQuery("input[type=text],input[type=password]").serializeArray();                            
+                var array_form = jQuery("input[type=text],input[type=password]").serializeArray();                            
                 jQuery("#cargador_volatile").css("display","block");
                 var array_form = jQuery("form").serializeArray();              
                 jQuery.ajax({
@@ -134,7 +134,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" style="height: 73px;">
+                                    <td colspan="3" style="height: 43px;">
                                         &nbsp;
                                     </td>                    
                                 </tr>

@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION adm_modificar_medico(character varying[])
+﻿-- Function: adm_modificar_medico(character varying[])
+
+-- DROP FUNCTION adm_modificar_medico(character varying[]);
+
+CREATE OR REPLACE FUNCTION adm_modificar_medico(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
@@ -10,6 +14,8 @@ DECLARE
 	_pas_doc	doctores.pas_doc%TYPE;
 	_log_doc	doctores.log_doc%TYPE;
 	_tel_doc 	doctores.tel_doc%TYPE;
+	_cor_doc 	doctores.cor_doc%TYPE;
+	_cen_sal 	centro_salud_doctores.id_cen_sal%TYPE;
 	_trans_doc	TEXT; 		-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
 	_arr_trans_doc	INTEGER[]; 	-- transacciones a las cuales tiene permiso el doctor, o mejor dicho niveles de acceso
 	_vr_tip_usu 	RECORD;
@@ -25,7 +31,9 @@ BEGIN
 	_ape_doc 	:= datos[5];
 	_pas_doc	:= md5(datos[6]);		
 	_tel_doc 	:= datos[7];
-	_trans_doc	:= datos[8];
+	_cor_doc 	:= datos[8];
+	_cen_sal 	:= datos[9];
+	_trans_doc	:= datos[10];
 	
 	
 	IF EXISTS(SELECT 1 FROM doctores WHERE id_doc = _id_doc)THEN
@@ -41,11 +49,24 @@ BEGIN
 					pas_doc = _pas_doc,
 					ced_doc	= _ced_doc,
 					log_doc = _log_doc,
-					tel_doc = _tel_doc					
+					tel_doc = _tel_doc,
+					cor_doc = _cor_doc					
 				
-				WHERE 
-				id_doc = _id_doc
-				;
+				WHERE id_doc = _id_doc;
+
+				/*Elimino el centro de salud del doctor y lo vuelvo a insertar*/
+				DELETE FROM centro_salud_doctores WHERE id_doc = _id_doc;
+				INSERT INTO centro_salud_doctores(
+					id_cen_sal, 
+					id_doc, 
+					otr_cen_sal
+				)
+				VALUES 
+				(
+					_cen_sal, 
+					_id_doc, 
+					NULL
+				);
 				
 				/* Insertando las transacciones del usuario*/
 				_id_tip_usu_usu := (SELECT id_tip_usu_usu FROM tipos_usuarios__usuarios WHERE id_doc = _id_doc);
@@ -83,20 +104,25 @@ BEGIN
 	END IF;
 
 END;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION adm_modificar_medico(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION adm_modificar_medico(character varying[]) IS '
 NOMBRE: adm_modificar_medico
 TIPO: Function (store procedure)
 
 PARAMETROS: Recibe 7 Parámetros
 	1:  Id del usuario doctor
-	2:  Nombre del usuario doctor
-	3:  Apellido del usuario doctor
-	4:  Password del usuario doctor	
-	5:  Login del usuario doctor
-	6:  Teléfono del usuario doctor
-	7:  Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
-
+	2:  Login del usuario doctor
+	3:  Cédula del usuario doctor
+	4:  Nombre del usuario doctor
+	5:  Apellido del usuario doctor
+	6:  Password del usuario doctor	
+	7:  Teléfono del usuario doctor
+	8:  Correo Electrónico del usuario doctor
+	9:  Centro de salud del usuario doctor 
+	10: Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
+	
 DESCRIPCION: 
 	Almacena la información del doctor
 
@@ -109,11 +135,11 @@ RETORNO:
 	
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_modificar_medico(ARRAY[''1'',''Lisseth'', ''Lozada'', ''123'', ''llozada'',''04269150722'',''1,2,3'']);
+	SELECT adm_modificar_medico(ARRAY[''1'',''Lisseth'', ''Lozada'', ''123'', ''llozada'',''04269150722'',''risusefu@gmail.com'',''4'',''1,2,3'']);
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 09/05/2011
 
+AUTOR DE MODIFICACIÓN: Lisseth Lozada
+FECHA DE MODIFICACIÓN: 24/06/2011
 ';
-
---SELECT adm_modificar_medico(ARRAY['1','Lisseth', 'Lozada', '123', 'llozada3','04269150722','1']);
