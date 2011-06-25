@@ -1,0 +1,11 @@
+﻿ALTER FUNCTION adm_eliminar_medico(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION adm_eliminar_usuario_admin(character varying) OWNER TO desarrollo_g;
+ALTER FUNCTION adm_modificar_medico(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION adm_modificar_usuario_admin(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION adm_registrar_medico(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION adm_registrar_usuario_admin(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION med_eliminar_paciente(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION med_modificar_paciente(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION med_registrar_paciente(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION reg_transacciones(character varying[]) OWNER TO desarrollo_g;
+ALTER FUNCTION validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text) OWNER TO desarrollo_g;

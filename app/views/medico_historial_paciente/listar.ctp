@@ -9,9 +9,6 @@
 
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginator()?>
-   function his (id){
-        window.location.href = "../medico_historial_paciente/modificar/"+id;
-   }
    jQuery(function(){
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
