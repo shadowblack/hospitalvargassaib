@@ -9,6 +9,15 @@
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginator()?>
    jQuery(function(){                
+    {
+        jQuery( "#tabs" ).tabs
+        ({
+            event: "mouseover"
+        });
+    });
+   
+   jQuery(function(){        
+        
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
             
@@ -22,12 +31,34 @@
         jQuery("#btn_buscar").trigger("click");
    });        
 </script>
+<div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 663px;">
+                    <?php echo __("Listar Paciente",true)?>
+                </a>
+            </li>            
+        </ul>
+			
+    <div id="tabs-1">    
+                    <h2 class="texPrincipal">
+                        <?php echo __("Listar/Crear/Buscar",true)?>
+                    </h2>  
+                        
+                        <fieldset>	
+                            <legend>
+                                <strong>
+                                    <?php echo __("Opciones",true)?>:
+                                </strong>
+                            </legend>
+
+
 <?php 
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
 <form name="consulta" id="consulta" onsubmit="return false">
-    <table style="width: 100%;" border="0" class="standar_position">
+    <table style="width: 100%;" border="0" >
     <tr>
         <td align="center">
             <table style="" border="0">
@@ -68,3 +99,7 @@
     </tr>
 </table>
 </form>
+
+</fieldset>         
+</div>
+</div>

@@ -104,8 +104,8 @@
                 <tr>
                     <td align="center">                        
                     	<table border="0" style="width: 825px;" cellpadding="0" cellspacing="0">
-                        	<tr>
-                            	<td align="right" class="standar_font" style="width: 400px;">
+                        	<tr>                                                        
+                            	<td align="right" class="standar_font" style="width: 409px;">
                                 	<label for="log_usu"  class="standar_font"><?php echo __("Login");?>:</label>                                </td>
                                 <td style="width: 15px;">
                                 	&nbsp;                                
@@ -152,7 +152,7 @@
                             
                             <tr>
                                 <td align="center" colspan="3" class="standar_font">                    
-                                    <input type="submit" value="Aceptar" name="btn_ace" id="btn_ace" >                                			
+                                    <input type="submit" value="Aceptar" name="btn_ace" id="btn_ace">                                    
                                 </td>
                             </tr>
                         </table>

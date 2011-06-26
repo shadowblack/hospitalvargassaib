@@ -6,6 +6,15 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-validate.password/jquery.validate.password.css"?>" />  
 <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>  
 <script type="text/javascript">
+
+    jQuery(function() 
+    {
+        jQuery( "#tabs" ).tabs
+        ({
+            event: "mouseover"
+        });
+    });
+    
     jQuery(function(){ 
         /*Parametrizando los ids de las transacciones*/
         _arr_str = new Array();
@@ -124,12 +133,35 @@
     }            
 </style>
 
+<div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 663px;">
+                    <?php echo __("Agregar Usuario",true)?>
+                </a>
+            </li>            
+        </ul>
+			
+    <div id="tabs-1">    
+                    <h2 class="texPrincipal">
+                        <?php echo __("Agregar Usuario Médico",true)?>
+                    </h2>
+
+
 <?php 
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
-<div style="padding: 0;position: absolute; width: 700px;margin-top: 10px;">    
+<div style="padding: 0; width: 700px;margin-top: 10px;">    
     <form action="" id="reg_usu_doc" name="login" method="post">  
+    <div id="tabs-1">           
+                <fieldset>
+                    <legend>
+                        <strong class="font-standar">
+                            <?php __("Datos del nuevo usuario Médico"); ?>
+                        </strong>
+                    </legend> 
+    
         <input type="hidden" value="" name="val_str_tra" id="val_str_tra">
         <table border="0" align="center" style="position: relative;">
             <tr>
@@ -193,7 +225,9 @@
                                         <?php }?>
                                     </select>                             
                                 </td>
+                            </tr>   
                             </tr>                               
+                                                    
                             <tr>
                                 <td height="20px;"></td>
                             </tr>
@@ -261,5 +295,11 @@
                     </td>
                 </tr>
             </table>
+            </fieldset>
+        </div> 
         </form>
     </div>
+
+
+</div>
+</div>    

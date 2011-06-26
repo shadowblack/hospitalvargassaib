@@ -6,6 +6,14 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-validate.password/jquery.validate.password.css"?>" />  
 <?php echo $this->Html->script("jquery/jquery-validate.password/jquery.validate.password.js"); ?>  
 <script type="text/javascript">
+  jQuery(function() 
+    {
+        jQuery( "#tabs" ).tabs
+        ({
+            event: "mouseover"
+        });
+    });
+
     jQuery(function(){ 
         parent.jQuery("#title_content").html("<?php echo $title;?>");        
        jQuery("#reg_usu_adm").validate({
@@ -85,12 +93,35 @@
     }            
 </style>
 
+<div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 680px;">
+                    <?php echo __("Agregar Usuario",true)?>
+                </a>
+            </li>            
+        </ul>
+			
+    <div id="tabs-1">    
+                    <h2 class="texPrincipal">
+                        <?php echo __("Agregar Usuario Administrador",true)?>
+                    </h2>
+
+        
+                          
 <?php 
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
-<div style="padding: 0;position: absolute; width: 700px;margin-top: 60px;">    
-    <form action="" id="reg_usu_adm" name="login" method="post">  
+<div style="padding: 0; width: 700px;margin-top: o0px;">    
+    <form action="" id="reg_usu_adm" name="login" method="post"> 
+    <div id="tabs-1">           
+                <fieldset>
+                    <legend>
+                        <strong class="font-standar">
+                            <?php __("Datos del nuevo administrador"); ?>
+                        </strong>
+                    </legend> 
         <table border="0" align="center" style="position: relative;">
             <tr>
                 <td align="center">            
@@ -160,6 +191,9 @@
             </tr>
         </table>
           
-                
+     </fieldset>           
     </form>
+</div>
+
+</form> 
 </div>

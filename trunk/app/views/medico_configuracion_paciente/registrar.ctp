@@ -1,4 +1,13 @@
 <script type="text/javascript">   
+        jQuery(function() 
+    {
+        jQuery( "#tabs" ).tabs
+        ({
+            event: "mouseover"
+        });
+    });
+
+
         /*Agregando Clase CSS para el fondo del login*/
 
         jQuery(function() {
@@ -83,6 +92,21 @@
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
+
+<div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 663px;">
+                    <?php echo __("Agregar Paciente",true)?>
+                </a>
+            </li>            
+        </ul>
+			
+    <div id="tabs-1">    
+                    <h2 class="texPrincipal">
+                        <?php echo __("Agregar",true)?>
+                    </h2>                                              
+
 <form name="pacientes" id="pacientes">
    
         <div id="tabs-1">           
@@ -294,3 +318,6 @@
         </div> 
         
 </form>
+
+       
+</div>
