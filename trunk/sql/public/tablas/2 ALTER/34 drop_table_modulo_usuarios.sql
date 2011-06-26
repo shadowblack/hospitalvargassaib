@@ -1,0 +1,1 @@
+﻿DROP TABLE modulo_usuarios;

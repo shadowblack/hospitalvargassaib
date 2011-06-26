@@ -11,7 +11,6 @@ CREATE TYPE t_validar_usuarios AS
 	id_tip_usu 	INTEGER,
 	id_tip_usu_usu 	INTEGER,
 	cod_tip_usu 	TEXT,
-	str_mods	TEXT,
 	str_trans	TEXT,
 	des_tip_usu 	TEXT
    );

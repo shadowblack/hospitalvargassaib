@@ -37,14 +37,6 @@ BEGIN
 				AND ua.pas_usu_adm = md5(_pas_usu)
 				AND tu.cod_tip_usu = _tip_usu;
 				
-				_t_val_usu.str_mods := ARRAY_TO_STRING (
-					ARRAY	(
-							SELECT m.cod_mod FROM modulos m LEFT JOIN modulo_usuarios mu 
-							ON(m.id_mod = mu.id_mod)							
-							WHERE mu.id_tip_usu_usu = _vr_usu.id_tip_usu_usu
-					)
-				,',');
-				
 				_t_val_usu.str_trans := ARRAY_TO_STRING (
 					ARRAY	(
 							SELECT t.cod_tip_tra 
@@ -77,14 +69,6 @@ BEGIN
 				WHERE d.log_doc = _log_usu
 				AND d.pas_doc = md5(_pas_usu)
 				AND tu.cod_tip_usu = _tip_usu;
-				
-				_t_val_usu.str_mods := ARRAY_TO_STRING (
-					ARRAY	(
-							SELECT m.cod_mod FROM modulos m LEFT JOIN modulo_usuarios mu 
-							ON(m.id_mod = mu.id_mod)							
-							WHERE mu.id_tip_usu_usu = _vr_usu.id_tip_usu_usu
-					)
-				,',');
 				
 				_t_val_usu.str_trans := ARRAY_TO_STRING (
 					ARRAY	(

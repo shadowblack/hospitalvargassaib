@@ -69,7 +69,6 @@
                     $this->Session->write("admin.id_tip_usu",$usuario->id_tip_usu);
                     $this->Session->write("admin.id_tip_usu_usu",$usuario->id_tip_usu_usu);
                     $this->Session->write("admin.cod_tip_usu",$usuario->cod_tip_usu);
-                    $this->Session->write("admin.str_mods",$usuario->str_mods);
                     $this->Session->write("admin.str_trans",$usuario->str_trans);
                     $this->Session->write("admin.des_tip_usu",$usuario->des_tip_usu);
 
