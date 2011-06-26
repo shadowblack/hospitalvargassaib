@@ -168,7 +168,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="admin/content_iframe" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    
