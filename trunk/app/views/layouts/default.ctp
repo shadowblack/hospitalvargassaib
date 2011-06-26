@@ -9,8 +9,7 @@
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>
-        <?php echo $this->Html->css('lista');?>
-        <?php echo $this->Html->css('menu_top');?> 
+        <?php echo $this->Html->css('lista');?>        
         <?php echo $this->Html->css('medico_clase_formulario');?> 
        
               
@@ -30,7 +29,7 @@
         <!-- Css Modificacion de librerias -->
         <?php echo $this->Html->css('ui_jquery');?>
     </head>
-    <body style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding: 0;top: 0;">         
+    <body style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding: 0px;top: 0px;">         
         <?php echo $content_for_layout ?>                                           
     </body>
 </html>

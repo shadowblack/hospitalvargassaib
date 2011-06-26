@@ -20,7 +20,11 @@
             
         });
 </script>      
-
+ <style type="text/css">
+    .ui-widget{        
+        font-weight: bold;       
+    }
+ </style>
 <!-- Acordion con sus 5 opciones -->
     <div id="accordion" style="width: *;text-align: center;">
           <div>

@@ -1,7 +1,7 @@
 <?php
     class MedicoHistorialPacienteController extends Controller{
         var $name = "MedicoHistorialPaciente";
-        var $uses =         Array("Doctore","Paciente");
+        var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader");                  
         
@@ -14,11 +14,12 @@
         /**
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
-        function listar(){
+        function listar($id){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
-            $title =  __("Configuración de Pacientes",true);            
+            $title =  __("Historial del paciente",true);            
             $data = Array(                
-                "title"     => $title                
+                "title"     => $title,
+                "id"        => $id               
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);                                     
@@ -31,10 +32,11 @@
             $this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             $param_array = explode(",",$str);
-            
-            $nombre     = $param_array[0];
-            $apellido   = $param_array[1];
-            $cedula     = $param_array[2];                                                    
+                        
+            $num_his        = $param_array[0];
+            $des_his        = $param_array[1];
+            $nom_doc        = $param_array[2];
+            //$ape_doc        = $param_array[3];                                                       
                                                
             $this->paginate = array(
                 'limit' => 12,
@@ -43,18 +45,19 @@
                                     "Paciente.nom_pac",                                    
                                     "Paciente.prueba"
                 ),*/
-                "conditions" => Array(
-                                    "Paciente.nom_pac ilike" => "%$nombre%",
-                                    "Paciente.ape_pac ilike" =>  "%$apellido%",
-                                    "Paciente.ced_pac ilike" => "%$cedula%"
+                "conditions" => Array(                                    
+                                    "HistorialesPaciente.num_his ilike" => "%$num_his%",
+                                    "HistorialesPaciente.des_his ilike" => "%$des_his%",
+                                    /*"HistorilesPaciente.nom_doc ilike" => "%$nom_doc%",
+                                    "HistorilesPaciente.ape_doc ilike" => "%$ape_doc%"      */                                                              
                 ),
-                "order" => "Paciente.nom_pac ASC"
+                "order" => "HistorialesPaciente.num_his ASC"
             ); 
                                                            
             
             
             $data = Array(                
-                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("Paciente"))
+                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("HistorialesPaciente"))
             );  
             
             
@@ -63,19 +66,15 @@
             
         } 
    
-        function registrar(){
-            //$this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
-                                                                                                               
-            $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
-            $arr_query = ($this->Doctore->query($sql));
-            $estados = ($this->SqlData->array_to_objects($arr_query));        
+        function registrar($id){
+            //$this->Login->no_cache();            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                                                                                                 
                                                           
-            $title = __("Registro de paciente",true);
+            $title = __("Registro del Historial de paciente",true);
             
-            $data = Array(
-                "estados"           => $estados,                                         
-                "title"             => $title                
+            $data = Array(                                                      
+                "title"             => $title,
+                "id"                => $id              
             ); 
             
             $this->set($data);
@@ -157,36 +156,20 @@
         function event_registrar(){   
                        
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
-            $nom_pac        = $_POST["txt_nom_pac"];
-            $ape_pac        = $_POST["txt_ape_pac"];
-            $ced_pac        = $_POST["txt_ced_pac"];
-            $fec_nac_pac    = $this->SqlData->date_to_postgres($_POST["txt_fec_nac_pac"]);
-            $nac_pac        = $_POST["sel_nac_pac"];
-            $ocu_pac        = $_POST["sel_ocu_pac"];
-            $tel_pac        = $_POST["txt_tel_pac"];
-            $cel_pac        = $_POST["txt_cel_pac"];
-            $ciu_res_pac    = $_POST["txt_ciu_res_pac"];
-            $est_pac        = $_POST["sel_est_pac"];
-            $num_pac        = $_POST["sel_mun_pac"];
+            $id_pac         = $_POST["id"];
+            $des_his        = $_POST["txt_des_his"];
+            $des_pac_his    = $_POST["txt_des_pac_his"];                       
             $id_doc         = $this->Session->read("medico.id_usu");          
                                             
-            $sql = "SELECT med_registrar_paciente(ARRAY[
-                '$nom_pac', 
-                '$ape_pac', 
-                '$ced_pac', 
-                '$fec_nac_pac',
-                '$nac_pac',
-                '$tel_pac',
-                '$cel_pac',
-                '$ocu_pac',
-                '$ciu_res_pac',
-                '1',
-                '$est_pac',
-                '$num_pac',
-                '$id_doc'
+            $sql = "SELECT med_registrar_hitorial_paciente(ARRAY[
+                '$id_pac', 
+                '$des_his', 
+                '$des_pac_his', 
+                '$id_doc'               
             ]) AS result";
-            $arr_query = ($this->Doctore->query($sql));
-                             
+            //die($sql)           ;  
+            $arr_query = ($this->HistorialesPaciente->query($sql));
+             
             $result = $this->SqlData->result_num($arr_query);
             /*App::import("Lib",Array("FirePhp","fb"));
             $firephp = FirePHP::getInstance(true);
@@ -195,11 +178,8 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El paciente se a insertado con éxito"));
-                    break;
-                case 0:
-                     die($this->FormatMessege->box_style($result,"Existe un paciente con la cédula \'$ced_pac\'"));                    
-                    break;
+                    die($this->FormatMessege->box_style($result,"El Historico del paciente se inserto con éxito"));
+                    break;               
                     
             }                   
             

@@ -1,1 +1,5 @@
 ﻿ALTER TABLE doctores DROP COLUMN doc;
+ALTER TABLE doctores
+	DROP fec_reg_doc,
+	ADD COLUMN fec_reg_doc TIMESTAMP WITH TIME ZONE DEFAULT NOW();
+	
