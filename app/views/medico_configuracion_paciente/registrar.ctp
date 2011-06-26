@@ -96,7 +96,7 @@
 <div id="tabs">
         <ul>
             <li>
-                <a href="#tabs-1" style="width: 663px;">
+                <a href="#tabs-1" style="width: 100%;">
                     <?php echo __("Agregar Paciente",true)?>
                 </a>
             </li>            
