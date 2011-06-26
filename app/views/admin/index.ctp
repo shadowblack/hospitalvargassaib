@@ -38,12 +38,12 @@
   
    <table style="width:100%" border="0" class="menu_top_window" align="center">
     <tr>
-        <td style="height: 125px;">
-            <!-- Banner -->banner
+        <td align="center">
+            <img src="<?php echo $this->webroot?>/img/menu_top/header/Banner.png" style="width: 747px; height: 240px; margin-top: 0px;"/>
         </td>
     </tr>    
     <tr>
-         <td style="height: 35px;">
+         <td style="height: 36px;">
             
         </td>
     </tr>
@@ -168,7 +168,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 400px;">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="" style="width:720px;height: 400px;" frameborder="0" scrolling="auto" marginwidth="0" marginheight="0"></iframe>
+                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    

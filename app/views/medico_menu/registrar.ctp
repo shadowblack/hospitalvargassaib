@@ -22,7 +22,7 @@
 </script>      
 
 <!-- Acordion con sus 5 opciones -->
-    <div id="accordion" >
+    <div id="accordion" style="width: *;text-align: center;">
           <div>
             <h3>
                 <a href="#">
@@ -30,7 +30,7 @@
                 </a>
             </h3>
             <div style="">                                               
-                <div style="height: 150px;text-align: left;">
+                <div style="height: 80px;text-align: left;">
                     <a id="med_con_pac" href="javascript:void(0)" >
                             <?php __("Configurar Paciente")?>
                     </a>                    

@@ -15,7 +15,7 @@
          * Entrando a la aplicacion administrativa
          */
         function content_iframe(){            
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
         }
         /**
          * Login de la aplicacion

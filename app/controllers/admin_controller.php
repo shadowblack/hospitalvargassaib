@@ -20,6 +20,15 @@
            );
            $this->set($data);  */     
         }
+        
+        
+         /**
+         * Entrando a la aplicacion administrativa
+         */
+        function content_iframe(){            
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+        }
+        
         /*
         function __construct(){            
            parent::__construct();

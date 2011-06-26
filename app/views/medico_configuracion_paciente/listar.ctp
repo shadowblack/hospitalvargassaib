@@ -12,6 +12,16 @@
    function his (id){
         window.location.href = "../medico_historial_paciente/modificar/"+id;
    }
+   
+       jQuery(function() 
+    {
+        jQuery( "#tabs" ).tabs
+        ({
+            event: "mouseover"
+        });
+    });
+   
+   
    jQuery(function(){
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
@@ -31,15 +41,42 @@
         });                       
    });       
 </script>
+
+
+
+
+
+<div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 663px;">
+                    <?php echo __("Listar Paciente",true)?>
+                </a>
+            </li>            
+        </ul>
+			
+    <div id="tabs-1">    
+                    <h2 class="texPrincipal">
+                        <?php echo __("Listar/Crear/Buscar",true)?>
+                    </h2>  
+                        
+                        <fieldset>	
+                            <legend>
+                                <strong>
+                                    <?php echo __("Opciones",true)?>:
+                                </strong>
+                            </legend>
+
+
 <?php 
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
 <form name="consulta" id="consulta" onsubmit="return false">
-    <table style="width: 100%;" border="0" class="standar_position">
+    <table style="width: 100%;" border="0" >
     <tr>
         <td align="center">
-            <table style="" border="0">
+            <table style="" border="0" style="margin-top: 10px;;">
                 <tr>
                     <td class="standar_font" style="width:70px;">
                         <?php echo __("Nombre",true)?>:
@@ -76,10 +113,14 @@
     </tr>
     <tr>
         <td align="center" style="">
-            <div id="content" style="height: 300px;width:460px ; overflow-y:auto ;" class="lista_standar">
+            <div id="content" style="height: 300px;width:460px; overflow-y:auto ; background-color: #B8CAD5" class="lista_standar">
                 <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
             </div>
         </td>
     </tr>
 </table>
 </form>
+
+
+</fieldset>         
+</div>

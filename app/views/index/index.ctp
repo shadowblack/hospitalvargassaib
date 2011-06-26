@@ -19,40 +19,29 @@
 
 <table class="standar_position" style="width: 100%;top: 350px; z-index: 1;" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td align="center" style="">     
-            <br/>
-            <table border="0" style="width: 600px;" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td align="center" class="standar_font" style="width: 200px;" >
+        <td align="center">     
+            <table border="0" cellpadding="0" cellspacing="0"  style="margin-top: 20px;">
+                  <tr>
+                        <td style="width: 180px;" align="center">
                         
-                        <div class="boton_medico_conf" id="boton_medico_conf" >
-                            <a href="<?php echo $html->url("/admin")?>">
-                                <br/>
-                                <?php echo __("Administrador",true)?></a>
-                            </a>
-                        </div>                                                                         
+                            <div class="boton_medico_conf" id="boton_medico_conf" >
+                                <a href="<?php echo $html->url("/admin")?>">
+                                    <br/>
+                                    <?php echo __("Administrador",true)?></a>
+                                </a>
+                            </div>  
                         
-                    </td>
-                    <td align="center" style="width: 200px;">
-                        
-                        <div class="boton_medico_conf" id="boton_medico_conf" >
-                            <a href="<?php echo $html->url("/medico/login")?>">
-                                <br/>
-                                <?php echo __("Médico",true)?></a>
-                            </a>
-                        </div>                                                                         
-                    </td>
-                    <td align="center" style="width: 200px;">
-                        <div class="boton_medico_conf" id="boton_medico_conf" >
-                            <a href="<?php echo $html->url("/medico")?>">
-                                <br/>
-                                <?php echo __("Otros",true)?></a>
-                            </a>
-                        </div>                                                                         
-                    </td>
-                </tr>
-                 
-            </table>
+                        </td>
+                        <td style="width: 180px;" align="center">
+                            <div class="boton_medico_conf" id="boton_medico_conf" >
+                                <a href="<?php echo $html->url("/medico/login")?>">
+                                    <br/>
+                                    <?php echo __("Médico",true)?></a>
+                                </a>
+                            </div>                                                
+                        </td>
+                  </tr>
+            </table>            
         </td>
     </tr>
 </table>
