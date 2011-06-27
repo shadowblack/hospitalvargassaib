@@ -26,7 +26,7 @@
     }
  </style>
 <!-- Acordion con sus 5 opciones -->
-    <div id="accordion" style="width: *;text-align: center;">
+    <div id="accordion" style="width: *;text-align: left;">
           <div>
             <h3>
                 <a href="#">
