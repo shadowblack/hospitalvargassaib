@@ -125,9 +125,9 @@
                                 <td class="top_menu_window_body_left">
                                     &nbsp;
                                 </td>                
-                                <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 200px;">
+                                <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 150px;">
                                     <!-- Iframe izquierdo-->
-                                    <iframe id="men_izq_reg" src="medico_menu/registrar" width="220" frameborder="0" scrolling="auto" align="center"></iframe>
+                                    <iframe id="men_izq_reg" src="medico_menu/registrar" width="220"  frameborder="0" scrolling="auto" align="center"></iframe>
                                                        
                                 </td>
                                 <td class="top_menu_window_body_right">                    
@@ -179,9 +179,9 @@
                                 <td class="top_menu_window_body_left">
                                     
                                 </td>                
-                                <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 450px;">
+                                <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 420px;" valign="top">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 400px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="auto"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    
