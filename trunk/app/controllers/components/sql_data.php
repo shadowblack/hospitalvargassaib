@@ -54,6 +54,25 @@ class SqlDataComponent extends Object
     }
     
      /**
+    * Convirtiendo array en objeto cuando hay un registro de cakePHP
+    * return object or array zero
+    */
+    function CakeArrayToObject($array = array()) {                             
+        if (!empty($array)) {
+            $data = Array();
+            $dataArray = Array();                             
+            $data = false; 
+             foreach ($array as $akey_b => $val_arr_b) {                                                           
+                foreach ($val_arr_b as $akey_c => $val_arr_c) {                         
+                    $data -> {$akey_b} ->{$akey_c} = $val_arr_c;      
+                }                                   
+             }                 
+            return $data;
+        }    
+        return Array();
+    }
+    
+     /**
     * Convirtiendo array en objetos cuando son multiples registros de cakePHP
     * return object or array zero
     */
@@ -63,12 +82,14 @@ class SqlDataComponent extends Object
             $data = Array();
             $dataArray = Array();
             $i=0;  
-            foreach ($array as $akey => $val_arr) {  
+            foreach ($array as $akey => $val_arr) {                  
                  foreach ($val_arr as $akey_b => $val_arr_b) {                    
-                    $data = false;
-                    foreach ($val_arr_b as $akey_c => $val_arr_c) {                            
-                        $data -> {$akey_b} ->{$akey_c} = $val_arr_c;
-                        $dataArray[$i] = $data;        
+                    $data = false; 
+                    $y = 0;                   
+                    foreach ($val_arr_b as $akey_c => $val_arr_c) {                         
+                        $data -> {$akey_c} = $val_arr_c;                        
+                        $dataArray[$i]->{$akey_b} = $data;       
+                        $y ++; 
                     }                    
                  }
                  $i++;

@@ -47,12 +47,7 @@
             				}
             			)
                 });
-		</script>      
-		
-	
-    
-    
-    
+		</script>      	
  <!-- base -->
  <div class="standar_content">
   
@@ -64,38 +59,29 @@
     </tr>    
     <tr>
          <td style="height: 35px;">
-
-<!--Botones Superiores-->
-
-    <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
-    <tr>
-
-        <td align="right">
-            
-            
-        <div class="dock" id="dock">
-            <div class="dock-container">
-                <a class="dock-item" href="#"><img style="padding-left: 0px;" src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" /><span style="padding-left: 15px;">Registrar</span></a>
-                
-                <a class="dock-item" href="#"><img style="padding-left: 20px;" src="<?php echo $this->webroot?>/js/men_mac/images/configurar.png" alt="Configurar" /><span style="padding-left: 20px;">Configurar</span></a> 
-                
-                <a class="dock-item" href="#"><img style="padding-left: 40px;" src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" /><span style="padding-left: 40px;">Reporte</span></a>
-                 
-                <a class="dock-item" href="#"><img style="padding-left: 60px;" src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" /><span style="padding-left: 60px;">Estadistica</span></a>
-                 
-                <a class="dock-item" href="#"><img style="padding-left: 80px;" src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" /><span style="padding-left: 80px;">Ayuda</span></a>
-                 
-                <a class="dock-item" href="#"><img style="padding-left: 100px;" src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" /><span style="padding-left: 100px;">Salir</span></a>   
-            </div>
-        </div>
-            
-            
-        </td>
-    </tr>
-    </table>
-<!--Fin de los Botones Superiores-->            
-            
-            
+            <!--Botones Superiores-->        
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
+                <tr>        
+                    <td align="right">                                        
+                        <div class="dock" id="dock">
+                            <div class="dock-container">
+                                <a class="dock-item" href="#"><img style="padding-left: 0px;" src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" /><span style="padding-left: 15px;">Registrar</span></a>
+                                
+                                <a class="dock-item" href="#"><img style="padding-left: 20px;" src="<?php echo $this->webroot?>/js/men_mac/images/configurar.png" alt="Configurar" /><span style="padding-left: 20px;">Configurar</span></a> 
+                                
+                                <a class="dock-item" href="#"><img style="padding-left: 40px;" src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" /><span style="padding-left: 40px;">Reporte</span></a>
+                                 
+                                <a class="dock-item" href="#"><img style="padding-left: 60px;" src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" /><span style="padding-left: 60px;">Estadistica</span></a>
+                                 
+                                <a class="dock-item" href="#"><img style="padding-left: 80px;" src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" /><span style="padding-left: 80px;">Ayuda</span></a>
+                                 
+                                <a class="dock-item" href="#"><img style="padding-left: 100px;" src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" /><span style="padding-left: 100px;">Salir</span></a>   
+                            </div>
+                        </div>                                                
+                    </td>
+                </tr>
+            </table>
+            <!--Fin de los Botones Superiores-->                                    
         </td>
     </tr>
     <tr>
@@ -181,7 +167,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 420px;" valign="top">
                                     <!-- Dinamic -->
-                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="auto"></iframe>
+                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="no"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    

@@ -27,14 +27,13 @@
          /**
         * Listando de usuarios administrativos
         */
-        function event_listar($str){
+        function event_listar(){
             $this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $param_array = explode(",",$str);
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");            
             
-            $nombre     = $param_array[0];
-            $apellido   = $param_array[1];
-            $cedula     = $param_array[2];                                                    
+            $nombre     = $_POST["nom_pac"];
+            $apellido   = $_POST["ape_pac"];
+            $cedula     = $_POST["ced_pac"];                                                    
                                                
             $this->paginate = array(
                 'limit' => 12,
