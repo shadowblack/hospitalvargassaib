@@ -28,34 +28,49 @@
          /**
         * Listando de usuarios administrativos
         */
-        function event_listar($str){
+        function event_listar(){
+             
             $this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $param_array = explode(",",$str);
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");      
                         
-            $num_his        = $param_array[0];
-            $des_his        = $param_array[1];
-            $nom_doc        = $param_array[2];
+            $num_his        = $_POST["num_his"];
+            $des_his        = $_POST["des_his"];
+            $nom_doc        = $_POST["nom_doc"];
             //$ape_doc        = $param_array[3];                                                       
                                                
             $this->paginate = array(
                 'limit' => 12,
-                /*'fields' => Array(
-                                    "Paciente.id_pac",
-                                    "Paciente.nom_pac",                                    
-                                    "Paciente.prueba"
-                ),*/
+                'fields' => Array(
+                                    "Doctore.nom_doc",
+                                    "Doctore.ape_doc",
+                                    "HistorialesPaciente.*"
+                ),
                 "conditions" => Array(                                    
                                     "HistorialesPaciente.num_his ilike" => "%$num_his%",
-                                    "HistorialesPaciente.des_his ilike" => "%$des_his%",
-                                    /*"HistorilesPaciente.nom_doc ilike" => "%$nom_doc%",
-                                    "HistorilesPaciente.ape_doc ilike" => "%$ape_doc%"      */                                                              
+                                    "HistorialesPaciente.des_his ilike" => "%$des_his%",                                   
+                                    "OR" => Array(
+                                        "Doctore.nom_doc ilike"         => "%$nom_doc%",
+                                        "Doctore.ape_doc ilike"         => "%$nom_doc%"
+                                    )  
                 ),
-                "order" => "HistorialesPaciente.num_his ASC"
+                "order" => "HistorialesPaciente.num_his ASC",
+                "joins" => array(
+                    Array(
+                        "table"         => "doctores",
+                        "alias"         => "Doctore",
+                        "conditions"    => "Doctore.id_doc = HistorialesPaciente.id_doc",
+                        "fields"        => Array("Doctore.nom_doc","Doctore.ape_doc")
+                    )
+                )
             ); 
                                                            
-            
-            
+            /*App::import("Lib",Array("FirePhp","fb"));
+            $firephp = FirePHP::getInstance(true);
+            $firephp->log($this->paginate("HistorialesPaciente"));
+            $firephp->log($this->SqlData->CakeArrayToObject($this->paginate("HistorialesPaciente"))); 
+            */   
+            // die;  
+           
             $data = Array(                
                 "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("HistorialesPaciente"))
             );  
@@ -125,24 +140,22 @@
         /**
         * View editar usuarios administrativos
         */ 
-        function modificar($id){            
+        function modificar($id){
             $this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            
-            $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
-            $arr_query = ($this->Doctore->query($sql));
-            $estados = ($this->SqlData->array_to_objects($arr_query));  
-            
-            $sql = "SELECT * FROM pacientes WHERE id_pac=$id";
-            $arr_query = ($this->Doctore->query($sql));
-            $result = ($this->SqlData->array_to_object($arr_query));        
-                        
-            $title =  __("Modificación de pacientes",true);
+                                                          
+            $result = ($this->SqlData->CakeArrayToObject(
+                $this->HistorialesPaciente->find("first",
+                    array("conditions" => Array("HistorialesPaciente.id_his = " => $id)))
+                )
+            );        
+                                   
+            $title =  __("Modificación de historial",true);
             
             $data = Array(
-                "result"    => $result,
-                "estados"   => $estados,
-                "title"     => $title                             
+                "result"    => $result,                
+                "title"     => $title,
+                "id"        => $id                            
             ); 
             
             $this->set($data);

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     class AdminUsuarioAdministrativoController extends Controller{
         var $name = "AdminUsuarioAdministrativo";
         var $uses = Array("UsuariosAdministrativo");

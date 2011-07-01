@@ -8,25 +8,21 @@
 ?>
 
 <script type="text/javascript"> 
-   <?php echo $this->Loader->DivPaginator()?>
+   <?php echo $this->Loader->DivPaginatorPost()?>
    function his (id){
         
         window.location.href = "<?php echo $this->Html->url("/MedicoHistorialPaciente/listar")?>/"+id;
    }
      
    jQuery(function(){
+        jQuery("#tabs-1").css("display","block");
         jQuery( "#tabs" ).tabs
         ({
             event: "mouseover"
         });
         parent.jQuery("#title_content").html("<?php echo $title;?>");
-        jQuery("#btn_buscar").click(function(){
-            
-            var _str =  "/"+jQuery("#nom_usu_adm").val()+","
-                        +jQuery("#ape_usu_adm").val()+","
-                        +jQuery("#log_usu_adm").val()+"/"; 
-                                           
-            paginator_div("<?php echo $_V_LIST ?>"+_str);
+        jQuery("#btn_buscar").click(function(){                                                                 
+            paginator_div("<?php echo $_V_LIST ?>",jQuery("#consulta"));
         })
         
         jQuery("#btn_buscar").trigger("click");
@@ -37,14 +33,11 @@
         });                       
    });       
 </script>
-	
-<div id="tabs-1">
-    <!--    
-    <h2 class="texPrincipal">
-        <?php echo __("Listar/Crear/Buscar",true)?>
-    </h2>          
-    -->
-
+<?php 
+    $T_V_TYPE = 1;
+    include_once("../libs/_dialog.php");  
+?>	
+<div id="tabs-1" style="display: none;">   
 
     <div id="tabs">
             <ul>
@@ -54,68 +47,56 @@
                     </a>
                 </li>            
             </ul>
-    
-                
-                <?php 
-                    $T_V_TYPE = 1;
-                    include_once("../libs/_dialog.php");  
-                ?>
-                <form name="consulta" id="consulta" onsubmit="return false">
-                    <fieldset>	
-                        <!--
-                        <legend>
-                            <strong>
-                                <?php echo __("Opciones",true)?>:
-                            </strong>
-                        </legend>
-                        -->            
-                        <table style="width: 100%;" border="0" >
-                            <tr>
-                                <td align="center">
-                                    <table style="" border="0" style="margin-top: 10px;;">
-                                        <tr>
-                                            <td class="standar_font" style="width:70px;">
-                                                <?php echo __("Nombre",true)?>:
-                                            </td>
-                                            <td>
-                                                <input type="text" id="nom_usu_adm" name="nom_usu_adm">
-                                            </td>                    
-                                            <td class="standar_font">
-                                                <?php echo __("Apellido",true)?>:
-                                            </td>                   
-                                            <td>
-                                                <input type="text" id="ape_usu_adm" name="ape_usu_adm">
-                                            </td>
-                                            <td>
-                                                <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>">
-                                            </td>                                        
-                                        </tr>    
-                                        <tr>
-                                            <td class="standar_font">
-                                                <?php echo __("Cédula",true)?>:
-                                            </td>
-                                            <td>
-                                                <input type="text" id="log_usu_adm" name="log_usu_adm">
-                                            </td> 
-                                            <td colspan="2">
-                                                &nbsp;
-                                            </td>                   
-                                            <td colspan="0" align="right">                        
-                                                <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
-                                            </td>
-                                        </tr>                            
-                                    </table>
-                                </td>    
-                            </tr>
+                <fieldset>	     
+                <form name="consulta" id="consulta" onsubmit="return false">                                           
+                    <table style="width: 100%;" border="0" >
                         <tr>
-                            <td align="center" style="">
-                                <div id="content" style="height: 300px;width:460px; overflow-y:auto ;" class="lista_standar">
-                                    <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
-                                </div>
-                            </td>
+                            <td align="center">
+                                <table style="" border="0" style="margin-top: 10px;;">
+                                    <tr>
+                                        <td class="standar_font" style="width:70px;" align="left">
+                                            <?php echo __("Nombre",true)?>:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="nom_pac" name="nom_pac">
+                                        </td>                    
+                                        <td class="standar_font" align="left">
+                                            <?php echo __("Apellido",true)?>:
+                                        </td>                   
+                                        <td align="left">
+                                            <input type="text" id="ape_pac" name="ape_pac">
+                                        </td>
+                                        <td align="left">
+                                            <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>">
+                                        </td>                                        
+                                    </tr>    
+                                    <tr>
+                                        <td class="standar_font" align="left">
+                                            <?php echo __("Cédula",true)?>:
+                                        </td>
+                                        <td align="left">
+                                            <input type="text" id="ced_pac" name="ced_pac">
+                                        </td> 
+                                        <td colspan="2" align="left">
+                                            &nbsp;
+                                        </td>                   
+                                        <td colspan="0" align="right" align="left">                        
+                                            <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
+                                        </td>
+                                    </tr>                            
+                                </table>
+                            </td>    
                         </tr>
-                    </table>
-                </fieldset>                     
+                    <tr>
+                        <td align="center" style="">
+                            <div id="content" style="height: 300px;width:460px; overflow-y:auto ;" class="lista_standar">
+                                <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                                     
             </form>
+            </fieldset>
     </div>
 </div>
