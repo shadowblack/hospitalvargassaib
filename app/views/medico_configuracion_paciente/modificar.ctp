@@ -164,7 +164,7 @@
                 </tr>                       
                 <tr>
                     <td valign="top">                                
-                        <input name="txt_fec_nac_pac" id="txt_fec_nac_pac" value="<?php echo $this->DateFormat->postgres_to_date($result->fec_nac_pac)?>" class="date required" />
+                        <input name="txt_fec_nac_pac" id="txt_fec_nac_pac" value="<?php echo $this->DateFormat->PostgresToDate($result->fec_nac_pac)?>" class="date required" />
                     </td>
                     <td>
                         &nbsp;

@@ -80,13 +80,13 @@ include_once ("../libs/_dialog.php");
     <ul>
         <li>
             <a href="#tabs-1" style="width: 653px;">
-                <?php echo __("Agregar Paciente", true) ?>
+                <?php echo __("Modificar", true) ?>
             </a>
         </li>            
     </ul>
     <fieldset style="height: 365px;"> 
         <form name="historiales_pacientes" id="historiales_pacientes">
-            <input type="hidden" name="id" value="<?php echo $id ?>">                                                                    
+            <input type="hidden" name="hdd_id_his" value="<?php echo $id_his ?>">                                                                    
             <table style="width:540px" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="184" class="font-standar" valign="top">
@@ -107,8 +107,7 @@ $result->HistorialesPaciente->des_his ?></textarea>
                 <tr>                                                      
                     <td valign="top">                                
                         <textarea name="txt_des_pac_his" maxlength="255" style="width: 571px;height: 200px;"><?php echo $result->HistorialesPaciente->
-des_adi_pac_his ?>
-                        </textarea>
+des_adi_pac_his ?></textarea>
                     </td>                           
                 </tr>                                                                              
             </table>                      

@@ -37,7 +37,7 @@
                                         url:"<?php echo $_V_DEL?>/"+id+"/"+str+"/",                                                
                                         type: "POST",    
                                         dataType: "json",                                      
-                                        error:function(){alert("Error json")},
+                                        error:function(){alert('<?php echo __("Error retornando valores en json, por favor notificar al programador",true)?>')},
                                         success: function(data){                                                                     
                                             eval("data="+data);   
                                             

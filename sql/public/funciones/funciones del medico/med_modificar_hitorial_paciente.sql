@@ -1,11 +1,11 @@
-﻿CREATE OR REPLACE FUNCTION med_registrar_hitorial_paciente(character varying[])
+﻿CREATE OR REPLACE FUNCTION med_modificar_hitorial_paciente(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
 	_datos ALIAS FOR $1;
 
 	-- informacion del paciente
-	_id_pac 		pacientes.id_pac%TYPE;
+	_id_his 		historiales_pacientes.id_his%TYPE;
 	_des_his 		historiales_pacientes.des_his%TYPE;
 	_des_adi_pac_his	historiales_pacientes.des_adi_pac_his%TYPE;	
 	
@@ -14,7 +14,7 @@ DECLARE
 	
 BEGIN
 	-- pacientes
-	_id_pac 		:= _datos[1];
+	_id_his 		:= _datos[1];
 	_des_his 		:= _datos[2];
 	_des_adi_pac_his	:= _datos[3];
 
@@ -22,45 +22,33 @@ BEGIN
 	_id_doc			:= _datos[4];
 
 	-- historial del paciente
-	
+		
 
-	/*insertando pacientes*/
-	INSERT INTO historiales_pacientes
-	(
-		id_pac,	
-		des_his, 	
-		des_adi_pac_his,		
-		id_doc		
-	)
-	VALUES 
-	(
-		_id_pac,	
-		_des_his, 	
-		_des_adi_pac_his,		
-		_id_doc
-	);		
-			
-	-- La función se ejecutó exitosamente
-	RETURN 1;
+	UPDATE historiales_pacientes SET 		
+		des_his 	= _des_his, 	
+		des_adi_pac_his = _des_adi_pac_his				
+		WHERE id_his 	= _id_his;
+		
+	RETURN 1; -- La función se ejecutó exitosamente
 	
 	
 	
 
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
-COMMENT ON FUNCTION med_registrar_hitorial_paciente(character varying[]) IS '
-NOMBRE: med_registrar_hitorial_paciente
+COMMENT ON FUNCTION med_modificar_hitorial_paciente(character varying[]) IS '
+NOMBRE: med_modificar_hitorial_paciente
 TIPO: Function (store procedure)
 
 PARAMETROS: Recibe 4 Parámetros
 
-	1:  Id del paciente.
+	1:  Id del historial.
 	2:  Descripción delhec historico.
 	3:  Descripción adicional del paciente.
 	4:  Id del doctor que se encuentra logueado en el sistema.
 	
 DESCRIPCION: 
-	Almacena la información del historico de los pacientes
+	Modifica la información del historico de los pacientes
 
 RETORNO:
 	1: La función se ejecutó exitosamente	

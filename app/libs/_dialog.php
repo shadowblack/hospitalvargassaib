@@ -10,7 +10,7 @@
                                 <div id="dialog_messege" class="ui-widget">
                         			<div class="" style="margin-top: 15px; padding: 0 .7em;">         				
                                             <span class="" style="float: left; margin-right: .3em;"></span>
-                        				    <div id="dialog_text" class="" style="text-align: left;">&nbsp;</div>                        
+                        				    <div id="dialog_text" class="" style="text-align: left;min-width: 240px;">&nbsp;</div>                        
                         			</div>
                         		</div>
                             </td>

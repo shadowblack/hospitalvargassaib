@@ -1,19 +1,37 @@
 <?php
 
-    $_V_LIST    = $this->Html->url("event_listar");
+    $_V_LIST    = $this->Html->url("event_listar/$id_pac");
     $_V_EDIT    = $this->Html->url("modificar");
     $_V_DEL     = $this->Html->url("event_eliminar");
     $_V_CONS    = $this->Html->url("consultar");
-    $_V_DEL_MEN = __("¿Desea eliminar al paciente",TRUE);
+    $_V_DEL_MEN = __("¿Desea eliminar el Historial",TRUE);
     include_once("../libs/_list_ajax.php");
 ?>
 
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginatorPost()?>
-   
+   function info(id_his){ 
+        parent.jQuery.window.getWindow = "asdfasdf";
+        parent.jQuery("#win_console").window({           
+           title: "Cyclops Studio",
+           url: "http://www.google.com/",           
+           y: 6,
+           x: 0,
+           width: 452,
+           height: 480,
+           bookmarkable : false,
+           onClose: function(wnd) {
+            
+            alert("close window: "+wnd.getWindowId());
+            
+         },
+           checkBoundary: true
+        });      
+     
+   }
    jQuery(function(){
-    jQuery("#tabs-1").css("display","block");
-    jQuery( "#tabs" ).tabs();
+        jQuery("#tabs-1").css("display","block");
+        jQuery( "#tabs" ).tabs();
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){                                                       
             paginator_div("<?php echo $_V_LIST ?>",jQuery("#consulta"));            
@@ -23,7 +41,7 @@
         
         // Mostrando ventana para crear usuarios
         jQuery("#btn_crear").click(function(){            
-            parent.document.getElementById("frame_content").src = "<?php echo $this->Html->url("registrar")?>/<?php echo $id?>";
+            parent.document.getElementById("frame_content").src = "<?php echo $this->Html->url("registrar")?>/<?php echo $id_pac?>";
         });                       
    });       
 </script>

@@ -73,7 +73,7 @@
                 </tr>                       
                 <tr>
                     <td valign="top">                                                    
-                        <span class="standar_font"><?php echo $this->DateFormat->postgres_to_date($result->fec_nac_pac)?></span>
+                        <span class="standar_font"><?php echo $this->DateFormat->PostgresToDate($result->fec_nac_pac)?></span>
                     </td>
                     <td>
                         &nbsp;
