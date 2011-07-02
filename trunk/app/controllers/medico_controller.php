@@ -33,7 +33,7 @@
         function validar_usuario(){
           
                 if (!isset($_POST["log_usu"]) || !isset($_POST["pas_log"])){                    
-                    die($this->FormatMessege->box_style(2,"Error de validación."));
+                    die($this->FormatMessege->BoxStyle(2,"Error de validación."));
                 }                
                 $log_usu = $_POST["log_usu"];    
                 $pas_usu = ($_POST["pas_log"]);
@@ -54,9 +54,9 @@
                     $this->Session->write("medico.str_trans",$usuario->str_trans);
                     $this->Session->write("medico.des_tip_usu",$usuario->des_tip_usu);
 
-                    die($this->FormatMessege->box_style(1,"Usuario verificado."));
+                    die($this->FormatMessege->BoxStyle(1,"Usuario verificado."));
                 } else {
-                    die($this->FormatMessege->box_style(2,"Por favor verifique sus datos."));    
+                    die($this->FormatMessege->BoxStyle(2,"Por favor verifique sus datos."));    
                 }                               
                 die;                                             
         }

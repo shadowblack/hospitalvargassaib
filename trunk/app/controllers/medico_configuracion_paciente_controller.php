@@ -105,7 +105,7 @@
                             pacientes p 
                             JOIN estados e  USING(id_est) 
                             JOIN municipios m USING(id_mun) 
-                            WHERE id_pac = 7 ";
+                            WHERE id_pac = $id ";
                             
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                                                
@@ -186,7 +186,7 @@
             ]) AS result";
             $arr_query = ($this->Doctore->query($sql));
                              
-            $result = $this->SqlData->result_num($arr_query);
+            $result = $this->SqlData->ResultNum($arr_query);
             /*App::import("Lib",Array("FirePhp","fb"));
             $firephp = FirePHP::getInstance(true);
             $firephp->log('Hello World');*/
@@ -194,10 +194,10 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El paciente se a insertado con éxito"));
+                    die($this->FormatMessege->BoxStyle($result,"El paciente se a insertado con éxito"));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"Existe un paciente con la cédula \'$ced_pac\'"));                    
+                     die($this->FormatMessege->BoxStyle($result,"Existe un paciente con la cédula \'$ced_pac\'"));                    
                     break;
                     
             }                   
@@ -244,14 +244,14 @@
                         
             $arr_query = ($this->Doctore->query($sql));            
                              
-            $result = $this->SqlData->result_num($arr_query);            
+            $result = $this->SqlData->ResultNum($arr_query);            
                         
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El paciente se a modificado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El paciente se a modificado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El paciente cédula \'$cel_pac\' no se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El paciente cédula \'$cel_pac\' no se encuentra registrado en el sistema."));                    
                     break;                          
             } 
             /*App::import("Lib",Array("FirePhp","fb"));
@@ -274,14 +274,14 @@
                         
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
-            $result = $this->SqlData->result_num($arr_query);            
+            $result = $this->SqlData->ResultNum($arr_query);            
                         
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El paciente se ha eliminado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El paciente se ha eliminado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El paciente \'$log_usu\' no se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El paciente \'$log_usu\' no se encuentra registrado en el sistema."));                    
                     break;                            
             }         
          }     

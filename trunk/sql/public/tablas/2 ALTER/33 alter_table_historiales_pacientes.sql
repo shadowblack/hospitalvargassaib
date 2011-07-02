@@ -20,4 +20,8 @@ ALTER TABLE historiales_pacientes
 	ALTER COLUMN des_his TYPE CHARACTER VARYING(255);
 
 ALTER TABLE historiales_pacientes
-	ALTER COLUMN fec_his TYPE TIMESTAMP 
+	ALTER COLUMN fec_his TYPE TIMESTAMP;
+	
+ALTER TABLE historiales_pacientes
+	DROP COLUMN num_his;
+	

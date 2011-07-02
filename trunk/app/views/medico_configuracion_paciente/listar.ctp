@@ -9,10 +9,9 @@
 
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginatorPost()?>
-   function his (id){
-        
-        window.location.href = "<?php echo $this->Html->url("/MedicoHistorialPaciente/listar")?>/"+id;
-   }
+   function his(id_pac){        
+        window.location.href = "<?php echo $this->Html->url("/MedicoHistorialPaciente/listar")?>/"+id_pac;
+   }  
      
    jQuery(function(){
         jQuery("#tabs-1").css("display","block");

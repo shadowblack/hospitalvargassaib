@@ -1,12 +1,15 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot."js/jquery/jquery-window-5.03/css/jquery.window.css";  ?>"/>
  <?php
-    echo $this->Html->script("men_mac/js/interface");    
-    
+    echo $this->Html->script("men_mac/js/interface.js");
+    echo $this->Html->script("jquery/jquery-window-5.03/jquery.window.js");          
  ?> 
+
+
  <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/>  
 		<script type="text/javascript">
-			jQuery(function(){
-			 
-                jQuery("body").addClass('medico_clase_formulario_fondo');
+			jQuery(function(){			     
+                
+                 jQuery("body").addClass('medico_clase_formulario_fondo');
                  jQuery("#accordion").accordion({
         		      header: "h3",              
                       autoHeight:false,
@@ -32,28 +35,27 @@
                    
         		});
                 
-            			jQuery('#dock').Fisheye(
-            				{
-            				    
-                                fishEyeItemName: ".FishEye",
-            					maxWidth: 50,
-            					items: 'a',
-            					itemsText: 'span',
-            					container: '.dock-container',
-            					itemWidth: 50,//tamaño del  menu
-            					proximity: 90,
-            					halign : 'center',
-                                                                
-            				}
-            			)
+    			jQuery('#dock').Fisheye(
+    				{
+    				    
+                        fishEyeItemName: ".FishEye",
+    					maxWidth: 50,
+    					items: 'a',
+    					itemsText: 'span',
+    					container: '.dock-container',
+    					itemWidth: 50,//tamaño del  menu
+    					proximity: 90,
+    					halign : 'center',
+                                                        
+    				}
+    			)
                 });
 		</script>      	
  <!-- base -->
- <div class="standar_content">
-  
+ <div class="standar_content">  
    <table style="width:100%" border="0" class="menu_top_window" align="center">
     <tr>
-        <td align="center">
+        <td align="center">            
             <img src="<?php echo $this->webroot?>/img/menu_top/header/Banner.png" style="width: 747px; height: 240px; margin-top: 0px;"/>
         </td>
     </tr>    
@@ -85,7 +87,7 @@
         </td>
     </tr>
     <tr>
-        <td style="height: 400px;" valign="top" align="center">
+        <td style="height: 400px;" valign="top" align="center" id="win_console">            
             <table border="0" style="margin-top: 2px;">
                 <tr>
                     <td  valign="top">
@@ -167,6 +169,7 @@
                                 </td>                
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 420px;" valign="top">
                                     <!-- Dinamic -->
+                                     
                                     <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="no"></iframe>
                                   
                                 </td>
@@ -196,5 +199,5 @@
         </td>                
     </tr>    
    </table>
-   </div>
+   </div>  
  <!-- fin base -->

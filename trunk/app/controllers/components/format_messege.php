@@ -5,7 +5,7 @@ class FormatMessegeComponent extends Object
     * tranformando sql resultado directo y numerico
     */
     
-    function box_style($result,$messege){
+    function BoxStyle($result,$messege){
         switch($result){
             case 1:
                 $class =    "

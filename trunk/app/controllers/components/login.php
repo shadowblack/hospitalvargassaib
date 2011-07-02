@@ -35,7 +35,7 @@ class LoginComponent extends Object{
                 break;
                 /*Es necesario tener habilitado el componente FormatMessege para que funcione*/
                 case "json":
-                    die($self->FormatMessege->box_style(20,"Session Out, por favor ingresar nuevamente al sistema."));
+                    die($self->FormatMessege->BoxStyle(20,"Session Out, por favor ingresar nuevamente al sistema."));
                 break;
                 default:
                     $self->redirect($page);
@@ -57,7 +57,7 @@ class LoginComponent extends Object{
     function autenticacion_usuario_json($self){
         if (!$self->Session->read("id_usu"))
             /*Es necesario tener habilitado el componente FormatMessege para que funcione*/
-            die($self->FormatMessege->box_style(20,"Por favor inicie session en el sistema."));
+            die($self->FormatMessege->BoxStyle(20,"Por favor inicie session en el sistema."));
     }
 }
 ?>

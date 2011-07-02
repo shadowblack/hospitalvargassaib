@@ -65,7 +65,7 @@
             //die($sql);
             $arr_query = ($this->Doctore->query($sql));
                              
-            $result = $this->SqlData->result_num($arr_query);
+            $result = $this->SqlData->ResultNum($arr_query);
             /*App::import("Lib",Array("FirePhp","fb"));
             $firephp = FirePHP::getInstance(true);
             $firephp->log('Hello World');*/
@@ -73,13 +73,13 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El usuario se ha insertado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El usuario se ha insertado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu_doc\' ya se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu_doc\' ya se encuentra registrado en el sistema."));                    
                     break;
                 case 2:
-                     die($this->FormatMessege->box_style($result,"El usuario/a con la cédula \'$ced_usu_doc\' ya se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a con la cédula \'$ced_usu_doc\' ya se encuentra registrado en el sistema."));                    
                     break;
             } 
             die;
@@ -221,20 +221,20 @@
            // die($sql);
             $arr_query = ($this->Doctore->query($sql));
                              
-            $result = $this->SqlData->result_num($arr_query);            
+            $result = $this->SqlData->ResultNum($arr_query);            
                         
             switch($result){
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El usuario se ha modificado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El usuario se ha modificado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_doc\' no se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_doc\' no se encuentra registrado en el sistema."));                    
                     break;  
                 case 2:
-                    die($this->FormatMessege->box_style($result,"Existe un usuario con el login \'$log_doc\' por favor intente con otro."));                  
+                    die($this->FormatMessege->BoxStyle($result,"Existe un usuario con el login \'$log_doc\' por favor intente con otro."));                  
                     break;
                 case 3:
-                    die($this->FormatMessege->box_style($result,"Existe un usuario con la cédula \'$ced_doc\' por favor intente con otro."));                  
+                    die($this->FormatMessege->BoxStyle($result,"Existe un usuario con la cédula \'$ced_doc\' por favor intente con otro."));                  
                     break;              
             }                               
             die;
@@ -253,17 +253,17 @@
                         
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
-            $result = $this->SqlData->result_num($arr_query);            
+            $result = $this->SqlData->ResultNum($arr_query);            
                         
             switch($result){
                 case 2:
-                    die($this->FormatMessege->box_style($result,"No se puede eliminar este doctor porque tiene pacientes asociados."));
+                    die($this->FormatMessege->BoxStyle($result,"No se puede eliminar este doctor porque tiene pacientes asociados."));
                     break;
                 case 1:
-                    die($this->FormatMessege->box_style($result,"El usuario se ha eliminado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El usuario se ha eliminado con éxito."));
                     break;
                 case 0:
-                     die($this->FormatMessege->box_style($result,"El usuario/a \'$log_usu\' no se encuentra registrado en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu\' no se encuentra registrado en el sistema."));                    
                     break;                            
             }         
          }        

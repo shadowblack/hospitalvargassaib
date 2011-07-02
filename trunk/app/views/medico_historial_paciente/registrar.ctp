@@ -80,13 +80,13 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 653px;">
-                    <?php echo __("Agregar Paciente",true)?>
+                    <?php echo __("Agregar",true)?>
                 </a>
             </li>            
         </ul>
         <fieldset style="height: 365px;"> 
             <form name="historiales_pacientes" id="historiales_pacientes">
-                    <input type="hidden" name="id" value="<?php echo $id?>">                   
+                    <input type="hidden" name="id_pac" value="<?php echo $id_pac?>">                   
                                                      
                                 <table style="width:540px" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                                     <tr>
