@@ -10,25 +10,54 @@
 
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginatorPost()?>
-   function info(id_his){ 
-        parent.jQuery.window.getWindow = "asdfasdf";
-        parent.jQuery("#win_console").window({           
-           title: "Cyclops Studio",
-           url: "http://www.google.com/",           
-           y: 6,
-           x: 0,
-           width: 452,
-           height: 480,
-           bookmarkable : false,
-           onClose: function(wnd) {
-            
-            alert("close window: "+wnd.getWindowId());
-            
-         },
-           checkBoundary: true
-        });      
-     
+   var OnMax = function(id){
+        var navegador = jQuery.browser;
+        if (navegador.msie == true && parseInt(navegador.version.substring(0,1)) < 9 ){               
+             parent.jQuery("#"+id).css("margin-top","295px");
+             parent.jQuery("#"+id+" .minimizeImg").css("display","none");             
+        }    
    }
+   var OnCas = function(id){
+        var navegador = jQuery.browser;
+        if (navegador.msie == true && parseInt(navegador.version.substring(0,1)) < 9 ){            
+             parent.jQuery("#"+id).css("margin-top","0");
+             parent.jQuery("#"+id+" .minimizeImg").css("display","block"); 
+        }    
+   }  
+   function info(id_his){        
+        parent.jQuery.window.prepare({
+            dock: 'left',      
+            dockArea: parent.jQuery('#win_console_dock') // set the dock area            
+        });
+        var _id = "inf_his"+id_his;       
+        var _win = parent.jQuery("#win_console").window({
+            id : _id,
+            title: "Cyclops Studio",
+            content: "<div style='padding:10px; font-weight:bold;'>I only can be dragged within body element."+
+            	"<br><br>Really? You can try it... :)</div>",          
+            y: 6,
+            x: 0,
+            //z: 2100,
+            width: 452,
+            height: 480,
+            bookmarkable : false,
+            repeatOpenWindow : false,          
+            checkBoundary: true,
+            onMaximize: function(wnd) { // a callback function while window is going to maximize
+              OnMax(_id);                
+            },
+            onCascade: function(wnd) { // a callback function while window is going to cascade
+              OnCas(_id)
+            }
+           
+        });   
+       
+       var navegador = jQuery.browser;
+        if (navegador.msie == true && parseInt(navegador.version.substring(0,1)) < 9 ){            
+            _win.move(5, 294);     
+        }                      
+   }
+   
    jQuery(function(){
         jQuery("#tabs-1").css("display","block");
         jQuery( "#tabs" ).tabs();

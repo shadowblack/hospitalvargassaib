@@ -403,10 +403,9 @@ jQuery.Window = (function()  {
 	}
 	
 	function constructor(caller, options) {
-		// instance private methods
-		// flag & variables
+	    //console.debug(windowStorage);      
 		var _this = null;                 // to remember current window instance
-		var windowId = "window_" + (windowIndex++); // the window's id
+		var windowId = (options.id == undefined ? "window_" + (windowIndex++) : options.id); // the window's id
 		var minimized = false;            // a boolean flag to tell the window is minimized
 		var maximized = false;            // a boolean flag to tell the window is maximized
 		var selected = false;             // a boolean flag to tell the window is selected
@@ -482,10 +481,27 @@ jQuery.Window = (function()  {
 			onIframeStart: null,          // [function:null] a callback function while iframe ready to connect remoting url. this attribute only works while url attribute is given
 			onIframeEnd: null,            // [function:null] a callback function while iframe load finished. this attribute only works while url attribute is given
 			iframeRedirectCheckMsg: null, // [string:null] if null means no check, or pass a string to show warning message while iframe is going to redirect
-			createRandomOffset: {x:0, y:0} // [json object:{x:0, y:0}] random the new created window position, it only works when options x,y value both are -1
+			createRandomOffset: {x:0, y:0}, // [json object:{x:0, y:0}] random the new created window position, it only works when options x,y value both are -1
+            repeatOpenWindow : true         // establece si la ventana se va a abrir nuevamente, es true por defecto
 		}, options);
 		
 		function initialize(instance) {
+			/* 
+			* Agregado por Luis Marin 02/07/2011
+			* verificando si esta habilitado la funcion repeatOpenWindow para evitar que se habra nuevamente una ventana con el mismo nombre 
+			**/
+		      if (options.repeatOpenWindow == false){
+		          var _exit = false;                                                                                                 
+		          jQuery.each(windowStorage,function(index,obj){		               
+		              if (obj.getWindowId() == options.id){		                  
+		                  _exit = true;
+                          return true;
+		              }                            		              
+		          });
+                  if (_exit)
+                    return;
+		      }
+              
 			_this = instance;
 			
 			if( options.showModal ) {
