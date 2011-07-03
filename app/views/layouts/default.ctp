@@ -5,7 +5,8 @@
         <title>
             <?php echo __("Sistema de integración de las enfermedades dermatologicas",true); ?>
            	<?php echo $title_for_layout;?>
-        </title>        
+        </title>  
+        <?php echo $this->Html->meta('icon',$this->webroot."img/icon/doctor.jpg");?>      
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>

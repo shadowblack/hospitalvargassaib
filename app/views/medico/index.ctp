@@ -51,7 +51,10 @@
     			)
                 });
 		</script>      	
- <!-- base -->
+ <!-- base -->    
+ <div id="win_console_dock" style="position: absolute; top:282px;left: 0;bottom: 0px; border: 1px solid black;width: 40px;">
+    &nbsp;
+ </div> 
  <div class="standar_content">  
    <table style="width:100%" border="0" class="menu_top_window" align="center">
     <tr>
@@ -87,7 +90,8 @@
         </td>
     </tr>
     <tr>
-        <td style="height: 400px;" valign="top" align="center" id="win_console">            
+        <td style="height: 400px;" valign="top" align="center">  
+            <div id="win_console" style="width: 100%;">                
             <table border="0" style="margin-top: 2px;">
                 <tr>
                     <td  valign="top">
@@ -195,7 +199,7 @@
                     </td>
                 </tr>
             </table>
-           
+            </div>                                    
         </td>                
     </tr>    
    </table>
