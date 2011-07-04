@@ -402,8 +402,7 @@ jQuery.Window = (function()  {
 		}
 	}
 	
-	function constructor(caller, options) {
-	    //console.debug(windowStorage);      
+	function constructor(caller, options) {	       
 		var _this = null;                 // to remember current window instance
 		var windowId = (options.id == undefined ? "window_" + (windowIndex++) : options.id); // the window's id
 		var minimized = false;            // a boolean flag to tell the window is minimized
@@ -484,24 +483,24 @@ jQuery.Window = (function()  {
 			createRandomOffset: {x:0, y:0}, // [json object:{x:0, y:0}] random the new created window position, it only works when options x,y value both are -1
             repeatOpenWindow : true         // establece si la ventana se va a abrir nuevamente, es true por defecto
 		}, options);
+        
+         //if (options.repeatOpenWindow == false){            
+          var _exit = false;                                                                                                 
+          jQuery.each(windowStorage,function(index,obj){		               
+              if (obj.getWindowId() == options.id){		                  
+                  _exit = true;
+                  return true;
+              }                            		              
+          });
+          if (_exit){
+                if (options.url != "")
+                    jQuery("#" + windowId + " iframe").attr("src",options.url);                                                               
+          }  
+           
+
+            //}
 		
-		function initialize(instance) {
-			/* 
-			* Agregado por Luis Marin 02/07/2011
-			* verificando si esta habilitado la funcion repeatOpenWindow para evitar que se habra nuevamente una ventana con el mismo nombre 
-			**/
-		      if (options.repeatOpenWindow == false){
-		          var _exit = false;                                                                                                 
-		          jQuery.each(windowStorage,function(index,obj){		               
-		              if (obj.getWindowId() == options.id){		                  
-		                  _exit = true;
-                          return true;
-		              }                            		              
-		          });
-                  if (_exit)
-                    return;
-		      }
-              
+		function initialize(instance) {	                   
 			_this = instance;
 			
 			if( options.showModal ) {
@@ -511,6 +510,8 @@ jQuery.Window = (function()  {
 			// build html
 			var realCaller = caller != null? caller:jQuery("body");
 			var cornerClass = options.showRoundCorner? "ui-corner-all ":"";
+            if(_exit)
+                realCaller.find("#"+windowId).remove();
 			realCaller.append("<div id='"+windowId+"' class='window_panel "+cornerClass+options.containerClass+"'></div>");
 			container = realCaller.children("div#"+windowId);
 	
@@ -683,7 +684,7 @@ jQuery.Window = (function()  {
 				});
 	
 				// append iframe html
-				var scrollingHtml = options.scrollable? "yes":"no";
+				var scrollingHtml = options.scrollable? "yes":"no";                
 				container.append("<iframe style='display:none;' class='window_frame ui-widget-content no-draggable no-resizable "+options.frameClass+"' scrolling='"+scrollingHtml+"' src='"+options.url+"' width='100%' height='"+frameHeight+"px' frameborder='0'></iframe>");
 				frame = container.children(".window_frame");
 	
@@ -1243,12 +1244,12 @@ jQuery.Window = (function()  {
 			container.css({
 				top: pTop
 			});
-		}
+		}                  
 		
 		function select() {
 			selected = true;
-			if( maximized == false ) {
-				container.css('z-index', options.z+2);
+			if( maximized == false ) {                
+                container.css('z-index', options.z+2);
 				if( options.selectedHeaderClass ) {
 					header.addClass(options.selectedHeaderClass); // add selected header class
 				}
@@ -1260,8 +1261,8 @@ jQuery.Window = (function()  {
 	
 		function unselect() {
 			selected = false;
-			if( maximized == false ) {
-				container.css('z-index', options.z);
+			if( maximized == false ) {                
+                container.css('z-index', options.z);
 				if( options.selectedHeaderClass ) {
 					header.removeClass(options.selectedHeaderClass);
 				}

@@ -46,6 +46,13 @@ div.standar_content{
 }
 
 /*
+* Css para los subtitulos hijos
+*/
+.standar_font_sub_child{
+   margin-left:10px;
+}
+
+/*
 * Menus de acordion y otros
 */
 .standar_font_menu{

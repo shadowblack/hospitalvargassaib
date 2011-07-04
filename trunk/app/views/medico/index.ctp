@@ -51,8 +51,7 @@
     			)
                 });
 		</script>      	
- <!-- base -->    
- <div id="win_console_dock" style="position: absolute; top:282px;left: 0;bottom: 0px; border: 1px solid black;width: 40px;">
+ <!-- base -->     
     &nbsp;
  </div> 
  <div class="standar_content">  
@@ -119,8 +118,7 @@
                                 </td>                
                                 <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 150px;">
                                     <!-- Iframe izquierdo-->
-                                    <iframe id="men_izq_reg" src="medico_menu/registrar" width="220"  frameborder="0" scrolling="auto" align="center"></iframe>
-                                                       
+                                    <iframe id="men_izq_reg" src="medico_menu/registrar" width="220"  frameborder="0" scrolling="auto" align="center"></iframe>                                                       
                                 </td>
                                 <td class="top_menu_window_body_right">                    
                                     
@@ -138,6 +136,11 @@
                                 </td>
                                 <td class="top_menu_window_footer_right">                    
                                     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div id="win_console_dock" style="margin-top: 2px; border: 0px solid black;width: 234px;height: 278px;">
                                 </td>
                             </tr>
                         </table>
