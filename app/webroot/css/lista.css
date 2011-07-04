@@ -2,6 +2,18 @@ div.lista_standar{
     border:1px solid #CCE7EE;
     background-color: #F7F8F9;
 }
+div.lista_consulta{
+    width: 550px;
+    height: 300px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+table.lista_standar{
+    border:1px solid #CCE7EE;
+    background-color: #F7F8F9;
+}
 td.lista_fondo{
     background-color: #D7D7D7;
 }
