@@ -66,8 +66,9 @@ class SqlDataComponent extends Object
                 foreach ($val_arr_b as $akey_c => $val_arr_c) {                         
                     $data -> {$akey_b} ->{$akey_c} = $val_arr_c;      
                 }                                   
-             }                 
+             }                        
             return $data;
+               
         }    
         return Array();
     }
