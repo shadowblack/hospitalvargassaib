@@ -3,13 +3,13 @@ jQuery.noConflict();
  * @authot Luis Marin
  * 
  */
- util.win = [];
-function util() {};
-util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) {
+util = Object();
+util.win = [];
+util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) {    
 	_parent = _parent == undefined ? this: _parent;
 	if (!(_parent.jQuery("#" + _id).length)) {
 		_x = _x == undefined ? 0 : _x;
-		_y = _y == undefined ? 240 : _y;
+		_y = _y == undefined ? 288 : _y;
 		_width = _width == undefined ? 452 : _width;
 		_height = _height == undefined ? 478 : _height;
 		_parent.jQuery.window.prepare({
@@ -27,11 +27,16 @@ util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) 
 			height: _height,
 			bookmarkable: false,
 			maximizable: false,
-            scrollable : false
+            scrollable: false,
+            resizable: false,
+            onClose: function(wnd) { // a callback function while user click close button
+                util.win[_id] = null;
+            }
+            
 		});
 		var navegador = jQuery.browser;
 		if (navegador.msie == true && parseInt(navegador.version.substring(0, 1)) < 9) {
-			util.win[_id].move(_x, _y+55);          
+			util.win[_id].move(_x, _y+7.5);          
 		}
 	} else {
 		_parent.jQuery("#" + _id + " iframe").attr("src", _url);
