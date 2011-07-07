@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot."js/jquery/jquery-window-5.03/css/jquery.window.css";  ?>"/>
  <?php
+    echo $this->Html->script("script/util.js"); 
     echo $this->Html->script("men_mac/js/interface.js");
     echo $this->Html->script("jquery/jquery-window-5.03/jquery.window.js");          
  ?> 

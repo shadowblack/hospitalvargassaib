@@ -13,7 +13,7 @@
    //width: 452px; height: 478px; z-index: 2002; left: 465px; top: 288px; background-color: rgb(242, 245, 247); opacity: 1;
    function info(id_his){               
         var _id = "inf_his";  
-        util.openWindow(parent,_id,"<?php echo __("Información del historial",true)?>","<?php echo $this->Html->url("/MedicoHistorialInformacionPaciente")?>");  
+        parent.util.openWindow(parent,_id,"<?php echo __("Información del historial",true)?>","<?php echo $this->Html->url("/MedicoWindows/medico_informacion_historial_paciente/")?>"+id_his,8,undefined,undefined,280);  
               
    }
    
