@@ -9,7 +9,7 @@
          * Entrando a la aplicacion administrativa
          */
         function index(){ 
-           $this->Login->no_cache();
+           //$this->Login->no_cache();
            //$this->cakeError('errors404');          
            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session);
                 

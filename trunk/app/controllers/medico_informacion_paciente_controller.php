@@ -1,6 +1,6 @@
 <?php
-    class MedicoHistorialInformacionPacienteController extends Controller{
-        var $name = "MedicoHistorialInformacionPaciente";
+    class MedicoInformacionPacienteController extends Controller{
+        var $name = "MedicoInformacionPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader");                  
@@ -15,6 +15,7 @@
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
         function listar($id_pac){
+            //$this->cacheAction = true;
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
             $title =  __("Historial del paciente",true);            
             $data = Array(                
@@ -28,8 +29,8 @@
          /**
         * Listando de usuarios administrativos
         */
-        function event_listar($id_pac){             
-            $this->Login->no_cache();
+        function event_listar($id_pac){    //$this->cacheAction = false;         
+            //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");      
                         
             $num_his        = $_POST["num_his"];

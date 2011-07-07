@@ -43,12 +43,7 @@ class LoginComponent extends Object{
                 break;
             }                  
             
-       }
-       
-       /*
-        if (!$self->Session->read(($group <> "" ? $group."." : "")."id_usu"))        
-                $self->redirect($page);
-                */
+       }      
     }
     
     /**

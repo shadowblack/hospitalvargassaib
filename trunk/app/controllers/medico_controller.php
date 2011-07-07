@@ -8,7 +8,7 @@
          * Entrando a la aplicacion administrativa
          */
         function index(){
-            $this->Login->no_cache();
+            //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
         }
         /**
