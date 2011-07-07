@@ -1,3 +1,7 @@
+html {
+        overflow: auto;
+}
+
 body.standar_fondo{
     background-image: url('../img/menu_top/fondo.png'); 
     background-repeat: repeat-x;
