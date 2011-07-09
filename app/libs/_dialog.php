@@ -1,5 +1,7 @@
 <?php 
     switch($T_V_TYPE){
+        
+        // Trabajando en conjunto con el Event Update, Insert
         case 1:
             ?>
                 <div id="dialog" title="<?php echo __("Mensaje",true)?>" style="text-align:center;display:none;overflow: hidden;">
@@ -19,9 +21,11 @@
                 </div>
             <?php
         break;
+        
+        // Trabajando en conjunto con el Event Valid
         case 2:
             ?>
-                <div id="dialog" title="<?php echo __("Validando Usuario",true)?>" style="text-align:center;display:none;overflow: hidden;">
+                <div id="dialog" title="<?php echo __("Validando",true)?>" style="text-align:center;display:none;overflow: hidden;">
                     <table style="height: 70px;" align="center">
                         <tr>
                             <td valign="center" class="">    

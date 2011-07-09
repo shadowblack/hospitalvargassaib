@@ -16,8 +16,7 @@
         function DivPaginator(){
             $jquery = "            
              var paginator_div = function(url){            
-                    jQuery(\"#content\").html('<img id=\"cargador\" 
-                        src=\"".$this->webroot."img/icon/load_list.gif\" style=\"margin-top: 120px;display: block;\">');
+                    jQuery(\"#content\").html('<img id=\"cargador\" src=\"".$this->webroot."img/icon/load_list.gif\" style=\"margin-top: 120px;display: block;\">');
                     jQuery(\"#content\").load(url,function(){
                         jQuery(\"#cargador\").css(\"display\",\"none\");
                         

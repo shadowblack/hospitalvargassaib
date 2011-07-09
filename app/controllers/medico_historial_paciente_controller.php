@@ -3,7 +3,7 @@
         var $name = "MedicoHistorialPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event");                  
         
         protected $group_session = "medico";                   
        

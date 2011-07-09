@@ -8,55 +8,7 @@
                        		
         jQuery("#historiales_pacientes").validate({                
             submitHandler: function(form) {
-                //jQuery(form).ajaxSubmit();
-                var array_form = jQuery("form").serializeArray();
-                jQuery.ajax({
-                    url: "<?php echo $this->Html->url("event_modificar") ?>",
-                    type: "POST",
-                    data: array_form,
-                    dataType: "json",
-                    error: function() {
-                        alert("Error json")
-                    },
-                    success: function(data) {
-                        eval("data=" + data);
-
-                        jQuery("#dialog #dialog_messege").css("display", "block");
-                        jQuery("#dialog img").css("display", "none");
-
-                        var _select = "#dialog #dialog_text";
-                        jQuery(_select).empty();
-                        jQuery(_select).text(data.coment);
-
-                        _select = "#dialog td > div > div";
-                        jQuery(_select).attr("class", "");
-                        jQuery(_select).addClass(data.class_background);
-
-                        _select = "#dialog span";
-                        jQuery(_select).attr("class", "");
-                        jQuery(_select).addClass(data.class_icon);
-
-                        jQuery("#dialog").dialog("destroy");
-                        jQuery("#dialog").dialog({
-                            modal: true,
-                            minHeight: 150,
-                            buttons: [{
-                                text: '<?php echo __("Aceptar", true) ?>',
-                                click: function() {
-                                    jQuery(this).dialog("close");
-                                }
-                            }],
-                            resizable: false
-                        }).css("display", "block");
-                    }
-                });
-
-                jQuery("#dialog").dialog("destroy");
-                jQuery("#dialog #dialog_messege").css("display", "none");
-                jQuery("#dialog img").css("display", "block");
-                jQuery("#dialog").dialog({
-                    resizable: false
-                }).css("display", "block");
+               <?php echo $this->Event->Update($this->Html->url("event_modificar"),"form","back"); ?>
             }
         }); 
         
@@ -84,10 +36,10 @@ include_once ("../libs/_dialog.php");
             </a>
         </li>            
     </ul>
-    <fieldset style="height: 365px;"> 
+    <fieldset class="standar_fieldset_content"> 
         <form name="historiales_pacientes" id="historiales_pacientes">
-            <input type="hidden" name="hdd_id_his" value="<?php echo $id_his ?>">                                                                    
-            <table style="width:540px" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
+            <input type="hidden" name="hdd_id_his" value="<?php echo $id_his ?>">                                                                <div class="standar_fieldset_child">
+            <table style="width:540px; margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="184" class="font-standar" valign="top">
                         <?php echo __("Descripción de la historia", true) ?>
@@ -111,6 +63,7 @@ des_adi_pac_his ?></textarea>
                     </td>                           
                 </tr>                                                                              
             </table>                      
+            </div>
              <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">

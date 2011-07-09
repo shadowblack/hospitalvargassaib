@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 			jQuery(function(){			     
                 
-                 jQuery("body").addClass('medico_clase_formulario_fondo');
+                 jQuery("body:eq(0)").addClass('standar_fondo');
                  jQuery("#accordion").accordion({
         		      header: "h3",              
                       autoHeight:false,
@@ -46,15 +46,13 @@
     					container: '.dock-container',
     					itemWidth: 50,//tamaño del  menu
     					proximity: 90,
-    					halign : 'center',
+    					halign : 'center'
                                                         
     				}
     			)
                 });
 		</script>      	
  <!-- base -->     
-    &nbsp;
- </div> 
  <div class="standar_content">  
    <table style="width:100%" border="0" class="menu_top_window" align="center">
     <tr>

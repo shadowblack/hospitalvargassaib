@@ -13,7 +13,8 @@
                 </a>
             </li>            
         </ul>
-        <fieldset style="height: 365px;">                
+        <fieldset class="standar_fieldset_content"> 
+            <div class="standar_fieldset_child">               
             <table style="width:540px;margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="184" class="standar_font_sub" valign="top">
@@ -194,8 +195,9 @@
                         &nbsp;                               
                     </td>
                 </tr>                                        
-            </table>                      
-            <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
+            </table>
+            </div>                      
+            <table style="width: 100%;" border="0">
                 <tr>               
                     <td  align="center" style="height: 0" valign="bottom">
                         <input type="button" name="btn_volver" value="Volver" onclick="history.back()">

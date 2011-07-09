@@ -62,8 +62,9 @@
                                 <td class="top_menu_window_top_circle">
                                     &nbsp;
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:200px">
+                                <td class="top_menu_window_top_center" style="width:200px" valign="top">
                                     <!-- Dinamic -->
+                                    <div class="standar_font" style="margin: 6px;"><?php echo __("Menú")?></div>
                                     &nbsp;
                                 </td>
                                 <td class="top_menu_window_top_right">                    
@@ -75,9 +76,9 @@
                                 <td class="top_menu_window_body_left">
                                     &nbsp;
                                 </td>                
-                                <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 300px;">
+                                <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 150px;">
                                     <!-- Dinamic -->
-                                    <div id="accordion" style="width: 220px;text-align: center;">                                       
+                                    <div id="accordion" style="width: 220px;text-align: left;">                                       
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
@@ -151,7 +152,7 @@
                                 <td class="top_menu_window_top_circle">
                                    
                                 </td>
-                                <td class="top_menu_window_top_center" style="width:700px;" valign="top">
+                                <td class="top_menu_window_top_center" style="width:700px;" valign="top" align="left">
                                     <!-- Dinamic -->
                                     
                                     <!-- Title -->

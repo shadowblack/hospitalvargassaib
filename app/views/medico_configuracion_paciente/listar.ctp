@@ -15,10 +15,7 @@
      
    jQuery(function(){
         jQuery("#tabs-1").css("display","block");
-        jQuery( "#tabs" ).tabs
-        ({
-            event: "mouseover"
-        });
+        jQuery( "#tabs" ).tabs();
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){                                                                 
             paginator_div("<?php echo $_V_LIST ?>",jQuery("#consulta"));
@@ -46,7 +43,7 @@
                     </a>
                 </li>            
             </ul>
-                <fieldset>	     
+                <fieldset class="standar_fieldset_content">	     
                 <form name="consulta" id="consulta" onsubmit="return false">                                           
                     <table style="width: 100%;" border="0" >
                         <tr>

@@ -10,7 +10,7 @@ util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) 
 	if (!(_parent.jQuery("#" + _id).length)) {
 		_x = _x == undefined ? 0 : _x;
 		_y = _y == undefined ? 288 : _y;
-		_width = _width == undefined ? 452 : _width;
+		_width = _width == undefined ? 425 : _width;
 		_height = _height == undefined ? 478 : _height;
 		_parent.jQuery.window.prepare({
 			dock: 'top',
@@ -31,13 +31,14 @@ util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) 
             resizable: false,
             onClose: function(wnd) { // a callback function while user click close button
                 util.win[_id] = null;
-            }
+            },
+            checkBoundary: true 
             
 		});
-		var navegador = jQuery.browser;
+		/*var navegador = jQuery.browser;
 		if (navegador.msie == true && parseInt(navegador.version.substring(0, 1)) < 9) {
 			util.win[_id].move(_x, _y+7.5);          
-		}
+		}*/
 	} else {
 		_parent.jQuery("#" + _id + " iframe").attr("src", _url);
         if (_parent.jQuery("#"+ _id ).attr("aria-disabled")=="true")        

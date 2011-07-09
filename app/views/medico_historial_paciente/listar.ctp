@@ -13,7 +13,7 @@
    //width: 452px; height: 478px; z-index: 2002; left: 465px; top: 288px; background-color: rgb(242, 245, 247); opacity: 1;
    function info(id_his){               
         var _id = "inf_his";  
-        parent.util.openWindow(parent,_id,"<?php echo __("Información del historial",true)?>","<?php echo $this->Html->url("/MedicoWindows/medico_informacion_historial_paciente/")?>"+id_his,8,undefined,undefined,280);  
+        parent.util.openWindow(parent,_id,"<?php echo __("Información del historial",true)?>","<?php echo $this->Html->url("/MedicoWindows/medico_informacion_historial_paciente/")?>"+id_his,0,undefined,undefined,280);  
               
    }
    
@@ -49,8 +49,8 @@
                     </a>
                 </li>            
             </ul>
-            <fieldset>
-            <form name="consulta" id="consulta" onsubmit="return false">                	    
+            <fieldset class="standar_fieldset_content">
+            <form name="consulta" id="consulta" onsubmit="return false">                            	    
                     <table style="width: 100%;" border="0" class="">
                     <tr>
                         <td align="center">
@@ -91,7 +91,7 @@
                     </tr>
                     <tr>
                         <td align="center" style="">
-                            <div id="content" style="height: 264px;width:630px ; overflow-y:auto ;" class="lista_standar">
+                            <div id="content" style="height: 274px;width:630px ; overflow-y:auto ;" class="lista_standar">
                                 <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
                             </div>
                         </td>
