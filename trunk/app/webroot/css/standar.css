@@ -1,19 +1,24 @@
-html {
-        overflow: auto;
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input {    
+    margin: 0;
+    padding: 0;        
+}
+
+html{    
+    overflow:auto;
+}
+
+html, body{
+    width:100%;    
+}
+body{
+    overflow:  visible;
 }
 
 body.standar_fondo{
     background-image: url('../img/menu_top/fondo.png'); 
     background-repeat: repeat-x;
-    background-color: #CCE6ED;
-    margin:0; 
-    top: 0;
-    padding: 0; 
-    width: 100%;
-    border-spacing: 0;
-    /*height: 900px;*/      
-    /*overflow: hidden;*/  
-    /*position: fixed;*/  
+    background-color: #CCE6ED;        
+    border-spacing: 0;     
 }
 
 body.standar_fondo_login{
@@ -23,12 +28,12 @@ body.standar_fondo_login{
 /*Window*/
 div.standar_content{
     padding: 0;        
-    margin-top: 0px;
-    top: 0px;
-    left: 0;
+    margin: 0;      
+    text-align: center;
+    width: 99.10%;   
+    /*position: absolute;*/        
+    float:left;
     right: 0;
-    bottom: 0;
-    position: absolute;    
 }
 
 /**
@@ -112,7 +117,7 @@ a:hover {
 }
 
 
-/*Estandar de las lsitas*/
+/*Estandar de las lista*/
 li{
     /*list-style: none;*/
 }
@@ -121,4 +126,14 @@ li{
     position: absolute;
     padding: 0;
     top:0;
+}
+/*Muestra el formato del fieldset*/
+fieldset.standar_fieldset_content{
+    height: 384px;
+}
+
+/*Muestra el formato del hijo fieldset utilizado para el espacio que existe entre los botones*/
+div.standar_fieldset_child{
+    height:335px;
+    
 }

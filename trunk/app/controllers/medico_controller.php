@@ -3,6 +3,7 @@
         var $name = "Medico";
         var $uses = Array("Doctore");
         var $components = Array("Login","Session","SqlData","FormatMessege");
+        var $helpers    = Array("Html","Event");
         protected $group_session = "medico";
         /**
          * Entrando a la aplicacion administrativa

@@ -27,55 +27,7 @@
                     }
                 },
                 submitHandler: function(form) {
-                    //jQuery(form).ajaxSubmit();
-                    var array_form = jQuery("form").serializeArray();
-                    jQuery.ajax({
-                        url: "<?php echo $this->Html->url("/MedicoConfiguracionPaciente/event_modificar")?>",
-                        type: "POST",
-                        data: array_form,
-                        dataType: "json",
-                        error: function() {
-                            alert("Error json")
-                        },
-                        success: function(data) {
-                            eval("data=" + data);
-
-                            jQuery("#dialog #dialog_messege").css("display", "block");
-                            jQuery("#dialog img").css("display", "none");
-
-                            var _select = "#dialog #dialog_text";
-                            jQuery(_select).empty();
-                            jQuery(_select).text(data.coment);
-
-                            _select = "#dialog td > div > div";
-                            jQuery(_select).attr("class", "");
-                            jQuery(_select).addClass(data.class_background);
-
-                            _select = "#dialog span";
-                            jQuery(_select).attr("class", "");
-                            jQuery(_select).addClass(data.class_icon);
-
-                            jQuery("#dialog").dialog("destroy");
-                            jQuery("#dialog").dialog({
-                                modal: true,
-                                minHeight: 150,
-                                buttons: [{
-                                    text: '<?php echo __("Aceptar",true)?>',
-                                    click: function() {
-                                        jQuery(this).dialog("close");
-                                    }
-                                }],
-                                resizable: false
-                            }).css("display", "block");
-                        }
-                    });
-
-                    jQuery("#dialog").dialog("destroy");
-                    jQuery("#dialog #dialog_messege").css("display", "none");
-                    jQuery("#dialog img").css("display", "block");
-                    jQuery("#dialog").dialog({
-                        resizable: false
-                    }).css("display", "block");
+                    <?php echo $this->Event->Update($this->Html->url("event_modificar"),"form","back")?>
                 }
             }); 
             
@@ -107,9 +59,10 @@
                 </a>
             </li>            
         </ul>
-        <fieldset style="height: 365px;"> 	
+        <fieldset style="" class="standar_fieldset_content"> 	
         <form name="pacientes" id="pacientes">
-            <input type="hidden" name="hdd_id_pac" id="hdd_id_pac" value="<?php echo $result->id_pac?>">                         
+            <input type="hidden" name="hdd_id_pac" id="hdd_id_pac" value="<?php echo $result->id_pac?>">
+            <div class="standar_fieldset_child">                         
             <table style="width:540px;margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="184" class="font-standar" valign="top">
@@ -277,7 +230,7 @@
                         &nbsp;
                     </td>
                     <td valign="top">    
-                        <table>
+                        <table cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
                                     <select name="sel_mun_pac" id="sel_mun_pac" style="width: 120px;" class="required">
@@ -300,8 +253,9 @@
                         />-->
                     </td>
                 </tr>                                        
-            </table>                      
-            <table style="width: 100%;left: 0;bottom: 20px;top: auto;" border="0" class="standar_position">
+            </table>
+            </div>                      
+            <table style="width: 100%;" border="0">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
                         <input type="submit" name="btn_aceptar" value="Aceptar">

@@ -7,16 +7,11 @@
 ?>
 
 <script type="text/javascript"> 
-   <?php echo $this->Loader->DivPaginator()?>
-   jQuery(function(){                
-    {
-        jQuery( "#tabs" ).tabs
-        ({
-            event: "mouseover"
-        });
-    });
+   <?php echo $this->Loader->DivPaginator()?>   
    
    jQuery(function(){        
+        jQuery("#tabs-1").css("display","block");
+        jQuery( "#tabs" ).tabs();
         
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery("#btn_buscar").click(function(){
@@ -31,75 +26,62 @@
         jQuery("#btn_buscar").trigger("click");
    });        
 </script>
-<div id="tabs">
-        <ul>
-            <li>
-                <a href="#tabs-1" style="width: 663px;">
-                    <?php echo __("Listar Paciente",true)?>
-                </a>
-            </li>            
-        </ul>
-			
-    <div id="tabs-1">    
-                    <h2 class="texPrincipal">
-                        <?php echo __("Listar/Crear/Buscar",true)?>
-                    </h2>  
-                        
-                        <fieldset>	
-                            <legend>
-                                <strong>
-                                    <?php echo __("Opciones",true)?>:
-                                </strong>
-                            </legend>
-
-
 <?php 
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
-<form name="consulta" id="consulta" onsubmit="return false">
-    <table style="width: 100%;" border="0" >
-    <tr>
-        <td align="center">
-            <table style="" border="0">
+<div id="tabs-1" style="display: none;">    		
+    <div id="tabs">
+        <ul>
+            <li>
+                <a href="#tabs-1" style="width: 653px;">
+                    <?php echo __("Medicos",true)?>
+                </a>
+            </li>            
+        </ul>
+        <fieldset style="height: 339px;">   
+            <form name="consulta" id="consulta" onsubmit="return false">
+                <table style="width: 100%;" border="0" >
                 <tr>
-                    <td class="standar_font">
-                        <?php echo __("Nombre",true)?>:
-                    </td>
-                    <td>
-                        <input type="text" id="nom_usu_adm" name="nom_usu_adm">
-                    </td>                    
-                    <td class="standar_font">
-                        <?php echo __("Apellido",true)?>:
-                    </td>                   
-                    <td>
-                        <input type="text" id="ape_usu_adm" name="ape_usu_adm">
-                    </td>                                        
-                </tr>    
+                    <td align="center">
+                        <table style="" border="0">
+                            <tr>
+                                <td class="standar_font">
+                                    <?php echo __("Nombre",true)?>:
+                                </td>
+                                <td>
+                                    <input type="text" id="nom_usu_adm" name="nom_usu_adm">
+                                </td>                    
+                                <td class="standar_font">
+                                    <?php echo __("Apellido",true)?>:
+                                </td>                   
+                                <td>
+                                    <input type="text" id="ape_usu_adm" name="ape_usu_adm">
+                                </td>                                        
+                            </tr>    
+                            <tr>
+                                <td class="standar_font">
+                                    <?php echo __("Login",true)?>:
+                                </td>
+                                <td>
+                                    <input type="text" id="log_usu_adm" name="log_usu_adm">
+                                </td>                    
+                                <td colspan="0" align="right">                        
+                                    <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
+                                </td>
+                            </tr>                            
+                        </table>
+                    </td>    
+                </tr>
                 <tr>
-                    <td class="standar_font">
-                        <?php echo __("Login",true)?>:
+                    <td align="center" style="">
+                        <div id="content" style="height: 270px;width:460px ; overflow-y:auto ;" class="lista_standar">
+                            <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">
+                        </div>
                     </td>
-                    <td>
-                        <input type="text" id="log_usu_adm" name="log_usu_adm">
-                    </td>                    
-                    <td colspan="0" align="right">                        
-                        <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
-                    </td>
-                </tr>                            
+                </tr>
             </table>
-        </td>    
-    </tr>
-    <tr>
-        <td align="center" style="">
-            <div id="content" style="height: 300px;width:460px ; overflow-y:auto ;" class="lista_standar">
-                <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">
-            </div>
-        </td>
-    </tr>
-</table>
-</form>
-
-</fieldset>         
-</div>
+            </form>
+        </fieldset>         
+    </div>
 </div>

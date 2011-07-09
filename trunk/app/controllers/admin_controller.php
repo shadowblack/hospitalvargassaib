@@ -3,6 +3,7 @@
         var $name = "Admin";
         var $uses = Array("UsuariosAdministrativo");
         var $components = Array("Login","Session","SqlData","FormatMessege");
+        var $helpers    = Array("Html","Event");
         protected $group_session = "admin";        
         
         /**

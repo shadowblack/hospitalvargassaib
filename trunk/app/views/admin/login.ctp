@@ -7,64 +7,10 @@
     jQuery("body:eq(0)").addClass("standar_fondo_login");    
     jQuery(function(){
        jQuery("#login").validate({  
-            submitHandler: function(form) {                
-   	            //jQuery(form).ajaxSubmit();
-             var array_form = jQuery("input[type=text],input[type=password]").serializeArray();                
-            
-            //jQuery(form).ajaxSubmit();
-                var array_form = jQuery("form").serializeArray();
-                jQuery("#cargador_volatile").css("display","block");              
-                jQuery.ajax({
-                    url:"<?php echo $this->Html->url("/admin/validar_usuario")?>",                    
-                    type: "POST",
-                    data: array_form,
-                    dataType: "json",                                      
-                    error:function(){alert("Error json")},
-                    success: function(data){                                                                     
-                        eval("data="+data);   
-                        
-                        jQuery("#dialog #dialog_messege").css("display","block");jQuery("#dialog img").css("display","none"); 
-                                                                     
-                        var _select = "#dialog #dialog_text";                      
-                        jQuery(_select).empty();
-                        jQuery(_select).text(data.coment);
-                        
-                        _select = "#dialog td > div > div";
-                        jQuery(_select).attr("class","");
-                        jQuery(_select).addClass(data.class_background);
-                        
-                        _select = "#dialog span";
-                        jQuery(_select).attr("class","");
-                        jQuery(_select).addClass(data.class_icon);
-                        
-                        jQuery("#dialog").dialog("destroy");
-                        jQuery("#dialog").dialog({
-                            modal:true,
-                            minHeight: 150,                            
-                            buttons: [
-                                {
-                                    text: '<?php echo __("Aceptar",true)?>',
-                                    click: function() { 
-                                        jQuery(this).dialog("close"); 
-                                    }
-                                }
-                            ],
-                            resizable: false
-                            }).css("display","block");                                                                                                            if (data.event == 1){
-                                 jQuery("#cargador_volatile").css("display","block");
-                                window.location.href = "<?php echo $this->Html->url("/admin") ?>";
-                        }
-                    }                   
-                });
-                
-                jQuery("#dialog").dialog("destroy");
-                jQuery("#dialog #dialog_messege").css("display","none");jQuery("#dialog img").css("display","block");                
-                jQuery("#dialog").dialog({                            
-                    resizable: false
-                }).css("display","block");    
-
-            }   
-           });     
+            submitHandler: function(form) {
+                <?php echo $this->Event->Valid($this->Html->url("/admin/validar_usuario"),"input[type=text],input[type=password]",$this->Html->url("/admin"))?>                             
+           }   
+       }); 
     });
 </script>
 
