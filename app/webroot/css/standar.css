@@ -21,6 +21,10 @@ body.standar_fondo{
     border-spacing: 0;     
 }
 
+body.standar_background_color{
+    background-color: #ECF2F5;
+}
+
 body.standar_fondo_login{
     background-color: #7AF13C;
 }

@@ -2,10 +2,10 @@
     class MedicoHistorialPacienteController extends Controller{
         var $name = "MedicoHistorialPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
-        var $components =   Array("Login","SqlData","FormatMessege","Session"); 
+        var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event");                  
         
-        protected $group_session = "medico";                   
+        var $group_session = "medico";                   
        
         function index(){   
             
@@ -15,6 +15,7 @@
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
         function listar($id_pac){
+            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
             $title =  __("Historial del paciente",true);            
             $data = Array(                
@@ -252,6 +253,13 @@
             $this->layout = 'ajax';
         }
         
+        function back(){
+            //$this->History->goBack(); 
+            //die($this->referer());
+           //$this->redirect($this->referer());
+           $this->redirect(Array("controller"=>"medico_configuracion_paciente","action"=>"listar"));
+          //echo $this->History->goBack() ;die;
+        }
       
         
     }

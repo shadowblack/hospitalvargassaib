@@ -11,7 +11,7 @@
             
         }
         
-        function medico_informacion_historial_paciente($id_his){
+        function medico_informacion_paciente($id_his,$id_pac){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             
             $result = $this->HistorialesPaciente->find("first",
@@ -26,6 +26,7 @@
                      ),
                      "joins"=>Array(
                         Array(
+                            "id_his"        =>  $id_his,
                             "table"         =>  "pacientes",
                             "alias"         =>  "Paciente",
                             "conditions"    =>  Array(
@@ -36,9 +37,10 @@
                 )
             );
             $title = __("Información del paciente",true);
-             $data = Array(                
+             $data = Array(
                 "title"         => $title,
                 "id_his"        => $id_his,
+                "id_pac"        => $id_pac,
                 "result"      => $this->SqlData->CakeArrayToObject($result)            
             ); 
             $this->set($data);
