@@ -2,10 +2,10 @@
     class MedicoConfiguracionPacienteController extends Controller{
         var $name = "MedicoConfiguracionPaciente";
         var $uses =         Array("Doctore","Paciente");
-        var $components =   Array("Login","SqlData","FormatMessege","Session"); 
+        var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event");                  
         
-        protected $group_session = "medico";                   
+        var $group_session = "medico";                   
        
         function index(){   
             
@@ -15,26 +15,37 @@
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
         function listar(){
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
+            
+            //$this->cacheAction = array('recalled/' => 86400);
+            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            //$this->cacheAction = true;  
+            //echo Router::url($this->here,false)  ;             
             $title =  __("Configuración de Pacientes",true);            
             $data = Array(                
-                "title"     => $title                
+                "title"     => $title,
+                "history"   =>  $this->History->GetHistory(Router::url($this->here),"a")              
             ); 
             $this->set($data);
-            $this->set('title_for_layout', $title);                                     
+            $this->set('title_for_layout', $title);
+           // $this->cacheAction = true;                                     
         }
         
          /**
         * Listando de usuarios administrativos
         */
         function event_listar(){
-            $this->Login->no_cache();
+            //echo $_SERVER['HTTP_REFERER']."<br>";
+            //echo $this->referer();
+           // echo Router::url($this->here,true);
+            //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");            
             
             $nombre     = $_POST["nom_pac"];
             $apellido   = $_POST["ape_pac"];
             $cedula     = $_POST["ced_pac"];                                                    
-                                               
+                                  
+            $this->History->SetHistory($this->referer(),$_POST,"a");             
             $this->paginate = array(
                 'limit' => 12,
                 /*'fields' => Array(
@@ -59,7 +70,7 @@
             
             $this->set($data);  
             $this->layout = 'ajax';
-            
+          //    $this->cacheAction = true;   
         } 
    
         function registrar(){

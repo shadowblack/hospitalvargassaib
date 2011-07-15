@@ -3,19 +3,27 @@
         var $name = "MedicoInformacionPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache");                  
         
         protected $group_session = "medico";                   
        
-        function index(){   
-            
-        }
+        function index($id_his,$id_pac){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
+            $title =  __("Información del paciente",true);            
+            $data = Array(                
+                "title"         => $title,
+                "id_his"        => $id_his ,
+                "id_pac"        => $id_pac             
+            ); 
+            $this->set($data);
+            $this->set('title_for_layout', $title);  
+        }     
         
         /**
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
         function listar($id_pac){
-            //$this->cacheAction = true;
+            $this->cacheAction = true;
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
             $title =  __("Historial del paciente",true);            
             $data = Array(                
@@ -77,7 +85,7 @@
             
         } 
    
-        function registrar($id_pac){
+        function registrar($id_his){
             //$this->Login->no_cache();            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                                                                                                 
                                                           
@@ -85,7 +93,7 @@
             
             $data = Array(                                                      
                 "title"                 => $title,
-                "id_pac"                => $id_pac              
+                "id_his"                => $id_his              
             ); 
             
             $this->set($data);

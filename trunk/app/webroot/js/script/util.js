@@ -3,21 +3,30 @@ jQuery.noConflict();
  * @authot Luis Marin
  * 
  */
+
+ 
+ 
 util = Object();
 util.win = [];
-util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) {    
-	_parent = _parent == undefined ? this: _parent;
-	if (!(_parent.jQuery("#" + _id).length)) {
+util.prepared = false;
+util.openWindow = function(_id, _title, _url, _x, _y, _width, _height) {    
+	if (!(jQuery("#" + _id).length)) {
 		_x = _x == undefined ? 0 : _x;
 		_y = _y == undefined ? 288 : _y;
 		_width = _width == undefined ? 425 : _width;
 		_height = _height == undefined ? 478 : _height;
-		_parent.jQuery.window.prepare({
-			dock: 'top',
-			dockArea: parent.jQuery('#win_console_dock'),
-            minWinLong :234            
-		});
-		 util.win[_id] = _parent.jQuery.window({
+        
+        if (!util.prepared){        
+    		jQuery.window.prepare({
+    			dock: 'left',
+    			dockArea: jQuery('#win_console_dock'),
+                minWinLong :23,
+                minWinNarrow : 233,
+                verticalText : false                         
+    		});
+            this.prepared = true;
+        }
+		 util.win[_id] = jQuery.window({
 			id: _id,
 			title: _title,
 			url: _url,
@@ -32,17 +41,40 @@ util.openWindow = function(_parent, _id, _title, _url, _x, _y, _width, _height) 
             onClose: function(wnd) { // a callback function while user click close button
                 util.win[_id] = null;
             },
-            checkBoundary: true 
-            
+            checkBoundary: true,
+            afterCascade : function(){
+                var obj = jQuery("#"+ _id + " iframe")
+                //obj.attr("height",this._height);
+                //obj.attr("width",this._width);
+                obj.attr("style","display-inline");                                                               
+            }                      
 		});
-		/*var navegador = jQuery.browser;
-		if (navegador.msie == true && parseInt(navegador.version.substring(0, 1)) < 9) {
-			util.win[_id].move(_x, _y+7.5);          
-		}*/
+		jQuery("#"+ _id + " iframe").attr("name",_id+"_");
+        jQuery("#"+ _id + " iframe").attr("id",_id+"_");
+        /*Corrije el iframe que no se redimenciona*/
+        util.win[_id]._resize = function(w,h){   
+            var _h = h -43,
+                _w = w - 0;
+            jQuery("#"+ _id + " iframe").attr("height",_h)
+            jQuery("#"+ _id + " iframe").attr("width",_w)
+           // _parent.jQuery("#"+ _id + " iframe").removeAttr("height")
+           // _parent.jQuery("#"+ _id + " iframe").removeAttr("width")
+            util.win[_id].resize(w,h);
+            this._width     = _w;
+            this._height    = _h;
+        }
+        
 	} else {
-		_parent.jQuery("#" + _id + " iframe").attr("src", _url);
-        if (_parent.jQuery("#"+ _id ).attr("aria-disabled")=="true")        
-            util.win[_id].restore();        
+	    
+		//_parent.jQuery("#" + _id + " iframe").attr("src", _url);
+        
+        util.win[_id].setUrl(_url);     
+        if (jQuery("#"+ _id ).attr("aria-disabled")=="true"){
+            util.win[_id].restore();
+            jQuery("#"+ _id + " iframe").attr("height",this._height);
+            jQuery("#"+ _id + " iframe").attr("width",this._width);               
+        }
+             
         
 	}
 }

@@ -11,9 +11,13 @@
 <script type="text/javascript"> 
    <?php echo $this->Loader->DivPaginatorPost()?>
    //width: 452px; height: 478px; z-index: 2002; left: 465px; top: 288px; background-color: rgb(242, 245, 247); opacity: 1;
-   function info(id_his){               
-        var _id = "inf_his";  
-        parent.util.openWindow(parent,_id,"<?php echo __("Información del historial",true)?>","<?php echo $this->Html->url("/MedicoWindows/medico_informacion_historial_paciente/")?>"+id_his,0,undefined,undefined,280);  
+   function info(id_his,id_pac){               
+        var _id = "inf_his"+id_pac;  
+        var url = "<?php echo $this->Html->url("/MedicoWindows/medico_informacion_paciente/")?>"+id_his+"/"+id_pac;
+        alert(url);
+        url = "<?php echo Router::url(array('controller' => 'MedicoWindows', 'action' => 'medico_informacion_paciente/3/7'), true) ?>";
+        alert(url);
+        parent.util.openWindow(_id,"<?php echo __("Información del historial",true)?>",url,30,undefined,undefined,280);  
               
    }
    
@@ -101,7 +105,7 @@
                             <table style="width: 100%; border="0" class="" align="center">
                                 <tr>                                   
                                     <td  align="center" style="height: 0" valign="bottom">
-                                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
+                                        <input type="button" name="btn_volver" value="Volver" onclick="parent.frame_content.history.back(-4)">                                        
                                     </td>
                                 </tr>
                             </table>   

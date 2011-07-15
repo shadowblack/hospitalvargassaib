@@ -9,7 +9,7 @@
 
             jQuery("#med_con_pac").click(function()
             {            
-                window.parent.frames[1].location=("../medico_configuracion_paciente/listar");
+                window.parent.frame_content.location=("../medico_configuracion_paciente/listar");
             });                          
             
             jQuery("#edi_med_enf").click(function()

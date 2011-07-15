@@ -101,7 +101,8 @@ jQuery.Window = (function()  {
 		minWinNarrow: MINIMIZED_NARROW, // [number:24] the narrow dimension of minimized window
 		minWinLong: MINIMIZED_LONG,     // [number:120] the long dimension of minimized window
 		handleScrollbar: true,          // [boolean:true] to handle browser scrollbar when window status changed(maximize, minimize, cascade)
-		showLog: false                  // [boolean:false] to decide show log in firebug, IE8, chrome console
+		showLog: false,                  // [boolean:false] to decide show log in firebug, IE8, chrome console
+        verticalText: true               // Si el dock esta a la derecha o a la izquierda (left, right), se peude configurar para que el título de la ventana no salga vertical
 	};
 	
 	// select the current clicked window instance, concurrently, unselect last selected window instance
@@ -403,7 +404,7 @@ jQuery.Window = (function()  {
 	}
 	
 	function constructor(caller, options) {	       
-		var _this = null;                 // to remember current window instance
+		var _this = null;                 // to remember current window instance        
 		var windowId = (options.id == undefined ? "window_" + (windowIndex++) : options.id); // the window's id
 		var minimized = false;            // a boolean flag to tell the window is minimized
 		var maximized = false;            // a boolean flag to tell the window is maximized
@@ -427,7 +428,7 @@ jQuery.Window = (function()  {
 		var footer = null;                // the footer panel of window. currently, it got nothing, but maybe a status bar or something will be added in the future 
 		
 		// the instance options
-		var options = jQuery.extend({
+		var options = jQuery.extend({       
 			icon: "auto",                 // [string:"auto"] a icon image url string. if this attribute is given, it will force to replace the original favicon of remote page on window.
 			                              // or you can set it as null to hide icon.
 			title: "",                    // [string:""] the title text of window
@@ -1127,8 +1128,8 @@ jQuery.Window = (function()  {
 		}
 	
 		// modify title text as vertical presentation
-		function _transformTitleText() {
-			if( setting.dock == 'top' || setting.dock == 'bottom' ) {
+		function _transformTitleText() {		  
+			if( setting.dock == 'top' || setting.dock == 'bottom' || setting.verticalText == false) {
 				return;
 			}
 			
@@ -1425,7 +1426,7 @@ jQuery.Window = (function()  {
 				header.removeClass('window_header_normal');
 				header.removeClass('window_header_maximize');
 				header.addClass('window_header_minimize');
-				if( setting.dock == 'left' || setting.dock == 'right' ) {
+				if( (setting.dock == 'left' || setting.dock == 'right') && setting.verticalText) {
 					header.addClass('window_header_minimize_vertical');
 				}
 				

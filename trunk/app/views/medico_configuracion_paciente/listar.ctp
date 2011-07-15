@@ -43,7 +43,11 @@
                     </a>
                 </li>            
             </ul>
-                <fieldset class="standar_fieldset_content">	     
+                <fieldset class="standar_fieldset_content">
+                <?php
+                
+                ?>
+                	     
                 <form name="consulta" id="consulta" onsubmit="return false">                                           
                     <table style="width: 100%;" border="0" >
                         <tr>

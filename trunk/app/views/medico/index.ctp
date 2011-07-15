@@ -5,7 +5,6 @@
     echo $this->Html->script("jquery/jquery-window-5.03/jquery.window.js");          
  ?> 
 
-
  <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/>  
 		<script type="text/javascript">
 			jQuery(function(){			     
@@ -89,7 +88,7 @@
     </tr>
     <tr>
         <td style="height: 400px;" valign="top" align="center">  
-            <div id="win_console" style="width: 100%;">                
+            <div id="win_console" style="width: 100%;overflow-y:auto ;">                
             <table border="0" style="margin-top: 2px;">
                 <tr>
                     <td  valign="top">
@@ -117,7 +116,7 @@
                                 </td>                
                                 <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 150px;">
                                     <!-- Iframe izquierdo-->
-                                    <iframe id="men_izq_reg" src="medico_menu/registrar" width="220"  frameborder="0" scrolling="auto" align="center"></iframe>                                                       
+                                    <iframe id="men_izq_reg" name="men_izq_reg" src="medico_menu/registrar" width="220"  frameborder="0" scrolling="auto" align="center"></iframe>                                                       
                                 </td>
                                 <td class="top_menu_window_body_right">                    
                                     
@@ -176,7 +175,7 @@
                                 <td align="center" class="top_menu_window_body_center" colspan="2"  style="width:700px;height: 420px;" valign="top">
                                     <!-- Dinamic -->
                                      
-                                    <iframe id="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="no"></iframe>
+                                    <iframe id="frame_content" name="frame_content" src="medico/content_iframe" style="width:720px;height: 430px;" frameborder="0" scrolling="no"></iframe>
                                   
                                 </td>
                                 <td class="top_menu_window_body_right">                    
