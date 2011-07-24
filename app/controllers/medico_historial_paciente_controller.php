@@ -3,7 +3,7 @@
         var $name = "MedicoHistorialPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History");                  
         
         var $group_session = "medico";                   
        
@@ -14,13 +14,13 @@
         /**
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
-        function listar($id_pac){
-            
+        function listar($id_pac){              
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
             $title =  __("Historial del paciente",true);            
             $data = Array(                
                 "title"         => $title,
-                "id_pac"        => $id_pac               
+                "id_pac"        => $id_pac,
+                "history"   =>  $this->History->GetHistory("a")               
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);                                     
@@ -36,7 +36,9 @@
             $num_his        = $_POST["num_his"];
             $des_his        = $_POST["des_his"];
             $nom_doc        = $_POST["nom_doc"];
-            //$ape_doc        = $param_array[3];                                                       
+            //$ape_doc        = $param_array[3]; 
+            
+            $this->History->SetHistory("a");                                                      
                                                
             $this->paginate = array(
                 'limit' => 12,

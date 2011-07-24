@@ -577,7 +577,7 @@ jQuery.Window = (function()  {
 				options.icon = _prepareFaviconUrl();
 			}
 			var iconHtml = '';
-			if( options.icon != null ) {
+			if( options.icon != null ) {			 
 				iconHtml = "<img class='window_title_icon' src='"+options.icon+"' style='display:none;' onload='javascript:jQuery.Window._iconOnLoad(this);'/>";
 			}
 	
@@ -846,7 +846,7 @@ jQuery.Window = (function()  {
 		
 		// insert icon element html, this should be call only when the icon doesn't exist
 		function _addIcon() {
-			if( options.icon != null && options.icon != '' ) {
+			if( options.icon != null && options.icon != '' ) {			 
 				var html = "<img class='window_title_icon' src='"+options.icon+"' style='display:none;' onload='javascript:jQuery.Window._iconOnLoad(this);'/>";
 				header.prepend(html);
 			}
@@ -1764,16 +1764,15 @@ jQuery.Window = (function()  {
 				}
 			}
 		},
-		_iconOnLoad: function(element) { 			
-			var windowId = jQuery(element).parent().parent().attr('id');			
-			log('_iconOnLoad: '+windowId);
+		_iconOnLoad: function(element) { 					  
+			var windowId = jQuery(element).parent().parent().attr('id');            					            
 			if( windowId != null ) {
 				var wnd = jQuery.Window.getWindow(windowId);
 				if( wnd != null ) {
 					wnd.showIcon();
 				}
 			} else {
-				warn('[_iconOnLoad] lost window id!!!');
+				//warn('[_iconOnLoad] lost window id!!!');
 			}
 		}
 	}

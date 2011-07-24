@@ -1,9 +1,8 @@
-<script type="text/javascript">              
-
+<script type="text/javascript">   
+          
         jQuery(function() {
             jQuery("#tabs-1").css("display","block");
-            jQuery( "#tabs" ).tabs();            
-            parent.jQuery("#title_content").html("<?php echo $title;?>");                       
+            jQuery( "#tabs" ).tabs();                                               
     		jQuery( "#txt_fec_nac_pac" ).datepicker({
                 dateFormat: "dd/mm/yy",
     			showOn: "button",
@@ -22,7 +21,7 @@
             jQuery("#sel_est_pac").change(function(){     
                 jQuery("#indicator").css("display","block");
                 jQuery("#sel_mun_pac").load("event_ubicacion/3/"+jQuery(this).val(),function(){jQuery("#indicator").css("display","none");});  
-            });    
+            });   
     });
 </script>
 <style type="text/css">
@@ -32,7 +31,7 @@
     $T_V_TYPE = 1;
     include_once("../libs/_dialog.php");  
 ?>
-
+asdf
 <div id="tabs-1" style="display: none;">    		
     <div id="tabs">
         <ul>

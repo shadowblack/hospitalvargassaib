@@ -22,7 +22,8 @@ util.openWindow = function(_id, _title, _url, _x, _y, _width, _height) {
     			dockArea: jQuery('#win_console_dock'),
                 minWinLong :23,
                 minWinNarrow : 233,
-                verticalText : false                         
+                verticalText : false
+                              
     		});
             this.prepared = true;
         }
@@ -38,36 +39,38 @@ util.openWindow = function(_id, _title, _url, _x, _y, _width, _height) {
 			maximizable: false,
             scrollable: false,
             resizable: false,
+            icon: "/saib/img/icon/doctor.jpg",
             onClose: function(wnd) { // a callback function while user click close button
                 util.win[_id] = null;
             },
             checkBoundary: true,
             afterCascade : function(){
                 var obj = jQuery("#"+ _id + " iframe")
-                //obj.attr("height",this._height);
-                //obj.attr("width",this._width);
+              
                 obj.attr("style","display-inline");                                                               
-            }                      
-		});
-		jQuery("#"+ _id + " iframe").attr("name",_id+"_");
-        jQuery("#"+ _id + " iframe").attr("id",_id+"_");
-        /*Corrije el iframe que no se redimenciona*/
-        util.win[_id]._resize = function(w,h){   
+            }
+		});        
+	//	jQuery("#"+ _id + " iframe").attr("name",_id+"");
+    //    jQuery("#"+ _id + " iframe").attr("id",_id+"");
+        /*Corrige el iframe que no se redimenciona*/
+        util.win[_id]._resize = function(w,h){  
+              
             var _h = h -43,
                 _w = w - 0;
+               
             jQuery("#"+ _id + " iframe").attr("height",_h)
+            alert("resixe"+"#"+ _id+" cambio tamaño iframe");
             jQuery("#"+ _id + " iframe").attr("width",_w)
            // _parent.jQuery("#"+ _id + " iframe").removeAttr("height")
            // _parent.jQuery("#"+ _id + " iframe").removeAttr("width")
-            util.win[_id].resize(w,h);
+         
             this._width     = _w;
             this._height    = _h;
+             util.win[_id].resize(w,h);
         }
         
-	} else {
-	    
-		//_parent.jQuery("#" + _id + " iframe").attr("src", _url);
-        
+	} else {	    
+		//_parent.jQuery("#" + _id + " iframe").attr("src", _url);        
         util.win[_id].setUrl(_url);     
         if (jQuery("#"+ _id ).attr("aria-disabled")=="true"){
             util.win[_id].restore();
