@@ -5,30 +5,31 @@
     parent.parent.util.win["inf_his<?php echo $id_pac?>"]._resize(600,400);
     jQuery(function() {
          jQuery("a").click(function(){
-           var _iframe = "<iframe src=\"%%%\" frameborder=\"0\" width=\"100%\" height=\"315\" align=\"left\" style=\"padding: 0;margin: 0;\"></iframe>";        
+           var _iframe = "<iframe src=\"%%%\" frameborder=\"0\" width=\"100%\" height=\"350\" align=\"left\" style=\"padding: 0;margin: 0;\"></iframe>";        
            switch(jQuery(this).attr("href")){
                 case "#tabs-1":
-                    var _url = "<?php echo $this->Html->url("/MedicoInformacionPaciente/registrar")?>";                    
+                    var _url = "<?php echo $this->Html->url("/MedicoInformacionPaciente/registrar/$id_his/$id_pac")?>";                    
                     jQuery("#tabs-1").html(_iframe.replace("%%%",_url));
                     
                 break;
                 case "#tabs-2":
                     var _url = "<?php echo $this->Html->url("/MedicoInformacionPaciente/registrar")?>";                    
-                    jQuery("#tabs-1").html(_iframe.replace("%%%",_url));
+                    jQuery("#tabs-2").html(_iframe.replace("%%%",_url));
                     
                 break;
                 case "#tabs-3":
                     var _url = "<?php echo $this->Html->url("/MedicoInformacionPaciente/registrar")?>";                    
-                    jQuery("#tabs-1").html(_iframe.replace("%%%",_url));
+                    jQuery("#tabs-3").html(_iframe.replace("%%%",_url));
                     
                 break;
                 case "#tabs-4":
                     var _url = "<?php echo $this->Html->url("/MedicoInformacionPaciente/registrar")?>";                    
-                    jQuery("#tabs-1").html(_iframe.replace("%%%",_url));
+                    jQuery("#tabs-4").html(_iframe.replace("%%%",_url));
                     
                 break;
            } 
         });
+        jQuery("a:eq(0)").trigger("click");
         jQuery("#tabs").css("display","block");
         jQuery("#tabs").tabs();                        
     });

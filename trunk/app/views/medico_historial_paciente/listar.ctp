@@ -5,7 +5,7 @@
     $_V_DEL     = $this->Html->url("event_eliminar");
     $_V_CONS    = $this->Html->url("consultar");
     $_V_DEL_MEN = __("¿Desea eliminar el Historial",TRUE);
-    include_once("../libs/_list_ajax.php");
+    include_once("../libs/_list_ajax.php");   
 ?>
 
 <script type="text/javascript"> 
@@ -13,15 +13,13 @@
    //width: 452px; height: 478px; z-index: 2002; left: 465px; top: 288px; background-color: rgb(242, 245, 247); opacity: 1;
    function info(id_his,id_pac){               
         var _id = "inf_his"+id_pac;  
-        var url = "<?php echo $this->Html->url("/MedicoWindows/medico_informacion_paciente/")?>"+id_his+"/"+id_pac;
-        alert(url);
-        url = "<?php echo Router::url(array('controller' => 'MedicoWindows', 'action' => 'medico_informacion_paciente/3/7'), true) ?>";
-        alert(url);
+        var url = "<?php echo $this->Html->url("/MedicoWindows/medico_informacion_paciente/")?>"+id_his+"/"+id_pac;   
         parent.util.openWindow(_id,"<?php echo __("Información del historial",true)?>",url,30,undefined,undefined,280);  
               
    }
    
    jQuery(function(){
+        <?php echo $this->History->GetHistory($history)?>
         jQuery("#tabs-1").css("display","block");
         jQuery( "#tabs" ).tabs();
         parent.jQuery("#title_content").html("<?php echo $title;?>");
@@ -105,7 +103,7 @@
                             <table style="width: 100%; border="0" class="" align="center">
                                 <tr>                                   
                                     <td  align="center" style="height: 0" valign="bottom">
-                                        <input type="button" name="btn_volver" value="Volver" onclick="parent.frame_content.history.back(-4)">                                        
+                                        <input type="button" name="btn_volver" value="Volver" onclick="window.location.href='<?php echo $this->History->Url($this->Html->url("/MedicoConfiguracionPaciente/listar"))?>'">                                        
                                     </td>
                                 </tr>
                             </table>   

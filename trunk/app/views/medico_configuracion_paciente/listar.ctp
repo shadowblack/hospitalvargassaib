@@ -1,10 +1,11 @@
 <?php
-    $_V_LIST    = "event_listar";
-    $_V_EDIT    = "modificar";
-    $_V_DEL     = "event_eliminar";
-    $_V_CONS    = "consultar";
+    $_V_LIST    = $this->Html->url("event_listar");
+    $_V_EDIT    = $this->Html->url("modificar");
+    $_V_DEL     = $this->Html->url("event_eliminar");
+    $_V_CONS    = $this->Html->url("consultar");
     $_V_DEL_MEN = __("¿Desea eliminar al paciente",TRUE);
-    include_once("../libs/_list_ajax.php");
+    include_once("../libs/_list_ajax.php");    
+   
 ?>
 
 <script type="text/javascript"> 
@@ -14,9 +15,13 @@
    }  
      
    jQuery(function(){
+        parent.jQuery("div#title_content").html("<?php echo $title;?>");        
+        <?php echo $this->History->GetHistory($history)?>
+    
         jQuery("#tabs-1").css("display","block");
         jQuery( "#tabs" ).tabs();
-        parent.jQuery("#title_content").html("<?php echo $title;?>");
+        
+       
         jQuery("#btn_buscar").click(function(){                                                                 
             paginator_div("<?php echo $_V_LIST ?>",jQuery("#consulta"));
         })
@@ -30,9 +35,12 @@
    });       
 </script>
 <?php 
+
     $T_V_TYPE = 1;
-    include_once("../libs/_dialog.php");  
+    include_once("../libs/_dialog.php");
+      
 ?>	
+
 <div id="tabs-1" style="display: none;">   
 
     <div id="tabs">

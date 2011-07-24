@@ -6,7 +6,8 @@
             <?php echo __("Sistema de integración de las enfermedades dermatologicas",true); ?>
            	<?php echo $title_for_layout;?>
         </title>  
-        <?php echo $this->Html->meta('icon',$this->webroot."img/icon/doctor.jpg");?>      
+        <?php echo $this->Html->meta('icon',$this->webroot."img/icon/doctor.jpg");?>
+        <?php #echo $this->Html->css('cake_log');?>     
        	<?php echo $this->Html->css('top_menu');?>
         <?php echo $this->Html->css('font');?>
         <?php echo $this->Html->css('standar');?>
@@ -30,6 +31,7 @@
         <?php echo $this->Html->css('ui_jquery');?>
     </head>
     <body style="overflow: hidden;">         
-        <?php echo $content_for_layout ?>                                           
+        <?php echo $content_for_layout ?> 
+        <?php echo $this->element('sql_dump'); ?>                                          
     </body>
 </html>

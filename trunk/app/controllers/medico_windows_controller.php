@@ -25,8 +25,7 @@
                         "id_his" => $id_his
                      ),
                      "joins"=>Array(
-                        Array(
-                            "id_his"        =>  $id_his,
+                        Array(                            
                             "table"         =>  "pacientes",
                             "alias"         =>  "Paciente",
                             "conditions"    =>  Array(
@@ -35,7 +34,8 @@
                         )                                         
                      )                    
                 )
-            );
+            );   
+           // echo debug($result);         
             $title = __("Información del paciente",true);
              $data = Array(
                 "title"         => $title,

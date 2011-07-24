@@ -3,7 +3,7 @@
         var $name = "MedicoConfiguracionPaciente";
         var $uses =         Array("Doctore","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History");                  
         
         var $group_session = "medico";                   
        
@@ -14,8 +14,7 @@
         /**
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
-        function listar(){
-            
+        function listar(){            
             //$this->cacheAction = array('recalled/' => 86400);
             
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
@@ -24,7 +23,7 @@
             $title =  __("Configuración de Pacientes",true);            
             $data = Array(                
                 "title"     => $title,
-                "history"   =>  $this->History->GetHistory(Router::url($this->here),"a")              
+                "history"   =>  $this->History->GetHistory("a",true)              
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);
@@ -34,18 +33,17 @@
          /**
         * Listando de usuarios administrativos
         */
-        function event_listar(){
-            //echo $_SERVER['HTTP_REFERER']."<br>";
-            //echo $this->referer();
-           // echo Router::url($this->here,true);
+        function event_listar(){           
             //$this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");  
+                      
             
             $nombre     = $_POST["nom_pac"];
             $apellido   = $_POST["ape_pac"];
             $cedula     = $_POST["ced_pac"];                                                    
-                                  
-            $this->History->SetHistory($this->referer(),$_POST,"a");             
+                         
+            $this->History->SetHistory("a");
+           //echo $this->History->GetHistoryData("a","ced_pac");             
             $this->paginate = array(
                 'limit' => 12,
                 /*'fields' => Array(

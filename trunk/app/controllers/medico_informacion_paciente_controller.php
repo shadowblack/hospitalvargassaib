@@ -3,9 +3,9 @@
         var $name = "MedicoInformacionPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache","Event");                  
         
-        protected $group_session = "medico";                   
+        var $group_session = "medico";                   
        
         function index($id_his,$id_pac){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
@@ -16,7 +16,7 @@
                 "id_pac"        => $id_pac             
             ); 
             $this->set($data);
-            $this->set('title_for_layout', $title);  
+            $this->set('title_for_layout', $title);            
         }     
         
         /**
@@ -85,7 +85,7 @@
             
         } 
    
-        function registrar($id_his){
+        function registrar($id_his,$id_pac){
             //$this->Login->no_cache();            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                                                                                                 
                                                           

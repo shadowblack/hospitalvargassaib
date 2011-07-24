@@ -55,7 +55,7 @@
             <table style="width: 100%;" border="0">
                 <tr>               
                     <td  align="center" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
+                        <input type="button" name="btn_volver" value="Volver" onclick="window.location.href='<?php echo$this->History->Url($_SERVER['HTTP_REFERER'])?>'">
                     </td>
                 </tr>
             </table>

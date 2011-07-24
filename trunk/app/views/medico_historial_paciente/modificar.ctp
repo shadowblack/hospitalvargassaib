@@ -70,7 +70,7 @@ des_adi_pac_his ?></textarea>
                         <input type="submit" name="btn_aceptar" value="Aceptar">
                     </td>
                     <td  align="left" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
+                        <input type="button" name="btn_volver" value="Volver" onclick="window.location.href='<?php echo$this->History->Url($_SERVER['HTTP_REFERER'])?>'">
                     </td>
                 </tr>
             </table>                      
