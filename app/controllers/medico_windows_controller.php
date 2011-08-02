@@ -34,8 +34,7 @@
                         )                                         
                      )                    
                 )
-            );   
-           // echo debug($result);         
+            );                     
             $title = __("Información del paciente",true);
              $data = Array(
                 "title"         => $title,

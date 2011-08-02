@@ -3,7 +3,13 @@
     $_V_EDIT    = "modificar";
     $_V_DEL     = "event_eliminar";
     $_V_DEL_MEN = __("¿Desea eliminar el médico",TRUE);
-    include_once("../libs/_list_ajax.php");
+    //include_once("../libs/_list_ajax.php");
+    echo $this->element("list_ajax",Array(
+        "_V_LIST"       => $_V_LIST,
+        "_V_EDIT"       => $_V_EDIT,
+        "_V_DEL"        => $_V_DEL,
+        "_V_DEL_MEN"    => $_V_DEL_MEN
+    ));
 ?>
 
 <script type="text/javascript"> 
@@ -27,8 +33,9 @@
    });        
 </script>
 <?php 
-    $T_V_TYPE = 1;
-    include_once("../libs/_dialog.php");  
+    //$T_V_TYPE = 1;
+    //include_once("../libs/_dialog.php"); 
+    echo $this->element("dialog",Array("T_V_TYPE" => 1)); 
 ?>
 <div id="tabs-1" style="display: none;">    		
     <div id="tabs">

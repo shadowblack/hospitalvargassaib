@@ -4,8 +4,6 @@ jQuery.noConflict();
  * 
  */
 
- 
- 
 util = Object();
 util.win = [];
 util.prepared = false;
@@ -50,35 +48,27 @@ util.openWindow = function(_id, _title, _url, _x, _y, _width, _height) {
                 obj.attr("style","display-inline");                                                               
             }
 		});        
-	//	jQuery("#"+ _id + " iframe").attr("name",_id+"");
-    //    jQuery("#"+ _id + " iframe").attr("id",_id+"");
+
         /*Corrige el iframe que no se redimenciona*/
         util.win[_id]._resize = function(w,h){  
               
             var _h = h -43,
                 _w = w - 0;
                
-            jQuery("#"+ _id + " iframe").attr("height",_h)
-            alert("resixe"+"#"+ _id+" cambio tamaño iframe");
-            jQuery("#"+ _id + " iframe").attr("width",_w)
-           // _parent.jQuery("#"+ _id + " iframe").removeAttr("height")
-           // _parent.jQuery("#"+ _id + " iframe").removeAttr("width")
-         
+            jQuery("#"+ _id + " iframe").attr("height",_h);            
+            jQuery("#"+ _id + " iframe").attr("width",_w);;
+
             this._width     = _w;
             this._height    = _h;
              util.win[_id].resize(w,h);
-        }
-        
-	} else {	    
-		//_parent.jQuery("#" + _id + " iframe").attr("src", _url);        
+        }        
+	} else {	    	      
         util.win[_id].setUrl(_url);     
         if (jQuery("#"+ _id ).attr("aria-disabled")=="true"){
             util.win[_id].restore();
             jQuery("#"+ _id + " iframe").attr("height",this._height);
             jQuery("#"+ _id + " iframe").attr("width",this._width);               
         }
-             
-        
 	}
 }
 util.loader = function(img) {

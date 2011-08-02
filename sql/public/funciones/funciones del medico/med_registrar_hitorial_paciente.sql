@@ -7,7 +7,8 @@ DECLARE
 	-- informacion del paciente
 	_id_pac 		pacientes.id_pac%TYPE;
 	_des_his 		historiales_pacientes.des_his%TYPE;
-	_des_adi_pac_his	historiales_pacientes.des_adi_pac_his%TYPE;	
+	_des_adi_pac_his	historiales_pacientes.des_adi_pac_his%TYPE;
+	_id_his			historiales_pacientes.id_his%TYPE;
 	
 	-- informacion del doctor
 	_id_doc		doctores.id_doc%TYPE;
@@ -39,6 +40,14 @@ BEGIN
 		_des_adi_pac_his,		
 		_id_doc
 	);		
+
+	_id_his:= CURRVAL('historiales_pacientes_id_his_seq');
+
+	INSERT INTO tiempo_evoluciones(
+		id_his
+	) VALUES (
+		_id_his
+	);
 			
 	-- La función se ejecutó exitosamente
 	RETURN 1;

@@ -34,6 +34,20 @@
             ) AS result";
             return $sql;
         }
+        
+        function MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc){
+            $sql = "SELECT med_registrar_informacion_adicional(ARRAY[
+                '$id_his',
+                '$cen_sal',
+                '$tip_con',
+                '$con_ani',
+                '$tra_pre',
+                '$tie_evo',
+                '$id_doc'                
+                ]
+            ) AS result";
+            return $sql;
+        }
     }
     
 ?>

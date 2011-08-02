@@ -18,7 +18,9 @@ DECLARE
 	_id_pai		pacientes.id_pai%TYPE;
 	_id_est		pacientes.id_est%TYPE;
 	_id_mun		pacientes.id_mun%TYPE;
-	_id_par		pacientes.id_par%TYPE;	
+	_id_par		pacientes.id_par%TYPE;
+	_str_ant_per	TEXT;
+	_arr_ant_per	INTEGER[];	
 
 	-- informacion del doctor
 
@@ -38,8 +40,9 @@ BEGIN
 	_ciu_pac	:= _datos[10];
 	_id_pai		:= _datos[11];
 	_id_est		:= _datos[12];
-	_id_mun		:= _datos[13];	
-	_id_doc		:= _datos[14];
+	_id_mun		:= _datos[13];
+	_str_ant_per	:= _datos[14];	
+	_id_doc		:= _datos[15];
 
 	-- centros de salud pacientes
 	
@@ -65,7 +68,22 @@ BEGIN
 
 			WHERE id_pac = _id_pac
 		;			
-				
+
+		DELETE FROM antecedentes_pacientes WHERE id_pac = _id_pac;
+
+		_arr_ant_per := STRING_TO_ARRAY(_str_ant_per,',');
+		IF (ARRAY_UPPER(_arr_ant_per,1) > 0)THEN
+			FOR i IN 1..(ARRAY_UPPER(_arr_ant_per,1)) LOOP
+				INSERT INTO antecedentes_pacientes (
+					id_pac,
+					id_ant_per					
+				) VALUES (
+					_id_pac,
+					_arr_ant_per[i]
+				);
+			END LOOP;
+		END IF;
+		
 		-- La función se ejecutó exitosamente
 		RETURN 1;
 		
@@ -95,7 +113,8 @@ PARAMETROS: Recibe 12 Parámetros
 	11: Id del pais donde vive el paciente
 	12: Id del estado donde vive el paciente.
 	13: Id del municipio donde vive el paciente.
-	14: Id del doctor quien realizo la transacción
+	14: Id de los antecedentes personales
+	15: Id del doctor quien realizo la transacción
 	
 
 DESCRIPCION: 
@@ -106,10 +125,9 @@ RETORNO:
 	0: Existe un usuario administrativo con el mismo login
 	 
 EJEMPLO DE LLAMADA:
-	SELECT med_modificar_paciente(ARRAY[''1'',''Prueba'', ''apellido'', ''12354'', ''2011-06-09'',''2'',''3622222'',''3333333'',''albañil'',''caracas'',''1'',''1'',''1'',''5'']);
+	SELECT med_modificar_paciente(ARRAY[''1'',''Prueba'', ''apellido'', ''12354'', ''2011-06-09'',''2'',''3622222'',''3333333'',''albañil'',''caracas'',''1'',''1'',''1'',''1,2,3,4'',''5'']);
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 09/06/2011
 
 ';
-

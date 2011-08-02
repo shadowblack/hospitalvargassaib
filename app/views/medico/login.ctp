@@ -23,8 +23,9 @@
     }
 </style>
 <?php 
-    $T_V_TYPE = 2;
-    include_once("../libs/_dialog.php");  
+   // $T_V_TYPE = 2;
+   // include_once("../libs/_dialog.php"); 
+   echo $this->element("dialog",Array("T_V_TYPE" => 2)); 
 ?>
 <table align="center" cellpadding="0" cellspacing="0"  border="0" >
     <tr>
