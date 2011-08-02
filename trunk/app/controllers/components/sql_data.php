@@ -72,6 +72,14 @@ class SqlDataComponent extends Object
         }    
         return Array();
     }
+    /**
+    function CakeArrayToObject($array = array()) {                             
+        $fields = $this->CakeArrayToObjects($array);
+        $field = $fields[0];
+        return $field;
+    }
+    */
+    
     
      /**
     * Convirtiendo array en objetos cuando son multiples registros de cakePHP

@@ -18,6 +18,8 @@ DECLARE
 	_id_est		pacientes.id_est%TYPE;
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;	
+	_str_ant_per	TEXT;
+	_arr_ant_per	INTEGER[];
 
 	-- informacion del doctor
 
@@ -36,8 +38,9 @@ BEGIN
 	_ciu_pac	:= _datos[9];
 	_id_pai		:= _datos[10];
 	_id_est		:= _datos[10];
-	_id_mun		:= _datos[12];	
-	_id_doc		:= _datos[13];
+	_id_mun		:= _datos[12];
+	_str_ant_per	:= _datos[13];
+	_id_doc		:= _datos[14];
 
 	-- centros de salud pacientes
 	
@@ -79,7 +82,23 @@ BEGIN
 			_id_mun,
 			((SELECT COUNT(id_pac) FROM pacientes )::INTEGER)+1,
 			_id_doc
-		);		
+		);	
+
+		/* Antecedentes personales*/
+		_arr_ant_per := STRING_TO_ARRAY(_str_ant_per,',');
+		IF (ARRAY_UPPER(_arr_ant_per,1) > 0)THEN
+			FOR i IN 1..(ARRAY_UPPER(_arr_ant_per,1)) LOOP
+				INSERT INTO antecedentes_pacientes(
+					id_pac,
+					id_ant_per
+				)
+				VALUES
+				(
+					(CURRVAL('pacientes_id_pac_seq')),
+					_arr_ant_per[i]
+				);
+			END LOOP;
+		END IF;	
 				
 		-- La función se ejecutó exitosamente
 		RETURN 1;
@@ -109,6 +128,7 @@ PARAMETROS: Recibe 12 Parámetros
 	10: Id del pais donde vive el paciente
 	11: Id del estado donde vive el paciente.
 	12: Id del municipio donde vive el paciente.
+	13: Id de los antecedentes personales
 	13: Id del doctor quien realizo la transacción
 	
 
@@ -120,10 +140,9 @@ RETORNO:
 	0: Existe un usuario administrativo con el mismo login
 	 
 EJEMPLO DE LLAMADA:
-	SELECT med_registrar_paciente(ARRAY[''Prueba'', ''apellido'', ''12354'', ''2011-06-09'',''2'',''3622222'',''3333333'',''albañil'',''caracas'',''1'',''1'',''1'',''5'']);
+	SELECT med_registrar_paciente(ARRAY[''Prueba'', ''apellido'', ''12354'', ''2011-06-09'',''2'',''3622222'',''3333333'',''albañil'',''caracas'',''1'',''1'',''1'',''1,2,3,4,5'',''5'']);
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 09/06/2011
 
 ';
-

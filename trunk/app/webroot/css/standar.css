@@ -1,6 +1,9 @@
 html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input {    
     margin: 0;
-    padding: 0;        
+    padding: 0;  
+    /*font-family:Arial;
+	font-size: 10px;
+	font-weight: normal; */     
 }
 
 html{    
@@ -103,6 +106,13 @@ input{
     width:100px
 }
 
+input.standar_input_checkbox{
+    padding: 2px;
+    width: 20px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
 /*Formato para los hipervinculos*/
 a:link {    
     text-decoration: none
@@ -126,6 +136,18 @@ li{
     /*list-style: none;*/
 }
 
+ul.standar_list, ol.standar_list {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 11px;
+    margin-left: 10px;
+    padding: 0;
+    
+}
+
 .standar_position{
     position: absolute;
     padding: 0;
@@ -140,4 +162,13 @@ fieldset.standar_fieldset_content{
 div.standar_fieldset_child{
     height:335px;
     
+}
+div.standar_window_fieldset_child{
+    height:280px;
+    
+}
+
+/*Estandar margin*/
+.standar_margin{
+    margin-top: 2px;
 }

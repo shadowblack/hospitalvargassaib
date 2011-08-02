@@ -49,7 +49,9 @@ class EventHelper extends AppHelper{
                                 text: '".__("Aceptar",true)."',
                                 click: function() {                                     
                                     jQuery(this).dialog(\"close\");
-                                    ".(!empty($target) ? ($target == "back" ? "history.back()" : "window.location.href = '$target';") : "")." 
+                                    if (data.event > 0){
+                                        ".(!empty($target) ? ($target == "back" ? "history.back()" : "window.location.href = '$target';") : "")."
+                                    } 
                                 }
                             }
                         ],
@@ -112,7 +114,11 @@ class EventHelper extends AppHelper{
                                 text: '".__("Aceptar", true)."',
                                 click: function() {                                    
                                     jQuery(this).dialog(\"close\");
-                                    ".(!empty($target) ? ($target == "back" ? "history.back()" : "window.location.href = '$target';") : "")." 
+                                    if (data.event > 0){
+                                        ".
+                                            ($target <> false ? (!empty($target) ? ($target == "back" ? "history.back()" : "window.location.href = '$target';") : "") : "")
+                                        ." 
+                                    }
                                 }
                             }],
                             resizable: false

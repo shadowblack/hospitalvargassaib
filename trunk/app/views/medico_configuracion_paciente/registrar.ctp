@@ -1,6 +1,7 @@
 <script type="text/javascript">              
 
         jQuery(function() {
+            <?php echo $this->Checkbox->Multiple("chk_ant_per_","#pacientes")?>
             jQuery("#tabs-1").css("display","block");
             jQuery( "#tabs" ).tabs();            
             parent.jQuery("#title_content").html("<?php echo $title;?>");                       
@@ -29,8 +30,9 @@
     label.error { width: 150px; text-align: left; }    
 </style>
 <?php 
-    $T_V_TYPE = 1;
-    include_once("../libs/_dialog.php");  
+    //$T_V_TYPE = 1;
+    //include_once("../libs/_dialog.php");  
+    echo $this->element("dialog",Array("T_V_TYPE" => 1));
 ?>
 
 <div id="tabs-1" style="display: none;">    		
@@ -187,13 +189,13 @@
                             &nbsp;
                         </td>
                         <td  class="font-standar" valign="top">
-                            <?php echo __("Municipio")?>
-                            
-                        </td>                           
-                        <td  class="font-standar" valign="top">
-                            &nbsp;
-                            <!--<?php echo __("Parroquia")?>-->
-                            
+                            <?php echo __("Municipio")?>                            
+                        </td> 
+                        <td>
+                             &nbsp;
+                        </td>                          
+                        <td  class="font-standar" valign="top">                           
+                            &nbsp;                       
                         </td>
                     </tr>
                     <tr>
@@ -227,9 +229,25 @@
                             &nbsp;
                         </td>
                         <td>
-                            &nbsp;                          
+                            &nbsp;
                         </td>
-                    </tr>                                        
+                    </tr>
+                    <tr>
+                        <td class="font-standar" colspan="5">
+                            <?php __("Antecedentes personales") ?>                        
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                             <div class="standar_margin lista_standar" style="overflow-y: auto; height: 140px;">
+                                <ol class="standar_list">
+                                    <?php foreach($ante_pers as $row): ?>
+                                        <li><input name="chk_ant_per_<?php echo $row->AntecedentesPersonale->id_ant_per?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->AntecedentesPersonale->id_ant_per?>"><?php echo $row->AntecedentesPersonale->nom_ant_per?></li>
+                                    <?php endforeach ?>
+                                </ol>
+                            </div>
+                        </td>
+                    </tr>                                      
                 </table>
              </div>                
              <table style="width: 100%; border="0" class="">

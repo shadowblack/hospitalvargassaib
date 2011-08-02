@@ -2,6 +2,13 @@ div.lista_standar{
     border:1px solid #CCE7EE;
     background-color: #F7F8F9;
 }
+div.lista_standar2{
+    /*border:1px solid #6896B7;*/
+    background-color: #DEEDF7;  
+    height: 170px;
+   /* overflow-y: auto; */ 
+    
+}
 div.lista_consulta{
     width: 550px;
     height: 300px;

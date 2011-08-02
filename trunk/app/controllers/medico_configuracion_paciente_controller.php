@@ -1,9 +1,9 @@
 <?php
     class MedicoConfiguracionPacienteController extends Controller{
         var $name = "MedicoConfiguracionPaciente";
-        var $uses =         Array("Doctore","Paciente");
+        var $uses =         Array("Doctore","Paciente","AntecedentesPersonale","AntecedentesPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History","Checkbox");                  
         
         var $group_session = "medico";                   
        
@@ -77,13 +77,14 @@
                                                                                                                
             $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
             $arr_query = ($this->Doctore->query($sql));
-            $estados = ($this->SqlData->array_to_objects($arr_query));        
-                                                          
+            $estados = ($this->SqlData->array_to_objects($arr_query));              
+            $ante_pers             = $this->SqlData->CakeArrayToObjects($this->AntecedentesPersonale->find("all"));
             $title = __("Registro de paciente",true);
             
             $data = Array(
                 "estados"           => $estados,                                         
-                "title"             => $title                
+                "title"             => $title,
+                "ante_pers"         => $ante_pers                
             ); 
             
             $this->set($data);
@@ -144,14 +145,36 @@
             
             $sql = "SELECT * FROM pacientes WHERE id_pac=$id";
             $arr_query = ($this->Doctore->query($sql));
-            $result = ($this->SqlData->array_to_object($arr_query));        
-                        
+            $result = ($this->SqlData->array_to_object($arr_query));            
+            
+            
+            $ante_pers   = $this->SqlData->CakeArrayToObjects($this->AntecedentesPersonale->find("all",Array(
+                "fields"=>Array(
+                                "AntecedentesPaciente.id_ant_per",
+                                "AntecedentesPersonale.*"
+                ),
+                "joins"=>
+                    Array(
+                        Array(
+                            "fields"        => Array("AntecedentesPaciente.id_ant_per"),                       
+                            "table"=>"antecedentes_pacientes",
+                            "alias"=>"AntecedentesPaciente",
+                            "conditions"=>Array("AntecedentesPaciente.id_ant_per = AntecedentesPersonale.id_ant_per AND AntecedentesPaciente.id_pac=$id"),
+                            "type"=>"left"
+                        )
+                    )
+                
+            ))
+            );               
+               
+                  
             $title =  __("Modificación de pacientes",true);
             
             $data = Array(
                 "result"    => $result,
                 "estados"   => $estados,
-                "title"     => $title                             
+                "ante_pers"  => $ante_pers,
+                "title"     => $title                            
             ); 
             
             $this->set($data);
@@ -176,6 +199,7 @@
             $ciu_res_pac    = $_POST["txt_ciu_res_pac"];
             $est_pac        = $_POST["sel_est_pac"];
             $num_pac        = $_POST["sel_mun_pac"];
+            $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $id_doc         = $this->Session->read("medico.id_usu");          
                                             
             $sql = "SELECT med_registrar_paciente(ARRAY[
@@ -191,6 +215,7 @@
                 '1',
                 '$est_pac',
                 '$num_pac',
+                '$hdd_chk_ant_per',
                 '$id_doc'
             ]) AS result";
             $arr_query = ($this->Doctore->query($sql));
@@ -232,6 +257,7 @@
             $ciu_res_pac    = $_POST["txt_ciu_res_pac"];
             $est_pac        = $_POST["sel_est_pac"];
             $num_pac        = $_POST["sel_mun_pac"];
+            $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $id_doc         = $this->Session->read("medico.id_usu");          
                                             
             $sql = "SELECT med_modificar_paciente(ARRAY[
@@ -248,6 +274,7 @@
                 '1',
                 '$est_pac',
                 '$num_pac',
+                '$hdd_chk_ant_per',
                 '$id_doc'
             ]) AS result";
                         

@@ -43,8 +43,10 @@
 </style>
 
 <?php 
-    $T_V_TYPE = 1;
-    include_once("../libs/_dialog.php");  
+    //$T_V_TYPE = 1;
+    //include_once("../libs/_dialog.php");  
+    
+    echo $this->element("dialog",Array("T_V_TYPE" => 1));
 ?>
 <div id="tabs-1" style="display: none;">    		
     <div id="tabs">

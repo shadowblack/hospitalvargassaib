@@ -1,8 +1,8 @@
 <script type="text/javascript">        
     jQuery("body").addClass("standar_background_color");
     top.util.win["inf_his<?php echo $id_pac?>"]
-    .setFooterContent("<?php echo __("Página #",true).$this->FormatString->NumbersZero($result->HistorialesPaciente->id_his,6). __(", Paciente: ",true).$result->Paciente->nom_pac." ".$result->Paciente->ape_pac?>");
-    parent.util.win["inf_his<?php echo $id_pac?>"]._resize(425,280)
+        .setFooterContent("<?php echo __("Página #",true).$this->FormatString->NumbersZero($result->HistorialesPaciente->id_his,6). __(", Paciente: ",true).$result->Paciente->nom_pac." ".$result->Paciente->ape_pac?>");
+    top.util.win["inf_his<?php echo $id_pac?>"]._resize(425,280)
 </script>
 <?php
     
