@@ -13,10 +13,13 @@
             <a href="<?php echo $this->Html->url("/MedicoInformacionPaciente/index/$id_his/$id_pac")?>">Información</a>
         </td>
         <td>
-            <a href="<?php echo $this->Html->url("registrar")?>">Estudios</a>                        
-        </td>
+            <a href="<?php echo $this->Html->url("/MedicoMuestrasPaciente/index/$id_his/$id_pac")?>">|Muestras</a>
+        </td>       
         <td>
-            <a href="<?php echo $this->Html->url("registrar")?>">Enfermedades</a>            
+            <a href="<?php echo $this->Html->url("registrar")?>">|Enfermedad Superficial</a>            
+        </td>
+         <td>
+            <a href="<?php echo $this->Html->url("registrar")?>">|Estudios</a>                        
         </td>
    </tr>
 </table>

@@ -48,6 +48,16 @@
             ) AS result";
             return $sql;
         }
+        
+        function MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc){
+            $sql = "SELECT med_muestra_clinica_paciente(ARRAY[
+                '$id_his',
+                '$mue_cli',               
+                '$id_doc'                
+                ]
+            ) AS result";
+            return $sql;
+        }
     }
     
 ?>
