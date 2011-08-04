@@ -4,8 +4,7 @@ $BODY$
 DECLARE
 	_datos ALIAS FOR $1;
 
-	-- informacion del paciente
-	_id_pac		historiales_pacientes.id_his%TYPE;
+	-- informacion del paciente	
 	_str_cen_sal	TEXT;
 	_str_tip_con	TEXT;
 	_str_con_ani	TEXT;
@@ -95,8 +94,7 @@ BEGIN
 	
 	-- centros de salud pacientes
 	
-	/* validando pacientes */
-	raise notice '%','asdf';
+	/* insertando tiempo de evoluciones */	
 	IF NOT EXISTS (SELECT 1 FROM tiempo_evoluciones WHERE id_his = _id_his::integer) THEN  
 		INSERT INTO tiempo_evoluciones(
 			id_his,
@@ -105,7 +103,10 @@ BEGIN
 			_id_his,
 			_tie_evo
 		);
-			
+	ELSE
+		UPDATE tiempo_evoluciones SET 
+			tie_evo = _tie_evo
+		WHERE id_his = _id_his ;
 	END IF;
 
 	RETURN 1;
@@ -116,7 +117,7 @@ COMMENT ON FUNCTION med_registrar_informacion_adicional(character varying[]) IS 
 NOMBRE: med_registrar_informacion_adicional
 TIPO: Function (store procedure)
 
-PARAMETROS: Recibe 12 Parámetros
+PARAMETROS: Recibe 7 Parámetros
 	1:  Id del historico del paciente
 	2:  Centro de salud del pacient
 	3:  Tipo de consulta

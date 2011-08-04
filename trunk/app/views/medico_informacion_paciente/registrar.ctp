@@ -117,7 +117,7 @@
                 </td>
             </tr>                                                                      
         </table>
-     </div>                
+     </div> 
      <table style="width: 100%;" border="0" class="">
         <tr>
             <td  align="right" style="height: 0" valign="bottom">
@@ -127,5 +127,5 @@
                 <input type="button" value="<?php echo __("Volver",true)?>" onclick="parent.window.location.href=parent.page">
             </td>           
         </tr>
-    </table>                                                         
+    </table>                                                                           
 </form>    

@@ -8,6 +8,7 @@
     //include_once("../libs/_list_ajax.php");
     
     echo $this->element("list_ajax",Array(
+        "_V_CONS"       => $_V_CONS,
         "_V_LIST"       => $_V_LIST,
         "_V_EDIT"       => $_V_EDIT,
         "_V_DEL"        => $_V_DEL,
