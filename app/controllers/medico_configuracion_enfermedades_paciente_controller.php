@@ -1,6 +1,6 @@
 <?php
-    class MedicoConfiguracionPacienteController extends Controller{
-        var $name = "MedicoConfiguracionPaciente";
+    class MedicoConfiguracionEnfermedadesPacienteController extends Controller{
+        var $name = "MedicoConfiguracionEnfermedadesPaciente";
         var $uses =         Array("Doctore","Paciente","AntecedentesPersonale","AntecedentesPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History","Checkbox");                  
@@ -14,20 +14,20 @@
         /**
         * Mostrando filtro para la lista de pacientes, acomplando de igual el boton agregar o registrar
         */
-        function listar(){            
-            //$this->cacheAction = array('recalled/' => 86400);
-            
+        function listar($id_his,$id_pac){                    
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            //$this->cacheAction = true;  
-            //echo Router::url($this->here,false)  ;             
-            $title =  __("Configuración de Pacientes",true);            
-            $data = Array(                
+                 
+            $title =  __("Enfermedades del paciente",true);            
+            $data = Array(
+                "id_his"    => $id_his,
+                "id_pac"    => $id_pac,                
                 "title"     => $title,
                 "history"   =>  $this->History->GetHistory("a",true)              
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);
-           // $this->cacheAction = true;                                     
+            $this->layout = "window";
+                                           
         }
         
          /**
@@ -71,20 +71,19 @@
           //    $this->cacheAction = true;   
         } 
    
-        function registrar(){
+        function registrar($id_his){
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
                                                                                                                
-            $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
+            $sql = "SELECT id_tip_mic, nom_tip_mic FROM tipos_micosis";
             $arr_query = ($this->Doctore->query($sql));
-            $estados = ($this->SqlData->array_to_objects($arr_query));              
-            $ante_pers             = $this->SqlData->CakeArrayToObjects($this->AntecedentesPersonale->find("all"));
+            $tipos_micosis = ($this->SqlData->array_to_objects($arr_query));                          
             $title = __("Registro de paciente",true);
             
             $data = Array(
-                "estados"           => $estados,                                         
-                "title"             => $title,
-                "ante_pers"         => $ante_pers                
+                "id_his"            =>  $id_his,
+                "tipos_micosis"     =>  $tipos_micosis,                                         
+                "title"             =>  $title                                
             ); 
             
             $this->set($data);
@@ -320,40 +319,32 @@
                      die($this->FormatMessege->BoxStyle($result,"El paciente \'$log_usu\' no se encuentra registrado en el sistema."));                    
                     break;                            
             }         
-         }     
-        
-        /**
-         * Retorna la ubicacion del pais, municipios, parroquias
-         * $id_est: solo si se desea listar municipios identificados, se usa cuando se desea obtener la informacion registrada para 
-         * poder modificarlo
-         * */
-        function event_ubicacion($num_cat,$id,$id_mun=""){
+         }  
+         
+         function event_enfermedades($id_tip_mic){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
+                    
+            $sql_enf = "SELECT id_enf_mic,nom_enf_mic 
+                    FROM enfermedades_micologicas 
+                    WHERE id_tip_mic = $id_tip_mic";
+                    
+            $sql_enf = "SELECT id_enf_mic,nom_enf_mic 
+                    FROM enfermedades_micologicas 
+                    WHERE id_tip_mic = $id_tip_mic";
+                                            
+            $enf_mic = ($this->SqlData->array_to_objects($this->Doctore->query($sql_enf)));                                         
             
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
-                 
-                                             
-            switch($num_cat){
-                // municipios
-                case 3:                                     
-                    $sql = "SELECT id_mun, des_mun FROM municipios WHERE id_est = $id ORDER BY des_mun ASC";
-                    $arr_query = ($this->Doctore->query($sql));
-                    $results = ($this->SqlData->array_to_objects($arr_query));   
-                      
-                break;
-                
-            }       
-                
-            $data = Array(
-                "num_cat" => $num_cat,
-                "results" => $results,
-                "id_mun"  => $id_mun
-            );  
+            $title = __("Enfermedades Micologicas",true);
             
-            $this->set($data);  
-            $this->layout = 'ajax';
-        }
-        
-      
-        
+            $data = Array(                
+                "enf_mic"     =>  $enf_mic,                                         
+                "title"       =>  $title                                
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);            
+            $this->layout = 'ajax';        
+                                   
+         }              
     }
 ?>
