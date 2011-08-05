@@ -37,20 +37,26 @@
          * @name DivPaginatorPost
          * @return String Javascript
          * Fecha: 30/06/2011 11:21pm
-         * Carga todo aquello que tenga que ver con algun elemento loading pasando parametros en forma de POST
+         * Crea una funcion llamado "paginator_div" y 
+         * Carga todo aquello que tenga que ver con algun 
+         * elemento loading pasando parametros en forma de POST
+         * @param Nota, si se van a identificar las ids
+         * estas tendran que se limpias, ejem: sin # o cualquier
+         * atributo de jquery.
          */
-        function DivPaginatorPost(){
+        function DivPaginatorPost($id_content = "content",$id_img_cargador = "cargador"){
             $jquery = "
-                var paginator_div = function(url,form_object){            
-                    jQuery(\"#content\").html('<img id=\"cargador\" src=\"".$this->webroot."img/icon/load_list.gif\" style=\"margin-top: 120px;display: block;\">');                           
+                var paginator_div = function(url,form_object){
+                    
+                    jQuery(\"#$id_content\").html('<img id=\"$id_img_cargador\" src=\"".$this->webroot."img/icon/load_list.gif\" style=\"margin-top: 120px;display: block;\">');                           
                     jQuery.ajax({
                         type     : \"POST\",
                         url      : url,
                         data     : jQuery(form_object).serializeArray(),
                         datatype : \"HTML\",
                         success : function(_html){ 
-                            jQuery(\"#cargador\").css(\"display\",\"none\");
-                            jQuery(\"#content\").html(_html);
+                            jQuery(\"#$id_img_cargador\").css(\"display\",\"none\");
+                            jQuery(\"#$id_content\").html(_html);
                             jQuery(\"a[href*='/page:']\").click(function(event){
                                 
                                 event.preventDefault();

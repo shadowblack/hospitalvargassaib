@@ -13,6 +13,9 @@ class EventHelper extends AppHelper{
      * Fecha: 08/01/2011 11:21am
      * Proporciona una estructura de registro en forma de ajax proporcionando datos que posteriormente 
      * se leen en el include dialogo
+     * @param "back": al especificar la cadena back retrocede a la
+     *  pantalla anterior, tambien se puede colocar una cadena
+     * con la direccion de una pagina.
      */
     function Insert($url,$select,$target=""){
         $jquery = "            

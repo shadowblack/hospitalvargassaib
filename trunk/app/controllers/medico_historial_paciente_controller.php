@@ -205,7 +205,7 @@
          */
          
          function event_eliminar($id_his,$num_his=""){
-            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $id_doc         = $this->Session->read("medico.id_usu");
             
             $sql = $this->HistorialesPaciente->MedEliminarHistorialPaciente($id_his,$id_doc);
@@ -224,48 +224,5 @@
             }         
          }     
         
-        /**
-         * Retorna la ubicacion del pais, municipios, parroquias
-         * $id_est: solo si se desea listar municipios identificados, se usa cuando se desea obtener la informacion registrada para 
-         * poder modificarlo
-         * */
-        function event_ubicacion($num_cat,$id,$id_mun=""){
-            
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
-                 
-                                             
-            switch($num_cat){
-                // municipios
-                case 3:                                     
-                    $sql = "SELECT id_mun, des_mun FROM municipios WHERE id_est = $id ORDER BY des_mun ASC";
-                    $arr_query = ($this->Doctore->query($sql));
-                    $results = ($this->SqlData->array_to_objects($arr_query));   
-                      
-                break;
-                
-            }       
-                
-            $data = Array(
-                "num_cat" => $num_cat,
-                "results" => $results,
-                "id_mun"  => $id_mun
-            );  
-            
-            $this->set($data);  
-            $this->layout = 'ajax';
-        }
-        
-        function back(){
-            //$this->History->goBack(); 
-            //die($this->referer());
-           //$this->redirect($this->referer());
-           $this->redirect(Array("controller"=>"medico_configuracion_paciente","action"=>"listar"));
-          //echo $this->History->goBack() ;die;
-        }
-      
-        
-    }
-              /*App::import("Lib",Array("FirePhp","fb"));
-            $firephp = FirePHP::getInstance(true);
-            $firephp->log('Hello World');*/        
+    }            
 ?>
