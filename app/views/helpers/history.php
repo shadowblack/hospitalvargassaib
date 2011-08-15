@@ -1,8 +1,4 @@
 <?php
-/**
- * Clase creada que especifica el formato de las cadenas 
- */
- 
  /**
  * Realiza el tipico history.back de javascript implementado en php para mantener la session 
  * @author Luis Marin

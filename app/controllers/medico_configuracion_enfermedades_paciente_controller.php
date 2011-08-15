@@ -1,7 +1,7 @@
 <?php
     class MedicoConfiguracionEnfermedadesPacienteController extends Controller{
         var $name = "MedicoConfiguracionEnfermedadesPaciente";
-        var $uses =         Array("Doctore","Paciente","AntecedentesPersonale","AntecedentesPaciente");
+        var $uses =         Array("HistorialesPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History","Checkbox");                  
         
@@ -75,13 +75,14 @@
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
                                                                                                                
-            $sql = "SELECT id_tip_mic, nom_tip_mic FROM tipos_micosis";
-            $arr_query = ($this->Doctore->query($sql));
-            $tipos_micosis = ($this->SqlData->array_to_objects($arr_query));                          
+            $sql = "SELECT id_tip_mic, nom_tip_mic FROM tipos_micosis";                                    
+            $arr_query = ($this->HistorialesPaciente->query($sql));
+            $tipos_micosis = ($this->SqlData->array_to_objects($arr_query)); 
+                                                                        
             $title = __("Registro de paciente",true);
             
             $data = Array(
-                "id_his"            =>  $id_his,
+                "id_his"            =>  $id_his,                
                 "tipos_micosis"     =>  $tipos_micosis,                                         
                 "title"             =>  $title                                
             ); 
@@ -90,6 +91,58 @@
             $this->set('title_for_layout', $title);            
             $this->layout = 'default';
              
+        }
+        
+        function event_cat_mic($id_tip_mic){            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
+                "SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
+                from tipos_micosis tm 
+                JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic)
+                JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue)
+                JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)
+                JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue)
+                WHERE tm.id_tip_mic = $id_tip_mic
+                ;
+                "
+            ))); 
+                                     
+            $title = __("Registro de categoria micosis",true);
+            
+            $data = Array(
+                "cat_cue"           =>  $cat_cue,
+                "title"             =>  $title                                
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);            
+            $this->layout = 'ajax';
+        }
+        
+         function event_lesiones($id_tip_mic,$id_par_cue_cat_cue){            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+             ($les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
+                "SELECT l.nom_les, ccl.id_cat_cue_les FROM tipos_micosis tm
+                JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
+                JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
+                JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue)
+                JOIN lesiones l ON (l.id_les = ccl.id_les)
+                WHERE tm.id_tip_mic = $id_tip_mic
+                ;
+                "
+            )))); 
+                                     
+            $title = __("Registro de categoria micosis",true);
+            
+            $data = Array(
+                "id_par_cue_cat_cue"        =>  $id_par_cue_cat_cue,
+                "les_cat"           =>  $les_cat,
+                "title"             =>  $title                                
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);            
+            $this->layout = 'ajax';
         }
         
         /**
@@ -116,7 +169,7 @@
                             JOIN municipios m USING(id_mun) 
                             WHERE id_pac = $id ";
                             
-            $arr_query = ($this->Doctore->query($sql));
+            $arr_query = ($this->HistorialesPaciente->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                                                
             
             $title =  __("Consuta de pacientes",true);
@@ -139,11 +192,11 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             
             $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
-            $arr_query = ($this->Doctore->query($sql));
+            $arr_query = ($this->HistorialesPaciente->query($sql));
             $estados = ($this->SqlData->array_to_objects($arr_query));  
             
             $sql = "SELECT * FROM pacientes WHERE id_pac=$id";
-            $arr_query = ($this->Doctore->query($sql));
+            $arr_query = ($this->HistorialesPaciente->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));            
             
             
@@ -187,43 +240,20 @@
         function event_registrar(){   
                        
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
-            $nom_pac        = $_POST["txt_nom_pac"];
-            $ape_pac        = $_POST["txt_ape_pac"];
-            $ced_pac        = $_POST["txt_ced_pac"];
-            $fec_nac_pac    = $this->SqlData->date_to_postgres($_POST["txt_fec_nac_pac"]);
-            $nac_pac        = $_POST["sel_nac_pac"];
-            $ocu_pac        = $_POST["sel_ocu_pac"];
-            $tel_pac        = $_POST["txt_tel_pac"];
-            $cel_pac        = $_POST["txt_cel_pac"];
-            $ciu_res_pac    = $_POST["txt_ciu_res_pac"];
-            $est_pac        = $_POST["sel_est_pac"];
-            $num_pac        = $_POST["sel_mun_pac"];
-            $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
-            $id_doc         = $this->Session->read("medico.id_usu");          
-                                            
-            $sql = "SELECT med_registrar_paciente(ARRAY[
-                '$nom_pac', 
-                '$ape_pac', 
-                '$ced_pac', 
-                '$fec_nac_pac',
-                '$nac_pac',
-                '$tel_pac',
-                '$cel_pac',
-                '$ocu_pac',
-                '$ciu_res_pac',
-                '1',
-                '$est_pac',
-                '$num_pac',
-                '$hdd_chk_ant_per',
-                '$id_doc'
-            ]) AS result";
-            $arr_query = ($this->Doctore->query($sql));
-                             
-            $result = $this->SqlData->ResultNum($arr_query);
-            /*App::import("Lib",Array("FirePhp","fb"));
-            $firephp = FirePHP::getInstance(true);
-            $firephp->log('Hello World');*/
+                         
             
+            $hdd_id_his              = $_POST["hdd_id_his"];
+            $hdd_id_tip_mic          = $_POST["cmb_tipos_micosis"];            
+            $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"]; 
+            $hdd_les                 = $_POST["hdd_les"];                        
+            $id_doc                  = $this->Session->read("medico.id_usu");
+            
+                
+            $sql = $this->HistorialesPaciente->MedMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc);
+                      
+            $arr_query = ($this->HistorialesPaciente->query($sql));
+                             
+            $result = $this->SqlData->ResultNum($arr_query);        
             
             switch($result){
                 case 1:
@@ -277,7 +307,7 @@
                 '$id_doc'
             ]) AS result";
                         
-            $arr_query = ($this->Doctore->query($sql));            
+            $arr_query = ($this->HistorialesPaciente->query($sql));            
                              
             $result = $this->SqlData->ResultNum($arr_query);            
                         
@@ -307,7 +337,7 @@
                 '$id_doc']
             ) AS result";
                         
-            $arr_query = ($this->Doctore->query($sql));
+            $arr_query = ($this->HistorialesPaciente->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->ResultNum($arr_query);            
                         
@@ -327,12 +357,9 @@
             $sql_enf = "SELECT id_enf_mic,nom_enf_mic 
                     FROM enfermedades_micologicas 
                     WHERE id_tip_mic = $id_tip_mic";
-                    
-            $sql_enf = "SELECT id_enf_mic,nom_enf_mic 
-                    FROM enfermedades_micologicas 
-                    WHERE id_tip_mic = $id_tip_mic";
+          
                                             
-            $enf_mic = ($this->SqlData->array_to_objects($this->Doctore->query($sql_enf)));                                         
+            $enf_mic = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                         
             
             $title = __("Enfermedades Micologicas",true);
             
