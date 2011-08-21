@@ -42,11 +42,7 @@
             jQuery(_name).change(function(){
                 var id_tip_mic = this.value;
                 change_enfermedad(id_tip_mic);
-            });
-             function check_categoria(){
-                alert("hola")
-                 //chkparcue() 
-            }                             
+            });                                      
         });
 </script>
 <style type="text/css">

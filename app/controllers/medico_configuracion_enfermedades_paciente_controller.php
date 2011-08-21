@@ -1,7 +1,7 @@
 <?php
     class MedicoConfiguracionEnfermedadesPacienteController extends Controller{
         var $name = "MedicoConfiguracionEnfermedadesPaciente";
-        var $uses =         Array("HistorialesPaciente");
+        var $uses =         Array("HistorialesPaciente","TiposMicosisPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
         var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History","Checkbox");                  
         
@@ -22,7 +22,7 @@
                 "id_his"    => $id_his,
                 "id_pac"    => $id_pac,                
                 "title"     => $title,
-                "history"   =>  $this->History->GetHistory("a",true)              
+                "history"   =>  $this->History->GetHistory("b",true)              
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);
@@ -33,36 +33,36 @@
          /**
         * Listando de usuarios administrativos
         */
-        function event_listar(){           
+        function event_listar($id_his){           
             //$this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");  
-                      
-            
-            $nombre     = $_POST["nom_pac"];
-            $apellido   = $_POST["ape_pac"];
-            $cedula     = $_POST["ced_pac"];                                                    
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                              
                          
-            $this->History->SetHistory("a");
+            $this->History->SetHistory("b");
            //echo $this->History->GetHistoryData("a","ced_pac");             
             $this->paginate = array(
                 'limit' => 12,
-                /*'fields' => Array(
-                                    "Paciente.id_pac",
-                                    "Paciente.nom_pac",                                    
-                                    "Paciente.prueba"
-                ),*/
-                "conditions" => Array(
-                                    "Paciente.nom_pac ilike" => "%$nombre%",
-                                    "Paciente.ape_pac ilike" =>  "%$apellido%",
-                                    "Paciente.ced_pac ilike" => "%$cedula%"
+                'fields' => Array(
+                                    "tm.nom_tip_mic",
+                                    "TiposMicosisPaciente.id_tip_mic_pac"                                  
                 ),
-                "order" => "Paciente.nom_pac ASC"
+                "conditions" => Array(
+                    "TiposMicosisPaciente.id_his" => "$id_his"                                  
+                ),
+                "joins"=>Array(
+                    Array(
+                        "table" => "tipos_micosis",
+                        "alias" => "tm",
+                        "conditions" => "TiposMicosisPaciente.id_tip_mic = tm.id_tip_mic"
+                        
+                    )
+                ),
+                "order" => "tm.nom_tip_mic ASC"
             ); 
                                                            
             
             
             $data = Array(                
-                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("Paciente"))
+                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("TiposMicosisPaciente"))
             );  
             
             
@@ -122,7 +122,7 @@
          function event_lesiones($id_tip_mic,$id_par_cue_cat_cue){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
              ($les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                "SELECT l.nom_les, ccl.id_cat_cue_les FROM tipos_micosis tm
+                "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic FROM tipos_micosis tm
                 JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
                 JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
                 JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue)
@@ -244,12 +244,16 @@
             
             $hdd_id_his              = $_POST["hdd_id_his"];
             $hdd_id_tip_mic          = $_POST["cmb_tipos_micosis"];            
-            $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"]; 
-            $hdd_les                 = $_POST["hdd_les"];                        
+            $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"];
+            if (isset($_POST["hdd_les"])){
+                $hdd_les                 = $_POST["hdd_les"];
+            } else {
+                $hdd_les                 = "";    
+            }                        
             $id_doc                  = $this->Session->read("medico.id_usu");
             
                 
-            $sql = $this->HistorialesPaciente->MedMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc);
+            $sql = $this->HistorialesPaciente->MedInsertarMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc);
                       
             $arr_query = ($this->HistorialesPaciente->query($sql));
                              
@@ -257,10 +261,10 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->BoxStyle($result,"El paciente se a insertado con éxito"));
+                    die($this->FormatMessege->BoxStyle($result,"Se ha insertado los datos correctamente"));
                     break;
                 case 0:
-                     die($this->FormatMessege->BoxStyle($result,"Existe un paciente con la cédula \'$ced_pac\'"));                    
+                     die($this->FormatMessege->BoxStyle($result,"Ya existe una enfermedad registrado para este paciente"));                    
                     break;
                     
             }                   

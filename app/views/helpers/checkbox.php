@@ -8,7 +8,7 @@ class CheckboxHelper extends AppHelper{
         $function = str_replace("_","",$checkbox_name);
         return "         
         if (jQuery(\"[name='hdd_".substr($checkbox_name,0,strlen($checkbox_name)-1)."']\").length == 0)      
-            jQuery(\"$form_select\").append(\"<input type='text' name='hdd_".substr($checkbox_name,0,strlen($checkbox_name)-1)."' value=''>\");
+            jQuery(\"$form_select\").append(\"<input type='hidden' name='hdd_".substr($checkbox_name,0,strlen($checkbox_name)-1)."' value=''>\");
         
         // si no existe la funcion la construye
         if(!window.".$function."){

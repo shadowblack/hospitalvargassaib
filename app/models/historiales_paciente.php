@@ -59,8 +59,8 @@
             return $sql;
         }
         
-        function MedMicosisPaciente($id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc){
-            $sql = "SELECT med_micosis_pacientes(ARRAY[
+        function MedInsertarMicosisPaciente($id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc){
+            $sql = "SELECT med_insertar_micosis_pacientes(ARRAY[
                 '$id_his',
                 '$hdd_id_tip_mic',               
                 '$hdd_chk_enf_pac',
