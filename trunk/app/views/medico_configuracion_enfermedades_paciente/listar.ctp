@@ -1,5 +1,5 @@
 <?php
-    $_V_LIST    = $this->Html->url("event_listar");
+    $_V_LIST    = $this->Html->url("event_listar/$id_his");
     $_V_EDIT    = $this->Html->url("modificar");
     $_V_DEL     = $this->Html->url("event_eliminar");
     $_V_CONS    = $this->Html->url("consultar");
@@ -25,7 +25,7 @@
         <?php echo $this->History->GetHistory($history)?>
     
         jQuery("#tabs-1").css("display","block");
-        jQuery( "#tabs" ).tabs();
+        jQuery("#tabs" ).tabs();
                
         jQuery("#btn_buscar").click(function(){                                                                 
             paginator_div("<?php echo $_V_LIST ?>",jQuery("#consulta"));
