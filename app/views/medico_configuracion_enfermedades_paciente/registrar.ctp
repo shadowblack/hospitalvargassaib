@@ -12,7 +12,7 @@
             
         } 
         
-        function check_lesion(obj){
+        function check_parte_cuerpo(obj){
            var id_par_cue_cat_cue = jQuery(obj).attr("id_par_cue_cat_cue");
            if(obj.checked){
                 jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).load("<?php echo $this->Html->url("event_lesiones")?>/"+jQuery("[name='cmb_tipos_micosis']").val()+"/"+id_par_cue_cat_cue+"/",function(){

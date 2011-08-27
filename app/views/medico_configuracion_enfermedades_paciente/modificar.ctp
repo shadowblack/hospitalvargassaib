@@ -1,47 +1,49 @@
-<script type="text/javascript">   
-        /*Agregando Clase CSS para el fondo del login*/
-
-        jQuery(function() {
-            <?php echo $this->Checkbox->Multiple("chk_ant_per_","#pacientes")?>
-            jQuery("#tabs-1").css("display","block");
-            jQuery( "#tabs" ).tabs();     
-            parent.jQuery("#title_content").html("<?php echo $title;?>");
+<script type="text/javascript">              
+        function change_enfermedad(id_tip_mic_pac){
+            // #tabs-1
+            jQuery("#content")
+                .html('<img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 94px;">')
+                .addClass("standar_cargador");
+            jQuery("#content").load("<?php echo $this->Html->url("event_enfermedades_modificar")?>/"+id_tip_mic_pac,function(){
+                <?php echo $this->Checkbox->Multiple("chk_enf_pac_","#pacientes")?>
+            });
             
+            jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_modificar")?>/"+id_tip_mic_pac,function(){                
+                // checkeando las partes del cuerpo para que automaticamente salga la lista a modificar
+                jQuery("#tabs-2 input[type='checkbox']").each(function(i,obj){
+                    this.checked = true;
+                    check_parte_cuerpo(obj);
+                }); 
+            });
+            
+        } 
+        
+        function check_parte_cuerpo(obj){
+           var id_par_cue_cat_cue = jQuery(obj).attr("id_par_cue_cat_cue");
+           if(obj.checked){
+                jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).load("<?php echo $this->Html->url("event_lesiones_modificar")?>/"+jQuery("[name='hdd_tipos_micosis_pacientes']").val()+"/"+id_par_cue_cat_cue+"/",function(){
+                    <?php echo $this->Checkbox->Multiple("les_","#pacientes",true)?>
+                });
+           } else {
+                jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).empty();
+                les();
+           }           
+        } 
+             
+        jQuery(function() {
+                        
+           // jQuery("#tabs-1").css("display","block");
+            jQuery( "#tabs" ).tabs();            
            
-    		jQuery( "#txt_fec_nac_pac" ).datepicker({
-                dateFormat: "dd/mm/yy",
-    			showOn: "button",
-    			buttonImage: "<?php echo $this->webroot?>/img/icon/calendar.png",
-    			buttonImageOnly: true,
-                inline:true
-    		});
-
-            jQuery("#pacientes").validate({
-                rules: {
-                    pas_usu_adm: {
-                        minlength: 5
-                    },
-                    rep_pas_usu_adm: {
-                        required: true,
-                        minlength: 5,
-                        equalTo: "#pas_usu_adm"
-                    }
-                },
+            jQuery("#pacientes").validate({                
                 submitHandler: function(form) {
-                    <?php echo $this->Event->Update($this->Html->url("event_modificar"),"form","back")?>
+                    <?php echo $this->Event->Update($this->Html->url("event_modificar"),"form","back")?>                   
                 }
             }); 
             
-            // cascade estados y municipios 
-            municipios();
-            jQuery("#sel_est_pac").change(function(){     
-               municipios();
-            });    
-    });
-    function municipios(){
-            jQuery("#indicator").css("display","block");
-            jQuery("#sel_mun_pac").load("<?php echo $this->Html->url("/MedicoConfiguracionPaciente/event_ubicacion")?>/3/"+jQuery("#sel_est_pac").val()+"/<?php echo $result->id_mun?>",function(){jQuery("#indicator").css("display","none");});  
-    }
+            var _name = "[name='hdd_tipos_micosis_pacientes']";
+            change_enfermedad(jQuery(_name).val());                                
+        });
 </script>
 <style type="text/css">
     label.error { width: 150px; text-align: left; }    
@@ -52,238 +54,61 @@
     echo $this->element("dialog",Array("T_V_TYPE" => 1));
 ?>
 
-<div id="tabs-1" style="display: none;">    		
+    		
     <div id="tabs">
         <ul>
             <li>
-                <a href="#tabs-1" style="width: 653px;">
-                    <?php echo __("Agregar Paciente",true)?>
+                <a href="#tabs-1" >
+                    <?php echo __("Micosis",true)?>
+                </a>
+            </li>
+            <li>
+                <a href="#tabs-2" >
+                    <?php echo __("Descripción de la lesion",true)?>
                 </a>
             </li>            
         </ul>
-        <fieldset style="" class="standar_fieldset_content"> 	
-        <form name="pacientes" id="pacientes">
-            <input type="hidden" name="hdd_id_pac" id="hdd_id_pac" value="<?php echo $result->id_pac?>">
-            <div class="standar_fieldset_child">                         
-            <table style="width:540px;margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="184" class="font-standar" valign="top">
-                        <?php echo __( "Nombre",true)?>
-                    </td>
-                    <td width="9" class="font-standar">
-                        &nbsp;
-                    </td>
-                    <td width="189" class="font-standar" valign="top">
-                        <?php echo __( "Apellido",true)?>
-                    </td>
-                    <td width="8" class="font-standar" valign="top">
-                        &nbsp;
-                    </td>
-                    <td width="144" class="font-standar" valign="top">
-                        <?php __("Cédula de identidad");?>                                
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="top">
-                        <input type="text" name="txt_nom_pac" value="<?php echo $result->nom_pac?>" class="required" maxlength="100" >
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td >
-                    <td valign="top">
-                        <input type="text" name="txt_ape_pac" value="<?php echo $result->ape_pac?>" class="required" maxlength="20">
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td valign="top">
-                        <input type="text" name="txt_ced_pac" value="<?php echo $result->ced_pac?>" class="required" maxlength="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-standar"valign="top">                                
-                        <?php echo __("Fecha de Nacimiento",true)?>                                
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                     <td class="font-standar" valign="top">                                
-                        <?php echo __("Nacionalidad")?>
-                    </td>                            
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td class="font-standar" valign="top">
-                        <?php echo __("Ocupación")?>                                
-                    </td>
-                </tr>                       
-                <tr>
-                    <td valign="top">                                
-                        <input name="txt_fec_nac_pac" id="txt_fec_nac_pac" value="<?php echo $this->DateFormat->PostgresToDate($result->fec_nac_pac)?>" class="date required" />
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td valign="top" >
-                        <select class="required" name="sel_nac_pac">
-                            <option value="">--<?php __("Seleccione")?>--</option>                                    
-                            <option value="1" <?php echo ($result->nac_pac == 1 ? "selected='selected'":"")?>><?php __("Venezolano")?></option>
-                            <option value="2" <?php echo ($result->nac_pac == 2 ? "selected='selected'":"")?>><?php __("Extrangero")?></option>
-                        </select>
-                    </td>
-                    <td >
-                        &nbsp;
-                    </td>
-                    <td valign="top">
-                        <select id="sel_ocu_pac" name="sel_ocu_pac" value="" class="required"
-                        >    
-                        <option value="">--<?php __("Seleccione")?>--</option>                            
-                        <option value="1" <?php echo ($result->ocu_pac == 1 ? "selected='selected'":"")?>>
-                            <?php  __("Profesional")?>
-                            
-                        </option>
-                        <option value="2" <?php echo ($result->ocu_pac == 2 ? "selected='selected'":"")?>>
-                            <?php  __("Técnico")?>
-                            
-                        </option>
-                        <option value="3" <?php echo ($result->ocu_pac == 3 ? "selected='selected'":"")?>>
-                            <?php  __("Obrero")?>
-                            
-                        </option>
-                        <option value="4" <?php echo ($result->ocu_pac == 4 ? "selected='selected'":"")?>>
-                            <?php  __("Agricultor")?>
-                            
-                        </option>
-                        <option value="5" <?php echo ($result->ocu_pac == 5 ? "selected='selected'":"")?>>
-                            <?php  __("Jardinero")?>
-                            
-                        </option>
-                        <option value="6" <?php echo ($result->ocu_pac == 6 ? "selected='selected'":"")?>>
-                            <?php  __("Otro")?>                                    
-                        </option>
-                        </select>
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="font-standar" valign="top" >                                
-                        <?php echo __("Teléfono",true)?>                                
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                     <td class="font-standar" valign="top">                                
-                        <?php echo __("Celular")?>
-                    </td>                            
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td class="font-standar" valign="top">
-                        <?php echo __("Ciudad de Residencia")?>                                
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="font-standar" valign="top">                                
-                        <input type="text" name="txt_tel_pac" id="txt_tel_pac" value="<?php echo $result->tel_hab_pac?>" class="number required" maxlength="12">                               
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                     <td class="font-standar" valign="top">                                
-                        <input type="text" name="txt_cel_pac" id="txt_cel_pac" value="<?php echo $result->tel_cel_pac?>" class="number required" maxlength="12">                          
-                    </td>                            
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td class="font-standar" valign="top">
-                        <input type="text" name="txt_ciu_res_pac" id="txt_res_pac" value="<?php echo $result->ciu_pac?>" class="text required" maxlength="100">                                                         
-                    </td>
-                </tr>
-                <tr>
-                    <td  class="font-standar" valign="top">
-                        <?php echo __("Estado")?>
-                        
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td  class="font-standar" valign="top">
-                        <?php echo __("Municipio")?>
-                        
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td  class="font-standar" valign="top">
-                        &nbsp;
-                        <!--<?php echo __("Parroquia")?>-->
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="top">
-                        <select id="sel_est_pac" name="sel_est_pac" class="required">
-                            <option value="">--<?php echo __("Seleccione",true)?>--</option>
-                            <?php foreach($estados as $row){?>   
-                                    <option value="<?php echo $row->id_est?>" <?php echo ($result->id_est == $row->id_est ? "selected='selected'":"")?>><?php echo $row->des_est?></option>
-                            <?php    }?>
-                        </select>
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td valign="top">    
-                        <table cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td>
-                                    <select name="sel_mun_pac" id="sel_mun_pac" style="width: 120px;" class="required">
-                                        <option value="">--<?php __("Seleccione")?>--</option>
-                                    </select>
-                                </td>
-                                <td style="width: 50px;" valign="top">
-                                    <img id="indicator" style="display: none;" src="<?php echo $this->webroot?>/img/icon/indicator.gif">
-                                </td>
-                            </tr>
-                        </table>
-                        
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                        <!--<input type="text" name="tex_pac_par" id="tex_pac_par" value="" class="required"
-                        />-->
-                    </td>
-                </tr>
-                <tr>
-                        <td class="font-standar" colspan="5">
-                            <?php __("Antecedentes personales") ?>                        
-                        </td>                    
+        <fieldset style="" class="standar_fieldset_content"> 	                                                                       
+        <form name="pacientes" id="pacientes" >             
+            <div id="tabs-1" style="height: 325px;" class="standar_fieldset_child">                                          
+                <table style="width:540px;margin-top: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="184" class="font-standar" valign="top">
+                            <?php echo __( "Tipos de enfermedades",true)?>
+                        </td>                        
                     </tr>
                     <tr>
-                        <td colspan="5">
-                             <div class="standar_margin lista_standar" style="overflow-y: auto; height: 140px;">
-                                <ol class="standar_list">
-                                    <?php foreach($ante_pers as $row): ?>
-                                        <li>                                     
-                                        <input name="chk_ant_per_<?php echo $row->AntecedentesPersonale->id_ant_per?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->AntecedentesPersonale->id_ant_per?>" <?php echo (!empty($row->AntecedentesPaciente->id_ant_per) ? "checked='checked'" : "")?>><?php echo $row->AntecedentesPersonale->nom_ant_per?></li>
-                                    <?php endforeach ?>
-                                </ol>
+                        <td valign="top">        
+                            <span class="standar_font_sub"><?php echo $tipos_micosis->nom_tip_mic?></span>
+                            <input type="text" name="hdd_tipos_micosis_pacientes" value="<?php echo $tipos_micosis->id_tip_mic_pac?>">                           
+                            <div style="line-height: 10px;">
+                                &nbsp;
                             </div>
-                        </td>
-                    </tr>                                          
-            </table>
-            </div>                      
-            <table style="width: 100%;" border="0">
+                        </td>                       
+                    </tr>
+                    <tr>
+                        <td class="font-standar"valign="top">                                
+                            <div id="content" style="height: 270px;width:100%; overflow-y:auto ;" class="">
+                            &nbsp;
+                                <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 88px;display: none;" class="standar_cargador">
+                            </div>       
+                        </td>                       
+                    </tr>                                                                           
+                </table>
+             </div> 
+             <div id="tabs-2" style="height: 325px;border: 1px solid black; overflow-y: auto;" class="standar_fieldset_child">                                          
+                <!-- Contenido de las enfermedades -->
+             </div>               
+             <table style="width: 100%;" class="">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
                         <input type="submit" name="btn_aceptar" value="Aceptar">
                     </td>
                     <td  align="left" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">
+                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">                       
                     </td>
                 </tr>
-            </table>                                                  
-        </form>
-    </div>
-</div>
+            </table>                                                         
+        </form>    
+        </fieldset>
+    </div>       

@@ -70,6 +70,25 @@
             ) AS result";
             return $sql;
         }
+        
+        function MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$id_doc){
+            $sql = "SELECT med_modificar_micosis_pacientes(ARRAY[                
+                '$tipos_micosis_pacientes',               
+                '$hdd_chk_enf_pac',
+                '$hdd_les',
+                '$id_doc'              
+                ]
+            ) AS result";
+            return $sql;
+        }
+        
+        function MedEliminarMicosisPaciente($id_tip_mic_pac,$id_doc){
+            $sql = "SELECT med_eliminar_micosis_paciente(ARRAY[
+                '$id_tip_mic_pac',
+                '$id_doc']
+            ) AS result";
+            return $sql;
+        }
     }
     
 ?>
