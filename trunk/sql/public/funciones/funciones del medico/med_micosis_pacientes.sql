@@ -42,8 +42,7 @@ raise notice '%','hola';
 			_id_tip_mic,
 			_id_his
 		);
-		_id_tip_mic_pac:= CURRVAL('tipos_micosis_pacientes_id_tip_mic_pac_seq');	
-		raise notice '%','entro '||_id_tip_mic_pac;
+		_id_tip_mic_pac:= CURRVAL('tipos_micosis_pacientes_id_tip_mic_pac_seq');			
 	ELSE 
 		RETURN 0;
 	END IF;
@@ -70,7 +69,7 @@ raise notice '%','hola';
 	_arr_3 := STRING_TO_ARRAY(_str_les,',');
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
-			_arr_2 := STRING_TO_ARRAY(replace(replace(_str_les,'(',''),')',''),';');
+			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i],'(',''),')',''),';');
 			INSERT INTO lesiones_partes_cuerpos__pacientes (
 				id_tip_mic_pac,
 				id_cat_cue_les,
