@@ -128,7 +128,7 @@
                         <select class="required" name="sel_nac_pac">
                             <option value="">--<?php __("Seleccione")?>--</option>                                    
                             <option value="1" <?php echo ($result->nac_pac == 1 ? "selected='selected'":"")?>><?php __("Venezolano")?></option>
-                            <option value="2" <?php echo ($result->nac_pac == 2 ? "selected='selected'":"")?>><?php __("Extrangero")?></option>
+                            <option value="2" <?php echo ($result->nac_pac == 2 ? "selected='selected'":"")?>><?php __("Extranjero")?></option>
                         </select>
                     </td>
                     <td >

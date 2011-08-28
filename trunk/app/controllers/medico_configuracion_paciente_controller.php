@@ -201,11 +201,11 @@
             $num_pac        = $_POST["sel_mun_pac"];
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $id_doc         = $this->Session->read("medico.id_usu");          
-                                            
+            $tra_usu        = "RP";                                
             $sql = "SELECT med_registrar_paciente(ARRAY[
                 '$nom_pac', 
                 '$ape_pac', 
-                '$ced_pac', 
+                '$ced_pac',     
                 '$fec_nac_pac',
                 '$nac_pac',
                 '$tel_pac',
@@ -216,10 +216,12 @@
                 '$est_pac',
                 '$num_pac',
                 '$hdd_chk_ant_per',
-                '$id_doc'
+                '$id_doc',
+                '$tra_usu'
             ]) AS result";
+            
             $arr_query = ($this->Doctore->query($sql));
-                             
+                      
             $result = $this->SqlData->ResultNum($arr_query);
             /*App::import("Lib",Array("FirePhp","fb"));
             $firephp = FirePHP::getInstance(true);
@@ -258,7 +260,8 @@
             $est_pac        = $_POST["sel_est_pac"];
             $num_pac        = $_POST["sel_mun_pac"];
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
-            $id_doc         = $this->Session->read("medico.id_usu");          
+            $id_doc         = $this->Session->read("medico.id_usu"); 
+            $tra_usu        = "MP";                      
                                             
             $sql = "SELECT med_modificar_paciente(ARRAY[
                 '$id_pac',
@@ -275,9 +278,10 @@
                 '$est_pac',
                 '$num_pac',
                 '$hdd_chk_ant_per',
-                '$id_doc'
+                '$id_doc',
+                '$tra_usu'
             ]) AS result";
-                        
+            
             $arr_query = ($this->Doctore->query($sql));            
                              
             $result = $this->SqlData->ResultNum($arr_query);            
@@ -303,11 +307,13 @@
          function event_eliminar($id,$log_usu=""){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $id_doc         = $this->Session->read("medico.id_usu");
+            $tra_usu        = "EP";
             $sql = "SELECT med_eliminar_paciente(ARRAY[
                 '$id',
-                '$id_doc']
+                '$id_doc',
+                '$tra_usu']
             ) AS result";
-                        
+                                 
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->ResultNum($arr_query);            

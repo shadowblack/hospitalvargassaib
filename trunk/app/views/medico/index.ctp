@@ -67,11 +67,11 @@
                     <td align="right">                                        
                         <div class="dock" id="dock">
                             <div class="dock-container">
-                                <a class="dock-item" href="#"><img style="padding-left: 0px;" src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" /><span style="padding-left: 15px;">Registrar</span></a>
+                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/registrar");?>" target="men_izq_reg"><img style="padding-left: 0px;" src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" /><span style="padding-left: 15px;">Registrar</span></a>
                                 
                                 <a class="dock-item" href="#"><img style="padding-left: 20px;" src="<?php echo $this->webroot?>/js/men_mac/images/configurar.png" alt="Configurar" /><span style="padding-left: 20px;">Configurar</span></a> 
                                 
-                                <a class="dock-item" href="#"><img style="padding-left: 40px;" src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" /><span style="padding-left: 40px;">Reporte</span></a>
+                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/reporte");?>" target="men_izq_reg"><img style="padding-left: 40px;" src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" /><span style="padding-left: 40px;">Reporte</span></a>
                                  
                                 <a class="dock-item" href="#"><img style="padding-left: 60px;" src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" /><span style="padding-left: 60px;">Estadistica</span></a>
                                  

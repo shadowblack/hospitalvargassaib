@@ -111,3 +111,81 @@ util.exit = function(status) {
 	}
 	throw '';
 }
+
+
+// Abre una ventana tipo popup
+	var popUpWin=0;
+	function popUpWindow(URLStr, left, top, width, height)
+	{
+		if(popUpWin) 
+		{
+			if(!popUpWin.closed)
+			{
+				popUpWin.close();
+			}
+		}
+		popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbar=no,resizable=no,copyhistory=yes,width='+width+',height='+height+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+		return popUpWin;
+	}
+
+	// Cambia el estilo dinámicamente de un objeto.
+	function CambiaEstilo(objeto, estilo)
+	{
+		objeto.className = estilo;
+
+	}
+	
+	/* Función que se usa para realizar el exportar de datos.
+	* Uso: en el onClick del botón exportar "exportar_datos('form_exportar', 'div');"
+	* en la página del reporte. colocar lo siguiente:
+	*	<div id='div'>
+	*		<form id='form_exportar' name='form_exportar' method='post' action='ruta'>
+	*			-- Colocar los campos hidden requeridos --
+	*		</form>
+	*	</div>
+	*/
+	function exportar_datos(form_exportar, div)
+	{
+		var ancho = 300;
+		var alto = 200;
+		var pleft= screen.width/2 - ancho/2 ;
+		var ptop= screen.height/2 - alto/2 
+		
+		try 
+		{
+			ventana_exportar.close();
+		}
+		catch(e)
+		{
+			// Ignora error
+		}
+		
+		
+		var ventana_exportar = window.open('','myWindow', 'left='+pleft+',top='+ptop+',width='+ancho+',height='+alto);
+		ventana_exportar.focus();
+		ventana_exportar.document.write('<html><head></head><body></body></html>');
+		ventana_exportar.document.body.innerHTML = document.getElementById(div).innerHTML;
+		ventana_exportar.document.getElementById(form_exportar).submit();
+	}	
+	//*****************************************************************************************//
+	
+
+    //FUNCIÓN QUE PERMITE REVISAR SI ESTA EN 0 EL COMBO DEBE BUSCAR LOS VEHICULOS
+    function enviar_form( form, iframe, name_link, name_combo, name_obj)
+    {
+        alert('hola' + name_link );
+        if (form.name_obj.value == 0)
+        {
+        	
+        	alert('error... dato no valido');
+        	return false;
+        }
+        else
+        {
+            var id=	document.getElementById("iframe");
+        	id.src = 'name_link' + '?index=0' + '&id_sub_flo=' + document.getElementById("name_combo").value;
+        	document.form.name_obj.value = document.getElementById("name_combo").value;
+        }
+    }
+    
+    

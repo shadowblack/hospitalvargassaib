@@ -267,10 +267,10 @@
             $tra_pre    = $_POST["hdd_chk_tra"]; 
             $tie_evo    = $_POST["txt_tie_evo"];
                                   
-            $id_doc         = $this->Session->read("medico.id_usu");       
-            
-            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc);   
-                                                                         ;  
+            $id_doc     = $this->Session->read("medico.id_usu");       
+            $tra_usu    = 'IAP';
+            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc,$tra_usu);   
+           
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
             $result = $this->SqlData->ResultNum($arr_query);                        

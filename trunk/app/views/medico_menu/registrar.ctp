@@ -16,8 +16,6 @@
             {            
                 window.parent.frames[1].location=("../medico_tipo_enfermedad/registrar");
             });
-
-            
         });
 </script>      
  <style type="text/css">
