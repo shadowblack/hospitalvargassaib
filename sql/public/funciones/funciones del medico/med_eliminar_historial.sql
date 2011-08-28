@@ -22,6 +22,7 @@ BEGIN
 	
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
+  ALTER FUNCTION med_eliminar_historial(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_eliminar_historial(character varying[]) IS '
 NOMBRE: med_eliminar_historial
 TIPO: Function (store procedure)

@@ -40,6 +40,7 @@ BEGIN
 
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
+  ALTER FUNCTION med_muestra_clinica_paciente(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_muestra_clinica_paciente(character varying[]) IS '
 NOMBRE: med_muestra_clinica_paciente
 TIPO: Function (store procedure)
@@ -70,10 +71,3 @@ AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 03/08/2011
 
 ';
-
-SELECT med_muestra_clinica_paciente(ARRAY[
-                '16',
-                '1',               
-                '6'                
-                ]
-            ) AS result 

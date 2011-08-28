@@ -113,6 +113,7 @@ BEGIN
 
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
+ALTER FUNCTION med_registrar_informacion_adicional(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_registrar_informacion_adicional(character varying[]) IS '
 NOMBRE: med_registrar_informacion_adicional
 TIPO: Function (store procedure)

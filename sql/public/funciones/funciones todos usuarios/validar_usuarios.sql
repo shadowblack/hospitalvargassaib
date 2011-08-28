@@ -100,7 +100,7 @@ END;
 $BODY$
   LANGUAGE 'plpgsql' VOLATILE
   COST 100;
-ALTER FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT) OWNER TO postgres;
+ALTER FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT) IS '
 NOMBRE: validar_usuarios
 TIPO: Function (store procedure)
