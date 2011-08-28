@@ -7,35 +7,38 @@
             "fec_his"                                       => "to_char(fec_his, 'DD/MM/YYYY HH12:MI:SS am')"
         );    
         
-        function MedRegistrarHistorialPaciente($id_pac,$des_his,$des_pac_his,$id_doc){
+        function MedRegistrarHistorialPaciente($id_pac,$des_his,$des_pac_his,$id_doc,$tra_usu){
             $sql = "SELECT med_registrar_hitorial_paciente(ARRAY[
                 '$id_pac', 
                 '$des_his', 
                 '$des_pac_his', 
-                '$id_doc'               
+                '$id_doc',
+                '$tra_usu'                               
             ]) AS result";
             return $sql;
         }
         
-        function MedModificarHistorialPaciente($id_his,$des_his,$des_pac_his,$id_doc){
+        function MedModificarHistorialPaciente($id_his,$des_his,$des_pac_his,$id_doc,$tra_usu){
             $sql = "SELECT med_modificar_hitorial_paciente(ARRAY[
                 '$id_his', 
                 '$des_his', 
                 '$des_pac_his', 
-                '$id_doc'               
+                '$id_doc',
+                '$tra_usu'               
             ]) AS result";
             return $sql;
         }
         
-        function MedEliminarHistorialPaciente($id_his,$id_doc){
+        function MedEliminarHistorialPaciente($id_his,$id_doc,$tra_usu){
             $sql = "SELECT med_eliminar_historial(ARRAY[
                 '$id_his',
-                '$id_doc']
-            ) AS result";
+                '$id_doc',
+                '$tra_usu'
+            ]) AS result";
             return $sql;
         }
         
-        function MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc){
+        function MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc,$tra_usu){
             $sql = "SELECT med_registrar_informacion_adicional(ARRAY[
                 '$id_his',
                 '$cen_sal',
@@ -43,17 +46,19 @@
                 '$con_ani',
                 '$tra_pre',
                 '$tie_evo',
-                '$id_doc'                
+                '$id_doc',
+                '$tra_usu'                
                 ]
             ) AS result";
             return $sql;
         }
         
-        function MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc){
+        function MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc,$tra_usu){
             $sql = "SELECT med_muestra_clinica_paciente(ARRAY[
                 '$id_his',
                 '$mue_cli',               
-                '$id_doc'                
+                '$id_doc',
+                '$tra_usu'                
                 ]
             ) AS result";
             return $sql;

@@ -31,7 +31,9 @@ class LoginComponent extends Object{
         
             switch($config){
                 case "iframe":
-                    $self->cakeError('session_expired',Array("name"=>"Session Out","message"=>"ha expirado."));
+               
+                    $self->cakeError('session_expired',Array("name"=>"Session Out","message"=>"ha expirado.","code"=>""));
+                     die;
                 break;
                 /*Es necesario tener habilitado el componente FormatMessege para que funcione*/
                 case "json":

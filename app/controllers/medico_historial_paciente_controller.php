@@ -157,9 +157,9 @@
             $des_his        = $_POST["txt_des_his"];
             $des_pac_his    = $_POST["txt_des_pac_his"];                       
             $id_doc         = $this->Session->read("medico.id_usu");       
-            
-            $sql = $this->HistorialesPaciente->MedRegistrarHistorialPaciente($id_pac,$des_his,$des_pac_his,$id_doc);   
-                                                                         ;  
+            $tra_usu        = "RHP";  
+            $sql = $this->HistorialesPaciente->MedRegistrarHistorialPaciente($id_pac,$des_his,$des_pac_his,$id_doc,$tra_usu);   
+                                                              
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
             $result = $this->SqlData->ResultNum($arr_query);                        
@@ -180,13 +180,14 @@
         function event_modificar(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
                        
-            $id_his                 = $_POST["hdd_id_his"];
-            $des_his                = $_POST["txt_des_his"];
+            $id_his             = $_POST["hdd_id_his"];
+            $des_his            = $_POST["txt_des_his"];
             $des_pac_his        = $_POST["txt_des_pac_his"];            
-            $id_doc                 = $this->Session->read("medico.id_usu");          
-                                            
-            $sql = $this->HistorialesPaciente->MedModificarHistorialPaciente($id_his,$des_his,$des_pac_his,$id_doc);
-                        
+            $id_doc             = $this->Session->read("medico.id_usu");          
+            $tra_usu            = "MHP"; 
+                                           
+            $sql = $this->HistorialesPaciente->MedModificarHistorialPaciente($id_his,$des_his,$des_pac_his,$id_doc,$tra_usu);
+                    
             $arr_query = ($this->HistorialesPaciente->query($sql));            
                              
             $result = $this->SqlData->ResultNum($arr_query);            
@@ -207,9 +208,10 @@
          function event_eliminar($id_his,$num_his=""){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $id_doc         = $this->Session->read("medico.id_usu");
+            $tra_usu        = "EHP"; 
             
-            $sql = $this->HistorialesPaciente->MedEliminarHistorialPaciente($id_his,$id_doc);
-                        
+            $sql = $this->HistorialesPaciente->MedEliminarHistorialPaciente($id_his,$id_doc,$tra_usu);
+                         
             $arr_query = ($this->HistorialesPaciente->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->ResultNum($arr_query);            

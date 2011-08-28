@@ -110,7 +110,7 @@
                             <select class="required" name="sel_nac_pac">
                                 <option value="">--<?php __("Seleccione")?>--</option>                                    
                                 <option value="1"><?php __("Venezolano")?></option>
-                                <option value="2"><?php __("Extrangero")?></option>
+                                <option value="2"><?php __("Extranjero")?></option>
                             </select>
                         </td>
                         <td >
@@ -253,10 +253,10 @@
              <table style="width: 100%; border="0" class="">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
-                        <input type="submit" name="btn_aceptar" value="Aceptar">
+                        <input type="submit" name="btn_aceptar" value="<?php print __('Aceptar', true); ?>">
                     </td>
                     <td  align="left" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">                       
+                        <input type="button" name="btn_volver" value="<?php print __('Volver', true); ?>" onclick="history.back()">                       
                     </td>
                 </tr>
             </table>                                                         

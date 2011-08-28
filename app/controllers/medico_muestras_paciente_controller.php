@@ -78,9 +78,9 @@
             $mue_cli    = $_POST["hdd_chk_mue_cli"];            
                                   
             $id_doc         = $this->Session->read("medico.id_usu");       
-            
-            $sql = $this->HistorialesPaciente->MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc);   
-                                                                         ;  
+            $tra_usu        = "MCP";  
+            $sql = $this->HistorialesPaciente->MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc,$tra_usu);   
+                                                                          
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
             $result = $this->SqlData->ResultNum($arr_query);                        
