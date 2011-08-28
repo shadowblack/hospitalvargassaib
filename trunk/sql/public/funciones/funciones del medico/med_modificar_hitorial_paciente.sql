@@ -36,6 +36,7 @@ BEGIN
 
 END;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
+ALTER FUNCTION med_modificar_hitorial_paciente(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_modificar_hitorial_paciente(character varying[]) IS '
 NOMBRE: med_modificar_hitorial_paciente
 TIPO: Function (store procedure)
