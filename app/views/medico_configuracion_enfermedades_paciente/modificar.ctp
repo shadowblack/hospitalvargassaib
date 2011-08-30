@@ -80,7 +80,7 @@
                     <tr>
                         <td valign="top">        
                             <span class="standar_font_sub"><?php echo $tipos_micosis->nom_tip_mic?></span>
-                            <input type="text" name="hdd_tipos_micosis_pacientes" value="<?php echo $tipos_micosis->id_tip_mic_pac?>">                           
+                            <input type="hidden" name="hdd_tipos_micosis_pacientes" value="<?php echo $tipos_micosis->id_tip_mic_pac?>">                           
                             <div style="line-height: 10px;">
                                 &nbsp;
                             </div>
@@ -96,7 +96,7 @@
                     </tr>                                                                           
                 </table>
              </div> 
-             <div id="tabs-2" style="height: 325px;border: 1px solid black; overflow-y: auto;" class="standar_fieldset_child">                                          
+             <div id="tabs-2" style="height: 325px;overflow-y: auto;" class="standar_fieldset_child">                                          
                 <!-- Contenido de las enfermedades -->
              </div>               
              <table style="width: 100%;" class="">

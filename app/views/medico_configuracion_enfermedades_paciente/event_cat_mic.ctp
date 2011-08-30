@@ -1,4 +1,4 @@
- <table style="width:540px;margin-top: 10px;" border="1" align="center" cellpadding="0" cellspacing="0">
+ <table style="width:540px;margin-top: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="184" class="font-standar" valign="top">
             <?php echo __( "Categorias",true)?>

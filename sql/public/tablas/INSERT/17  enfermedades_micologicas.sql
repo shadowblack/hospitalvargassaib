@@ -97,8 +97,62 @@ INSERT INTO enfermedades_micologicas (
 	18,
 	'Otro',
 	1
-)
-;
+);
+
+
+INSERT INTO enfermedades_micologicas (
+	id_enf_mic,
+	nom_enf_mic,
+	id_tip_mic	
+) VALUES 
+(
+	19,
+	'Actinomicetoma',
+	'2'
+),
+(
+	20,
+	'Eumicetoma',
+	'2'
+),
+(
+	21,
+	'Esporotricosis',
+	'2'
+),
+(
+	22,
+	'Cromoblastomicosis',
+	'2'
+),
+(
+	23,
+	'Lobomicosis',
+	'2'
+);
+
+
+INSERT INTO enfermedades_micologicas (
+	id_enf_mic,
+	nom_enf_mic,
+	id_tip_mic	
+) VALUES 
+(
+	24,
+	'Coccidioidomicosis',
+	'3'
+),
+(
+	25,
+	'Histoplasmosis',
+	'3'
+),
+(
+	26,
+	'Paracoccidioidomicosis',
+	'3'
+);
+
 
 ALTER SEQUENCE enfermedades_micologicas_id_enf_mic_seq
-	RESTART 19;
+	RESTART 26;
