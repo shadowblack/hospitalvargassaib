@@ -100,7 +100,7 @@
                     </tr>                                                                           
                 </table>
              </div> 
-             <div id="tabs-2" style="height: 325px;border: 1px solid black; overflow-y: auto;" class="standar_fieldset_child">                                          
+             <div id="tabs-2" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">                                          
                 <!-- Contenido de las enfermedades -->
              </div>               
              <table style="width: 100%;" class="">

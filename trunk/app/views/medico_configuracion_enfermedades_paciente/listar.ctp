@@ -84,6 +84,13 @@
                     </td>
                 </tr>
             </table>
+            <table style="width: 100%;"  border="0">
+                <tr>
+                    <td align="center">
+                        <input type="button" value="<?php echo __("Volver",true)?>" onclick="window.location.href='<?php echo $_SERVER["HTTP_REFERER"]?>'">
+                    </td>
+                </tr>
+            </table>
                                  
         </form>
         </fieldset>

@@ -23,7 +23,7 @@ SIGIS. C.A
 </script>
 
 <div id="tabs-1" style="display: none;">    		
-    <div id="tabs">
+    <div id="tabs" style="overflow: auto;">
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 685px;">
@@ -45,6 +45,9 @@ SIGIS. C.A
             							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
             								<tr class="celdas_gris_reporte" align="center">
                                                 <td align="center" class="standar_font lista_fondo">
+                                                    #
+                                                </td>
+                                                <td align="center" class="standar_font lista_fondo">
                                                     <?php print __('Nombre',true);?>
                                                 </td>
                                                  <td align="center" class="standar_font lista_fondo">
@@ -63,26 +66,28 @@ SIGIS. C.A
             								<?php
             								if (count($auditoria) > 0)
             								{
+            								       // debug($auditoria);
             									// Recorre el resultado de la consulta
             									foreach($auditoria  as $row)
             									{										
                     								?>
                     								<tr class="celda_blanco_text_azul" >
-                                                        <td class="standar_font" align="center"><?php echo $row->nom_ape_usu; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->log_usu;?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->des_tip_tra; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->fecha_tran; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $paginator->NumRowPre(); ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->vat->nom_ape_usu; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->vat->log_usu;?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->Transaccione->des_tip_tra; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->vat->fecha_tran; ?></td>
                                                         <td class="standar_font" align="center">
                                                         <?php 
-                                                            if ($row->detalle != 'Si')
+                                                            if ($row->vat->detalle != 'Si')
                     										{
-                    											print '&nbsp;'.$row->detalle;
+                    											print '&nbsp;'.$row->vat->detalle;
                     										}
                     										else
                     										{
                                                         ?>
                                                         <a class="texto_link" href="">
-                											<?php print '&nbsp;'.$row->detalle; ?>
+                											<?php print '&nbsp;'.$row->vat->detalle; ?>
                 										</a>
                 									
                 										<?php 
@@ -115,6 +120,11 @@ SIGIS. C.A
             							<?php 
             							}
             							?>
+                            <tr>
+                                <td colspan="5" align="center">                                    
+                                   <?php echo $paginator->numbers();?>
+                                </td>
+                            </tr>
             	
             			</table>
             		</td>
@@ -134,3 +144,4 @@ SIGIS. C.A
         </fieldset>
     </div>       
 </div>
+ 
