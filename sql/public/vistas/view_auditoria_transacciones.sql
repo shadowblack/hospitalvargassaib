@@ -1,4 +1,4 @@
-﻿--DROP view view_auditoria_transacciones;
+﻿--DROP view view_auditoria_transacciones ;
 
 CREATE OR REPLACE VIEW view_auditoria_transacciones AS
 	SELECT  id_tip_tra,
