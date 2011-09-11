@@ -7,7 +7,8 @@ CREATE OR REPLACE VIEW view_auditoria_transacciones AS
 		d.log_doc AS log_usu,
 		CASE 
 			WHEN data_xml IS NOT NULL THEN 'Si' ELSE 'No' 
-		END AS detalle
+		END AS detalle,
+		id_tip_usu_usu
 
 	FROM auditoria_transacciones at
 		    LEFT JOIN tipos_usuarios__usuarios tuu USING(id_tip_usu_usu)

@@ -60,7 +60,7 @@ BEGIN
 				_arr[i]
 			);
 
-			SELECT nom_mue_cli INTO _reg_act FROM muestras_pacientes mp LEFT JOIN muestras_clinicas mc ON(mp.id_mue_cli = mc.id_mue_cli) WHERE id_mue_cli = _arr[i];
+			SELECT nom_mue_cli INTO _reg_act FROM muestras_pacientes mp LEFT JOIN muestras_clinicas mc ON(mp.id_mue_cli = mc.id_mue_cli) WHERE mc.id_mue_cli = _arr[i];
 			_nom_mue_cli_act := _nom_mue_cli_act || _reg_act.nom_mue_cli || ' ,';
 		END LOOP;
 	END IF;
@@ -128,12 +128,9 @@ RETORNO:
 EJEMPLO DE LLAMADA:
 	SELECT med_muestra_clinica_paciente(ARRAY[
                 ''16'',
-                ''7'',
-                ''6,7'',
-                ''3'',
-                ''4'',
-                ''1'',
-                ''6''                
+                ''1,2,3,5,7,10,36'',               
+                ''32'',
+                ''MCP''                
                 ]
             ) AS result 
 
@@ -146,3 +143,13 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 ';
 
 
+/*
+SELECT med_muestra_clinica_paciente(ARRAY[
+                '16',
+                '1,2,3,5,7,10,36',               
+                '32',
+                'MCP'                
+                ]
+            ) AS result 
+            
+            */

@@ -46,9 +46,11 @@
         function event_listar(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $ids_usu     = $_POST["id_usuarios"]; 
+            $ids_usu     =   $_POST["id_usuarios"]; str_replace(",", "','", $_POST["id_usuarios"]);
+; 
             $ids_tra     = $_POST["id_transacc"];
             
+            print $ids_usu;
             if(isset($_POST['txt_fec_ini']) && isset($_POST['txt_fec_fin'])){
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"]);
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"]);
@@ -70,8 +72,10 @@
                         "alias"         => "vat",
                         "conditions"    => "vat.id_tip_tra = Transaccione.id_tip_tra"
                     )
-                )               
-              
+                ),
+                "conditions" => Array(
+                    "vat.id_tip_usu_usu IN" => ("$ids_usu")                                 
+                ) 
             ); 
             
             // Se realiza el query para obtener la auditoría de transacciones de usuarios
