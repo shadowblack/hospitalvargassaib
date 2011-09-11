@@ -1,10 +1,17 @@
  <table style="width:540px;margin-top: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="184" class="font-standar" valign="top">
+            <?php if (count($cat_cue) == 0){ ?>
+                <span class="standar_font">
+            <?php
+            echo __("Esta enfermedad no posee descripción de lessiones");die;
+            ?>
+                </span>
+            <?php } ?>
             <?php echo __( "Categorias",true)?>
         </td>                        
     </tr>
-    <?php
+    <?php        
         $id_cat_cue = false;
         foreach($cat_cue as $row):                            
             if ($id_cat_cue != $row->id_cat_cue){

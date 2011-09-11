@@ -4,18 +4,18 @@
             jQuery("#content")
                 .html('<img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 94px;">')
                 .addClass("standar_cargador");
-            jQuery("#content").load("<?php echo $this->Html->url("event_enfermedades")?>/"+id_tip_mic,function(){
+            jQuery("#content").load("<?php echo $this->Html->url("event_enfermedades_registrar")?>/"+id_tip_mic,function(){
                 <?php echo $this->Checkbox->Multiple("chk_enf_pac_","#pacientes")?>
             });
             
-            jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic")?>/"+id_tip_mic);
-            
+            jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_registrar")?>/"+id_tip_mic);
+            jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic);            
         } 
         
         function check_parte_cuerpo(obj){
            var id_par_cue_cat_cue = jQuery(obj).attr("id_par_cue_cat_cue");
            if(obj.checked){
-                jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).load("<?php echo $this->Html->url("event_lesiones")?>/"+jQuery("[name='cmb_tipos_micosis']").val()+"/"+id_par_cue_cat_cue+"/",function(){
+                jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).load("<?php echo $this->Html->url("event_lesiones_registrar")?>/"+jQuery("[name='cmb_tipos_micosis']").val()+"/"+id_par_cue_cat_cue+"/",function(){
                     <?php echo $this->Checkbox->Multiple("les_","#pacientes",true)?>
                 });
            } else {
@@ -23,8 +23,6 @@
                 les();
            }           
         } 
-        
-       
              
         jQuery(function() {
                         
@@ -66,6 +64,11 @@
                 <a href="#tabs-2" >
                     <?php echo __("Descripción de la lesion",true)?>
                 </a>
+            </li> 
+            <li>
+                <a href="#tabs-3" >
+                    <?php echo __("Estudios Micologicos",true)?>
+                </a>
             </li>            
         </ul>
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
@@ -100,9 +103,12 @@
                     </tr>                                                                           
                 </table>
              </div> 
-             <div id="tabs-2" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">                                          
+             <div id="tabs-2" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
                 <!-- Contenido de las enfermedades -->
-             </div>               
+             </div>
+             <div id="tabs-3" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
+                <!-- Contenido de las enfermedades -->
+             </div>              
              <table style="width: 100%;" class="">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
