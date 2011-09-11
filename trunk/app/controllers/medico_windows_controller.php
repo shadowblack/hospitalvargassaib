@@ -12,7 +12,7 @@
         }
         
         function medico_informacion_paciente($id_his,$id_pac){
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                        
             
             $result = $this->HistorialesPaciente->find("first",
                 Array(

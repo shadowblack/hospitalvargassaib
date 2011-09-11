@@ -2,8 +2,8 @@
     class MedicoConfiguracionEnfermedadesPacienteController extends Controller{
         var $name = "MedicoConfiguracionEnfermedadesPaciente";
         var $uses =         Array("HistorialesPaciente","TiposMicosisPaciente");
-        var $components =   Array("Login","SqlData","FormatMessege","Session","History"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","History","Checkbox");                  
+        var $components =   Array("Login","SqlData","FormatMessege","Session"); 
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","Checkbox");                  
         
         var $group_session = "medico";                   
        
@@ -21,8 +21,7 @@
             $data = Array(
                 "id_his"    => $id_his,
                 "id_pac"    => $id_pac,                
-                "title"     => $title,
-                "history"   =>  $this->History->GetHistory("b",true)              
+                "title"     => $title                             
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);
@@ -36,8 +35,7 @@
         function event_listar($id_his){           
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                              
-                         
-            $this->History->SetHistory("b");
+                                     
            //echo $this->History->GetHistoryData("a","ced_pac");             
             $this->paginate = array(
                 'limit' => 12,
@@ -93,7 +91,7 @@
              
         }
         
-        function event_cat_mic($id_tip_mic){            
+        function event_cat_mic_registrar($id_tip_mic){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                 "SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
@@ -146,7 +144,7 @@
             $this->layout = 'ajax';
         }
         
-         function event_lesiones($id_tip_mic,$id_par_cue_cat_cue){            
+         function event_lesiones_registrar($id_tip_mic,$id_par_cue_cat_cue){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                 "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic                
@@ -361,13 +359,11 @@
          * Eliminando usuario administrativo
          */
          
-         function event_eliminar($id_tip_mic_pac, $nom_tip_mic){
+         function event_eliminar($id_tip_mic_pac){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $id_doc         = $this->Session->read("medico.id_usu");
-            $sql = "SELECT med_eliminar_paciente(ARRAY[
-                '$id_tip_mic_pac',
-                '$id_doc']
-            ) AS result";
+            
+            $sql = $this->HistorialesPaciente->MedEliminarMicosisPaciente($id_tip_mic_pac,$id_doc);            
                         
             $arr_query = ($this->HistorialesPaciente->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
@@ -375,15 +371,15 @@
                         
             switch($result){
                 case 1:
-                    die($this->FormatMessege->BoxStyle($result,"Las enfermedades de tipo \'$nom_tip_mic\' se ha eliminado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"Se han eliminado las enfermedades correctamente."));
                     break;
                 case 0:
-                     die($this->FormatMessege->BoxStyle($result,"Las enfermedades de tipo \'$nom_tip_mic\' no se encuentran registrados en el sistema."));                    
+                     die($this->FormatMessege->BoxStyle($result,"El tipo de enfermedad no existe."));                    
                     break;                            
             }         
          }  
          
-         function event_enfermedades($id_tip_mic){
+         function event_enfermedades_registrar($id_tip_mic){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
                     
             $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic
@@ -428,6 +424,28 @@
             $this->set('title_for_layout', $title);            
             $this->layout = 'ajax';        
                                    
-         }                  
+         }    
+         
+         function event_estudios_micologicos_registrar($id_tip_mic){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
+            
+             $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic, ep.id_enf_mic AS check_id
+                        FROM enfermedades_micologicas em
+                        LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = $id_tip_mic_pac)
+                       ";
+          
+                                            
+            $enf_mic = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                         
+            
+            $title = __("Estudios Micologicos",true);
+            
+            $data = Array(                
+                "enf_mic"     =>  $enf_mic,                                         
+                "title"       =>  $title                                
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);                        
+         }              
     }
 ?>
