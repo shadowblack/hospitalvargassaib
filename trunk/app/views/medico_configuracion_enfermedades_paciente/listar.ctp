@@ -21,8 +21,9 @@
     parent.parent.util.win["inf_his<?php echo $id_pac?>"]._resize(600,470);
     <?php echo $this->Loader->DivPaginatorPost()?>
        
-    jQuery(function(){           
-        <?php echo $this->History->GetHistory($history)?>
+    
+    
+    jQuery(function(){                   
     
         jQuery("#tabs-1").css("display","block");
         jQuery("#tabs" ).tabs();
