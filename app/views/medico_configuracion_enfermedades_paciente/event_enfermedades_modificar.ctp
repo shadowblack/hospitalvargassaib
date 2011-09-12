@@ -1,7 +1,9 @@
 <?php if (count($enf_mic)==0){  ?>
-    <span class="font-standar"><?php __("No existen registros actualmente")?></span>        
+     <div class="standar_not_register">
+        <span class="standar_not_register"><?php echo __("No hay registros para modificar",true)?></span>
+    </div>           
 <?php die; } ?>   
-<table border="0" style="margin-left: 10px;">    
+<table border="0" style="margin-left: 10px;margin-top: 5px;">    
     <?php foreach($enf_mic as $row):?>
         <tr>
             <td>

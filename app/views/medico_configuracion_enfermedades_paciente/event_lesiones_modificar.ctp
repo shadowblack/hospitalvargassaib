@@ -1,4 +1,9 @@
-<table style="margin-left: 20px;">
+<?php if (count($les_cat)==0){  ?>
+     <div class="standar_not_register">
+        <span class="standar_not_register"><?php echo __("Esta enfermedad no posee categorias",true)?></span>
+    </div>           
+<?php die; } ?>  
+<table style="margin-left: 20px;margin-top: 5px;">
     <tr>
         <td class="standar_font_sub" colspan="2">
             <?php __("Lesiones")?>
