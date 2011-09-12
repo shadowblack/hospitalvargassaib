@@ -429,18 +429,16 @@
          function event_estudios_micologicos_registrar($id_tip_mic){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
             
-             $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic, ep.id_enf_mic AS check_id
-                        FROM enfermedades_micologicas em
-                        LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = $id_tip_mic_pac)
-                       ";
-          
+            $sql_enf = 
+                "SELECT tem.id_tip_est_mic,tem.nom_tip_est_mic, nom_tip_exa  FROM tipos_estudios_micologicos tem 
+                JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
+                WHERE id_tip_mic = $id_tip_mic";
                                             
-            $enf_mic = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                         
-            
+            $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
             $title = __("Estudios Micologicos",true);
             
             $data = Array(                
-                "enf_mic"     =>  $enf_mic,                                         
+                "estudios"     =>  $estudios,                                         
                 "title"       =>  $title                                
             ); 
             

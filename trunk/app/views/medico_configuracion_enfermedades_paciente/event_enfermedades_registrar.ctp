@@ -1,5 +1,5 @@
 <?php if (count($enf_mic)==0){  ?>
-    <span class="font-standar"><?php __("No existen registros actualmente")?></span>        
+    <span class="standar_font"><?php __("No existen registros actualmente")?></span>        
 <?php die; } ?>   
 <table border="0" style="margin-left: 10px;">    
     <?php foreach($enf_mic as $row):?>

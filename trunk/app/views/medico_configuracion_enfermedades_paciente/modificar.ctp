@@ -71,9 +71,9 @@
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" >             
             <div id="tabs-1" style="height: 325px;" class="standar_fieldset_child">                                          
-                <table style="width:540px;margin-top: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
+                <table style="width:540px;margin-top: 5px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="184" class="font-standar" valign="top">
+                        <td width="184" class="standar_font" valign="top">
                             <?php echo __( "Tipos de enfermedades",true)?>
                         </td>                        
                     </tr>
@@ -105,7 +105,7 @@
                         <input type="submit" name="btn_aceptar" value="Aceptar">
                     </td>
                     <td  align="left" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="history.back()">                       
+                        <input type="button" name="btn_volver" value="Volver" onclick="javascript:window.location.href='<?php echo $_SERVER["HTTP_REFERER"]?>'" >                       
                     </td>
                 </tr>
             </table>                                                         
