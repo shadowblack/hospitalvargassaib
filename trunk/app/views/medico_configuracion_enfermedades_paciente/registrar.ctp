@@ -9,7 +9,9 @@
             });
             
             jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_registrar")?>/"+id_tip_mic);
-            jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic);            
+            jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic, function(){
+                    <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
+            });            
         } 
         
         function check_parte_cuerpo(obj){
@@ -22,7 +24,7 @@
                 jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).empty();
                 les();
            }           
-        } 
+        }                 
              
         jQuery(function() {
                         

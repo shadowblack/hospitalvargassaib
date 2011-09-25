@@ -64,23 +64,25 @@
             return $sql;
         }
         
-        function MedInsertarMicosisPaciente($id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc){
+        function MedInsertarMicosisPaciente($id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$hdd_tip_est_mic,$id_doc){
             $sql = "SELECT med_insertar_micosis_pacientes(ARRAY[
                 '$id_his',
                 '$hdd_id_tip_mic',               
                 '$hdd_chk_enf_pac',
                 '$hdd_les',
-                '$id_doc'              
+                '$hdd_tip_est_mic',
+                '$id_doc'                              
                 ]
             ) AS result";
             return $sql;
         }
         
-        function MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$id_doc){
+        function MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$hdd_est,$id_doc){
             $sql = "SELECT med_modificar_micosis_pacientes(ARRAY[                
                 '$tipos_micosis_pacientes',               
                 '$hdd_chk_enf_pac',
                 '$hdd_les',
+                '$hdd_est',
                 '$id_doc'              
                 ]
             ) AS result";

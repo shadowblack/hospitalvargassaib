@@ -297,6 +297,7 @@
             $hdd_id_his              = $_POST["hdd_id_his"];
             $hdd_id_tip_mic          = $_POST["cmb_tipos_micosis"];            
             $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"];
+            $hdd_tip_est_mic         = $_POST["hdd_chk_tip_est_mic"];
             if (isset($_POST["hdd_les"])){
                 $hdd_les                 = $_POST["hdd_les"];
             } else {
@@ -305,7 +306,7 @@
             $id_doc                  = $this->Session->read("medico.id_usu");
             
                 
-            $sql = $this->HistorialesPaciente->MedInsertarMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$id_doc);
+            $sql = $this->HistorialesPaciente->MedInsertarMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$hdd_tip_est_mic,$id_doc);
                       
             $arr_query = ($this->HistorialesPaciente->query($sql));
                              
@@ -332,6 +333,7 @@
             
             $tipos_micosis_pacientes = $_POST["hdd_tipos_micosis_pacientes"];                                                  
             $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"];
+            $hdd_chk_est_pac         = $_POST["hdd_chk_tip_est_mic"];
             if (isset($_POST["hdd_les"])){
                 $hdd_les                 = $_POST["hdd_les"];
             } else {
@@ -340,7 +342,7 @@
             $id_doc                  = $this->Session->read("medico.id_usu");
             
                 
-            $sql = $this->HistorialesPaciente->MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$id_doc);
+            $sql = $this->HistorialesPaciente->MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$hdd_chk_est_pac,$id_doc);
                       
             $arr_query = ($this->HistorialesPaciente->query($sql));
                              
@@ -430,7 +432,8 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
             
             $sql_enf = 
-                "SELECT tem.id_tip_est_mic,tem.nom_tip_est_mic, nom_tip_exa  FROM tipos_estudios_micologicos tem 
+                "SELECT tem.id_tip_est_mic,tem.nom_tip_est_mic, nom_tip_exa  
+                FROM tipos_estudios_micologicos tem 
                 JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
                 WHERE id_tip_mic = $id_tip_mic";
                                             
@@ -444,6 +447,32 @@
             
             $this->set($data);
             $this->set('title_for_layout', $title);                        
-         }              
+         }   
+         
+         function event_estudios_micologicos_modificar($id_tip_mic_pac){            
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
+            
+            $sql_enf = 
+                "
+                SELECT tem.id_tip_est_mic, tem.nom_tip_est_mic, nom_tip_exa, tmptem.id_tip_mic_pac,te.nom_tip_exa
+                FROM tipos_micosis_pacientes tmp
+                JOIN tipos_micosis tm ON (tmp.id_tip_mic = tm.id_tip_mic)
+                JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
+                LEFT JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic)                
+                JOIN tipos_examenes te ON (te.id_tip_exa = tem.id_tip_exa)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+                ";
+                                            
+            $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
+            $title = __("Estudios Micologicos",true);
+            
+            $data = Array(                
+                "estudios"     =>  $estudios,                                         
+                "title"       =>  $title                                
+            ); 
+            
+            $this->set($data);
+            $this->set('title_for_layout', $title);                        
+         }           
     }
 ?>
