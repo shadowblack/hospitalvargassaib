@@ -34,14 +34,8 @@
             <div style="">                                               
                 <div style="height: 80px;text-align: left;">
                     <a id="med_con_pac" href="javascript:void(0)" >
-                            <?php __("Configurar Paciente")?>
-                    </a>                    
-                    <br/>
-                    
-                        <a id="edi_med_enf" href="javascript:void(0)" >
-                            <?php __("Tipo de Enfermedad")?>
-                        </a> 
-                    <br/>                                                              
+                        <?php __("Configurar Paciente")?>
+                    </a>                                                     
                 </div>
           </div>
         </div>

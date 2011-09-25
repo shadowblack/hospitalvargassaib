@@ -10,6 +10,11 @@
             jQuery("#med_tra_usu").click(function()
             {            
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReportes/busqueda")?>");
+            });
+            
+            jQuery("#enf_mic_pac").click(function()
+            {            
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/busqueda")?>");
             });   
         });
 </script>      
@@ -30,6 +35,10 @@
                 <div style="height: 80px;text-align: left;">
                     <a id="med_tra_usu" href="javascript:void(0)" >
                         <?php __("Transacciones de Usuarios")?>
+                    </a>
+                    <br /><br />
+                    <a id="enf_mic_pac" href="javascript:void(0)" >
+                        <?php __("Enfermedades Micológicas del Paciente")?>
                     </a>                                                     
                 </div>
           </div>
