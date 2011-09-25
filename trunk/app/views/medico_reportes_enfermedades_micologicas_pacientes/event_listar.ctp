@@ -1,11 +1,11 @@
 <?php
 /*
 -----------------------------------------------------------------------------------------------
-ARCHIVO: transacciones.ctp
-PARÁMETROS: ids de los usuarios, ids de las transacciones, las fechas de inicio y fin
-DESCRIPCIÓN: Reporte que muestra las transacciones realizadas por los usuarios del sistema
+ARCHIVO: event_listar.ctp
+PARÁMETROS: Cédula, Nombre, Apellido, Tipo Enfermedad, Nro. Historia y las fechas de inicio y fin
+DESCRIPCIÓN: Reporte que muestra un listado de los tipos de enfermedades del paciente
 AUTOR: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 20/08/2011
+FECHA DE CREACIÓN: 24/09/2011
 SIGIS. C.A
 -----------------------------------------------------------------------------------------------
 */
@@ -27,14 +27,14 @@ SIGIS. C.A
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 685px;">
-                   <?php print __('Listado de Transacciones del Sistema', true); ?>
+                   <?php print __('Listado de Enfermedades Micológicas del Paciente', true); ?>
                 </a>
             </li>            
         </ul>
         <fieldset style="" class="standar_fieldset_content">
             <table  width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
             	<tr>
-            		<th width="100%" style="font-size:10px;text-align: center;"><?php print __('Transacciones del Sistema',true); ?></th>
+            		<th width="100%" style="font-size:10px;text-align: center;"><?php print __('Enfermedades Micológicas',true); ?></th>
             	</tr>
             	<tr>
             		<td>
@@ -48,58 +48,41 @@ SIGIS. C.A
                                                     #
                                                 </td>
                                                 <td align="center" class="standar_font lista_fondo">
-                                                    <?php print __('Nombre',true);?>
+                                                    <?php print __('Nro.Historia',true);?>
                                                 </td>
                                                  <td align="center" class="standar_font lista_fondo">
-                                                    <?php print __('Usuario',true);?>
+                                                    <?php print __('Fecha Historia',true);?>
                                                 </td>
                                                 <td align="center" class="standar_font lista_fondo">
-                                                    <?php print __('Transacción',true);?>
+                                                    <?php print __('Cédula',true);?>
                                                 </td>
                                                 <td align="center" class="standar_font lista_fondo">
-                                                    <?php print __('Fecha',true);?>
+                                                    <?php print __('Nombre',true);?>
                                                 </td>
                                                 <td align="center" class="standar_font lista_fondo">
-                                                    <?php  print __('Detalle',true);?>
+                                                    <?php  print __('Apellido',true);?>
+                                                </td>
+                                                <td align="center" class="standar_font lista_fondo">
+                                                    <?php  print __('Tipo Enfermedad',true);?>
                                                 </td>
             								</tr>
             								<?php
-            								if (count($auditoria) > 0)
+            								if (count($tip_enf_mic_pac) > 0)
             								{
-					                            // debug($auditoria);
+					                             //debug($tip_enf_mic_pac);
             									// Recorre el resultado de la consulta
-            									foreach($auditoria  as $row)
+            									foreach($tip_enf_mic_pac  as $row)
             									{										
                     								?>
                     								<tr class="celda_blanco_text_azul" >
                                                         <td class="standar_font" align="center"><?php echo $paginator->NumRowPre(); ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->vat->nom_ape_usu; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->vat->log_usu;?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->Transaccione->des_tip_tra; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->vat->fecha_tran; ?></td>
-                                                        <td class="standar_font" align="center">
-                                                        <?php 
-                                                        if ($row->vat->detalle != 'Si')
-                										{
-                											print '&nbsp;'.$row->vat->detalle;
-                										}
-                										else
-                										{
-                                                        ?>
-                                                        <a class="texto_link" href="javascript:visualizarDetalle('<?php print ($paginator->NumRowPre()+1);?>',450,350);">
-                											<?php print '&nbsp;'.$row->vat->detalle; ?>
-                										</a>
-                                                        <form action="<?php echo $this->Html->url("/MedicoXml/event_listar_xml")?>" method="post" id="<?php print ($paginator->NumRowPre()+1);?>" target="Detalle">
-        													<input name="data_xml"     type="hidden" value="<?php echo urlencode($row->vat->data_xml); ?>">
-        													<input name="id_tip_tra"   type="hidden" value="<?php echo $row->vat->id_tip_tra; ?>">
-        													<input name="id_mod"       type="hidden" value="<?php echo $row->vat->id_mod; ?>">
-        													<input name="cod_tip_tra"  type="hidden" value="<?php echo $row->vat->cod_tip_tra; ?>">
-        												</form>
-                										<?php 
-                										}
-                										?>
-                                                        </td>
-                    				  			    </tr>
+                                                        <td class="standar_font" align="center"><?php echo $this->FormatString->NumbersZero($row->vtemp->num_his,6); ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->vtemp->fec_his;?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->Paciente->ced_pac; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->Paciente->nom_pac; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $row->vtemp->nom_tip_mic; ?></td>
+                                                    </tr>
                     								<?php								
             									}
             								?>
@@ -113,7 +96,7 @@ SIGIS. C.A
             							{
             							?>		
             				<tr>
-            					<td colspan="6"  align="center" height="30" style="border: #DEDEDE 2px solid;">
+            					<td colspan="7"  align="center" height="30" style="border: #DEDEDE 2px solid;">
             						<span class="standar_font lista_fondo">
             						<?php
             							// Imprime el total de registros encontrados
@@ -139,7 +122,7 @@ SIGIS. C.A
             			<table align="center" border="0" cellspacing="0" cellpadding="5" border="1">
             				<tr>
             					<td>					
-            						<input name="btn_volver" 	type="submit" value=" <?php print __('Volver',true); ?>" onclick="history.back()">
+            						<input name="btn_volver" type="submit" value=" <?php print __('Volver',true); ?>" onclick="history.back()">
             					</td>
             				</tr>
             			</table>
@@ -149,4 +132,3 @@ SIGIS. C.A
         </fieldset>
     </div>       
 </div>
- 
