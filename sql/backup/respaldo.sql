@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2011-09-11 17:36:13
+-- Started on 2011-10-13 22:49:51
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -66,7 +66,7 @@ FECHA: 20/03/2011
 
 --
 -- TOC entry 24 (class 1255 OID 18037)
--- Dependencies: 6 470
+-- Dependencies: 470 6
 -- Name: adm_eliminar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -225,7 +225,7 @@ DESCRIPCIÓN: Modificación de las estructuras de control
 
 --
 -- TOC entry 21 (class 1255 OID 18022)
--- Dependencies: 470 6
+-- Dependencies: 6 470
 -- Name: adm_modificar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -381,7 +381,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 --
 -- TOC entry 25 (class 1255 OID 17895)
--- Dependencies: 470 6
+-- Dependencies: 6 470
 -- Name: adm_modificar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -481,7 +481,7 @@ DESCRIPCIÓN: Validación de log del usuario
 
 --
 -- TOC entry 19 (class 1255 OID 18012)
--- Dependencies: 6 470
+-- Dependencies: 470 6
 -- Name: adm_registrar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1167,8 +1167,8 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 34 (class 1255 OID 19193)
--- Dependencies: 470 6
+-- TOC entry 37 (class 1255 OID 19193)
+-- Dependencies: 6 470
 -- Name: med_insertar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1178,11 +1178,13 @@ CREATE FUNCTION med_insertar_micosis_pacientes(character varying[]) RETURNS smal
 DECLARE
 	_datos ALIAS FOR $1;
 
-	_id_his		historiales_pacientes.id_his%TYPE;
+	_id_his			historiales_pacientes.id_his%TYPE;
 		
-	_id_tip_mic	tipos_micosis.id_tip_mic%TYPE;
-	_str_enf_pac	TEXT;
-	_str_les	TEXT;
+	_id_tip_mic		tipos_micosis.id_tip_mic%TYPE;
+	_str_enf_pac		TEXT;
+	_str_les		TEXT;
+	_str_tip_est_mic	TEXT;
+	
 	_str		TEXT;	
 		
 	_id_doc		doctores.id_doc%TYPE;
@@ -1194,7 +1196,6 @@ DECLARE
 	_id_tip_mic_pac	tipos_micosis_pacientes.id_tip_mic_pac%TYPE;
 	
 BEGIN
-raise notice '%','hola';
 
 
 	-- pacientes
@@ -1202,9 +1203,9 @@ raise notice '%','hola';
 	_id_tip_mic		:= _datos[2];
 	_str_enf_pac		:= _datos[3];
 	_str_les		:= _datos[4];	
-
+	_str_tip_est_mic	:= _datos[5];	
 		
-	_id_doc			:= _datos[5];	
+	_id_doc			:= _datos[6];	
 	
 	-- tipos de micosis del paciente
 	IF NOT EXISTS  (SELECT 1 FROM tipos_micosis_pacientes WHERE id_his = _id_his AND id_tip_mic = _id_tip_mic) THEN
@@ -1256,7 +1257,19 @@ raise notice '%','hola';
 		END LOOP;
 	END IF;
 
-	
+	-- insertando los tipos de estudios micologicos pertenecientes a la enfermedad que padece el paciente
+	_arr_1 := STRING_TO_ARRAY(_str_tip_est_mic,',');
+	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
+		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
+			INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+				id_tip_mic_pac,
+				id_tip_est_mic					
+			) VALUES (
+				_id_tip_mic_pac,
+				_arr_1[i]
+			);
+		END LOOP;
+	END IF;
 
 	RETURN 1;
 
@@ -1267,7 +1280,7 @@ ALTER FUNCTION public.med_insertar_micosis_pacientes(character varying[]) OWNER 
 
 --
 -- TOC entry 2348 (class 0 OID 0)
--- Dependencies: 34
+-- Dependencies: 37
 -- Name: FUNCTION med_insertar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1295,6 +1308,7 @@ EJEMPLO DE LLAMADA:
                 ''1'',               
                 ''1,2'',
                 ''(2;1)'',
+                ''1''
                 ''6''              
                 ]
             ) AS result 
@@ -1307,7 +1321,7 @@ FECHA DE CREACIÓN: 15/08/2011
 
 --
 -- TOC entry 32 (class 1255 OID 18865)
--- Dependencies: 470 6
+-- Dependencies: 6 470
 -- Name: med_modificar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1441,7 +1455,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 36 (class 1255 OID 19224)
+-- TOC entry 35 (class 1255 OID 19224)
 -- Dependencies: 470 6
 -- Name: med_modificar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1453,10 +1467,13 @@ DECLARE
 	_datos ALIAS FOR $1;	
 
 	_id_tip_mic_pac tipos_micosis_pacientes.id_tip_mic_pac%TYPE;
-	_id_tip_mic	tipos_micosis.id_tip_mic%TYPE;
-	_str_enf_pac	TEXT;
-	_str_les	TEXT;
-	_str		TEXT;	
+	_id_tip_mic		tipos_micosis.id_tip_mic%TYPE;
+	_str_enf_pac		TEXT;
+	_str_les		TEXT;
+	_str_tip_est_mic	TEXT;	
+
+	-- cadena para manipular el array
+	_str		TEXT;
 		
 	_id_doc		doctores.id_doc%TYPE;
 	
@@ -1464,14 +1481,16 @@ DECLARE
 	_arr_2	INTEGER[];
 	_arr_3	TEXT[];	
 	
+	
 BEGIN
 
 	-- pacientes	
 	_id_tip_mic_pac		:= _datos[1];
 	_str_enf_pac		:= _datos[2];
-	_str_les		:= _datos[3];			
-	_id_doc			:= _datos[4];	
-	
+	_str_les		:= _datos[3];
+	_str_tip_est_mic	:= _datos[4];		
+	_id_doc			:= _datos[5];	
+		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
 
@@ -1490,7 +1509,6 @@ BEGIN
 
 	-- tipo de consulta del paciente referidos al historico
 	DELETE FROM lesiones_partes_cuerpos__pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
-
 	
 	_arr_3 := STRING_TO_ARRAY(_str_les,',');
 	
@@ -1511,6 +1529,22 @@ BEGIN
 		END LOOP;
 	END IF;
 
+	-- enfermedades del paciente
+	DELETE FROM tipos_micosis_pacientes__tipos_estudios_micologicos WHERE id_tip_mic_pac = _id_tip_mic_pac;
+
+	_arr_1 := STRING_TO_ARRAY(_str_tip_est_mic,',');
+	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
+		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
+			INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+				id_tip_mic_pac,
+				id_tip_est_mic					
+			) VALUES (
+				_id_tip_mic_pac,
+				_arr_1[i]
+			);
+		END LOOP;
+	END IF;
+
 	RETURN 1;
 
 END;$_$;
@@ -1520,7 +1554,7 @@ ALTER FUNCTION public.med_modificar_micosis_pacientes(character varying[]) OWNER
 
 --
 -- TOC entry 2350 (class 0 OID 0)
--- Dependencies: 36
+-- Dependencies: 35
 -- Name: FUNCTION med_modificar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1546,9 +1580,10 @@ EJEMPLO DE LLAMADA:
                 ''1'',               
                 ''1,2'',
                 ''(2;1)'',
+                ''5'',
                 ''6''              
-                ]
-            ) AS result 
+		]
+	    ) AS result 
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
@@ -1858,7 +1893,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 37 (class 1255 OID 18907)
+-- TOC entry 36 (class 1255 OID 18907)
 -- Dependencies: 470 6
 -- Name: med_muestra_clinica_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1979,7 +2014,7 @@ ALTER FUNCTION public.med_muestra_clinica_paciente(character varying[]) OWNER TO
 
 --
 -- TOC entry 2352 (class 0 OID 0)
--- Dependencies: 37
+-- Dependencies: 36
 -- Name: FUNCTION med_muestra_clinica_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2183,7 +2218,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 20 (class 1255 OID 18904)
--- Dependencies: 6 470
+-- Dependencies: 470 6
 -- Name: med_registrar_informacion_adicional(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2879,8 +2914,8 @@ FECHA DE CREACIÓN: 05/06/2011
 
 
 --
--- TOC entry 35 (class 1255 OID 19226)
--- Dependencies: 470 363 6
+-- TOC entry 34 (class 1255 OID 19226)
+-- Dependencies: 363 470 6
 -- Name: validar_usuarios(text, text, text); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2985,7 +3020,7 @@ ALTER FUNCTION public.validar_usuarios(_log_usu text, _pas_usu text, _tip_usu te
 
 --
 -- TOC entry 2357 (class 0 OID 0)
--- Dependencies: 35
+-- Dependencies: 34
 -- Name: FUNCTION validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3804,7 +3839,7 @@ ALTER SEQUENCE enfermedades_pacientes_id_enf_pac_seq OWNED BY enfermedades_pacie
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 144, true);
+SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 149, true);
 
 
 SET default_tablespace = '';
@@ -4222,7 +4257,7 @@ ALTER SEQUENCE lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq OWNED B
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 147, true);
+SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 160, true);
 
 
 --
@@ -5247,7 +5282,7 @@ ALTER TABLE public.tipos_micosis_pacientes OWNER TO desarrollo_g;
 --
 -- TOC entry 1754 (class 1259 OID 19305)
 -- Dependencies: 6
--- Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
 CREATE TABLE tipos_micosis_pacientes__tipos_estudios_micologicos (
@@ -5257,12 +5292,12 @@ CREATE TABLE tipos_micosis_pacientes__tipos_estudios_micologicos (
 );
 
 
-ALTER TABLE public.tipos_micosis_pacientes__tipos_estudios_micologicos OWNER TO postgres;
+ALTER TABLE public.tipos_micosis_pacientes__tipos_estudios_micologicos OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1753 (class 1259 OID 19303)
 -- Dependencies: 6 1754
--- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
 CREATE SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq
@@ -5273,12 +5308,12 @@ CREATE SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq
     CACHE 1;
 
 
-ALTER TABLE public.tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq OWNER TO postgres;
+ALTER TABLE public.tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq OWNER TO desarrollo_g;
 
 --
 -- TOC entry 2471 (class 0 OID 0)
 -- Dependencies: 1753
--- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
 ALTER SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq OWNED BY tipos_micosis_pacientes__tipos_estudios_micologicos.id_tip_mic_pac_tip_est_mic;
@@ -5287,10 +5322,10 @@ ALTER SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq O
 --
 -- TOC entry 2472 (class 0 OID 0)
 -- Dependencies: 1753
--- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 1, false);
+SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 21, true);
 
 
 --
@@ -5324,7 +5359,7 @@ ALTER SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq OWNED BY tipos_micosis
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 29, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 37, true);
 
 
 SET default_tablespace = saib;
@@ -6093,7 +6128,7 @@ ALTER TABLE tipos_micosis_pacientes ALTER COLUMN id_tip_mic_pac SET DEFAULT next
 --
 -- TOC entry 2084 (class 2604 OID 19308)
 -- Dependencies: 1753 1754 1754
--- Name: id_tip_mic_pac_tip_est_mic; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_tip_mic_pac_tip_est_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
 ALTER TABLE tipos_micosis_pacientes__tipos_estudios_micologicos ALTER COLUMN id_tip_mic_pac_tip_est_mic SET DEFAULT nextval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq'::regclass);
@@ -6373,8 +6408,7 @@ INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUE
 -- Data for Name: enfermedades_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (143, 19, NULL, NULL, 29);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (144, 20, NULL, NULL, 29);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (149, 1, NULL, NULL, 37);
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (73, 1, NULL, NULL, NULL);
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (74, 2, NULL, NULL, NULL);
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (75, 1, NULL, NULL, NULL);
@@ -6484,6 +6518,11 @@ INSERT INTO lesiones (id_les, nom_les) VALUES (20, 'Querion de celso');
 -- Data for Name: lesiones_partes_cuerpos__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (156, NULL, 2, 1, 37);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (157, NULL, 3, 1, 37);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (158, NULL, 4, 1, 37);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (159, NULL, 2, 2, 37);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (160, NULL, 3, 2, 37);
 
 
 --
@@ -7004,22 +7043,22 @@ INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_
 INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (6, 1, 'Hifas cortas y agrupamiento de esporas', 1);
 INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (7, 1, 'Esporas endotrix', 1);
 INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (8, 1, 'Esporas ectoendotrix', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (9, 2, 'Microsporum canis', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (10, 2, 'Microsporum gypseum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (11, 2, 'Microsporum nunum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (12, 2, 'Truchophyton rubrum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (13, 2, 'Trichophyton mentafrophytes', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (14, 2, 'Trichophyton tonsurans', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (15, 2, 'Trichophyton verrucosum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (16, 2, 'Trichophyton violaceum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (17, 2, 'Epidermophyton verrucosum', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (18, 2, 'Trichosporon', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (19, 2, 'Geotrichum spp', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (20, 2, 'Candita albicans', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (21, 2, 'Candida no Candida albicans', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (22, 2, 'Makassezia furfur', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (23, 2, 'Makassezia pachydermatis', 1);
-INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (24, 2, 'Makassezia spp', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (9, 1, 'Microsporum canis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (10, 1, 'Microsporum gypseum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (11, 1, 'Microsporum nunum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (12, 1, 'Truchophyton rubrum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (13, 1, 'Trichophyton mentafrophytes', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (14, 1, 'Trichophyton tonsurans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (15, 1, 'Trichophyton verrucosum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (16, 1, 'Trichophyton violaceum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (17, 1, 'Epidermophyton verrucosum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (18, 1, 'Trichosporon', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (19, 1, 'Geotrichum spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (20, 1, 'Candita albicans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (21, 1, 'Candida no Candida albicans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (22, 1, 'Makassezia furfur', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (23, 1, 'Makassezia pachydermatis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (24, 1, 'Makassezia spp', 2);
 
 
 --
@@ -7049,15 +7088,21 @@ INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (3, 'Profundas');
 -- Data for Name: tipos_micosis_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (29, 2, 16);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (37, 1, 16);
 
 
 --
 -- TOC entry 2332 (class 0 OID 19305)
 -- Dependencies: 1754
--- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (16, 37, 1);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (17, 37, 2);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (18, 37, 3);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (19, 37, 4);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (20, 37, 5);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (21, 37, 6);
 
 
 --
@@ -7643,7 +7688,7 @@ ALTER TABLE ONLY tipos_examenes
 --
 -- TOC entry 2229 (class 2606 OID 19310)
 -- Dependencies: 1754 1754
--- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
 ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
@@ -8037,7 +8082,7 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 --
 -- TOC entry 2230 (class 2606 OID 18893)
--- Dependencies: 2158 1706 1664
+-- Dependencies: 2158 1664 1706
 -- Name: antecedentes_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8047,7 +8092,7 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 --
 -- TOC entry 2232 (class 2606 OID 17790)
--- Dependencies: 1722 1668 2187
+-- Dependencies: 2187 1722 1668
 -- Name: auditoria_transacciones_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8057,7 +8102,7 @@ ALTER TABLE ONLY auditoria_transacciones
 
 --
 -- TOC entry 2233 (class 2606 OID 17795)
--- Dependencies: 1719 1668 2181
+-- Dependencies: 1668 2181 1719
 -- Name: auditoria_transacciones_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8067,7 +8112,7 @@ ALTER TABLE ONLY auditoria_transacciones
 
 --
 -- TOC entry 2249 (class 2606 OID 19118)
--- Dependencies: 2101 1694 1672
+-- Dependencies: 1672 2101 1694
 -- Name: categoria_cuerpos__partes_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8097,7 +8142,7 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 --
 -- TOC entry 2278 (class 2606 OID 18781)
--- Dependencies: 1674 2104 1741
+-- Dependencies: 2104 1674 1741
 -- Name: centro_salud_doctores_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8167,7 +8212,7 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 --
 -- TOC entry 2242 (class 2606 OID 17588)
--- Dependencies: 1682 1684 2119
+-- Dependencies: 1684 2119 1682
 -- Name: enfermedades_pacientes_id_enf_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8177,7 +8222,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 --
 -- TOC entry 2241 (class 2606 OID 19194)
--- Dependencies: 1750 1684 2224
+-- Dependencies: 1684 2224 1750
 -- Name: enfermedades_pacientes_id_tip_enf_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8187,7 +8232,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 --
 -- TOC entry 2275 (class 2606 OID 18462)
--- Dependencies: 1735 2203 1733
+-- Dependencies: 1735 1733 2203
 -- Name: estados_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8197,7 +8242,7 @@ ALTER TABLE ONLY estados
 
 --
 -- TOC entry 2244 (class 2606 OID 17608)
--- Dependencies: 1686 1687 2124
+-- Dependencies: 2124 1687 1686
 -- Name: forma_infecciones__pacientes_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8207,7 +8252,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 --
 -- TOC entry 2243 (class 2606 OID 19326)
--- Dependencies: 1687 2224 1750
+-- Dependencies: 1750 1687 2224
 -- Name: forma_infecciones__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8217,7 +8262,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 --
 -- TOC entry 2245 (class 2606 OID 17618)
--- Dependencies: 1689 1686 2124
+-- Dependencies: 2124 1689 1686
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8227,7 +8272,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 --
 -- TOC entry 2246 (class 2606 OID 17623)
--- Dependencies: 1716 2175 1689
+-- Dependencies: 2175 1716 1689
 -- Name: forma_infecciones__tipos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8237,7 +8282,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 --
 -- TOC entry 2248 (class 2606 OID 18795)
--- Dependencies: 1692 2116 1680
+-- Dependencies: 1680 2116 1692
 -- Name: historiales_pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8247,7 +8292,7 @@ ALTER TABLE ONLY historiales_pacientes
 
 --
 -- TOC entry 2247 (class 2606 OID 17628)
--- Dependencies: 1692 1706 2158
+-- Dependencies: 1692 2158 1706
 -- Name: historiales_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8257,7 +8302,7 @@ ALTER TABLE ONLY historiales_pacientes
 
 --
 -- TOC entry 2250 (class 2606 OID 19098)
--- Dependencies: 2218 1746 1694
+-- Dependencies: 1746 1694 2218
 -- Name: lesiones__partes_cuerpos_id_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8267,7 +8312,7 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 --
 -- TOC entry 2251 (class 2606 OID 19209)
--- Dependencies: 1694 1696 2138
+-- Dependencies: 1694 2138 1696
 -- Name: lesiones_partes_cuerpos__pacientes_id_cat_cue_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8277,7 +8322,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2252 (class 2606 OID 19214)
--- Dependencies: 2220 1696 1748
+-- Dependencies: 1748 1696 2220
 -- Name: lesiones_partes_cuerpos__pacientes_id_par_cue_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8287,7 +8332,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2253 (class 2606 OID 19219)
--- Dependencies: 1750 2224 1696
+-- Dependencies: 2224 1696 1750
 -- Name: lesiones_partes_cuerpos__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8297,7 +8342,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2254 (class 2606 OID 19075)
--- Dependencies: 1708 1698 2161
+-- Dependencies: 2161 1708 1698
 -- Name: localizaciones_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8307,7 +8352,7 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 --
 -- TOC entry 2255 (class 2606 OID 17982)
--- Dependencies: 1718 2177 1700
+-- Dependencies: 1718 1700 2177
 -- Name: modulos_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8317,7 +8362,7 @@ ALTER TABLE ONLY modulos
 
 --
 -- TOC entry 2256 (class 2606 OID 17658)
--- Dependencies: 1704 2135 1692
+-- Dependencies: 1692 2135 1704
 -- Name: muestras_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8327,7 +8372,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 --
 -- TOC entry 2257 (class 2606 OID 17663)
--- Dependencies: 1702 1704 2151
+-- Dependencies: 2151 1702 1704
 -- Name: muestras_pacientes_id_mue_cli_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8337,7 +8382,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 --
 -- TOC entry 2276 (class 2606 OID 18467)
--- Dependencies: 1737 1735 2205
+-- Dependencies: 2205 1735 1737
 -- Name: municipios_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8347,7 +8392,7 @@ ALTER TABLE ONLY municipios
 
 --
 -- TOC entry 2262 (class 2606 OID 18646)
--- Dependencies: 1706 2116 1680
+-- Dependencies: 1680 2116 1706
 -- Name: pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8357,7 +8402,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2258 (class 2606 OID 18498)
--- Dependencies: 1706 2205 1735
+-- Dependencies: 1735 1706 2205
 -- Name: pacientes_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8367,7 +8412,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2259 (class 2606 OID 18503)
--- Dependencies: 2207 1737 1706
+-- Dependencies: 1706 2207 1737
 -- Name: pacientes_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8377,7 +8422,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2261 (class 2606 OID 18513)
--- Dependencies: 2203 1733 1706
+-- Dependencies: 2203 1706 1733
 -- Name: pacientes_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8387,7 +8432,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2260 (class 2606 OID 18508)
--- Dependencies: 2209 1739 1706
+-- Dependencies: 1739 2209 1706
 -- Name: pacientes_id_par_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8397,7 +8442,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2277 (class 2606 OID 18472)
--- Dependencies: 2207 1739 1737
+-- Dependencies: 1739 2207 1737
 -- Name: parroquias_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8407,7 +8452,7 @@ ALTER TABLE ONLY parroquias
 
 --
 -- TOC entry 2281 (class 2606 OID 19133)
--- Dependencies: 2101 1672 1748
+-- Dependencies: 2101 1748 1672
 -- Name: partes_cuerpos__categorias_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8437,7 +8482,7 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 --
 -- TOC entry 2263 (class 2606 OID 17678)
--- Dependencies: 1712 2135 1692
+-- Dependencies: 2135 1692 1712
 -- Name: tipos_consultas_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8447,7 +8492,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 --
 -- TOC entry 2264 (class 2606 OID 17683)
--- Dependencies: 1712 1710 2164
+-- Dependencies: 1710 2164 1712
 -- Name: tipos_consultas_pacientes_id_tip_con_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8457,7 +8502,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 --
 -- TOC entry 2266 (class 2606 OID 19285)
--- Dependencies: 1752 1714 2226
+-- Dependencies: 1714 2226 1752
 -- Name: tipos_estudios_micologicos_id_tip_exa_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8467,7 +8512,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 --
 -- TOC entry 2265 (class 2606 OID 17688)
--- Dependencies: 1716 2175 1714
+-- Dependencies: 1716 1714 2175
 -- Name: tipos_estudios_micologicos_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8478,7 +8523,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 --
 -- TOC entry 2286 (class 2606 OID 19316)
 -- Dependencies: 1714 1754 2172
--- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_est_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_est_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
 ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
@@ -8487,8 +8532,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 --
 -- TOC entry 2285 (class 2606 OID 19311)
--- Dependencies: 2224 1754 1750
--- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Dependencies: 1750 2224 1754
+-- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
 ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
@@ -8507,7 +8552,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 --
 -- TOC entry 2283 (class 2606 OID 19176)
--- Dependencies: 1716 2175 1750
+-- Dependencies: 2175 1716 1750
 -- Name: tipos_micosis_pacientes_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8517,7 +8562,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 --
 -- TOC entry 2269 (class 2606 OID 17997)
--- Dependencies: 2116 1719 1680
+-- Dependencies: 1680 1719 2116
 -- Name: tipos_usuarios__usuarios_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8537,7 +8582,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 --
 -- TOC entry 2268 (class 2606 OID 17907)
--- Dependencies: 2201 1729 1719
+-- Dependencies: 2201 1719 1729
 -- Name: tipos_usuarios__usuarios_id_usu_adm_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8547,7 +8592,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 --
 -- TOC entry 2270 (class 2606 OID 17805)
--- Dependencies: 1700 2148 1722
+-- Dependencies: 1722 2148 1700
 -- Name: transacciones_id_mod_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8557,7 +8602,7 @@ ALTER TABLE ONLY transacciones
 
 --
 -- TOC entry 2272 (class 2606 OID 18023)
--- Dependencies: 1724 2187 1722
+-- Dependencies: 1722 1724 2187
 -- Name: transacciones_usuarios_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8567,7 +8612,7 @@ ALTER TABLE ONLY transacciones_usuarios
 
 --
 -- TOC entry 2271 (class 2606 OID 18013)
--- Dependencies: 1719 1724 2181
+-- Dependencies: 2181 1724 1719
 -- Name: transacciones_usuarios_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8577,7 +8622,7 @@ ALTER TABLE ONLY transacciones_usuarios
 
 --
 -- TOC entry 2273 (class 2606 OID 17718)
--- Dependencies: 2135 1727 1692
+-- Dependencies: 1727 2135 1692
 -- Name: tratamientos_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8587,7 +8632,7 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 --
 -- TOC entry 2274 (class 2606 OID 17723)
--- Dependencies: 1727 2192 1725
+-- Dependencies: 1725 2192 1727
 -- Name: tratamientos_pacientes_id_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -8606,7 +8651,7 @@ REVOKE ALL ON SCHEMA public FROM desarrollo_g;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2011-09-11 17:36:14
+-- Completed on 2011-10-13 22:49:58
 
 --
 -- PostgreSQL database dump complete
