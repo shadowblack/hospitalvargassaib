@@ -63,7 +63,7 @@ SIGIS. C.A
                                                     <?php  print __('Apellido',true);?>
                                                 </td>
                                                 <td align="center" class="standar_font lista_fondo">
-                                                    <?php  print __('Tipo Enfermedad',true);?>
+                                                    <?php  print __('Tipo de Micosis',true);?>
                                                 </td>
             								</tr>
             								<?php

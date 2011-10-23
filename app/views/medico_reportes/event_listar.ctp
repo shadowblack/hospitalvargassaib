@@ -72,7 +72,7 @@ SIGIS. C.A
             									{										
                     								?>
                     								<tr class="celda_blanco_text_azul" >
-                                                        <td class="standar_font" align="center"><?php echo $paginator->NumRowPre(); ?></td>
+                                                        <td class="standar_font" align="center"><?php echo $i= $paginator->NumRowPre(); ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->vat->nom_ape_usu; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->vat->log_usu;?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Transaccione->des_tip_tra; ?></td>
@@ -86,10 +86,10 @@ SIGIS. C.A
                 										else
                 										{
                                                         ?>
-                                                        <a class="texto_link" href="javascript:visualizarDetalle('<?php print ($paginator->NumRowPre()+1);?>',450,350);">
+                                                        <a class="texto_link" href="javascript:visualizarDetalle('<?php print ($i);?>',450,350);">
                 											<?php print '&nbsp;'.$row->vat->detalle; ?>
                 										</a>
-                                                        <form action="<?php echo $this->Html->url("/MedicoXml/event_listar_xml")?>" method="post" id="<?php print ($paginator->NumRowPre()+1);?>" target="Detalle">
+                                                        <form action="<?php echo $this->Html->url("/MedicoXml/event_listar_xml")?>" method="post" id="<?php print ($i);?>" target="Detalle">
         													<input name="data_xml"     type="hidden" value="<?php echo urlencode($row->vat->data_xml); ?>">
         													<input name="id_tip_tra"   type="hidden" value="<?php echo $row->vat->id_tip_tra; ?>">
         													<input name="id_mod"       type="hidden" value="<?php echo $row->vat->id_mod; ?>">
