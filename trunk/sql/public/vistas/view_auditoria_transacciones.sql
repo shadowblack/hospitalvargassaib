@@ -22,4 +22,3 @@ ALTER TABLE view_auditoria_transacciones OWNER TO desarrollo_g;
 
 
 
-select * from auditoria_transacciones

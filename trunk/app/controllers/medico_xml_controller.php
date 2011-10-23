@@ -10,23 +10,21 @@
         }
         
      
-        function event_listar_xml(){
+        function event_listar_xml(){           
+        	$xml = (str_replace('<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>','',urldecode($_REQUEST['data_xml'])));
+            $xml = (str_replace('<?xml version="1.0" standalone="yes"?>','',$xml));  
             
-            header('Content-Type: application/xml');
-        	print '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>';
-        	print '<?xml-stylesheet href="$this->Html->url("/MedicoXml/event_listar_xml")" type="text/xsl"?>';
-        	print( str_replace('<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>','',urldecode($_REQUEST['data_xml'])));
-            
-            
-            $title = __("Transacciones de Usuarios",true);
-           
+            $title = __("Transacciones de Usuarios",true);           
             $data = Array(
-                "title"           => $title
-            );
-          
+                "xml"           => $xml
+            );          
             $this->set($data);
-            $this->set('title_for_layout', $title);            
-            $this->layout = 'default';
+           // $this->set('title_for_layout', $title);            
+            $this->layout = 'xml';
+        }
+        
+        function event_listar_xls(){
+            $this->layout = 'xml';
         }
     }
 ?>

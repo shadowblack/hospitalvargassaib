@@ -1,6 +1,6 @@
 //Funcion utilizada para visualizar los detalles de las transacciones, las cuales vienen en formato XML
 function visualizarDetalle(NOM_FORMULARIO,ANCHO,ALTO){
-	winDetalle=open('','Detalle','toolbar=no,location=no,alwaysRaised=yes,dependent=no,resizable=no,scrollbars=no,directories=no,width='+ANCHO+',height='+ALTO+',left=280,top=220');
+    winDetalle=open('s','Detalle','toolbar=no,location=no,alwaysRaised=yes,dependent=no,resizable=no,scrollbars=no,directories=no,width='+ANCHO+',height='+ALTO+',left=280,top=220');
 	winDetalle.focus();
 	document.getElementById(NOM_FORMULARIO).submit();
 }
