@@ -19,6 +19,7 @@ DECLARE
 	_id_est		pacientes.id_est%TYPE;
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;
+	_sex_pac	pacientes.sex_pac%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
@@ -55,6 +56,7 @@ BEGIN
 	_str_ant_per	:= _datos[14];	
 	_id_doc		:= _datos[15];
 	_tra_usu	:= _datos[16];
+	_sex_pac	:= _datos[17];
 
 	-- centros de salud pacientes
 	
@@ -63,7 +65,7 @@ BEGIN
 	IF EXISTS (SELECT 1 FROM pacientes WHERE id_pac = _id_pac::integer) THEN  
 
 		/*Busco el registro anterior del paciente*/
-		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun, 
+		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun,sex_pac, 
 			CASE 
 				WHEN nac_pac = '1' THEN 'Venezolano' ELSE 'Extranjero' 
 			END AS nac_pac,
@@ -74,7 +76,7 @@ BEGIN
 				WHEN ocu_pac = '4' THEN 'Agricultor'
 				WHEN ocu_pac = '5' THEN 'Jardinero'
 				WHEN ocu_pac = '6' THEN 'Otro'
-			END AS ocu_pac  INTO _reg_pac
+			END AS ocu_pac INTO _reg_pac
 		FROM pacientes 
 		WHERE id_pac = _id_pac;
 		
@@ -101,7 +103,8 @@ BEGIN
 			ciu_pac 	= _ciu_pac,	
 			id_pai 		= _id_pai,		
 			id_est 		= _id_est,		
-			id_mun 		= _id_mun			
+			id_mun 		= _id_mun,
+			sex_pac		= _sex_pac			
 
 			WHERE id_pac = _id_pac
 		;
@@ -138,6 +141,7 @@ BEGIN
 				formato_campo_xml('Apellido', 		coalesce(_ape_pac::text, 'ninguno'), 		coalesce(_reg_pac.ape_pac::text, 'ninguno'))||
 				formato_campo_xml('Cédula', 		coalesce(_ced_pac::text, 'ninguno'), 		coalesce(_reg_pac.ced_pac::text, 'ninguno'))||  
 				formato_campo_xml('Fecha Nacimiento', 	coalesce(_fec_nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.fec_nac_pac::text, 'ninguno'))||  
+				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		coalesce(_reg_pac.sex_pac::text, 'ninguno'))||  
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_act.nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.nac_pac::text, 'ninguno'))||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_hab_pac::text, 'ninguno'))||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_cel_pac::text, 'ninguno'))|| 
@@ -245,7 +249,7 @@ PARAMETROS: Recibe 12 Parámetros
 	14: Id de los antecedentes personales
 	15: Id del doctor quien realizo la transacción
 	16: Código de la transaccion
-	
+	17: Sexo del paciente
 
 DESCRIPCION: 
 	Modifica la información de los pacientes
@@ -271,7 +275,8 @@ EJEMPLO DE LLAMADA:
                 ''200'',
                 ''2,3,4,5,8'',
                 ''32'',
-                ''MP''
+                ''MP'',
+                ''F''
             ]) AS result;
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -281,28 +286,7 @@ AUTOR DE MODIFICACIÓN: Lisseth Lozada
 FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
+AUTOR DE MODIFICACIÓN: Lisseth Lozada
+FECHA DE MODIFICACIÓN: 24/10/2011
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
 ';
-
-/*
-
-SELECT med_modificar_paciente(ARRAY[
-                '66',
-                'pruebalis', 
-                'pruebalis', 
-                '1789654232', 
-                '1987-08-08',
-                '2',
-                '02129514777',
-                '777777777',
-                '2',
-                'css',
-                '1',
-                '15',
-                '200',
-                '2,3,4,5,8',
-                '32',
-                'MP'
-            ]) AS result
-
-
-*/

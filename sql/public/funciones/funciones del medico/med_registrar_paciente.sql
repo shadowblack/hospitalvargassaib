@@ -22,6 +22,7 @@ DECLARE
 	_id_est		pacientes.id_est%TYPE;
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;	
+	_sex_pac	pacientes.sex_pac%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
@@ -57,6 +58,7 @@ BEGIN
 	_str_ant_per	:= _datos[13];
 	_id_doc		:= _datos[14];
 	_tra_usu	:= _datos[15];
+	_sex_pac	:= _datos[16];
 
 	-- centros de salud pacientes
 	
@@ -80,7 +82,8 @@ BEGIN
 			id_est,		
 			id_mun,
 			num_pac,
-			id_doc		
+			id_doc,
+			sex_pac		
 		)
 		VALUES 
 		(
@@ -97,7 +100,8 @@ BEGIN
 			_id_est,		
 			_id_mun,
 			((SELECT COUNT(id_pac) FROM pacientes )::INTEGER)+1,
-			_id_doc
+			_id_doc,
+			_sex_pac
 		);
 
 		/*Busco el registro anterior del paciente*/
@@ -131,7 +135,8 @@ BEGIN
 				formato_campo_xml('Nombre',  		coalesce(_nom_pac::text, 'ninguno'), 		'ninguno')||
 				formato_campo_xml('Apellido', 		coalesce(_ape_pac::text, 'ninguno'), 		'ninguno')||
 				formato_campo_xml('Cédula', 		coalesce(_ced_pac::text, 'ninguno'), 		'ninguno')||  
-				formato_campo_xml('Fecha Nacimiento', 	coalesce(_fec_nac_pac::text, 'ninguno'), 	'ninguno')||  
+				formato_campo_xml('Fecha Nacimiento', 	coalesce(_fec_nac_pac::text, 'ninguno'), 	'ninguno')||
+				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		'ninguno')||   
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_pac.nac_pac::text, 'ninguno'), 	'ninguno')||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	'ninguno')|| 
@@ -210,6 +215,7 @@ BEGIN
 END;$BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
+ALTER FUNCTION med_registrar_paciente(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_registrar_paciente(character varying[]) IS '
 NOMBRE: med_registrar_paciente
 TIPO: Function (store procedure)
@@ -230,6 +236,7 @@ PARAMETROS: Recibe 12 Parámetros
 	13: Id de los antecedentes personales
 	14: Id del doctor quien realizo la transacción
 	15: Código de la transaccion
+	16: Sexo del paciente
 	
 
 DESCRIPCION: 
@@ -256,6 +263,7 @@ EJEMPLO DE LLAMADA:
                 ''2,3,4,8'',
                 ''32'',
                 ''RP''
+                ''F''
             ]) AS result
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -264,25 +272,8 @@ FECHA DE CREACIÓN: 09/06/2011
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
 FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
+
+AUTOR DE MODIFICACIÓN: Lisseth Lozada
+FECHA DE MODIFICACIÓN: 24/10/2011
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
 ';
-/*
-
-SELECT med_registrar_paciente(ARRAY[
-                'prueba', 
-                'prueba', 
-                '1789654233',     
-                '1988-08-08',
-                '1',
-                '02129514789',
-                '04269150755',
-                '1',
-                'guarenas',
-                '1',
-                '14',
-                '193',
-                '2,3,4,8',
-                '32',
-                'RP'
-            ]) AS result
-
-*/

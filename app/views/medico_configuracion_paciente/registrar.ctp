@@ -79,7 +79,7 @@
                             &nbsp;
                         </td>
                         <td valign="top">
-                            <input type="text" name="txt_ced_pac" value="" class="required" maxlength="20">
+                            <input type="text" name="txt_ced_pac" value="" class="required" maxlength="8">
                         </td>
                     </tr>
                     <tr>
@@ -89,14 +89,17 @@
                         <td>
                             &nbsp;
                         </td>
+                        <td class="font-standar" valign="top">                                
+                            <?php echo __("Sexo")?>
+                        </td>                            
+                        <td>
+                            &nbsp;
+                        </td>
                          <td class="font-standar" valign="top">                                
                             <?php echo __("Nacionalidad")?>
                         </td>                            
                         <td>
                             &nbsp;
-                        </td>
-                        <td class="font-standar" valign="top">
-                            <?php echo __("Ocupación")?>                                
                         </td>
                     </tr>                       
                     <tr>
@@ -104,6 +107,16 @@
                             <input name="txt_fec_nac_pac" id="txt_fec_nac_pac" value="" class="date required" />
                         </td>
                         <td>
+                            &nbsp;
+                        </td>
+                        <td valign="top" >
+                            <select class="required" name="sel_sex_pac">
+                                <option value="">--<?php __("Seleccione")?>--</option>                                    
+                                <option value="F"><?php __("Femenino")?></option>
+                                <option value="M"><?php __("Masculino")?></option>
+                            </select>
+                        </td>
+                        <td >
                             &nbsp;
                         </td>
                         <td valign="top" >
@@ -116,6 +129,28 @@
                         <td >
                             &nbsp;
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="font-standar" valign="top">
+                            <?php echo __("Ocupación")?>                                
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td class="font-standar" valign="top" >                                
+                            <?php echo __("Teléfono",true)?>                                
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                         <td class="font-standar" valign="top">                                
+                            <?php echo __("Celular")?>
+                        </td>                            
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                     <tr>
                         <td valign="top">
                             <select id="sel_ocu_pac" name="sel_ocu_pac" value="" class="required"
                             >    
@@ -145,25 +180,9 @@
                             </option>
                             </select>
                         </td>
-                    </tr>
-                     <tr>
-                        <td class="font-standar" valign="top" >                                
-                            <?php echo __("Teléfono",true)?>                                
-                        </td>
                         <td>
                             &nbsp;
                         </td>
-                         <td class="font-standar" valign="top">                                
-                            <?php echo __("Celular")?>
-                        </td>                            
-                        <td>
-                            &nbsp;
-                        </td>
-                        <td class="font-standar" valign="top">
-                            <?php echo __("Ciudad de Residencia")?>                                
-                        </td>
-                    </tr>
-                     <tr>
                         <td class="font-standar" valign="top">                                
                             <input type="text" name="txt_tel_pac" id="txt_tel_pac" value="" class="number required" maxlength="12">                               
                         </td>
@@ -176,11 +195,14 @@
                         <td>
                             &nbsp;
                         </td>
-                        <td class="font-standar" valign="top">
-                            <input type="text" name="txt_ciu_res_pac" id="txt_res_pac" value="" class="text required" maxlength="100">                                                         
-                        </td>
                     </tr>
                     <tr>
+                        <td class="font-standar" valign="top">
+                            <?php echo __("Ciudad de Residencia")?>                                
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
                         <td  class="font-standar" valign="top">
                             <?php echo __("Estado")?>
                             
@@ -193,18 +215,21 @@
                         </td> 
                         <td>
                              &nbsp;
-                        </td>                          
-                        <td  class="font-standar" valign="top">                           
-                            &nbsp;                       
                         </td>
                     </tr>
                     <tr>
+                        <td class="font-standar" valign="top">
+                            <input type="text" name="txt_ciu_res_pac" id="txt_res_pac" value="" class="text required" maxlength="100">                                                         
+                        </td>
+                        <td>
+                             &nbsp;
+                        </td>  
                         <td valign="top">
                             <select id="sel_est_pac" name="sel_est_pac" class="required">
                                 <option value="">--<?php echo __("Seleccione",true)?>--</option>
                                 <?php foreach($estados as $row){?>   
                                         <option value="<?php echo $row->id_est?>"><?php echo $row->des_est?></option>
-                                <?php    }?>
+                                <?php }?>
                             </select>
                         </td>
                         <td>
@@ -223,10 +248,6 @@
                                     </td>
                                 </tr>
                             </table>
-                            
-                        </td>
-                        <td>
-                            &nbsp;
                         </td>
                         <td>
                             &nbsp;
