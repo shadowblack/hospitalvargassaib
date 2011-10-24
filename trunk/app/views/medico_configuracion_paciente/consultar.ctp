@@ -62,14 +62,17 @@
                     <td>
                         &nbsp;
                     </td>
-                     <td class="standar_font_sub" valign="top">                                
-                        <?php echo __("Nacionalidad")?>
+                    <td class="standar_font_sub" valign="top">                                
+                        <?php echo __("Sexo")?>
                     </td>                            
                     <td>
                         &nbsp;
                     </td>
-                    <td class="standar_font_sub" valign="top">
-                        <?php echo __("Ocupación")?>                                
+                    <td class="standar_font_sub" valign="top">                                
+                        <?php echo __("Nacionalidad")?>
+                    </td>                            
+                    <td>
+                        &nbsp;
                     </td>
                 </tr>                       
                 <tr>
@@ -80,14 +83,47 @@
                         &nbsp;
                     </td>
                     <td valign="top" >
+                        <span class="standar_font"><?php echo ($result->sex_pac == "F" ? __("Femenino") : __("Masculino"))?></span>
+                    </td>
+                    <td >
+                        &nbsp;
+                    </td>
+                    <td valign="top" >
                         <span class="standar_font"><?php echo ($result->ced_pac == "1" ? __("Venezolano") : __("Extranjero"))?></span>
                         
                     </td>
                     <td >
                         &nbsp;
                     </td>
-                    <td valign="top">
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                     <td class="standar_font_sub" valign="top">
+                        <?php echo __("Ocupación")?>                                
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td class="standar_font_sub" valign="top" >                                
+                        <?php echo __("Teléfono",true)?>                                
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                     <td class="standar_font_sub" valign="top">                                
+                        <?php echo __("Celular")?>
+                    </td>                            
+                    <td>
+                        &nbsp;
+                    </td>
                     
+                </tr>
+                 <tr>
+                     <td valign="top">
                         <?php
                             switch($result->ocu_pac){
                                 case 1:
@@ -112,30 +148,9 @@
                         ?>
                         <span class="font-standar"><?php echo $ocupacion ?></span>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        &nbsp;
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="standar_font_sub" valign="top" >                                
-                        <?php echo __("Teléfono",true)?>                                
-                    </td>
                     <td>
                         &nbsp;
                     </td>
-                     <td class="standar_font_sub" valign="top">                                
-                        <?php echo __("Celular")?>
-                    </td>                            
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td class="standar_font_sub" valign="top">
-                        <?php echo __("Ciudad de Residencia")?>                                
-                    </td>
-                </tr>
-                 <tr>
                     <td class="font-standar" valign="top">  
                         <span class="font-standar"><?php echo $result->tel_hab_pac?></span>                                                                                             
                     </td>
@@ -148,9 +163,6 @@
                     <td>
                         &nbsp;
                     </td>
-                    <td class="font-standar" valign="top">                                
-                        <span class="font-standar"><?php echo $result->ciu_pac?></span>                 
-                    </td>
                 </tr>
                 <tr>
                     <td colspan="5">
@@ -158,27 +170,32 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="standar_font_sub" valign="top">
+                        <?php echo __("Ciudad de Residencia")?>                                
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
                     <td  class="standar_font_sub" valign="top">
                         <?php echo __("Estado")?>
-                        
                     </td>
                     <td>
                         &nbsp;
                     </td>
                     <td  class="standar_font_sub" valign="top">
                         <?php echo __("Municipio")?>
-                        
                     </td>
                     <td>
                         &nbsp;
                     </td>
-                    <td  class="standar_font_sub" valign="top">
-                        &nbsp;
-                        <!--<?php echo __("Parroquia")?>-->
-                        
-                    </td>
                 </tr>
                 <tr>
+                    <td class="font-standar" valign="top">                                
+                        <span class="font-standar"><?php echo $result->ciu_pac?></span>                 
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
                     <td valign="top">
                         <span class="font-standar"><?php echo $result->des_est?></span>
                     </td>
@@ -190,9 +207,6 @@
                     </td>
                     <td>
                         &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;                               
                     </td>
                 </tr>                                        
             </table>

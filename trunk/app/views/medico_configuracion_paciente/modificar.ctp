@@ -97,7 +97,7 @@
                         &nbsp;
                     </td>
                     <td valign="top">
-                        <input type="text" name="txt_ced_pac" value="<?php echo $result->ced_pac?>" class="required" maxlength="20">
+                        <input type="text" name="txt_ced_pac" value="<?php echo $result->ced_pac?>" class="required" maxlength="8">
                     </td>
                 </tr>
                 <tr>
@@ -107,14 +107,17 @@
                     <td>
                         &nbsp;
                     </td>
+                    <td class="font-standar" valign="top">                                
+                        <?php echo __("Sexo")?>
+                    </td>                            
+                    <td>
+                        &nbsp;
+                    </td>
                      <td class="font-standar" valign="top">                                
                         <?php echo __("Nacionalidad")?>
                     </td>                            
                     <td>
                         &nbsp;
-                    </td>
-                    <td class="font-standar" valign="top">
-                        <?php echo __("Ocupación")?>                                
                     </td>
                 </tr>                       
                 <tr>
@@ -122,6 +125,16 @@
                         <input name="txt_fec_nac_pac" id="txt_fec_nac_pac" value="<?php echo $this->DateFormat->PostgresToDate($result->fec_nac_pac)?>" class="date required" />
                     </td>
                     <td>
+                        &nbsp;
+                    </td>
+                    <td valign="top" >
+                        <select class="required" name="sel_sex_pac">
+                            <option value="">--<?php __("Seleccione")?>--</option>                                    
+                            <option value="F" <?php echo ($result->sex_pac == 'F' ? "selected='selected'":"")?>><?php __("Femenino")?></option>
+                            <option value="M" <?php echo ($result->sex_pac == 'M' ? "selected='selected'":"")?>><?php __("Masculino")?></option>
+                        </select>
+                    </td>
+                    <td >
                         &nbsp;
                     </td>
                     <td valign="top" >
@@ -134,37 +147,14 @@
                     <td >
                         &nbsp;
                     </td>
-                    <td valign="top">
-                        <select id="sel_ocu_pac" name="sel_ocu_pac" value="" class="required"
-                        >    
-                        <option value="">--<?php __("Seleccione")?>--</option>                            
-                        <option value="1" <?php echo ($result->ocu_pac == 1 ? "selected='selected'":"")?>>
-                            <?php  __("Profesional")?>
-                            
-                        </option>
-                        <option value="2" <?php echo ($result->ocu_pac == 2 ? "selected='selected'":"")?>>
-                            <?php  __("Técnico")?>
-                            
-                        </option>
-                        <option value="3" <?php echo ($result->ocu_pac == 3 ? "selected='selected'":"")?>>
-                            <?php  __("Obrero")?>
-                            
-                        </option>
-                        <option value="4" <?php echo ($result->ocu_pac == 4 ? "selected='selected'":"")?>>
-                            <?php  __("Agricultor")?>
-                            
-                        </option>
-                        <option value="5" <?php echo ($result->ocu_pac == 5 ? "selected='selected'":"")?>>
-                            <?php  __("Jardinero")?>
-                            
-                        </option>
-                        <option value="6" <?php echo ($result->ocu_pac == 6 ? "selected='selected'":"")?>>
-                            <?php  __("Otro")?>                                    
-                        </option>
-                        </select>
-                    </td>
                 </tr>
                  <tr>
+                    <td class="font-standar" valign="top">
+                        <?php echo __("Ocupación")?>                                
+                    </td>
+                     <td>
+                        &nbsp;
+                    </td>
                     <td class="font-standar" valign="top" >                                
                         <?php echo __("Teléfono",true)?>                                
                     </td>
@@ -177,11 +167,39 @@
                     <td>
                         &nbsp;
                     </td>
-                    <td class="font-standar" valign="top">
-                        <?php echo __("Ciudad de Residencia")?>                                
-                    </td>
                 </tr>
-                 <tr>
+                <tr>
+                    <td valign="top">
+                        <select id="sel_ocu_pac" name="sel_ocu_pac" value="" class="required">    
+                            <option value="">--<?php __("Seleccione")?>--</option>                            
+                            <option value="1" <?php echo ($result->ocu_pac == 1 ? "selected='selected'":"")?>>
+                                <?php  __("Profesional")?>
+                                
+                            </option>
+                            <option value="2" <?php echo ($result->ocu_pac == 2 ? "selected='selected'":"")?>>
+                                <?php  __("Técnico")?>
+                                
+                            </option>
+                            <option value="3" <?php echo ($result->ocu_pac == 3 ? "selected='selected'":"")?>>
+                                <?php  __("Obrero")?>
+                                
+                            </option>
+                            <option value="4" <?php echo ($result->ocu_pac == 4 ? "selected='selected'":"")?>>
+                                <?php  __("Agricultor")?>
+                                
+                            </option>
+                            <option value="5" <?php echo ($result->ocu_pac == 5 ? "selected='selected'":"")?>>
+                                <?php  __("Jardinero")?>
+                                
+                            </option>
+                            <option value="6" <?php echo ($result->ocu_pac == 6 ? "selected='selected'":"")?>>
+                                <?php  __("Otro")?>                                    
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
                     <td class="font-standar" valign="top">                                
                         <input type="text" name="txt_tel_pac" id="txt_tel_pac" value="<?php echo $result->tel_hab_pac?>" class="number required" maxlength="12">                               
                     </td>
@@ -194,38 +212,40 @@
                     <td>
                         &nbsp;
                     </td>
-                    <td class="font-standar" valign="top">
-                        <input type="text" name="txt_ciu_res_pac" id="txt_res_pac" value="<?php echo $result->ciu_pac?>" class="text required" maxlength="100">                                                         
-                    </td>
                 </tr>
                 <tr>
+                    <td class="font-standar" valign="top">
+                        <?php echo __("Ciudad de Residencia")?>                                
+                    </td>
+                     <td>
+                        &nbsp;
+                    </td>
                     <td  class="font-standar" valign="top">
                         <?php echo __("Estado")?>
-                        
                     </td>
                     <td>
                         &nbsp;
                     </td>
                     <td  class="font-standar" valign="top">
                         <?php echo __("Municipio")?>
-                        
                     </td>
                     <td>
                         &nbsp;
                     </td>
-                    <td  class="font-standar" valign="top">
-                        &nbsp;
-                        <!--<?php echo __("Parroquia")?>-->
-                        
-                    </td>
                 </tr>
                 <tr>
+                    <td class="font-standar" valign="top">
+                        <input type="text" name="txt_ciu_res_pac" id="txt_res_pac" value="<?php echo $result->ciu_pac?>" class="text required" maxlength="100">                                                         
+                    </td>
+                     <td>
+                        &nbsp;
+                    </td>
                     <td valign="top">
                         <select id="sel_est_pac" name="sel_est_pac" class="required">
                             <option value="">--<?php echo __("Seleccione",true)?>--</option>
                             <?php foreach($estados as $row){?>   
                                     <option value="<?php echo $row->id_est?>" <?php echo ($result->id_est == $row->id_est ? "selected='selected'":"")?>><?php echo $row->des_est?></option>
-                            <?php    }?>
+                            <?php }?>
                         </select>
                     </td>
                     <td>
@@ -244,34 +264,28 @@
                                 </td>
                             </tr>
                         </table>
-                        
                     </td>
-                    <td>
+                     <td>
                         &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                        <!--<input type="text" name="tex_pac_par" id="tex_pac_par" value="" class="required"
-                        />-->
                     </td>
                 </tr>
                 <tr>
-                        <td class="font-standar" colspan="5">
-                            <?php __("Antecedentes personales") ?>                        
-                        </td>                    
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                             <div class="standar_margin lista_standar" style="overflow-y: auto; height: 140px;">
-                                <ol class="standar_list">
-                                    <?php foreach($ante_pers as $row): ?>
-                                        <li>                                     
-                                        <input name="chk_ant_per_<?php echo $row->AntecedentesPersonale->id_ant_per?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->AntecedentesPersonale->id_ant_per?>" <?php echo (!empty($row->AntecedentesPaciente->id_ant_per) ? "checked='checked'" : "")?>><?php echo $row->AntecedentesPersonale->nom_ant_per?></li>
-                                    <?php endforeach ?>
-                                </ol>
-                            </div>
-                        </td>
-                    </tr>                                          
+                    <td class="font-standar" colspan="5">
+                        <?php __("Antecedentes personales") ?>                        
+                    </td>                    
+                </tr>
+                <tr>
+                    <td colspan="5">
+                         <div class="standar_margin lista_standar" style="overflow-y: auto; height: 140px;">
+                            <ol class="standar_list">
+                                <?php foreach($ante_pers as $row): ?>
+                                    <li>                                     
+                                    <input name="chk_ant_per_<?php echo $row->AntecedentesPersonale->id_ant_per?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->AntecedentesPersonale->id_ant_per?>" <?php echo (!empty($row->AntecedentesPaciente->id_ant_per) ? "checked='checked'" : "")?>><?php echo $row->AntecedentesPersonale->nom_ant_per?></li>
+                                <?php endforeach ?>
+                            </ol>
+                        </div>
+                    </td>
+                </tr>                                          
             </table>
             </div>                      
             <table style="width: 100%;" border="0">

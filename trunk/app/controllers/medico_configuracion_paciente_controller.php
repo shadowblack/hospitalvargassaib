@@ -104,13 +104,14 @@
                             p.ape_pac, 
                             p.ced_pac, 
                             p.fec_nac_pac, 
-                            p.nac_pac, 
+                            p.nac_pac,
+                            p.sex_pac, 
                             p.tel_hab_pac, 
                             p.tel_cel_pac, 
                             p.ocu_pac,
                             p.ciu_pac, 
                             e.des_est,                             
-                            m.des_mun 
+                            m.des_mun
                             FROM 
                             pacientes p 
                             JOIN estados e  USING(id_est) 
@@ -163,7 +164,6 @@
                             "type"=>"left"
                         )
                     )
-                
             ))
             );               
                
@@ -173,7 +173,7 @@
             $data = Array(
                 "result"    => $result,
                 "estados"   => $estados,
-                "ante_pers"  => $ante_pers,
+                "ante_pers" => $ante_pers,
                 "title"     => $title                            
             ); 
             
@@ -200,6 +200,7 @@
             $est_pac        = $_POST["sel_est_pac"];
             $num_pac        = $_POST["sel_mun_pac"];
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
+            $sex_pac        = $_POST["sel_sex_pac"];
             $id_doc         = $this->Session->read("medico.id_usu");          
             $tra_usu        = "RP";                                
             $sql = "SELECT med_registrar_paciente(ARRAY[
@@ -217,7 +218,8 @@
                 '$num_pac',
                 '$hdd_chk_ant_per',
                 '$id_doc',
-                '$tra_usu'
+                '$tra_usu',
+                '$sex_pac'
             ]) AS result";
             
             $arr_query = ($this->Doctore->query($sql));
@@ -259,6 +261,7 @@
             $ciu_res_pac    = $_POST["txt_ciu_res_pac"];
             $est_pac        = $_POST["sel_est_pac"];
             $num_pac        = $_POST["sel_mun_pac"];
+            $sex_pac        = $_POST["sel_sex_pac"];
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $id_doc         = $this->Session->read("medico.id_usu"); 
             $tra_usu        = "MP";                      
@@ -279,7 +282,8 @@
                 '$num_pac',
                 '$hdd_chk_ant_per',
                 '$id_doc',
-                '$tra_usu'
+                '$tra_usu',
+                '$sex_pac'
             ]) AS result";
             
             $arr_query = ($this->Doctore->query($sql));            
@@ -346,7 +350,6 @@
                     $results = ($this->SqlData->array_to_objects($arr_query));   
                       
                 break;
-                
             }       
                 
             $data = Array(
