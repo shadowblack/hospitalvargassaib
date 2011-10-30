@@ -75,3 +75,18 @@ GROUP BY ptm.nom_tip_mic
 
 
 
+/*Filtrar por fechas, */
+SELECT DISTINCT
+	hp.fec_his,
+	hp.id_his,
+	hp.id_pac,
+	p.nom_pac||' '||p.ape_pac AS nombre,
+	l.nom_les
+FROM pacientes p
+	JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac)
+	JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his)
+	JOIN lesiones_partes_cuerpos__pacientes lpcp ON(tmp.id_tip_mic_pac = lpcp.id_tip_mic_pac)
+	JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les)
+	JOIN lesiones l ON(ccl.id_les = l.id_les)
+WHERE hp.id_pac = 7
+ORDER BY hp.id_his, l.nom_les

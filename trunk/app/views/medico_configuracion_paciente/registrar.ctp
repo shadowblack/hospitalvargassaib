@@ -90,7 +90,7 @@
                             &nbsp;
                         </td>
                         <td class="font-standar" valign="top">                                
-                            <?php echo __("Sexo")?>
+                            <?php echo __("Género")?>
                         </td>                            
                         <td>
                             &nbsp;

@@ -16,6 +16,11 @@
             {            
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/busqueda")?>");
             });   
+            
+            jQuery("#tip_les_pac").click(function()
+            {            
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/busqueda")?>");
+            });   
         });
 </script>      
  <style type="text/css">
@@ -39,7 +44,11 @@
                     <br /><br />
                     <a id="enf_mic_pac" href="javascript:void(0)" >
                         <?php __("Enfermedades Micológicas del Paciente")?>
-                    </a>                                                     
+                    </a>
+                    <br /><br />
+                    <a id="tip_les_pac" href="javascript:void(0)" >
+                        <?php __("Tipo de Lesiones del Paciente")?>
+                    </a>                                                        
                 </div>
           </div>
         </div>

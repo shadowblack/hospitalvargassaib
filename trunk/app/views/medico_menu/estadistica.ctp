@@ -2,15 +2,29 @@
     jQuery(function()
         {
             jQuery("#accordion").accordion
-                ({
-                    header: "h3",                        
-                    event: "mouseover"
-                });                
-
+            ({
+                header: "h3",                        
+                event: "mouseover"
+            });
+            
+            jQuery("#est_gen_pac").click(function()
+            { 
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaGenero/busqueda")?>");
+            });
+            
             jQuery("#est_eda_pac").click(function()
-            {      
-                
+            { 
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaGrupoEtario/busqueda")?>");
+            });
+            
+            jQuery("#est_les_pac").click(function()
+            { 
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/busqueda")?>");
+            });
+            
+            jQuery("#est_mic_pac").click(function()
+            { 
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaTipoMicosis/busqueda")?>");
             });
         });
 </script>      
@@ -29,17 +43,17 @@
             </h3>
             <div style="">                                               
                 <div style="height: 80px;text-align: left;">
-                    <a id="est_eda_pac" href="javascript:void(0)" >
-                        <?php __("Grupo Etario del paciente")?>
-                    </a></br>
-                    <a id="est_sex_pac" href="javascript:void(0)" >
-                        <?php __("Sexo del paciente")?>
+                    <a id="est_gen_pac" href="javascript:void(0)" >
+                        <?php __("Cantidad de Género")?>
                     </a></br>
                     <a id="est_eda_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de Lesión del paciente")?>
+                        <?php __("Grupo Etario")?>
                     </a></br>
-                    <a id="est_eda_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de micosis del paciente")?>
+                    <a id="est_les_pac" href="javascript:void(0)" >
+                        <?php __("Tipo de Lesión")?>
+                    </a></br>
+                    <a id="est_mic_pac" href="javascript:void(0)" >
+                        <?php __("Tipo de Micosis")?>
                     </a></br>                               
                 </div>
           </div>

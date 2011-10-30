@@ -2,7 +2,7 @@
     class MedicoEstadisticaGrupoEtarioController extends Controller{
         
         var $name = "MedicoEstadisticaGrupoEtario";
-        var $uses = Array();
+        var $uses = Array("Paciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History","Ofc");
         var $helpers =      Array("Paginator");
         protected $group_session = "medico";        
@@ -14,100 +14,136 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
         }
         
-        
-        function grafico(){
+        function busqueda(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            
+            $title = __("Búsqueda por Grupo Etario",true);
            
-           $this->Ofc->set_ofc_webroot($this->webroot);
-            $this->Ofc->set_ofc_size(500,300);
-         
-            srand((double)microtime()*1000000);
-            $data_1 = array();
-            $data_2 = array();
-            $data_3 = array();
-            for( $i=0; $i<12; $i++ )
-            {
-              $data_1[] = rand(14,19);
-              $data_2[] = rand(8,13);
-              $data_3[] = rand(1,7);
-            }
-            $this->Ofc->set_ofc_title( 'CakePHP for Vietnamese', '{font-size: 20px; color: #736AFF}' );
-            $month = array( 'January','February','March','April','May','June','July','August','Spetember','October','November','December' );
-            $this->Ofc->set_ofc_x_info($month, array('size'=>10,'color'=>'0x000000','orientation'=>0,'step'=>2));
-            $this->Ofc->set_ofc_y_info(20,4,array('text'=>'cakephpvn.org','size'=>12,'color'=>'#736AFF'));
-         
-            $this->Ofc->init();
-            $this->Ofc->setup();
-            $this->Ofc->set_ofc_data( $data_1 );
-            $this->Ofc->bar( 3, 5, '0xCC3399', 'Downloads', 10);
-            echo $this->Ofc->ofc_render();die;
-            $title = __("Reporte de transacciones",true);
-            $grafico = $this->Ofc->ofc_render();
             $data = Array(
-                "grafico" => $grafico             
+               "title" => $title
             );
           
             $this->set($data);
             $this->set('title_for_layout', $title);            
-           // $this->layout = 'ajax';
-            
-          
+            $this->layout = 'default';
         }
         
-        function busqueda(){
+        function contenido(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
-            
-        }
-        
-        function event_listar(){
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
-            
-            $ids_usu =  $_POST["id_usuarios"];
-            $ids_tra = $_POST["id_transacc"];
             
             if(isset($_POST['txt_fec_ini']) && isset($_POST['txt_fec_fin'])){
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"])." 00:00";
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
+                
+                $where = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
             }
             
-            $this->paginate = array(
-                'limit' => 25,
-                'fields' => Array(
-                                    "vat.fecha_tran",
-                                    "vat.nom_ape_usu",
-                                    "vat.log_usu",
-                                    "vat.detalle",
-                                    "Transaccione.des_tip_tra",
-                                    "vat.data_xml",
-                                    "vat.id_tip_tra",
-                                    "vat.cod_tip_tra",
-                                    "vat.id_mod"
-                ),
-                "joins" => array(
-                    Array(
-                        "table"      => "view_auditoria_transacciones",
-                        "alias"      => "vat",
-                        "conditions" => "vat.id_tip_tra = Transaccione.id_tip_tra"
-                    )
-                ),
-                "conditions" => Array(
-                    "vat.id_tip_usu_usu" => explode(",",$ids_usu),                                
-                    "vat.id_tip_tra" => explode(",",$ids_tra),
-                    "CAST(vat.fecha_tran AS DATE) >=" => "$fec_ini",
-                    "CAST(vat.fecha_tran AS DATE) <=" => "$fec_fin"
-                ),
-                "order" => "CAST(vat.fecha_tran AS DATE) DESC" 
-            ); 
-   
-            $arr_query = $this->paginate("Transaccione");
-            $auditoria = $this->SqlData->CakeArrayToObjects($arr_query);             
-            
-            $title = __("Reporte de transacciones",true);
+            if(isset($_POST['sel_gru_eta']) && $_POST['sel_gru_eta'] != '0'){
+                 $gru_eta_pac = $_POST["sel_gru_eta"];
+                 
+                 switch ($gru_eta_pac) {
+                    case '1':
+                        $condicion = " 0 and 12 "; break;
+                    case '2':
+                        $condicion = " 13 and 17 "; break;
+                    case '3':
+                        $condicion = " 18 and 28 "; break;
+                    case '4':
+                        $condicion = " 29 and 35 "; break;
+                    case '5':
+                        $condicion = " 36 and 59 "; break;
+                    case '6':
+                        $condicion = " >= 60 "; break;
+                }
+                $where .= " AND substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between ".$condicion; 
+            }
+            else{
+                $where .= "";
+            }
+                                      
             $data = Array(
-                "auditoria" => $auditoria,
-                "title"     => $title
-            );
-          
+                "result"  => $where     
+            ); 
+            
+            $this->set($data);          
+            $this->layout = 'default';
+        }
+        
+        function grafico(){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            
+            $where = 'WHERE '.$_POST['fil'];
+            $sql = "SELECT  count(*) AS cantidad,
+                            CASE
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 18 and 28 THEN 'Joven'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 29 and 35 THEN 'Adulto Joven'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 36 and 59 THEN 'Adulto'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int >= 60 THEN 'Adulto Mayor'
+                            END AS grupo
+                    FROM pacientes
+                    ".$where." 
+                    GROUP BY grupo
+                    ORDER BY grupo desc";
+            
+            //die($sql);       
+            $arr_query = ($this->Paciente->query($sql));
+            $gru_eta = ($this->SqlData->array_to_objects($arr_query)); 
+                    
+            $this->Ofc->set_ofc_webroot($this->webroot);
+            $this->Ofc->set_ofc_size(500,230);
+            
+            $cant = array();
+            $data = array();
+            foreach($gru_eta as $row){  
+               $cant[] =   $row->cantidad;      
+               $data[] =   $row->grupo;
+            }
+            
+            $this->Ofc->set_ofc_title( 'Grupo Etario', '{font-size: 15px; color: #0CB760}' );
+            $this->Ofc->set_ofc_x_info($data, array('size'=>10,'color'=>'0x000000','orientation'=>0,'step'=>0));
+            $this->Ofc->set_ofc_y_info(100,10,array('text'=>'','size'=>12,'color'=>'#0CB760'));
+         
+            $this->Ofc->init();
+            $this->Ofc->setup();
+            $this->Ofc->set_ofc_data( $cant );
+            $this->Ofc->bar( 3, 5, '#0CB760', 'Downloads', 10);
+            echo $this->Ofc->ofc_render();
+           
+            die();
+        }
+        
+       
+        
+        function resumen(){
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            
+            $where = 'WHERE '.$_POST['fil'];
+            $sql = "SELECT  count(*) AS cantidad,
+                           CASE
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante (0-12)'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente (13-17)'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 18 and 28 THEN 'Joven (18-28)'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 29 and 35 THEN 'Adulto Joven (29-35)'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 36 and 59 THEN 'Adulto (36-59)'
+                                WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int >= 60 THEN 'Adulto Mayor (60 o mas)'
+                            END AS grupo
+                    FROM pacientes
+                    ".$where." 
+                    GROUP BY grupo
+                    ORDER BY grupo desc";
+                    
+            $arr_query = ($this->Paciente->query($sql));
+            $gru_eta = ($this->SqlData->array_to_objects($arr_query)); 
+                    
+            $title = __("",true);
+            
+            $data = Array(
+                "gru_eta"  => $gru_eta,                                         
+                "title"   => $title             
+            ); 
+            
             $this->set($data);
             $this->set('title_for_layout', $title);            
             $this->layout = 'default';
