@@ -22,7 +22,7 @@
    function info(id_his,id_pac){               
         var _id = "inf_his"+id_pac;  
         var url = "<?php echo $this->Html->url("/MedicoWindows/medico_informacion_paciente/")?>"+id_his+"/"+id_pac;   
-        parent.util.openWindow(_id,"<?php echo __("Información del historial",true)?>",url,30,undefined,undefined,280);  
+        parent.util.openWindow(_id,"<?php echo __("Información del historial",true)?>",url,0,0,undefined,280);  
               
    }
    

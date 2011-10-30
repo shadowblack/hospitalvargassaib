@@ -19,7 +19,11 @@
             
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_modificar") ?>/"+id_tip_mic_pac,function(){                 
                     <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_", "#pacientes") ?>;                             
-            });            
+            });    
+            
+            jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_modificar") ?>/"+id_tip_mic_pac,function(){                 
+                    <?php echo $this->Checkbox->Multiple("chk_for_inf_", "#pacientes") ?>;                             
+            });        
             
         } 
         
@@ -78,7 +82,12 @@ echo $this->element("dialog", array("T_V_TYPE" => 1));
                 <a href="#tabs-3" >
                     <?php echo __("Estudios Micologicos",true)?>
                 </a>
-            </li>              
+            </li>
+             <li>
+                <a href="#tabs-4" >
+                    <?php echo __("Forma de Infección",true)?>
+                </a>
+            </li>                
         </ul>
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" >             
@@ -116,6 +125,9 @@ webroot ?>img/icon/load_list.gif" style="margin-top: 88px;display: none;" class=
              </div>               
              <div id="tabs-3" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
                 <!-- Contenido de las enfermedades -->
+             </div> 
+             <div id="tabs-4" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
+                <!-- Forma de infeccion-->
              </div>              
              <table style="width: 100%;" class="">
                 <tr>
