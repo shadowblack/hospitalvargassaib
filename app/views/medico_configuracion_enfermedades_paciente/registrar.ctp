@@ -11,7 +11,10 @@
             jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_registrar")?>/"+id_tip_mic);
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic, function(){
                     <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
-            });            
+            }); 
+            jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_registrar")?>/"+id_tip_mic, function(){
+                    <?php echo $this->Checkbox->Multiple("chk_for_inf_","#pacientes",true)?>
+            });           
         } 
         
         function check_parte_cuerpo(obj){
@@ -71,6 +74,11 @@
                 <a href="#tabs-3" >
                     <?php echo __("Estudios Micologicos",true)?>
                 </a>
+            </li>   
+            <li>
+                <a href="#tabs-4" >
+                    <?php echo __("Forma de Infección",true)?>
+                </a>
             </li>            
         </ul>
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
@@ -110,6 +118,9 @@
              </div>
              <div id="tabs-3" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
                 <!-- Contenido de las enfermedades -->
+             </div>
+             <div id="tabs-4" style="height: 325px; overflow-y: auto;" class="standar_fieldset_child">
+                <!-- Contenido de las forma de infeccion -->
              </div>              
              <table style="width: 100%;" class="">
                 <tr>

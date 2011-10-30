@@ -14,6 +14,7 @@ DECLARE
 	_str_enf_pac		TEXT;
 	_str_les		TEXT;
 	_str_tip_est_mic	TEXT;
+	_str_chk_for_inf	TEXT;
 	
 	_str		TEXT;	
 		
@@ -33,9 +34,10 @@ BEGIN
 	_id_tip_mic		:= _datos[2];
 	_str_enf_pac		:= _datos[3];
 	_str_les		:= _datos[4];	
-	_str_tip_est_mic	:= _datos[5];	
+	_str_tip_est_mic	:= _datos[5];
+	_str_chk_for_inf	:= _datos[6];
 		
-	_id_doc			:= _datos[6];	
+	_id_doc			:= _datos[7];	
 	
 	-- tipos de micosis del paciente
 	IF NOT EXISTS  (SELECT 1 FROM tipos_micosis_pacientes WHERE id_his = _id_his AND id_tip_mic = _id_tip_mic) THEN
@@ -94,6 +96,20 @@ BEGIN
 			INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
 				id_tip_mic_pac,
 				id_tip_est_mic					
+			) VALUES (
+				_id_tip_mic_pac,
+				_arr_1[i]
+			);
+		END LOOP;
+	END IF;
+
+	-- insertando la forma de infeccion de enfermedades del paciente
+	_arr_1 := STRING_TO_ARRAY(_str_chk_for_inf,',');
+	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
+		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
+			INSERT INTO forma_infecciones__pacientes (
+				id_tip_mic_pac,
+				id_for_inf					
 			) VALUES (
 				_id_tip_mic_pac,
 				_arr_1[i]
