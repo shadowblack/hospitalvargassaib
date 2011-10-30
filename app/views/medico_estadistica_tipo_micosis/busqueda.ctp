@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------------------------
 ARCHIVO: busqueda.php
 PARÁMETROS: (ningunos)
-DESCRIPCIÓN: página de búsqueda para visualizar las estadistica por grupo etario.
+DESCRIPCIÓN: página de búsqueda para visualizar las estadistica por tipo de micosis.
 AUTOR: Lisseth Lozada
 FECHA DE CREACIÓN: 30/10/2011
 -----------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ FECHA DE CREACIÓN: 30/10/2011
             </li>            
         </ul>
         <fieldset style="" class="standar_fieldset_content">
-            <form method="post" action="<?php echo $this->Html->url("/MedicoEstadisticaGrupoEtario/contenido")?>" name="frmBusqueda" id="frmBusqueda" onsubmit="return Validar()"> 
+            <form method="post" action="<?php echo $this->Html->url("/MedicoEstadisticaTipoMicosis/contenido")?>" name="frmBusqueda" id="frmBusqueda" onsubmit="return Validar()"> 
                 <div style="" class="standar_fieldset_child"> 
                 	<table width="500" border="0" align="center" cellpadding="0" cellspacing="1" class="poner_border">
                 		<tr>
@@ -78,17 +78,14 @@ FECHA DE CREACIÓN: 30/10/2011
                 					<tr><td height="20px"></td></tr>
                 					<tr>                                    
                                         <td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
-                							<?php print __('Grupo Etario', true); ?>:
+                							<?php print __('Tipo de Micosis', true); ?>:
                                         </td>
-                                        <td valign="top" >
-                                            <select class="required" name="sel_gru_eta">
-                                                <option value="0">--<?php __("Todos")?>--</option>                                    
-                                                <option value="1"><?php __("Infante (0-12)")?></option>
-                                                <option value="2"><?php __("Adolescente (13-17)")?></option>
-                                                <option value="3"><?php __("Joven (18-28)")?></option>
-                                                <option value="4"><?php __("Adulto Joven (29-35)")?></option>
-                                                <option value="5"><?php __("Adulto (36-59)")?></option>
-                                                <option value="6"><?php __("Adulto Mayor (60 o mas)")?></option>
+                                        <td valign="top">
+                                            <select id="sel_tip_mic" name="sel_tip_mic" class="required" style="width: 120px;">
+                                                <option value="">--<?php echo __("Todas",true)?>--</option>
+                                                <?php foreach($tipo_micosis as $row){?>   
+                                                        <option value="<?php echo $row->id_tip_mic;?>" title="<?php echo $row->nom_tip_mic;?>"><?php echo $row->nom_tip_mic;?></option>
+                                                <?php }?>
                                             </select>
                                         </td>
                 					</tr>

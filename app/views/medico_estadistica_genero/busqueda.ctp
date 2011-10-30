@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------------------------
 ARCHIVO: busqueda.php
 PARÁMETROS: (ningunos)
-DESCRIPCIÓN: página de búsqueda para visualizar las estadistica por grupo etario.
+DESCRIPCIÓN: página de búsqueda para visualizar las estadistica por género.
 AUTOR: Lisseth Lozada
 FECHA DE CREACIÓN: 30/10/2011
 -----------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ FECHA DE CREACIÓN: 30/10/2011
             </li>            
         </ul>
         <fieldset style="" class="standar_fieldset_content">
-            <form method="post" action="<?php echo $this->Html->url("/MedicoEstadisticaGrupoEtario/contenido")?>" name="frmBusqueda" id="frmBusqueda" onsubmit="return Validar()"> 
+            <form method="post" action="<?php echo $this->Html->url("/MedicoEstadisticaGenero/contenido")?>" name="frmBusqueda" id="frmBusqueda" onsubmit="return Validar()"> 
                 <div style="" class="standar_fieldset_child"> 
                 	<table width="500" border="0" align="center" cellpadding="0" cellspacing="1" class="poner_border">
                 		<tr>
@@ -78,17 +78,13 @@ FECHA DE CREACIÓN: 30/10/2011
                 					<tr><td height="20px"></td></tr>
                 					<tr>                                    
                                         <td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
-                							<?php print __('Grupo Etario', true); ?>:
+                							<?php print __('Género', true); ?>:
                                         </td>
                                         <td valign="top" >
-                                            <select class="required" name="sel_gru_eta">
+                                            <select class="required" name="sel_gen_pac">
                                                 <option value="0">--<?php __("Todos")?>--</option>                                    
-                                                <option value="1"><?php __("Infante (0-12)")?></option>
-                                                <option value="2"><?php __("Adolescente (13-17)")?></option>
-                                                <option value="3"><?php __("Joven (18-28)")?></option>
-                                                <option value="4"><?php __("Adulto Joven (29-35)")?></option>
-                                                <option value="5"><?php __("Adulto (36-59)")?></option>
-                                                <option value="6"><?php __("Adulto Mayor (60 o mas)")?></option>
+                                                <option value="F"><?php __("Femenino")?></option>
+                                                <option value="M"><?php __("Masculino")?></option>
                                             </select>
                                         </td>
                 					</tr>
