@@ -16,7 +16,7 @@
                     <td>
                         <input class="standar_input_checkbox" type="checkbox" name="les_" value="(<?php echo $row->id_cat_cue_les.";".$id_par_cue_cat_cue?>)" <?php echo ($row->id_checked == "") ? "" : "checked='checked'";?>>
                     </td>
-                    <td class="standar_font">
+                    <td class="standar_list">
                         <?php echo $row->nom_les?>
                     </td>
                 </tr>
