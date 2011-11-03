@@ -10,16 +10,30 @@
 <table align="center" style="margin-top: 100px">
    <tr>
         <td>
-            <a href="<?php echo $this->Html->url("/MedicoInformacionPaciente/index/$id_his/$id_pac")?>">Información</a>
+        <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+            <a href="<?php echo $this->Html->url("/MedicoInformacionPaciente/index/$id_his/$id_pac")?>">
+                <br/>
+                <?php echo __("Información",true)?></a>
+            </a>
+        </div>
+                                                                                       
         </td>
         <td>
-            <a href="<?php echo $this->Html->url("/MedicoMuestrasPaciente/index/$id_his/$id_pac")?>">|Muestras</a>
+        <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+            <a href="<?php echo $this->Html->url("/MedicoMuestrasPaciente/index/$id_his/$id_pac")?>">
+                <br/>
+                <?php echo __("Muestras",true)?></a>
+            </a>
+        </div> 
+                                                   
         </td>       
         <td>
-            <a href="<?php echo $this->Html->url("/MedicoConfiguracionEnfermedadesPaciente/listar/$id_his/$id_pac")?>">|Enfermedades</a>            
-        </td>
-         <td>
-            <a href="<?php echo $this->Html->url("registrar")?>">|Estudios</a>                        
-        </td>
+        <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+            <a href="<?php echo $this->Html->url("/MedicoConfiguracionEnfermedadesPaciente/listar/$id_his/$id_pac")?>">
+                <br/>
+                <?php echo __("Enfermedades",true)?></a>
+            </a>
+        </div>                 
+        </td>         
    </tr>
 </table>

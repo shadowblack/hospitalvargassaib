@@ -2,7 +2,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 	<xsl:output method="html"/>
 	<xsl:template match="/">
-		<div id="contenedorListado">
+        <head>
+            
+            <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot."css/detalle.css";  ?>"/>
+        </head>
+		<div id="contenedorListado" class="fondo_m">
 			<table width="400" border="0" align="center">
 				<tr>
 					<td></td>
@@ -21,7 +25,7 @@
 								<xsl:value-of select="@nombre"/>
 							</th>
 							<tr>
-								<td align="center">
+								<td class="lista_fondo" align="center">
 									<span>Campo</span> 
 								</td>
 								<td align="center">
