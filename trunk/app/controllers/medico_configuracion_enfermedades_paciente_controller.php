@@ -219,7 +219,7 @@
             $tip_mic = ($this->SqlData->array_to_object($this->HistorialesPaciente->query($sql)));             
             
             // enfermedades de la micosis     
-            $sql_enf = "
+             $sql_enf = "
                 SELECT em.id_enf_mic,em.nom_enf_mic
                 FROM enfermedades_micologicas em
                 JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = $id_tip_mic_pac)
@@ -439,10 +439,10 @@
          function event_enfermedades_modificar($id_tip_mic_pac){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
                     
-            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic, ep.id_enf_mic AS check_id , ep.id_enf_pac, tmp.id_tip_mic_pac FROM tipos_micosis_pacientes  tmp
+            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic, ep.id_enf_mic AS check_id , ep.id_enf_pac, tmp.id_tip_mic_pac  FROM tipos_micosis_pacientes tmp
 JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
-JOIN enfermedades_micologicas em ON (em.id_tip_mic = tm.id_tip_mic)
-LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic)
+JOIN enfermedades_micologicas em ON (em.id_tip_mic = tm.id_tip_mic) 
+LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic) 
 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
                        ";
           //echo $sql_enf;
