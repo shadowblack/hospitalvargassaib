@@ -93,8 +93,7 @@
         
         function event_cat_mic_registrar($id_tip_mic){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                "SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
+            $query =  "SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
                 from tipos_micosis tm 
                 JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic)
                 JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue)
@@ -102,7 +101,9 @@
                 JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue)
                 WHERE tm.id_tip_mic = $id_tip_mic
                 ;
-                "
+                ";
+            $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
+               $query
             ))); 
                                      
             $title = __("Registro de categoria micosis",true);
@@ -146,8 +147,7 @@
         
          function event_lesiones_registrar($id_tip_mic,$id_par_cue_cat_cue){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic                
+             $query = "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic                
                 FROM tipos_micosis tm
                 JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
                 JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
@@ -155,7 +155,9 @@
                 JOIN lesiones l ON (l.id_les = ccl.id_les)                
                 WHERE tm.id_tip_mic = $id_tip_mic
                 ;
-                "
+                ";
+            $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
+                $query
             ))); 
                                      
             $title = __("Registro de categoria micosis",true);

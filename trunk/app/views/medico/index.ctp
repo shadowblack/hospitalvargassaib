@@ -77,7 +77,7 @@
                                  
                                 <a class="dock-item" href="#"><img style="padding-left: 80px;" src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" /><span style="padding-left: 80px;">Ayuda</span></a>
                                  
-                                <a class="dock-item" href="#"><img style="padding-left: 100px;" src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" /><span style="padding-left: 100px;">Salir</span></a>   
+                                <a class="dock-item" href="<?php echo $this->Html->url("/Medico/salir");?>"><img style="padding-left: 100px;" src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" /><span style="padding-left: 100px;">Salir</span></a>   
                             </div>
                         </div>                                                
                     </td>
