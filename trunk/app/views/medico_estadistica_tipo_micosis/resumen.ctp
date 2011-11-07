@@ -37,12 +37,19 @@ SIGIS. C.A
 								</tr>
 								<?php
 								if (count($tip_mic) > 0)
-								{   // debug($genero);
+								{   
+								    $total = 0;
+                                    foreach($tip_mic  as $row){
+                                        $total  = $total + $row->cantidad;
+                                    }
+                                    
 									foreach($tip_mic  as $row)
-									{										
+									{	
+									    $porcentaje = $row->cantidad * 100 / $total;
+                                        $porcentaje = round($porcentaje,'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $row->cantidad; ?></td>
+                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
                                             <td class="standar_font" align="center"><?php echo $row->nom_tip_mic;?></td>
         				  			    </tr>
         								<?php								

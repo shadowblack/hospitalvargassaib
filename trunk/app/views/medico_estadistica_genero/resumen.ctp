@@ -25,7 +25,7 @@ SIGIS. C.A
             	</tr>
 				<tr>
 					<td valign="top">
-						<div class="div_reportes" style="overflow: auto; height: 70px;">
+						<div class="div_reportes" style="overflow: auto; height: 50px;">
 							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 								<tr class="celdas_gris_reporte" align="center">
                                     <td align="center" class="standar_font lista_fondo">
@@ -37,12 +37,18 @@ SIGIS. C.A
 								</tr>
 								<?php
 								if (count($genero) > 0)
-								{   // debug($genero);
+								{   
+                                    $total = 0;
+                                    foreach($genero  as $row){
+                                        $total  = $total + $row->cantidad;
+                                    }
 									foreach($genero  as $row)
-									{										
+									{		
+									    $porcentaje = $row->cantidad * 100 / $total;
+                                        $porcentaje = round($porcentaje,'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $row->cantidad; ?></td>
+                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
                                             <td class="standar_font" align="center"><?php echo $row->genero;?></td>
         				  			    </tr>
         								<?php								

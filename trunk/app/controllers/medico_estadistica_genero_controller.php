@@ -17,7 +17,7 @@
         function busqueda(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $title = __("Búsqueda por Cantidad de Género",true);
+            $title = __("Búsqueda por Género",true);
            
             $data = Array(
                "title" => $title
@@ -81,12 +81,20 @@
             $this->Ofc->setup();
             
              //pie chart
+            $total = 0;
             $cant = array();
             $data = array();
+           
             foreach($genero as $row){  
-               $cant[] =   $row->cantidad;      
-               $data[] =   $row->genero;
+               $total  = $total + $row->cantidad;
             }
+            
+            foreach($genero as $row){  
+                $porcentaje = $row->cantidad * 100 / $total;
+                $cant[] = $porcentaje;      
+                $data[] = $row->genero;
+            }            
+            
             $this->Ofc->set_ofc_data($cant);
             $this->Ofc->pie_values($data);  
            

@@ -43,7 +43,7 @@
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"])." 00:00";
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
                 
-                $where = "p.fec_reg_pac >= '".$fec_ini."' AND p.fec_reg_pac < '".$fec_fin."'";
+                $where = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
             }
             
             if(isset($_POST['sel_tip_les']) && $_POST['sel_tip_les'] != 0){
@@ -66,22 +66,20 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
             $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT count(lp.id_pac) AS cantidad,
-                        	lp.nom_les 
-                        FROM 
-                        	(SELECT DISTINCT 
-                        		hp.id_pac,
-                        		l.nom_les
-                        	FROM pacientes p
-                        		JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac)
-                        		JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his)
-                        		JOIN lesiones_partes_cuerpos__pacientes lpcp ON(tmp.id_tip_mic_pac = lpcp.id_tip_mic_pac)
-                        		JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les)
-                        		JOIN lesiones l ON(ccl.id_les = l.id_les)
-                        	".$where."
-                        	ORDER BY l.nom_les) AS lp
-                        	
-                        GROUP BY lp.nom_les";
+            
+            $sql = "    SELECT 	count(lp.id_pac) AS cantidad, lp.nom_les,
+                    	(SELECT count(*) FROM  pacientes ".$where.") AS total_pac
+                    	FROM (	SELECT DISTINCT hp.id_pac, l.nom_les 
+                        		FROM pacientes p 
+                        			JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) 
+                        			JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) 
+                        			JOIN lesiones_partes_cuerpos__pacientes lpcp ON(tmp.id_tip_mic_pac = lpcp.id_tip_mic_pac) 
+                        			JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les) 
+                        			JOIN lesiones l ON(ccl.id_les = l.id_les) 
+                        	       ".$where."
+                    		ORDER BY l.nom_les
+                    	)
+                    AS lp GROUP BY lp.nom_les";
             
             //die($sql);       
             $arr_query = ($this->Paciente->query($sql));
@@ -92,9 +90,12 @@
             
             $cant = array();
             $data = array();
-            foreach($tip_les as $row){  
-               $cant[] =   $row->cantidad;      
-               $data[] =   $row->nom_les;
+            
+            foreach($tip_les as $row){
+                $total =  $row->total_pac;
+                $porcentaje = ($row->cantidad * 100) / $total;
+                $cant[] =   $porcentaje;      
+                $data[] =   $row->nom_les;
             }
             
             $this->Ofc->set_ofc_title( 'Tipo de Lesión', '{font-size: 15px; color: #0CB760}' );
@@ -117,22 +118,19 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
             $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT count(lp.id_pac) AS cantidad,
-                        	lp.nom_les 
-                        FROM 
-                        	(SELECT DISTINCT 
-                        		hp.id_pac,
-                        		l.nom_les
-                        	FROM pacientes p
-                        		JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac)
-                        		JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his)
-                        		JOIN lesiones_partes_cuerpos__pacientes lpcp ON(tmp.id_tip_mic_pac = lpcp.id_tip_mic_pac)
-                        		JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les)
-                        		JOIN lesiones l ON(ccl.id_les = l.id_les)
-                        	".$where."
-                        	ORDER BY l.nom_les) AS lp
-                        	
-                        GROUP BY lp.nom_les";
+           $sql = "    SELECT 	count(lp.id_pac) AS cantidad, lp.nom_les,
+                    	        (SELECT count(*) FROM  pacientes ".$where.") AS total_pac
+                    	FROM (	SELECT DISTINCT hp.id_pac, l.nom_les 
+                        		FROM pacientes p 
+                        			JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) 
+                        			JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) 
+                        			JOIN lesiones_partes_cuerpos__pacientes lpcp ON(tmp.id_tip_mic_pac = lpcp.id_tip_mic_pac) 
+                        			JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les) 
+                        			JOIN lesiones l ON(ccl.id_les = l.id_les) 
+                        	       ".$where."
+                    		ORDER BY l.nom_les
+                    	)
+                    AS lp GROUP BY lp.nom_les";
                     
             $arr_query = ($this->Paciente->query($sql));
             $tip_les = ($this->SqlData->array_to_objects($arr_query)); 

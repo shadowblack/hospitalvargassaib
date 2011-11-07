@@ -37,12 +37,18 @@ SIGIS. C.A
 								</tr>
 								<?php
 								if (count($gru_eta) > 0)
-								{   // debug($genero);
+								{   
+								    $total = 0;
+                                    foreach($gru_eta  as $row){
+                                        $total  = $total + $row->cantidad;
+                                    }
 									foreach($gru_eta  as $row)
-									{										
+									{		
+									    $porcentaje = $row->cantidad * 100 / $total;
+                                        $porcentaje = round($porcentaje,'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $row->cantidad; ?></td>
+                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
                                             <td class="standar_font" align="center"><?php echo $row->grupo;?></td>
         				  			    </tr>
         								<?php								
