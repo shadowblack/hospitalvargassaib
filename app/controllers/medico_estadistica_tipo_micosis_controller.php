@@ -22,7 +22,7 @@
            	$arr_query = $this->Paciente->query($sql);
             $tipo_micosis = $this->SqlData->array_to_objects($arr_query);
             
-            $title = __("Búsqueda por Tipo de Lesión",true);
+            $title = __("Búsqueda por Tipo de Micosis",true);
                         
             $data = Array(
                "tipo_micosis" => $tipo_micosis,
@@ -91,10 +91,17 @@
             $this->Ofc->setup();
             
              //pie chart
+            $total = 0;
             $cant = array();
             $data = array();
+            
             foreach($tip_mic as $row){  
-               $cant[] =   $row->cantidad;      
+                $total  = $total + $row->cantidad;
+            }
+            
+            foreach($tip_mic as $row){  
+               $porcentaje = $row->cantidad * 100 / $total;
+               $cant[] =   $porcentaje;     
                $data[] =   $row->nom_tip_mic;
             }
             $this->Ofc->set_ofc_data($cant);
@@ -113,7 +120,7 @@
         function resumen(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-             $where = 'WHERE '.$_POST['fil'];
+            $where = 'WHERE '.$_POST['fil'];
             $sql = "    SELECT count(ptm.id_pac) AS cantidad,
                         	ptm.nom_tip_mic
                         FROM 

@@ -15,7 +15,22 @@
                     <?php echo $this->Event->Update($this->Html->url("event_registrar"),"form",false)?>                   
                 }
             }); 
-                        
+            
+            f_otros = function(self){                                
+                var _otros = jQuery(self).attr("otros"),                                               
+                _checked = jQuery(self).is(":checked");
+                    jQuery("input[name='"+_otros+"']")
+                    .attr("disabled",!_checked)
+                    .css("display",_checked ? "block" : "none");                                  
+            }   
+            var _select_checkbox_otros = ":checkbox[otros]";         
+            f_otros(_select_checkbox_otros);  
+             
+            jQuery(_select_checkbox_otros).click(function(){
+                f_otros(this);
+            });
+                           
+                  
     });
 </script>
 <style type="text/css">
@@ -73,10 +88,15 @@
                     &nbsp;
                 </td>
                 <td valign="top">
-                    <div class="standar_margin ">
+                    <div class="standar_margin">
                         <ol class="standar_list">
                             <?php foreach($animales as $row): ?>
-                                <li><input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : "")?>><?php echo $row->Animale->nom_ani?></li>
+                                <li>
+                                    <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo (strtoupper($row->Animale->nom_ani) == "OTROS" ? "otros = 'txt_otr_ani'" : "")?> ><?php echo $row->Animale->nom_ani?>
+                                    <?php if (strtoupper($row->Animale->nom_ani) == "OTROS"):?>
+                                        <input type="text" name="txt_otr_ani" value="" style="width: 100%;display:none" class="required standar_margin" maxlength="20">
+                                    <?php endif;?>
+                                </li>
                             <?php endforeach ?>
                         </ol>
                     </div>

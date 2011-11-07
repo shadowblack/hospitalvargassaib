@@ -94,11 +94,18 @@
             $this->Ofc->set_ofc_webroot($this->webroot);
             $this->Ofc->set_ofc_size(500,230);
             
+            $total = 0;
             $cant = array();
             $data = array();
+            
             foreach($gru_eta as $row){  
-               $cant[] =   $row->cantidad;      
-               $data[] =   $row->grupo;
+               $total  = $total + $row->cantidad;
+            }
+            
+            foreach($gru_eta as $row){  
+               $porcentaje = $row->cantidad * 100 / $total;
+               $cant[] = $porcentaje;            
+               $data[] = $row->grupo;
             }
             
             $this->Ofc->set_ofc_title( 'Grupo Etario', '{font-size: 15px; color: #0CB760}' );
@@ -108,7 +115,7 @@
             $this->Ofc->init();
             $this->Ofc->setup();
             $this->Ofc->set_ofc_data( $cant );
-            $this->Ofc->bar( 3, 5, '#0CB760', 'Downloads', 10);
+            $this->Ofc->bar( 3, 5, '#0CB760','', 'Downloads', 10);
             echo $this->Ofc->ofc_render();
            
             die();
