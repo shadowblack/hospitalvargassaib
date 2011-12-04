@@ -21,10 +21,13 @@ SIGIS. C.A
 		<td>
 			<table border="1" style="border-collapse: inherit;" align="center" cellpadding="0" cellspacing="0" width="90%">
                 <tr>
-            		<th width="100%" style="font-size:10px;text-align: center;"><?php print __('Resumen',true); ?></th>
+            		<th colspan="2" width="100%" style="font-size:10px;text-align: center;"><?php print __('Resumen',true); ?>
+                    <!--<img onclick="window.print();" style="text-align: right;cursor: pointer;" width="17px" height="17px" src="<?php echo $this->webroot?>img/icon/print.gif" title="<?php print __("Imprimir Resumen", true);?>" />-->
+                    </th>
+                    
             	</tr>
 				<tr>
-					<td valign="top">
+					<td valign="top" >
 						<div class="div_reportes" style="overflow: auto; height: 50px;">
 							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 								<tr class="celdas_gris_reporte" align="center">
@@ -37,15 +40,10 @@ SIGIS. C.A
 								</tr>
 								<?php
 								if (count($genero) > 0)
-								{   
-                                    $total = 0;
-                                    foreach($genero  as $row){
-                                        $total  = $total + $row->cantidad;
-                                    }
+								{ 
 									foreach($genero  as $row)
 									{		
-									    $porcentaje = $row->cantidad * 100 / $total;
-                                        $porcentaje = round($porcentaje,'2');
+									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
                                             <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>

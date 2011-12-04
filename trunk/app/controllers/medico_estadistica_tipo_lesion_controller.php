@@ -14,20 +14,31 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
         }
         
-        function busqueda(){
+        function busqueda($id_tip_mic){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $sql = " SELECT  l.id_les,l.nom_les
-	                   FROM lesiones l
-	                   JOIN categorias_cuerpos__lesiones ccl ON(l.id_les = ccl.id_les) ORDER BY l.nom_les";	
+            $sql = " SELECT id_tip_mic, nom_tip_mic FROM tipos_micosis";
                        
            	$arr_query = $this->Paciente->query($sql);
-            $tipo_lesion = $this->SqlData->array_to_objects($arr_query);
+            $tipo_micosis = $this->SqlData->array_to_objects($arr_query);
             
+           // print '-->>'.$id_tip_mic;
+            
+           if(isset($id_tip_mic) && $id_tip_mic != '')
+           {
+                $sql = "SELECT * FROM enfermedades_micologicas 
+                        WHERE id_tip_mic = 1";
+               // print '-->>'.$sql;
+                           
+               	$arr_query = $this->Paciente->query($sql);
+                $tipo_lesion = $this->SqlData->array_to_objects($arr_query);
+            }
+             
             $title = __("Búsqueda por Tipo de Lesión",true);
-                        
+                  
             $data = Array(
-               "tipo_lesion" => $tipo_lesion,
+               "tipo_micosis" => $tipo_micosis,
+               "tipo_lesion"  => $tipo_lesion,
                "title" => $title
             );
           
@@ -77,7 +88,7 @@
                         			JOIN categorias_cuerpos__lesiones ccl ON(ccl.id_cat_cue_les = lpcp.id_cat_cue_les) 
                         			JOIN lesiones l ON(ccl.id_les = l.id_les) 
                         	       ".$where."
-                    		ORDER BY l.nom_les
+                    		      ORDER BY l.nom_les
                     	)
                     AS lp GROUP BY lp.nom_les";
             
@@ -89,11 +100,10 @@
             $this->Ofc->set_ofc_size(550,230);
             
             $cant = array();
-            $data = array();
+            $data = array();         
             
             foreach($tip_les as $row){
-                $total =  $row->total_pac;
-                $porcentaje = ($row->cantidad * 100) / $total;
+                $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
                 $cant[] =   $porcentaje;      
                 $data[] =   $row->nom_les;
             }
@@ -117,7 +127,7 @@
         function resumen(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $where = 'WHERE '.$_POST['fil'];
+           $where = 'WHERE '.$_POST['fil'];
            $sql = "    SELECT 	count(lp.id_pac) AS cantidad, lp.nom_les,
                     	        (SELECT count(*) FROM  pacientes ".$where.") AS total_pac
                     	FROM (	SELECT DISTINCT hp.id_pac, l.nom_les 

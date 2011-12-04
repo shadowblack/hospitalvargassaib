@@ -60,10 +60,11 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
             $where = 'WHERE '.$_POST['fil'];
-            $sql = "SELECT 	count(*) AS cantidad,
-                    		CASE
-                    		    WHEN sex_pac = 'F' THEN 'Femenino' ELSE 'Masculino'
-                    		END AS genero
+            $sql = "SELECT  count(*) AS cantidad, 
+                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                        	CASE
+                        	    WHEN sex_pac = 'F' THEN 'Femenino' ELSE 'Masculino'
+                        	END AS genero
                 	FROM pacientes
                     ".$where."
                 	GROUP BY sex_pac";
@@ -81,16 +82,11 @@
             $this->Ofc->setup();
             
              //pie chart
-            $total = 0;
             $cant = array();
             $data = array();
-           
-            foreach($genero as $row){  
-               $total  = $total + $row->cantidad;
-            }
             
             foreach($genero as $row){  
-                $porcentaje = $row->cantidad * 100 / $total;
+                $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
                 $cant[] = $porcentaje;      
                 $data[] = $row->genero;
             }            
@@ -113,6 +109,7 @@
             
             $where = 'WHERE '.$_POST['fil'];
             $sql = "SELECT 	count(*) AS cantidad,
+                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
                     		CASE
                     		    WHEN sex_pac = 'F' THEN 'Femenino' ELSE 'Masculino'
                     		END AS genero

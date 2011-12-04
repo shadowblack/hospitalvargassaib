@@ -41,7 +41,7 @@
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"])." 00:00";
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
                 
-                $where = "p.fec_reg_pac >= '".$fec_ini."' AND p.fec_reg_pac < '".$fec_fin."'";
+                $where = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
             }
             
             if(isset($_POST['sel_tip_mic']) && $_POST['sel_tip_mic'] != 0){
@@ -64,8 +64,9 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
             $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT count(ptm.id_pac) AS cantidad,
-                        	ptm.nom_tip_mic
+            $sql = "    SELECT  count(ptm.id_pac) AS cantidad,
+                                (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                        	    ptm.nom_tip_mic
                         FROM 
                         	(SELECT DISTINCT 
                         		p.id_pac,
@@ -91,16 +92,11 @@
             $this->Ofc->setup();
             
              //pie chart
-            $total = 0;
             $cant = array();
             $data = array();
-            
+                       
             foreach($tip_mic as $row){  
-                $total  = $total + $row->cantidad;
-            }
-            
-            foreach($tip_mic as $row){  
-               $porcentaje = $row->cantidad * 100 / $total;
+               $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
                $cant[] =   $porcentaje;     
                $data[] =   $row->nom_tip_mic;
             }
@@ -121,8 +117,9 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
             $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT count(ptm.id_pac) AS cantidad,
-                        	ptm.nom_tip_mic
+            $sql = "    SELECT  count(ptm.id_pac) AS cantidad,
+                                (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                        	    ptm.nom_tip_mic
                         FROM 
                         	(SELECT DISTINCT 
                         		p.id_pac,

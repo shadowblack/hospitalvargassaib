@@ -23,7 +23,22 @@ FECHA DE CREACIÓN: 30/10/2011
 			buttonImageOnly: true,
             inline:true
 		});
+        
+        
+        var _name = "[name='sel_tip_mic']";
+        change_tip_mic(jQuery(_name).val());
+        jQuery(_name).change(function(){
+            var id_tip_mic = this.value;
+            change_tip_mic(id_tip_mic);
+        });
+     
     });
+    
+    
+     function change_tip_mic(id_tip_mic){
+        //alert(id_tip_mic);
+        window.location ="<?php echo $this->Html->url("busqueda")?>/"+id_tip_mic;
+    } 
     
     // Se verifica que se haya seleccionado al menos un elemento de la lista y que la fecha sea correcta
 	function Validar()
@@ -54,6 +69,7 @@ FECHA DE CREACIÓN: 30/10/2011
 		}
 		return retVal;
 	}
+    
 </script>
 <div id="tabs-1" style="display: none;">    		
     <div id="tabs">
@@ -78,17 +94,28 @@ FECHA DE CREACIÓN: 30/10/2011
                 					<tr><td height="20px"></td></tr>
                 					<tr>                                    
                                         <td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
-                							<?php print __('Tipo de Lesión', true); ?>:
+                							<?php print __('Tipo de Micosis', true); ?>:
+                                        </td>
+                                        <td valign="top">
+                                            <select id="sel_tip_mic" name="sel_tip_mic" class="required" style="width: 120px;">
+                                               
+                                                <?php foreach($tipo_micosis as $row){?>   
+                                                        <option value="<?php echo $row->id_tip_mic?>" title="<?php echo $row->nom_tip_mic;?>"><?php echo $row->nom_tip_mic?></option>
+                                                <?php }?>
+                                            </select>
+                                        </td>
+                                        <td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
+                                			<?php print __('Tipo de Lesión', true); ?>:
                                         </td>
                                         <td valign="top">
                                             <select id="sel_tip_les" name="sel_tip_les" class="required" style="width: 120px;">
                                                 <option value="">--<?php echo __("Todas",true)?>--</option>
                                                 <?php foreach($tipo_lesion as $row){?>   
-                                                        <option value="<?php echo $row->id_les?>" title="<?php echo $row->nom_les;?>"><?php echo $row->nom_les?></option>
+                                                        <option value="<?php echo $row->id_enf_mic?>" title="<?php echo $row->nom_enf_mic;?>"><?php echo $row->nom_enf_mic?></option>
                                                 <?php }?>
                                             </select>
-                                        </td>
-                					</tr>
+                                        </td>         
+                                    </tr>
                                     <tr><td height="15px"></td></tr>
                                     <tr>
                                 		<td colspan="4" width="100%" class="font-standar" style="text-align: center;font-weight: bold;"><?php print __('Fecha de Registro',true); ?></td>
