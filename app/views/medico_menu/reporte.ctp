@@ -47,7 +47,7 @@
                     </a>
                     <br /><br />
                     <a id="tip_les_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de Lesiones del Paciente")?>
+                        <?php //__("Tipo de Lesiones del Paciente")?>
                     </a>                                                        
                 </div>
           </div>

@@ -38,13 +38,13 @@
           <div>
             <h3>
                 <a href="#">
-                    <?php __("Reportes")?>
+                    <?php __("Estadística")?>
                 </a>
             </h3>
             <div style="">                                               
                 <div style="height: 80px;text-align: left;">
                     <a id="est_gen_pac" href="javascript:void(0)" >
-                        <?php __("Cantidad de Género")?>
+                        <?php __("Género")?>
                     </a></br>
                     <a id="est_eda_pac" href="javascript:void(0)" >
                         <?php __("Grupo Etario")?>

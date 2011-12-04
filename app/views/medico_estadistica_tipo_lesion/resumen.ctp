@@ -37,15 +37,10 @@ SIGIS. C.A
 								</tr>
 								<?php
 								if (count($tip_les) > 0)
-								{   
-								    $total = 0;
-                                    foreach($tip_les  as $row){
-                                        $total  = $total + $row->cantidad;
-                                    }
+								{  
 									foreach($tip_les  as $row)
 									{		
-									    $porcentaje = $row->cantidad * 100 / $total;
-                                        $porcentaje = round($porcentaje,'2');
+									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
                                             <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>

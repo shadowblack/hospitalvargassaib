@@ -74,6 +74,7 @@
             
             $where = 'WHERE '.$_POST['fil'];
             $sql = "SELECT  count(*) AS cantidad,
+                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
                             CASE
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante'
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente'
@@ -94,16 +95,11 @@
             $this->Ofc->set_ofc_webroot($this->webroot);
             $this->Ofc->set_ofc_size(500,230);
             
-            $total = 0;
             $cant = array();
             $data = array();
-            
+                       
             foreach($gru_eta as $row){  
-               $total  = $total + $row->cantidad;
-            }
-            
-            foreach($gru_eta as $row){  
-               $porcentaje = $row->cantidad * 100 / $total;
+               $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
                $cant[] = $porcentaje;            
                $data[] = $row->grupo;
             }
@@ -128,7 +124,8 @@
             
             $where = 'WHERE '.$_POST['fil'];
             $sql = "SELECT  count(*) AS cantidad,
-                           CASE
+                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                            CASE
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante (0-12)'
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente (13-17)'
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 18 and 28 THEN 'Joven (18-28)'

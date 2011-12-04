@@ -90,3 +90,4 @@ FROM pacientes p
 	JOIN lesiones l ON(ccl.id_les = l.id_les)
 WHERE hp.id_pac = 7
 ORDER BY hp.id_his, l.nom_les
+
