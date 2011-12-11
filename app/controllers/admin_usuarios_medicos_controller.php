@@ -20,7 +20,7 @@
             $arr_query = ($this->Doctore->query($sql));            
             $result = $this->SqlData->array_to_objects($arr_query);
             
-            $sql = "SELECT id_cen_sal,nom_cen_sal,des_cen_sal FROM centro_salud ORDER BY nom_cen_sal,des_cen_sal ASC";
+            $sql = "SELECT id_cen_sal,nom_cen_sal,des_cen_sal FROM centro_saluds ORDER BY nom_cen_sal,des_cen_sal ASC";
             $arr_query = ($this->Doctore->query($sql));
             $centros_salud = ($this->SqlData->array_to_objects($arr_query));       
             
@@ -161,7 +161,7 @@
             
             $sql = "
                 SELECT cs.id_cen_sal,cs.des_cen_sal, csd.id_doc
-                FROM centro_salud cs
+                FROM centro_saluds cs
                 	LEFT JOIN
                 	(
                 		SELECT cs.id_doc,cs.id_cen_sal 
