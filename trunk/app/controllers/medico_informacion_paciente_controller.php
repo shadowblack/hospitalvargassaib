@@ -3,7 +3,7 @@
         var $name = "MedicoInformacionPaciente";
         var $uses =         Array("HistorialesPaciente","CentroSalud","TiposConsulta","Animale","Tratamiento","TiempoEvolucione","CentroSaludPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache","Event","Checkbox");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache","Event","Checkbox","Otros");                  
         
         var $group_session = "medico";                   
        

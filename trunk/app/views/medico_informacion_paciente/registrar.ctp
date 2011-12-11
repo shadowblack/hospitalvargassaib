@@ -14,23 +14,8 @@
                 submitHandler: function(form) {
                     <?php echo $this->Event->Update($this->Html->url("event_registrar"),"form",false)?>                   
                 }
-            }); 
-            
-            f_otros = function(self){                                
-                var _otros = jQuery(self).attr("otros"),                                               
-                _checked = jQuery(self).is(":checked");
-                    jQuery("input[name='"+_otros+"']")
-                    .attr("disabled",!_checked)
-                    .css("display",_checked ? "block" : "none");                                  
-            }   
-            var _select_checkbox_otros = ":checkbox[otros]";         
-            f_otros(_select_checkbox_otros);  
-             
-            jQuery(_select_checkbox_otros).click(function(){
-                f_otros(this);
-            });
-                           
-                  
+            });     
+           <?php echo $this->Otros->Script()?>
     });
 </script>
 <style type="text/css">
@@ -92,10 +77,8 @@
                         <ol class="standar_list">
                             <?php foreach($animales as $row): ?>
                                 <li>
-                                    <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo (strtoupper($row->Animale->nom_ani) == "OTROS" ? "otros = 'txt_otr_ani'" : "")?> ><?php echo $row->Animale->nom_ani?>
-                                    <?php if (strtoupper($row->Animale->nom_ani) == "OTROS"):?>
-                                        <input type="text" name="txt_otr_ani" value="" style="width: 100%;display:none" class="required standar_margin" maxlength="20">
-                                    <?php endif;?>
+                                    <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Animale->nom_ani,"txt_otr_ani") ?> ><?php echo $row->Animale->nom_ani?>
+                                    <?php echo $this->Otros->Text();?>
                                 </li>
                             <?php endforeach ?>
                         </ol>
