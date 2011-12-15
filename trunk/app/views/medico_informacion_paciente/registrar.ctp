@@ -76,9 +76,9 @@
                     <div class="standar_margin">
                         <ol class="standar_list">
                             <?php foreach($animales as $row): ?>
-                                <li>
-                                    <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Animale->nom_ani,"txt_otr_ani") ?> ><?php echo $row->Animale->nom_ani?>
-                                    <?php echo $this->Otros->Text();?>
+                                <li>                                    
+                                    <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Animale->id_ani,$row->Animale->nom_ani,"txt_otr_ani") ?> ><?php echo $row->Animale->nom_ani?>
+                                    <?php echo $this->Otros->Text(20, $row->ca->otr_ani);?>
                                 </li>
                             <?php endforeach ?>
                         </ol>
