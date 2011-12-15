@@ -12,6 +12,8 @@ DECLARE
 	_tie_evo	tiempo_evoluciones.tie_evo%TYPE;
 	_id_doc		doctores.id_doc%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
+	_str_otr_ani	contactos_animales.otr_ani%TYPE;
+	_id_otr_ani	contactos_animales.id_ani%TYPE;
 	_id_his		historiales_pacientes.id_his%TYPE;
 		
 	_arr		INTEGER[];
@@ -25,7 +27,6 @@ DECLARE
 	_anterior	VARCHAR:= '';
 	_actual		VARCHAR:= '';
 	
-	
 BEGIN
 	-- pacientes
 	_id_his			:= _datos[1];	
@@ -33,9 +34,11 @@ BEGIN
 	_str_tip_con		:= _datos[3];	
 	_str_con_ani		:= _datos[4];	
 	_str_tra_pre		:= _datos[5];	
-	_tie_evo		:= _datos[6];	
-	_id_doc			:= _datos[7];	
-	_tra_usu		:= _datos[8];
+	_tie_evo		:= _datos[6];
+	_id_otr_ani		:= _datos[7];	
+	_str_otr_ani		:= _datos[8];	
+	_id_doc			:= _datos[9];	
+	_tra_usu		:= _datos[10];
 
 
 	/****************************************CENTRO DE SALUD********************************************/
@@ -152,13 +155,28 @@ BEGIN
 	_arr := STRING_TO_ARRAY(_str_con_ani,',');
 	IF (ARRAY_UPPER(_arr,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr,1)) LOOP
-			INSERT INTO contactos_animales (
-				id_his,
-				id_ani					
-			) VALUES (
-				_id_his,
-				_arr[i]
-			);
+			-- Verificando si el id del animal es igual al id del animal otros que viene por parametro
+			IF (_id_otr_ani = _arr[i])THEN
+				INSERT INTO contactos_animales (
+					id_his,
+					id_ani,
+					otr_ani					
+				) VALUES (
+					_id_his,
+					_arr[i],
+					_str_otr_ani					
+				);				
+			ELSE
+				INSERT INTO contactos_animales (
+					id_his,
+					id_ani					
+				) VALUES (
+					_id_his,
+					_arr[i]
+				);
+			END IF;
+			
+			
 			/*Busco el registro actual del contacto con animales del paciante*/
 			SELECT nom_ani INTO _reg_act FROM contactos_animales LEFT JOIN animales USING(id_ani) WHERE id_ani = _arr[i];
 			_actual := _actual || _reg_act.nom_ani || ' ,';
@@ -329,6 +347,9 @@ AUTOR DE MODIFICACIÓN: Lisseth Lozada
 FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
+AUTOR DE MODIFICACIÓN: Luis Marin
+FECHA DE MODIFICACIÓN:14/12/2011
+DESCRIPCIÓN: Se agregó la opción de poder agregar otros animales.
 ';
 
 

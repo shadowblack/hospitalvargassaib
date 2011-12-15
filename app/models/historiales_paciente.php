@@ -38,7 +38,7 @@
             return $sql;
         }
         
-        function MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc,$tra_usu){
+        function MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$hdd_otr_ani,$otr_ani,$id_doc,$tra_usu){
             $sql = "SELECT med_registrar_informacion_adicional(ARRAY[
                 '$id_his',
                 '$cen_sal',
@@ -46,6 +46,8 @@
                 '$con_ani',
                 '$tra_pre',
                 '$tie_evo',
+                '$hdd_otr_ani',
+                '$otr_ani',
                 '$id_doc',
                 '$tra_usu'                
                 ]

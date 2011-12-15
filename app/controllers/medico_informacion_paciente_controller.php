@@ -76,13 +76,14 @@
                                 "alias"         => "ca",
                                 "conditions"    => "ca.id_his = $id_his AND ca.id_ani = Animale.id_ani",
                                 "type"          => "left",
-                                "fields"        => "ca.id_ani"
+                                "fields"        => Array("ca.id_ani","ca.otr_ani")
                             )
                         ),
                     "fields" =>
                          Array(
                             "*",
-                            "ca.id_ani"                           
+                            "ca.id_ani",
+                            "ca.otr_ani",                          
                         ),
                     "order"=>                        
                             "nom_ani ASC"     
@@ -266,10 +267,18 @@
             $con_ani    = $_POST["hdd_chk_ani"];
             $tra_pre    = $_POST["hdd_chk_tra"]; 
             $tie_evo    = $_POST["txt_tie_evo"];
-                                  
+            
+            if (isset($_POST["txt_otr_ani"])){
+                $otr_ani        = $_POST["txt_otr_ani"];
+                $hdd_otr_ani    = $_POST["hdd_txt_otr_ani"];
+            } else {
+                $otr_ani = "";
+                $hdd_otr_ani    = -1;
+            }
+                                              
             $id_doc     = $this->Session->read("medico.id_usu");       
             $tra_usu    = 'IAP';
-            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$id_doc,$tra_usu);   
+            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$hdd_otr_ani,$otr_ani,$id_doc,$tra_usu);   
            
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
