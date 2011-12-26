@@ -47,6 +47,8 @@
             $tie_evo,
             $hdd_otr_ani,
             $otr_ani,
+            $hdd_otr_tip_con,
+            $otr_tip_con,                                    
             $id_doc,
             $tra_usu
         ){
@@ -59,6 +61,8 @@
                 '$tie_evo',
                 '$hdd_otr_ani',
                 '$otr_ani',
+                '$hdd_otr_tip_con',
+                '$otr_tip_con',                                
                 '$id_doc',
                 '$tra_usu'                
                 ]
