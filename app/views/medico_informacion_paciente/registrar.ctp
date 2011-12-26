@@ -66,7 +66,7 @@
                             <?php foreach($tipos_consultas as $row): ?>
                                 <li>
                                     <input name="chk_tip_con_<?php echo $row->TiposConsulta->id_tip_con?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->TiposConsulta->id_tip_con?>" <?php echo (!empty($row->tcp->id_tip_con) ? "checked='checked'" : "") ; echo $this->Otros->Attr($row->TiposConsulta->id_tip_con,$row->TiposConsulta->nom_tip_con,"txt_otr_tip_con")?>><?php echo $row->TiposConsulta->nom_tip_con?>
-                                    <?php echo $this->Otros->Text(20, $row->tcp->otr_tip_con);?>    
+                                    <?php echo $this->Otros->Text(50, $row->tcp->otr_tip_con);?>    
                                 </li>                                                                                                
                             <?php endforeach ?>
                         </ol>
@@ -110,7 +110,8 @@
                      <div class="standar_margin ">
                         <ol class="standar_list">
                             <?php foreach($tratamientos as $row): ?>
-                                <li><input name="chk_tra_<?php echo $row->Tratamiento->id_tra?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Tratamiento->id_tra?>" <?php echo (!empty($row->tp->id_tra) ? "checked='checked'" : "")?>><?php echo $row->Tratamiento->nom_tra?></li>
+                                <li><input name="chk_tra_<?php echo $row->Tratamiento->id_tra?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Tratamiento->id_tra;?>" <?php echo (!empty($row->tp->id_tra) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Tratamiento->id_tra,$row->Tratamiento->nom_tra,"txt_otr_tra")?>><?php echo $row->Tratamiento->nom_tra; ?></li>
+                                <?php echo $this->Otros->Text(20, $row->tp->otr_tra);?>
                             <?php endforeach ?>
                         </ol>
                     </div>

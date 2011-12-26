@@ -79,7 +79,7 @@
                  <div class="standar_margin ">
                     <ol class="standar_list">
                         <?php foreach($tratamientos as $row): ?>
-                            <li><?php echo $row->Tratamiento->nom_tra?></li>
+                            <li><?php echo $row->Tratamiento->nom_tra.($row->tp->otr_tra == "" ? "" : " (".$row->tp->otr_tra.")")?></li>
                         <?php endforeach ?>
                     </ol>
                 </div>

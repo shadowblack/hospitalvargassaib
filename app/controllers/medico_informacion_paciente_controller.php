@@ -99,13 +99,14 @@
                                 "alias"         => "tp",
                                 "conditions"    => "tp.id_his = $id_his AND tp.id_tra = Tratamiento.id_tra",
                                 "type"          => "left",
-                                "fields"        => "tp.id_tra"
+                                "fields"        => Array("tp.id_tra","tp.otr_tra")
                             )
                         ),
                     "fields" =>
                          Array(
                             "*",
-                            "tp.id_tra"                           
+                            "tp.id_tra",
+                            "tp.otr_tra"                                                       
                         ),
                     "order"=>                        
                             "nom_tra ASC"     
@@ -223,13 +224,14 @@
                                 "alias"         => "tp",
                                 "conditions"    => "tp.id_tra = Tratamiento.id_tra",
                                 "type"          => "left",
-                                "fields"        => "tp.id_tra"
+                                "fields"        => Array("tp.id_tra","tp.otr_tra")
                             )
                         ),
                     "fields" =>
                          Array(
                             "*",
-                            "tp.id_tra"                           
+                            "tp.id_tra",
+                            "tp.otr_tra",                           
                         ),
                     "order"=>                        
                             "nom_tra ASC",
@@ -286,6 +288,14 @@
                 $otr_tip_con = "";
                 $hdd_otr_tip_con    = -1;
             }
+            
+            if (isset($_POST["txt_otr_tra"])){
+                $txt_otr_tra            = $_POST["txt_otr_tra"];
+                $id_hdd_otr_tra         = $_POST["hdd_txt_otr_tra"];
+            } else {
+                $txt_otr_tra        = "";
+                $id_hdd_otr_tra         = -1;
+            }
                                               
             $id_doc     = $this->Session->read("medico.id_usu");       
             $tra_usu    = 'IAP';
@@ -299,7 +309,9 @@
                 $hdd_otr_ani,
                 $otr_ani,
                 $hdd_otr_tip_con,
-                $otr_tip_con,
+                $otr_tip_con,                
+                $id_hdd_otr_tra,
+                $txt_otr_tra,
                 
                 $id_doc,
                 $tra_usu

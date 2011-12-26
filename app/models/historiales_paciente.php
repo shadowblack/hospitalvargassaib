@@ -48,7 +48,9 @@
             $hdd_otr_ani,
             $otr_ani,
             $hdd_otr_tip_con,
-            $otr_tip_con,                                    
+            $otr_tip_con,
+            $id_hdd_otr_tra,
+            $txt_otr_tra,                                                
             $id_doc,
             $tra_usu
         ){
@@ -62,7 +64,9 @@
                 '$hdd_otr_ani',
                 '$otr_ani',
                 '$hdd_otr_tip_con',
-                '$otr_tip_con',                                
+                '$otr_tip_con',                
+                '$id_hdd_otr_tra',
+                '$txt_otr_tra',                                                
                 '$id_doc',
                 '$tra_usu'                
                 ]

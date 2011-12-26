@@ -16,6 +16,8 @@ DECLARE
 	_id_otr_ani		contactos_animales.id_ani%TYPE;
 	_str_otr_tip_con	tipos_consultas_pacientes.otr_tip_con%TYPE;
 	_id_otr_tip_con		tipos_consultas_pacientes.id_tip_con%TYPE;
+	_str_otr_tra		tratamientos_pacientes.otr_tra%TYPE;
+	_id_otr_tra		tratamientos_pacientes.id_tra_pac%TYPE;
 	
 	_id_his		historiales_pacientes.id_his%TYPE;
 		
@@ -42,9 +44,11 @@ BEGIN
 	_str_otr_ani		:= _datos[8];
 	_id_otr_tip_con 	:= _datos[9];
 	_str_otr_tip_con	:= _datos[10];
+	_id_otr_tra 		:= _datos[11];
+	_str_otr_tra		:= _datos[12];
 		
-	_id_doc			:= _datos[11];	
-	_tra_usu		:= _datos[12];
+	_id_doc			:= _datos[13];	
+	_tra_usu		:= _datos[14];
 
 
 	/****************************************CENTRO DE SALUD********************************************/
@@ -237,13 +241,26 @@ BEGIN
 	_arr := STRING_TO_ARRAY(_str_tra_pre,',');
 	IF (ARRAY_UPPER(_arr,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr,1)) LOOP
-			INSERT INTO tratamientos_pacientes (
-				id_his,
-				id_tra					
-			) VALUES (
-				_id_his,
-				_arr[i]
-			);
+		
+			IF (_id_otr_tra = _arr[i])THEN
+				INSERT INTO tratamientos_pacientes (
+					id_his,
+					id_tra,
+					otr_tra					
+				) VALUES (
+					_id_his,
+					_arr[i],
+					_str_otr_tra
+				);
+			ELSE
+				INSERT INTO tratamientos_pacientes (
+					id_his,
+					id_tra					
+				) VALUES (
+					_id_his,
+					_arr[i]
+				);
+			END IF;
 			/*Busco el registro actual del tratamiento del paciante*/
 			SELECT nom_tra INTO _reg_act FROM tratamientos_pacientes LEFT JOIN tratamientos USING(id_tra) WHERE id_tra = _arr[i];
 			_actual := _actual || _reg_act.nom_tra || ' ,';
