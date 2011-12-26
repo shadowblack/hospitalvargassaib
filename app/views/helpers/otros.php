@@ -52,11 +52,12 @@ class OtrosHelper extends AppHelper
      * @param $maxlength:(El tamaño del campo texto que se mostrara), $value:(El valor del campo, si por defecto se tiene que mostrar algo)
      */    
     function Text($maxlength,$value = ""){        
-        if (strtoupper($this->other)  == $this->str)
+        if (strtoupper($this->other)  == $this->str){            
             return '<input type="text" name="'.$this->attr.'" value="'.$value.'" style="width: 100%;display:none" class="required standar_margin" maxlength="$maxlength">'.
                    '<input type="hidden" name="hdd_'.$this->attr.'" value="'.$this->id.'"';
-        else
+        } else {
             return "";
+        }
     }
 }
 ?>

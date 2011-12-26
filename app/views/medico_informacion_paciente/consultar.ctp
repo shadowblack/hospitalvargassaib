@@ -39,7 +39,7 @@
                 <div class="standar_margin ">
                     <ol class="standar_list">
                         <?php foreach($tipos_consultas as $row): ?>
-                            <li><?php echo $row->TiposConsulta->nom_tip_con?></li>
+                            <li><?php echo $row->TiposConsulta->nom_tip_con.($row->tcp->otr_tip_con == "" ? "" : " (".$row->tcp->otr_tip_con.")")?></li>
                         <?php endforeach ?>
                     </ol>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="standar_margin ">
                     <ol class="standar_list">
                         <?php foreach($animales as $row): ?>
-                            <li><?php echo $row->Animale->nom_ani?></li>
+                            <li><?php echo $row->Animale->nom_ani.($row->ca->otr_ani == "" ? "" : " (".$row->ca->otr_ani.")")?></li>
                         <?php endforeach ?>
                     </ol>
                 </div>

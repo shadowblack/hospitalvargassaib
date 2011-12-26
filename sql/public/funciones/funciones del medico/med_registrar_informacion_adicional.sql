@@ -5,15 +5,18 @@ DECLARE
 	_datos ALIAS FOR $1;
 
 	-- informacion del paciente	
-	_str_cen_sal	TEXT;
-	_str_tip_con	TEXT;
-	_str_con_ani	TEXT;
-	_str_tra_pre	TEXT;
-	_tie_evo	tiempo_evoluciones.tie_evo%TYPE;
-	_id_doc		doctores.id_doc%TYPE;
-	_tra_usu	transacciones.cod_tip_tra%TYPE;
-	_str_otr_ani	contactos_animales.otr_ani%TYPE;
-	_id_otr_ani	contactos_animales.id_ani%TYPE;
+	_str_cen_sal		TEXT;
+	_str_tip_con		TEXT;
+	_str_con_ani		TEXT;
+	_str_tra_pre		TEXT;
+	_tie_evo		tiempo_evoluciones.tie_evo%TYPE;
+	_id_doc			doctores.id_doc%TYPE;
+	_tra_usu		transacciones.cod_tip_tra%TYPE;
+	_str_otr_ani		contactos_animales.otr_ani%TYPE;
+	_id_otr_ani		contactos_animales.id_ani%TYPE;
+	_str_otr_tip_con	tipos_consultas_pacientes.otr_tip_con%TYPE;
+	_id_otr_tip_con		tipos_consultas_pacientes.id_tip_con%TYPE;
+	
 	_id_his		historiales_pacientes.id_his%TYPE;
 		
 	_arr		INTEGER[];
@@ -36,9 +39,12 @@ BEGIN
 	_str_tra_pre		:= _datos[5];	
 	_tie_evo		:= _datos[6];
 	_id_otr_ani		:= _datos[7];	
-	_str_otr_ani		:= _datos[8];	
-	_id_doc			:= _datos[9];	
-	_tra_usu		:= _datos[10];
+	_str_otr_ani		:= _datos[8];
+	_id_otr_tip_con 	:= _datos[9];
+	_str_otr_tip_con	:= _datos[10];
+		
+	_id_doc			:= _datos[11];	
+	_tra_usu		:= _datos[12];
 
 
 	/****************************************CENTRO DE SALUD********************************************/
@@ -108,13 +114,27 @@ BEGIN
 	_arr := STRING_TO_ARRAY(_str_tip_con,',');
 	IF (ARRAY_UPPER(_arr,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr,1)) LOOP
-			INSERT INTO tipos_consultas_pacientes (
-				id_his,
-				id_tip_con					
-			) VALUES (
-				_id_his,
-				_arr[i]
-			);
+			
+			IF (_id_otr_tip_con = _arr[i])THEN
+				INSERT INTO tipos_consultas_pacientes (
+					id_his,
+					id_tip_con,
+					otr_tip_con					
+				) VALUES (
+					_id_his,
+					_arr[i],
+					_str_otr_tip_con
+				);
+			ELSE
+				INSERT INTO tipos_consultas_pacientes (
+					id_his,
+					id_tip_con					
+				) VALUES (
+					_id_his,
+					_arr[i]
+				);
+			END IF;
+			
 			/*Busco el registro actual del tipo de consulta del paciante*/
 			SELECT nom_tip_con INTO _reg_act FROM tipos_consultas_pacientes LEFT JOIN tipos_consultas USING(id_tip_con) WHERE id_tip_con = _arr[i];
 			_actual := _actual || _reg_act.nom_tip_con || ' ,';
