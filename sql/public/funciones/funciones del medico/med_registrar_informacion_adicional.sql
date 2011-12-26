@@ -16,6 +16,10 @@ DECLARE
 	_id_otr_ani		contactos_animales.id_ani%TYPE;
 	_str_otr_tip_con	tipos_consultas_pacientes.otr_tip_con%TYPE;
 	_id_otr_tip_con		tipos_consultas_pacientes.id_tip_con%TYPE;
+
+	_str_otr_cen_sal	centro_salud_pacientes.otr_cen_sal%TYPE;
+	_id_otr_cen_sal		centro_salud_pacientes.id_cen_sal%TYPE;
+	
 	_str_otr_tra		tratamientos_pacientes.otr_tra%TYPE;
 	_id_otr_tra		tratamientos_pacientes.id_tra_pac%TYPE;
 	
@@ -40,15 +44,21 @@ BEGIN
 	_str_con_ani		:= _datos[4];	
 	_str_tra_pre		:= _datos[5];	
 	_tie_evo		:= _datos[6];
+	
 	_id_otr_ani		:= _datos[7];	
 	_str_otr_ani		:= _datos[8];
+	
 	_id_otr_tip_con 	:= _datos[9];
 	_str_otr_tip_con	:= _datos[10];
-	_id_otr_tra 		:= _datos[11];
-	_str_otr_tra		:= _datos[12];
+
+	_id_otr_cen_sal		:= _datos[11];
+	_str_otr_cen_sal	:= _datos[12];
+	
+	_id_otr_tra 		:= _datos[13];
+	_str_otr_tra		:= _datos[14];
 		
-	_id_doc			:= _datos[13];	
-	_tra_usu		:= _datos[14];
+	_id_doc			:= _datos[15];	
+	_tra_usu		:= _datos[16];
 
 
 	/****************************************CENTRO DE SALUD********************************************/
@@ -70,13 +80,26 @@ BEGIN
 	_arr := STRING_TO_ARRAY(_str_cen_sal,',');
 	IF (ARRAY_UPPER(_arr,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr,1)) LOOP
-			INSERT INTO centro_salud_pacientes (
-				id_his,
-				id_cen_sal					
-			) VALUES (
-				_id_his,
-				_arr[i]
-			);
+			IF (_id_otr_cen_sal = _arr[i])THEN
+				INSERT INTO centro_salud_pacientes (
+					id_his,
+					id_cen_sal,
+					otr_cen_sal					
+				) VALUES (
+					_id_his,
+					_arr[i],
+					_str_otr_cen_sal
+				);
+			ELSE
+				INSERT INTO centro_salud_pacientes (
+					id_his,
+					id_cen_sal					
+				) VALUES (
+					_id_his,
+					_arr[i]
+				);
+			END IF;
+			
 			/*Busco el registro actual del Centro de Salud del paciante*/
 			SELECT nom_cen_sal INTO _reg_act FROM centro_salud_pacientes LEFT JOIN centro_saluds USING(id_cen_sal) WHERE id_cen_sal = _arr[i];
 			_actual := _actual || _reg_act.nom_cen_sal || ' ,';

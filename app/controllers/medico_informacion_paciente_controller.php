@@ -32,13 +32,14 @@
                             "alias"         => "csp",
                             "conditions"    => "csp.id_his = $id_his AND csp.id_cen_sal = CentroSalud.id_cen_sal",
                             "type"          => "left",
-                            "fields"        => "id_cen_sal"
+                            "fields"        => array("id_cen_sal","otr_cen_sal")
                             )
                         ),
                     "fields" =>
                         Array(
                             "*",
-                            "csp.id_cen_sal"                           
+                            "csp.id_cen_sal",
+                            "csp.otr_cen_sal"                           
                         ),
                     "order"=>                        
                             "nom_cen_sal ASC"                        
@@ -154,13 +155,14 @@
                             "alias"         => "csp",
                             "conditions"    => "csp.id_cen_sal = CentroSalud.id_cen_sal",
                             "type"          => "left",
-                            "fields"        => "id_cen_sal"
+                            "fields"        => array("id_cen_sal","otr_cen_sal")
                             )
                         ),
                     "fields" =>
                         Array(
                             "*",
-                            "csp.id_cen_sal"                           
+                            "csp.id_cen_sal" ,
+                            "csp.otr_cen_sal"                         
                         ),
                     "order"=>                        
                             "nom_cen_sal ASC",
@@ -274,26 +276,34 @@
             $tie_evo    = $_POST["txt_tie_evo"];
             
             if (isset($_POST["txt_otr_ani"])){
-                $otr_ani        = $_POST["txt_otr_ani"];
-                $hdd_otr_ani    = $_POST["hdd_txt_otr_ani"];
+                $txt_otr_ani            = $_POST["txt_otr_ani"];
+                $id_hdd_otr_ani         = $_POST["hdd_txt_otr_ani"];
             } else {
-                $otr_ani = "";
-                $hdd_otr_ani    = -1;
+                $txt_otr_ani            = "";
+                $id_hdd_otr_ani         = -1;
             }
             
             if (isset($_POST["txt_otr_tip_con"])){
-                $otr_tip_con        = $_POST["txt_otr_tip_con"];
-                $hdd_otr_tip_con    = $_POST["hdd_txt_otr_tip_con"];
+                $txt_otr_tip_con        = $_POST["txt_otr_tip_con"];
+                $id_hdd_otr_tip_con     = $_POST["hdd_txt_otr_tip_con"];
             } else {
-                $otr_tip_con = "";
-                $hdd_otr_tip_con    = -1;
+                $txt_otr_tip_con        = "";
+                $id_hdd_otr_tip_con     = -1;
             }
             
-            if (isset($_POST["txt_otr_tra"])){
+            if (isset($_POST["txt_otr_cen_sal"])){
+                $txt_otr_cen_sal        = $_POST["txt_otr_cen_sal"];
+                $id_hdd_otr_cen_sal     = $_POST["hdd_txt_otr_cen_sal"];
+            } else {
+                $txt_otr_cen_sal        = "";
+                $id_hdd_otr_cen_sal     = -1;
+            }
+
+			if (isset($_POST["txt_otr_tra"])){
                 $txt_otr_tra            = $_POST["txt_otr_tra"];
                 $id_hdd_otr_tra         = $_POST["hdd_txt_otr_tra"];
             } else {
-                $txt_otr_tra        = "";
+                $txt_otr_tra        	= "";
                 $id_hdd_otr_tra         = -1;
             }
                                               
@@ -306,11 +316,17 @@
                 $con_ani,
                 $tra_pre,
                 $tie_evo,
-                $hdd_otr_ani,
-                $otr_ani,
-                $hdd_otr_tip_con,
-                $otr_tip_con,                
-                $id_hdd_otr_tra,
+                
+                $id_hdd_otr_ani,
+                $txt_otr_ani,
+                
+                $id_hdd_otr_tip_con,
+                $txt_otr_tip_con,
+                
+                $id_hdd_otr_cen_sal,
+                $txt_otr_cen_sal,
+                
+				$id_hdd_otr_tra,
                 $txt_otr_tra,
                 
                 $id_doc,
@@ -324,8 +340,7 @@
             switch($result){
                 case 1:
                     die($this->FormatMessege->BoxStyle($result,"La información adicional se actualizó con éxito."));
-                    break;               
-                    
+                    break;
             }                   
             
             die;

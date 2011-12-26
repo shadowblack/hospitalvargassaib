@@ -27,7 +27,7 @@
                 <div class="standar_margin ">
                     <ol class="standar_list">
                         <?php foreach($centros_salud as $row): ?>
-                            <li><?php echo $row->CentroSalud->nom_cen_sal?></li>
+                            <li><?php echo $row->CentroSalud->nom_cen_sal.($row->csp->otr_cen_sal == "" ? "" : " (".$row->csp->otr_cen_sal.")")?></li>
                         <?php endforeach ?>
                     </ol>
                 </div>

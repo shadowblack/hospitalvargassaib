@@ -3,7 +3,7 @@
         var $name = "MedicoMuestrasPaciente";
         var $uses =         Array("HistorialesPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache","Event","Checkbox");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Cache","Event","Checkbox","Otros");                  
         
         var $group_session = "medico";                   
        
@@ -24,7 +24,7 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                     
             
             $muestras_clinicas         = $this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                "SELECT mc.nom_mue_cli,mc.id_mue_cli as mc_id_mue_cli,mp.id_mue_cli as mp_id_mue_cli
+                "SELECT mc.nom_mue_cli,mc.id_mue_cli as mc_id_mue_cli,mp.id_mue_cli as mp_id_mue_cli,mp.otr_mue_cli
                 FROM muestras_clinicas mc 
                 LEFT JOIN muestras_pacientes mp ON (mc.id_mue_cli = mp.id_mue_cli AND mp.id_his=$id_his)"
             ));
@@ -51,7 +51,7 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                     
             
             $muestras_clinicas         = $this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                "SELECT mc.nom_mue_cli
+                "SELECT mc.nom_mue_cli,mp.otr_mue_cli
                 FROM muestras_clinicas mc 
                 JOIN muestras_pacientes mp ON (mc.id_mue_cli = mp.id_mue_cli)
                 WHERE mp.id_his = $id_his"
@@ -75,11 +75,27 @@
                        
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");            
             $id_his     = $_POST["hdd_id_his"];
-            $mue_cli    = $_POST["hdd_chk_mue_cli"];            
+            $mue_cli    = $_POST["hdd_chk_mue_cli"];    
+            
+            if (isset($_POST["txt_otr_mue_cli"])){
+                $txt_otr_mue_cli        = $_POST["txt_otr_mue_cli"];
+                $id_hdd_otr_mue_cli     = $_POST["hdd_txt_otr_mue_cli"];
+            } else {
+                $txt_otr_mue_cli        = "";
+                $id_hdd_otr_mue_cli     = -1;
+            }
+                    
                                   
             $id_doc         = $this->Session->read("medico.id_usu");       
             $tra_usu        = "MCP";  
-            $sql = $this->HistorialesPaciente->MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc,$tra_usu);   
+            $sql = $this->HistorialesPaciente->MedMuestraClinicaPaciente(
+                        $id_his,
+                        $mue_cli,
+                        $id_hdd_otr_mue_cli,
+                        $txt_otr_mue_cli,
+                        $id_doc,
+                        $tra_usu
+            );   
                                                                           
             $arr_query = ($this->HistorialesPaciente->query($sql));
              

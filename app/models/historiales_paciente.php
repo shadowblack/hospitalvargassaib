@@ -45,12 +45,19 @@
             $con_ani,
             $tra_pre,
             $tie_evo,
-            $hdd_otr_ani,
-            $otr_ani,
-            $hdd_otr_tip_con,
-            $otr_tip_con,
-            $id_hdd_otr_tra,
-            $txt_otr_tra,                                                
+            
+            $id_hdd_otr_ani,
+            $txt_otr_ani,
+            
+            $id_hdd_otr_tip_con,
+            $txt_otr_tip_con,
+            
+            $id_hdd_otr_cen_sal,
+            $txt_otr_cen_sal,
+            
+			$id_hdd_otr_tra,
+            $txt_otr_tra, 
+                             
             $id_doc,
             $tra_usu
         ){
@@ -61,12 +68,19 @@
                 '$con_ani',
                 '$tra_pre',
                 '$tie_evo',
-                '$hdd_otr_ani',
-                '$otr_ani',
-                '$hdd_otr_tip_con',
-                '$otr_tip_con',                
-                '$id_hdd_otr_tra',
-                '$txt_otr_tra',                                                
+                
+                '$id_hdd_otr_ani',
+                '$txt_otr_ani',
+                
+                '$id_hdd_otr_tip_con',
+                '$txt_otr_tip_con',
+                
+                '$id_hdd_otr_cen_sal',
+                '$txt_otr_cen_sal',
+                
+				'$id_hdd_otr_tra',
+                '$txt_otr_tra',
+                            
                 '$id_doc',
                 '$tra_usu'                
                 ]
@@ -74,10 +88,19 @@
             return $sql;
         }
         
-        function MedMuestraClinicaPaciente($id_his,$mue_cli,$id_doc,$tra_usu){
+        function MedMuestraClinicaPaciente(
+                $id_his,
+                $mue_cli,
+                $id_hdd_otr_mue_cli,
+                $txt_otr_mue_cli,
+                $id_doc,
+                $tra_usu
+        ){
             $sql = "SELECT med_muestra_clinica_paciente(ARRAY[
                 '$id_his',
-                '$mue_cli',               
+                '$mue_cli',
+                '$id_hdd_otr_mue_cli',
+                '$txt_otr_mue_cli',               
                 '$id_doc',
                 '$tra_usu'                
                 ]
