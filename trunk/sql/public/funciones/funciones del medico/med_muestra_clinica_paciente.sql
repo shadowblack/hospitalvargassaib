@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION med_muestra_clinica_paciente(character varying[])
+﻿-- Function: med_muestra_clinica_paciente(character varying[])
+
+-- DROP FUNCTION med_muestra_clinica_paciente(character varying[]);
+
+CREATE OR REPLACE FUNCTION med_muestra_clinica_paciente(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
@@ -9,6 +13,9 @@ DECLARE
 	_id_doc			doctores.id_doc%TYPE;
 	_id_his			historiales_pacientes.id_his%TYPE;
 	_tra_usu		transacciones.cod_tip_tra%TYPE;
+
+	_id_otr_mue_cli		muestras_pacientes.id_mue_pac%TYPE;
+	_str_otr_mue_cli	muestras_pacientes.otr_mue_cli%TYPE;
 	
 	_nom_mue_cli_ant	VARCHAR;
 	_nom_mue_cli_act	VARCHAR;
@@ -24,9 +31,13 @@ DECLARE
 BEGIN
 	-- pacientes
 	_id_his			:= _datos[1];	
-	_str_mue_cli		:= _datos[2];		
-	_id_doc			:= _datos[3];	
-	_tra_usu		:= _datos[4];
+	_str_mue_cli		:= _datos[2];
+	
+	_id_otr_mue_cli		:= _datos[3];
+	_str_otr_mue_cli	:= _datos[4];
+			
+	_id_doc			:= _datos[5];	
+	_tra_usu		:= _datos[6];
 
 
 
@@ -52,13 +63,25 @@ BEGIN
 	_arr := STRING_TO_ARRAY(_str_mue_cli,',');
 	IF (ARRAY_UPPER(_arr,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr,1)) LOOP
-			INSERT INTO muestras_pacientes (
-				id_his,
-				id_mue_cli					
-			) VALUES (
-				_id_his,
-				_arr[i]
-			);
+			IF (_id_otr_mue_cli = _arr[i])THEN
+				INSERT INTO muestras_pacientes (
+					id_his,
+					id_mue_cli,
+					otr_mue_cli					
+				) VALUES (
+					_id_his,
+					_arr[i],
+					_str_otr_mue_cli
+				);
+			ELSE
+				INSERT INTO muestras_pacientes (
+					id_his,
+					id_mue_cli					
+				) VALUES (
+					_id_his,
+					_arr[i]
+				);
+			END IF;
 
 			SELECT nom_mue_cli INTO _reg_act FROM muestras_pacientes mp LEFT JOIN muestras_clinicas mc ON(mp.id_mue_cli = mc.id_mue_cli) WHERE mc.id_mue_cli = _arr[i];
 
@@ -109,8 +132,9 @@ BEGIN
 	RETURN 1;
 
 END;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
-  ALTER FUNCTION med_muestra_clinica_paciente(character varying[]) OWNER TO desarrollo_g;
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION med_muestra_clinica_paciente(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_muestra_clinica_paciente(character varying[]) IS '
 NOMBRE: med_muestra_clinica_paciente
 TIPO: Function (store procedure)
@@ -129,7 +153,9 @@ RETORNO:
 EJEMPLO DE LLAMADA:
 	SELECT med_muestra_clinica_paciente(ARRAY[
                 ''16'',
-                ''1,2,3,5,7,10,36'',               
+                ''1,3,4,8,9,36'',
+                ''36'',
+                ''Otra Clinica'',               
                 ''32'',
                 ''MCP''                
                 ]
@@ -142,15 +168,3 @@ AUTOR DE MODIFICACIÓN: Lisseth Lozada
 FECHA DE MODIFICACIÓN: 25/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 ';
-
-
-/*
-SELECT med_muestra_clinica_paciente(ARRAY[
-                '16',
-                '1,2,3,5,7,10,36',               
-                '32',
-                'MCP'                
-                ]
-            ) AS result 
-            
-            */

@@ -52,7 +52,10 @@
                     <div class="standar_margin ">
                         <ol class="standar_list">
                             <?php foreach($centros_salud as $row): ?>
-                                <li><input name="chk_cen_sal_<?php echo $row->CentroSalud->id_cen_sal?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->CentroSalud->id_cen_sal?>" <?php echo (!empty($row->csp->id_cen_sal) ? "checked='checked'" : "")?>><?php echo $row->CentroSalud->nom_cen_sal?></li>
+                                <li>
+                                    <input name="chk_cen_sal_<?php echo $row->CentroSalud->id_cen_sal?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->CentroSalud->id_cen_sal?>" <?php echo (!empty($row->csp->id_cen_sal) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->CentroSalud->id_cen_sal,$row->CentroSalud->nom_cen_sal,"txt_otr_cen_sal");?>><?php echo $row->CentroSalud->nom_cen_sal?>
+                                    <?php echo $this->Otros->Text(100, $row->csp->otr_cen_sal);?>
+                                </li>
                             <?php endforeach ?>
                         </ol>
                     </div>

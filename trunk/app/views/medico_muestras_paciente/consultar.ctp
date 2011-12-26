@@ -15,7 +15,7 @@
                 <div class="standar_margin ">
                     <ol class="standar_list">
                         <?php foreach($muestras_clinicas as $row): ?>
-                            <li><?php echo $row->nom_mue_cli?></li>
+                            <li><?php echo $row->nom_mue_cli.($row->otr_mue_cli == "" ? "" : " (".$row->otr_mue_cli.")");?></li>
                         <?php endforeach ?>
                     </ol>
                 </div>
