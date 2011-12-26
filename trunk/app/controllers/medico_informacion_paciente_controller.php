@@ -53,13 +53,14 @@
                             "alias"         => "tcp",
                             "conditions"    => "tcp.id_his = $id_his AND tcp.id_tip_con = TiposConsulta.id_tip_con",
                             "type"          => "left",
-                            "fields"        => "id_tip_con"                            
+                            "fields"        => array("id_tip_con","otr_tip_con")                            
                             )
                         ),
                     "fields" =>
                         Array(
                             "*",
-                            "tcp.id_tip_con"                           
+                            "tcp.id_tip_con",
+                            "tcp.otr_tip_con"                          
                         ),
                     "order"=>
                         Array(
@@ -174,13 +175,14 @@
                             "alias"         => "tcp",
                             "conditions"    => "tcp.id_tip_con = TiposConsulta.id_tip_con",
                             "type"          => "left",
-                            "fields"        => "id_tip_con"                            
+                            "fields"        => Array("id_tip_con","otr_tip_con")                            
                             )
                         ),
                     "fields" =>
                         Array(
                             "*",
-                            "tcp.id_tip_con"                           
+                            "tcp.id_tip_con",
+                            "tcp.otr_tip_con"                           
                         ),
                     "order"=>
                         Array(
@@ -198,13 +200,14 @@
                                 "alias"         => "ca",
                                 "conditions"    => "ca.id_ani = Animale.id_ani",
                                 "type"          => "left",
-                                "fields"        => "ca.id_ani"
+                                "fields"        => ARRAY("ca.id_ani","ca.otr_ani")
                             )
                         ),
                     "fields" =>
                          Array(
                             "*",
-                            "ca.id_ani"                           
+                            "ca.id_ani",
+                            "ca.otr_ani"                           
                         ),
                     "order"=>                        
                             "nom_ani ASC",
@@ -275,10 +278,32 @@
                 $otr_ani = "";
                 $hdd_otr_ani    = -1;
             }
+            
+            if (isset($_POST["txt_otr_tip_con"])){
+                $otr_tip_con        = $_POST["txt_otr_tip_con"];
+                $hdd_otr_tip_con    = $_POST["hdd_txt_otr_tip_con"];
+            } else {
+                $otr_tip_con = "";
+                $hdd_otr_tip_con    = -1;
+            }
                                               
             $id_doc     = $this->Session->read("medico.id_usu");       
             $tra_usu    = 'IAP';
-            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional($id_his,$cen_sal,$tip_con,$con_ani,$tra_pre,$tie_evo,$hdd_otr_ani,$otr_ani,$id_doc,$tra_usu);   
+            $sql = $this->HistorialesPaciente->MedRegistrarInformacionAdicional(
+                $id_his,
+                $cen_sal,
+                $tip_con,
+                $con_ani,
+                $tra_pre,
+                $tie_evo,
+                $hdd_otr_ani,
+                $otr_ani,
+                $hdd_otr_tip_con,
+                $otr_tip_con,
+                
+                $id_doc,
+                $tra_usu
+            );   
            
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
