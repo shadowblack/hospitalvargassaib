@@ -7,6 +7,7 @@
             jQuery("#content").load("<?php echo $this->Html->url("event_enfermedades_modificar") ?>/"+id_tip_mic_pac,function(){
                 <?php echo $this->Checkbox->Multiple("chk_enf_pac_",
 "#pacientes") ?>
+                <?php echo $this->Otros->Script()?>
             });
             
             jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_modificar") ?>/"+id_tip_mic_pac,function(){

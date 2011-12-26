@@ -11,6 +11,9 @@ DECLARE
 	_str_tip_est_mic	TEXT;	
 	_str_chk_for_inf	TEXT;
 
+	_str_otr_enf_pac	enfermedades_pacientes.otr_enf_mic%TYPE;
+	_id_otr_enf_pac		enfermedades_pacientes.id_enf_pac%TYPE;
+
 	-- cadena para manipular el array
 	_str		TEXT;
 		
@@ -29,8 +32,11 @@ BEGIN
 	_str_les		:= _datos[3];
 	_str_tip_est_mic	:= _datos[4];		
 	_str_chk_for_inf	:= _datos[5];
+
+	_str_otr_enf_pac	:= _datos[6];
+	_id_otr_enf_pac		:= _datos[7];
 	
-	_id_doc			:= _datos[6];	
+	_id_doc			:= _datos[8];	
 		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
@@ -38,13 +44,25 @@ BEGIN
 	_arr_1 := STRING_TO_ARRAY(_str_enf_pac,',');
 	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
-			INSERT INTO enfermedades_pacientes (
-				id_tip_mic_pac,
-				id_enf_mic					
-			) VALUES (
-				_id_tip_mic_pac,
-				_arr_1[i]
-			);
+			IF _id_otr_enf_pac = _arr_1[i] THEN
+				INSERT INTO enfermedades_pacientes (
+					id_tip_mic_pac,
+					id_enf_mic,
+					otr_enf_mic					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i],
+					_str_otr_enf_pac
+				);
+			ELSE
+				INSERT INTO enfermedades_pacientes (
+					id_tip_mic_pac,
+					id_enf_mic					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i]
+				);
+			END IF;
 		END LOOP;
 	END IF;
 
@@ -116,7 +134,9 @@ PARAMETROS: Recibe 4 Parámetros
 	1:  Id tipo micosis paciente.
 	2:  String de las enfermedades del paciente, separados por ","
 	3:  String de las lesiones del paciente.
-	4:  Id del doctor.	
+	4:  String nombre de la otra micosis
+	5:  Id de la otra micosis	
+	6:  Id del doctor.	
 
 DESCRIPCION: 
 	Modifica las enfermedades y las lesiones del paciente
@@ -130,12 +150,17 @@ EJEMPLO DE LLAMADA:
                 ''1,2'',
                 ''(2;1)'',
                 ''5'',
-                ''6''              
+                ''6'',
+                ''ads'',
+                ''1''
 		]
 	    ) AS result 
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
 
+AUTOR DE MODIFICACION: Luis Marin
+FECHA DE MODIFICACION: 25/12/2011
+DESCRIPCION: MODIFI
 ';
 
