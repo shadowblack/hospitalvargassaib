@@ -72,7 +72,7 @@
  *
  */
 class DATABASE_CONFIG {
-
+    /*    
 	var $default = array(
 		'driver' => 'postgres',
 		'persistent' => false,
@@ -82,7 +82,18 @@ class DATABASE_CONFIG {
 		'database' => 'saib',
 		'prefix' => '',
 	);
-
+    */
+    
+    	var $default = array(
+		'driver' => 'postgres',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'postgres',
+		'password' => '1234',
+		'database' => 'saib',
+		'prefix' => '',
+	);
+    
 	var $test = array(
 		'driver' => 'mysql',
 		'persistent' => false,

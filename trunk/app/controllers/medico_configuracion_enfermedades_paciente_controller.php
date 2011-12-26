@@ -3,7 +3,7 @@
         var $name = "MedicoConfiguracionEnfermedadesPaciente";
         var $uses =         Array("HistorialesPaciente","TiposMicosisPaciente");
         var $components =   Array("Login","SqlData","FormatMessege","Session"); 
-        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","Checkbox");                  
+        var $helpers =      Array("Html","DateFormat","Paginator","FormatString","Loader","Event","Checkbox","Otros");                  
         
         var $group_session = "medico";                   
        
@@ -370,11 +370,30 @@
                 $hdd_les                 = $_POST["hdd_les"];
             } else {
                 $hdd_les                 = "";    
-            }                        
+            }
+            
+            if (isset($_POST["txt_otr_enf_pac"])){
+                $txt_otr_enf_pac    =   $_POST["txt_otr_enf_pac"];
+                $hdd_id_otr         =   $_POST["hdd_txt_otr_enf_pac"];
+            } else {
+                $txt_otr_enf_pac    =   "";
+                $hdd_id_otr         =   -1;
+            }
+                                    
             $id_doc                  = $this->Session->read("medico.id_usu");
             
                 
-            $sql = $this->HistorialesPaciente->MedModificarMicosisPaciente($tipos_micosis_pacientes,$hdd_chk_enf_pac,$hdd_les,$hdd_chk_est_pac,$hdd_chk_for_inf,$id_doc);
+            $sql = $this->HistorialesPaciente->MedModificarMicosisPaciente(
+                $tipos_micosis_pacientes,
+                $hdd_chk_enf_pac,
+                $hdd_les,
+                $hdd_chk_est_pac,
+                $hdd_chk_for_inf,
+                $txt_otr_enf_pac,
+                $hdd_id_otr,
+                
+                $id_doc
+            );
                       
             $arr_query = ($this->HistorialesPaciente->query($sql));
                              
@@ -439,11 +458,20 @@
          function event_enfermedades_modificar($id_tip_mic_pac){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
                     
-            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic, ep.id_enf_mic AS check_id , ep.id_enf_pac, tmp.id_tip_mic_pac  FROM tipos_micosis_pacientes tmp
-JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
-JOIN enfermedades_micologicas em ON (em.id_tip_mic = tm.id_tip_mic) 
-LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic) 
-WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+            $sql_enf = "SELECT 
+                            em.id_enf_mic,
+                            em.nom_enf_mic, 
+                            ep.id_enf_mic AS check_id , 
+                            ep.id_enf_pac, 
+                            tmp.id_tip_mic_pac,
+                            ep.otr_enf_mic  
+                        FROM 
+                            tipos_micosis_pacientes tmp
+                            JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
+                            JOIN enfermedades_micologicas em ON (em.id_tip_mic = tm.id_tip_mic) 
+                            LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_enf_mic = tm.id_tip_mic) 
+                        WHERE 
+                            tmp.id_tip_mic_pac = $id_tip_mic_pac
                        ";
           //echo $sql_enf;
                                             
@@ -534,13 +562,14 @@ WHERE fitm.id_tip_mic = $id_tip_mic
           function event_forma_infeccion_modificar($id_tip_mic_pac){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
             
-            $sql_enf = 
+              $sql_enf = 
                 "
-                SELECT fi.id_for_inf, fi.des_for_inf, fip.id_tip_mic_pac FROM tipos_micosis tm
+                SELECT fi.id_for_inf, fi.des_for_inf, fip.id_tip_mic_pac 
+                FROM tipos_micosis tm
                 JOIN tipos_micosis_pacientes tmp ON (tmp.id_tip_mic = tm.id_tip_mic)
                 JOIN forma_infecciones__tipos_micosis fitm ON(fitm.id_tip_mic = tm.id_tip_mic)
                 JOIN forma_infecciones fi ON(fi.id_for_inf = fitm.id_for_inf)
-                LEFT JOIN forma_infecciones__pacientes fip ON (fip.id_for_inf = fi.id_for_inf)
+                LEFT JOIN forma_infecciones__pacientes fip ON (fip.id_for_inf = fi.id_for_inf AND fip.id_tip_mic_pac = tmp.id_tip_mic_pac)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
                 ";
                                             
