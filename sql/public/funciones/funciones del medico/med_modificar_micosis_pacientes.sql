@@ -14,6 +14,12 @@ DECLARE
 	_str_otr_enf_pac	enfermedades_pacientes.otr_enf_mic%TYPE;
 	_id_otr_enf_pac		enfermedades_pacientes.id_enf_pac%TYPE;
 
+	-- variables para trabajar con otros
+	_str_data_otr		TEXT;
+	_arr_str_data_otr	TEXT[];
+	_arr_str_data_otr_elm	TEXT[];
+	_bol_otr		BOOLEAN DEFAULT FALSE;
+	
 	-- cadena para manipular el array
 	_str		TEXT;
 		
@@ -35,8 +41,9 @@ BEGIN
 
 	_str_otr_enf_pac	:= _datos[6];
 	_id_otr_enf_pac		:= _datos[7];
+	_str_data_otr		:= _datos[8];
 	
-	_id_doc			:= _datos[8];	
+	_id_doc			:= _datos[9];	
 		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
@@ -73,18 +80,52 @@ BEGIN
 	
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 	
-		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP		
+		_arr_str_data_otr = STRING_TO_ARRAY(_str_data_otr,',');		
+		
+		
+		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
+			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i] ,'(',''),')',''),';');
+
+			<<mifor>>
+			FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
+				_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],';');
+				IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
+					_str_data_otr := _arr_str_data_otr_elm[3];					
+					_bol_otr := TRUE;
+					EXIT mifor;
+				END IF;
+			END LOOP mifor;
 			
-			INSERT INTO lesiones_partes_cuerpos__pacientes (
-				id_tip_mic_pac,
-				id_cat_cue_les,
-				id_par_cue_cat_cue
-			) VALUES (
-				_id_tip_mic_pac,
-				_arr_2[1],
-				_arr_2[2]				
-			);
+			--coloca los comentarios de los otros en lesiones
+			IF _bol_otr THEN
+
+				INSERT INTO lesiones_partes_cuerpos__pacientes (
+					id_tip_mic_pac,
+					id_cat_cue_les,
+					id_par_cue_cat_cue,
+					otr_les_par_cue
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_2[1],
+					_arr_2[2],	
+					_str_data_otr			
+				);
+
+			ELSE
+
+				INSERT INTO lesiones_partes_cuerpos__pacientes (
+					id_tip_mic_pac,
+					id_cat_cue_les,
+					id_par_cue_cat_cue
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_2[1],
+					_arr_2[2]				
+				);
+			
+			END IF;
+			
 		END LOOP;
 	END IF;
 
@@ -146,21 +187,23 @@ RETORNO:
 	 
 EJEMPLO DE LLAMADA:
 	SELECT med_modificar_micosis_pacientes(ARRAY[                
-                ''1'',               
-                ''1,2'',
-                ''(2;1)'',
-                ''5'',
-                ''6'',
-                ''ads'',
-                ''1''
-		]
-	    ) AS result 
+                ''42'',               
+                ''1,2,3,18'',
+                ''(2;1),(3;1),(7;1),(22;1),(2;2),(3;2),(8;2),(12;3)'',
+                ''1,2,3,4,5'',
+                '''',
+                ''TEMA'',
+                ''18'',
+                ''22;1;hada'',
+                ''6''              
+                ]
+            ) AS result 
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
 
 AUTOR DE MODIFICACION: Luis Marin
-FECHA DE MODIFICACION: 25/12/2011
+FECHA DE MODIFICACION: 27/12/2011
 DESCRIPCION: MODIFI
 ';
 

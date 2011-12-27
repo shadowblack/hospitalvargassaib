@@ -6,7 +6,7 @@
 <table border="0" style="margin-left: 10px;margin-top: 5px;">    
     <?php foreach($enf_mic as $row):?>
         <tr>
-            <td>
+            <td>                
                 <input type="checkbox" class="standar_input_checkbox" name="chk_enf_pac_" value="<?php echo $row->id_enf_mic?>" <?php echo ($row->check_id != "" ? "checked='checked'" : "");echo $this->Otros->Attr($row->id_enf_mic,$row->nom_enf_mic,"txt_otr_enf_pac")?>>                        
             </td>
             <td align="left" class="standar_list">

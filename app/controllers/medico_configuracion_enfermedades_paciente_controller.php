@@ -175,14 +175,21 @@
         
         function event_lesiones_modificar($id_tip_mic_pac,$id_par_cue_cat_cue){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $sql = "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic, lpcp.id_cat_cue_les AS id_checked 
+            $sql = "SELECT l.nom_les, 
+                    ccl.id_cat_cue_les,
+                    tm.id_tip_mic,
+                    lpcp.otr_les_par_cue, 
+                    lpcp.id_cat_cue_les AS id_checked 
                     FROM tipos_micosis tm 
                     JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic) 
-                    JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue) 
+                    JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
+                    JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)  
                     JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue) 
                     JOIN lesiones l ON (l.id_les = ccl.id_les)
                     JOIN tipos_micosis_pacientes tmp ON(tmp.id_tip_mic = tm.id_tip_mic)
-                    LEFT JOIN lesiones_partes_cuerpos__pacientes lpcp ON (lpcp.id_cat_cue_les = ccl.id_cat_cue_les AND lpcp.id_tip_mic_pac = tmp.id_tip_mic_pac AND id_par_cue_cat_cue = $id_par_cue_cat_cue) WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
+                    LEFT JOIN lesiones_partes_cuerpos__pacientes lpcp ON (lpcp.id_cat_cue_les = ccl.id_cat_cue_les AND lpcp.id_tip_mic_pac = tmp.id_tip_mic_pac AND lpcp.id_par_cue_cat_cue = $id_par_cue_cat_cue) 
+                    WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
+                    AND pccc.id_par_cue_cat_cue = $id_par_cue_cat_cue                     
                 ;
                 ";
             $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
@@ -366,6 +373,7 @@
             $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"];
             $hdd_chk_est_pac         = $_POST["hdd_chk_tip_est_mic"];
             $hdd_chk_for_inf         = $_POST["hdd_chk_for_inf"];
+            
             if (isset($_POST["hdd_les"])){
                 $hdd_les                 = $_POST["hdd_les"];
             } else {
@@ -379,7 +387,9 @@
                 $txt_otr_enf_pac    =   "";
                 $hdd_id_otr         =   -1;
             }
-                                    
+            
+            $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];      
+                              
             $id_doc                  = $this->Session->read("medico.id_usu");
             
                 
@@ -391,6 +401,7 @@
                 $hdd_chk_for_inf,
                 $txt_otr_enf_pac,
                 $hdd_id_otr,
+                $hdd_str_otr_les,
                 
                 $id_doc
             );
@@ -469,7 +480,7 @@
                             tipos_micosis_pacientes tmp
                             JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
                             JOIN enfermedades_micologicas em ON (em.id_tip_mic = tm.id_tip_mic) 
-                            LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_enf_mic = tm.id_tip_mic) 
+                            LEFT JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = tmp.id_tip_mic_pac) 
                         WHERE 
                             tmp.id_tip_mic_pac = $id_tip_mic_pac
                        ";
@@ -520,7 +531,7 @@
                 FROM tipos_micosis_pacientes tmp
                 JOIN tipos_micosis tm ON (tmp.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
-                LEFT JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic)                
+                LEFT JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)                
                 JOIN tipos_examenes te ON (te.id_tip_exa = tem.id_tip_exa)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
                 ";

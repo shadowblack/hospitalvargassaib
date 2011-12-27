@@ -130,9 +130,11 @@
             $hdd_chk_for_inf,
             $txt_otr_enf_pac,
             $hdd_id_otr,
+            $hdd_str_otr_les,
+            
             $id_doc
         ){
-            $sql = "SELECT med_modificar_micosis_pacientes(ARRAY[                
+             $sql = "SELECT med_modificar_micosis_pacientes(ARRAY[                
                 '$tipos_micosis_pacientes',               
                 '$hdd_chk_enf_pac',
                 '$hdd_les',
@@ -140,6 +142,7 @@
                 '$hdd_chk_for_inf',
                 '$txt_otr_enf_pac',
                 '$hdd_id_otr',
+                '$hdd_str_otr_les',
                 '$id_doc'              
                 ]
             ) AS result";
