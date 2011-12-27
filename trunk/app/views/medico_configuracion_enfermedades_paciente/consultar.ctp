@@ -53,7 +53,7 @@
                                 <table style="margin-left: 20px;">                                                                    
                                 <?php foreach($enf_mic as $row):?>
                                     <tr>
-                                        <td class="standar_font"><?php echo $row->nom_enf_mic?></td>
+                                        <td class="standar_font"><?php echo $row->nom_enf_mic.($row->otr_enf_mic == "" ? "" : " (".$row->otr_enf_mic.")")?></td>
                                     </tr>
                                 <?php endforeach;?>
                                 </table>

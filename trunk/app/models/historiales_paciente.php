@@ -108,7 +108,17 @@
             return $sql;
         }
         
-        function MedInsertarMicosisPaciente($id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$hdd_tip_est_mic,$hdd_chk_for_inf,$id_doc){
+        function MedInsertarMicosisPaciente(
+                $id_his,
+                $hdd_id_tip_mic,
+                $hdd_chk_enf_pac,
+                $hdd_les,
+                $hdd_tip_est_mic,
+                $hdd_chk_for_inf,
+                $txt_otr_enf_mic,
+                $id_hdd_otr_enf_mic,
+                $id_doc
+        ){
             $sql = "SELECT med_insertar_micosis_pacientes(ARRAY[
                 '$id_his',
                 '$hdd_id_tip_mic',               
@@ -116,6 +126,8 @@
                 '$hdd_les',
                 '$hdd_tip_est_mic',
                 '$hdd_chk_for_inf',
+                '$txt_otr_enf_mic',
+                '$id_hdd_otr_enf_mic',
                 '$id_doc'                              
                 ]
             ) AS result";

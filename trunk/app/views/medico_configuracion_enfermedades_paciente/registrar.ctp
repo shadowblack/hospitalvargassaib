@@ -6,9 +6,13 @@
                 .addClass("standar_cargador");
             jQuery("#content").load("<?php echo $this->Html->url("event_enfermedades_registrar")?>/"+id_tip_mic,function(){
                 <?php echo $this->Checkbox->Multiple("chk_enf_pac_","#pacientes")?>
+                <?php echo $this->Otros->Script()?>
             });
             
-            jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_registrar")?>/"+id_tip_mic);
+            jQuery("#tabs-2").load("<?php echo $this->Html->url("event_cat_mic_registrar")?>/"+id_tip_mic,function(){
+                
+            });
+            
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic, function(){
                     <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
             }); 
@@ -22,6 +26,7 @@
            if(obj.checked){                
                 jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).load("<?php echo $this->Html->url("event_lesiones_registrar")?>/"+jQuery("[name='cmb_tipos_micosis']").val()+"/"+id_par_cue_cat_cue+"/",function(){                    
                     <?php echo $this->Checkbox->Multiple("les_","#pacientes",true)?>
+                    <?php echo $this->Otros->Script()?>
                 });
            } else {
                 jQuery("#div_les_par_cue_"+id_par_cue_cat_cue).empty();
@@ -45,7 +50,7 @@
             jQuery(_name).change(function(){
                 var id_tip_mic = this.value;
                 change_enfermedad(id_tip_mic);
-            });                                      
+            });                                 
         });
 </script>
 <style type="text/css">
@@ -67,12 +72,12 @@
             </li>
             <li>
                 <a href="#tabs-2" >
-                    <?php echo __("Descripción de la lesion",true)?>
+                    <?php echo __("Descripción de la lesión",true)?>
                 </a>
             </li> 
             <li>
                 <a href="#tabs-3" >
-                    <?php echo __("Estudios Micologicos",true)?>
+                    <?php echo __("Estudios Micológicos",true)?>
                 </a>
             </li>   
             <li>
