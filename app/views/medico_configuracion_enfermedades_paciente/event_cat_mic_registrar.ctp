@@ -28,11 +28,11 @@
             <tr>    
                 <td class="">
                     <div style="margin-left: 25px;">
-                        <input type="checkbox" name="chk_par_cue" id_par_cue_cat_cue="<?php echo $row->id_par_cue_cat_cue?>" class="standar_input_checkbox" onclick="check_parte_cuerpo(this);" value="<?php echo $row->id_par_cue?>">
+                        <input type="checkbox" name="chk_par_cue" id_par_cue_cat_cue="<?php echo $row->id_par_cue_cat_cue?>" class="standar_input_checkbox" onclick="check_parte_cuerpo(this);" value="<?php echo $row->id_par_cue?>" >
                         <?php echo $row->nom_par_cue ?>
                         <div id="div_les_par_cue_<?php echo $row->id_par_cue_cat_cue?>">
                             <!-- Check box lesiones con, ajax -->
-                        </div>                        
+                        </div>            
                     </div>
                 </td>
             </tr>

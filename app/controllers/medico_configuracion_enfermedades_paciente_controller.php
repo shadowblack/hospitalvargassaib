@@ -93,13 +93,13 @@
         
         function event_cat_mic_registrar($id_tip_mic){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-            $query =  "SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
-                from tipos_micosis tm 
-                JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic)
-                JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue)
-                JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)
-                JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue)
-                WHERE tm.id_tip_mic = $id_tip_mic
+            $query =  " SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
+                        FROM tipos_micosis tm 
+                            JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic)
+                            JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue)
+                            JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)
+                            JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue)
+                        WHERE tm.id_tip_mic = $id_tip_mic
                 ;
                 ";
             $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
@@ -145,17 +145,18 @@
             $this->layout = 'ajax';
         }
         
-         function event_lesiones_registrar($id_tip_mic,$id_par_cue_cat_cue){            
+         function event_lesiones_registrar($id_tip_mic,$id_par_cue_cat_cue){  
+           
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-             $query = "SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic                
-                FROM tipos_micosis tm
-                JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
-                JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
-                JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue)
-                JOIN lesiones l ON (l.id_les = ccl.id_les)                
-                WHERE tm.id_tip_mic = $id_tip_mic
-                ;
-                ";
+             $query = " SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic               
+                        FROM tipos_micosis tm
+                            JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
+                            JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
+                            JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)
+                            JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue)
+                            JOIN lesiones l ON (l.id_les = ccl.id_les) 
+                        WHERE tm.id_tip_mic = $id_tip_mic 
+                            AND pccc.id_par_cue_cat_cue = $id_par_cue_cat_cue";
             $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                 $query
             ))); 
@@ -227,7 +228,7 @@
             
             // enfermedades de la micosis     
              $sql_enf = "
-                SELECT em.id_enf_mic,em.nom_enf_mic
+                SELECT em.id_enf_mic,em.nom_enf_mic,ep.otr_enf_mic
                 FROM enfermedades_micologicas em
                 JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = $id_tip_mic_pac)
             ";
@@ -335,16 +336,38 @@
             $hdd_id_tip_mic          = $_POST["cmb_tipos_micosis"];            
             $hdd_chk_enf_pac         = $_POST["hdd_chk_enf_pac"];
             $hdd_tip_est_mic         = $_POST["hdd_chk_tip_est_mic"];
-            $hdd_chk_for_inf        = $_POST["hdd_chk_for_inf"];
-            if (isset($_POST["hdd_les"])){
-                $hdd_les                 = $_POST["hdd_les"];
-            } else {
-                $hdd_les                 = "";    
-            }                        
-            $id_doc                  = $this->Session->read("medico.id_usu");
+            $hdd_chk_for_inf         = $_POST["hdd_chk_for_inf"];
             
+            if (isset($_POST["hdd_les"])){
+                $hdd_les    = $_POST["hdd_les"];
+            } 
+            else{
+                $hdd_les    = "";    
+            }
+            
+            if (isset($_POST["txt_otr_enf_mic"])){
+                $txt_otr_enf_mic            = $_POST["txt_otr_enf_mic"];
+                $id_hdd_otr_enf_mic         = $_POST["hdd_txt_otr_enf_mic"];
+            } else {
+                $txt_otr_enf_mic            = "";
+                $id_hdd_otr_enf_mic         = -1;
+            }
+                                   
+            $id_doc         = $this->Session->read("medico.id_usu");
                 
-            $sql = $this->HistorialesPaciente->MedInsertarMicosisPaciente($hdd_id_his,$hdd_id_tip_mic,$hdd_chk_enf_pac,$hdd_les,$hdd_tip_est_mic,$hdd_chk_for_inf,$id_doc);
+            $sql = $this->HistorialesPaciente->MedInsertarMicosisPaciente(
+                        $hdd_id_his,
+                        $hdd_id_tip_mic,
+                        $hdd_chk_enf_pac,
+                        $hdd_les,
+                        $hdd_tip_est_mic,
+                        $hdd_chk_for_inf,
+                        
+                        $txt_otr_enf_mic,
+                        $id_hdd_otr_enf_mic,
+                
+                        $id_doc
+            );
                       
             $arr_query = ($this->HistorialesPaciente->query($sql));
                              
@@ -446,8 +469,9 @@
          function event_enfermedades_registrar($id_tip_mic){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
                     
-            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic
-                        FROM enfermedades_micologicas em                        
+            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic,ep.otr_enf_mic
+                        FROM enfermedades_micologicas em
+                        LEFT JOIN enfermedades_pacientes ep ON (em.id_enf_mic = ep.id_enf_mic)                               
                         WHERE em.id_tip_mic = $id_tip_mic";
           
                                             

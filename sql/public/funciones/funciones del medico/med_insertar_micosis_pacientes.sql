@@ -15,6 +15,10 @@ DECLARE
 	_str_les		TEXT;
 	_str_tip_est_mic	TEXT;
 	_str_chk_for_inf	TEXT;
+
+	_id_otr_enf_mic		enfermedades_pacientes.id_enf_pac%TYPE;
+	_str_otr_enf_mic	enfermedades_pacientes.otr_enf_mic%TYPE;
+	
 	
 	_str		TEXT;	
 		
@@ -36,8 +40,14 @@ BEGIN
 	_str_les		:= _datos[4];	
 	_str_tip_est_mic	:= _datos[5];
 	_str_chk_for_inf	:= _datos[6];
+
+
+	_str_otr_enf_mic	:= _datos[7];
+	_id_otr_enf_mic 	:= _datos[8];
+	
+	
 		
-	_id_doc			:= _datos[7];	
+	_id_doc			:= _datos[9];	
 	
 	-- tipos de micosis del paciente
 	IF NOT EXISTS  (SELECT 1 FROM tipos_micosis_pacientes WHERE id_his = _id_his AND id_tip_mic = _id_tip_mic) THEN
@@ -60,13 +70,26 @@ BEGIN
 	_arr_1 := STRING_TO_ARRAY(_str_enf_pac,',');
 	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
-			INSERT INTO enfermedades_pacientes (
-				id_tip_mic_pac,
-				id_enf_mic					
-			) VALUES (
-				_id_tip_mic_pac,
-				_arr_1[i]
-			);
+
+			IF (_id_otr_enf_mic = _arr_1[i])THEN
+				INSERT INTO enfermedades_pacientes (
+					id_tip_mic_pac,
+					id_enf_mic,
+					otr_enf_mic					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i],
+					_str_otr_enf_mic
+				);
+			ELSE
+				INSERT INTO enfermedades_pacientes (
+					id_tip_mic_pac,
+					id_enf_mic					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i]
+				);
+			END IF;
 		END LOOP;
 	END IF;
 
@@ -154,5 +177,8 @@ EJEMPLO DE LLAMADA:
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
+
+AUTOR DE MODIFICACIÓN: Lisseth Lozada
+FECHA DE MODIFICACIÓN: 25/12/2011
 
 ';
