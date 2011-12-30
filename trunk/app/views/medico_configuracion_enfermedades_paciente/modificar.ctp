@@ -23,7 +23,8 @@
             });    
             
             jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_modificar") ?>/"+id_tip_mic_pac,function(){                 
-                    <?php echo $this->Checkbox->Multiple("chk_for_inf_", "#pacientes") ?>;                             
+                    <?php echo $this->Checkbox->Multiple("chk_for_inf_", "#pacientes") ?>;  
+                     <?php echo $this->Otros->Script()?>                           
             });        
             
         } 
@@ -91,12 +92,12 @@ echo $this->element("dialog", array("T_V_TYPE" => 1));
             </li>
             <li>
                 <a href="#tabs-2" >
-                    <?php echo __("Descripción de la lesion", true) ?>
+                    <?php echo __("Descripción de la lesión", true) ?>
                 </a>
             </li>
             <li>
                 <a href="#tabs-3" >
-                    <?php echo __("Estudios Micologicos",true)?>
+                    <?php echo __("Estudios Micológicos",true)?>
                 </a>
             </li>
              <li>

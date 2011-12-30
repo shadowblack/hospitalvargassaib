@@ -15,11 +15,16 @@
     <?php foreach($forma_infeccion as $row):?>      
         <tr>
             <td>
-                <input type="checkbox" class="standar_input_checkbox" name="chk_for_inf_" value="<?php echo $row->id_for_inf?>" >        
+                <input type="checkbox" class="standar_input_checkbox" name="chk_for_inf_" value="<?php echo $row->id_for_inf?>" <?php echo $this->Otros->Attr($row->id_for_inf,$row->des_for_inf,"txt_otr_for_inf");?>>        
             </td>
             <td align="left" class="standar_list">
                 <?php echo $row->des_for_inf; ?>
             </td>            
-        </tr>    
+        </tr>
+        <tr>
+            <td colspan="2">
+                <?php echo $this->Otros->Text(100, '');?>
+            </td>
+        </tr>     
     <?php endforeach; ?>
 </table>

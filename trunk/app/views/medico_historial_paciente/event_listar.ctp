@@ -13,7 +13,7 @@
             <?php __("Fecha de registro")?>
         </td>
         <td align="center" class="standar_font lista_fondo" style="width: 175px;" >
-            <?php __("Descripción del historico")?>
+            <?php __("Descripción del histórico")?>
         </td>
         <td align="center" class="standar_font lista_fondo" style="width: 175px;" >
             <?php __("Descripción adicional del paciente")?>

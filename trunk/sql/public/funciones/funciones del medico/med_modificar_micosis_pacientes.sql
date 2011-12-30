@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION med_modificar_micosis_pacientes(character varying[])
+﻿-- Function: med_modificar_micosis_pacientes(character varying[])
+
+-- DROP FUNCTION med_modificar_micosis_pacientes(character varying[]);
+
+CREATE OR REPLACE FUNCTION med_modificar_micosis_pacientes(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
@@ -13,6 +17,9 @@ DECLARE
 
 	_str_otr_enf_pac	enfermedades_pacientes.otr_enf_mic%TYPE;
 	_id_otr_enf_pac		enfermedades_pacientes.id_enf_pac%TYPE;
+
+	_id_otr_for_inf		forma_infecciones__pacientes.id_for_inf%TYPE;
+	_str_otr_for_inf	forma_infecciones__pacientes.otr_for_inf%TYPE;
 
 	-- variables para trabajar con otros
 	_str_data_otr		TEXT;
@@ -41,9 +48,13 @@ BEGIN
 
 	_str_otr_enf_pac	:= _datos[6];
 	_id_otr_enf_pac		:= _datos[7];
-	_str_data_otr		:= _datos[8];
 	
-	_id_doc			:= _datos[9];	
+	_str_data_otr		:= _datos[8];
+
+	_id_otr_for_inf		:= _datos[9];
+	_str_otr_for_inf	:= _datos[10];
+	
+	_id_doc			:= _datos[11];	
 		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
@@ -125,7 +136,6 @@ BEGIN
 				);
 			
 			END IF;
-			
 		END LOOP;
 	END IF;
 
@@ -151,20 +161,35 @@ BEGIN
 	_arr_1 := STRING_TO_ARRAY(_str_chk_for_inf,',');
 	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
-			INSERT INTO forma_infecciones__pacientes (
-				id_tip_mic_pac,
-				id_for_inf					
-			) VALUES (
-				_id_tip_mic_pac,
-				_arr_1[i]
-			);
+
+			IF _id_otr_for_inf = _arr_1[i] THEN 
+
+				INSERT INTO forma_infecciones__pacientes (
+					id_tip_mic_pac,
+					id_for_inf,
+					otr_for_inf					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i],
+					_str_otr_for_inf
+				);
+			ELSE
+				INSERT INTO forma_infecciones__pacientes (
+					id_tip_mic_pac,
+					id_for_inf					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i]
+				);
+			END IF;
 		END LOOP;
 	END IF;
 
 	RETURN 1;
 
 END;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
 ALTER FUNCTION med_modificar_micosis_pacientes(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_modificar_micosis_pacientes(character varying[]) IS '
 NOMBRE: med_modificar_micosis_pacientes
@@ -186,24 +211,25 @@ RETORNO:
 	1: La función se ejecutó exitosamente	
 	 
 EJEMPLO DE LLAMADA:
-	SELECT med_modificar_micosis_pacientes(ARRAY[                
-                ''42'',               
-                ''1,2,3,18'',
-                ''(2;1),(3;1),(7;1),(22;1),(2;2),(3;2),(8;2),(12;3)'',
-                ''1,2,3,4,5'',
-                '''',
-                ''TEMA'',
-                ''18'',
-                ''22;1;hada'',
-                ''6''              
-                ]
-            ) AS result 
-
+	SELECT med_modificar_micosis_pacientes(ARRAY[ 
+		''60'', 
+		''1,4,5,7,18'', 
+		''(3;1),(22;1),(2;1),(7;2),(22;2),(5;2),(13;3),(23;3),(10;3),(14;4),(21;4),(23;4)'', 
+		''1,3,5,7'', 
+		'''', 
+		''super mic'', 
+		''18'', 
+		''22;1;uno,22;2;dos,23;3;tres,23;4;cuatro'', 
+		''-1'', 
+		'''', 
+		''32'' 
+	] ) AS result
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
 
 AUTOR DE MODIFICACION: Luis Marin
 FECHA DE MODIFICACION: 27/12/2011
-DESCRIPCION: MODIFI
-';
 
+AUTOR DE MODIFICACION: Lisseth Lozada
+FECHA DE MODIFICACION: 29/12/2011
+';
