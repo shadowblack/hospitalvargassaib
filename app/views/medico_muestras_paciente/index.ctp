@@ -32,7 +32,7 @@
     <ul>
         <li>
             <a href="#tabs-1" >
-                <?php echo __("Muestras Clinicas",true)?>
+                <?php echo __("Muestras Clínicas",true)?>
             </a>            
         </li> 
         <li>

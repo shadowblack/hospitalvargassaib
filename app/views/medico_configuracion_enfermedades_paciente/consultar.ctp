@@ -18,12 +18,12 @@
             </li>
             <li>
                 <a href="#tabs-2" >
-                    <?php echo __("Descripción de la lesion",true)?>
+                    <?php echo __("Descripción de la lesión",true)?>
                 </a>
             </li> 
             <li>
                 <a href="#tabs-3" >
-                    <?php echo __("Estudios Micologicos",true)?>
+                    <?php echo __("Estudios Micológicos",true)?>
                 </a>
             </li>            
             <li>
@@ -72,20 +72,20 @@
                 <table border="0" align="center" style="width: 550px;" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="lista_fondo">
-                            <?php __("Categoria")?>
+                            <?php __("Categoría")?>
                         </td>
                         <td class="lista_fondo">
                             <?php __("Parte del cuerpo")?>
                         </td>
                         <td class="lista_fondo">
-                            <?php __("Nombre de la lession")?>
+                            <?php __("Nombre de la lesión")?>
                         </td>                        
                     </tr>
                     <?php foreach($les_cat as $row):?>                    
                         <tr>
                             <td class="standar_font"><?php echo $row->nom_cat_cue?></td>
                             <td class="standar_font"><?php echo $row->nom_par_cue?></td>                            
-                            <td class="standar_font"><?php echo $row->nom_les?></td>
+                            <td class="standar_font"><?php echo $row->nom_les.($row->otr_les_par_cue == "" ? "" : " (".$row->otr_les_par_cue.")")?></td>
                         </tr>
                     <?php endforeach;?>
                 </table>
@@ -129,7 +129,7 @@
                     </tr>
                     <?php foreach($for_inf as $row):?>                    
                         <tr>
-                            <td class="standar_font"><?php echo $row->des_for_inf?></td>
+                            <td class="standar_font"><?php echo $row->des_for_inf.($row->otr_for_inf == "" ? "" : " (".$row->otr_for_inf.")")?></td>
                         </tr>
                     <?php endforeach;?>
                 </table> 

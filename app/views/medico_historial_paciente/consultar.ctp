@@ -18,7 +18,7 @@
                 <table style="margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                     <tr>
                         <td width="120" class="standar_font_sub" valign="top" align="left">
-                            <?php echo __( "Número de historia",true)?>
+                            <?php echo __("Número de historia",true)?>
                         </td>
                         <td width="20" class="standar_font_sub ">
                             &nbsp;

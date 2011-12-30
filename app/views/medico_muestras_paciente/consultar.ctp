@@ -7,7 +7,7 @@
     <table style="width:98%; border" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>                
             <td width="144" class="standar_font lista_fondo" valign="top">
-                <?php __("Muestras Clinicas");?>                                
+                <?php __("Muestras Clínicas");?>                                
             </td>                                                                                       
         </tr>
         <tr>

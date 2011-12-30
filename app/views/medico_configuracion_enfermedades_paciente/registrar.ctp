@@ -14,10 +14,11 @@
             });
             
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic, function(){
-                    <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
+                <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
             }); 
             jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_registrar")?>/"+id_tip_mic, function(){
-                    <?php echo $this->Checkbox->Multiple("chk_for_inf_","#pacientes",true)?>
+                <?php echo $this->Checkbox->Multiple("chk_for_inf_","#pacientes",true)?>
+                <?php echo $this->Otros->Script()?>
             });           
         } 
         
@@ -34,14 +35,28 @@
            }           
         }                 
              
-        jQuery(function() {
+        jQuery(function(){
                         
            // jQuery("#tabs-1").css("display","block");
             jQuery( "#tabs" ).tabs();            
            
             jQuery("#pacientes").validate({                
                 submitHandler: function(form) {
-                    <?php echo $this->Event->Insert($this->Html->url("event_registrar"),"form","back")?>                   
+                    var _arr_ele    = [];
+                    var _str        = "";
+                    var _i = 0;
+                    jQuery("input[name^='txt_otr_les__']").each(function(i,obj){
+                        if (jQuery(this).val() != ""){
+                            _str = jQuery(this).attr("name");                            
+                            var _arr = _str.split("__");
+                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _arr_ele[_i] = _str;                                                        
+                            _i++;
+                        }
+                    });
+                    jQuery("#hdd_str_otr_les").val(_arr_ele.join(","));
+                    //return false;
+                    <?php echo $this->Event->Insert($this->Html->url("event_registrar"),"form","back")?>                 
                 }
             }); 
             
@@ -50,7 +65,7 @@
             jQuery(_name).change(function(){
                 var id_tip_mic = this.value;
                 change_enfermedad(id_tip_mic);
-            });                                 
+            });                              
         });
 </script>
 <style type="text/css">
@@ -60,9 +75,7 @@
     //$T_V_TYPE = 1;
     //include_once("../libs/_dialog.php");  
     echo $this->element("dialog",Array("T_V_TYPE" => 1));
-?>
-
-    		
+?> 		
     <div id="tabs">
         <ul>
             <li>
@@ -89,6 +102,7 @@
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" > 
             <input type="hidden" name="hdd_id_his" value="<?php echo $id_his?>">
+            <input type="hidden" id="hdd_str_otr_les" name="hdd_str_otr_les" value="" > 
             <div id="tabs-1" style="height: 325px;" class="standar_fieldset_child">                                          
                 <table style="width:540px;margin-top: 5px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>

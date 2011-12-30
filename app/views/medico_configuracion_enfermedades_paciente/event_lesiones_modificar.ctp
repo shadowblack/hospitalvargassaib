@@ -1,6 +1,6 @@
 <?php if (count($les_cat)==0){  ?>
      <div class="standar_not_register">
-        <span class="standar_not_register"><?php echo __("Esta enfermedad no posee categorias",true)?></span>
+        <span class="standar_not_register"><?php echo __("Esta enfermedad no posee categorías",true)?></span>
     </div>           
 <?php die; } ?>  
 <table style="margin-left: 20px;margin-top: 5px;">
@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <?php echo $this->Otros->Text(20, $row->otr_les_par_cue);?>
+                        <?php echo $this->Otros->Text(100, $row->otr_les_par_cue);?>
                     </td>
                 </tr>
             <?php

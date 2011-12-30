@@ -43,7 +43,7 @@ SIGIS. C.A
 	
 			
 		if(fec_ini > fec_fin){
-			alert("<?php print __('La fecha Final no puede ser Menor a la inicial',true);?>");
+			alert("<?php print __('La fecha Final no puede ser menor a la inicial',true);?>");
 			retVal = false;
 		}
 		else

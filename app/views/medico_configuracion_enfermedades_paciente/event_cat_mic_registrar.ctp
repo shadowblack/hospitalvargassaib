@@ -1,12 +1,12 @@
  <?php if (count($cat_cue)==0){  ?>
     <div class="standar_not_register">
-            <span class="standar_not_register"><?php echo __("Esta enfermedad no posee descripción de lessiones.",true)?></span>
+            <span class="standar_not_register"><?php echo __("Esta enfermedad no posee descripción de lesiones.",true)?></span>
     </div> 
 <?php die; } ?> 
  <table style="width:540px;margin-top: 5px;" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="184" class="standar_font" valign="top">            
-            <?php echo __( "Categorias",true)?>
+            <?php echo __( "Categorías",true)?>
         </td>                        
     </tr>
     <?php        

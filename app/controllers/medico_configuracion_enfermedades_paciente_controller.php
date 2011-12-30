@@ -100,13 +100,12 @@
                             JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)
                             JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue)
                         WHERE tm.id_tip_mic = $id_tip_mic
-                ;
-                ";
+            ;";
             $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                $query
             ))); 
                                      
-            $title = __("Registro de categoria micosis",true);
+            $title = __("Registro de categoría micosis",true);
             
             $data = Array(
                 "cat_cue"           =>  $cat_cue,
@@ -121,19 +120,18 @@
         function event_cat_mic_modificar($id_tip_mic_pac){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             $sql =  "
-                    SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
-                    from tipos_micosis tm 
-                    JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic) 
-                    JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue) 
-                    JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue) 
-                    JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue) 
-                    JOIN tipos_micosis_pacientes tmp ON(tmp.id_tip_mic = tm.id_tip_mic)
-                    WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
-                ;
-                ";
+                SELECT cc.nom_cat_cue,cc.id_cat_cue,pc.nom_par_cue,pc.id_par_cue,pccc.id_par_cue_cat_cue 
+                from tipos_micosis tm 
+                JOIN categorias__cuerpos_micosis ccm ON (ccm.id_tip_mic = tm.id_tip_mic) 
+                JOIN categorias_cuerpos cc ON (ccm.id_cat_cue = cc.id_cat_cue) 
+                JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue) 
+                JOIN partes_cuerpos pc ON (pc.id_par_cue = pccc.id_par_cue) 
+                JOIN tipos_micosis_pacientes tmp ON(tmp.id_tip_mic = tm.id_tip_mic)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
+            ;";
             $cat_cue = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql))); 
                                      
-            $title = __("Registro de categoria micosis",true);
+            $title = __("Registro de categoría micosis",true);
             
             $data = Array(
                 "cat_cue"           =>  $cat_cue,
@@ -148,7 +146,7 @@
          function event_lesiones_registrar($id_tip_mic,$id_par_cue_cat_cue){  
            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
-             $query = " SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic               
+            $query = " SELECT l.nom_les, ccl.id_cat_cue_les,tm.id_tip_mic               
                         FROM tipos_micosis tm
                             JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)
                             JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
@@ -161,7 +159,7 @@
                 $query
             ))); 
                                      
-            $title = __("Registro de categoria micosis",true);
+            $title = __("Registro de categoría micosis",true);
             
             $data = Array(
                 "id_par_cue_cat_cue"        =>  $id_par_cue_cat_cue,
@@ -177,27 +175,25 @@
         function event_lesiones_modificar($id_tip_mic_pac,$id_par_cue_cat_cue){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             $sql = "SELECT l.nom_les, 
-                    ccl.id_cat_cue_les,
-                    tm.id_tip_mic,
-                    lpcp.otr_les_par_cue, 
-                    lpcp.id_cat_cue_les AS id_checked 
+                                ccl.id_cat_cue_les,
+                                tm.id_tip_mic,
+                                lpcp.otr_les_par_cue, 
+                                lpcp.id_cat_cue_les AS id_checked 
                     FROM tipos_micosis tm 
-                    JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic) 
-                    JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
-                    JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)  
-                    JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue) 
-                    JOIN lesiones l ON (l.id_les = ccl.id_les)
-                    JOIN tipos_micosis_pacientes tmp ON(tmp.id_tip_mic = tm.id_tip_mic)
-                    LEFT JOIN lesiones_partes_cuerpos__pacientes lpcp ON (lpcp.id_cat_cue_les = ccl.id_cat_cue_les AND lpcp.id_tip_mic_pac = tmp.id_tip_mic_pac AND lpcp.id_par_cue_cat_cue = $id_par_cue_cat_cue) 
+                        JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic) 
+                        JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue)
+                        JOIN partes_cuerpos__categorias_cuerpos pccc ON (pccc.id_cat_cue = cc.id_cat_cue)  
+                        JOIN categorias_cuerpos__lesiones ccl ON (ccl.id_cat_cue = cc.id_cat_cue) 
+                        JOIN lesiones l ON (l.id_les = ccl.id_les)
+                        JOIN tipos_micosis_pacientes tmp ON(tmp.id_tip_mic = tm.id_tip_mic)
+                        LEFT JOIN lesiones_partes_cuerpos__pacientes lpcp ON (lpcp.id_cat_cue_les = ccl.id_cat_cue_les AND lpcp.id_tip_mic_pac = tmp.id_tip_mic_pac AND lpcp.id_par_cue_cat_cue = $id_par_cue_cat_cue) 
                     WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
-                    AND pccc.id_par_cue_cat_cue = $id_par_cue_cat_cue                     
-                ;
-                ";
+                        AND pccc.id_par_cue_cat_cue = $id_par_cue_cat_cue;";
             $les_cat = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                 $sql
             ))); 
                                      
-            $title = __("Registro de categoria micosis",true);
+            $title = __("Registro de categoría micosis",true);
             
             $data = Array(
                 "id_par_cue_cat_cue"        =>  $id_par_cue_cat_cue,
@@ -237,7 +233,7 @@
                         
             // lesiones parte del cuerpo             
             $sql = "
-                SELECT l.nom_les,cc.nom_cat_cue,pc.nom_par_cue
+                SELECT l.nom_les,cc.nom_cat_cue,pc.nom_par_cue,lpcp.otr_les_par_cue
                 FROM tipos_micosis tm 
                 JOIN categorias__cuerpos_micosis ccm ON (tm.id_tip_mic = ccm.id_tip_mic)                                        
                 JOIN categorias_cuerpos cc ON (cc.id_cat_cue = ccm.id_cat_cue) 
@@ -262,7 +258,7 @@
                 JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
-                JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic )
+                JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
                 ORDER BY nom_tip_exa                
             ";
@@ -272,7 +268,7 @@
             
             // forma de infeccion   
             $sql = "
-                SELECT des_for_inf 
+                SELECT des_for_inf,otr_for_inf 
                 FROM tipos_micosis_pacientes tmp 
                 JOIN forma_infecciones__pacientes fip ON (fip.id_tip_mic_pac = tmp.id_tip_mic_pac)
                 JOIN forma_infecciones	fi ON(fi.id_for_inf = fip.id_for_inf)
@@ -283,7 +279,7 @@
                 $sql
             ))); 
                                      
-            $title = __("Consulta de categoria micosis",true);
+            $title = __("Consulta de categoría micosis",true);
             
             $data = Array(
                 "for_inf"           =>  $for_inf,
@@ -314,7 +310,7 @@
             $arr_query = ($this->HistorialesPaciente->query($sql));
             $tipos_micosis = ($this->SqlData->array_to_object($arr_query)); 
                                                                         
-            $title = __("Modificar de paciente",true);
+            $title = __("Modificar paciente",true);
             
             $data = Array(                                
                 "tipos_micosis"     =>  $tipos_micosis,                                         
@@ -352,6 +348,16 @@
                 $txt_otr_enf_mic            = "";
                 $id_hdd_otr_enf_mic         = -1;
             }
+            
+            if (isset($_POST["txt_otr_for_inf"])){
+                $txt_otr_for_inf    =   $_POST["txt_otr_for_inf"];
+                $id_hdd_otr_for_inf =   $_POST["hdd_txt_otr_for_inf"];
+            } else {
+                $txt_otr_for_inf    =   "";
+                $id_hdd_otr_for_inf =   -1;
+            }
+            
+            $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];
                                    
             $id_doc         = $this->Session->read("medico.id_usu");
                 
@@ -365,7 +371,12 @@
                         
                         $txt_otr_enf_mic,
                         $id_hdd_otr_enf_mic,
-                
+                        
+                        $id_hdd_otr_for_inf,
+                        $txt_otr_for_inf,
+                        
+                        $hdd_str_otr_les,
+                                        
                         $id_doc
             );
                       
@@ -405,15 +416,23 @@
             
             if (isset($_POST["txt_otr_enf_pac"])){
                 $txt_otr_enf_pac    =   $_POST["txt_otr_enf_pac"];
-                $hdd_id_otr         =   $_POST["hdd_txt_otr_enf_pac"];
+                $id_hdd_id_otr         =   $_POST["hdd_txt_otr_enf_pac"];
             } else {
                 $txt_otr_enf_pac    =   "";
-                $hdd_id_otr         =   -1;
+                $id_hdd_id_otr         =   -1;
+            }
+            
+            if (isset($_POST["txt_otr_for_inf"])){
+                $txt_otr_for_inf    =   $_POST["txt_otr_for_inf"];
+                $id_hdd_otr_for_inf =   $_POST["hdd_txt_otr_for_inf"];
+            } else {
+                $txt_otr_for_inf    =   "";
+                $id_hdd_otr_for_inf =   -1;
             }
             
             $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];      
                               
-            $id_doc                  = $this->Session->read("medico.id_usu");
+            $id_doc                 = $this->Session->read("medico.id_usu");
             
                 
             $sql = $this->HistorialesPaciente->MedModificarMicosisPaciente(
@@ -422,9 +441,14 @@
                 $hdd_les,
                 $hdd_chk_est_pac,
                 $hdd_chk_for_inf,
+                
                 $txt_otr_enf_pac,
-                $hdd_id_otr,
+                $id_hdd_id_otr,
+                
                 $hdd_str_otr_les,
+                
+                $id_hdd_otr_for_inf,
+                $txt_otr_for_inf,
                 
                 $id_doc
             );
@@ -477,7 +501,7 @@
                                             
             $enf_mic = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                         
             
-            $title = __("Enfermedades Micologicas",true);
+            $title = __("Enfermedades Micológicas",true);
             
             $data = Array(                
                 "enf_mic"     =>  $enf_mic,                                         
@@ -512,7 +536,7 @@
                                             
             $enf_mic = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                         
             
-            $title = __("Enfermedades Micologicas",true);
+            $title = __("Enfermedades Micológicas",true);
             
             $data = Array(                
                 "enf_mic"     =>  $enf_mic,                                         
@@ -535,7 +559,7 @@
                 WHERE id_tip_mic = $id_tip_mic";
                                             
             $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
-            $title = __("Estudios Micologicos",true);
+            $title = __("Estudios Micológicos",true);
             
             $data = Array(                
                 "estudios"     =>  $estudios,                                         
@@ -561,7 +585,7 @@
                 ";
                                             
             $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
-            $title = __("Estudios Micologicos",true);
+            $title = __("Estudios Micológicos",true);
             
             $data = Array(                
                 "estudios"     =>  $estudios,                                         
@@ -578,12 +602,12 @@
             $sql_enf = 
             "
             SELECT fi.id_for_inf, fi.des_for_inf FROM forma_infecciones fi 
-JOIN forma_infecciones__tipos_micosis fitm ON (fitm.id_for_inf = fi.id_for_inf)
-WHERE fitm.id_tip_mic = $id_tip_mic
+                JOIN forma_infecciones__tipos_micosis fitm ON (fitm.id_for_inf = fi.id_for_inf)
+            WHERE fitm.id_tip_mic = $id_tip_mic
             ";
                                         
             $forma_infeccion = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
-            $title = __("Forma de infeccion",true);
+            $title = __("Forma de infección",true);
             
             $data = Array(                
             "forma_infeccion"     =>  $forma_infeccion,                                         
@@ -597,19 +621,19 @@ WHERE fitm.id_tip_mic = $id_tip_mic
           function event_forma_infeccion_modificar($id_tip_mic_pac){            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
             
-              $sql_enf = 
+            $sql_enf = 
                 "
-                SELECT fi.id_for_inf, fi.des_for_inf, fip.id_tip_mic_pac 
+                SELECT fi.id_for_inf, fi.des_for_inf, fip.id_tip_mic_pac, fip.otr_for_inf 
                 FROM tipos_micosis tm
-                JOIN tipos_micosis_pacientes tmp ON (tmp.id_tip_mic = tm.id_tip_mic)
-                JOIN forma_infecciones__tipos_micosis fitm ON(fitm.id_tip_mic = tm.id_tip_mic)
-                JOIN forma_infecciones fi ON(fi.id_for_inf = fitm.id_for_inf)
-                LEFT JOIN forma_infecciones__pacientes fip ON (fip.id_for_inf = fi.id_for_inf AND fip.id_tip_mic_pac = tmp.id_tip_mic_pac)
+                    JOIN tipos_micosis_pacientes tmp ON (tmp.id_tip_mic = tm.id_tip_mic)
+                    JOIN forma_infecciones__tipos_micosis fitm ON(fitm.id_tip_mic = tm.id_tip_mic)
+                    JOIN forma_infecciones fi ON(fi.id_for_inf = fitm.id_for_inf)
+                    LEFT JOIN forma_infecciones__pacientes fip ON (fip.id_for_inf = fi.id_for_inf AND fip.id_tip_mic_pac = tmp.id_tip_mic_pac)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
                 ";
                                             
             $forma_infeccion = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
-            $title = __("Estudios Micologicos",true);
+            $title = __("Estudios Micológicos",true);
             
             $data = Array(                
                 "forma_infeccion"     =>  $forma_infeccion,                                         
