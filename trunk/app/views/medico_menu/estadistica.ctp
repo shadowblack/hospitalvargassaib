@@ -18,7 +18,7 @@
             });
             
             jQuery("#est_les_pac").click(function()
-            { 
+            {  
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/busqueda")?>");
             });
             
@@ -50,7 +50,7 @@
                         <?php __("Grupo Etario")?>
                     </a></br>
                     <a id="est_les_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de Lesión")?>
+                        <?php __("Tipo de Enfermedad Micológica")?>
                     </a></br>
                     <a id="est_mic_pac" href="javascript:void(0)" >
                         <?php __("Tipo de Micosis")?>

@@ -8,15 +8,15 @@ FECHA DE MODIFICACIÓN: 30/10/2011
 SIGIS. C.A
 -----------------------------------------------------------------------------------------------
 */
-//die('$result-->'.$result);
+//die('$result-->'.$result.'   ' . $result_fec);
 ?>
 <script>
     jQuery(function(){ 
-        jQuery.post("grafico",{fil: "<?php print $result;?>"},function(data){
+        jQuery.post("grafico",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
             jQuery("#div_grafico_tip_les").html(data);
         },"html");
         
-        jQuery.post("resumen",{fil: "<?php print $result;?>"},function(data){
+        jQuery.post("resumen",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
             jQuery("#div_resumen_tip_les").html(data);
         },"html");
     });
