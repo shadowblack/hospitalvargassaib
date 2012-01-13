@@ -1,10 +1,10 @@
-﻿--
+--
 -- PostgreSQL database dump
 --
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2011-12-29 09:49:19
+-- Started on 2012-01-12 12:33:10
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -3481,7 +3481,7 @@ ALTER SEQUENCE antecedentes_pacientes_id_ant_pac_seq OWNED BY antecedentes_pacie
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 40, true);
+SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 44, true);
 
 
 --
@@ -3598,7 +3598,7 @@ ALTER SEQUENCE auditoria_transacciones_id_aud_tra_seq OWNED BY auditoria_transac
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 56, true);
+SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 59, true);
 
 
 --
@@ -4185,7 +4185,7 @@ ALTER SEQUENCE enfermedades_pacientes_id_enf_pac_seq OWNED BY enfermedades_pacie
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 368, true);
+SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 376, true);
 
 
 SET default_tablespace = '';
@@ -4448,7 +4448,7 @@ ALTER SEQUENCE historiales_pacientes_id_his_seq OWNED BY historiales_pacientes.i
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 19, true);
+SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 20, true);
 
 
 SET default_tablespace = '';
@@ -5052,7 +5052,7 @@ ALTER SEQUENCE pacientes_id_pac_seq OWNED BY pacientes.id_pac;
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('pacientes_id_pac_seq', 28, true);
+SELECT pg_catalog.setval('pacientes_id_pac_seq', 29, true);
 
 
 SET default_tablespace = '';
@@ -5311,7 +5311,7 @@ ALTER SEQUENCE tiempo_evoluciones_id_tie_evo_seq OWNED BY tiempo_evoluciones.id_
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 5, true);
+SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 6, true);
 
 
 SET default_tablespace = saib;
@@ -5706,7 +5706,7 @@ ALTER SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq OWNED BY tipos_micosis
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 60, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 62, true);
 
 
 SET default_tablespace = saib;
@@ -6583,13 +6583,11 @@ ALTER TABLE usuarios_administrativos ALTER COLUMN id_usu_adm SET DEFAULT nextval
 -- Data for Name: animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY animales (id_ani, nom_ani) FROM stdin;
-1	Perro
-2	Gato
-3	Aves
-4	Animales de Corral
-5	Otros
-\.
+INSERT INTO animales (id_ani, nom_ani) VALUES (1, 'Perro');
+INSERT INTO animales (id_ani, nom_ani) VALUES (2, 'Gato');
+INSERT INTO animales (id_ani, nom_ani) VALUES (3, 'Aves');
+INSERT INTO animales (id_ani, nom_ani) VALUES (4, 'Animales de Corral');
+INSERT INTO animales (id_ani, nom_ani) VALUES (5, 'Otros');
 
 
 --
@@ -6598,17 +6596,19 @@ COPY animales (id_ani, nom_ani) FROM stdin;
 -- Data for Name: antecedentes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) FROM stdin;
-18	2	27
-19	3	27
-25	1	13
-35	2	7
-36	3	7
-37	4	7
-38	9	7
-39	11	7
-40	12	7
-\.
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (18, 2, 27);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (19, 3, 27);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (25, 1, 13);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (35, 2, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (36, 3, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (37, 4, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (38, 9, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (39, 11, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (40, 12, 7);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (41, 5, 29);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (42, 10, 29);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (43, 11, 29);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (44, 13, 29);
 
 
 --
@@ -6617,21 +6617,19 @@ COPY antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) FROM stdin;
 -- Data for Name: antecedentes_personales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY antecedentes_personales (id_ant_per, nom_ant_per) FROM stdin;
-1	Ninguna
-2	Obesidad
-3	Diabetes
-4	Traumatismo
-5	Cirugía
-6	HIV/SIDA
-7	Cáncer
-8	inmunosupresión/Neutropenia
-9	Uso Esteroides
-10	Embarazo
-11	Neoplasias
-12	Inanición
-13	Otros
-\.
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (1, 'Ninguna');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (2, 'Obesidad');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (3, 'Diabetes');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (4, 'Traumatismo');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (5, 'Cirugía');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (6, 'HIV/SIDA');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (7, 'Cáncer');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (8, 'inmunosupresión/Neutropenia');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (9, 'Uso Esteroides');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (10, 'Embarazo');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (11, 'Neoplasias');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (12, 'Inanición');
+INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (13, 'Otros');
 
 
 --
@@ -6640,64 +6638,124 @@ COPY antecedentes_personales (id_ant_per, nom_ant_per) FROM stdin;
 -- Data for Name: auditoria_transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) FROM stdin;
-1	2011-08-28 18:16:18.03	17	10	<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>\n\t\t\t\t <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>\tLibertador Caracas\t\t </actual><anterior>\tLibertador Caracas\t\t </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>
-2	2011-09-04 11:30:11.606	17	14	<?xml version="1.0" standalone="yes"?><eliminacion_del_historial_paciente>\n\t\t\t <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>ninguno</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido Paciente"><actual>ninguno</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula Paciente"><actual>ninguno</actual><anterior>17651233</anterior></campo><campo nombre="Descripción de la Historia"><actual>ninguno</actual><anterior></anterior></campo><campo nombre="Descripción Adicional"><actual>ninguno</actual><anterior></anterior></campo><campo nombre="Fecha de Historia"><actual>ninguno</actual><anterior>2011-07-08 12:11:11.417-04:30</anterior></campo></tabla></eliminacion_del_historial_paciente>
-3	2011-09-11 17:10:18.105	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-4	2011-11-02 22:57:44.609	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-5	2011-11-02 22:59:25.293	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-6	2011-11-02 22:59:46.128	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-7	2011-11-02 22:59:50.854	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-17	2011-11-16 08:16:22.776	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologia</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologiaCitotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro Citotóxicos ,Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>
-8	2011-11-06 21:49:49.907	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-9	2011-11-06 22:30:55.296	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-10	2011-11-06 22:41:12.072	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-11	2011-11-06 23:25:18.039	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-12	2011-11-06 23:25:21.92	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-13	2011-11-06 23:25:53.843	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-14	2011-11-16 08:12:59.528	17	10	<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>\n\t\t\t\t <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>\tLibertador Caracas\t\t </actual><anterior>\tLibertador Caracas\t\t </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>
-15	2011-11-16 08:15:57.618	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Rural </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Rural</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro </actual><anterior>Ambulatorio Rura</anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro</actual><anterior>Ambulatorio Rur</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>
-16	2011-11-16 08:16:11.188	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro Citotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>
-18	2011-11-16 08:28:01.434	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-19	2011-11-16 08:28:26.924	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-20	2011-11-16 08:31:55.499	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-21	2011-11-16 08:32:09.104	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>12</actual><anterior>10</anterior></campo></tabla></Información_adicional>
-22	2011-11-16 16:01:40.948	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-23	2011-11-16 16:01:49.432	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-24	2011-11-16 16:01:58.618	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-25	2011-11-16 16:02:13.733	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-26	2011-11-16 16:02:22.528	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-27	2011-11-16 16:02:39.045	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>12</anterior></campo></tabla></Información_adicional>
-28	2011-11-16 16:09:17.079	17	10	<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>\n\t\t\t\t <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Yaracuy</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>\tCocorote\t\t </actual><anterior>\tLibertador Caracas\t\t </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>
-29	2011-11-16 16:16:51.944	17	13	<?xml version="1.0" standalone="yes"?><modificacion_del_historial_paciente>\n\t\t <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido Paciente"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula Paciente"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Descripción de la Historia"><actual>Prueba del historial de los pacientes para que se puedan registrar las enfermedades que se muestran en la aplicacion, un paciente puede tener una serie de enfermedades por lo que es necesario la creacion de un modulo que permita gestionar,</actual><anterior>demops</anterior></campo><campo nombre="Descripción Adicional"><actual>Gestionar de forma permanente las enfermedades que el paciente puede padecer a lo largo del periodo de tiempo, si el paciente se cura encontes ese historial queda descartado, y se procede a abrir un nuevo historico para el paciente que permita dicho.</actual><anterior>demos</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-07-24 09:39:20.062-04:30</actual><anterior>2011-07-24 09:39:20.062-04:30</anterior></campo></tabla></modificacion_del_historial_paciente>
-30	2011-11-16 16:19:51.588	17	12	<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>\n\t\t <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Mary</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Wester</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>8752299</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Enfermedad prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>Enfermedad prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:19:51.588-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>
-31	2011-11-16 16:23:23.979	17	11	<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>\n\t\t\t\t <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>28</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>demo</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>sdf</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>12345</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2011-07-27</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>17302857</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>
-52	2011-12-25 10:20:27.593	49	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-32	2011-11-16 16:24:29.327	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves</actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>60</actual><anterior>0</anterior></campo></tabla></Información_adicional>
-33	2011-11-16 16:24:41.348	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>60</anterior></campo></tabla></Información_adicional>
-34	2011-11-16 16:24:49.149	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>
-35	2011-11-16 16:24:53.225	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>
-36	2011-11-16 16:27:53.176	17	12	<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>\n\t\t <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>demo</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>asd</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>1234</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>demostracion de historial</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>demostracion del historial</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:27:53.176-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>
-37	2011-11-16 16:29:11.01	17	12	<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>\n\t\t <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Gisela </actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Contreras</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13456094</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>prototypo</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>Prototypo</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:29:11.01-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>
-38	2011-11-16 16:31:14.86	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Gisela </actual><anterior>Gisela </anterior></campo><campo nombre="Apellido"><actual>Contreras</actual><anterior>Contreras</anterior></campo><campo nombre="Cédula"><actual>13456094</actual><anterior>13456094</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-54	2011-12-25 11:03:56.178	49	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-39	2011-11-16 16:31:34.395	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>
-40	2011-11-16 16:31:48.354	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Gisela </actual><anterior>Gisela </anterior></campo><campo nombre="Apellido"><actual>Contreras</actual><anterior>Contreras</anterior></campo><campo nombre="Cédula"><actual>13456094</actual><anterior>13456094</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-41	2011-11-16 16:33:10.135	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>
-42	2011-11-16 16:34:33.723	17	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-43	2011-12-14 20:24:34.344	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-53	2011-12-25 10:21:26.199	49	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-55	2011-12-25 11:06:38.612	49	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-56	2011-12-25 11:06:56.736	49	15	<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>\n\t\t\t <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>
-44	2011-12-14 20:27:37.567	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-45	2011-12-14 20:28:18.588	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-46	2011-12-14 20:30:20.093	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-47	2011-12-14 20:30:25.196	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-48	2011-12-14 20:41:45.433	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-49	2011-12-14 21:14:31.169	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-50	2011-12-14 21:19:24.826	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-51	2011-12-14 21:19:37.045	17	16	<?xml version="1.0" standalone="yes"?><Información_adicional>\n\t\t\t <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>
-\.
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (1, '2011-08-28 18:16:18.03', 17, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>	Libertador Caracas		 </actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (2, '2011-09-04 11:30:11.606', 17, 14, '<?xml version="1.0" standalone="yes"?><eliminacion_del_historial_paciente>
+			 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>ninguno</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido Paciente"><actual>ninguno</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula Paciente"><actual>ninguno</actual><anterior>17651233</anterior></campo><campo nombre="Descripción de la Historia"><actual>ninguno</actual><anterior></anterior></campo><campo nombre="Descripción Adicional"><actual>ninguno</actual><anterior></anterior></campo><campo nombre="Fecha de Historia"><actual>ninguno</actual><anterior>2011-07-08 12:11:11.417-04:30</anterior></campo></tabla></eliminacion_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (3, '2011-09-11 17:10:18.105', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (4, '2011-11-02 22:57:44.609', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (5, '2011-11-02 22:59:25.293', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (6, '2011-11-02 22:59:46.128', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (7, '2011-11-02 22:59:50.854', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (17, '2011-11-16 08:16:22.776', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologia</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Pediatria ,urologiaCitotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro Citotóxicos ,Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (8, '2011-11-06 21:49:49.907', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (9, '2011-11-06 22:30:55.296', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (10, '2011-11-06 22:41:12.072', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (11, '2011-11-06 23:25:18.039', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (12, '2011-11-06 23:25:21.92', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (13, '2011-11-06 23:25:53.843', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (14, '2011-11-16 08:12:59.528', 17, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>	Libertador Caracas		 </actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (15, '2011-11-16 08:15:57.618', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Rural </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Rural</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro </actual><anterior>Ambulatorio Rura</anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro</actual><anterior>Ambulatorio Rur</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (16, '2011-11-16 08:16:11.188', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro Citotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (18, '2011-11-16 08:28:01.434', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (19, '2011-11-16 08:28:26.924', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (20, '2011-11-16 08:31:55.499', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (21, '2011-11-16 08:32:09.104', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>12</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (22, '2011-11-16 16:01:40.948', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (23, '2011-11-16 16:01:49.432', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (24, '2011-11-16 16:01:58.618', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (25, '2011-11-16 16:02:13.733', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (26, '2011-11-16 16:02:22.528', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (27, '2011-11-16 16:02:39.045', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>12</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (28, '2011-11-16 16:09:17.079', 17, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2011-09-06</actual><anterior>2011-09-06</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Yaracuy</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>	Cocorote		 </actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </actual><anterior>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (29, '2011-11-16 16:16:51.944', 17, 13, '<?xml version="1.0" standalone="yes"?><modificacion_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido Paciente"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula Paciente"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Descripción de la Historia"><actual>Prueba del historial de los pacientes para que se puedan registrar las enfermedades que se muestran en la aplicacion, un paciente puede tener una serie de enfermedades por lo que es necesario la creacion de un modulo que permita gestionar,</actual><anterior>demops</anterior></campo><campo nombre="Descripción Adicional"><actual>Gestionar de forma permanente las enfermedades que el paciente puede padecer a lo largo del periodo de tiempo, si el paciente se cura encontes ese historial queda descartado, y se procede a abrir un nuevo historico para el paciente que permita dicho.</actual><anterior>demos</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-07-24 09:39:20.062-04:30</actual><anterior>2011-07-24 09:39:20.062-04:30</anterior></campo></tabla></modificacion_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (30, '2011-11-16 16:19:51.588', 17, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Mary</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Wester</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>8752299</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Enfermedad prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>Enfermedad prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:19:51.588-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (31, '2011-11-16 16:23:23.979', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>28</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>demo</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>sdf</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>12345</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2011-07-27</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>17302857</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (52, '2011-12-25 10:20:27.593', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (32, '2011-11-16 16:24:29.327', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves</actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>60</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (33, '2011-11-16 16:24:41.348', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro IAves</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>60</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (34, '2011-11-16 16:24:49.149', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I</anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves</actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro IAves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (35, '2011-11-16 16:24:53.225', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (36, '2011-11-16 16:27:53.176', 17, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>demo</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>asd</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>1234</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>demostracion de historial</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>demostracion del historial</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:27:53.176-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (37, '2011-11-16 16:29:11.01', 17, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Gisela </actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Contreras</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13456094</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>prototypo</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>Prototypo</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2011-11-16 16:29:11.01-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (38, '2011-11-16 16:31:14.86', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Gisela </actual><anterior>Gisela </anterior></campo><campo nombre="Apellido"><actual>Contreras</actual><anterior>Contreras</anterior></campo><campo nombre="Cédula"><actual>13456094</actual><anterior>13456094</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (54, '2011-12-25 11:03:56.178', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (39, '2011-11-16 16:31:34.395', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (40, '2011-11-16 16:31:48.354', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Gisela </actual><anterior>Gisela </anterior></campo><campo nombre="Apellido"><actual>Contreras</actual><anterior>Contreras</anterior></campo><campo nombre="Cédula"><actual>13456094</actual><anterior>13456094</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (41, '2011-11-16 16:33:10.135', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia Aves Citotóxicos ,Glucorticoides ,Otros ,Radioterapia </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>1600</actual><anterior>1600</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (42, '2011-11-16 16:34:33.723', 17, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (43, '2011-12-14 20:24:34.344', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (53, '2011-12-25 10:21:26.199', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica ,Otros Consulta ,Consulta Interna ,Dermatologia ,Geriatria ,Otros Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (55, '2011-12-25 11:06:38.612', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (56, '2011-12-25 11:06:56.736', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Lozada</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>17651233</actual><anterior>17651233</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (44, '2011-12-14 20:27:37.567', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (45, '2011-12-14 20:28:18.588', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (46, '2011-12-14 20:30:20.093', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (47, '2011-12-14 20:30:25.196', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (48, '2011-12-14 20:41:45.433', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (49, '2011-12-14 21:14:31.169', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (50, '2011-12-14 21:19:24.826', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (51, '2011-12-14 21:19:37.045', 17, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Ambulatorio Urbano ,Barrio Adentro I ,Clínica Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Otros ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </actual><anterior>Ambulatorio Urbano ,Ambulatorio Rural ,Clínica ,Barrio Adentro I Consulta ,Consulta Interna ,Dermatologia ,Geriatria Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Otros ,Radioterapia ,Sistémicos ,Tópicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>24</actual><anterior>24</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (57, '2012-01-12 11:07:02.903', 49, 14, '<?xml version="1.0" standalone="yes"?><eliminacion_del_historial_paciente>
+			 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>ninguno</actual><anterior>demo</anterior></campo><campo nombre="Apellido Paciente"><actual>ninguno</actual><anterior>asd</anterior></campo><campo nombre="Cédula Paciente"><actual>ninguno</actual><anterior>1234</anterior></campo><campo nombre="Descripción de la Historia"><actual>ninguno</actual><anterior>demostracion de historial</anterior></campo><campo nombre="Descripción Adicional"><actual>ninguno</actual><anterior>demostracion del historial</anterior></campo><campo nombre="Fecha de Historia"><actual>ninguno</actual><anterior>2011-11-16 16:27:53.176-04:30</anterior></campo></tabla></eliminacion_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (58, '2012-01-12 11:09:26.45', 49, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>32</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>pruebaliss</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>pruebaliss</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17651243</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1987-01-10</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123617323</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04269150722</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Miranda</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Plaza		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>guarenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Cirugía ,Embarazo ,Neoplasias ,Otros </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (59, '2012-01-12 11:09:50.576', 49, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>pruebaliss</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>pruebaliss</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>17651243</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>hdjsfhjhdfjh</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>dhfksdhfjkhsdjkfhjk</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-12 11:09:50.576-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>5</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
 
 
 --
@@ -6706,13 +6764,11 @@ COPY auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tr
 -- Data for Name: categorias__cuerpos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) FROM stdin;
-1	1	1
-2	2	1
-13	3	1
-14	4	2
-17	5	3
-\.
+INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) VALUES (1, 1, 1);
+INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) VALUES (2, 2, 1);
+INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) VALUES (13, 3, 1);
+INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) VALUES (14, 4, 2);
+INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) VALUES (17, 5, 3);
 
 
 --
@@ -6721,13 +6777,11 @@ COPY categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic) FROM s
 -- Data for Name: categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY categorias_cuerpos (id_cat_cue, nom_cat_cue) FROM stdin;
-1	Uña
-2	Cuerpo
-3	Piel
-4	Piel
-5	Cuerpo
-\.
+INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (1, 'Uña');
+INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (2, 'Cuerpo');
+INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (3, 'Piel');
+INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (4, 'Piel');
+INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (5, 'Cuerpo');
 
 
 --
@@ -6736,80 +6790,78 @@ COPY categorias_cuerpos (id_cat_cue, nom_cat_cue) FROM stdin;
 -- Data for Name: categorias_cuerpos__lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) FROM stdin;
-2	1	1
-3	2	1
-4	3	1
-5	4	1
-6	5	1
-7	6	1
-8	7	1
-9	8	1
-10	9	3
-11	10	3
-12	11	3
-13	12	3
-14	13	3
-15	14	3
-16	15	3
-17	19	3
-18	16	3
-19	17	3
-20	18	3
-21	20	3
-66	22	4
-22	21	1
-67	23	4
-68	24	4
-69	25	4
-70	26	4
-71	27	4
-72	28	4
-73	29	4
-74	30	4
-75	31	4
-76	32	4
-77	33	4
-78	34	4
-79	35	4
-80	36	4
-81	37	4
-82	38	4
-83	39	4
-84	40	4
-85	41	4
-23	21	3
-86	42	4
-87	43	4
-88	44	4
-89	45	4
-90	46	4
-91	47	4
-92	48	4
-93	49	4
-94	50	4
-95	51	4
-96	52	4
-97	53	4
-98	54	4
-99	55	5
-100	56	5
-101	57	5
-102	58	5
-103	59	5
-104	60	5
-105	61	5
-106	62	5
-107	63	5
-108	64	5
-109	65	5
-110	66	5
-111	67	5
-112	68	5
-113	69	5
-114	70	5
-115	71	5
-\.
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (2, 1, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (3, 2, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (4, 3, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (5, 4, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (6, 5, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (7, 6, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (8, 7, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (9, 8, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (10, 9, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (11, 10, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (12, 11, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (13, 12, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (14, 13, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (15, 14, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (16, 15, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (17, 19, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (18, 16, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (19, 17, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (20, 18, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (21, 20, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (66, 22, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (22, 21, 1);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (67, 23, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (68, 24, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (69, 25, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (70, 26, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (71, 27, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (72, 28, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (73, 29, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (74, 30, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (75, 31, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (76, 32, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (77, 33, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (78, 34, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (79, 35, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (80, 36, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (81, 37, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (82, 38, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (83, 39, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (84, 40, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (85, 41, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (23, 21, 3);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (86, 42, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (87, 43, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (88, 44, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (89, 45, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (90, 46, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (91, 47, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (92, 48, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (93, 49, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (94, 50, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (95, 51, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (96, 52, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (97, 53, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (98, 54, 4);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (99, 55, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (100, 56, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (101, 57, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (102, 58, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (103, 59, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (104, 60, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (105, 61, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (106, 62, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (107, 63, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (108, 64, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (109, 65, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (110, 66, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (111, 67, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (112, 68, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (113, 69, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (114, 70, 5);
+INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VALUES (115, 71, 5);
 
 
 --
@@ -6818,12 +6870,10 @@ COPY categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) FROM stdi
 -- Data for Name: centro_salud_doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) FROM stdin;
-5	5	33	\N
-6	6	6	\N
-9	5	34	\N
-11	7	32	\N
-\.
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (5, 5, 33, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (6, 6, 6, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (9, 5, 34, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (11, 7, 32, NULL);
 
 
 --
@@ -6832,19 +6882,17 @@ COPY centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) FRO
 -- Data for Name: centro_salud_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) FROM stdin;
-122	17	5	\N
-123	17	4	\N
-124	17	9	\N
-92	3	5	\N
-93	3	4	\N
-94	3	9	\N
-194	16	5	\N
-195	16	4	\N
-196	16	9	\N
-197	16	7	\N
-198	16	12	otro centro de salud
-\.
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (122, 17, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (123, 17, 4, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (124, 17, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (92, 3, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (93, 3, 4, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (94, 3, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (194, 16, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (195, 16, 4, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (196, 16, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (197, 16, 7, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (198, 16, 12, 'otro centro de salud');
 
 
 --
@@ -6853,20 +6901,18 @@ COPY centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) FR
 -- Data for Name: centro_saluds; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) FROM stdin;
-1	Hospital General	Hospital General
-2	Hospital Universitario	Hospital Universitario
-3	Hospital Especializado	Hospital Especializado
-4	Ambulatorio Urbano	Ambulatorio Urbano
-5	Ambulatorio Rural	Ambulatorio Rural
-6	Instituto	Instituto
-7	Clínica	Clínica
-8	Dispensario	Dispensario
-9	Barrio Adentro I	Barrio Adentro I
-10	Barrio Adentro II	Barrio Adentro II
-11	Barrio Adentro III	Barrio Adentro III
-12	Otros	Otros
-\.
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (1, 'Hospital General', 'Hospital General');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (2, 'Hospital Universitario', 'Hospital Universitario');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (3, 'Hospital Especializado', 'Hospital Especializado');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (4, 'Ambulatorio Urbano', 'Ambulatorio Urbano');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (5, 'Ambulatorio Rural', 'Ambulatorio Rural');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (6, 'Instituto', 'Instituto');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (7, 'Clínica', 'Clínica');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (8, 'Dispensario', 'Dispensario');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (9, 'Barrio Adentro I', 'Barrio Adentro I');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (10, 'Barrio Adentro II', 'Barrio Adentro II');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (11, 'Barrio Adentro III', 'Barrio Adentro III');
+INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (12, 'Otros', 'Otros');
 
 
 --
@@ -6875,14 +6921,12 @@ COPY centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) FROM stdin;
 -- Data for Name: contactos_animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY contactos_animales (id_con_ani, id_his, id_ani, otr_ani) FROM stdin;
-77	17	3	\N
-169	16	4	\N
-170	16	3	\N
-171	16	2	\N
-172	16	5	pikachu
-173	16	1	\N
-\.
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (77, 17, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (169, 16, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (170, 16, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (171, 16, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (172, 16, 5, 'pikachu');
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (173, 16, 1, NULL);
 
 
 --
@@ -6891,14 +6935,12 @@ COPY contactos_animales (id_con_ani, id_his, id_ani, otr_ani) FROM stdin;
 -- Data for Name: doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) FROM stdin;
-27	SAIB	SAIB	\N	83422503bcfc01d303030e8a7cc80efc	3622824	\N	SAIB	2011-06-26 01:06:59.641-04:30
-33	Mary	Lopez	8752299	9f4b04c2eac4a3cfa351aff1564f7995	54564545646	mlopez@gmail.com	mlopez	2011-06-26 01:06:59.641-04:30
-28	Mireya	Gonzalez	17302859	3e46a122f1961a8ec71f2a369f6d16ee	04265168824	\N	mgonzalez	2011-06-26 01:06:59.641-04:30
-6	Luis	Marin	17302857	3e46a122f1961a8ec71f2a369f6d16ee	3622222	ninja.aoshi@gmail.com	lmarin	2011-06-26 01:06:59.641-04:30
-34	Luis	Marin	17302858	3e46a122f1961a8ec71f2a369f6d16ee	3622222	lrm.prigramador@gmail.com	lmarinn	2011-07-08 15:58:52.908-04:30
-32	Lisseth	Lozada	17651233	3e46a122f1961a8ec71f2a369f6d16ee	04269150722	risusefu15@gmail.com	llozada	2011-06-26 01:06:59.641-04:30
-\.
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (27, 'SAIB', 'SAIB', NULL, '83422503bcfc01d303030e8a7cc80efc', '3622824', NULL, 'SAIB', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (33, 'Mary', 'Lopez', '8752299', '9f4b04c2eac4a3cfa351aff1564f7995', '54564545646', 'mlopez@gmail.com', 'mlopez', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (28, 'Mireya', 'Gonzalez', '17302859', '3e46a122f1961a8ec71f2a369f6d16ee', '04265168824', NULL, 'mgonzalez', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (6, 'Luis', 'Marin', '17302857', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'ninja.aoshi@gmail.com', 'lmarin', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (34, 'Luis', 'Marin', '17302858', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'lrm.prigramador@gmail.com', 'lmarinn', '2011-07-08 15:58:52.908-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (32, 'Lisseth', 'Lozada', '17651233', '3e46a122f1961a8ec71f2a369f6d16ee', '04269150722', 'risusefu15@gmail.com', 'llozada', '2011-06-26 01:06:59.641-04:30');
 
 
 --
@@ -6907,36 +6949,35 @@ COPY doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log
 -- Data for Name: enfermedades_micologicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) FROM stdin;
-1	Dermatofitosis	1
-2	Onicomicosis dermatofitica	1
-3	Onicomicosis no dermatofitica	1
-4	Petitiriasis vericolor	1
-5	Piedra blanca	1
-6	Tiña negra	1
-7	Oculomicosis	1
-8	Otomicosis	1
-9	Tinea capitis	1
-10	Tinea barbae	1
-11	Tinea corporis	1
-12	Tinea cruris	1
-13	Tinea imbricata	1
-14	Tinea manuum	1
-15	Tinea pedis	1
-16	Tinea unguium	1
-17	Cromomicosis dermatofitica	1
-19	Actinomicetoma	2
-20	Eumicetoma	2
-21	Esporotricosis	2
-22	Cromoblastomicosis	2
-23	Lobomicosis	2
-24	Coccidioidomicosis	3
-25	Histoplasmosis	3
-26	Paracoccidioidomicosis	3
-27	Otros	2
-28	Otros	3
-18	Otros	1
-\.
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (1, 'Dermatofitosis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (2, 'Onicomicosis dermatofitica', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (3, 'Onicomicosis no dermatofitica', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (5, 'Piedra blanca', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (6, 'Tiña negra', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (7, 'Oculomicosis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (8, 'Otomicosis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (9, 'Tinea capitis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (10, 'Tinea barbae', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (11, 'Tinea corporis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (12, 'Tinea cruris', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (13, 'Tinea imbricata', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (14, 'Tinea manuum', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (15, 'Tinea pedis', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (16, 'Tinea unguium', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (17, 'Cromomicosis dermatofitica', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (19, 'Actinomicetoma', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (20, 'Eumicetoma', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (21, 'Esporotricosis', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (22, 'Cromoblastomicosis', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (23, 'Lobomicosis', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (24, 'Coccidioidomicosis', 3);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (25, 'Histoplasmosis', 3);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (26, 'Paracoccidioidomicosis', 3);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (27, 'Otros', 2);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (28, 'Otros', 3);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (18, 'Otros', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (4, 'Pitiriasis versicolor', 1);
+INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUES (29, 'Piedra negra', 1);
 
 
 --
@@ -6945,22 +6986,28 @@ COPY enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) FROM stdin;
 -- Data for Name: enfermedades_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) FROM stdin;
-268	19	\N	\N	45
-269	20	\N	\N	45
-270	21	\N	\N	45
-330	19	\N	\N	56
-331	20	\N	\N	56
-332	21	\N	\N	56
-333	22	\N	\N	56
-334	23	\N	\N	56
-335	27	subcu mic	\N	56
-364	1	\N	\N	60
-365	4	\N	\N	60
-366	5	\N	\N	60
-367	7	\N	\N	60
-368	18	super mic	\N	60
-\.
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (268, 19, NULL, NULL, 45);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (269, 20, NULL, NULL, 45);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (270, 21, NULL, NULL, 45);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (330, 19, NULL, NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (331, 20, NULL, NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (332, 21, NULL, NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (333, 22, NULL, NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (334, 23, NULL, NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (335, 27, 'subcu mic', NULL, 56);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (364, 1, NULL, NULL, 60);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (365, 4, NULL, NULL, 60);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (366, 5, NULL, NULL, 60);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (367, 7, NULL, NULL, 60);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (368, 18, 'super mic', NULL, 60);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (369, 1, NULL, NULL, 61);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (370, 5, NULL, NULL, 61);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (371, 6, NULL, NULL, 62);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (372, 2, NULL, NULL, 62);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (373, 1, NULL, NULL, 62);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (374, 29, NULL, NULL, 62);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (375, 9, NULL, NULL, 62);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (376, 18, 'kjkjkljkljkljlkj', NULL, 62);
 
 
 --
@@ -6969,32 +7016,30 @@ COPY enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, i
 -- Data for Name: estados; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY estados (id_est, des_est, id_pai) FROM stdin;
-1	Distrito Capital	1
-2	Anzoátegui	1
-3	Apure	1
-4	Aragua	1
-5	Barinas	1
-6	Bolívar	1
-7	Carabobo	1
-8	Cojedes	1
-9	Delta Amacuro	1
-10	Falcón	1
-11	Guárico	1
-12	Lara	1
-13	Mérida	1
-14	Miranda	1
-15	Monagas	1
-16	Nueva Esparta	1
-18	Portuguesa	1
-19	Sucre	1
-20	Táchira	1
-21	Trujillo	1
-22	Vargas	1
-23	Yaracuy	1
-24	Zulia	1
-25	Amazonas	1
-\.
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (1, 'Distrito Capital', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (2, 'Anzoátegui', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (3, 'Apure', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (4, 'Aragua', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (5, 'Barinas', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (6, 'Bolívar', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (7, 'Carabobo', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (8, 'Cojedes', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (9, 'Delta Amacuro', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (10, 'Falcón', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (11, 'Guárico', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (12, 'Lara', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (13, 'Mérida', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (14, 'Miranda', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (15, 'Monagas', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (16, 'Nueva Esparta', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (18, 'Portuguesa', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (19, 'Sucre', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (20, 'Táchira', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (21, 'Trujillo', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (22, 'Vargas', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (23, 'Yaracuy', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (24, 'Zulia', 1);
+INSERT INTO estados (id_est, des_est, id_pai) VALUES (25, 'Amazonas', 1);
 
 
 --
@@ -7003,20 +7048,18 @@ COPY estados (id_est, des_est, id_pai) FROM stdin;
 -- Data for Name: forma_infecciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY forma_infecciones (id_for_inf, des_for_inf) FROM stdin;
-2	Picada de insecto
-4	Mordedura de roedores
-5	Instrumento metálico
-6	Caza animales
-8	Otros
-1	Traumática
-3	Pinchazo de espinas
-7	Accidente laboratorio
-9	Inhalatoria
-10	Traumática
-11	Accidente loboratorio
-12	Otros
-\.
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (2, 'Picada de insecto');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (4, 'Mordedura de roedores');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (5, 'Instrumento metálico');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (6, 'Caza animales');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (8, 'Otros');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (1, 'Traumática');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (3, 'Pinchazo de espinas');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (7, 'Accidente laboratorio');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (9, 'Inhalatoria');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (10, 'Traumática');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (11, 'Accidente loboratorio');
+INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (12, 'Otros');
 
 
 --
@@ -7025,15 +7068,13 @@ COPY forma_infecciones (id_for_inf, des_for_inf) FROM stdin;
 -- Data for Name: forma_infecciones__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) FROM stdin;
-36	1	\N	45
-37	2	\N	45
-38	3	\N	45
-39	4	\N	45
-40	5	\N	45
-52	2	\N	56
-53	8	subcu for les	56
-\.
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (36, 1, NULL, 45);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (37, 2, NULL, 45);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (38, 3, NULL, 45);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (39, 4, NULL, 45);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (40, 5, NULL, 45);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (52, 2, NULL, 56);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (53, 8, 'subcu for les', 56);
 
 
 --
@@ -7042,20 +7083,18 @@ COPY forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_m
 -- Data for Name: forma_infecciones__tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) FROM stdin;
-1	2	1
-2	2	2
-3	2	3
-6	2	4
-7	2	5
-8	2	6
-9	2	7
-10	2	8
-18	3	9
-19	3	10
-20	3	11
-21	3	12
-\.
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (1, 2, 1);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (2, 2, 2);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (3, 2, 3);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (6, 2, 4);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (7, 2, 5);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (8, 2, 6);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (9, 2, 7);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (10, 2, 8);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (18, 3, 9);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (19, 3, 10);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (20, 3, 11);
+INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_inf) VALUES (21, 3, 12);
 
 
 --
@@ -7064,14 +7103,12 @@ COPY forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id_for_in
 -- Data for Name: historiales_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) FROM stdin;
-3	7	Nuevamente se inicia otra historia para hacer un seguimiento de rastros de una enfermedad de la piel	6	El paciente por visualizacion padece de una coloracion en la piel.	2011-07-01 10:24:00.188-04:30
-15	13	demo	6		2011-07-13 14:01:14.823-04:30
-16	7	Prueba del historial de los pacientes para que se puedan registrar las enfermedades que se muestran en la aplicacion, un paciente puede tener una serie de enfermedades por lo que es necesario la creacion de un modulo que permita gestionar,	6	Gestionar de forma permanente las enfermedades que el paciente puede padecer a lo largo del periodo de tiempo, si el paciente se cura encontes ese historial queda descartado, y se procede a abrir un nuevo historico para el paciente que permita dicho.	2011-07-24 09:39:20.062-04:30
-17	14	Enfermedad prueba	6	Enfermedad prueba	2011-11-16 16:19:51.588-04:30
-18	27	demostracion de historial	6	demostracion del historial	2011-11-16 16:27:53.176-04:30
-19	12	prototypo	6	Prototypo	2011-11-16 16:29:11.01-04:30
-\.
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (3, 7, 'Nuevamente se inicia otra historia para hacer un seguimiento de rastros de una enfermedad de la piel', 6, 'El paciente por visualizacion padece de una coloracion en la piel.', '2011-07-01 10:24:00.188-04:30');
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (15, 13, 'demo', 6, '', '2011-07-13 14:01:14.823-04:30');
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (16, 7, 'Prueba del historial de los pacientes para que se puedan registrar las enfermedades que se muestran en la aplicacion, un paciente puede tener una serie de enfermedades por lo que es necesario la creacion de un modulo que permita gestionar,', 6, 'Gestionar de forma permanente las enfermedades que el paciente puede padecer a lo largo del periodo de tiempo, si el paciente se cura encontes ese historial queda descartado, y se procede a abrir un nuevo historico para el paciente que permita dicho.', '2011-07-24 09:39:20.062-04:30');
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (17, 14, 'Enfermedad prueba', 6, 'Enfermedad prueba', '2011-11-16 16:19:51.588-04:30');
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (19, 12, 'prototypo', 6, 'Prototypo', '2011-11-16 16:29:11.01-04:30');
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his) VALUES (20, 29, 'hdjsfhjhdfjh', 32, 'dhfksdhfjkhsdjkfhjk', '2012-01-12 11:09:50.576-04:30');
 
 
 --
@@ -7080,79 +7117,77 @@ COPY historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fe
 -- Data for Name: lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY lesiones (id_les, nom_les) FROM stdin;
-2	Onicodistrofia total
-6	Leuconiquia
-8	Dermatofitoma
-10	Descamativa
-11	Pruriginosa
-12	Bordes activos
-13	Inflamatoria
-14	Extensa
-15	Multiples
-16	Pustulas
-17	Alopecia
-18	Granuloma tricofitico
-19	Foliculitis
-20	Querion de celso
-21	Otros
-22	Cabeza
-24	Espalda
-54	Otros
-3	Coloración blanco-amarillenta
-5	Onicolisis subungueal proximal
-7	Coloración pardo-naranja
-4	Coloración negruzca
-1	Onicolisis subungueal distal
-9	Placas eritematoscamosa
-23	Tórax anterior
-25	Flanco derecho
-26	Flanco izquierdo
-27	Brazo derecho
-28	Brazo izquierdo
-29	Pierna derecha
-30	Pierna izquierda
-31	Pie derecho
-32	Pie izquierdo
-33	Lesión única
-34	Lesión múltiple
-35	Con fístula
-36	Sin fístula
-37	Secreción granos de la fístula
-38	Aumento volumen
-39	Sin aumento volumen
-40	Afectación hueso
-41	Cutánea verrugosa
-42	Cutánea tumoral
-43	Cutánea en placa
-44	Nódulos eritematosos
-45	Atrofia central
-46	Bordes activos
-47	Cutánea fija
-48	Cutánea linfangítica
-49	Cutánea múltiple
-50	Cutánea queloidal
-51	Cutánea infiltrante
-52	Cutánea gomosa
-53	Cutánea ulcerada
-55	Cutánea
-56	Pulmonar
-57	Pulmonar leve
-58	Pulmonar moderada
-59	Pulmonar aguda
-60	Pulmonar crónica benigna
-61	Pulmonar prograsiva
-62	Diseminada
-63	Tegumentaria (mucocutánea)
-64	Ganglionar
-65	Visceral
-66	Mixta
-67	Meníngea
-68	Hepatoesplenomegalia
-69	Generalizada
-70	Histoplasmoma
-71	Otros
-\.
+INSERT INTO lesiones (id_les, nom_les) VALUES (2, 'Onicodistrofia total');
+INSERT INTO lesiones (id_les, nom_les) VALUES (6, 'Leuconiquia');
+INSERT INTO lesiones (id_les, nom_les) VALUES (8, 'Dermatofitoma');
+INSERT INTO lesiones (id_les, nom_les) VALUES (10, 'Descamativa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (11, 'Pruriginosa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (12, 'Bordes activos');
+INSERT INTO lesiones (id_les, nom_les) VALUES (13, 'Inflamatoria');
+INSERT INTO lesiones (id_les, nom_les) VALUES (14, 'Extensa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (15, 'Multiples');
+INSERT INTO lesiones (id_les, nom_les) VALUES (16, 'Pustulas');
+INSERT INTO lesiones (id_les, nom_les) VALUES (17, 'Alopecia');
+INSERT INTO lesiones (id_les, nom_les) VALUES (18, 'Granuloma tricofitico');
+INSERT INTO lesiones (id_les, nom_les) VALUES (19, 'Foliculitis');
+INSERT INTO lesiones (id_les, nom_les) VALUES (20, 'Querion de celso');
+INSERT INTO lesiones (id_les, nom_les) VALUES (21, 'Otros');
+INSERT INTO lesiones (id_les, nom_les) VALUES (22, 'Cabeza');
+INSERT INTO lesiones (id_les, nom_les) VALUES (24, 'Espalda');
+INSERT INTO lesiones (id_les, nom_les) VALUES (54, 'Otros');
+INSERT INTO lesiones (id_les, nom_les) VALUES (3, 'Coloración blanco-amarillenta');
+INSERT INTO lesiones (id_les, nom_les) VALUES (5, 'Onicolisis subungueal proximal');
+INSERT INTO lesiones (id_les, nom_les) VALUES (7, 'Coloración pardo-naranja');
+INSERT INTO lesiones (id_les, nom_les) VALUES (4, 'Coloración negruzca');
+INSERT INTO lesiones (id_les, nom_les) VALUES (1, 'Onicolisis subungueal distal');
+INSERT INTO lesiones (id_les, nom_les) VALUES (9, 'Placas eritematoscamosa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (23, 'Tórax anterior');
+INSERT INTO lesiones (id_les, nom_les) VALUES (25, 'Flanco derecho');
+INSERT INTO lesiones (id_les, nom_les) VALUES (26, 'Flanco izquierdo');
+INSERT INTO lesiones (id_les, nom_les) VALUES (27, 'Brazo derecho');
+INSERT INTO lesiones (id_les, nom_les) VALUES (28, 'Brazo izquierdo');
+INSERT INTO lesiones (id_les, nom_les) VALUES (29, 'Pierna derecha');
+INSERT INTO lesiones (id_les, nom_les) VALUES (30, 'Pierna izquierda');
+INSERT INTO lesiones (id_les, nom_les) VALUES (31, 'Pie derecho');
+INSERT INTO lesiones (id_les, nom_les) VALUES (32, 'Pie izquierdo');
+INSERT INTO lesiones (id_les, nom_les) VALUES (33, 'Lesión única');
+INSERT INTO lesiones (id_les, nom_les) VALUES (34, 'Lesión múltiple');
+INSERT INTO lesiones (id_les, nom_les) VALUES (35, 'Con fístula');
+INSERT INTO lesiones (id_les, nom_les) VALUES (36, 'Sin fístula');
+INSERT INTO lesiones (id_les, nom_les) VALUES (37, 'Secreción granos de la fístula');
+INSERT INTO lesiones (id_les, nom_les) VALUES (38, 'Aumento volumen');
+INSERT INTO lesiones (id_les, nom_les) VALUES (39, 'Sin aumento volumen');
+INSERT INTO lesiones (id_les, nom_les) VALUES (40, 'Afectación hueso');
+INSERT INTO lesiones (id_les, nom_les) VALUES (41, 'Cutánea verrugosa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (42, 'Cutánea tumoral');
+INSERT INTO lesiones (id_les, nom_les) VALUES (43, 'Cutánea en placa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (44, 'Nódulos eritematosos');
+INSERT INTO lesiones (id_les, nom_les) VALUES (45, 'Atrofia central');
+INSERT INTO lesiones (id_les, nom_les) VALUES (46, 'Bordes activos');
+INSERT INTO lesiones (id_les, nom_les) VALUES (47, 'Cutánea fija');
+INSERT INTO lesiones (id_les, nom_les) VALUES (48, 'Cutánea linfangítica');
+INSERT INTO lesiones (id_les, nom_les) VALUES (49, 'Cutánea múltiple');
+INSERT INTO lesiones (id_les, nom_les) VALUES (50, 'Cutánea queloidal');
+INSERT INTO lesiones (id_les, nom_les) VALUES (51, 'Cutánea infiltrante');
+INSERT INTO lesiones (id_les, nom_les) VALUES (52, 'Cutánea gomosa');
+INSERT INTO lesiones (id_les, nom_les) VALUES (53, 'Cutánea ulcerada');
+INSERT INTO lesiones (id_les, nom_les) VALUES (55, 'Cutánea');
+INSERT INTO lesiones (id_les, nom_les) VALUES (56, 'Pulmonar');
+INSERT INTO lesiones (id_les, nom_les) VALUES (57, 'Pulmonar leve');
+INSERT INTO lesiones (id_les, nom_les) VALUES (58, 'Pulmonar moderada');
+INSERT INTO lesiones (id_les, nom_les) VALUES (59, 'Pulmonar aguda');
+INSERT INTO lesiones (id_les, nom_les) VALUES (60, 'Pulmonar crónica benigna');
+INSERT INTO lesiones (id_les, nom_les) VALUES (61, 'Pulmonar prograsiva');
+INSERT INTO lesiones (id_les, nom_les) VALUES (62, 'Diseminada');
+INSERT INTO lesiones (id_les, nom_les) VALUES (63, 'Tegumentaria (mucocutánea)');
+INSERT INTO lesiones (id_les, nom_les) VALUES (64, 'Ganglionar');
+INSERT INTO lesiones (id_les, nom_les) VALUES (65, 'Visceral');
+INSERT INTO lesiones (id_les, nom_les) VALUES (66, 'Mixta');
+INSERT INTO lesiones (id_les, nom_les) VALUES (67, 'Meníngea');
+INSERT INTO lesiones (id_les, nom_les) VALUES (68, 'Hepatoesplenomegalia');
+INSERT INTO lesiones (id_les, nom_les) VALUES (69, 'Generalizada');
+INSERT INTO lesiones (id_les, nom_les) VALUES (70, 'Histoplasmoma');
+INSERT INTO lesiones (id_les, nom_les) VALUES (71, 'Otros');
 
 
 --
@@ -7161,33 +7196,31 @@ COPY lesiones (id_les, nom_les) FROM stdin;
 -- Data for Name: lesiones_partes_cuerpos__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) FROM stdin;
-198	\N	2	1	44
-199	\N	3	1	44
-200	\N	4	1	44
-201	\N	5	1	44
-202	\N	6	1	44
-203	\N	7	1	44
-204	\N	2	4	44
-205	\N	3	4	44
-298	\N	3	1	60
-299	uno	22	1	60
-300	\N	2	1	60
-301	\N	7	2	60
-302	dos	22	2	60
-303	\N	5	2	60
-304	\N	13	3	60
-305	tres	23	3	60
-306	\N	10	3	60
-307	\N	14	4	60
-308	\N	21	4	60
-309	cuatro	23	4	60
-233	\N	66	5	56
-234	ggg	98	5	56
-235	\N	67	5	56
-236	\N	70	5	56
-237	\N	72	5	56
-\.
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (198, NULL, 2, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (199, NULL, 3, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (200, NULL, 4, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (201, NULL, 5, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (202, NULL, 6, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (203, NULL, 7, 1, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (204, NULL, 2, 4, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (205, NULL, 3, 4, 44);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (298, NULL, 3, 1, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (299, 'uno', 22, 1, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (300, NULL, 2, 1, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (301, NULL, 7, 2, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (302, 'dos', 22, 2, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (303, NULL, 5, 2, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (304, NULL, 13, 3, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (305, 'tres', 23, 3, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (306, NULL, 10, 3, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (307, NULL, 14, 4, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (308, NULL, 21, 4, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (309, 'cuatro', 23, 4, 60);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (233, NULL, 66, 5, 56);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (234, 'ggg', 98, 5, 56);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (235, NULL, 67, 5, 56);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (236, NULL, 70, 5, 56);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (237, NULL, 72, 5, 56);
 
 
 --
@@ -7196,8 +7229,6 @@ COPY lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id
 -- Data for Name: localizaciones_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY localizaciones_cuerpos (id_loc_cue, nom_loc_cue, id_par_cue) FROM stdin;
-\.
 
 
 --
@@ -7206,10 +7237,8 @@ COPY localizaciones_cuerpos (id_loc_cue, nom_loc_cue, id_par_cue) FROM stdin;
 -- Data for Name: modulos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY modulos (id_mod, cod_mod, des_mod, id_tip_usu) FROM stdin;
-1	C	Configuración	2
-2	R	Reportes	2
-\.
+INSERT INTO modulos (id_mod, cod_mod, des_mod, id_tip_usu) VALUES (1, 'C', 'Configuración', 2);
+INSERT INTO modulos (id_mod, cod_mod, des_mod, id_tip_usu) VALUES (2, 'R', 'Reportes', 2);
 
 
 --
@@ -7218,44 +7247,42 @@ COPY modulos (id_mod, cod_mod, des_mod, id_tip_usu) FROM stdin;
 -- Data for Name: muestras_clinicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY muestras_clinicas (id_mue_cli, nom_mue_cli) FROM stdin;
-1	Pelo
-2	Escama
-3	Uñas
-4	Exudado
-5	Biopsia Piel
-6	Biopsia Otros Órganos
-7	Líquido Peritoneal
-8	Líquido Sinovial
-9	Líquido Cefalorraquídeo(LCR)
-10	Líquido Pleural
-11	Lavado Bronquial
-12	Esputo Espontáneo
-13	Esputo Inducido
-14	Aspirado Traqueal
-15	Cepillado Protegido
-16	Punción Pulmonar
-17	Punción Pleural
-18	Médula Ósea
-20	Exudado Vaginal
-21	Orina
-22	Heces
-23	Cateterismo
-24	Sondaje
-25	Bolsa Colectora
-26	Cavidad Oral
-27	Exudado Nasal
-28	Muestras Ópticas
-29	Exudado Conjuntival
-30	Raspado Corneal
-31	Aspirado Ocular
-32	Lentes de Contacto
-33	Catéteres Intravasculares
-34	Catéteres Diálisis Peritoneal
-35	Prótesis
-36	Otros
-19	Sangre
-\.
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (1, 'Pelo');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (2, 'Escama');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (3, 'Uñas');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (4, 'Exudado');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (5, 'Biopsia Piel');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (6, 'Biopsia Otros Órganos');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (7, 'Líquido Peritoneal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (8, 'Líquido Sinovial');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (9, 'Líquido Cefalorraquídeo(LCR)');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (10, 'Líquido Pleural');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (11, 'Lavado Bronquial');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (12, 'Esputo Espontáneo');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (13, 'Esputo Inducido');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (14, 'Aspirado Traqueal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (15, 'Cepillado Protegido');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (16, 'Punción Pulmonar');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (17, 'Punción Pleural');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (18, 'Médula Ósea');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (20, 'Exudado Vaginal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (21, 'Orina');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (22, 'Heces');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (23, 'Cateterismo');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (24, 'Sondaje');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (25, 'Bolsa Colectora');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (26, 'Cavidad Oral');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (27, 'Exudado Nasal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (28, 'Muestras Ópticas');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (29, 'Exudado Conjuntival');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (30, 'Raspado Corneal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (31, 'Aspirado Ocular');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (32, 'Lentes de Contacto');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (33, 'Catéteres Intravasculares');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (34, 'Catéteres Diálisis Peritoneal');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (35, 'Prótesis');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (36, 'Otros');
+INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (19, 'Sangre');
 
 
 --
@@ -7264,22 +7291,20 @@ COPY muestras_clinicas (id_mue_cli, nom_mue_cli) FROM stdin;
 -- Data for Name: muestras_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) FROM stdin;
-71	19	1	\N
-72	19	2	\N
-73	19	3	\N
-74	19	4	\N
-75	19	5	\N
-76	19	6	\N
-77	19	10	\N
-78	19	11	\N
-95	16	1	\N
-96	16	3	\N
-97	16	4	\N
-98	16	8	\N
-99	16	9	\N
-100	16	36	Otra Clinicass
-\.
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (71, 19, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (72, 19, 2, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (73, 19, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (74, 19, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (75, 19, 5, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (76, 19, 6, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (77, 19, 10, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (78, 19, 11, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (95, 16, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (96, 16, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (97, 16, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (98, 16, 8, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (99, 16, 9, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (100, 16, 36, 'Otra Clinicass');
 
 
 --
@@ -7288,343 +7313,341 @@ COPY muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) FROM stdin
 -- Data for Name: municipios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY municipios (id_mun, des_mun, id_est) FROM stdin;
-1	\tLibertador Caracas\t\t 	1
-2	\tAlto Orinoco\t\t 	25
-3	\tAtabapo\t\t 	25
-4	\tAtures\t\t 	25
-5	\tAutana\t\t 	25
-6	\tManapiare\t\t 	25
-7	\tMaroa\t\t 	25
-8	\tRío Negro\t\t 	25
-9	\tAnaco\t\t 	2
-10	\tAragua\t\t 	2
-11	\tBolívar\t\t 	2
-12	\tBruzual\t\t 	2
-13	\tCajigal\t\t 	2
-14	\tCarvajal\t\t 	2
-15	\tDiego Bautista Urbaneja\t\t 	2
-16	\tFreites\t\t 	2
-17	\tGuanipa\t\t 	2
-18	\tGuanta\t\t 	2
-19	\tIndependencia\t\t 	2
-20	\tLibertad\t\t 	2
-21	\tMcGregor\t\t 	2
-22	\tMiranda\t\t 	2
-23	\tMonagas\t\t 	2
-24	\tPeñalver\t\t 	2
-25	\tPíritu\t\t 	2
-26	\tSan Juan de Capistrano\t\t 	2
-27	\tSanta Ana\t\t 	2
-28	\tSimón Rodriguez\t\t 	2
-29	\tSotillo\t\t 	2
-30	\tAchaguas\t\t 	3
-31	\tBiruaca\t\t 	3
-32	\tMuñoz\t\t 	3
-33	\tPáez\t\t 	3
-34	\tPedro Camejo\t\t 	3
-35	\tRómulo Gallegos\t\t 	3
-36	\tSan Fernando\t\t 	3
-37	\tBolívar\t\t 	4
-38	\tCamatagua\t\t 	4
-39	\tFrancisco Linares Alcántara\t\t 	4
-40	\tGirardot\t\t 	4
-41	\tJosé Angel Lamas\t\t 	4
-42	\tJosé Félix Ribas\t\t 	4
-43	\tJosé Rafael Revenga\t\t 	4
-44	\tLibertador\t\t 	4
-45	\tMario Briceño Iragorry\t\t 	4
-46	\tOcumare de la Costa de Oro\t\t 	4
-47	\tSan Casimiro\t\t 	4
-48	\tSan Sebastián\t\t 	4
-49	\tSantiago Mariño\t\t 	4
-50	\tSantos Michelena\t\t 	4
-51	\tSucre\t\t 	4
-52	\tTovar\t\t 	4
-53	\tUrdaneta\t\t 	4
-54	\tZamora\t\t 	4
-55	\tAlberto Arvelo Torrealba\t\t 	5
-56	\tAndrés Eloy Blanco\t\t 	5
-57	\tAntonio José de Sucre\t\t 	5
-58	\tArismendi\t\t 	5
-59	\tBarinas\t\t 	5
-60	\tBolívar\t\t 	5
-61	\tCruz Paredes\t\t 	5
-62	\tEzequiel Zamora\t\t 	5
-63	\tObispos\t\t 	5
-64	\tPedraza\t\t 	5
-65	\tRojas\t\t 	5
-66	\tSosa\t\t 	5
-67	\tCaroní\t\t 	6
-68	\tCedeño\t\t 	6
-69	\tEl Callao\t\t 	6
-70	\tGran Sabana\t\t 	6
-71	\tHeres\t\t 	6
-72	\tPiar\t\t 	6
-73	\tRaúl Leoni\t\t 	6
-74	\tRoscio\t\t 	6
-75	\tSifontes\t\t 	6
-76	\tSucre\t\t 	6
-77	\tPadre Pedro Chien\t\t 	6
-78	\tBejuma\t\t 	7
-79	\tCarlos Arvelo\t\t 	7
-80	\tDiego Ibarra\t\t 	7
-81	\tGuacara\t\t 	7
-82	\tJuan José Mora\t\t 	7
-83	\tLibertador\t\t 	7
-84	\tLos Guayos\t\t 	7
-85	\tMiranda\t\t 	7
-86	\tMontalbán\t\t 	7
-87	\tNaguanagua\t\t 	7
-88	\tPuerto Cabello\t\t 	7
-89	\tSan Diego\t\t 	7
-90	\tSan Joaquín\t\t 	7
-91	\tValencia\t\t 	7
-92	\tAnzoátegui\t\t 	8
-93	\tFalcón\t\t 	8
-94	\tGirardot\t\t 	8
-95	\tLima Blanco\t\t 	8
-96	\tPao de San Juan Bautista\t\t 	8
-97	\tRicaurte\t\t 	8
-98	\tRómulo Gallegos\t\t 	8
-99	\tSan Carlos\t\t 	8
-100	\tTinaco\t\t 	8
-101	\tAntonio Díaz\t\t 	9
-102	\tCasacoima\t\t 	9
-103	\tPedernales\t\t 	9
-104	\tTucupita\t\t 	9
-105	\tAcosta\t\t 	10
-106	\tBolívar\t\t 	10
-107	\tBuchivacoa\t\t 	10
-108	\tCacique Manaure\t\t 	10
-109	\tCarirubana\t\t 	10
-110	\tColina\t\t 	10
-111	\tDabajuro\t\t 	10
-112	\tDemocracia\t\t 	10
-113	\tFalcón\t\t 	10
-114	\tFederación\t\t 	10
-115	\tJacura\t\t 	10
-116	\tLos Taques\t\t 	10
-117	\tMauroa\t\t 	10
-118	\tMiranda\t\t 	10
-119	\tMonseñor Iturriza\t\t 	10
-120	\tPalmasola\t\t 	10
-121	\tPetit\t\t 	10
-122	\tPíritu\t\t 	10
-123	\tSan Francisco\t\t 	10
-124	\tSilva\t\t 	10
-125	\tSucre\t\t 	10
-126	\tTocópero\t\t 	10
-127	\tUnión\t\t 	10
-128	\tUrumaco\t\t 	10
-129	\tZamora\t\t 	10
-130	\tCamaguán\t\t 	11
-131	\tChaguaramas\t\t 	11
-132	\tEl Socorro\t\t 	11
-133	\tSebastian Francisco de Miranda\t\t 	11
-134	\tJosé Félix Ribas\t\t 	11
-135	\tJosé Tadeo Monagas\t\t 	11
-136	\tJuan Germán Roscio\t\t 	11
-137	\tJulián Mellado\t\t 	11
-138	\tLas Mercedes\t\t 	11
-139	\tLeonardo Infante\t\t 	11
-140	\tPedro Zaraza\t\t 	11
-141	\tOrtiz\t\t 	11
-142	\tSan Gerónimo de Guayabal\t\t 	11
-143	\tSan José de Guaribe\t\t 	11
-144	\tSanta María de Ipire\t\t 	11
-145	\tAndrés Eloy Blanco\t\t 	12
-146	\tCrespo\t\t 	12
-147	\tIribarren\t\t 	12
-148	\tJiménez\t\t 	12
-149	\tMorán\t\t 	12
-150	\tPalavecino\t\t 	12
-151	\tSimón Planas\t\t 	12
-152	\tTorres\t\t 	12
-153	\tUrdaneta\t\t 	12
-154	\tAlberto Adriani\t\t 	13
-155	\tAndrés Bello\t\t 	13
-156	\tAntonio Pinto Salinas\t\t 	13
-157	\tAricagua\t\t 	13
-158	\tArzobispo Chacón\t\t 	13
-159	\tCampo Elías\t\t 	13
-160	\tCaracciolo Parra Olmedo\t\t 	13
-161	\tCardenal Quintero\t\t 	13
-162	\tGuaraque\t\t 	13
-163	\tJulio César Salas\t\t 	13
-164	\tJusto Briceño\t\t 	13
-165	\tLibertador\t\t 	13
-166	\tMiranda\t\t 	13
-167	\tObispo Ramos de Lora\t\t 	13
-168	\tPadre Noguera\t\t 	13
-169	\tPueblo Llano\t\t 	13
-170	\tRangel\t\t 	13
-171	\tRivas Dávila\t\t 	13
-172	\tSantos Marquina\t\t 	13
-173	\tSucre\t\t 	13
-174	\tTovar\t\t 	13
-175	\tTulio Febres Cordero\t\t 	13
-176	\tZea\t\t 	14
-177	\tAcevedo\t\t 	14
-178	\tAndrés Bello\t\t 	14
-179	\tBaruta\t\t 	14
-180	\tBrión\t\t 	14
-181	\tBuroz\t\t 	14
-182	\tCarrizal\t\t 	14
-183	\tChacao\t\t 	14
-184	\tCristóbal Rojas\t\t 	14
-185	\tEl Hatillo\t\t 	14
-186	\tGuaicaipuro\t\t 	14
-187	\tIndependencia\t\t 	14
-188	\tLander\t\t 	14
-189	\tLos Salias\t\t 	14
-190	\tPáez\t\t 	14
-191	\tPaz Castillo\t\t 	14
-192	\tPedro Gual\t\t 	14
-193	\tPlaza\t\t 	14
-194	\tSimón Bolívar\t\t 	14
-195	\tSucre\t\t 	14
-196	\tUrdaneta\t\t 	14
-197	\tZamora\t\t 	14
-198	\tAcosta\t\t 	15
-199	\tAguasay\t\t 	15
-200	\tBolívar\t\t 	15
-201	\tCaripe\t\t 	15
-202	\tCedeño\t\t 	15
-203	\tEzequiel Zamora\t\t 	15
-204	\tLibertador\t\t 	15
-205	\tMaturín\t\t 	15
-206	\tPiar\t\t 	15
-207	\tPunceres\t\t 	15
-208	\tSanta Bárbara\t\t 	15
-209	\tSotillo\t\t 	15
-210	\tUracoa\t\t 	15
-211	\tAntolín del Campo\t\t 	16
-212	\tArismendi\t\t 	16
-213	\tDíaz\t\t 	16
-214	\tGarcía\t\t 	16
-215	\tGómez\t\t 	16
-216	\tManeiro\t\t 	16
-217	\tMarcano\t\t 	16
-218	\tMariño\t\t 	16
-219	\tPenínsula de Macanao\t\t 	16
-220	\tTubores\t\t 	16
-221	\tVillalba\t\t 	16
-222	\tAgua Blanca\t\t 	18
-223	\tAraure\t\t 	18
-224	\tEsteller\t\t 	18
-225	\tGuanare\t\t 	18
-226	\tGuanarito\t\t 	18
-227	\tMonseñor José Vicente de Unda\t\t 	18
-228	\tOspino\t\t 	18
-229	\tPáez\t\t 	18
-230	\tPapelón\t\t 	18
-231	\tSan Genaro de Boconoíto\t\t 	18
-232	\tSan Rafael de Onoto\t\t 	18
-233	\tSanta Rosalía\t\t 	18
-234	\tSucre\t\t 	18
-235	\tTurén\t\t 	18
-236	\tAndrés Eloy Blanco\t\t 	19
-237	\tAndrés Mata\t\t 	19
-238	\tArismendi\t\t 	19
-239	\tBenítez\t\t 	19
-240	\tBermúdez\t\t 	19
-241	\tBolívar\t\t 	19
-242	\tCajigal\t\t 	19
-243	\tCruz Salmerón Acosta\t\t 	19
-244	\tLibertador\t\t 	19
-245	\tMariño\t\t 	19
-246	\tMejía\t\t 	19
-247	\tMontes\t\t 	19
-248	\tRibero\t\t 	19
-249	\tSucre\t\t 	19
-250	\tValdez\t\t 	19
-251	\tAndrés Bello\t\t 	20
-252	\tAntonio Rómulo Costa\t\t 	20
-253	\tAyacucho\t\t 	20
-254	\tBolívar\t\t 	20
-255	\tCárdenas\t\t 	20
-256	\tCórdoba\t\t 	20
-257	\tFernández Feo\t\t 	20
-258	\tFrancisco de Miranda\t\t 	20
-259	\tGarcía de Hevia\t\t 	20
-260	\tGuásimos\t\t 	20
-261	\tIndependencia\t\t 	20
-262	\tJáuregui\t\t 	20
-263	\tJosé María Vargas\t\t 	20
-264	\tJunín\t\t 	20
-265	\tLibertad\t\t 	20
-266	\tLibertador\t\t 	20
-267	\t17. Lobatera\t\t 	20
-268	\tMichelena\t\t 	20
-269	\tPanamericano\t\t 	20
-270	\tPedro María Ureña\t\t 	20
-271	\tRafael Urdaneta\t\t 	20
-272	\tSamuel Darío Maldonado\t\t 	20
-273	\tSan Cristóbal\t\t 	20
-274	\tSeboruco\t\t 	20
-275	\tSimón Rodríguez\t\t 	20
-276	\tSucre\t\t 	20
-277	\tTorbes\t\t 	20
-278	\tUribante\t\t 	20
-279	\tSan Judas Tadeo\t\t 	20
-280	\tAndrés Bello\t\t 	21
-281	\tBoconó\t\t 	21
-282	\tBolívar\t\t 	21
-283	\tCandelaria\t\t 	21
-284	\tCarache\t\t 	21
-285	\tEscuque\t\t 	21
-286	\tJosé Felipe Márquez Cañizalez\t\t 	21
-287	\tJuan Vicente Campos Elías\t\t 	21
-288	\tLa Ceiba\t\t 	21
-289	\tMiranda\t\t 	21
-290	\tMonte Carmelo\t\t 	21
-291	\tMotatán\t\t 	21
-292	\tPampán\t\t 	21
-293	\tPampanito\t\t 	21
-294	\tRafael Rangel\t\t 	21
-295	\tSan Rafael de Carvajal\t\t 	21
-296	\tSucre\t\t 	21
-297	\tTrujillo\t\t 	21
-298	\tUrdaneta\t\t 	21
-299	\tValera\t\t 	21
-300	\tVargas\t\t 	22
-301	\tArístides Bastidas\t\t 	23
-302	\tBolívar\t\t 	23
-303	\tBruzual\t\t 	23
-304	\tCocorote\t\t 	23
-305	\tIndependencia\t\t 	23
-306	\tJosé Antonio Páez\t\t 	23
-307	\tLa Trinidad\t\t 	23
-308	\tManuel Monge\t\t 	23
-309	\tNirgua\t\t 	23
-310	\tPeña\t\t 	23
-311	\tSan Felipe\t\t 	23
-312	\tSucre\t\t 	23
-313	\tUrachiche\t\t 	23
-314	\tVeroes\t\t 	23
-315	\tAlmirante Padilla\t\t 	24
-316	\tBaralt\t\t 	24
-317	\tCabimas\t\t 	24
-318	\tCatatumbo\t\t 	24
-319	\tColón\t\t 	24
-320	\tFrancisco Javier Pulgar\t\t 	24
-321	\tGuajira\t\t 	24
-322	\tJesús Enrique Losada\t\t 	24
-323	\tJesús María Semprún\t\t 	24
-324	\tLa Cañada de Urdaneta\t\t 	24
-325	\tLagunillas\t\t 	24
-326	\tMachiques de Perijá\t\t 	24
-327	\tMara\t\t 	24
-328	\tMaracaibo\t\t 	24
-329	\tMiranda\t\t 	24
-330	\tRosario de Perijá\t\t 	24
-331	\tSan Francisco\t\t 	24
-332	\tSanta Rita\t\t 	24
-333	\tSimón Bolívar\t\t 	24
-334	\tSucre\t\t 	24
-335	\tValmore Rodríguez\t\t 	24
-\.
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (1, '	Libertador Caracas		 ', 1);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (2, '	Alto Orinoco		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (3, '	Atabapo		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (4, '	Atures		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (5, '	Autana		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (6, '	Manapiare		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (7, '	Maroa		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (8, '	Río Negro		 ', 25);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (9, '	Anaco		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (10, '	Aragua		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (11, '	Bolívar		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (12, '	Bruzual		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (13, '	Cajigal		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (14, '	Carvajal		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (15, '	Diego Bautista Urbaneja		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (16, '	Freites		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (17, '	Guanipa		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (18, '	Guanta		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (19, '	Independencia		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (20, '	Libertad		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (21, '	McGregor		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (22, '	Miranda		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (23, '	Monagas		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (24, '	Peñalver		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (25, '	Píritu		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (26, '	San Juan de Capistrano		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (27, '	Santa Ana		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (28, '	Simón Rodriguez		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (29, '	Sotillo		 ', 2);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (30, '	Achaguas		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (31, '	Biruaca		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (32, '	Muñoz		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (33, '	Páez		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (34, '	Pedro Camejo		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (35, '	Rómulo Gallegos		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (36, '	San Fernando		 ', 3);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (37, '	Bolívar		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (38, '	Camatagua		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (39, '	Francisco Linares Alcántara		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (40, '	Girardot		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (41, '	José Angel Lamas		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (42, '	José Félix Ribas		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (43, '	José Rafael Revenga		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (44, '	Libertador		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (45, '	Mario Briceño Iragorry		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (46, '	Ocumare de la Costa de Oro		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (47, '	San Casimiro		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (48, '	San Sebastián		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (49, '	Santiago Mariño		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (50, '	Santos Michelena		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (51, '	Sucre		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (52, '	Tovar		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (53, '	Urdaneta		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (54, '	Zamora		 ', 4);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (55, '	Alberto Arvelo Torrealba		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (56, '	Andrés Eloy Blanco		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (57, '	Antonio José de Sucre		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (58, '	Arismendi		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (59, '	Barinas		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (60, '	Bolívar		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (61, '	Cruz Paredes		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (62, '	Ezequiel Zamora		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (63, '	Obispos		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (64, '	Pedraza		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (65, '	Rojas		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (66, '	Sosa		 ', 5);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (67, '	Caroní		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (68, '	Cedeño		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (69, '	El Callao		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (70, '	Gran Sabana		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (71, '	Heres		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (72, '	Piar		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (73, '	Raúl Leoni		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (74, '	Roscio		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (75, '	Sifontes		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (76, '	Sucre		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (77, '	Padre Pedro Chien		 ', 6);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (78, '	Bejuma		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (79, '	Carlos Arvelo		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (80, '	Diego Ibarra		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (81, '	Guacara		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (82, '	Juan José Mora		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (83, '	Libertador		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (84, '	Los Guayos		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (85, '	Miranda		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (86, '	Montalbán		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (87, '	Naguanagua		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (88, '	Puerto Cabello		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (89, '	San Diego		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (90, '	San Joaquín		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (91, '	Valencia		 ', 7);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (92, '	Anzoátegui		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (93, '	Falcón		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (94, '	Girardot		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (95, '	Lima Blanco		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (96, '	Pao de San Juan Bautista		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (97, '	Ricaurte		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (98, '	Rómulo Gallegos		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (99, '	San Carlos		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (100, '	Tinaco		 ', 8);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (101, '	Antonio Díaz		 ', 9);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (102, '	Casacoima		 ', 9);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (103, '	Pedernales		 ', 9);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (104, '	Tucupita		 ', 9);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (105, '	Acosta		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (106, '	Bolívar		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (107, '	Buchivacoa		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (108, '	Cacique Manaure		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (109, '	Carirubana		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (110, '	Colina		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (111, '	Dabajuro		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (112, '	Democracia		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (113, '	Falcón		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (114, '	Federación		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (115, '	Jacura		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (116, '	Los Taques		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (117, '	Mauroa		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (118, '	Miranda		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (119, '	Monseñor Iturriza		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (120, '	Palmasola		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (121, '	Petit		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (122, '	Píritu		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (123, '	San Francisco		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (124, '	Silva		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (125, '	Sucre		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (126, '	Tocópero		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (127, '	Unión		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (128, '	Urumaco		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (129, '	Zamora		 ', 10);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (130, '	Camaguán		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (131, '	Chaguaramas		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (132, '	El Socorro		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (133, '	Sebastian Francisco de Miranda		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (134, '	José Félix Ribas		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (135, '	José Tadeo Monagas		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (136, '	Juan Germán Roscio		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (137, '	Julián Mellado		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (138, '	Las Mercedes		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (139, '	Leonardo Infante		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (140, '	Pedro Zaraza		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (141, '	Ortiz		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (142, '	San Gerónimo de Guayabal		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (143, '	San José de Guaribe		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (144, '	Santa María de Ipire		 ', 11);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (145, '	Andrés Eloy Blanco		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (146, '	Crespo		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (147, '	Iribarren		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (148, '	Jiménez		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (149, '	Morán		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (150, '	Palavecino		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (151, '	Simón Planas		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (152, '	Torres		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (153, '	Urdaneta		 ', 12);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (154, '	Alberto Adriani		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (155, '	Andrés Bello		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (156, '	Antonio Pinto Salinas		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (157, '	Aricagua		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (158, '	Arzobispo Chacón		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (159, '	Campo Elías		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (160, '	Caracciolo Parra Olmedo		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (161, '	Cardenal Quintero		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (162, '	Guaraque		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (163, '	Julio César Salas		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (164, '	Justo Briceño		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (165, '	Libertador		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (166, '	Miranda		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (167, '	Obispo Ramos de Lora		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (168, '	Padre Noguera		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (169, '	Pueblo Llano		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (170, '	Rangel		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (171, '	Rivas Dávila		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (172, '	Santos Marquina		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (173, '	Sucre		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (174, '	Tovar		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (175, '	Tulio Febres Cordero		 ', 13);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (176, '	Zea		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (177, '	Acevedo		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (178, '	Andrés Bello		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (179, '	Baruta		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (180, '	Brión		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (181, '	Buroz		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (182, '	Carrizal		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (183, '	Chacao		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (184, '	Cristóbal Rojas		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (185, '	El Hatillo		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (186, '	Guaicaipuro		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (187, '	Independencia		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (188, '	Lander		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (189, '	Los Salias		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (190, '	Páez		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (191, '	Paz Castillo		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (192, '	Pedro Gual		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (193, '	Plaza		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (194, '	Simón Bolívar		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (195, '	Sucre		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (196, '	Urdaneta		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (197, '	Zamora		 ', 14);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (198, '	Acosta		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (199, '	Aguasay		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (200, '	Bolívar		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (201, '	Caripe		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (202, '	Cedeño		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (203, '	Ezequiel Zamora		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (204, '	Libertador		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (205, '	Maturín		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (206, '	Piar		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (207, '	Punceres		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (208, '	Santa Bárbara		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (209, '	Sotillo		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (210, '	Uracoa		 ', 15);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (211, '	Antolín del Campo		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (212, '	Arismendi		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (213, '	Díaz		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (214, '	García		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (215, '	Gómez		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (216, '	Maneiro		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (217, '	Marcano		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (218, '	Mariño		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (219, '	Península de Macanao		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (220, '	Tubores		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (221, '	Villalba		 ', 16);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (222, '	Agua Blanca		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (223, '	Araure		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (224, '	Esteller		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (225, '	Guanare		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (226, '	Guanarito		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (227, '	Monseñor José Vicente de Unda		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (228, '	Ospino		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (229, '	Páez		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (230, '	Papelón		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (231, '	San Genaro de Boconoíto		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (232, '	San Rafael de Onoto		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (233, '	Santa Rosalía		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (234, '	Sucre		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (235, '	Turén		 ', 18);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (236, '	Andrés Eloy Blanco		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (237, '	Andrés Mata		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (238, '	Arismendi		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (239, '	Benítez		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (240, '	Bermúdez		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (241, '	Bolívar		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (242, '	Cajigal		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (243, '	Cruz Salmerón Acosta		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (244, '	Libertador		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (245, '	Mariño		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (246, '	Mejía		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (247, '	Montes		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (248, '	Ribero		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (249, '	Sucre		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (250, '	Valdez		 ', 19);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (251, '	Andrés Bello		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (252, '	Antonio Rómulo Costa		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (253, '	Ayacucho		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (254, '	Bolívar		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (255, '	Cárdenas		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (256, '	Córdoba		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (257, '	Fernández Feo		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (258, '	Francisco de Miranda		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (259, '	García de Hevia		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (260, '	Guásimos		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (261, '	Independencia		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (262, '	Jáuregui		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (263, '	José María Vargas		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (264, '	Junín		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (265, '	Libertad		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (266, '	Libertador		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (267, '	17. Lobatera		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (268, '	Michelena		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (269, '	Panamericano		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (270, '	Pedro María Ureña		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (271, '	Rafael Urdaneta		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (272, '	Samuel Darío Maldonado		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (273, '	San Cristóbal		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (274, '	Seboruco		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (275, '	Simón Rodríguez		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (276, '	Sucre		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (277, '	Torbes		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (278, '	Uribante		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (279, '	San Judas Tadeo		 ', 20);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (280, '	Andrés Bello		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (281, '	Boconó		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (282, '	Bolívar		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (283, '	Candelaria		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (284, '	Carache		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (285, '	Escuque		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (286, '	José Felipe Márquez Cañizalez		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (287, '	Juan Vicente Campos Elías		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (288, '	La Ceiba		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (289, '	Miranda		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (290, '	Monte Carmelo		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (291, '	Motatán		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (292, '	Pampán		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (293, '	Pampanito		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (294, '	Rafael Rangel		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (295, '	San Rafael de Carvajal		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (296, '	Sucre		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (297, '	Trujillo		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (298, '	Urdaneta		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (299, '	Valera		 ', 21);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (300, '	Vargas		 ', 22);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (301, '	Arístides Bastidas		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (302, '	Bolívar		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (303, '	Bruzual		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (304, '	Cocorote		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (305, '	Independencia		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (306, '	José Antonio Páez		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (307, '	La Trinidad		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (308, '	Manuel Monge		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (309, '	Nirgua		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (310, '	Peña		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (311, '	San Felipe		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (312, '	Sucre		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (313, '	Urachiche		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (314, '	Veroes		 ', 23);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (315, '	Almirante Padilla		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (316, '	Baralt		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (317, '	Cabimas		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (318, '	Catatumbo		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (319, '	Colón		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (320, '	Francisco Javier Pulgar		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (321, '	Guajira		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (322, '	Jesús Enrique Losada		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (323, '	Jesús María Semprún		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (324, '	La Cañada de Urdaneta		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (325, '	Lagunillas		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (326, '	Machiques de Perijá		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (327, '	Mara		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (328, '	Maracaibo		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (329, '	Miranda		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (330, '	Rosario de Perijá		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (331, '	San Francisco		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (332, '	Santa Rita		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (333, '	Simón Bolívar		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (334, '	Sucre		 ', 24);
+INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (335, '	Valmore Rodríguez		 ', 24);
 
 
 --
@@ -7633,15 +7656,14 @@ COPY municipios (id_mun, des_mun, id_est) FROM stdin;
 -- Data for Name: pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) FROM stdin;
-11	Hernandez	Jose	17123098	1976-08-21	1	02125682345	04141235687	1	Caracas	1	1	1	\N	4	27	2011-06-11 20:03:33.627-04:30	M
-12	Contreras	Gisela 	13456094	1970-09-25	2	00000	00000	4	Los Teques	1	1	196	\N	5	27	2011-06-11 20:20:43.702-04:30	F
-13	Beltran	Carlos	7098456	1961-05-02	1	0000	0000	4	Merida	1	1	1	\N	6	27	2011-06-11 20:35:37.372-04:30	M
-14	Wester	Mary	8752299	1965-05-02	1	02129874523	042691587412	6	Guarenas	1	1	193	\N	7	27	2011-06-11 22:08:34.736-04:30	F
-16	Paciente	Paciente	17302857	2011-07-09	1	3622824	17302857	1	Guarenas	1	1	69	\N	6	6	2011-07-08 18:14:22.448-04:30	M
-27	asd	demo	1234	2011-07-27	1	3622222	173028555	1	Guarenas	1	1	1	\N	7	6	2011-07-27 21:12:19.655-04:30	M
-7	Lozada	Adriana	17651233	2011-09-06	1	3622824	04265168824	2	Guarenas	1	23	304	\N	1	6	2011-06-11 20:03:33.627-04:30	F
-\.
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (11, 'Hernandez', 'Jose', '17123098', '1976-08-21', '1', '02125682345', '04141235687', '1', 'Caracas', 1, 1, 1, NULL, 4, 27, '2011-06-11 20:03:33.627-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (12, 'Contreras', 'Gisela ', '13456094', '1970-09-25', '2', '00000', '00000', '4', 'Los Teques', 1, 1, 196, NULL, 5, 27, '2011-06-11 20:20:43.702-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (13, 'Beltran', 'Carlos', '7098456', '1961-05-02', '1', '0000', '0000', '4', 'Merida', 1, 1, 1, NULL, 6, 27, '2011-06-11 20:35:37.372-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (14, 'Wester', 'Mary', '8752299', '1965-05-02', '1', '02129874523', '042691587412', '6', 'Guarenas', 1, 1, 193, NULL, 7, 27, '2011-06-11 22:08:34.736-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (16, 'Paciente', 'Paciente', '17302857', '2011-07-09', '1', '3622824', '17302857', '1', 'Guarenas', 1, 1, 69, NULL, 6, 6, '2011-07-08 18:14:22.448-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (27, 'asd', 'demo', '1234', '2011-07-27', '1', '3622222', '173028555', '1', 'Guarenas', 1, 1, 1, NULL, 7, 6, '2011-07-27 21:12:19.655-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (7, 'Lozada', 'Adriana', '17651233', '2011-09-06', '1', '3622824', '04265168824', '2', 'Guarenas', 1, 23, 304, NULL, 1, 6, '2011-06-11 20:03:33.627-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (29, 'pruebaliss', 'pruebaliss', '17651243', '1987-01-10', '1', '02123617323', '04269150722', '1', 'guarenas', 1, 14, 193, NULL, 8, 32, '2012-01-12 11:09:26.45-04:30', 'F');
 
 
 --
@@ -7650,9 +7672,7 @@ COPY pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab
 -- Data for Name: paises; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY paises (id_pai, des_pai, cod_pai) FROM stdin;
-1	Venezuela	VEN
-\.
+INSERT INTO paises (id_pai, des_pai, cod_pai) VALUES (1, 'Venezuela', 'VEN');
 
 
 --
@@ -7661,8 +7681,6 @@ COPY paises (id_pai, des_pai, cod_pai) FROM stdin;
 -- Data for Name: parroquias; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY parroquias (id_par, des_par, id_mun) FROM stdin;
-\.
 
 
 --
@@ -7671,24 +7689,22 @@ COPY parroquias (id_par, des_par, id_mun) FROM stdin;
 -- Data for Name: partes_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY partes_cuerpos (id_par_cue, nom_par_cue) FROM stdin;
-1	Pie
-2	Mano
-5	Cabeza
-6	Tórax anterior
-7	Flanco derecho
-8	Flanco Izquierdo
-9	Brazo derecho
-10	Brazo izquierdo
-11	Pierna derecha
-12	Pierna izquierda
-13	Pie derecho
-14	Pie izquierdo
-15	Piel
-16	Pelo
-18	Órganos
-19	Huesos
-\.
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (1, 'Pie');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (2, 'Mano');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (5, 'Cabeza');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (6, 'Tórax anterior');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (7, 'Flanco derecho');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (8, 'Flanco Izquierdo');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (9, 'Brazo derecho');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (10, 'Brazo izquierdo');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (11, 'Pierna derecha');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (12, 'Pierna izquierda');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (13, 'Pie derecho');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (14, 'Pie izquierdo');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (15, 'Piel');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (16, 'Pelo');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (18, 'Órganos');
+INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (19, 'Huesos');
 
 
 --
@@ -7697,14 +7713,12 @@ COPY partes_cuerpos (id_par_cue, nom_par_cue) FROM stdin;
 -- Data for Name: partes_cuerpos__categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) FROM stdin;
-1	1	1
-2	1	2
-3	3	15
-4	3	16
-5	4	15
-6	5	18
-\.
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (1, 1, 1);
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (2, 1, 2);
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (3, 3, 15);
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (4, 3, 16);
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (5, 4, 15);
+INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_cue) VALUES (6, 5, 18);
 
 
 --
@@ -7713,13 +7727,11 @@ COPY partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, id_par_
 -- Data for Name: tiempo_evoluciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tiempo_evoluciones (id_tie_evo, id_his, tie_evo) FROM stdin;
-2	3	5
-4	18	0
-5	19	0
-3	17	1600
-1	16	24
-\.
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (2, 3, 5);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (5, 19, 0);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (3, 17, 1600);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (1, 16, 24);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (6, 20, 0);
 
 
 --
@@ -7728,17 +7740,15 @@ COPY tiempo_evoluciones (id_tie_evo, id_his, tie_evo) FROM stdin;
 -- Data for Name: tipos_consultas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_consultas (id_tip_con, nom_tip_con) FROM stdin;
-1	Consulta
-2	Dermatologia
-3	Pediatria
-4	Neumologia
-5	Consulta Interna
-6	Geriatria
-7	urologia
-8	Infectologia
-9	Otros
-\.
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (1, 'Consulta');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (2, 'Dermatologia');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (3, 'Pediatria');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (4, 'Neumologia');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (5, 'Consulta Interna');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (6, 'Geriatria');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (7, 'urologia');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (8, 'Infectologia');
+INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (9, 'Otros');
 
 
 --
@@ -7747,18 +7757,16 @@ COPY tipos_consultas (id_tip_con, nom_tip_con) FROM stdin;
 -- Data for Name: tipos_consultas_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) FROM stdin;
-87	3	3	\N
-88	7	3	\N
-110	1	17	\N
-111	5	17	\N
-112	2	17	\N
-182	1	16	\N
-183	5	16	\N
-184	2	16	\N
-185	6	16	\N
-186	9	16	otro tipo consulta
-\.
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (87, 3, 3, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (88, 7, 3, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (110, 1, 17, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (111, 5, 17, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (112, 2, 17, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (182, 1, 16, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (183, 5, 16, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (184, 2, 16, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (185, 6, 16, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (186, 9, 16, 'otro tipo consulta');
 
 
 --
@@ -7767,70 +7775,68 @@ COPY tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con)
 -- Data for Name: tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) FROM stdin;
-1	1	Hifas delgadas tabicadas	1
-2	1	Hifas gruesas tabicadas	1
-3	1	Blastoconidias	1
-4	1	Pseudohifas	1
-5	1	Artroconidias	1
-6	1	Hifas cortas y agrupamiento de esporas	1
-7	1	Esporas endotrix	1
-8	1	Esporas ectoendotrix	1
-9	1	Microsporum canis	2
-10	1	Microsporum gypseum	2
-14	1	Trichophyton tonsurans	2
-15	1	Trichophyton verrucosum	2
-16	1	Trichophyton violaceum	2
-18	1	Trichosporon	2
-19	1	Geotrichum spp	2
-20	1	Candita albicans	2
-21	1	Candida no Candida albicans	2
-11	1	Microsporum nanum	2
-12	1	Trichophyton rubrum	2
-13	1	Trichophyton mentagrophytes	2
-17	1	Epidermophyton floccosum	2
-22	1	Malassezia furfur	2
-23	1	Malassezia pachydermatis	2
-24	1	Malassezia spp	2
-25	2	Levaduras simples	1
-26	2	Blastoconidias	1
-27	2	Levaduras en cadena	1
-28	2	Células fumagoides	1
-29	2	Hifas dematiaceas	1
-30	2	Cuerpos asteroides	1
-31	2	Otros	1
-32	2	Sporothix schenckii	2
-33	2	Cladiophialophora carrionii	2
-34	2	Fonseca pedrosoi	2
-35	2	Phialophora verrucosa	2
-36	2	Rhinocladiella aquaspersa	2
-37	2	Acremionium spp	2
-38	2	Acremionium falciforme	2
-39	2	Madurella grisea	2
-40	2	Pseudallescheria boydii	2
-41	2	Fusarium oxisporum	2
-42	2	Fusarium solami	2
-44	2	Aspergillus flavus	2
-45	2	Aspergillus nidulans	2
-46	2	Aspergillus fumigatus	2
-47	2	Aspergillus spp	2
-48	2	Nocardia brasiliensis	2
-49	2	Streptomyces somaliensis	2
-50	2	Actinomadura madurae	2
-51	2	Fusarium spp	2
-52	2	Paracoccidioide loboi (Histopatología)	2
-53	2	Otros	2
-43	2	Fusarium spp	2
-54	3	Levaduras simples	1
-55	3	Levaduras múltiples	1
-56	3	Esférulas pared doble	1
-57	3	Levaduras intracelulares	1
-58	3	Otros	1
-59	3	Coccidioides posadasii	2
-60	3	Histoplasma capsulatum	2
-61	3	Paracoccidioides brasiliensis	2
-62	3	Otros	2
-\.
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (1, 1, 'Hifas delgadas tabicadas', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (2, 1, 'Hifas gruesas tabicadas', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (3, 1, 'Blastoconidias', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (4, 1, 'Pseudohifas', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (5, 1, 'Artroconidias', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (6, 1, 'Hifas cortas y agrupamiento de esporas', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (7, 1, 'Esporas endotrix', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (8, 1, 'Esporas ectoendotrix', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (9, 1, 'Microsporum canis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (10, 1, 'Microsporum gypseum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (14, 1, 'Trichophyton tonsurans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (15, 1, 'Trichophyton verrucosum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (16, 1, 'Trichophyton violaceum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (18, 1, 'Trichosporon', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (19, 1, 'Geotrichum spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (20, 1, 'Candita albicans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (21, 1, 'Candida no Candida albicans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (11, 1, 'Microsporum nanum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (12, 1, 'Trichophyton rubrum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (13, 1, 'Trichophyton mentagrophytes', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (17, 1, 'Epidermophyton floccosum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (22, 1, 'Malassezia furfur', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (23, 1, 'Malassezia pachydermatis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (24, 1, 'Malassezia spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (25, 2, 'Levaduras simples', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (26, 2, 'Blastoconidias', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (27, 2, 'Levaduras en cadena', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (28, 2, 'Células fumagoides', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (29, 2, 'Hifas dematiaceas', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (30, 2, 'Cuerpos asteroides', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (31, 2, 'Otros', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (32, 2, 'Sporothix schenckii', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (33, 2, 'Cladiophialophora carrionii', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (34, 2, 'Fonseca pedrosoi', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (35, 2, 'Phialophora verrucosa', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (36, 2, 'Rhinocladiella aquaspersa', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (37, 2, 'Acremionium spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (38, 2, 'Acremionium falciforme', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (39, 2, 'Madurella grisea', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (40, 2, 'Pseudallescheria boydii', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (41, 2, 'Fusarium oxisporum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (42, 2, 'Fusarium solami', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (44, 2, 'Aspergillus flavus', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (45, 2, 'Aspergillus nidulans', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (46, 2, 'Aspergillus fumigatus', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (47, 2, 'Aspergillus spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (48, 2, 'Nocardia brasiliensis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (49, 2, 'Streptomyces somaliensis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (50, 2, 'Actinomadura madurae', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (51, 2, 'Fusarium spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (52, 2, 'Paracoccidioide loboi (Histopatología)', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (53, 2, 'Otros', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (43, 2, 'Fusarium spp', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (54, 3, 'Levaduras simples', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (55, 3, 'Levaduras múltiples', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (56, 3, 'Esférulas pared doble', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (57, 3, 'Levaduras intracelulares', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (58, 3, 'Otros', 1);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (59, 3, 'Coccidioides posadasii', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (60, 3, 'Histoplasma capsulatum', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (61, 3, 'Paracoccidioides brasiliensis', 2);
+INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id_tip_exa) VALUES (62, 3, 'Otros', 2);
 
 
 --
@@ -7839,10 +7845,8 @@ COPY tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_mic, id
 -- Data for Name: tipos_examenes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_examenes (id_tip_exa, nom_tip_exa) FROM stdin;
-1	Examen directo
-2	Agente Aislado
-\.
+INSERT INTO tipos_examenes (id_tip_exa, nom_tip_exa) VALUES (1, 'Examen directo');
+INSERT INTO tipos_examenes (id_tip_exa, nom_tip_exa) VALUES (2, 'Agente Aislado');
 
 
 --
@@ -7851,11 +7855,9 @@ COPY tipos_examenes (id_tip_exa, nom_tip_exa) FROM stdin;
 -- Data for Name: tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_micosis (id_tip_mic, nom_tip_mic) FROM stdin;
-1	Superficiales
-3	Profundas
-2	Subcutaneas
-\.
+INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (1, 'Superficiales');
+INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (3, 'Profundas');
+INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (2, 'Subcutaneas');
 
 
 --
@@ -7864,12 +7866,12 @@ COPY tipos_micosis (id_tip_mic, nom_tip_mic) FROM stdin;
 -- Data for Name: tipos_micosis_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) FROM stdin;
-44	1	17
-45	2	19
-56	2	16
-60	1	16
-\.
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (44, 1, 17);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (45, 2, 19);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (56, 2, 16);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (60, 1, 16);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (61, 1, 15);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (62, 1, 20);
 
 
 --
@@ -7878,17 +7880,15 @@ COPY tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) FROM stdin;
 -- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) FROM stdin;
-34	44	1
-35	44	2
-36	44	3
-41	56	26
-42	56	28
-58	60	1
-59	60	3
-60	60	5
-61	60	7
-\.
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (34, 44, 1);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (35, 44, 2);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (36, 44, 3);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (41, 56, 26);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (42, 56, 28);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (58, 60, 1);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (59, 60, 3);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (60, 60, 5);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic) VALUES (61, 60, 7);
 
 
 --
@@ -7897,10 +7897,8 @@ COPY tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est
 -- Data for Name: tipos_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) FROM stdin;
-1	adm	Administrador
-2	med	Médicos
-\.
+INSERT INTO tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) VALUES (1, 'adm', 'Administrador');
+INSERT INTO tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) VALUES (2, 'med', 'Médicos');
 
 
 --
@@ -7909,18 +7907,16 @@ COPY tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) FROM stdin;
 -- Data for Name: tipos_usuarios__usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) FROM stdin;
-17	6	\N	2
-36	\N	17	1
-41	\N	21	1
-43	27	\N	2
-44	28	\N	2
-45	\N	22	1
-49	32	\N	2
-50	33	\N	2
-51	34	\N	2
-52	\N	23	1
-\.
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (17, 6, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (36, NULL, 17, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (41, NULL, 21, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (43, 27, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (44, 28, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (45, NULL, 22, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (49, 32, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (50, 33, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (51, 34, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (52, NULL, 23, 1);
 
 
 --
@@ -7929,20 +7925,18 @@ COPY tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) F
 -- Data for Name: transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) FROM stdin;
-1	RED	Registrar enfermedades dermatologicas	1
-2	MED	Modificar enfermedades dermatologicas	1
-3	EED	Eliminar enfermedades dermatologicas	1
-4	REF	Reportes de las estadisticas por enfermedad	2
-9	RP	Registrar Paciente	1
-10	MP	Modificar Paciente	1
-11	EP	Eliminar Paciente	1
-12	RHP	Registrar Historial de paciente	1
-13	MHP	Modificar Historial de paciente	1
-14	EHP	Modificar Historial de paciente	1
-15	MCP	Muestra Clínica del paciente	1
-16	IAP	Información Adicional del Paciente	1
-\.
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (1, 'RED', 'Registrar enfermedades dermatologicas', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (2, 'MED', 'Modificar enfermedades dermatologicas', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (3, 'EED', 'Eliminar enfermedades dermatologicas', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (4, 'REF', 'Reportes de las estadisticas por enfermedad', 2);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (9, 'RP', 'Registrar Paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (10, 'MP', 'Modificar Paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (11, 'EP', 'Eliminar Paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (12, 'RHP', 'Registrar Historial de paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (13, 'MHP', 'Modificar Historial de paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (14, 'EHP', 'Modificar Historial de paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (15, 'MCP', 'Muestra Clínica del paciente', 1);
+INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES (16, 'IAP', 'Información Adicional del Paciente', 1);
 
 
 --
@@ -7951,31 +7945,29 @@ COPY transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) FROM stdin;
 -- Data for Name: transacciones_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) FROM stdin;
-1	50	86
-2	50	87
-3	50	88
-1	17	93
-2	17	94
-3	17	95
-4	17	96
-1	51	105
-2	51	106
-3	51	107
-4	51	108
-1	43	48
-2	43	49
-3	43	50
-4	43	51
-1	49	113
-2	49	114
-3	49	115
-4	49	116
-1	44	64
-2	44	65
-3	44	66
-4	44	67
-\.
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 50, 86);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 50, 87);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 50, 88);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 17, 93);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 17, 94);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 17, 95);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 17, 96);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 51, 105);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 51, 106);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 51, 107);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 51, 108);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 43, 48);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 43, 49);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 43, 50);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 43, 51);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 49, 113);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 49, 114);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 49, 115);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 49, 116);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 44, 64);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 44, 65);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 44, 66);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 44, 67);
 
 
 --
@@ -7984,18 +7976,16 @@ COPY transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) FROM stdin;
 -- Data for Name: tratamientos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tratamientos (id_tra, nom_tra) FROM stdin;
-1	Uso Antimicóticos
-2	Uso Antibióticos
-3	Tópicos
-4	Sistémicos
-5	Hormonas Sexuales
-6	Glucorticoides
-7	Citotóxicos
-8	Radioterapia
-9	Inmunosupresores
-10	Otros
-\.
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (1, 'Uso Antimicóticos');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (2, 'Uso Antibióticos');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (3, 'Tópicos');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (4, 'Sistémicos');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (5, 'Hormonas Sexuales');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (6, 'Glucorticoides');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (7, 'Citotóxicos');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (8, 'Radioterapia');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (9, 'Inmunosupresores');
+INSERT INTO tratamientos (id_tra, nom_tra) VALUES (10, 'Otros');
 
 
 --
@@ -8004,22 +7994,20 @@ COPY tratamientos (id_tra, nom_tra) FROM stdin;
 -- Data for Name: tratamientos_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) FROM stdin;
-156	17	7	\N
-157	17	6	\N
-158	17	10	\N
-159	17	8	\N
-124	3	7	\N
-125	3	6	\N
-240	16	7	\N
-241	16	6	\N
-242	16	5	\N
-243	16	9	\N
-244	16	10	otro previos
-245	16	8	\N
-246	16	4	\N
-247	16	3	\N
-\.
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (156, 17, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (157, 17, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (158, 17, 10, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (159, 17, 8, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (124, 3, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (125, 3, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (240, 16, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (241, 16, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (242, 16, 5, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (243, 16, 9, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (244, 16, 10, 'otro previos');
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (245, 16, 8, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (246, 16, 4, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (247, 16, 3, NULL);
 
 
 --
@@ -8028,12 +8016,10 @@ COPY tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) FROM stdin;
 -- Data for Name: usuarios_administrativos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-COPY usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) FROM stdin;
-17	SAIB	SAIB	fcc8c0a57ab902388613f2782eae3dd6	SAIB	04162102903	2011-06-04 14:24:44.315	t
-21	Luis	Marin	3e46a122f1961a8ec71f2a369f6d16ee	lmarin	04265168824	2011-06-10 20:02:12.07	t
-23	lmarin	marin	3e46a122f1961a8ec71f2a369f6d16ee	lmarin2	36222222	2011-07-08 16:10:19.402	t
-22	Lisseth	Lozada	3e46a122f1961a8ec71f2a369f6d16ee	llozada	04269150722	2011-06-24 15:22:46.934	t
-\.
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (17, 'SAIB', 'SAIB', 'fcc8c0a57ab902388613f2782eae3dd6', 'SAIB', '04162102903', '2011-06-04 14:24:44.315', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (21, 'Luis', 'Marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin', '04265168824', '2011-06-10 20:02:12.07', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (23, 'lmarin', 'marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin2', '36222222', '2011-07-08 16:10:19.402', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (22, 'Lisseth', 'Lozada', '3e46a122f1961a8ec71f2a369f6d16ee', 'llozada', '04269150722', '2011-06-24 15:22:46.934', true);
 
 
 SET search_path = saib_model, pg_catalog;
@@ -8044,9 +8030,1200 @@ SET search_path = saib_model, pg_catalog;
 -- Data for Name: wwwsqldesigner; Type: TABLE DATA; Schema: saib_model; Owner: postgres
 --
 
-COPY wwwsqldesigner (keyword, xmldata, dt) FROM stdin;
-saib	<?xml version="1.0" encoding="utf-8" ?>\n<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->\n<!-- Active URL: http://saib.zapto.org/wwwsqldesigner-2.6/ -->\n<sql>\n<datatypes db="postgresql">\n\n\t<group label="Numeric" color="rgb(238,238,170)">\n\n\t\t<type label="Integer" length="0" sql="INTEGER" re="INT" quote=""/>\n\n\t\t<type label="Small Integer" length="0" sql="SMALLINT" quote=""/>\n\n\t\t<type label="Big Integer" length="0" sql="BIGINT" quote=""/>\n\n\t\t<type label="Decimal" length="1" sql="DECIMAL" re="numeric" quote=""/>\n\n\t\t<type label="Serial" length="0" sql="SERIAL" re="SERIAL4" fk="Integer" quote=""/>\n\n\t\t<type label="Big Serial" length="0" sql="BIGSERIAL" re="SERIAL8" fk="Big Integer" quote=""/>\n\n\t\t<type label="Real" length="0" sql="BIGINT" quote=""/>\n\n\t\t<type label="Single precision" length="0" sql="FLOAT" quote=""/>\n\n\t\t<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>\n\n\t</group>\n\n\n\n\t<group label="Character" color="rgb(255,200,200)">\n\n\t\t<type label="Char" length="1" sql="CHAR" quote="'"/>\n\n\t\t<type label="Varchar" length="1" sql="VARCHAR" re="CHARACTER VARYING" quote="'"/>\n\n\t\t<type label="Text" length="0" sql="TEXT" quote="'"/>\n\n\t\t<type label="Binary" length="1" sql="BYTEA" quote="'"/>\n\n\t\t<type label="Boolean" length="0" sql="BOOLEAN" quote="'"/>\n\n\t</group>\n\n\n\n\t<group label="Date &amp; Time" color="rgb(200,255,200)">\n\n\t\t<type label="Date" length="0" sql="DATE" quote="'"/>\n\n\t\t<type label="Time" length="1" sql="TIME" quote="'"/>\n\n\t\t<type label="Time w/ TZ" length="0" sql="TIME WITH TIME ZONE" quote="'"/>\n\n\t\t<type label="Interval" length="1" sql="INTERVAL" quote="'"/>\n\n\t\t<type label="Timestamp" length="1" sql="TIMESTAMP" quote="'"/>\n\n\t\t<type label="Timestamp w/ TZ" length="0" sql="TIMESTAMP WITH TIME ZONE" quote="'"/>\n\n\t\t<type label="Timestamp wo/ TZ" length="0" sql="TIMESTAMP WITHOUT TIME ZONE" quote="'"/>\n\n\t</group>\n\n\n\n\t<group label="Miscellaneous" color="rgb(200,200,255)">\n\n\t\t<type label="XML" length="1" sql="XML" quote="'"/>\n\n\t\t<type label="Bit" length="1" sql="BIT" quote="'"/>\n\n\t\t<type label="Bit Varying" length="1" sql="VARBIT" re="BIT VARYING" quote="'"/>\n\n\t\t<type label="Inet Host Addr" length="0" sql="INET" quote="'"/>\n\n\t\t<type label="Inet CIDR Addr" length="0" sql="CIDR" quote="'"/>\n\n\t\t<type label="Geometry" length="0" sql="GEOMETRY" quote="'"/>\n\n\t</group>\n\n</datatypes><table x="1233" y="495" name="historiales_pacientes">\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('historiales_pacientes_id_his_seq'::regclass)</default></row>\n<row name="id_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="pacientes" row="id_pac" />\n</row>\n<row name="des_his" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_doc" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="doctores" row="id_doc" />\n</row>\n<row name="des_adi_pac_his" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>\n\tDiscripción adicional de si el paciente padece o no una enfermedad u otra cosa adicional.\n</comment>\n</row>\n<row name="fec_his" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITH TIME ZONE</datatype>\n<default>'now()'</default></row>\n<key type="CHECK" name="17105_17204_1_not_null">\n</key>\n<key type="CHECK" name="17105_17204_2_not_null">\n</key>\n<key type="PRIMARY" name="historiales_pacientes_pkey">\n<part>id_his</part>\n</key>\n</table>\n<table x="488" y="228" name="pacientes">\n<row name="id_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('pacientes_id_pac_seq'::regclass)</default><comment>Id paciente</comment>\n</row>\n<row name="ape_pac" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<comment>Apellido del paciente</comment>\n</row>\n<row name="nom_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Nombre del paciente</comment>\n</row>\n<row name="ced_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Cedula del paciente</comment>\n</row>\n<row name="fec_nac_pac" null="0" autoincrement="0">\n<datatype>DATE</datatype>\n<comment>Fecha de nacimiento del paciente</comment>\n</row>\n<row name="nac_pac" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<comment>Nacionalidad del paciente</comment>\n</row>\n<row name="tel_hab_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="tel_cel_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="ocu_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Ocupacion del paciente</comment>\n</row>\n<row name="ciu_pac" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Ciudad del paciente</comment>\n</row>\n<row name="id_pai" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="paises" row="id_pai" />\n</row>\n<row name="id_est" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="estados" row="id_est" />\n</row>\n<row name="id_mun" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="municipios" row="id_mun" />\n</row>\n<row name="id_par" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="parroquias" row="id_par" />\n</row>\n<row name="num_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default></row>\n<row name="id_doc" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="doctores" row="id_doc" />\n</row>\n<row name="fec_reg_pac" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITH TIME ZONE</datatype>\n<default>'now()'</default><comment>Fecha de registro del paciente</comment>\n</row>\n<row name="sex_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n</row>\n<key type="CHECK" name="17105_17244_1_not_null">\n</key>\n<key type="CHECK" name="17105_17244_2_not_null">\n</key>\n<key type="CHECK" name="17105_17244_23_not_null">\n</key>\n<key type="CHECK" name="17105_17244_5_not_null">\n</key>\n<key type="CHECK" name="17105_17244_6_not_null">\n</key>\n<key type="PRIMARY" name="pacientes_pkey">\n<part>id_pac</part>\n</key>\n</table>\n<table x="2054" y="781" name="tipos_micosis_pacientes">\n<row name="id_tip_mic_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_micosis_pacientes_id_tip_mic_pac_seq'::regclass)</default></row>\n<row name="id_tip_mic" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_micosis" row="id_tip_mic" />\n</row>\n<row name="id_his" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="historiales_pacientes" row="id_his" />\n</row>\n<key type="CHECK" name="17105_19170_1_not_null">\n</key>\n<key type="PRIMARY" name="tipos_micosis_pacientes_pkey">\n<part>id_tip_mic_pac</part>\n</key>\n<key type="UNIQUE" name="tipos_micosis_pacientes_unique">\n<part>id_his</part>\n<part>id_tip_mic</part>\n</key>\n</table>\n<table x="2896" y="714" name="tipos_micosis">\n<row name="id_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_micosis_id_tip_mic_seq'::regclass)</default></row>\n<row name="nom_tip_mic" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17277_1_not_null">\n</key>\n<key type="PRIMARY" name="tipos_micosis_pkey">\n<part>id_tip_mic</part>\n</key>\n</table>\n<table x="21" y="32" name="tipos_usuarios__usuarios">\n<row name="id_tip_usu_usu" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_usuarios__usuarios_id_tip_usu_usu_seq'::regclass)</default></row>\n<row name="id_doc" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="doctores" row="id_doc" />\n</row>\n<row name="id_usu_adm" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="usuarios_administrativos" row="id_usu_adm" />\n</row>\n<row name="id_tip_usu" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_usuarios" row="id_tip_usu" />\n</row>\n<key type="CHECK" name="17105_17285_1_not_null">\n</key>\n<key type="CHECK" name="17105_17285_4_not_null">\n</key>\n<key type="PRIMARY" name="tipos_usuarios__usuarios_pkey">\n<part>id_tip_usu_usu</part>\n</key>\n<key type="UNIQUE" name="unique_tipos_usuarios__usuarios">\n<part>id_tip_usu</part>\n<part>id_usu_adm</part>\n<part>id_doc</part>\n</key>\n</table>\n<table x="978" y="164" name="doctores">\n<row name="id_doc" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('doctores_id_doc_seq'::regclass)</default><comment>identificador único para los doctores</comment>\n</row>\n<row name="nom_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Nombre del doctor</comment>\n</row>\n<row name="ape_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Apellido del doctor</comment>\n</row>\n<row name="ced_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Cédula del doctor</comment>\n</row>\n<row name="pas_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Contraseña del doctor</comment>\n</row>\n<row name="tel_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Teléfono del doctor</comment>\n</row>\n<row name="cor_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Correo electronico del doctor</comment>\n</row>\n<row name="log_doc" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Login con el que se loguara el doctor</comment>\n</row>\n<row name="fec_reg_doc" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITH TIME ZONE</datatype>\n<default>'now()'</default></row>\n<key type="CHECK" name="17105_17166_1_not_null">\n</key>\n<key type="PRIMARY" name="doctores_pkey">\n<part>id_doc</part>\n</key>\n<comment>Registro de todos los doctores que del aplicativo</comment>\n</table>\n<table x="158" y="773" name="municipios">\n<row name="id_mun" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('municipios_id_mun_seq'::regclass)</default></row>\n<row name="des_mun" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_est" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="estados" row="id_est" />\n</row>\n<key type="CHECK" name="17105_18428_1_not_null">\n</key>\n<key type="PRIMARY" name="municipios_pkey">\n<part>id_mun</part>\n</key>\n</table>\n<table x="86" y="651" name="estados">\n<row name="id_est" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('estados_id_est_seq'::regclass)</default></row>\n<row name="des_est" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_pai" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="paises" row="id_pai" />\n</row>\n<key type="CHECK" name="17105_18420_1_not_null">\n</key>\n<key type="PRIMARY" name="estados_pkey">\n<part>id_est</part>\n</key>\n</table>\n<table x="799" y="1142" name="partes_cuerpos__categorias_cuerpos">\n<row name="id_par_cue_cat_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq'::regclass)</default></row>\n<row name="id_cat_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="categorias_cuerpos" row="id_cat_cue" />\n</row>\n<row name="id_par_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="partes_cuerpos" row="id_par_cue" />\n</row>\n<key type="CHECK" name="17105_19125_1_not_null">\n</key>\n<key type="CHECK" name="17105_19125_2_not_null">\n</key>\n<key type="CHECK" name="17105_19125_3_not_null">\n</key>\n<key type="PRIMARY" name="partes_cuerpos__categorias_cuerpos_pkey">\n<part>id_par_cue_cat_cue</part>\n</key>\n<key type="UNIQUE" name="partes_cuerpos__categorias_cuerpos_unique">\n<part>id_par_cue</part>\n<part>id_cat_cue</part>\n</key>\n<comment>Permite seleccionar a que categoria pertenece la parte del cuerpo</comment>\n</table>\n<table x="1194" y="1013" name="categorias_cuerpos">\n<row name="id_cat_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('categorias_cuerpos_id_cat_cue_seq'::regclass)</default></row>\n<row name="nom_cat_cue" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17131_1_not_null">\n</key>\n<key type="PRIMARY" name="categorias_cuerpos_pkey">\n<part>id_cat_cue</part>\n</key>\n</table>\n<table x="1506" y="914" name="categorias_cuerpos__lesiones">\n<row name="id_cat_cue_les" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('lesiones__partes_cuerpos_id_les_par_cue_seq'::regclass)</default></row>\n<row name="id_les" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="lesiones" row="id_les" />\n</row>\n<row name="id_cat_cue" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="categorias_cuerpos" row="id_cat_cue" />\n</row>\n<key type="CHECK" name="17105_17209_1_not_null">\n</key>\n<key type="PRIMARY" name="lesiones__partes_cuerpos_pkey">\n<part>id_cat_cue_les</part>\n</key>\n</table>\n<table x="1473" y="1150" name="lesiones_partes_cuerpos__pacientes">\n<row name="id_les_par_cue_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq'::regclass)</default><comment>Leciones parted del cuerpo paciente</comment>\n</row>\n<row name="otr_les_par_cue" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Otras leciones de la parte del cuerpo del paciente</comment>\n</row>\n<row name="id_cat_cue_les" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="categorias_cuerpos__lesiones" row="id_cat_cue_les" />\n</row>\n<row name="id_par_cue_cat_cue" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="partes_cuerpos__categorias_cuerpos" row="id_par_cue_cat_cue" />\n</row>\n<row name="id_tip_mic_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />\n</row>\n<key type="CHECK" name="17105_17214_1_not_null">\n</key>\n<key type="PRIMARY" name="lesiones_partes_cuerpos__pacientes_pkey">\n<part>id_les_par_cue_pac</part>\n</key>\n<key type="UNIQUE" name="lesiones_partes_cuerpos__pacientes_unique">\n<part>id_par_cue_cat_cue</part>\n<part>id_cat_cue_les</part>\n<part>id_tip_mic_pac</part>\n</key>\n</table>\n<table x="2753" y="963" name="tipos_estudios_micologicos">\n<row name="id_tip_est_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_estudios_micologicos_id_tip_est_mic_seq'::regclass)</default></row>\n<row name="id_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_micosis" row="id_tip_mic" />\n</row>\n<row name="nom_tip_est_mic" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_tip_exa" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_examenes" row="id_tip_exa" />\n</row>\n<key type="CHECK" name="17105_17272_1_not_null">\n</key>\n<key type="CHECK" name="17105_17272_2_not_null">\n</key>\n<key type="PRIMARY" name="tipos_estudios_micologicos_pkey">\n<part>id_tip_est_mic</part>\n</key>\n</table>\n<table x="1134" y="2443" name="transacciones">\n<row name="id_tip_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('transacciones_id_tip_tra_seq'::regclass)</default></row>\n<row name="cod_tip_tra" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="des_tip_tra" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_mod" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="modulos" row="id_mod" />\n</row>\n<key type="CHECK" name="17105_17292_1_not_null">\n</key>\n<key type="CHECK" name="17105_17292_2_not_null">\n</key>\n<key type="UNIQUE" name="transacciones_cod_tip_tra__id_mod">\n<part>cod_tip_tra</part>\n<part>id_mod</part>\n</key>\n<key type="PRIMARY" name="transacciones_pkey">\n<part>id_tip_tra</part>\n</key>\n</table>\n<table x="2392" y="605" name="centro_salud_doctores">\n<row name="id_cen_sal_doc" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('centro_salud_doctores_id_cen_sal_doc_seq'::regclass)</default><comment>Identificación del Centro de Salud del doctor</comment>\n</row>\n<row name="id_cen_sal" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="centro_saluds" row="id_cen_sal" />\n<comment>Identificación del Centro de Salud</comment>\n</row>\n<row name="id_doc" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="doctores" row="id_doc" />\n<comment>Identificación del doctor</comment>\n</row>\n<row name="otr_cen_sal" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Otro Centro de Salud</comment>\n</row>\n<key type="CHECK" name="17105_18773_1_not_null">\n</key>\n<key type="CHECK" name="17105_18773_2_not_null">\n</key>\n<key type="CHECK" name="17105_18773_3_not_null">\n</key>\n<key type="PRIMARY" name="centro_salud_doctores_pkey">\n<part>id_cen_sal_doc</part>\n</key>\n<key type="UNIQUE" name="centro_salud_doctores_unique">\n<part>id_doc</part>\n<part>id_cen_sal</part>\n</key>\n</table>\n<table x="69" y="903" name="parroquias">\n<row name="id_par" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('parroquias_id_par_seq'::regclass)</default></row>\n<row name="des_par" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_mun" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="municipios" row="id_mun" />\n</row>\n<key type="CHECK" name="17105_18436_1_not_null">\n</key>\n<key type="PRIMARY" name="parroquias_pkey">\n<part>id_par</part>\n</key>\n</table>\n<table x="57" y="525" name="paises">\n<row name="id_pai" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('paises_id_pai_seq'::regclass)</default></row>\n<row name="des_pai" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="cod_pai" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_18412_1_not_null">\n</key>\n<key type="PRIMARY" name="paises_pkey">\n<part>id_pai</part>\n</key>\n</table>\n<table x="1770" y="1496" name="tipos_micosis_pacientes__tipos_estudios_micologicos">\n<row name="id_tip_mic_pac_tip_est_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq'::regclass)</default></row>\n<row name="id_tip_mic_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />\n</row>\n<row name="id_tip_est_mic" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_estudios_micologicos" row="id_tip_est_mic" />\n</row>\n<key type="CHECK" name="17105_19305_1_not_null">\n</key>\n<key type="PRIMARY" name="tipos_micosis_pacientes__tipos_estudios_micologicos_pkey">\n<part>id_tip_mic_pac_tip_est_mic</part>\n</key>\n</table>\n<table x="1623" y="2740" name="auditoria_transacciones">\n<row name="id_aud_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('auditoria_transacciones_id_aud_tra_seq'::regclass)</default></row>\n<row name="fec_aud_tra" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>\n<default>NULL</default></row>\n<row name="id_tip_usu_usu" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />\n</row>\n<row name="id_tip_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="transacciones" row="id_tip_tra" />\n</row>\n<row name="data_xml" null="1" autoincrement="0">\n<datatype>XML</datatype>\n<default>NULL</default><comment>Se guarda las modificaciones de la tabla y atributos realizada por los usuarios, todo en forma de XML</comment>\n</row>\n<key type="CHECK" name="17105_17121_1_not_null">\n</key>\n<key type="CHECK" name="17105_17121_3_not_null">\n</key>\n<key type="CHECK" name="17105_17121_4_not_null">\n</key>\n<key type="PRIMARY" name="auditoria_transacciones_pkey">\n<part>id_aud_tra</part>\n</key>\n<comment>Se guarda todos los eventos generados por los usuarios</comment>\n</table>\n<table x="1453" y="1468" name="antecedentes_pacientes">\n<row name="id_ant_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('antecedentes_pacientes_id_ant_pac_seq'::regclass)</default></row>\n<row name="id_ant_per" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="antecedentes_personales" row="id_ant_per" />\n</row>\n<row name="id_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="pacientes" row="id_pac" />\n</row>\n<key type="CHECK" name="17105_17111_1_not_null">\n</key>\n<key type="CHECK" name="17105_17111_2_not_null">\n</key>\n<key type="PRIMARY" name="antecedentes_pacientes_pkey">\n<part>id_ant_pac</part>\n</key>\n</table>\n<table x="1949" y="1058" name="categorias__cuerpos_micosis">\n<row name="id_cat_cue_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('categorias__cuerpos_micosis_id_cat_cue_mic_seq'::regclass)</default></row>\n<row name="id_cat_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="categorias_cuerpos" row="id_cat_cue" />\n</row>\n<row name="id_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_micosis" row="id_tip_mic" />\n</row>\n<key type="CHECK" name="17105_17126_1_not_null">\n</key>\n<key type="CHECK" name="17105_17126_2_not_null">\n</key>\n<key type="CHECK" name="17105_17126_3_not_null">\n</key>\n<key type="PRIMARY" name="categorias__cuerpos_micosis_pkey">\n<part>id_cat_cue_mic</part>\n</key>\n<key type="UNIQUE" name="categorias__cuerpos_micosis_unique">\n<part>id_tip_mic</part>\n<part>id_cat_cue</part>\n</key>\n</table>\n<table x="2364" y="1108" name="enfermedades_micologicas">\n<row name="id_enf_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('enfermedades_micologicas_id_enf_mic_seq'::regclass)</default></row>\n<row name="nom_enf_mic" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="id_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_micosis" row="id_tip_mic" />\n</row>\n<key type="CHECK" name="17105_17174_1_not_null">\n</key>\n<key type="CHECK" name="17105_17174_2_not_null">\n</key>\n<key type="CHECK" name="17105_17174_3_not_null">\n</key>\n<key type="PRIMARY" name="enfermedades_micologicas_pkey">\n<part>id_enf_mic</part>\n</key>\n</table>\n<table x="1838" y="1266" name="enfermedades_pacientes">\n<row name="id_enf_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('enfermedades_pacientes_id_enf_pac_seq'::regclass)</default></row>\n<row name="id_enf_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="enfermedades_micologicas" row="id_enf_mic" />\n</row>\n<row name="otr_enf_mic" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="esp_enf_mic" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_tip_mic_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />\n</row>\n<key type="CHECK" name="17105_17179_1_not_null">\n</key>\n<key type="CHECK" name="17105_17179_3_not_null">\n</key>\n<key type="PRIMARY" name="enfermedades_pacientes_pkey">\n<part>id_enf_pac</part>\n</key>\n</table>\n<table x="2045" y="256" name="centro_salud_pacientes">\n<row name="id_cen_sal_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('centro_salud_pacientes_id_cen_sal_pac_seq'::regclass)</default></row>\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="historiales_pacientes" row="id_his" />\n</row>\n<row name="id_cen_sal" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="centro_saluds" row="id_cen_sal" />\n</row>\n<row name="otr_cen_sal" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17146_1_not_null">\n</key>\n<key type="CHECK" name="17105_17146_2_not_null">\n</key>\n<key type="CHECK" name="17105_17146_3_not_null">\n</key>\n<key type="PRIMARY" name="centro_salud_pacientes_pkey">\n<part>id_cen_sal_pac</part>\n</key>\n<key type="UNIQUE" name="centro_salud_pacientes_unique">\n<part>id_his</part>\n<part>id_cen_sal</part>\n</key>\n</table>\n<table x="2360" y="1458" name="contactos_animales">\n<row name="id_con_ani" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('contactos_animales_id_con_ani_seq'::regclass)</default></row>\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="historiales_pacientes" row="id_his" />\n</row>\n<row name="id_ani" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="animales" row="id_ani" />\n</row>\n<row name="otr_ani" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17161_1_not_null">\n</key>\n<key type="CHECK" name="17105_17161_2_not_null">\n</key>\n<key type="CHECK" name="17105_17161_3_not_null">\n</key>\n<key type="PRIMARY" name="contactos_animales_pkey">\n<part>id_con_ani</part>\n</key>\n<key type="UNIQUE" name="contactos_animales_unique">\n<part>id_his</part>\n<part>id_ani</part>\n</key>\n</table>\n<table x="2768" y="419" name="centro_saluds">\n<row name="id_cen_sal" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('centro_salud_id_cen_sal_seq'::regclass)</default></row>\n<row name="nom_cen_sal" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="des_cen_sal" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17141_1_not_null">\n</key>\n<key type="CHECK" name="17105_17141_2_not_null">\n</key>\n<key type="PRIMARY" name="centro_salud_pkey">\n<part>id_cen_sal</part>\n</key>\n</table>\n<table x="3829" y="721" name="forma_infecciones__tipos_micosis">\n<row name="id_for_inf_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq'::regclass)</default></row>\n<row name="id_tip_mic" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_micosis" row="id_tip_mic" />\n</row>\n<row name="id_for_inf" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="forma_infecciones" row="id_for_inf" />\n</row>\n<key type="CHECK" name="17105_17197_1_not_null">\n</key>\n<key type="CHECK" name="17105_17197_2_not_null">\n</key>\n<key type="CHECK" name="17105_17197_3_not_null">\n</key>\n<key type="PRIMARY" name="forma_infecciones__tipos_micosis_pkey">\n<part>id_for_inf_tip_mic</part>\n</key>\n<key type="UNIQUE" name="forma_infecciones__tipos_micosis_unique">\n<part>id_tip_mic</part>\n<part>id_for_inf</part>\n</key>\n</table>\n<table x="903" y="2316" name="modulos">\n<row name="id_mod" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('modulos_id_mod_seq'::regclass)</default></row>\n<row name="cod_mod" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="des_mod" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_tip_usu" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_usuarios" row="id_tip_usu" />\n</row>\n<key type="CHECK" name="17105_17229_1_not_null">\n</key>\n<key type="UNIQUE" name="modulos_cod_mod_unique">\n<part>cod_mod</part>\n<part>id_tip_usu</part>\n</key>\n<key type="PRIMARY" name="modulos_pkey">\n<part>id_mod</part>\n</key>\n</table>\n<table x="3153" y="845" name="forma_infecciones__pacientes">\n<row name="id_for_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('forma_infecciones__pacientes_id_for_pac_seq'::regclass)</default></row>\n<row name="id_for_inf" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="forma_infecciones" row="id_for_inf" />\n</row>\n<row name="otr_for_inf" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="id_tip_mic_pac" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />\n</row>\n<key type="CHECK" name="17105_17192_1_not_null">\n</key>\n<key type="CHECK" name="17105_17192_2_not_null">\n</key>\n<key type="PRIMARY" name="forma_infecciones__pacientes_pkey">\n<part>id_for_pac</part>\n</key>\n<key type="UNIQUE" name="forma_infecciones__pacientes_unique">\n<part>id_tip_mic_pac</part>\n<part>id_for_inf</part>\n</key>\n</table>\n<table x="3550" y="798" name="forma_infecciones">\n<row name="id_for_inf" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('forma_infecciones_id_for_inf_seq'::regclass)</default></row>\n<row name="des_for_inf" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17189_1_not_null">\n</key>\n<key type="PRIMARY" name="forma_infecciones_pkey">\n<part>id_for_inf</part>\n</key>\n</table>\n<table x="1963" y="1797" name="muestras_pacientes">\n<row name="id_mue_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('muestras_pacientes_id_mue_pac_seq'::regclass)</default><comment>Id de la meustra del paciente</comment>\n</row>\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="historiales_pacientes" row="id_his" />\n<comment>Id del historial</comment>\n</row>\n<row name="id_mue_cli" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="muestras_clinicas" row="id_mue_cli" />\n<comment>Id muestra cli</comment>\n</row>\n<row name="otr_mue_cli" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Otra meustra clinica</comment>\n</row>\n<key type="CHECK" name="17105_17239_1_not_null">\n</key>\n<key type="CHECK" name="17105_17239_2_not_null">\n</key>\n<key type="CHECK" name="17105_17239_3_not_null">\n</key>\n<key type="PRIMARY" name="muestras_pacientes_pkey">\n<part>id_mue_pac</part>\n</key>\n<key type="UNIQUE" name="muestras_pacientes_unique">\n<part>id_mue_cli</part>\n<part>id_his</part>\n</key>\n</table>\n<table x="1989" y="2519" name="transacciones_usuarios">\n<row name="id_tip_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="transacciones" row="id_tip_tra" />\n</row>\n<row name="id_tip_usu_usu" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />\n</row>\n<row name="id_tra_usu" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('transacciones_usuarios_id_tra_usu_seq'::regclass)</default></row>\n<key type="CHECK" name="17105_17297_2_not_null">\n</key>\n<key type="CHECK" name="17105_17297_6_not_null">\n</key>\n<key type="PRIMARY" name="transacciones_usuarios_pkey">\n<part>id_tra_usu</part>\n</key>\n</table>\n<table x="157" y="1807" name="tipos_consultas_pacientes">\n<row name="id_tip_con_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_consultas_pacientes_id_tip_con_pac_seq'::regclass)</default><comment>Id tipos de consulta paciente</comment>\n</row>\n<row name="id_tip_con" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tipos_consultas" row="id_tip_con" />\n<comment>Id tipos de consulta</comment>\n</row>\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="historiales_pacientes" row="id_his" />\n<comment>Id historico</comment>\n</row>\n<row name="otr_tip_con" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Otro tipo de consulta</comment>\n</row>\n<key type="CHECK" name="17105_17267_1_not_null">\n</key>\n<key type="CHECK" name="17105_17267_2_not_null">\n</key>\n<key type="CHECK" name="17105_17267_3_not_null">\n</key>\n<key type="PRIMARY" name="tipos_consultas_pacientes_pkey">\n<part>id_tip_con_pac</part>\n</key>\n<key type="UNIQUE" name="tipos_consultas_pacientes_unique">\n<part>id_tip_con</part>\n<part>id_his</part>\n</key>\n</table>\n<table x="510" y="1061" name="partes_cuerpos">\n<row name="id_par_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('partes_cuerpos_id_par_cue_seq'::regclass)</default></row>\n<row name="nom_par_cue" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17252_1_not_null">\n</key>\n<key type="PRIMARY" name="partes_cuerpos_pkey">\n<part>id_par_cue</part>\n</key>\n</table>\n<table x="624" y="1849" name="tratamientos_pacientes">\n<row name="id_tra_pac" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tratamientos_pacientes_id_tra_pac_seq'::regclass)</default><comment>Id transaccion paciente</comment>\n</row>\n<row name="id_his" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="historiales_pacientes" row="id_his" />\n<comment>Id historico</comment>\n</row>\n<row name="id_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<relation table="tratamientos" row="id_tra" />\n<comment>Id tratamiento</comment>\n</row>\n<row name="otr_tra" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default><comment>Otro tratamiento</comment>\n</row>\n<key type="CHECK" name="17105_17307_1_not_null">\n</key>\n<key type="CHECK" name="17105_17307_2_not_null">\n</key>\n<key type="CHECK" name="17105_17307_3_not_null">\n</key>\n<key type="PRIMARY" name="tratamientos_pacientes_pkey">\n<part>id_tra_pac</part>\n</key>\n<key type="UNIQUE" name="tratamientos_pacientes_unique">\n<part>id_his</part>\n<part>id_tra</part>\n</key>\n</table>\n<table x="988" y="1803" name="tipos_usuarios">\n<row name="id_tip_usu" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_usuarios_id_tip_usu_seq'::regclass)</default></row>\n<row name="cod_tip_usu" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="des_tip_usu" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17282_1_not_null">\n</key>\n<key type="CHECK" name="17105_17282_2_not_null">\n</key>\n<key type="PRIMARY" name="tipos_usuarios_pkey">\n<part>id_tip_usu</part>\n</key>\n<key type="UNIQUE" name="tipos_usuarios_unique">\n<part>cod_tip_usu</part>\n</key>\n</table>\n<table x="1101" y="869" name="lesiones">\n<row name="id_les" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('lesiones_id_les_seq'::regclass)</default></row>\n<row name="nom_les" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_19087_1_not_null">\n</key>\n<key type="PRIMARY" name="lesiones_id_les_pkey">\n<part>id_les</part>\n</key>\n</table>\n<table x="1232" y="730" name="tiempo_evoluciones">\n<row name="id_tie_evo" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tiempo_evoluciones_id_tie_evo_seq'::regclass)</default></row>\n<row name="id_his" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="historiales_pacientes" row="id_his" />\n</row>\n<row name="tie_evo" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>0</default></row>\n<key type="CHECK" name="17105_18883_1_not_null">\n</key>\n<key type="PRIMARY" name="tiempo_evoluciones_pkey">\n<part>id_tie_evo</part>\n</key>\n</table>\n<table x="3224" y="675" name="tipos_examenes">\n<row name="id_tip_exa" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_examenes_id_tip_exa_seq'::regclass)</default></row>\n<row name="nom_tip_exa" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_19279_1_not_null">\n</key>\n<key type="PRIMARY" name="tipos_examenes_pkey">\n<part>id_tip_exa</part>\n</key>\n</table>\n<table x="18" y="2282" name="antecedentes_personales">\n<row name="id_ant_per" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('antecedentes_personales_id_ant_per_seq'::regclass)</default></row>\n<row name="nom_ant_per" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17116_1_not_null">\n</key>\n<key type="PRIMARY" name="antecedentes_personales_pkey">\n<part>id_ant_per</part>\n</key>\n</table>\n<table x="2660" y="1246" name="animales">\n<row name="id_ani" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('animales_id_ani_seq'::regclass)</default></row>\n<row name="nom_ani" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17106_1_not_null">\n</key>\n<key type="PRIMARY" name="animales_pkey">\n<part>id_ani</part>\n</key>\n</table>\n<table x="471" y="1582" name="tipos_consultas">\n<row name="id_tip_con" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tipos_consultas_id_tip_con_seq'::regclass)</default><comment>id tipos consultas</comment>\n</row>\n<row name="nom_tip_con" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<key type="CHECK" name="17105_17262_1_not_null">\n</key>\n<key type="CHECK" name="17105_17262_2_not_null">\n</key>\n<key type="PRIMARY" name="tipos_consultas_pkey">\n<part>id_tip_con</part>\n</key>\n</table>\n<table x="1454" y="1931" name="muestras_clinicas">\n<row name="id_mue_cli" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('muestras_clinicas_id_mue_cli_seq'::regclass)</default><comment>Identificacion de la muestra clinica</comment>\n</row>\n<row name="nom_mue_cli" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<comment>Nombre muestra clinica</comment>\n</row>\n<key type="CHECK" name="17105_17234_1_not_null">\n</key>\n<key type="CHECK" name="17105_17234_2_not_null">\n</key>\n<key type="PRIMARY" name="muestras_clinicas_pkey">\n<part>id_mue_cli</part>\n</key>\n</table>\n<table x="726" y="1338" name="localizaciones_cuerpos">\n<row name="id_loc_cue" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('localizaciones_cuerpos_id_loc_cue_seq'::regclass)</default></row>\n<row name="nom_loc_cue" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="id_par_cue" null="1" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>NULL</default><relation table="partes_cuerpos" row="id_par_cue" />\n</row>\n<key type="CHECK" name="17105_17219_1_not_null">\n</key>\n<key type="CHECK" name="17105_17219_2_not_null">\n</key>\n<key type="PRIMARY" name="localizaciones_cuerpos_pkey">\n<part>id_loc_cue</part>\n</key>\n</table>\n<table x="1460" y="82" name="usuarios_administrativos">\n<row name="id_usu_adm" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('usuarios_administrativos_id_usu_adm_seq'::regclass)</default></row>\n<row name="nom_usu_adm" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="ape_usu_adm" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="pas_usu_adm" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="log_usu_adm" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="tel_usu_adm" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<row name="fec_reg_usu_adm" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>\n<default>'now()'</default><comment>Fecha de registro de los usuarios</comment>\n</row>\n<row name="adm_usu" null="1" autoincrement="0">\n<datatype>BOOLEAN</datatype>\n<default>NULL</default><comment>\n\tTRUE: si es un super usuario\n\tFALSE: si es usuario com limitaciones\n</comment>\n</row>\n<key type="CHECK" name="17105_17312_1_not_null">\n</key>\n<key type="UNIQUE" name="usuarios_administrativos_log_usu_adm_unique">\n<part>log_usu_adm</part>\n</key>\n<key type="PRIMARY" name="usuarios_administrativos_pkey">\n<part>id_usu_adm</part>\n</key>\n</table>\n<table x="1709" y="2106" name="tratamientos">\n<row name="id_tra" null="0" autoincrement="0">\n<datatype>INTEGER</datatype>\n<default>nextval('tratamientos_id_tra_seq'::regclass)</default></row>\n<row name="nom_tra" null="1" autoincrement="0">\n<datatype>VARCHAR</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="17105_17302_1_not_null">\n</key>\n<key type="PRIMARY" name="tratamientos_pkey">\n<part>id_tra</part>\n</key>\n</table>\n<table x="1771" y="2254" name="wwwsqldesigner">\n<row name="keyword" null="0" autoincrement="0">\n<datatype>VARCHAR</datatype>\n</row>\n<row name="xmldata" null="1" autoincrement="0">\n<datatype>TEXT</datatype>\n<default>NULL</default></row>\n<row name="dt" null="1" autoincrement="0">\n<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>\n<default>NULL</default></row>\n<key type="CHECK" name="27541_27542_1_not_null">\n</key>\n<key type="PRIMARY" name="wwwsqldesigner_pkey">\n<part>keyword</part>\n</key>\n</table>\n</sql>\n	\N
-\.
+INSERT INTO wwwsqldesigner (keyword, xmldata, dt) VALUES ('saib', '<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: http://saib.zapto.org/wwwsqldesigner-2.6/ -->
+<sql>
+<datatypes db="postgresql">
+
+	<group label="Numeric" color="rgb(238,238,170)">
+
+		<type label="Integer" length="0" sql="INTEGER" re="INT" quote=""/>
+
+		<type label="Small Integer" length="0" sql="SMALLINT" quote=""/>
+
+		<type label="Big Integer" length="0" sql="BIGINT" quote=""/>
+
+		<type label="Decimal" length="1" sql="DECIMAL" re="numeric" quote=""/>
+
+		<type label="Serial" length="0" sql="SERIAL" re="SERIAL4" fk="Integer" quote=""/>
+
+		<type label="Big Serial" length="0" sql="BIGSERIAL" re="SERIAL8" fk="Big Integer" quote=""/>
+
+		<type label="Real" length="0" sql="BIGINT" quote=""/>
+
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+
+	</group>
+
+
+
+	<group label="Character" color="rgb(255,200,200)">
+
+		<type label="Char" length="1" sql="CHAR" quote="''"/>
+
+		<type label="Varchar" length="1" sql="VARCHAR" re="CHARACTER VARYING" quote="''"/>
+
+		<type label="Text" length="0" sql="TEXT" quote="''"/>
+
+		<type label="Binary" length="1" sql="BYTEA" quote="''"/>
+
+		<type label="Boolean" length="0" sql="BOOLEAN" quote="''"/>
+
+	</group>
+
+
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+
+		<type label="Date" length="0" sql="DATE" quote="''"/>
+
+		<type label="Time" length="1" sql="TIME" quote="''"/>
+
+		<type label="Time w/ TZ" length="0" sql="TIME WITH TIME ZONE" quote="''"/>
+
+		<type label="Interval" length="1" sql="INTERVAL" quote="''"/>
+
+		<type label="Timestamp" length="1" sql="TIMESTAMP" quote="''"/>
+
+		<type label="Timestamp w/ TZ" length="0" sql="TIMESTAMP WITH TIME ZONE" quote="''"/>
+
+		<type label="Timestamp wo/ TZ" length="0" sql="TIMESTAMP WITHOUT TIME ZONE" quote="''"/>
+
+	</group>
+
+
+
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+
+		<type label="XML" length="1" sql="XML" quote="''"/>
+
+		<type label="Bit" length="1" sql="BIT" quote="''"/>
+
+		<type label="Bit Varying" length="1" sql="VARBIT" re="BIT VARYING" quote="''"/>
+
+		<type label="Inet Host Addr" length="0" sql="INET" quote="''"/>
+
+		<type label="Inet CIDR Addr" length="0" sql="CIDR" quote="''"/>
+
+		<type label="Geometry" length="0" sql="GEOMETRY" quote="''"/>
+
+	</group>
+
+</datatypes><table x="1233" y="495" name="historiales_pacientes">
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''historiales_pacientes_id_his_seq''::regclass)</default></row>
+<row name="id_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="pacientes" row="id_pac" />
+</row>
+<row name="des_his" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_doc" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="doctores" row="id_doc" />
+</row>
+<row name="des_adi_pac_his" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>
+	Discripción adicional de si el paciente padece o no una enfermedad u otra cosa adicional.
+</comment>
+</row>
+<row name="fec_his" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITH TIME ZONE</datatype>
+<default>''now()''</default></row>
+<key type="CHECK" name="17105_17204_1_not_null">
+</key>
+<key type="CHECK" name="17105_17204_2_not_null">
+</key>
+<key type="PRIMARY" name="historiales_pacientes_pkey">
+<part>id_his</part>
+</key>
+</table>
+<table x="488" y="228" name="pacientes">
+<row name="id_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''pacientes_id_pac_seq''::regclass)</default><comment>Id paciente</comment>
+</row>
+<row name="ape_pac" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<comment>Apellido del paciente</comment>
+</row>
+<row name="nom_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Nombre del paciente</comment>
+</row>
+<row name="ced_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Cedula del paciente</comment>
+</row>
+<row name="fec_nac_pac" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+<comment>Fecha de nacimiento del paciente</comment>
+</row>
+<row name="nac_pac" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<comment>Nacionalidad del paciente</comment>
+</row>
+<row name="tel_hab_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="tel_cel_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="ocu_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Ocupacion del paciente</comment>
+</row>
+<row name="ciu_pac" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Ciudad del paciente</comment>
+</row>
+<row name="id_pai" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="paises" row="id_pai" />
+</row>
+<row name="id_est" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="estados" row="id_est" />
+</row>
+<row name="id_mun" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="municipios" row="id_mun" />
+</row>
+<row name="id_par" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="parroquias" row="id_par" />
+</row>
+<row name="num_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_doc" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="doctores" row="id_doc" />
+</row>
+<row name="fec_reg_pac" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITH TIME ZONE</datatype>
+<default>''now()''</default><comment>Fecha de registro del paciente</comment>
+</row>
+<row name="sex_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="CHECK" name="17105_17244_1_not_null">
+</key>
+<key type="CHECK" name="17105_17244_2_not_null">
+</key>
+<key type="CHECK" name="17105_17244_23_not_null">
+</key>
+<key type="CHECK" name="17105_17244_5_not_null">
+</key>
+<key type="CHECK" name="17105_17244_6_not_null">
+</key>
+<key type="PRIMARY" name="pacientes_pkey">
+<part>id_pac</part>
+</key>
+</table>
+<table x="2054" y="781" name="tipos_micosis_pacientes">
+<row name="id_tip_mic_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_micosis_pacientes_id_tip_mic_pac_seq''::regclass)</default></row>
+<row name="id_tip_mic" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_micosis" row="id_tip_mic" />
+</row>
+<row name="id_his" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="historiales_pacientes" row="id_his" />
+</row>
+<key type="CHECK" name="17105_19170_1_not_null">
+</key>
+<key type="PRIMARY" name="tipos_micosis_pacientes_pkey">
+<part>id_tip_mic_pac</part>
+</key>
+<key type="UNIQUE" name="tipos_micosis_pacientes_unique">
+<part>id_his</part>
+<part>id_tip_mic</part>
+</key>
+</table>
+<table x="2896" y="714" name="tipos_micosis">
+<row name="id_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_micosis_id_tip_mic_seq''::regclass)</default></row>
+<row name="nom_tip_mic" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17277_1_not_null">
+</key>
+<key type="PRIMARY" name="tipos_micosis_pkey">
+<part>id_tip_mic</part>
+</key>
+</table>
+<table x="21" y="32" name="tipos_usuarios__usuarios">
+<row name="id_tip_usu_usu" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_usuarios__usuarios_id_tip_usu_usu_seq''::regclass)</default></row>
+<row name="id_doc" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="doctores" row="id_doc" />
+</row>
+<row name="id_usu_adm" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios_administrativos" row="id_usu_adm" />
+</row>
+<row name="id_tip_usu" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_usuarios" row="id_tip_usu" />
+</row>
+<key type="CHECK" name="17105_17285_1_not_null">
+</key>
+<key type="CHECK" name="17105_17285_4_not_null">
+</key>
+<key type="PRIMARY" name="tipos_usuarios__usuarios_pkey">
+<part>id_tip_usu_usu</part>
+</key>
+<key type="UNIQUE" name="unique_tipos_usuarios__usuarios">
+<part>id_tip_usu</part>
+<part>id_usu_adm</part>
+<part>id_doc</part>
+</key>
+</table>
+<table x="978" y="164" name="doctores">
+<row name="id_doc" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''doctores_id_doc_seq''::regclass)</default><comment>identificador único para los doctores</comment>
+</row>
+<row name="nom_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Nombre del doctor</comment>
+</row>
+<row name="ape_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Apellido del doctor</comment>
+</row>
+<row name="ced_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Cédula del doctor</comment>
+</row>
+<row name="pas_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Contraseña del doctor</comment>
+</row>
+<row name="tel_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Teléfono del doctor</comment>
+</row>
+<row name="cor_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Correo electronico del doctor</comment>
+</row>
+<row name="log_doc" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Login con el que se loguara el doctor</comment>
+</row>
+<row name="fec_reg_doc" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITH TIME ZONE</datatype>
+<default>''now()''</default></row>
+<key type="CHECK" name="17105_17166_1_not_null">
+</key>
+<key type="PRIMARY" name="doctores_pkey">
+<part>id_doc</part>
+</key>
+<comment>Registro de todos los doctores que del aplicativo</comment>
+</table>
+<table x="158" y="773" name="municipios">
+<row name="id_mun" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''municipios_id_mun_seq''::regclass)</default></row>
+<row name="des_mun" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_est" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="estados" row="id_est" />
+</row>
+<key type="CHECK" name="17105_18428_1_not_null">
+</key>
+<key type="PRIMARY" name="municipios_pkey">
+<part>id_mun</part>
+</key>
+</table>
+<table x="86" y="651" name="estados">
+<row name="id_est" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''estados_id_est_seq''::regclass)</default></row>
+<row name="des_est" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_pai" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="paises" row="id_pai" />
+</row>
+<key type="CHECK" name="17105_18420_1_not_null">
+</key>
+<key type="PRIMARY" name="estados_pkey">
+<part>id_est</part>
+</key>
+</table>
+<table x="799" y="1142" name="partes_cuerpos__categorias_cuerpos">
+<row name="id_par_cue_cat_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq''::regclass)</default></row>
+<row name="id_cat_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="categorias_cuerpos" row="id_cat_cue" />
+</row>
+<row name="id_par_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="partes_cuerpos" row="id_par_cue" />
+</row>
+<key type="CHECK" name="17105_19125_1_not_null">
+</key>
+<key type="CHECK" name="17105_19125_2_not_null">
+</key>
+<key type="CHECK" name="17105_19125_3_not_null">
+</key>
+<key type="PRIMARY" name="partes_cuerpos__categorias_cuerpos_pkey">
+<part>id_par_cue_cat_cue</part>
+</key>
+<key type="UNIQUE" name="partes_cuerpos__categorias_cuerpos_unique">
+<part>id_par_cue</part>
+<part>id_cat_cue</part>
+</key>
+<comment>Permite seleccionar a que categoria pertenece la parte del cuerpo</comment>
+</table>
+<table x="1194" y="1013" name="categorias_cuerpos">
+<row name="id_cat_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''categorias_cuerpos_id_cat_cue_seq''::regclass)</default></row>
+<row name="nom_cat_cue" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17131_1_not_null">
+</key>
+<key type="PRIMARY" name="categorias_cuerpos_pkey">
+<part>id_cat_cue</part>
+</key>
+</table>
+<table x="1506" y="914" name="categorias_cuerpos__lesiones">
+<row name="id_cat_cue_les" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''lesiones__partes_cuerpos_id_les_par_cue_seq''::regclass)</default></row>
+<row name="id_les" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="lesiones" row="id_les" />
+</row>
+<row name="id_cat_cue" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categorias_cuerpos" row="id_cat_cue" />
+</row>
+<key type="CHECK" name="17105_17209_1_not_null">
+</key>
+<key type="PRIMARY" name="lesiones__partes_cuerpos_pkey">
+<part>id_cat_cue_les</part>
+</key>
+</table>
+<table x="1473" y="1150" name="lesiones_partes_cuerpos__pacientes">
+<row name="id_les_par_cue_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq''::regclass)</default><comment>Leciones parted del cuerpo paciente</comment>
+</row>
+<row name="otr_les_par_cue" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Otras leciones de la parte del cuerpo del paciente</comment>
+</row>
+<row name="id_cat_cue_les" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categorias_cuerpos__lesiones" row="id_cat_cue_les" />
+</row>
+<row name="id_par_cue_cat_cue" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="partes_cuerpos__categorias_cuerpos" row="id_par_cue_cat_cue" />
+</row>
+<row name="id_tip_mic_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
+</row>
+<key type="CHECK" name="17105_17214_1_not_null">
+</key>
+<key type="PRIMARY" name="lesiones_partes_cuerpos__pacientes_pkey">
+<part>id_les_par_cue_pac</part>
+</key>
+<key type="UNIQUE" name="lesiones_partes_cuerpos__pacientes_unique">
+<part>id_par_cue_cat_cue</part>
+<part>id_cat_cue_les</part>
+<part>id_tip_mic_pac</part>
+</key>
+</table>
+<table x="2753" y="963" name="tipos_estudios_micologicos">
+<row name="id_tip_est_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_estudios_micologicos_id_tip_est_mic_seq''::regclass)</default></row>
+<row name="id_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_micosis" row="id_tip_mic" />
+</row>
+<row name="nom_tip_est_mic" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_tip_exa" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_examenes" row="id_tip_exa" />
+</row>
+<key type="CHECK" name="17105_17272_1_not_null">
+</key>
+<key type="CHECK" name="17105_17272_2_not_null">
+</key>
+<key type="PRIMARY" name="tipos_estudios_micologicos_pkey">
+<part>id_tip_est_mic</part>
+</key>
+</table>
+<table x="1134" y="2443" name="transacciones">
+<row name="id_tip_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''transacciones_id_tip_tra_seq''::regclass)</default></row>
+<row name="cod_tip_tra" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="des_tip_tra" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_mod" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="modulos" row="id_mod" />
+</row>
+<key type="CHECK" name="17105_17292_1_not_null">
+</key>
+<key type="CHECK" name="17105_17292_2_not_null">
+</key>
+<key type="UNIQUE" name="transacciones_cod_tip_tra__id_mod">
+<part>cod_tip_tra</part>
+<part>id_mod</part>
+</key>
+<key type="PRIMARY" name="transacciones_pkey">
+<part>id_tip_tra</part>
+</key>
+</table>
+<table x="2392" y="605" name="centro_salud_doctores">
+<row name="id_cen_sal_doc" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''centro_salud_doctores_id_cen_sal_doc_seq''::regclass)</default><comment>Identificación del Centro de Salud del doctor</comment>
+</row>
+<row name="id_cen_sal" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="centro_saluds" row="id_cen_sal" />
+<comment>Identificación del Centro de Salud</comment>
+</row>
+<row name="id_doc" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="doctores" row="id_doc" />
+<comment>Identificación del doctor</comment>
+</row>
+<row name="otr_cen_sal" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Otro Centro de Salud</comment>
+</row>
+<key type="CHECK" name="17105_18773_1_not_null">
+</key>
+<key type="CHECK" name="17105_18773_2_not_null">
+</key>
+<key type="CHECK" name="17105_18773_3_not_null">
+</key>
+<key type="PRIMARY" name="centro_salud_doctores_pkey">
+<part>id_cen_sal_doc</part>
+</key>
+<key type="UNIQUE" name="centro_salud_doctores_unique">
+<part>id_doc</part>
+<part>id_cen_sal</part>
+</key>
+</table>
+<table x="69" y="903" name="parroquias">
+<row name="id_par" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''parroquias_id_par_seq''::regclass)</default></row>
+<row name="des_par" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_mun" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="municipios" row="id_mun" />
+</row>
+<key type="CHECK" name="17105_18436_1_not_null">
+</key>
+<key type="PRIMARY" name="parroquias_pkey">
+<part>id_par</part>
+</key>
+</table>
+<table x="57" y="525" name="paises">
+<row name="id_pai" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''paises_id_pai_seq''::regclass)</default></row>
+<row name="des_pai" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="cod_pai" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_18412_1_not_null">
+</key>
+<key type="PRIMARY" name="paises_pkey">
+<part>id_pai</part>
+</key>
+</table>
+<table x="1770" y="1496" name="tipos_micosis_pacientes__tipos_estudios_micologicos">
+<row name="id_tip_mic_pac_tip_est_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq''::regclass)</default></row>
+<row name="id_tip_mic_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
+</row>
+<row name="id_tip_est_mic" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_estudios_micologicos" row="id_tip_est_mic" />
+</row>
+<key type="CHECK" name="17105_19305_1_not_null">
+</key>
+<key type="PRIMARY" name="tipos_micosis_pacientes__tipos_estudios_micologicos_pkey">
+<part>id_tip_mic_pac_tip_est_mic</part>
+</key>
+</table>
+<table x="1623" y="2740" name="auditoria_transacciones">
+<row name="id_aud_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''auditoria_transacciones_id_aud_tra_seq''::regclass)</default></row>
+<row name="fec_aud_tra" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
+<default>NULL</default></row>
+<row name="id_tip_usu_usu" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />
+</row>
+<row name="id_tip_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="transacciones" row="id_tip_tra" />
+</row>
+<row name="data_xml" null="1" autoincrement="0">
+<datatype>XML</datatype>
+<default>NULL</default><comment>Se guarda las modificaciones de la tabla y atributos realizada por los usuarios, todo en forma de XML</comment>
+</row>
+<key type="CHECK" name="17105_17121_1_not_null">
+</key>
+<key type="CHECK" name="17105_17121_3_not_null">
+</key>
+<key type="CHECK" name="17105_17121_4_not_null">
+</key>
+<key type="PRIMARY" name="auditoria_transacciones_pkey">
+<part>id_aud_tra</part>
+</key>
+<comment>Se guarda todos los eventos generados por los usuarios</comment>
+</table>
+<table x="1453" y="1468" name="antecedentes_pacientes">
+<row name="id_ant_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''antecedentes_pacientes_id_ant_pac_seq''::regclass)</default></row>
+<row name="id_ant_per" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="antecedentes_personales" row="id_ant_per" />
+</row>
+<row name="id_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pacientes" row="id_pac" />
+</row>
+<key type="CHECK" name="17105_17111_1_not_null">
+</key>
+<key type="CHECK" name="17105_17111_2_not_null">
+</key>
+<key type="PRIMARY" name="antecedentes_pacientes_pkey">
+<part>id_ant_pac</part>
+</key>
+</table>
+<table x="1949" y="1058" name="categorias__cuerpos_micosis">
+<row name="id_cat_cue_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''categorias__cuerpos_micosis_id_cat_cue_mic_seq''::regclass)</default></row>
+<row name="id_cat_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="categorias_cuerpos" row="id_cat_cue" />
+</row>
+<row name="id_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_micosis" row="id_tip_mic" />
+</row>
+<key type="CHECK" name="17105_17126_1_not_null">
+</key>
+<key type="CHECK" name="17105_17126_2_not_null">
+</key>
+<key type="CHECK" name="17105_17126_3_not_null">
+</key>
+<key type="PRIMARY" name="categorias__cuerpos_micosis_pkey">
+<part>id_cat_cue_mic</part>
+</key>
+<key type="UNIQUE" name="categorias__cuerpos_micosis_unique">
+<part>id_tip_mic</part>
+<part>id_cat_cue</part>
+</key>
+</table>
+<table x="2364" y="1108" name="enfermedades_micologicas">
+<row name="id_enf_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''enfermedades_micologicas_id_enf_mic_seq''::regclass)</default></row>
+<row name="nom_enf_mic" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="id_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_micosis" row="id_tip_mic" />
+</row>
+<key type="CHECK" name="17105_17174_1_not_null">
+</key>
+<key type="CHECK" name="17105_17174_2_not_null">
+</key>
+<key type="CHECK" name="17105_17174_3_not_null">
+</key>
+<key type="PRIMARY" name="enfermedades_micologicas_pkey">
+<part>id_enf_mic</part>
+</key>
+</table>
+<table x="1838" y="1266" name="enfermedades_pacientes">
+<row name="id_enf_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''enfermedades_pacientes_id_enf_pac_seq''::regclass)</default></row>
+<row name="id_enf_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="enfermedades_micologicas" row="id_enf_mic" />
+</row>
+<row name="otr_enf_mic" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="esp_enf_mic" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_tip_mic_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
+</row>
+<key type="CHECK" name="17105_17179_1_not_null">
+</key>
+<key type="CHECK" name="17105_17179_3_not_null">
+</key>
+<key type="PRIMARY" name="enfermedades_pacientes_pkey">
+<part>id_enf_pac</part>
+</key>
+</table>
+<table x="2045" y="256" name="centro_salud_pacientes">
+<row name="id_cen_sal_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''centro_salud_pacientes_id_cen_sal_pac_seq''::regclass)</default></row>
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="historiales_pacientes" row="id_his" />
+</row>
+<row name="id_cen_sal" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="centro_saluds" row="id_cen_sal" />
+</row>
+<row name="otr_cen_sal" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17146_1_not_null">
+</key>
+<key type="CHECK" name="17105_17146_2_not_null">
+</key>
+<key type="CHECK" name="17105_17146_3_not_null">
+</key>
+<key type="PRIMARY" name="centro_salud_pacientes_pkey">
+<part>id_cen_sal_pac</part>
+</key>
+<key type="UNIQUE" name="centro_salud_pacientes_unique">
+<part>id_his</part>
+<part>id_cen_sal</part>
+</key>
+</table>
+<table x="2360" y="1458" name="contactos_animales">
+<row name="id_con_ani" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''contactos_animales_id_con_ani_seq''::regclass)</default></row>
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="historiales_pacientes" row="id_his" />
+</row>
+<row name="id_ani" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="animales" row="id_ani" />
+</row>
+<row name="otr_ani" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17161_1_not_null">
+</key>
+<key type="CHECK" name="17105_17161_2_not_null">
+</key>
+<key type="CHECK" name="17105_17161_3_not_null">
+</key>
+<key type="PRIMARY" name="contactos_animales_pkey">
+<part>id_con_ani</part>
+</key>
+<key type="UNIQUE" name="contactos_animales_unique">
+<part>id_his</part>
+<part>id_ani</part>
+</key>
+</table>
+<table x="2768" y="419" name="centro_saluds">
+<row name="id_cen_sal" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''centro_salud_id_cen_sal_seq''::regclass)</default></row>
+<row name="nom_cen_sal" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="des_cen_sal" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17141_1_not_null">
+</key>
+<key type="CHECK" name="17105_17141_2_not_null">
+</key>
+<key type="PRIMARY" name="centro_salud_pkey">
+<part>id_cen_sal</part>
+</key>
+</table>
+<table x="3829" y="721" name="forma_infecciones__tipos_micosis">
+<row name="id_for_inf_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq''::regclass)</default></row>
+<row name="id_tip_mic" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_micosis" row="id_tip_mic" />
+</row>
+<row name="id_for_inf" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="forma_infecciones" row="id_for_inf" />
+</row>
+<key type="CHECK" name="17105_17197_1_not_null">
+</key>
+<key type="CHECK" name="17105_17197_2_not_null">
+</key>
+<key type="CHECK" name="17105_17197_3_not_null">
+</key>
+<key type="PRIMARY" name="forma_infecciones__tipos_micosis_pkey">
+<part>id_for_inf_tip_mic</part>
+</key>
+<key type="UNIQUE" name="forma_infecciones__tipos_micosis_unique">
+<part>id_tip_mic</part>
+<part>id_for_inf</part>
+</key>
+</table>
+<table x="903" y="2316" name="modulos">
+<row name="id_mod" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''modulos_id_mod_seq''::regclass)</default></row>
+<row name="cod_mod" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="des_mod" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_tip_usu" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_usuarios" row="id_tip_usu" />
+</row>
+<key type="CHECK" name="17105_17229_1_not_null">
+</key>
+<key type="UNIQUE" name="modulos_cod_mod_unique">
+<part>cod_mod</part>
+<part>id_tip_usu</part>
+</key>
+<key type="PRIMARY" name="modulos_pkey">
+<part>id_mod</part>
+</key>
+</table>
+<table x="3153" y="845" name="forma_infecciones__pacientes">
+<row name="id_for_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''forma_infecciones__pacientes_id_for_pac_seq''::regclass)</default></row>
+<row name="id_for_inf" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="forma_infecciones" row="id_for_inf" />
+</row>
+<row name="otr_for_inf" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_tip_mic_pac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
+</row>
+<key type="CHECK" name="17105_17192_1_not_null">
+</key>
+<key type="CHECK" name="17105_17192_2_not_null">
+</key>
+<key type="PRIMARY" name="forma_infecciones__pacientes_pkey">
+<part>id_for_pac</part>
+</key>
+<key type="UNIQUE" name="forma_infecciones__pacientes_unique">
+<part>id_tip_mic_pac</part>
+<part>id_for_inf</part>
+</key>
+</table>
+<table x="3550" y="798" name="forma_infecciones">
+<row name="id_for_inf" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''forma_infecciones_id_for_inf_seq''::regclass)</default></row>
+<row name="des_for_inf" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17189_1_not_null">
+</key>
+<key type="PRIMARY" name="forma_infecciones_pkey">
+<part>id_for_inf</part>
+</key>
+</table>
+<table x="1963" y="1797" name="muestras_pacientes">
+<row name="id_mue_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''muestras_pacientes_id_mue_pac_seq''::regclass)</default><comment>Id de la meustra del paciente</comment>
+</row>
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="historiales_pacientes" row="id_his" />
+<comment>Id del historial</comment>
+</row>
+<row name="id_mue_cli" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="muestras_clinicas" row="id_mue_cli" />
+<comment>Id muestra cli</comment>
+</row>
+<row name="otr_mue_cli" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Otra meustra clinica</comment>
+</row>
+<key type="CHECK" name="17105_17239_1_not_null">
+</key>
+<key type="CHECK" name="17105_17239_2_not_null">
+</key>
+<key type="CHECK" name="17105_17239_3_not_null">
+</key>
+<key type="PRIMARY" name="muestras_pacientes_pkey">
+<part>id_mue_pac</part>
+</key>
+<key type="UNIQUE" name="muestras_pacientes_unique">
+<part>id_mue_cli</part>
+<part>id_his</part>
+</key>
+</table>
+<table x="1989" y="2519" name="transacciones_usuarios">
+<row name="id_tip_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="transacciones" row="id_tip_tra" />
+</row>
+<row name="id_tip_usu_usu" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />
+</row>
+<row name="id_tra_usu" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''transacciones_usuarios_id_tra_usu_seq''::regclass)</default></row>
+<key type="CHECK" name="17105_17297_2_not_null">
+</key>
+<key type="CHECK" name="17105_17297_6_not_null">
+</key>
+<key type="PRIMARY" name="transacciones_usuarios_pkey">
+<part>id_tra_usu</part>
+</key>
+</table>
+<table x="157" y="1807" name="tipos_consultas_pacientes">
+<row name="id_tip_con_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_consultas_pacientes_id_tip_con_pac_seq''::regclass)</default><comment>Id tipos de consulta paciente</comment>
+</row>
+<row name="id_tip_con" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tipos_consultas" row="id_tip_con" />
+<comment>Id tipos de consulta</comment>
+</row>
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="historiales_pacientes" row="id_his" />
+<comment>Id historico</comment>
+</row>
+<row name="otr_tip_con" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Otro tipo de consulta</comment>
+</row>
+<key type="CHECK" name="17105_17267_1_not_null">
+</key>
+<key type="CHECK" name="17105_17267_2_not_null">
+</key>
+<key type="CHECK" name="17105_17267_3_not_null">
+</key>
+<key type="PRIMARY" name="tipos_consultas_pacientes_pkey">
+<part>id_tip_con_pac</part>
+</key>
+<key type="UNIQUE" name="tipos_consultas_pacientes_unique">
+<part>id_tip_con</part>
+<part>id_his</part>
+</key>
+</table>
+<table x="510" y="1061" name="partes_cuerpos">
+<row name="id_par_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''partes_cuerpos_id_par_cue_seq''::regclass)</default></row>
+<row name="nom_par_cue" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17252_1_not_null">
+</key>
+<key type="PRIMARY" name="partes_cuerpos_pkey">
+<part>id_par_cue</part>
+</key>
+</table>
+<table x="624" y="1849" name="tratamientos_pacientes">
+<row name="id_tra_pac" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tratamientos_pacientes_id_tra_pac_seq''::regclass)</default><comment>Id transaccion paciente</comment>
+</row>
+<row name="id_his" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="historiales_pacientes" row="id_his" />
+<comment>Id historico</comment>
+</row>
+<row name="id_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tratamientos" row="id_tra" />
+<comment>Id tratamiento</comment>
+</row>
+<row name="otr_tra" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Otro tratamiento</comment>
+</row>
+<key type="CHECK" name="17105_17307_1_not_null">
+</key>
+<key type="CHECK" name="17105_17307_2_not_null">
+</key>
+<key type="CHECK" name="17105_17307_3_not_null">
+</key>
+<key type="PRIMARY" name="tratamientos_pacientes_pkey">
+<part>id_tra_pac</part>
+</key>
+<key type="UNIQUE" name="tratamientos_pacientes_unique">
+<part>id_his</part>
+<part>id_tra</part>
+</key>
+</table>
+<table x="988" y="1803" name="tipos_usuarios">
+<row name="id_tip_usu" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_usuarios_id_tip_usu_seq''::regclass)</default></row>
+<row name="cod_tip_usu" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="des_tip_usu" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17282_1_not_null">
+</key>
+<key type="CHECK" name="17105_17282_2_not_null">
+</key>
+<key type="PRIMARY" name="tipos_usuarios_pkey">
+<part>id_tip_usu</part>
+</key>
+<key type="UNIQUE" name="tipos_usuarios_unique">
+<part>cod_tip_usu</part>
+</key>
+</table>
+<table x="1101" y="869" name="lesiones">
+<row name="id_les" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''lesiones_id_les_seq''::regclass)</default></row>
+<row name="nom_les" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_19087_1_not_null">
+</key>
+<key type="PRIMARY" name="lesiones_id_les_pkey">
+<part>id_les</part>
+</key>
+</table>
+<table x="1232" y="730" name="tiempo_evoluciones">
+<row name="id_tie_evo" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tiempo_evoluciones_id_tie_evo_seq''::regclass)</default></row>
+<row name="id_his" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="historiales_pacientes" row="id_his" />
+</row>
+<row name="tie_evo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="CHECK" name="17105_18883_1_not_null">
+</key>
+<key type="PRIMARY" name="tiempo_evoluciones_pkey">
+<part>id_tie_evo</part>
+</key>
+</table>
+<table x="3224" y="675" name="tipos_examenes">
+<row name="id_tip_exa" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_examenes_id_tip_exa_seq''::regclass)</default></row>
+<row name="nom_tip_exa" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_19279_1_not_null">
+</key>
+<key type="PRIMARY" name="tipos_examenes_pkey">
+<part>id_tip_exa</part>
+</key>
+</table>
+<table x="18" y="2282" name="antecedentes_personales">
+<row name="id_ant_per" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''antecedentes_personales_id_ant_per_seq''::regclass)</default></row>
+<row name="nom_ant_per" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17116_1_not_null">
+</key>
+<key type="PRIMARY" name="antecedentes_personales_pkey">
+<part>id_ant_per</part>
+</key>
+</table>
+<table x="2660" y="1246" name="animales">
+<row name="id_ani" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''animales_id_ani_seq''::regclass)</default></row>
+<row name="nom_ani" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17106_1_not_null">
+</key>
+<key type="PRIMARY" name="animales_pkey">
+<part>id_ani</part>
+</key>
+</table>
+<table x="471" y="1582" name="tipos_consultas">
+<row name="id_tip_con" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tipos_consultas_id_tip_con_seq''::regclass)</default><comment>id tipos consultas</comment>
+</row>
+<row name="nom_tip_con" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<key type="CHECK" name="17105_17262_1_not_null">
+</key>
+<key type="CHECK" name="17105_17262_2_not_null">
+</key>
+<key type="PRIMARY" name="tipos_consultas_pkey">
+<part>id_tip_con</part>
+</key>
+</table>
+<table x="1454" y="1931" name="muestras_clinicas">
+<row name="id_mue_cli" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''muestras_clinicas_id_mue_cli_seq''::regclass)</default><comment>Identificacion de la muestra clinica</comment>
+</row>
+<row name="nom_mue_cli" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<comment>Nombre muestra clinica</comment>
+</row>
+<key type="CHECK" name="17105_17234_1_not_null">
+</key>
+<key type="CHECK" name="17105_17234_2_not_null">
+</key>
+<key type="PRIMARY" name="muestras_clinicas_pkey">
+<part>id_mue_cli</part>
+</key>
+</table>
+<table x="726" y="1338" name="localizaciones_cuerpos">
+<row name="id_loc_cue" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''localizaciones_cuerpos_id_loc_cue_seq''::regclass)</default></row>
+<row name="nom_loc_cue" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="id_par_cue" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="partes_cuerpos" row="id_par_cue" />
+</row>
+<key type="CHECK" name="17105_17219_1_not_null">
+</key>
+<key type="CHECK" name="17105_17219_2_not_null">
+</key>
+<key type="PRIMARY" name="localizaciones_cuerpos_pkey">
+<part>id_loc_cue</part>
+</key>
+</table>
+<table x="1460" y="82" name="usuarios_administrativos">
+<row name="id_usu_adm" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''usuarios_administrativos_id_usu_adm_seq''::regclass)</default></row>
+<row name="nom_usu_adm" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="ape_usu_adm" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="pas_usu_adm" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="log_usu_adm" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="tel_usu_adm" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="fec_reg_usu_adm" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
+<default>''now()''</default><comment>Fecha de registro de los usuarios</comment>
+</row>
+<row name="adm_usu" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>NULL</default><comment>
+	TRUE: si es un super usuario
+	FALSE: si es usuario com limitaciones
+</comment>
+</row>
+<key type="CHECK" name="17105_17312_1_not_null">
+</key>
+<key type="UNIQUE" name="usuarios_administrativos_log_usu_adm_unique">
+<part>log_usu_adm</part>
+</key>
+<key type="PRIMARY" name="usuarios_administrativos_pkey">
+<part>id_usu_adm</part>
+</key>
+</table>
+<table x="1709" y="2106" name="tratamientos">
+<row name="id_tra" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>nextval(''tratamientos_id_tra_seq''::regclass)</default></row>
+<row name="nom_tra" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="17105_17302_1_not_null">
+</key>
+<key type="PRIMARY" name="tratamientos_pkey">
+<part>id_tra</part>
+</key>
+</table>
+<table x="1771" y="2254" name="wwwsqldesigner">
+<row name="keyword" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="xmldata" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="dt" null="1" autoincrement="0">
+<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
+<default>NULL</default></row>
+<key type="CHECK" name="27541_27542_1_not_null">
+</key>
+<key type="PRIMARY" name="wwwsqldesigner_pkey">
+<part>keyword</part>
+</key>
+</table>
+</sql>
+', NULL);
 
 
 SET search_path = public, pg_catalog;
@@ -9550,7 +10727,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2011-12-29 09:49:21
+-- Completed on 2012-01-12 12:33:13
 
 --
 -- PostgreSQL database dump complete
