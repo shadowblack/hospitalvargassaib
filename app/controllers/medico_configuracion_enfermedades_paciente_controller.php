@@ -575,7 +575,7 @@
             
             $sql_enf = 
                 "
-                SELECT tem.id_tip_est_mic, tem.nom_tip_est_mic, nom_tip_exa, tmptem.id_tip_mic_pac,te.nom_tip_exa
+                SELECT tem.id_tip_est_mic, tem.nom_tip_est_mic, nom_tip_exa, tmptem.id_tip_mic_pac,te.nom_tip_exa,te.id_tip_exa
                 FROM tipos_micosis_pacientes tmp
                 JOIN tipos_micosis tm ON (tmp.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)

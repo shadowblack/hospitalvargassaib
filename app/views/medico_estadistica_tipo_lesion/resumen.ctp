@@ -32,7 +32,7 @@ SIGIS. C.A
                                         <?php print __('Cantidad',true);?>
                                     </td>
                                      <td align="center" class="standar_font lista_fondo">
-                                        <?php print __('Tipo de Lesión',true);?>
+                                        <?php print __('Tipo de Enfermedades Micológicas',true);?>
                                     </td>
 								</tr>
 								<?php
@@ -44,7 +44,7 @@ SIGIS. C.A
         								?>
         								<tr class="celda_blanco_text_azul" >
                                             <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
-                                            <td class="standar_font" align="center"><?php echo $row->nom_les;?></td>
+                                            <td class="standar_font" align="center"><?php echo $row->nom_enf_mic;?></td>
         				  			    </tr>
         								<?php								
 									}
