@@ -493,9 +493,8 @@
          function event_enfermedades_registrar($id_tip_mic){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");    
                     
-            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic,ep.otr_enf_mic
+            $sql_enf = "SELECT em.id_enf_mic,em.nom_enf_mic
                         FROM enfermedades_micologicas em
-                        LEFT JOIN enfermedades_pacientes ep ON (em.id_enf_mic = ep.id_enf_mic)                               
                         WHERE em.id_tip_mic = $id_tip_mic";
           
                                             

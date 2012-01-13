@@ -144,10 +144,10 @@
              <table style="width: 100%;" class="">
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
-                        <input type="submit" name="btn_aceptar" value="Aceptar">
+                        <input type="submit" name="btn_aceptar" value="<?php echo __("Aceptar",true)?>">
                     </td>
                     <td  align="left" style="height: 0" valign="bottom">
-                        <input type="button" name="btn_volver" value="Volver" onclick="javascript:window.location.href='<?php echo $_SERVER["HTTP_REFERER"]?>'">                       
+                        <input type="button" name="btn_volver" value="<?php echo __("Volver",true)?>" onclick="javascript:window.location.href='<?php echo $_SERVER["HTTP_REFERER"]?>'">                       
                     </td>
                 </tr>
             </table>                                                         
