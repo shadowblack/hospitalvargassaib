@@ -35,7 +35,7 @@
  </style>
 <!-- Acordion con sus 5 opciones -->
     <div id="accordion" style="width: *;text-align: left;">
-          <div>
+        <div>
             <h3>
                 <a href="#">
                     <?php __("Estadística")?>
@@ -43,19 +43,40 @@
             </h3>
             <div style="">                                               
                 <div style="height: 80px;text-align: left;">
-                    <a id="est_gen_pac" href="javascript:void(0)" >
-                        <?php __("Género")?>
-                    </a></br>
-                    <a id="est_eda_pac" href="javascript:void(0)" >
-                        <?php __("Grupo Etario")?>
-                    </a></br>
-                    <a id="est_les_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de Enfermedad Micológica")?>
-                    </a></br>
-                    <a id="est_mic_pac" href="javascript:void(0)" >
-                        <?php __("Tipo de Micosis")?>
-                    </a></br>                               
+                    <table border="0" width="100%">
+                        <tr>
+                            <td>
+                                <a id="est_gen_pac" href="javascript:void(0)" >
+                                    <?php __("Género")?>
+                                </a>  
+                            </td>
+                        </tr>
+                        <tr><td style="height: 5px;;"></td></tr>
+                        <tr>
+                            <td>
+                                <a id="est_eda_pac" href="javascript:void(0)" >
+                                    <?php __("Grupo Etario")?>
+                                </a>  
+                            </td>
+                        </tr>
+                        <tr><td style="height: 5px;;"></td></tr>
+                        <tr>
+                            <td>
+                                <a id="est_les_pac" href="javascript:void(0)" >
+                                    <?php __("Enfermedad Micológica")?>
+                                </a>  
+                            </td>
+                        </tr>
+                        <tr><td style="height: 5px;;"></td></tr>
+                        <tr>
+                            <td>
+                                <a id="est_mic_pac" href="javascript:void(0)" >
+                                    <?php __("Tipo de Micosis")?>
+                                </a>  
+                            </td>
+                        </tr>
+                    </table>                             
                 </div>
-          </div>
+            </div>
         </div>
     </div>                       
