@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <script type="text/javascript">               
     jQuery(function()
         {
@@ -37,21 +38,30 @@
                 </a>
             </h3>
             <div style="">                                               
-                <div style="height: 80px;text-align: left;">
+                 <div class="contenedor">
+                           
                     <table border="0" width="100%">
                         <tr>
                             <td>
-                                <a id="med_tra_usu" href="javascript:void(0)" >
-                                    <?php __("Transacciones de Usuarios")?>
-                                </a>
+                                <ul>
+                                    <li>                        
+                                        <a id="med_tra_usu" href="javascript:void(0)" >
+                                            <?php __("Transacciones de Usuarios")?>
+                                        </a>
+                                    </li>
+                                </ul>
                             </td>
                         </tr>
                         <tr><td style="height: 5px;;"></td></tr>
                         <tr>
                             <td>
-                                <a id="enf_mic_pac" href="javascript:void(0)" >
-                                    <?php __("Enfermedades Micológicas del Paciente")?>
-                                </a> 
+                                <ul>
+                                    <li>                                    
+                                        <a id="enf_mic_pac" href="javascript:void(0)" >
+                                            <?php __("Enfermedades Micológicas del Paciente")?>
+                                        </a>
+                                    </li>
+                                </ul> 
                             </td>
                         </tr> 
                     </table>                              

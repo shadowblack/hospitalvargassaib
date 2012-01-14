@@ -15,7 +15,17 @@
             <?php __("Tipo de examen") ?>
         </td>
     </tr>      
-    <?php foreach($estudios as $row):?>      
+    <?php
+        $tip_est_ant = ""; 
+        foreach($estudios as $row):
+            if ($tip_est_ant <> $row->id_tip_est_mic){
+                $tip_est_ant = $row->id_tip_est_mic;
+                $show_new_tr = true;
+            } else {
+                $show_new_tr = false;
+            }
+            
+        ?>     
         <tr>
             <td>
                 <input type="checkbox" class="standar_input_checkbox" name="chk_tip_est_mic_" value="<?php echo $row->id_tip_est_mic?>" >        

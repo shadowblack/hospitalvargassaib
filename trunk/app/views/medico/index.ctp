@@ -5,7 +5,7 @@
     echo $this->Html->script("jquery/jquery-window-5.03/jquery.window.js");          
  ?> 
 
- <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/>  
+ <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/> 
 		<script type="text/javascript">
 			jQuery(function(){			     
                 
@@ -67,17 +67,40 @@
                     <td align="right">                                        
                         <div class="dock" id="dock">
                             <div class="dock-container">
-                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/registrar");?>" target="men_izq_reg"><img style="padding-left: 0px;" src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" /><span style="padding-left: 15px;"><?php print __('Configurar', true); ?></span></a>
+                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/registrar");?>" target="men_izq_reg">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" />
+                                        <!--span style="padding-left: 15px;"-->
+                                            <!--?php print __('Configurar', true); ?-->
+                                        <!--/span-->
+                                </a>                                
                                 
-                                <!--<a class="dock-item" href="#"><img style="padding-left: 20px;" src="<?php echo $this->webroot?>/js/men_mac/images/configurar.png" alt="Configurar" /><span style="padding-left: 20px;">Configurar</span></a> -->
-                                
-                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/reporte");?>" target="men_izq_reg"><img style="padding-left: 40px;" src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" /><span style="padding-left: 40px;"><?php print __('Reporte', true); ?></span></a>
+                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/reporte");?>" target="men_izq_reg">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" />
+                                        <!--span style="padding-left: 40px;"-->
+                                            <!--?php print __('Reporte', true); ?-->
+                                        <!--/span-->
+                                </a>
                                  
-                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/estadistica");?>" target="men_izq_reg"><img style="padding-left: 60px;" src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" /><span style="padding-left: 60px;"><?php print __('Estadisticas', true); ?></span></a>
+                                <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/estadistica");?>" target="men_izq_reg">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" />
+                                        <!--span style="padding-left: 60px;"-->
+                                            <!--?php print __('Estadisticas', true); ?-->
+                                        <!--/span-->
+                                </a>
                                  
-                                <a class="dock-item" href="#"><img style="padding-left: 80px;" src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" /><span style="padding-left: 80px;">Ayuda</span></a>
+                                <a class="dock-item" href="#">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" />
+                                        <!--span style="padding-left: 80px;">
+                                            Ayuda
+                                        </span-->
+                                </a>
                                  
-                                <a class="dock-item" href="<?php echo $this->Html->url("/Medico/salir");?>"><img style="padding-left: 100px;" src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" /><span style="padding-left: 100px;">Salir</span></a>   
+                                <a class="dock-item" href="<?php echo $this->Html->url("/Medico/salir");?>">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" />
+                                        <!--span style="padding-left: 100px;">
+                                            Salir
+                                        </span-->
+                                </a>   
                             </div>
                         </div>                                                
                     </td>

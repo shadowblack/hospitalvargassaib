@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <script type="text/javascript">               
     jQuery(function()
         {
@@ -90,14 +91,13 @@
 <!--------------------Fin de Tab Segundo Acordion-------------------->                                        
 
 
-<!--------------------Inicio de Tab Micosis Subcutaneas-------------------->                                        
-        <div>
-            <h3>
-                <a href="#">
-                    <?php __("Configuración 3")?>
-                </a>
-            </h3>
-
+<!--------------------Inicio de Tab Micosis Subcutaneas-------------------->                                                       
+                <h3>
+                    <a href="#">
+                        <?php __("Configuración 3")?>
+                    </a>
+                </h3>
+            
             <div style="height: 150px;text-align: left;">
                 <a id="reg_med_pac_mic_sub" href="javascript:void(0)" >
                     <?php __("Agregar Micosis")?>

@@ -1,0 +1,19 @@
+.contenedor
+{
+    height: 80px;
+    text-align:left;
+}
+
+.contenedor ul
+{
+    
+    list-style-image:url(../img/icono_verde.png);
+    height: 10px;
+    
+}
+
+.contenedor a:hover
+{
+    /*text-decoration: underline;*/
+    color: #69B632;
+}
