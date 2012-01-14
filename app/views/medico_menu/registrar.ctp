@@ -31,11 +31,17 @@
                     <?php __("Pacientes")?>
                 </a>
             </h3>
-            <div style="">                                               
+            <div style="">                              
                 <div style="height: 80px;text-align: left;">
-                    <a id="med_con_pac" href="javascript:void(0)" >
-                        <?php __("Configurar Paciente")?>
-                    </a>                                                     
+                    <table border="0" width="100%">
+                        <tr>
+                            <td> 
+                                <a id="med_con_pac" href="javascript:void(0)" >
+                                    <?php __("Configurar Paciente")?>
+                                </a> 
+                            </td>
+                        </tr>
+                    </table>                                                    
                 </div>
           </div>
         </div>

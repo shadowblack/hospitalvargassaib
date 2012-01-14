@@ -38,17 +38,23 @@
             </h3>
             <div style="">                                               
                 <div style="height: 80px;text-align: left;">
-                    <a id="med_tra_usu" href="javascript:void(0)" >
-                        <?php __("Transacciones de Usuarios")?>
-                    </a>
-                    <br /><br />
-                    <a id="enf_mic_pac" href="javascript:void(0)" >
-                        <?php __("Enfermedades Micológicas del Paciente")?>
-                    </a>
-                    <br /><br />
-                    <a id="tip_les_pac" href="javascript:void(0)" >
-                        <?php //__("Tipo de Lesiones del Paciente")?>
-                    </a>                                                        
+                    <table border="0" width="100%">
+                        <tr>
+                            <td>
+                                <a id="med_tra_usu" href="javascript:void(0)" >
+                                    <?php __("Transacciones de Usuarios")?>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr><td style="height: 5px;;"></td></tr>
+                        <tr>
+                            <td>
+                                <a id="enf_mic_pac" href="javascript:void(0)" >
+                                    <?php __("Enfermedades Micológicas del Paciente")?>
+                                </a> 
+                            </td>
+                        </tr> 
+                    </table>                              
                 </div>
           </div>
         </div>

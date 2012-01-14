@@ -41,19 +41,20 @@
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"])." 00:00";
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
                 
-                $where = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
+                $where_fec = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
             }
             
-            if(isset($_POST['sel_tip_mic']) && $_POST['sel_tip_mic'] != 0){
+            if(isset($_POST['sel_tip_mic']) && $_POST['sel_tip_mic'] != ""){
                 $id_tip_mic = $_POST["sel_tip_mic"];  
-                $where .= " AND tm.id_tip_mic =".$id_tip_mic; 
+                $where_tm = " AND tm.id_tip_mic =".$id_tip_mic; 
             }
             else{
-                $where .= "";
+                $where_tm = "";
             }
                                       
             $data = Array(
-                "result"  => $where     
+                "where_fec"  => $where_fec,
+                "where_tm"   => $where_tm    
             ); 
             
             $this->set($data);          
@@ -63,21 +64,29 @@
         function grafico(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT  count(ptm.id_pac) AS cantidad,
-                                (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
-                        	    ptm.nom_tip_mic
-                        FROM 
-                        	(SELECT DISTINCT 
-                        		p.id_pac,
-                        		tm.nom_tip_mic
-                        	FROM pacientes p
-                        		JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac)
-                        		JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his)
-                        		JOIN tipos_micosis tm ON(tmp.id_tip_mic = tm.id_tip_mic)
-                        	".$where."	
-                        	ORDER BY tm.nom_tip_mic) AS ptm
-                        GROUP BY ptm.nom_tip_mic";
+            $where_fec = 'WHERE '.$_POST['fil_fec'];
+            $where_tm  = $_POST['fil_tm'];
+            
+            $sql = "    SELECT 	count(ptm.id_pac) AS cantidad, 
+                    		(SELECT count(*) FROM pacientes $where_fec) AS total_pac, 
+                    		ptm.nom_tip_mic 
+                    	FROM 
+                    		(SELECT DISTINCT p.id_pac, tm.nom_tip_mic 
+                    		FROM pacientes p 
+                    			JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) 
+                    			JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) 
+                    			JOIN tipos_micosis tm ON(tmp.id_tip_mic = tm.id_tip_mic) 
+                    		$where_fec $where_tm
+                    		ORDER BY tm.nom_tip_mic) AS ptm 
+                    	GROUP BY ptm.nom_tip_mic
+                    
+                    UNION ALL
+                    	SELECT 	(
+                        		 (SELECT count(*) FROM pacientes $where_fec) - 
+                        		 (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec)
+                        		),
+                        		(SELECT count(*) FROM pacientes $where_fec) AS total_pac,
+                        		'Ninguna'";
             
             //die($sql);       
             $arr_query = ($this->Paciente->query($sql));
@@ -100,6 +109,7 @@
                $cant[] =   $porcentaje;     
                $data[] =   $row->nom_tip_mic;
             }
+                           
             $this->Ofc->set_ofc_data($cant);
             $this->Ofc->pie_values($data);  
            
@@ -116,21 +126,29 @@
         function resumen(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $where = 'WHERE '.$_POST['fil'];
-            $sql = "    SELECT  count(ptm.id_pac) AS cantidad,
-                                (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
-                        	    ptm.nom_tip_mic
-                        FROM 
-                        	(SELECT DISTINCT 
-                        		p.id_pac,
-                        		tm.nom_tip_mic
-                        	FROM pacientes p
-                        		JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac)
-                        		JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his)
-                        		JOIN tipos_micosis tm ON(tmp.id_tip_mic = tm.id_tip_mic)
-                        	".$where."	
-                        	ORDER BY tm.nom_tip_mic) AS ptm
-                        GROUP BY ptm.nom_tip_mic";
+            $where_fec = 'WHERE '.$_POST['fil_fec'];
+            $where_tm  = $_POST['fil_tm'];
+            
+            $sql = "    SELECT 	count(ptm.id_pac) AS cantidad, 
+                    		(SELECT count(*) FROM pacientes $where_fec) AS total_pac, 
+                    		ptm.nom_tip_mic 
+                    	FROM 
+                    		(SELECT DISTINCT p.id_pac, tm.nom_tip_mic 
+                    		FROM pacientes p 
+                    			JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) 
+                    			JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) 
+                    			JOIN tipos_micosis tm ON(tmp.id_tip_mic = tm.id_tip_mic) 
+                    		$where_fec $where_tm
+                    		ORDER BY tm.nom_tip_mic) AS ptm 
+                    	GROUP BY ptm.nom_tip_mic
+                    
+                    UNION ALL
+                    	SELECT 	(
+                        		 (SELECT count(*) FROM pacientes $where_fec) - 
+                        		 (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec)
+                        		),
+                        		(SELECT count(*) FROM pacientes $where_fec) AS total_pac,
+                        		'Ninguna'";
                     
             $arr_query = ($this->Paciente->query($sql));
             $tip_mic = ($this->SqlData->array_to_objects($arr_query)); 

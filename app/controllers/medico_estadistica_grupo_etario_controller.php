@@ -35,7 +35,7 @@
                 $fec_ini = $this->SqlData->date_to_postgres($_POST["txt_fec_ini"])." 00:00";
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
                 
-                $where = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
+                $where_fec = "fec_reg_pac >= '".$fec_ini."' AND fec_reg_pac < '".$fec_fin."'";
             }
             
             if(isset($_POST['sel_gru_eta']) && $_POST['sel_gru_eta'] != '0'){
@@ -55,14 +55,15 @@
                     case '6':
                         $condicion = " >= 60 "; break;
                 }
-                $where .= " AND substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between ".$condicion; 
+                $where_gru = " AND substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between ".$condicion; 
             }
             else{
-                $where .= "";
+                $where_gru = "";
             }
                                       
             $data = Array(
-                "result"  => $where     
+                "where_fec"  => $where_fec,
+                "where_gru"  => $where_gru  
             ); 
             
             $this->set($data);          
@@ -72,9 +73,11 @@
         function grafico(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $where = 'WHERE '.$_POST['fil'];
+            $where_fec = 'WHERE '.$_POST['fil_fec'];
+            $where_gru = $_POST['fil_gru'];
+            
             $sql = "SELECT  count(*) AS cantidad,
-                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                            (SELECT count(*) FROM  pacientes $where_fec) AS total_pac,
                             CASE
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante'
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente'
@@ -84,7 +87,7 @@
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int >= 60 THEN 'Adulto Mayor'
                             END AS grupo
                     FROM pacientes
-                    ".$where." 
+                    $where_fec  $where_gru
                     GROUP BY grupo
                     ORDER BY grupo desc";
             
@@ -122,9 +125,11 @@
         function resumen(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $where = 'WHERE '.$_POST['fil'];
+            $where_fec = 'WHERE '.$_POST['fil_fec'];
+            $where_gru = $_POST['fil_gru'];
+            
             $sql = "SELECT  count(*) AS cantidad,
-                            (SELECT count(*) FROM  pacientes ".$where.") AS total_pac,
+                            (SELECT count(*) FROM  pacientes $where_fec) AS total_pac,
                             CASE
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 0 and 12  THEN 'Infante (0-12)'
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int between 13 and 17 THEN 'Adolescente (13-17)'
@@ -134,7 +139,7 @@
                                 WHEN substring(age(now(),fec_nac_pac)::text from 1 for 2)::int >= 60 THEN 'Adulto Mayor (60 o mas)'
                             END AS grupo
                     FROM pacientes
-                    ".$where." 
+                    $where_fec $where_gru
                     GROUP BY grupo
                     ORDER BY grupo desc";
                     
