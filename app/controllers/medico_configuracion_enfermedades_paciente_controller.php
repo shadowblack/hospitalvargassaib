@@ -224,7 +224,7 @@
             
             // enfermedades de la micosis     
              $sql_enf = "
-                SELECT em.id_enf_mic,em.nom_enf_mic,ep.otr_enf_mic
+                SELECT em.id_enf_mic,em.nom_enf_mic,ep.otr_enf_mic 
                 FROM enfermedades_micologicas em
                 JOIN enfermedades_pacientes ep ON (ep.id_enf_mic = em.id_enf_mic AND ep.id_tip_mic_pac = $id_tip_mic_pac)
             ";
