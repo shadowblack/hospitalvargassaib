@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/> 
+
 <script type="text/javascript">               
     jQuery(function()
         {
@@ -41,38 +43,54 @@
                     <?php __("Estadística")?>
                 </a>
             </h3>
-            <div style="">                                               
-                <div style="height: 80px;text-align: left;">
+            <div style="">
+                <div class="contenedor">
                     <table border="0" width="100%">
                         <tr>
                             <td>
-                                <a id="est_gen_pac" href="javascript:void(0)" >
-                                    <?php __("Género")?>
-                                </a>  
+                                <ul>
+                                    <li>
+                                        <a id="est_gen_pac" href="javascript:void(0)" >
+                                            <?php __("Género")?>
+                                        </a>
+                                    </li>
+                                </ul>  
                             </td>
                         </tr>
                         <tr><td style="height: 5px;;"></td></tr>
                         <tr>
                             <td>
-                                <a id="est_eda_pac" href="javascript:void(0)" >
-                                    <?php __("Grupo Etario")?>
-                                </a>  
+                                <ul>
+                                    <li>
+                                        <a id="est_eda_pac" href="javascript:void(0)" >
+                                            <?php __("Grupo Etario")?>
+                                        </a> 
+                                    </li>
+                                </ul> 
                             </td>
                         </tr>
                         <tr><td style="height: 5px;;"></td></tr>
                         <tr>
                             <td>
-                                <a id="est_les_pac" href="javascript:void(0)" >
-                                    <?php __("Enfermedad Micológica")?>
-                                </a>  
+                                <ul>
+                                    <li>
+                                        <a id="est_les_pac" href="javascript:void(0)" >
+                                            <?php __("Enfermedad Micológica")?>
+                                        </a>  
+                                    </li>
+                                </ul>
                             </td>
                         </tr>
                         <tr><td style="height: 5px;;"></td></tr>
                         <tr>
                             <td>
-                                <a id="est_mic_pac" href="javascript:void(0)" >
-                                    <?php __("Tipo de Micosis")?>
-                                </a>  
+                                <ul>
+                                    <li>
+                                        <a id="est_mic_pac" href="javascript:void(0)" >
+                                            <?php __("Tipo de Micosis")?>
+                                        </a>
+                                    </li>
+                                </ul>  
                             </td>
                         </tr>
                     </table>                             

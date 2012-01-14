@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <script type="text/javascript">               
     jQuery(function()
         {
@@ -32,13 +33,18 @@
                 </a>
             </h3>
             <div style="">                              
-                <div style="height: 80px;text-align: left;">
+                <!--div style="height: 80px;text-align: left;"-->
+                <div class="contenedor">
                     <table border="0" width="100%">
                         <tr>
                             <td> 
-                                <a id="med_con_pac" href="javascript:void(0)" >
-                                    <?php __("Configurar Paciente")?>
-                                </a> 
+                                <ul>
+                                    <li>
+                                        <a id="med_con_pac" href="javascript:void(0)" >
+                                            <?php __("Configurar Paciente")?>
+                                        </a>
+                                    </li>
+                                </ul> 
                             </td>
                         </tr>
                     </table>                                                    
