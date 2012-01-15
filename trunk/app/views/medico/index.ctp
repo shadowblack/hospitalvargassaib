@@ -69,7 +69,7 @@
                             <div class="dock-container">
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/registrar");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" />
-                                        <!--span style="padding-left: 15px;"-->
+                                        <!-- span style="padding-left: 15px;"-->
                                             <!--?php print __('Configurar', true); ?-->
                                         <!--/span-->
                                 </a>                                

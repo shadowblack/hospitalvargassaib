@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
+<link  rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <script type="text/javascript">               
     jQuery(function()
         {
