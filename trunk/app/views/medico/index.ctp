@@ -76,28 +76,28 @@
                                 
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/reporte");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" />
-                                        <!--span style="padding-left: 40px;"-->
+                                        <!-- span style="padding-left: 40px;"-->
                                             <!--?php print __('Reporte', true); ?-->
                                         <!--/span-->
                                 </a>
                                  
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/estadistica");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" />
-                                        <!--span style="padding-left: 60px;"-->
+                                        <!-- span style="padding-left: 60px;"-->
                                             <!--?php print __('Estadisticas', true); ?-->
                                         <!--/span-->
                                 </a>
                                  
                                 <a class="dock-item" href="#">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" />
-                                        <!--span style="padding-left: 80px;">
+                                        <!-- span style="padding-left: 80px;">
                                             Ayuda
                                         </span-->
                                 </a>
                                  
                                 <a class="dock-item" href="<?php echo $this->Html->url("/Medico/salir");?>">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" />
-                                        <!--span style="padding-left: 100px;">
+                                        <!-- span style="padding-left: 100px;">
                                             Salir
                                         </span-->
                                 </a>   
