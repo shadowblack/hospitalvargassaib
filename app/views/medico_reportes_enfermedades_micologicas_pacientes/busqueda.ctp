@@ -65,7 +65,7 @@ FECHA DE CREACIÓN: 24/09/2011
     <div id="tabs">
         <ul>
             <li>
-                <a href="#tabs-1" style="width: 653px;">
+                <a href="#tabs-1" style="width: 680px;">
                    <?php print __('Condiciones de Búsqueda', true); ?>
                 </a>
             </li>            
