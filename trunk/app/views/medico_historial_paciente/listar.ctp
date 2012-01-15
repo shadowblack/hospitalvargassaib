@@ -55,7 +55,7 @@
     <div id="tabs">
             <ul>
                 <li>
-                    <a href="#tabs-1" style="width: 663px;">
+                    <a href="#tabs-1" style="width: 680px;">
                         <?php echo __("Páginas de historias",true)?>
                     </a>
                 </li>            
