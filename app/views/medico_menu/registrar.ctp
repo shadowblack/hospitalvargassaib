@@ -40,7 +40,7 @@
                             <td> 
                                 <ul>
                                     <li>
-                                        <a id="med_con_pac" href="javascript:void(0)" >
+                                        <a id="med_con_pac"  href="javascript:void(0)" >
                                             <?php __("Configurar Paciente")?>
                                         </a>
                                     </li>
