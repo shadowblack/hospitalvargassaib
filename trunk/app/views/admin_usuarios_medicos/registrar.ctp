@@ -117,7 +117,7 @@
                                     <tr>
                                         <td valign="top">
                                             <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
-                                            <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="3" maxlength="8" />
+                                            <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="8" maxlength="8" />
                                         </td>
                                         <td valign="top">
                                              <label for="log_usu_doc"  class="standar_font"><?php echo __("Usuario");?>:</label>
@@ -145,7 +145,7 @@
                                         </td>                                
                                         <td valign="top">    
                                              <label for="tel_usu_doc" class="standar_font"><?php echo __("Teléfono");?>:</label>
-                            			     <input type="text" id="tel_usu_doc" name="tel_usu_doc" class="number required" minlength="7" maxlength="11" />
+                            			     <input type="text" id="tel_usu_doc" name="tel_usu_doc" class="number required" minlength="11" maxlength="11" />
                                         </td>
                                     </tr>
                                     <tr>

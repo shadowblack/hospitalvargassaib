@@ -55,7 +55,7 @@
             }
             
             $this->paginate = array(
-                'limit' => 25,
+                'limit' => 18,
                 'fields' => Array(
                                     "vat.fecha_tran",
                                     "vat.nom_ape_usu",

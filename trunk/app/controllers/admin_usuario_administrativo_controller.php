@@ -54,7 +54,7 @@
             
             switch($result){
                 case 1:
-                    die($this->FormatMessege->BoxStyle($result,"El usuario se a insertado con éxito"));
+                    die($this->FormatMessege->BoxStyle($result,"El usuario se ha insertado con éxito"));
                     break;
                 case 0:
                      die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu_adm\' ya se encuentra registrado en el sistema"));                    
@@ -163,7 +163,7 @@
                         
             switch($result){
                 case 1:
-                    die($this->FormatMessege->BoxStyle($result,"El usuario se a modificado con éxito."));
+                    die($this->FormatMessege->BoxStyle($result,"El usuario se ha modificado con éxito."));
                     break;
                 case 0:
                      die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu_adm\' no se encuentra registrado en el sistema."));                    

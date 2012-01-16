@@ -127,11 +127,11 @@
                                 <tr>
                                     <td>
                                          <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
-                                         <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="3" maxlength="8" value="<?php echo $result->ced_doc?>"/>
+                                         <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="8" maxlength="8" value="<?php echo $result->ced_doc?>"/>
                                     </td>
                                     <td valign="top">
                                          <label for="log_doc"  class="standar_font"><?php echo __("Usuario");?>:</label>
-                        			     <input type="text" id="log_doc" name="log_doc" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_doc?>"/>
+                        			     <input type="text" id="log_doc" name="log_doc" readonly="readonly" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_doc?>"/>
                                     </td>
                                 </tr>  
                                 <tr>
@@ -155,13 +155,13 @@
                                     </td>                                
                                     <td valign="top">    
                                          <label for="tel_doc" class="standar_font"><?php echo __("Teléfono");?>:</label>
-                        			     <input type="text" id="tel_doc" name="tel_doc" class="number required" minlength="7" maxlength="20" value="<?php echo $result->tel_doc?>"/>
+                        			     <input type="text" id="tel_doc" name="tel_doc" class="number required" minlength="11" maxlength="11" value="<?php echo $result->tel_doc?>"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td valign="top">
                                          <label for="cor_usu_doc"  class="standar_font"><?php echo __("Correo");?>:</label>
-                        			     <input type="text" id="cor_usu_doc" name="cor_usu_doc" class="text required" minlength="10" maxlength="100" value="<?php echo $result->cor_doc?>"/>
+                        			     <input type="text" id="cor_usu_doc" name="cor_usu_doc" class="email required" minlength="10" maxlength="100" value="<?php echo $result->cor_doc?>"/>
                                     </td>
                                     <td class="font-standar" valign="top">
                                         <?php echo __("Centro de Salud")?>:
