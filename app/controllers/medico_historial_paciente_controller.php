@@ -1,4 +1,5 @@
 <?php
+    App::import('Sanitize');
     class MedicoHistorialPacienteController extends Controller{
         var $name = "MedicoHistorialPaciente";
         var $uses =         Array("HistorialesPaciente","Paciente");

@@ -3,7 +3,7 @@
         <span class="standar_not_register"><?php echo __("No hay registros para modificar",true)?></span>
     </div>           
 <?php die; } ?>   
-<table border="0" style="margin-left: 10px;margin-top: 5px;">    
+<table border="0" style="margin-left: 10px;" cellspacing="0">    
     <?php foreach($enf_mic as $row):?>
         <tr>
             <td>                

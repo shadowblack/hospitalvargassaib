@@ -19,7 +19,8 @@
             });
             
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_modificar") ?>/"+id_tip_mic_pac,function(){                 
-                    <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_", "#pacientes") ?>;                             
+                    <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_", "#pacientes") ?>;
+                    <?php echo $this->Otros->Script()?>                             
             });    
             
             jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_modificar") ?>/"+id_tip_mic_pac,function(){                 
@@ -65,7 +66,22 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                         }
                     });
                     jQuery("#hdd_str_otr_les").val(_arr_ele.join(","));
-                    //return false;
+                    
+                    /* multiples otros para los tipos de estudios micologicos*/
+                    _arr_ele    = [];
+                    _str        = "";
+                    _i = 0;
+                     jQuery("input[name^='txt_tip_est_mic__']").each(function(i,obj){
+                        if (jQuery(this).val() != ""){
+                            _str = jQuery(this).attr("name");                            
+                            var _arr = _str.split("__");
+                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _arr_ele[_i] = _str;                                                        
+                            _i++;
+                        }
+                    });
+                    jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join(","));
+                    
                     <?php echo $this->Event->Update($this->Html->url("event_modificar"),
 "form", "back") ?>                   
                 }
@@ -108,7 +124,8 @@ echo $this->element("dialog", array("T_V_TYPE" => 1));
         </ul>
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" > 
-            <input type="hidden" id="hdd_str_otr_les" name="hdd_str_otr_les" value="" >            
+            <input type="hidden" id="hdd_str_otr_les" name="hdd_str_otr_les" value="" >
+            <input type="hidden" id="hdd_str_otr_est_mic" name="hdd_str_otr_est_mic" value="" >            
             <div id="tabs-1" style="height: 325px;" class="standar_fieldset_child">                                          
                 <table style="width:540px;margin-top: 5px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>

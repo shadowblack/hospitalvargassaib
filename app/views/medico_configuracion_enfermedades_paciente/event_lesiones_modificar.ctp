@@ -3,12 +3,7 @@
         <span class="standar_not_register"><?php echo __("Esta enfermedad no posee categorías",true)?></span>
     </div>           
 <?php die; } ?>  
-<table style="margin-left: 20px;margin-top: 5px;">
-    <tr>
-        <td class="standar_font_sub" colspan="2">
-            <?php __("Lesiones")?>
-        </td>
-    </tr>
+<table style="margin-left: 20px;margin-top: 5px;" cellspacing="0">    
     <?php
         foreach($les_cat as $row){
             ?>

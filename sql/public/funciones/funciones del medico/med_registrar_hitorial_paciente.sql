@@ -42,13 +42,15 @@ BEGIN
 		id_pac,	
 		des_his, 	
 		des_adi_pac_his,		
-		id_doc		
+		pag_his,
+		id_doc	
 	)
 	VALUES 
 	(
 		_id_pac,	
 		_des_his, 	
 		_des_adi_pac_his,		
+		(SELECT COUNT(id_his) FROM historiales_pacientes WHERE id_pac = _id_pac)+1,
 		_id_doc
 	);	
 

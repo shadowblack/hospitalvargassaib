@@ -22,10 +22,13 @@ DECLARE
 	_str_otr_for_inf	forma_infecciones__pacientes.otr_for_inf%TYPE;
 
 	-- variables para trabajar con otros
-	_str_data_otr		TEXT;
-	_arr_str_data_otr	TEXT[];
-	_arr_str_data_otr_elm	TEXT[];
-	_bol_otr		BOOLEAN DEFAULT FALSE;
+	_str_data_otr			TEXT;
+	_str_data_otr_est		TEXT; --estudios
+	_arr_str_data_otr		TEXT[];
+	_arr_str_data_otr_est		TEXT[];
+	_arr_str_data_otr_elm		TEXT[];
+	_arr_str_data_otr_elm_est	TEXT[];
+	_bol_otr			BOOLEAN DEFAULT FALSE;
 	
 	-- cadena para manipular el array
 	_str		TEXT;
@@ -54,7 +57,8 @@ BEGIN
 	_id_otr_for_inf		:= _datos[9];
 	_str_otr_for_inf	:= _datos[10];
 	
-	_id_doc			:= _datos[11];	
+	_str_data_otr_est	:= _datos[11];
+	_id_doc			:= _datos[12];	
 		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
@@ -139,19 +143,40 @@ BEGIN
 		END LOOP;
 	END IF;
 
-	-- enfermedades del paciente
+	-- estudios micologicos
 	DELETE FROM tipos_micosis_pacientes__tipos_estudios_micologicos WHERE id_tip_mic_pac = _id_tip_mic_pac;
 
 	_arr_1 := STRING_TO_ARRAY(_str_tip_est_mic,',');
 	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
-			INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
-				id_tip_mic_pac,
-				id_tip_est_mic					
-			) VALUES (
-				_id_tip_mic_pac,
-				_arr_1[i]
-			);
+			_bol_otr := TRUE;
+			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,',');
+			<<for_estudios>>
+			FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
+				_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
+				IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
+					_bol_otr := FALSE;
+					INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+						id_tip_mic_pac,
+						id_tip_est_mic,
+						otr_tip_est_mic
+					) VALUES (
+						_id_tip_mic_pac,
+						_arr_1[i],
+						_arr_str_data_otr_elm_est[2]
+					);
+					EXIT for_estudios;
+				END IF;
+			END LOOP;
+			IF (_bol_otr)THEN
+				INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+					id_tip_mic_pac,
+					id_tip_est_mic					
+				) VALUES (
+					_id_tip_mic_pac,
+					_arr_1[i]
+				);
+			END IF;
 		END LOOP;
 	END IF;
 
@@ -221,8 +246,9 @@ EJEMPLO DE LLAMADA:
 		''18'', 
 		''22;1;uno,22;2;dos,23;3;tres,23;4;cuatro'', 
 		''-1'', 
-		'''', 
-		''32'' 
+		'''',
+		''63,demostracion'',
+		''32''
 	] ) AS result
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 15/08/2011
