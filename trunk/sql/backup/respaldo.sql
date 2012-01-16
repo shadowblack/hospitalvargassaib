@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2012-01-16 00:45:58
+-- Started on 2012-01-16 00:53:27
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -8171,6 +8171,9 @@ INSERT INTO wwwsqldesigner (keyword, xmldata, dt) VALUES ('saib', '<?xml version
 <row name="fec_his" null="1" autoincrement="0">
 <datatype>TIMESTAMP WITH TIME ZONE</datatype>
 <default>''now()''</default></row>
+<row name="pag_his" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="CHECK" name="17105_17204_1_not_null">
 </key>
 <key type="CHECK" name="17105_17204_2_not_null">
@@ -10766,7 +10769,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2012-01-16 00:45:59
+-- Completed on 2012-01-16 00:53:28
 
 --
 -- PostgreSQL database dump complete
