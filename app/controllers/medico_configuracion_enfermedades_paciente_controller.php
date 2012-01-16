@@ -73,8 +73,7 @@
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
                                                                                                                
-            $sql = "SELECT tm.id_tip_mic, tm.nom_tip_mic FROM tipos_micosis tm
-JOIN tipos_micosis_pacientes tmp ON (tm.id_tip_mic <> tmp.id_tip_mic AND tmp.id_his = $id_his)";                                    
+            $sql = "SELECT tm.id_tip_mic, tm.nom_tip_mic FROM tipos_micosis tm WHERE tm.id_tip_mic NOT IN(SELECT tm.id_tip_mic FROM tipos_micosis tm JOIN tipos_micosis_pacientes tmp ON (tm.id_tip_mic = tmp.id_tip_mic AND tmp.id_his = $id_his))";                                    
             $arr_query = ($this->HistorialesPaciente->query($sql));
             $tipos_micosis = ($this->SqlData->array_to_objects($arr_query)); 
                                                                         
