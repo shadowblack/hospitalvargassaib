@@ -5,7 +5,7 @@
     echo $this->Html->script("jquery/jquery-window-5.03/jquery.window.js");          
  ?> 
 
- <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/> 
+ <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/js/men_mac/style.css"?>"/>  
 		<script type="text/javascript">
 			jQuery(function(){			     
                 

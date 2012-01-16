@@ -100,7 +100,7 @@
                                     <tr>
                                         <td valign="top">
                                              <label for="log_usu_adm"  class="standar_font"><?php echo __("Usuario");?>:</label>
-                            			     <input type="text" id="log_usu_adm" name="log_usu_adm" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_usu_adm?>"/>
+                            			     <input type="text" id="log_usu_adm" name="log_usu_adm" readonly="readonly" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_usu_adm?>"/>
                                         </td>
                                         <td valign="top">    
                                              <label for="tel_usu_adm" class="standar_font"><?php echo __("Teléfono");?>:</label>
