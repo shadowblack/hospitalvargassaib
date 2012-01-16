@@ -1,4 +1,5 @@
 <?php
+    App::import('Sanitize');
     class MedicoConfiguracionPacienteController extends Controller{
         var $name = "MedicoConfiguracionPaciente";
         var $uses =         Array("Doctore","Paciente","AntecedentesPersonale","AntecedentesPaciente");
@@ -76,7 +77,7 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
                                                                                                                
             $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
-            $arr_query = ($this->Doctore->query($sql));
+            $arr_query = ($this->Doctore->query($sql,"hola"));
             $estados = ($this->SqlData->array_to_objects($arr_query));              
             $ante_pers             = $this->SqlData->CakeArrayToObjects($this->AntecedentesPersonale->find("all"));
             $title = __("Registro de paciente",true);
@@ -186,7 +187,7 @@
         * Registrando usuarios pacientes
         */
         function event_registrar(){   
-                       
+            $_POST          = Sanitize::clean($_POST);          
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $nom_pac        = $_POST["txt_nom_pac"];
             $ape_pac        = $_POST["txt_ape_pac"];

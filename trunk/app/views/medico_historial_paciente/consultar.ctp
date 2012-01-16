@@ -35,7 +35,7 @@
                     </tr>               
                     <tr>
                         <td valign="top" align="left">                              
-                            <span class="standar_font"><?php echo $this->FormatString->NumbersZero($result->HistorialesPaciente->id_his,6)?></span>
+                            <span class="standar_font"><?php echo $this->FormatString->NumbersZero($result->HistorialesPaciente->pag_his,6)?></span>
                         </td>
                         <td>
                             &nbsp;

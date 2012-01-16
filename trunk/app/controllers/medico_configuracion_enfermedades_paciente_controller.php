@@ -73,7 +73,8 @@
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
                                                                                                                
-            $sql = "SELECT id_tip_mic, nom_tip_mic FROM tipos_micosis";                                    
+            $sql = "SELECT tm.id_tip_mic, tm.nom_tip_mic FROM tipos_micosis tm
+JOIN tipos_micosis_pacientes tmp ON (tm.id_tip_mic <> tmp.id_tip_mic AND tmp.id_his = $id_his)";                                    
             $arr_query = ($this->HistorialesPaciente->query($sql));
             $tipos_micosis = ($this->SqlData->array_to_objects($arr_query)); 
                                                                         
@@ -253,14 +254,14 @@
             
             // estudios micologicos          
             $sql = "
-                SELECT nom_tip_est_mic, nom_tip_exa 
+                SELECT nom_tip_est_mic, nom_tip_exa, te.id_tip_exa,otr_tip_est_mic
                 FROM tipos_micosis_pacientes tmp
                 JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
                 JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
-                ORDER BY nom_tip_exa                
+                ORDER BY nom_tip_exa DESC              
             ";
             $estudios_micologicos = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
                 $sql
@@ -355,9 +356,10 @@
             } else {
                 $txt_otr_for_inf    =   "";
                 $id_hdd_otr_for_inf =   -1;
-            }
+            }                        
             
             $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];
+            $hdd_str_otr_est_mic    =   $_POST["hdd_str_otr_est_mic"];
                                    
             $id_doc         = $this->Session->read("medico.id_usu");
                 
@@ -376,7 +378,7 @@
                         $txt_otr_for_inf,
                         
                         $hdd_str_otr_les,
-                                        
+                        $hdd_str_otr_est_mic,
                         $id_doc
             );
                       
@@ -430,7 +432,8 @@
                 $id_hdd_otr_for_inf =   -1;
             }
             
-            $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];      
+            $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];
+            $hdd_str_otr_est_mic    =   $_POST["hdd_str_otr_est_mic"];      
                               
             $id_doc                 = $this->Session->read("medico.id_usu");
             
@@ -449,6 +452,8 @@
                 
                 $id_hdd_otr_for_inf,
                 $txt_otr_for_inf,
+                
+                $hdd_str_otr_est_mic,
                 
                 $id_doc
             );
@@ -552,11 +557,11 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
             
             $sql_enf = 
-                "SELECT tem.id_tip_est_mic,tem.nom_tip_est_mic, nom_tip_exa  
+                "SELECT tem.id_tip_est_mic,tem.nom_tip_est_mic, nom_tip_exa, te.id_tip_exa  
                 FROM tipos_estudios_micologicos tem 
                 JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
-                WHERE id_tip_mic = $id_tip_mic";
-                                            
+                WHERE id_tip_mic = $id_tip_mic ORDER BY nom_tip_exa DESC";
+            //debug($sql_enf);                                            
             $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    
             $title = __("Estudios Micológicos",true);
             
@@ -574,13 +579,16 @@
             
             $sql_enf = 
                 "
-                SELECT tem.id_tip_est_mic, tem.nom_tip_est_mic, nom_tip_exa, tmptem.id_tip_mic_pac,te.nom_tip_exa,te.id_tip_exa
+                SELECT tem.id_tip_est_mic, tem.nom_tip_est_mic, 
+                nom_tip_exa, tmptem.id_tip_mic_pac,te.nom_tip_exa,te.id_tip_exa,
+                tmptem.otr_tip_est_mic
                 FROM tipos_micosis_pacientes tmp
                 JOIN tipos_micosis tm ON (tmp.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
                 LEFT JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)                
                 JOIN tipos_examenes te ON (te.id_tip_exa = tem.id_tip_exa)
-                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac 
+                ORDER BY te.nom_tip_exa DESC
                 ";
                                             
             $estudios = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql_enf)));                                                    

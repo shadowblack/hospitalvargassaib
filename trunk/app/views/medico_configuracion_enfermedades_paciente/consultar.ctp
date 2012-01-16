@@ -97,19 +97,22 @@
                         <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
                     </div>            
                 <?php  } else { ?>
-                <table border="0" align="center" style="width: 550px;" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td class="lista_fondo">
-                            <?php __("Estudios")?>
-                        </td>
-                        <td class="lista_fondo">
-                            <?php __("Tipo de Examen")?>
-                        </td>                                             
-                    </tr>
-                    <?php foreach($est_mic as $row):?>                    
+                <table border="0" align="center" style="width: 550px;" cellpadding="0" cellspacing="0">                    
+                    <?php
+                        $id_tip_exa = "";  
+                        foreach($est_mic as $row):                               
+                            if ($id_tip_exa <> $row->id_tip_exa){
+                                $id_tip_exa = $row->id_tip_exa;                
+                            ?>
+                            <tr>                               
+                                <td class="standar_font_sub lista_fondo" >
+                                    <?php __("Estudios para (".$row->nom_tip_exa.")")?>
+                                </td>                   
+                            </tr>   
+                    <?php } ?> 
+                                           
                         <tr>
-                            <td class="standar_font"><?php echo $row->nom_tip_est_mic?></td>
-                            <td class="standar_font"><?php echo $row->nom_tip_exa?></td>                                                        
+                            <td class="standar_font"><?php echo (strtoupper($row->nom_tip_est_mic) == "OTROS" ? $row->nom_tip_est_mic." (".$row->otr_tip_est_mic.")" : $row->nom_tip_est_mic)?></td>                                         
                         </tr>
                     <?php endforeach;?>
                 </table> 

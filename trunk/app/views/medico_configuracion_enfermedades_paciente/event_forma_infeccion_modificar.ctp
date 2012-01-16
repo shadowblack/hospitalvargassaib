@@ -3,7 +3,7 @@
         <span class="standar_not_register"><?php echo __("Esta enfermedad no contiene formas de infección asociadas",true)?></span>
     </div>            
 <?php die; } ?>   
-<table border="0" style="margin-left: 10px;margin-top: 5px;"> 
+<table border="0" style="margin-left: 10px;margin-top: 5px;" cellspacing="0"> 
     <tr>
         <td>
             &nbsp;
