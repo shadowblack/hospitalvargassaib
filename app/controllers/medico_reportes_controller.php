@@ -45,6 +45,11 @@
         
         function event_listar(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            if (count($_POST) > 0){
+                $this->Session->write("medico.paginacion",$_POST);
+            } else {
+                $_POST = $this->Session->read("medico.paginacion");         
+            }           
             
             $ids_usu =  $_POST["id_usuarios"];
             $ids_tra = $_POST["id_transacc"];
@@ -80,7 +85,7 @@
                     "CAST(vat.fecha_tran AS DATE) >=" => "$fec_ini",
                     "CAST(vat.fecha_tran AS DATE) <=" => "$fec_fin"
                 ),
-                "order" => "CAST(vat.fecha_tran AS DATE) DESC" 
+                "order" => "CAST(vat.fecha_tran AS DATE) DESC"
             ); 
    
             $arr_query = $this->paginate("Transaccione");

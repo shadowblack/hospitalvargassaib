@@ -101,17 +101,17 @@ BEGIN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i] ,'(',''),')',''),';');
-
-			<<mifor>>
-			FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
-				_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],';');
-				IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
-					_str_data_otr := _arr_str_data_otr_elm[3];					
-					_bol_otr := TRUE;
-					EXIT mifor;
-				END IF;
-			END LOOP mifor;
-			
+			IF (_arr_str_data_otr IS NOT NULL)THEN
+				<<mifor>>
+				FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
+					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],';');
+					IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
+						_str_data_otr := _arr_str_data_otr_elm[3];					
+						_bol_otr := TRUE;
+						EXIT mifor;
+					END IF;
+				END LOOP mifor;
+			END IF;
 			--coloca los comentarios de los otros en lesiones
 			IF _bol_otr THEN
 
@@ -151,23 +151,25 @@ BEGIN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
 			_bol_otr := TRUE;
 			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,',');
-			<<for_estudios>>
-			FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
-				_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
-				IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
-					_bol_otr := FALSE;
-					INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
-						id_tip_mic_pac,
-						id_tip_est_mic,
-						otr_tip_est_mic
-					) VALUES (
-						_id_tip_mic_pac,
-						_arr_1[i],
-						_arr_str_data_otr_elm_est[2]
-					);
-					EXIT for_estudios;
-				END IF;
-			END LOOP;
+			IF (_arr_str_data_otr_est IS NOT NULL)THEN
+				<<for_estudios>>
+				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
+					_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
+					IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
+						_bol_otr := FALSE;
+						INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+							id_tip_mic_pac,
+							id_tip_est_mic,
+							otr_tip_est_mic
+						) VALUES (
+							_id_tip_mic_pac,
+							_arr_1[i],
+							_arr_str_data_otr_elm_est[2]
+						);
+						EXIT for_estudios;
+					END IF;
+				END LOOP;
+			END IF;
 			IF (_bol_otr)THEN
 				INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
 					id_tip_mic_pac,
