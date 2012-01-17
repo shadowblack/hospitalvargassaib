@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2012-01-16 00:53:27
+-- Started on 2012-01-16 21:34:51
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -391,7 +391,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 --
 -- TOC entry 22 (class 1255 OID 28368)
--- Dependencies: 7 476
+-- Dependencies: 476 7
 -- Name: adm_modificar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -652,7 +652,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 --
 -- TOC entry 25 (class 1255 OID 28370)
--- Dependencies: 7 476
+-- Dependencies: 476 7
 -- Name: adm_registrar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1178,7 +1178,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 38 (class 1255 OID 28376)
--- Dependencies: 7 476
+-- Dependencies: 476 7
 -- Name: med_insertar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1295,22 +1295,23 @@ BEGIN
 	
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 
-		_arr_str_data_otr = STRING_TO_ARRAY(_str_data_otr,',');	
-		
-	
+		_arr_str_data_otr = STRING_TO_ARRAY(_str_data_otr,',');			
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i],'(',''),')',''),';');
-
-			<<mifor>>
-			FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
-				_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[j],';');
-				IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
-					_str_data_otr := _arr_str_data_otr_elm[3];					
-					_bol_otr := TRUE;
-					EXIT mifor;
-				END IF;
-			END LOOP mifor;
+			
+			IF (_arr_str_data_otr IS NOT NULL)THEN
+				<<mifor>>
+				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
+				
+					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[j],';');
+					IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
+						_str_data_otr := _arr_str_data_otr_elm[3];					
+						_bol_otr := TRUE;
+						EXIT mifor;
+					END IF;
+				END LOOP mifor;
+			END IF;
 
 			--coloca los comentarios de los otros en lesiones
 			IF _bol_otr THEN
@@ -1347,23 +1348,25 @@ BEGIN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
 			_bol_otr := TRUE;
 			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,',');
-			<<for_estudios>>
-			FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
-				_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
-				IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
-					_bol_otr := FALSE;
-					INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
-						id_tip_mic_pac,
-						id_tip_est_mic,
-						otr_tip_est_mic
-					) VALUES (
-						_id_tip_mic_pac,
-						_arr_1[i],
-						_arr_str_data_otr_elm_est[2]
-					);
-					EXIT for_estudios;
-				END IF;
-			END LOOP;
+			IF (_arr_str_data_otr_est IS NOT NULL)THEN
+				<<for_estudios>>
+				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
+					_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
+					IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
+						_bol_otr := FALSE;
+						INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+							id_tip_mic_pac,
+							id_tip_est_mic,
+							otr_tip_est_mic
+						) VALUES (
+							_id_tip_mic_pac,
+							_arr_1[i],
+							_arr_str_data_otr_elm_est[2]
+						);
+						EXIT for_estudios;
+					END IF;
+				END LOOP;
+			END IF;
 			IF (_bol_otr)THEN
 				INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
 					id_tip_mic_pac,
@@ -1703,17 +1706,17 @@ BEGIN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i] ,'(',''),')',''),';');
-
-			<<mifor>>
-			FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
-				_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],';');
-				IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
-					_str_data_otr := _arr_str_data_otr_elm[3];					
-					_bol_otr := TRUE;
-					EXIT mifor;
-				END IF;
-			END LOOP mifor;
-			
+			IF (_arr_str_data_otr IS NOT NULL)THEN
+				<<mifor>>
+				FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
+					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],';');
+					IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
+						_str_data_otr := _arr_str_data_otr_elm[3];					
+						_bol_otr := TRUE;
+						EXIT mifor;
+					END IF;
+				END LOOP mifor;
+			END IF;
 			--coloca los comentarios de los otros en lesiones
 			IF _bol_otr THEN
 
@@ -1753,23 +1756,25 @@ BEGIN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
 			_bol_otr := TRUE;
 			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,',');
-			<<for_estudios>>
-			FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
-				_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
-				IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
-					_bol_otr := FALSE;
-					INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
-						id_tip_mic_pac,
-						id_tip_est_mic,
-						otr_tip_est_mic
-					) VALUES (
-						_id_tip_mic_pac,
-						_arr_1[i],
-						_arr_str_data_otr_elm_est[2]
-					);
-					EXIT for_estudios;
-				END IF;
-			END LOOP;
+			IF (_arr_str_data_otr_est IS NOT NULL)THEN
+				<<for_estudios>>
+				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
+					_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
+					IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
+						_bol_otr := FALSE;
+						INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
+							id_tip_mic_pac,
+							id_tip_est_mic,
+							otr_tip_est_mic
+						) VALUES (
+							_id_tip_mic_pac,
+							_arr_1[i],
+							_arr_str_data_otr_elm_est[2]
+						);
+						EXIT for_estudios;
+					END IF;
+				END LOOP;
+			END IF;
 			IF (_bol_otr)THEN
 				INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
 					id_tip_mic_pac,
@@ -3536,7 +3541,7 @@ ALTER SEQUENCE antecedentes_pacientes_id_ant_pac_seq OWNED BY antecedentes_pacie
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 56, true);
+SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 89, true);
 
 
 --
@@ -3653,7 +3658,7 @@ ALTER SEQUENCE auditoria_transacciones_id_aud_tra_seq OWNED BY auditoria_transac
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 77, true);
+SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 104, true);
 
 
 --
@@ -3853,7 +3858,7 @@ ALTER SEQUENCE centro_salud_doctores_id_cen_sal_doc_seq OWNED BY centro_salud_do
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('centro_salud_doctores_id_cen_sal_doc_seq', 11, true);
+SELECT pg_catalog.setval('centro_salud_doctores_id_cen_sal_doc_seq', 15, true);
 
 
 SET default_tablespace = saib;
@@ -4140,7 +4145,7 @@ ALTER SEQUENCE doctores_id_doc_seq OWNED BY doctores.id_doc;
 -- Name: doctores_id_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('doctores_id_doc_seq', 34, true);
+SELECT pg_catalog.setval('doctores_id_doc_seq', 35, true);
 
 
 --
@@ -4240,7 +4245,7 @@ ALTER SEQUENCE enfermedades_pacientes_id_enf_pac_seq OWNED BY enfermedades_pacie
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 376, true);
+SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 422, true);
 
 
 SET default_tablespace = '';
@@ -4357,7 +4362,7 @@ ALTER SEQUENCE forma_infecciones__pacientes_id_for_pac_seq OWNED BY forma_infecc
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 55, true);
+SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 60, true);
 
 
 --
@@ -4513,7 +4518,7 @@ ALTER SEQUENCE historiales_pacientes_id_his_seq OWNED BY historiales_pacientes.i
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 21, true);
+SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 22, true);
 
 
 SET default_tablespace = '';
@@ -4668,7 +4673,7 @@ ALTER SEQUENCE lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq OWNED B
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 317, true);
+SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 323, true);
 
 
 --
@@ -5117,7 +5122,7 @@ ALTER SEQUENCE pacientes_id_pac_seq OWNED BY pacientes.id_pac;
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('pacientes_id_pac_seq', 38, true);
+SELECT pg_catalog.setval('pacientes_id_pac_seq', 55, true);
 
 
 SET default_tablespace = '';
@@ -5376,7 +5381,7 @@ ALTER SEQUENCE tiempo_evoluciones_id_tie_evo_seq OWNED BY tiempo_evoluciones.id_
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 7, true);
+SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 8, true);
 
 
 SET default_tablespace = saib;
@@ -5747,7 +5752,7 @@ ALTER SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq O
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 83, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 87, true);
 
 
 --
@@ -5781,7 +5786,7 @@ ALTER SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq OWNED BY tipos_micosis
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 82, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 105, true);
 
 
 SET default_tablespace = saib;
@@ -5848,7 +5853,7 @@ ALTER SEQUENCE tipos_usuarios__usuarios_id_tip_usu_usu_seq OWNED BY tipos_usuari
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 52, true);
+SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 54, true);
 
 
 --
@@ -5981,7 +5986,7 @@ ALTER SEQUENCE transacciones_usuarios_id_tra_usu_seq OWNED BY transacciones_usua
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 116, true);
+SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 161, true);
 
 
 --
@@ -6190,7 +6195,7 @@ ALTER SEQUENCE usuarios_administrativos_id_usu_adm_seq OWNED BY usuarios_adminis
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 23, true);
+SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 24, true);
 
 
 --
@@ -6671,19 +6676,36 @@ INSERT INTO animales (id_ani, nom_ani) VALUES (5, 'Otros');
 -- Data for Name: antecedentes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (18, 2, 27);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (19, 3, 27);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (25, 1, 13);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (35, 2, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (36, 3, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (37, 4, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (38, 9, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (39, 11, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (40, 12, 7);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (41, 5, 29);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (42, 10, 29);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (43, 11, 29);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (44, 13, 29);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (60, 2, 41);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (61, 3, 41);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (62, 2, 42);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (63, 3, 42);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (64, 2, 43);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (65, 3, 43);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (66, 2, 44);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (67, 3, 44);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (68, 2, 45);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (69, 3, 45);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (70, 2, 46);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (71, 3, 46);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (72, 2, 47);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (73, 3, 47);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (74, 2, 48);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (75, 3, 48);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (76, 2, 49);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (77, 3, 49);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (78, 2, 50);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (79, 3, 50);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (80, 2, 51);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (81, 3, 51);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (82, 2, 52);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (83, 3, 52);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (84, 2, 53);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (85, 3, 53);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (86, 2, 54);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (87, 3, 54);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (88, 2, 55);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (89, 3, 55);
 
 
 --
@@ -6865,6 +6887,60 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>&#039;</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>asdfasdf</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>101010</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-17</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>101010</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>101010</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Acosta		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>101010</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (77, '2012-01-16 00:44:34.443', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>38</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>&#039;</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>asdfasdf</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>101010</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-17</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>101010</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>101010</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Acosta		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>101010</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (78, '2012-01-16 01:32:29.679', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>7</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17651233</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2011-09-06</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Yaracuy</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Cocorote		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes ,Traumatismo ,Uso Esteroides ,Neoplasias ,Inanición </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (79, '2012-01-16 01:32:33.635', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>13</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Carlos</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Beltran</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>7098456</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1961-05-02</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>0000</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>0000</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Agricultor</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Merida</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Ninguna </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (80, '2012-01-16 01:32:36.788', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>27</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>demo</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>asd</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>1234</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2011-07-27</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>173028555</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (81, '2012-01-16 01:32:39.095', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>12</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Gisela </anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Contreras</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>13456094</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1970-09-25</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Extranjero</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>00000</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>00000</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Agricultor</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Los Teques</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior></anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (82, '2012-01-16 01:32:42.017', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>11</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Jose</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Hernandez</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17123098</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1976-08-21</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>02125682345</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>04141235687</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Distrito Capital</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Libertador Caracas		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Caracas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior></anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (83, '2012-01-16 01:32:45.006', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>14</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Mary</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Wester</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>8752299</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1965-05-02</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>02129874523</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>042691587412</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Otro</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior></anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (84, '2012-01-16 01:32:51.624', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>29</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>pruebaliss</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>pruebaliss</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17651243</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1987-01-10</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>02123617323</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>04269150722</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Miranda</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Plaza		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>guarenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Cirugía ,Embarazo ,Neoplasias ,Otros </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (85, '2012-01-16 02:18:35.698', 44, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Paciente</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Paciente</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>17302857</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>prueba</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-16 02:18:35.698-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (86, '2012-01-16 20:01:13.046', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302801</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622824</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>10101010</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Portuguesa</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Araure		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>gUARENAS</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (87, '2012-01-16 20:02:14.991', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302802</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>17302857</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Amazonas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Alto Orinoco		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Miranda</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (88, '2012-01-16 20:02:20.705', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302803</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>17302857</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Amazonas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Alto Orinoco		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Miranda</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (89, '2012-01-16 20:02:27.046', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>A</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302804</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>17302857</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Amazonas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Alto Orinoco		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Miranda</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (90, '2012-01-16 20:03:21.286', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302854</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (91, '2012-01-16 20:03:31.307', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302805</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (92, '2012-01-16 20:03:35.795', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302806</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (93, '2012-01-16 20:03:42.208', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302807</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (94, '2012-01-16 20:03:48.936', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302808</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (95, '2012-01-16 20:03:53.853', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302809</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (96, '2012-01-16 20:03:58.92', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302810</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (97, '2012-01-16 20:04:02.512', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302811</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (98, '2012-01-16 20:04:05.691', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302812</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (99, '2012-01-16 20:04:10.444', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302813</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (100, '2012-01-16 20:04:14.721', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302814</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (101, '2012-01-16 20:04:18.942', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302815</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (102, '2012-01-16 20:04:23.054', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>B</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>17302816</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-01-16</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>3622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>15930135</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Monagas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aguasay		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>GUrenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (103, '2012-01-16 20:04:41.747', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>39</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302801</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622824</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>10101010</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Portuguesa</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Araure		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>gUARENAS</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (104, '2012-01-16 20:04:44.529', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>40</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302802</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>02123622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>17302857</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Amazonas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Alto Orinoco		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Miranda</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
 
 
 --
@@ -6983,6 +7059,8 @@ INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_s
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (6, 6, 6, NULL);
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (9, 5, 34, NULL);
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (11, 7, 32, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (14, 5, 28, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (15, 12, 35, NULL);
 
 
 --
@@ -6991,9 +7069,6 @@ INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_s
 -- Data for Name: centro_salud_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (122, 17, 5, NULL);
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (123, 17, 4, NULL);
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (124, 17, 9, NULL);
 
 
 --
@@ -7022,7 +7097,6 @@ INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (12, 'Ot
 -- Data for Name: contactos_animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (77, 17, 3, NULL);
 
 
 --
@@ -7033,10 +7107,11 @@ INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (77,
 
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (27, 'SAIB', 'SAIB', NULL, '83422503bcfc01d303030e8a7cc80efc', '3622824', NULL, 'SAIB', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (33, 'Mary', 'Lopez', '8752299', '9f4b04c2eac4a3cfa351aff1564f7995', '54564545646', 'mlopez@gmail.com', 'mlopez', '2011-06-26 01:06:59.641-04:30');
-INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (28, 'Mireya', 'Gonzalez', '17302859', '3e46a122f1961a8ec71f2a369f6d16ee', '04265168824', NULL, 'mgonzalez', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (6, 'Luis', 'Marin', '17302857', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'ninja.aoshi@gmail.com', 'lmarin', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (34, 'Luis', 'Marin', '17302858', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'lrm.prigramador@gmail.com', 'lmarinn', '2011-07-08 15:58:52.908-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (32, 'Lisseth', 'Lozada', '17651233', '3e46a122f1961a8ec71f2a369f6d16ee', '04269150722', 'risusefu15@gmail.com', 'llozada', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (28, 'Mireya', 'Gonzalez', '17302859', 'b107e9a7ba2cd6d9e878c1a1c277554c', '04265168824', 'marmont04@hotmail.com', 'mgonzalez', '2011-06-26 01:06:59.641-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (35, 'Moises', 'Perez', '18403190', 'bbc5d47920c1adc1ab1f4d43a1832282', '04123818120', 'moisevic@hotmail.com', 'Moises', '2012-01-16 10:02:40.54-04:30');
 
 
 --
@@ -7082,17 +7157,6 @@ INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUE
 -- Data for Name: enfermedades_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (268, 19, NULL, NULL, 45);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (269, 20, NULL, NULL, 45);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (270, 21, NULL, NULL, 45);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (369, 1, NULL, NULL, 61);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (370, 5, NULL, NULL, 61);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (371, 6, NULL, NULL, 62);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (372, 2, NULL, NULL, 62);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (373, 1, NULL, NULL, 62);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (374, 29, NULL, NULL, 62);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (375, 9, NULL, NULL, 62);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (376, 18, 'kjkjkljkljkljlkj', NULL, 62);
 
 
 --
@@ -7153,11 +7217,6 @@ INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (12, 'Otros');
 -- Data for Name: forma_infecciones__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (36, 1, NULL, 45);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (37, 2, NULL, 45);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (38, 3, NULL, 45);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (39, 4, NULL, 45);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (40, 5, NULL, 45);
 
 
 --
@@ -7186,11 +7245,7 @@ INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id
 -- Data for Name: historiales_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (15, 13, 'demo', 6, '', '2011-07-13 14:01:14.823-04:30', 0);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (17, 14, 'Enfermedad prueba', 6, 'Enfermedad prueba', '2011-11-16 16:19:51.588-04:30', 0);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (19, 12, 'prototypo', 6, 'Prototypo', '2011-11-16 16:29:11.01-04:30', 0);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (20, 29, 'hdjsfhjhdfjh', 32, 'dhfksdhfjkhsdjkfhjk', '2012-01-12 11:09:50.576-04:30', 0);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (21, 7, 'demostracion', 6, '', '2012-01-15 22:29:29.013-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (22, 16, 'prueba', 28, 'prueba', '2012-01-16 02:18:35.698-04:30', 1);
 
 
 --
@@ -7278,14 +7333,6 @@ INSERT INTO lesiones (id_les, nom_les) VALUES (71, 'Otros');
 -- Data for Name: lesiones_partes_cuerpos__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (198, NULL, 2, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (199, NULL, 3, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (200, NULL, 4, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (201, NULL, 5, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (202, NULL, 6, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (203, NULL, 7, 1, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (204, NULL, 2, 4, 44);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (205, NULL, 3, 4, 44);
 
 
 --
@@ -7356,14 +7403,6 @@ INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (19, 'Sangre');
 -- Data for Name: muestras_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (71, 19, 1, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (72, 19, 2, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (73, 19, 3, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (74, 19, 4, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (75, 19, 5, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (76, 19, 6, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (77, 19, 10, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (78, 19, 11, NULL);
 
 
 --
@@ -7715,14 +7754,22 @@ INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (335, '	Valmore Rodrígu
 -- Data for Name: pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (11, 'Hernandez', 'Jose', '17123098', '1976-08-21', '1', '02125682345', '04141235687', '1', 'Caracas', 1, 1, 1, NULL, 4, 27, '2011-06-11 20:03:33.627-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (12, 'Contreras', 'Gisela ', '13456094', '1970-09-25', '2', '00000', '00000', '4', 'Los Teques', 1, 1, 196, NULL, 5, 27, '2011-06-11 20:20:43.702-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (13, 'Beltran', 'Carlos', '7098456', '1961-05-02', '1', '0000', '0000', '4', 'Merida', 1, 1, 1, NULL, 6, 27, '2011-06-11 20:35:37.372-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (14, 'Wester', 'Mary', '8752299', '1965-05-02', '1', '02129874523', '042691587412', '6', 'Guarenas', 1, 1, 193, NULL, 7, 27, '2011-06-11 22:08:34.736-04:30', 'F');
 INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (16, 'Paciente', 'Paciente', '17302857', '2011-07-09', '1', '3622824', '17302857', '1', 'Guarenas', 1, 1, 69, NULL, 6, 6, '2011-07-08 18:14:22.448-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (27, 'asd', 'demo', '1234', '2011-07-27', '1', '3622222', '173028555', '1', 'Guarenas', 1, 1, 1, NULL, 7, 6, '2011-07-27 21:12:19.655-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (7, 'Lozada', 'Adriana', '17651233', '2011-09-06', '1', '3622824', '04265168824', '2', 'Guarenas', 1, 23, 304, NULL, 1, 6, '2011-06-11 20:03:33.627-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (29, 'pruebaliss', 'pruebaliss', '17651243', '1987-01-10', '1', '02123617323', '04269150722', '1', 'guarenas', 1, 14, 193, NULL, 8, 32, '2012-01-12 11:09:26.45-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (41, 'A', 'A', '17302803', '2012-01-16', '1', '02123622222', '17302857', '1', 'Miranda', 1, 25, 2, NULL, 4, 6, '2012-01-16 20:02:20.705-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (42, 'A', 'A', '17302804', '2012-01-16', '1', '02123622222', '17302857', '1', 'Miranda', 1, 25, 2, NULL, 5, 6, '2012-01-16 20:02:27.046-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (43, 'B', 'B', '17302854', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 6, 6, '2012-01-16 20:03:21.286-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (44, 'B', 'B', '17302805', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 7, 6, '2012-01-16 20:03:31.307-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (45, 'B', 'B', '17302806', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 8, 6, '2012-01-16 20:03:35.795-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (46, 'B', 'B', '17302807', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 9, 6, '2012-01-16 20:03:42.208-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (47, 'B', 'B', '17302808', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 10, 6, '2012-01-16 20:03:48.936-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (48, 'B', 'B', '17302809', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 11, 6, '2012-01-16 20:03:53.853-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (49, 'B', 'B', '17302810', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 12, 6, '2012-01-16 20:03:58.92-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (50, 'B', 'B', '17302811', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 13, 6, '2012-01-16 20:04:02.512-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (51, 'B', 'B', '17302812', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 14, 6, '2012-01-16 20:04:05.691-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (52, 'B', 'B', '17302813', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 15, 6, '2012-01-16 20:04:10.444-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (53, 'B', 'B', '17302814', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 16, 6, '2012-01-16 20:04:14.721-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (54, 'B', 'B', '17302815', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 17, 6, '2012-01-16 20:04:18.942-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (55, 'B', 'B', '17302816', '2012-01-16', '1', '3622222', '15930135', '1', 'GUrenas', 1, 15, 199, NULL, 18, 6, '2012-01-16 20:04:23.054-04:30', 'F');
 
 
 --
@@ -7786,10 +7833,7 @@ INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, 
 -- Data for Name: tiempo_evoluciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (5, 19, 0);
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (3, 17, 1600);
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (6, 20, 0);
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (7, 21, 0);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (8, 22, 0);
 
 
 --
@@ -7815,9 +7859,6 @@ INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (9, 'Otros');
 -- Data for Name: tipos_consultas_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (110, 1, 17, NULL);
-INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (111, 5, 17, NULL);
-INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (112, 2, 17, NULL);
 
 
 --
@@ -7919,10 +7960,7 @@ INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (2, 'Subcutaneas');
 -- Data for Name: tipos_micosis_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (44, 1, 17);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (45, 2, 19);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (61, 1, 15);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (62, 1, 20);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (105, 1, 22);
 
 
 --
@@ -7931,9 +7969,6 @@ INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES 
 -- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (34, 44, 1, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (35, 44, 2, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (36, 44, 3, NULL);
 
 
 --
@@ -7962,6 +7997,8 @@ INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (50, 33, NULL, 2);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (51, 34, NULL, 2);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (52, NULL, 23, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (53, NULL, 24, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (54, 35, NULL, 2);
 
 
 --
@@ -8009,10 +8046,29 @@ INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALU
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 49, 114);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 49, 115);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 49, 116);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 44, 64);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 44, 65);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 44, 66);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 44, 67);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 44, 139);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 44, 140);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 44, 141);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 44, 142);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (10, 44, 143);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (11, 44, 144);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (12, 44, 145);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (13, 44, 146);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 44, 147);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 44, 148);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 44, 149);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 54, 150);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 54, 151);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 54, 152);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 54, 153);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (9, 54, 154);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (10, 54, 155);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (11, 54, 156);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (12, 54, 157);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (13, 54, 158);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 54, 159);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 54, 160);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 54, 161);
 
 
 --
@@ -8039,10 +8095,6 @@ INSERT INTO tratamientos (id_tra, nom_tra) VALUES (10, 'Otros');
 -- Data for Name: tratamientos_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (156, 17, 7, NULL);
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (157, 17, 6, NULL);
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (158, 17, 10, NULL);
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (159, 17, 8, NULL);
 
 
 --
@@ -8051,10 +8103,11 @@ INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES 
 -- Data for Name: usuarios_administrativos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (17, 'SAIB', 'SAIB', 'fcc8c0a57ab902388613f2782eae3dd6', 'SAIB', '04162102903', '2011-06-04 14:24:44.315', true);
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (21, 'Luis', 'Marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin', '04265168824', '2011-06-10 20:02:12.07', true);
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (23, 'lmarin', 'marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin2', '36222222', '2011-07-08 16:10:19.402', true);
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (22, 'Lisseth', 'Lozada', '3e46a122f1961a8ec71f2a369f6d16ee', 'llozada', '04269150722', '2011-06-24 15:22:46.934', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (17, 'SAIB', 'SAIB', 'b107e9a7ba2cd6d9e878c1a1c277554c', 'SAIB', '04162102903', '2011-06-04 14:24:44.315', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (24, 'Moises', 'Perez', 'bbc5d47920c1adc1ab1f4d43a1832282', 'Moises', '04123818120', '2012-01-16 10:01:40.862', true);
 
 
 SET search_path = saib_model, pg_catalog;
@@ -10769,7 +10822,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2012-01-16 00:53:28
+-- Completed on 2012-01-16 21:34:53
 
 --
 -- PostgreSQL database dump complete

@@ -48,7 +48,7 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
              
         jQuery(function() {
                         
-           // jQuery("#tabs-1").css("display","block");
+            jQuery("#tabs").css("display","block");
             jQuery( "#tabs" ).tabs();            
            
             jQuery("#pacientes").validate({                
@@ -99,7 +99,7 @@ echo $this->element("dialog", array("T_V_TYPE" => 1));
 ?>
 
     		
-    <div id="tabs">
+    <div id="tabs" style="display: none;">
         <ul>
             <li>
                 <a href="#tabs-1" >

@@ -15,8 +15,8 @@
             if ($id_cat_cue != $row->id_cat_cue){
     ?>
                 <tr>    
-                    <td class="standar_font_sub">
-                        <div style="margin-left: 10px;">                            
+                    <td class="lista_fondo">
+                        <div class="standar_font_sub standar_list " style="margin-left: 10px;">                         
                             <?php echo $row->nom_cat_cue ?>:
                         </div>
                     </td>
