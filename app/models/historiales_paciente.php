@@ -125,6 +125,8 @@
                 $hdd_str_otr_les,
                 $hdd_str_otr_est_mic,
                 
+                $hdd_str_pos,
+                
                 $id_doc
         ){
         $sql = "SELECT med_insertar_micosis_pacientes(ARRAY[
@@ -143,6 +145,8 @@
                 
                 '$hdd_str_otr_les',
                 '$hdd_str_otr_est_mic',
+                
+                '$hdd_str_pos',
                 
                 '$id_doc'                              
                 ]

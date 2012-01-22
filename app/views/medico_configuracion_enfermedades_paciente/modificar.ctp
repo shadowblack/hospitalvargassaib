@@ -82,6 +82,21 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                     });
                     jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join(","));
                     
+                     /* multiples positivos para los estudios micologicos*/
+                    _arr_ele    = [];
+                    _str        = "";
+                    _i = 0;
+                     jQuery("input[name^='positivo__']").each(function(i,obj){
+                        if (jQuery(this).val() != ""){
+                            _str = jQuery(this).attr("name");                            
+                            var _arr = _str.split("__");
+                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _arr_ele[_i] = _str;                                                        
+                            _i++;
+                        }
+                    });
+                    jQuery("#hdd_str_pos").val(_arr_ele.join(","));
+                    
                     <?php echo $this->Event->Update($this->Html->url("event_modificar"),
 "form", "back") ?>                   
                 }
@@ -125,7 +140,8 @@ echo $this->element("dialog", array("T_V_TYPE" => 1));
         <fieldset style="" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" > 
             <input type="hidden" id="hdd_str_otr_les" name="hdd_str_otr_les" value="" >
-            <input type="hidden" id="hdd_str_otr_est_mic" name="hdd_str_otr_est_mic" value="" >            
+            <input type="hidden" id="hdd_str_otr_est_mic" name="hdd_str_otr_est_mic" value="" >
+            <input type="hidden" id="hdd_str_pos" name="hdd_str_pos" value="" >            
             <div id="tabs-1" style="height: 325px;" class="standar_fieldset_child">                                          
                 <table style="width:540px;margin-top: 5px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>

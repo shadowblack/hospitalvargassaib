@@ -359,6 +359,8 @@
             
             $hdd_str_otr_les        =   $_POST["hdd_str_otr_les"];
             $hdd_str_otr_est_mic    =   $_POST["hdd_str_otr_est_mic"];
+            
+            $hdd_str_pos            =   $_POST["hdd_str_pos"];
                                    
             $id_doc         = $this->Session->read("medico.id_usu");
                 
@@ -378,6 +380,9 @@
                         
                         $hdd_str_otr_les,
                         $hdd_str_otr_est_mic,
+                        
+                        $hdd_str_pos,
+                        
                         $id_doc
             );
                       
