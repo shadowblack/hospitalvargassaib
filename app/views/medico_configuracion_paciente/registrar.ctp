@@ -50,36 +50,36 @@
                 <table style="width:540px;margin-top: 20px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
                         <td width="184" class="font-standar" valign="top">
-                            <?php echo __( "Nombre",true)?>
+                            <label for="txt_nom_pac"  class="standar_font"><?php echo __( "Nombre",true)?></label>
                         </td>
                         <td width="9" class="font-standar">
                             &nbsp;
                         </td>
                         <td width="189" class="font-standar" valign="top">
-                            <?php echo __( "Apellido",true)?>
+                            <label for="txt_ape_pac" class="standar_font"><?php echo __( "Apellido",true)?></label>
                         </td>
                         <td width="8" class="font-standar" valign="top">
                             &nbsp;
                         </td>
                         <td width="144" class="font-standar" valign="top">
-                            <?php __("Cédula de identidad");?>                                
+                            <label for="txt_ced_pac"  class="standar_font"><?php __("Cédula");?></label>                                
                         </td>
                     </tr>
                     <tr>
                         <td valign="top">
-                            <input type="text" name="txt_nom_pac" value="" class="required" maxlength="100">
+                            <input type="text" name="txt_nom_pac" value="" class="text required" minlength="3" maxlength="100">
                         </td>
                         <td>
                             &nbsp;
                         </td >
                         <td valign="top">
-                            <input type="text" name="txt_ape_pac" value="" class="required" maxlength="20">
+                            <input type="text" name="txt_ape_pac" value="" class="text required" minlength="3" maxlength="20">
                         </td>
                         <td>
                             &nbsp;
                         </td>
                         <td valign="top">
-                            <input type="text" name="txt_ced_pac" value="" class="required" maxlength="8">
+                            <input type="text" name="txt_ced_pac" value="" class="number required" minlength="8" maxlength="8">
                         </td>
                     </tr>
                     <tr>
@@ -138,13 +138,13 @@
                             &nbsp;
                         </td>
                         <td class="font-standar" valign="top" >                                
-                            <?php echo __("Teléfono",true)?>                                
+                            <label for="txt_tel_pac" class="standar_font"><?php echo __("Teléfono",true)?></label>                                
                         </td>
                         <td>
                             &nbsp;
                         </td>
                          <td class="font-standar" valign="top">                                
-                            <?php echo __("Celular")?>
+                            <label for="txt_cel_pac" class="standar_font"><?php echo __("Celular")?></label>
                         </td>                            
                         <td>
                             &nbsp;
@@ -184,13 +184,13 @@
                             &nbsp;
                         </td>
                         <td class="font-standar" valign="top">                                
-                            <input type="text" name="txt_tel_pac" id="txt_tel_pac" value="" class="number required" maxlength="12">                               
+                            <input type="text" name="txt_tel_pac" id="txt_tel_pac" value="" class="number required" minlength="11" maxlength="11" >                               
                         </td>
                         <td>
                             &nbsp;
                         </td>
                          <td class="font-standar" valign="top">                                
-                            <input type="text" name="txt_cel_pac" id="txt_cel_pac" value="" class="number required" maxlength="12">                          
+                            <input type="text" name="txt_cel_pac" id="txt_cel_pac" value="" class="number required" minlength="11" maxlength="11" >                          
                         </td>                            
                         <td>
                             &nbsp;
