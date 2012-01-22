@@ -147,8 +147,10 @@
                     </tr>
                     <tr>
                         <td valign="top">                            
-                            <select name="cmb_tipos_micosis" style="width: 120px;">
+                            <select name="cmb_tipos_micosis" style="width: 120px;" class="required">
+                                <option value="-1">--<?php echo __( "Seleccione",true);?>--</option>
                             <?php foreach($tipos_micosis as $row):?>
+                                
                                 <option value="<?php echo $row->id_tip_mic?>"><?php echo $row->nom_tip_mic?></option>
                             <?php endforeach; ?>
                             </select>
