@@ -1,3 +1,6 @@
+<style type="text/css">
+    label.error { width: 200px; text-align: left; margin-left: 10px;}    
+</style>
 <script type="text/javascript">                      
         function change_enfermedad(id_tip_mic){
             // #tabs-1
@@ -35,13 +38,24 @@
                 les();
            }           
         }                 
+         
+        function required_s(value, element, param){                
+                return value != "-1";
+        } 
              
-        jQuery(function(){
+        jQuery(function(){                        
                         
             jQuery("#tabs").css("display","block");
-            jQuery( "#tabs" ).tabs();            
-           
-            jQuery("#pacientes").validate({                
+            jQuery( "#tabs" ).tabs();                                    
+            
+            jQuery.validator.addMethod("required_select",required_s,"<?php echo __("Seleccione una enfermedad",true)?>");
+            
+            jQuery("#pacientes").validate({
+                rules:{
+                    cmb_tipos_micosis:{
+                        required_select:true
+                    }
+                },
                 submitHandler: function(form) {
                     var _arr_ele    = [];
                     var _str        = "";
@@ -101,9 +115,6 @@
             });                              
         });
 </script>
-<style type="text/css">
-    label.error { width: 150px; text-align: left; }    
-</style>
 <?php 
     //$T_V_TYPE = 1;
     //include_once("../libs/_dialog.php");  
@@ -147,12 +158,11 @@
                     </tr>
                     <tr>
                         <td valign="top">                            
-                            <select name="cmb_tipos_micosis" style="width: 120px;" class="required">
-                                <option value="-1">--<?php echo __( "Seleccione",true);?>--</option>
-                            <?php foreach($tipos_micosis as $row):?>
-                                
+                            <select name="cmb_tipos_micosis" style="width: 120px;" class=".required_select">                                
+                            <?php foreach($tipos_micosis as $row):?>                                
                                 <option value="<?php echo $row->id_tip_mic?>"><?php echo $row->nom_tip_mic?></option>
                             <?php endforeach; ?>
+                                <option value="-1">--<?php echo __( "Seleccione",true);?>--</option>
                             </select>
                             <div style="line-height: 10px;">
                                 &nbsp;
