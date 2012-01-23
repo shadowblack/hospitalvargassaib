@@ -169,11 +169,11 @@ SIGIS. C.A
                 								<tr style="text-align: center; width: 100%">
                 					          		<td width="50%" class="font-standar">
                 						          		*<?php print __('Fecha Inicial', true); ?>:
-                                                        <input name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
+                                                        <input readonly="readonly" name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
                 									</td>
                 									<td width="50%" class="font-standar">
                 										*<?php print __('Fecha Final', true); ?>:
-                										<input name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
+                										<input readonly="readonly" name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
                 									</td>
                 								</tr>
                 								<tr>

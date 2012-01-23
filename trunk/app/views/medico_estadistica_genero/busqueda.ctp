@@ -71,7 +71,7 @@ FECHA DE CREACIÓN: 30/10/2011
                 		<tr>
                 			<td>
                 				<table align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
-                                    <tr><td height="15px"></td></tr>
+                                   <!-- <tr><td height="15px"></td></tr>
                                     <tr>
                                 		<td colspan="4" width="100%" class="font-standar" style="text-align: center;font-weight: bold;"><?php print __('Datos del Paciente',true); ?></td>
                                 	</tr>
@@ -83,11 +83,12 @@ FECHA DE CREACIÓN: 30/10/2011
                                         <td valign="top" >
                                             <select class="required" name="sel_gen_pac">
                                                 <option value="0">--<?php __("Todos")?>--</option>                                    
-                                                <option value="F"><?php __("Femenino")?></option>
+                                             <!--   <option value="F"><?php __("Femenino")?></option>
                                                 <option value="M"><?php __("Masculino")?></option>
                                             </select>
                                         </td>
                 					</tr>
+                                    -->
                                     <tr><td height="15px"></td></tr>
                                     <tr>
                                 		<td colspan="4" width="100%" class="font-standar" style="text-align: center;font-weight: bold;"><?php print __('Fecha de Registro',true); ?></td>
