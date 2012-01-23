@@ -42,7 +42,7 @@
         <tr>
             <td colspan="2">
                 <div style="width:170px">
-                    <?php echo $this->Otros->Text(100);?>
+                    <?php echo $this->Otros->Text(100,'');?>
                 </div>                
             </td>
         </tr>                

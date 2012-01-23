@@ -332,7 +332,7 @@
                 $id_doc,
                 $tra_usu
             );   
-           
+           // print $sql;
             $arr_query = ($this->HistorialesPaciente->query($sql));
              
             $result = $this->SqlData->ResultNum($arr_query);                        

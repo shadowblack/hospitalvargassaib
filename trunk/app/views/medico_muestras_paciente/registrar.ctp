@@ -41,7 +41,7 @@
                             <?php foreach($muestras_clinicas as $row): ?>
                                 <li>
                                     <input name="chk_mue_cli_<?php echo $row->mc_id_mue_cli?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->mc_id_mue_cli?>" <?php echo (!empty($row->mp_id_mue_cli) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->mc_id_mue_cli,$row->nom_mue_cli,"txt_otr_mue_cli");?>><?php echo $row->nom_mue_cli?>
-                                    <div style="width: 160px;"><?php echo $this->Otros->Text(20, $row->otr_mue_cli);?></div>
+                                    <div style="width: 160px;"><?php echo $this->Otros->Text(100, $row->otr_mue_cli);?></div>
                                 </li>
                             <?php endforeach ?>
                         </ol>

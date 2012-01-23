@@ -69,7 +69,7 @@
                             <?php foreach($tipos_consultas as $row): ?>
                                 <li>
                                     <input name="chk_tip_con_<?php echo $row->TiposConsulta->id_tip_con?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->TiposConsulta->id_tip_con?>" <?php echo (!empty($row->tcp->id_tip_con) ? "checked='checked'" : "") ; echo $this->Otros->Attr($row->TiposConsulta->id_tip_con,$row->TiposConsulta->nom_tip_con,"txt_otr_tip_con")?>><?php echo $row->TiposConsulta->nom_tip_con?>
-                                    <?php echo $this->Otros->Text(50, $row->tcp->otr_tip_con);?>    
+                                    <?php echo $this->Otros->Text(100, $row->tcp->otr_tip_con);?>    
                                 </li>                                                                                                
                             <?php endforeach ?>
                         </ol>
@@ -84,7 +84,7 @@
                             <?php foreach($animales as $row): ?>
                                 <li>                                    
                                     <input name="chk_ani_<?php echo $row->Animale->id_ani?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Animale->id_ani?>" <?php echo (!empty($row->ca->id_ani) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Animale->id_ani,$row->Animale->nom_ani,"txt_otr_ani") ?> ><?php echo $row->Animale->nom_ani?>                                    
-                                    <?php echo $this->Otros->Text(20, $row->ca->otr_ani);?>
+                                    <?php echo $this->Otros->Text(100, $row->ca->otr_ani);?>
                                 </li>
                             <?php endforeach ?>
                         </ol>
@@ -114,7 +114,7 @@
                         <ol class="standar_list">
                             <?php foreach($tratamientos as $row): ?>
                                 <li><input name="chk_tra_<?php echo $row->Tratamiento->id_tra?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->Tratamiento->id_tra;?>" <?php echo (!empty($row->tp->id_tra) ? "checked='checked'" : ""); echo $this->Otros->Attr($row->Tratamiento->id_tra,$row->Tratamiento->nom_tra,"txt_otr_tra")?>><?php echo $row->Tratamiento->nom_tra; ?></li>
-                                <?php echo $this->Otros->Text(20, $row->tp->otr_tra);?>
+                                <?php echo $this->Otros->Text(100, $row->tp->otr_tra);?>
                             <?php endforeach ?>
                         </ol>
                     </div>
