@@ -170,6 +170,8 @@
             $txt_otr_for_inf,
             
             $hdd_str_otr_est_mic,
+            
+            $hdd_str_pos,
                 
             $id_doc
         ){
@@ -189,6 +191,8 @@
                 '$txt_otr_for_inf',
                 
                 '$hdd_str_otr_est_mic',
+                
+                '$hdd_str_pos',
                 
                 '$id_doc'              
                 ]

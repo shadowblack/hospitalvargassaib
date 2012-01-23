@@ -14,10 +14,20 @@
                     <td style="width: 5px;" class="lista_fondo">
                         &nbsp;
                     </td>
-                    <td class="standar_font_sub lista_fondo" >
-                        <?php __("Estudios para (".$row->nom_tip_exa.")")?>
+                    <td class="standar_font_sub lista_fondo" style="200px">                                                                                           
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td><?php __("Estudios para (".$row->nom_tip_exa.")")?></td>
+                                <td>&nbsp;-&nbsp;</td><td><?php __("Positivo")?>:&nbsp;</td>
+                                <td style="width: 100px;">                                    
+                                    <input type="radio" <?php echo ($row->exa_pac_est == 0 ? "checked = 'checked'" : "") ?> name="positivo__<?php echo $row->id_tip_exa?>" value="0" style="width: 10px;"><?php __("Si") ?>
+                                    <input type="radio" <?php echo ($row->exa_pac_est == 1 ? "checked = 'checked'" : "") ?> name="positivo__<?php echo $row->id_tip_exa?>" value="1" style="width: 10px;"><?php __("No") ?>
+                                    <input type="radio" <?php echo ($row->exa_pac_est == 3 ? "checked = 'checked'" : "") ?> name="positivo__<?php echo $row->id_tip_exa?>" value="3" style="width: 10px;"><?php __("N/A") ?>
+                                </td>
+                            </tr>
+                        </table>
                     </td>                   
-                </tr>   
+                </tr>  
                 <?php
             } 
         ?>
