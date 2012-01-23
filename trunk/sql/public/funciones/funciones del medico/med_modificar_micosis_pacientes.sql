@@ -21,6 +21,8 @@ DECLARE
 	_id_otr_for_inf		forma_infecciones__pacientes.id_for_inf%TYPE;
 	_str_otr_for_inf	forma_infecciones__pacientes.otr_for_inf%TYPE;
 
+	_str_pos		TEXT;
+
 	-- variables para trabajar con otros
 	_str_data_otr			TEXT;
 	_str_data_otr_est		TEXT; --estudios
@@ -38,6 +40,7 @@ DECLARE
 	_arr_1	INTEGER[];	
 	_arr_2	INTEGER[];
 	_arr_3	TEXT[];	
+	_arr_4	TEXT[];
 	
 	
 BEGIN
@@ -58,7 +61,10 @@ BEGIN
 	_str_otr_for_inf	:= _datos[10];
 	
 	_str_data_otr_est	:= _datos[11];
-	_id_doc			:= _datos[12];	
+
+	_str_pos		:= _datos[12];
+	
+	_id_doc			:= _datos[13];	
 		
 	-- enfermedades del paciente
 	DELETE FROM enfermedades_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
@@ -211,6 +217,16 @@ BEGIN
 			END IF;
 		END LOOP;
 	END IF;
+
+	/*Examenes del paciente */
+	DELETE FROM examenes_pacientes WHERE id_tip_mic_pac = _id_tip_mic_pac;
+	_arr_3 := STRING_TO_ARRAY(_str_pos,',');
+	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
+		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
+			_arr_4 := STRING_TO_ARRAY(_arr_3[i],';');
+			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer);
+		END LOOP;
+	END IF;		
 
 	RETURN 1;
 
