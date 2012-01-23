@@ -53,7 +53,7 @@ class OtrosHelper extends AppHelper
      */    
     function Text($maxlength,$value = ""){        
         if (strtoupper($this->other)  == $this->str){            
-            return '<input type="text" name="'.$this->attr.'" value="'.$value.'" style="width: 100%;display:none" class="required standar_margin" maxlength="$maxlength">'.
+            return '<input type="text" name="'.$this->attr.'" value="'.$value.'" style="width: 100%;display:none" class="required standar_margin" maxlength="'.$maxlength.'">'.
                    '<input type="hidden" name="hdd_'.$this->attr.'" value="'.$this->id.'"';
         } else {
             return "";

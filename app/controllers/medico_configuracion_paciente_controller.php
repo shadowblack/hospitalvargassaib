@@ -187,7 +187,7 @@
         * Registrando usuarios pacientes
         */
         function event_registrar(){   
-            $_POST          = Sanitize::clean($_POST);          
+           // $_POST          = Sanitize::clean($_POST);          
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
             $nom_pac        = $_POST["txt_nom_pac"];
             $ape_pac        = $_POST["txt_ape_pac"];
@@ -222,7 +222,7 @@
                 '$tra_usu',
                 '$sex_pac'
             ]) AS result";
-            
+           // print $sql;
             $arr_query = ($this->Doctore->query($sql));
                       
             $result = $this->SqlData->ResultNum($arr_query);

@@ -64,12 +64,12 @@
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
-                    jQuery("#hdd_str_otr_les").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_otr_les").val(_arr_ele.join("~@~"));
                     
                     // multiples otros para los tipos de estudios micologicos
                     _arr_ele    = [];
@@ -79,13 +79,13 @@
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
                     /*Valor final de la cadena es id;descripcion,id;descripcion,id;descripcion*/                    
-                    jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join("~@~"));
                     
                       /* multiples positivos para los estudios micologicos*/
                     _arr_ele    = [];
@@ -95,12 +95,12 @@
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
-                    jQuery("#hdd_str_pos").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_pos").val(_arr_ele.join("~@~"));
                     
                     //return false;
                     <?php echo $this->Event->Insert($this->Html->url("event_registrar"),"form","back")?>                 

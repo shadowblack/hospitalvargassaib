@@ -60,12 +60,12 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
-                    jQuery("#hdd_str_otr_les").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_otr_les").val(_arr_ele.join("~@~"));
                     
                     /* multiples otros para los tipos de estudios micologicos*/
                     _arr_ele    = [];
@@ -75,12 +75,12 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
-                    jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_otr_est_mic").val(_arr_ele.join("~@~"));
                     
                      /* multiples positivos para los estudios micologicos*/
                     _arr_ele    = [];
@@ -90,12 +90,12 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ ";" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
                     });
-                    jQuery("#hdd_str_pos").val(_arr_ele.join(","));
+                    jQuery("#hdd_str_pos").val(_arr_ele.join("~@~"));
                     
                     <?php echo $this->Event->Update($this->Html->url("event_modificar"),
 "form", "back") ?>                   

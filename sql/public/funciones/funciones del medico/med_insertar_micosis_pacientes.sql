@@ -120,16 +120,16 @@ BEGIN
 	
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 
-		_arr_str_data_otr = STRING_TO_ARRAY(_str_data_otr,',');			
+		_arr_str_data_otr = STRING_TO_ARRAY(_str_data_otr,'~@~');			
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_bol_otr := FALSE;
-			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i],'(',''),')',''),';');
+			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i],'(',''),')',''),'~@@~');
 			
 			IF (_arr_str_data_otr IS NOT NULL)THEN
 				<<mifor>>
 				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
-				
-					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[j],';');
+					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[j],'~@@~');
+					
 					IF(_arr_str_data_otr_elm[1]::INTEGER = _arr_2[1] AND _arr_str_data_otr_elm[2]::INTEGER = _arr_2[2])THEN
 						_str_data_otr := _arr_str_data_otr_elm[3];					
 						_bol_otr := TRUE;
@@ -172,11 +172,11 @@ BEGIN
 	IF (ARRAY_UPPER(_arr_1,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_1,1)) LOOP
 			_bol_otr := TRUE;
-			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,',');
+			_arr_str_data_otr_est := STRING_TO_ARRAY(_str_data_otr_est,'~@~');
 			IF (_arr_str_data_otr_est IS NOT NULL)THEN
 				<<for_estudios>>
 				FOR j IN 1..(ARRAY_UPPER(_arr_str_data_otr_est,1))LOOP
-					_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],';');				
+					_arr_str_data_otr_elm_est := STRING_TO_ARRAY(_arr_str_data_otr_est[j],'~@@~');				
 					IF(_arr_str_data_otr_elm_est[1]::INTEGER = _arr_1[i])THEN
 						_bol_otr := FALSE;
 						INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (
@@ -232,10 +232,10 @@ BEGIN
 	END IF;
 	
 	/*Examenes del paciente */
-	_arr_3 := STRING_TO_ARRAY(_str_pos,',');
+	_arr_3 := STRING_TO_ARRAY(_str_pos,'~@~');
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
-			_arr_4 := STRING_TO_ARRAY(_arr_3[i],';');
+			_arr_4 := STRING_TO_ARRAY(_arr_3[i],'~@@~');
 			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer);
 		END LOOP;
 	END IF;		
@@ -291,3 +291,30 @@ AUTOR DE MODIFICACIÓN: Luis Raul
 FECHA DE MODIFICACIÓN: 29/12/2011
 DESCRIPCIÓN: Estableciendo campo otros para los estudios micológicos
 ';
+
+
+/*
+SELECT med_insertar_micosis_pacientes(ARRAY[
+                '25',
+                '1',               
+                '',
+                '(22;1)',
+                '',
+                '',
+                
+                '',
+                '-1',
+                
+                '-1',
+                '',
+                
+                '22;1~@@~Biopsia Piel, Biopsia Otros Ã“rganos, LÃ­quido Peritoneal, LÃ­quido Sinovial, CefalorraquÃ­deo (LC), uÃ±a',
+                '',
+                
+                '1~@@~3~@~2~@@~3',
+                
+                '32'                              
+                ]
+            ) AS result 
+
+*/

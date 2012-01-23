@@ -9,7 +9,7 @@
             ?>
                 <tr>
                     <td>
-                        <input class="standar_input_checkbox" type="checkbox" name="les_" value="(<?php echo $row->id_cat_cue_les.";".$id_par_cue_cat_cue?>)" <?php echo ($row->id_checked == "") ? "" : "checked='checked'";echo $this->Otros->Attr($row->id_cat_cue_les.";".$id_par_cue_cat_cue,$row->nom_les,"txt_otr_les__".$row->id_cat_cue_les.";".$id_par_cue_cat_cue)?>>
+                        <input class="standar_input_checkbox" type="checkbox" name="les_" value="(<?php echo $row->id_cat_cue_les."~@@~".$id_par_cue_cat_cue?>)" <?php echo ($row->id_checked == "") ? "" : "checked='checked'";echo $this->Otros->Attr($row->id_cat_cue_les."~@@~".$id_par_cue_cat_cue,$row->nom_les,"txt_otr_les__".$row->id_cat_cue_les."~@@~".$id_par_cue_cat_cue)?>>
                     </td>
                     <td class="standar_list">
                         <?php echo $row->nom_les?>

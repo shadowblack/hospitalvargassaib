@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <?php echo $this->Otros->Text(20, $row->otr_enf_mic);?>
+                <?php echo $this->Otros->Text(100, $row->otr_enf_mic);?>
             </td>
         </tr>
     <?php endforeach; ?>
