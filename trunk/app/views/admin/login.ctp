@@ -92,8 +92,8 @@
                             </tr>
                             
                             <tr>
-                                <td colspan="3" style="height: 73px;">
-                                	&nbsp;                                
+                                <td align="center" colspan="3" style="height: 73px;">
+                                	<a href="<?php echo $this->Html->url("/")?>" >Home</a>                                
                             	</td>                    
                             </tr>
                             

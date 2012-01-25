@@ -83,8 +83,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" style="height: 43px;">
+                                    <td align="center"colspan="3" style="">
                                         &nbsp;
+                                    </td>                    
+                                </tr>
+                                <tr>
+                                    <td align="center"colspan="3" style="height: 43px;">
+                                        <a style="margin-top: 50px;" href="<?php echo $this->Html->url("/")?>" >Home</a>
                                     </td>                    
                                 </tr>
                                 <tr>

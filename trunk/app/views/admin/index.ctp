@@ -43,8 +43,25 @@
         </td>
     </tr>    
     <tr>
-         <td style="height: 36px;">
-            
+         <td style="height: 35px;">
+            <!--Botones Superiores-->        
+            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
+                <tr>        
+                    <td align="right">                                        
+                        <div class="dock" id="dock">
+                            <div class="dock-container">                                
+                                <a class="dock-item" href="<?php echo $this->Html->url("/Admin/salir");?>">
+                                    <img src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" />
+                                        <!-- span style="padding-left: 100px;">
+                                            Salir
+                                        </span-->
+                                </a>   
+                            </div>
+                        </div>                                                
+                    </td>
+                </tr>
+            </table>
+            <!--Fin de los Botones Superiores-->                                    
         </td>
     </tr>
     <tr>
