@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2012-01-22 11:42:21
+-- Started on 2012-01-26 22:47:54
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -14,7 +14,7 @@ SET client_min_messages = warning;
 SET escape_string_warning = off;
 
 --
--- TOC entry 6 (class 2615 OID 32405)
+-- TOC entry 6 (class 2615 OID 30858)
 -- Name: saib_model; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -36,7 +36,7 @@ ALTER PROCEDURAL LANGUAGE plpgsql OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 326 (class 1247 OID 32408)
+-- TOC entry 326 (class 1247 OID 30861)
 -- Dependencies: 7 1671
 -- Name: t_validar_usuarios; Type: TYPE; Schema: public; Owner: postgres
 --
@@ -75,7 +75,7 @@ FECHA: 20/03/2011
 
 
 --
--- TOC entry 19 (class 1255 OID 32409)
+-- TOC entry 19 (class 1255 OID 30862)
 -- Dependencies: 479 7
 -- Name: adm_eliminar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -156,7 +156,7 @@ FECHA DE CREACIÓN: 10/05/2011
 
 
 --
--- TOC entry 20 (class 1255 OID 32410)
+-- TOC entry 20 (class 1255 OID 30863)
 -- Dependencies: 479 7
 -- Name: adm_eliminar_usuario_admin(character varying); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -234,8 +234,8 @@ DESCRIPCIÓN: Modificación de las estructuras de control
 
 
 --
--- TOC entry 21 (class 1255 OID 32411)
--- Dependencies: 7 479
+-- TOC entry 21 (class 1255 OID 30864)
+-- Dependencies: 479 7
 -- Name: adm_modificar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -390,7 +390,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 
 --
--- TOC entry 22 (class 1255 OID 32412)
+-- TOC entry 22 (class 1255 OID 30865)
 -- Dependencies: 479 7
 -- Name: adm_modificar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -490,8 +490,8 @@ DESCRIPCIÓN: Validación de log del usuario
 
 
 --
--- TOC entry 23 (class 1255 OID 32413)
--- Dependencies: 7 479
+-- TOC entry 23 (class 1255 OID 30866)
+-- Dependencies: 479 7
 -- Name: adm_registrar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -651,8 +651,8 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 
 --
--- TOC entry 25 (class 1255 OID 32414)
--- Dependencies: 479 7
+-- TOC entry 25 (class 1255 OID 30867)
+-- Dependencies: 7 479
 -- Name: adm_registrar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -764,8 +764,8 @@ FECHA DE CREACIÓN: 27/03/2011
 
 
 --
--- TOC entry 26 (class 1255 OID 32415)
--- Dependencies: 7 479
+-- TOC entry 26 (class 1255 OID 30868)
+-- Dependencies: 479 7
 -- Name: formato_campo_xml(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -818,7 +818,7 @@ FECHA DE CREACIÓN: 08/08/2011
 
 
 --
--- TOC entry 27 (class 1255 OID 32416)
+-- TOC entry 27 (class 1255 OID 30869)
 -- Dependencies: 479 7
 -- Name: med_eliminar_historial(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -936,7 +936,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 24 (class 1255 OID 32417)
+-- TOC entry 24 (class 1255 OID 30870)
 -- Dependencies: 479 7
 -- Name: med_eliminar_micosis_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1008,7 +1008,7 @@ DESCRIPCIÓN: Eliminación de enfermedades del paciente.
 
 
 --
--- TOC entry 28 (class 1255 OID 32418)
+-- TOC entry 28 (class 1255 OID 30871)
 -- Dependencies: 7 479
 -- Name: med_eliminar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1177,7 +1177,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 38 (class 1255 OID 32420)
+-- TOC entry 29 (class 1255 OID 30873)
 -- Dependencies: 479 7
 -- Name: med_insertar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1429,7 +1429,7 @@ ALTER FUNCTION public.med_insertar_micosis_pacientes(character varying[]) OWNER 
 
 --
 -- TOC entry 2387 (class 0 OID 0)
--- Dependencies: 38
+-- Dependencies: 29
 -- Name: FUNCTION med_insertar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1481,7 +1481,7 @@ DESCRIPCIÓN: Estableciendo campo otros para los estudios micológicos
 
 
 --
--- TOC entry 29 (class 1255 OID 32421)
+-- TOC entry 30 (class 1255 OID 30874)
 -- Dependencies: 7 479
 -- Name: med_modificar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1581,7 +1581,7 @@ ALTER FUNCTION public.med_modificar_hitorial_paciente(character varying[]) OWNER
 
 --
 -- TOC entry 2388 (class 0 OID 0)
--- Dependencies: 29
+-- Dependencies: 30
 -- Name: FUNCTION med_modificar_hitorial_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1616,7 +1616,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 32 (class 1255 OID 32422)
+-- TOC entry 31 (class 1255 OID 30875)
 -- Dependencies: 7 479
 -- Name: med_modificar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1856,7 +1856,7 @@ ALTER FUNCTION public.med_modificar_micosis_pacientes(character varying[]) OWNER
 
 --
 -- TOC entry 2389 (class 0 OID 0)
--- Dependencies: 32
+-- Dependencies: 31
 -- Name: FUNCTION med_modificar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1906,7 +1906,7 @@ FECHA DE MODIFICACION: 29/12/2011
 
 
 --
--- TOC entry 30 (class 1255 OID 32423)
+-- TOC entry 32 (class 1255 OID 30876)
 -- Dependencies: 479 7
 -- Name: med_modificar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -2146,7 +2146,7 @@ ALTER FUNCTION public.med_modificar_paciente(character varying[]) OWNER TO desar
 
 --
 -- TOC entry 2390 (class 0 OID 0)
--- Dependencies: 30
+-- Dependencies: 32
 -- Name: FUNCTION med_modificar_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2215,7 +2215,7 @@ DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
 
 
 --
--- TOC entry 31 (class 1255 OID 32425)
+-- TOC entry 33 (class 1255 OID 30878)
 -- Dependencies: 7 479
 -- Name: med_muestra_clinica_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -2356,7 +2356,7 @@ ALTER FUNCTION public.med_muestra_clinica_paciente(character varying[]) OWNER TO
 
 --
 -- TOC entry 2391 (class 0 OID 0)
--- Dependencies: 31
+-- Dependencies: 33
 -- Name: FUNCTION med_muestra_clinica_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2396,8 +2396,8 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 33 (class 1255 OID 32426)
--- Dependencies: 479 7
+-- TOC entry 34 (class 1255 OID 30879)
+-- Dependencies: 7 479
 -- Name: med_registrar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2526,7 +2526,7 @@ ALTER FUNCTION public.med_registrar_hitorial_paciente(character varying[]) OWNER
 
 --
 -- TOC entry 2392 (class 0 OID 0)
--- Dependencies: 33
+-- Dependencies: 34
 -- Name: FUNCTION med_registrar_hitorial_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2560,7 +2560,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 34 (class 1255 OID 32427)
+-- TOC entry 35 (class 1255 OID 30880)
 -- Dependencies: 479 7
 -- Name: med_registrar_informacion_adicional(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -2938,7 +2938,7 @@ ALTER FUNCTION public.med_registrar_informacion_adicional(character varying[]) O
 
 --
 -- TOC entry 2393 (class 0 OID 0)
--- Dependencies: 34
+-- Dependencies: 35
 -- Name: FUNCTION med_registrar_informacion_adicional(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2989,8 +2989,8 @@ DESCRIPCIÓN: Se agregó la opción de poder agregar otros animales.
 
 
 --
--- TOC entry 35 (class 1255 OID 32429)
--- Dependencies: 479 7
+-- TOC entry 36 (class 1255 OID 30882)
+-- Dependencies: 7 479
 -- Name: med_registrar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3211,7 +3211,7 @@ ALTER FUNCTION public.med_registrar_paciente(character varying[]) OWNER TO desar
 
 --
 -- TOC entry 2394 (class 0 OID 0)
--- Dependencies: 35
+-- Dependencies: 36
 -- Name: FUNCTION med_registrar_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3279,7 +3279,7 @@ DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
 
 
 --
--- TOC entry 36 (class 1255 OID 32431)
+-- TOC entry 37 (class 1255 OID 30884)
 -- Dependencies: 7 479
 -- Name: reg_transacciones(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -3321,7 +3321,7 @@ ALTER FUNCTION public.reg_transacciones(character varying[]) OWNER TO desarrollo
 
 --
 -- TOC entry 2395 (class 0 OID 0)
--- Dependencies: 36
+-- Dependencies: 37
 -- Name: FUNCTION reg_transacciones(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3350,8 +3350,8 @@ FECHA DE CREACIÓN: 05/06/2011
 
 
 --
--- TOC entry 37 (class 1255 OID 32432)
--- Dependencies: 326 479 7
+-- TOC entry 38 (class 1255 OID 30885)
+-- Dependencies: 7 479 326
 -- Name: validar_usuarios(text, text, text); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3456,7 +3456,7 @@ ALTER FUNCTION public.validar_usuarios(_log_usu text, _pas_usu text, _tip_usu te
 
 --
 -- TOC entry 2396 (class 0 OID 0)
--- Dependencies: 37
+-- Dependencies: 38
 -- Name: FUNCTION validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3478,7 +3478,7 @@ SET default_tablespace = saib;
 SET default_with_oids = false;
 
 --
--- TOC entry 1672 (class 1259 OID 32433)
+-- TOC entry 1672 (class 1259 OID 30886)
 -- Dependencies: 7
 -- Name: animales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3492,8 +3492,8 @@ CREATE TABLE animales (
 ALTER TABLE public.animales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1673 (class 1259 OID 32436)
--- Dependencies: 7 1672
+-- TOC entry 1673 (class 1259 OID 30889)
+-- Dependencies: 1672 7
 -- Name: animales_id_ani_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3526,7 +3526,7 @@ SELECT pg_catalog.setval('animales_id_ani_seq', 1, false);
 
 
 --
--- TOC entry 1674 (class 1259 OID 32438)
+-- TOC entry 1674 (class 1259 OID 30891)
 -- Dependencies: 7
 -- Name: antecedentes_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3541,8 +3541,8 @@ CREATE TABLE antecedentes_pacientes (
 ALTER TABLE public.antecedentes_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1675 (class 1259 OID 32441)
--- Dependencies: 7 1674
+-- TOC entry 1675 (class 1259 OID 30894)
+-- Dependencies: 1674 7
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3571,11 +3571,11 @@ ALTER SEQUENCE antecedentes_pacientes_id_ant_pac_seq OWNED BY antecedentes_pacie
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 101, true);
+SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 153, true);
 
 
 --
--- TOC entry 1676 (class 1259 OID 32443)
+-- TOC entry 1676 (class 1259 OID 30896)
 -- Dependencies: 7
 -- Name: antecedentes_personales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3589,7 +3589,7 @@ CREATE TABLE antecedentes_personales (
 ALTER TABLE public.antecedentes_personales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1677 (class 1259 OID 32446)
+-- TOC entry 1677 (class 1259 OID 30899)
 -- Dependencies: 1676 7
 -- Name: antecedentes_personales_id_ant_per_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -3623,7 +3623,7 @@ SELECT pg_catalog.setval('antecedentes_personales_id_ant_per_seq', 1, false);
 
 
 --
--- TOC entry 1678 (class 1259 OID 32448)
+-- TOC entry 1678 (class 1259 OID 30901)
 -- Dependencies: 7
 -- Name: auditoria_transacciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3658,7 +3658,7 @@ COMMENT ON COLUMN auditoria_transacciones.data_xml IS 'Se guarda las modificacio
 
 
 --
--- TOC entry 1679 (class 1259 OID 32454)
+-- TOC entry 1679 (class 1259 OID 30907)
 -- Dependencies: 1678 7
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -3688,11 +3688,11 @@ ALTER SEQUENCE auditoria_transacciones_id_aud_tra_seq OWNED BY auditoria_transac
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 169, true);
+SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 245, true);
 
 
 --
--- TOC entry 1680 (class 1259 OID 32456)
+-- TOC entry 1680 (class 1259 OID 30909)
 -- Dependencies: 7
 -- Name: categorias__cuerpos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3707,8 +3707,8 @@ CREATE TABLE categorias__cuerpos_micosis (
 ALTER TABLE public.categorias__cuerpos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1681 (class 1259 OID 32459)
--- Dependencies: 1680 7
+-- TOC entry 1681 (class 1259 OID 30912)
+-- Dependencies: 7 1680
 -- Name: categorias__cuerpos_micosis_id_cat_cue_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3741,7 +3741,7 @@ SELECT pg_catalog.setval('categorias__cuerpos_micosis_id_cat_cue_mic_seq', 17, t
 
 
 --
--- TOC entry 1682 (class 1259 OID 32461)
+-- TOC entry 1682 (class 1259 OID 30914)
 -- Dependencies: 7
 -- Name: categorias_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3755,7 +3755,7 @@ CREATE TABLE categorias_cuerpos (
 ALTER TABLE public.categorias_cuerpos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1683 (class 1259 OID 32464)
+-- TOC entry 1683 (class 1259 OID 30917)
 -- Dependencies: 7
 -- Name: categorias_cuerpos__lesiones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3770,7 +3770,7 @@ CREATE TABLE categorias_cuerpos__lesiones (
 ALTER TABLE public.categorias_cuerpos__lesiones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1684 (class 1259 OID 32467)
+-- TOC entry 1684 (class 1259 OID 30920)
 -- Dependencies: 1682 7
 -- Name: categorias_cuerpos_id_cat_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -3806,7 +3806,7 @@ SELECT pg_catalog.setval('categorias_cuerpos_id_cat_cue_seq', 4, true);
 SET default_tablespace = '';
 
 --
--- TOC entry 1685 (class 1259 OID 32469)
+-- TOC entry 1685 (class 1259 OID 30922)
 -- Dependencies: 7
 -- Name: centro_salud_doctores; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -3858,8 +3858,8 @@ COMMENT ON COLUMN centro_salud_doctores.otr_cen_sal IS 'Otro Centro de Salud';
 
 
 --
--- TOC entry 1686 (class 1259 OID 32472)
--- Dependencies: 1685 7
+-- TOC entry 1686 (class 1259 OID 30925)
+-- Dependencies: 7 1685
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3888,13 +3888,13 @@ ALTER SEQUENCE centro_salud_doctores_id_cen_sal_doc_seq OWNED BY centro_salud_do
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('centro_salud_doctores_id_cen_sal_doc_seq', 15, true);
+SELECT pg_catalog.setval('centro_salud_doctores_id_cen_sal_doc_seq', 17, true);
 
 
 SET default_tablespace = saib;
 
 --
--- TOC entry 1687 (class 1259 OID 32474)
+-- TOC entry 1687 (class 1259 OID 30927)
 -- Dependencies: 7
 -- Name: centro_saluds; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3909,7 +3909,7 @@ CREATE TABLE centro_saluds (
 ALTER TABLE public.centro_saluds OWNER TO desarrollo_g;
 
 --
--- TOC entry 1688 (class 1259 OID 32477)
+-- TOC entry 1688 (class 1259 OID 30930)
 -- Dependencies: 7 1687
 -- Name: centro_salud_id_cen_sal_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -3943,7 +3943,7 @@ SELECT pg_catalog.setval('centro_salud_id_cen_sal_seq', 35, true);
 
 
 --
--- TOC entry 1689 (class 1259 OID 32479)
+-- TOC entry 1689 (class 1259 OID 30932)
 -- Dependencies: 7
 -- Name: centro_salud_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -3959,8 +3959,8 @@ CREATE TABLE centro_salud_pacientes (
 ALTER TABLE public.centro_salud_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1690 (class 1259 OID 32482)
--- Dependencies: 7 1689
+-- TOC entry 1690 (class 1259 OID 30935)
+-- Dependencies: 1689 7
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3989,11 +3989,11 @@ ALTER SEQUENCE centro_salud_pacientes_id_cen_sal_pac_seq OWNED BY centro_salud_p
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('centro_salud_pacientes_id_cen_sal_pac_seq', 228, true);
+SELECT pg_catalog.setval('centro_salud_pacientes_id_cen_sal_pac_seq', 265, true);
 
 
 --
--- TOC entry 1691 (class 1259 OID 32484)
+-- TOC entry 1691 (class 1259 OID 30937)
 -- Dependencies: 7
 -- Name: contactos_animales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4009,8 +4009,8 @@ CREATE TABLE contactos_animales (
 ALTER TABLE public.contactos_animales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1692 (class 1259 OID 32487)
--- Dependencies: 1691 7
+-- TOC entry 1692 (class 1259 OID 30940)
+-- Dependencies: 7 1691
 -- Name: contactos_animales_id_con_ani_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4039,11 +4039,11 @@ ALTER SEQUENCE contactos_animales_id_con_ani_seq OWNED BY contactos_animales.id_
 -- Name: contactos_animales_id_con_ani_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('contactos_animales_id_con_ani_seq', 181, true);
+SELECT pg_catalog.setval('contactos_animales_id_con_ani_seq', 217, true);
 
 
 --
--- TOC entry 1693 (class 1259 OID 32489)
+-- TOC entry 1693 (class 1259 OID 30942)
 -- Dependencies: 2059 7
 -- Name: doctores; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4145,8 +4145,8 @@ COMMENT ON COLUMN doctores.log_doc IS 'Login con el que se loguara el doctor';
 
 
 --
--- TOC entry 1694 (class 1259 OID 32496)
--- Dependencies: 7 1693
+-- TOC entry 1694 (class 1259 OID 30949)
+-- Dependencies: 1693 7
 -- Name: doctores_id_doc_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4175,11 +4175,11 @@ ALTER SEQUENCE doctores_id_doc_seq OWNED BY doctores.id_doc;
 -- Name: doctores_id_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('doctores_id_doc_seq', 35, true);
+SELECT pg_catalog.setval('doctores_id_doc_seq', 36, true);
 
 
 --
--- TOC entry 1695 (class 1259 OID 32498)
+-- TOC entry 1695 (class 1259 OID 30951)
 -- Dependencies: 7
 -- Name: enfermedades_micologicas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4194,7 +4194,7 @@ CREATE TABLE enfermedades_micologicas (
 ALTER TABLE public.enfermedades_micologicas OWNER TO desarrollo_g;
 
 --
--- TOC entry 1696 (class 1259 OID 32501)
+-- TOC entry 1696 (class 1259 OID 30954)
 -- Dependencies: 1695 7
 -- Name: enfermedades_micologicas_id_enf_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4228,7 +4228,7 @@ SELECT pg_catalog.setval('enfermedades_micologicas_id_enf_mic_seq', 28, true);
 
 
 --
--- TOC entry 1697 (class 1259 OID 32503)
+-- TOC entry 1697 (class 1259 OID 30956)
 -- Dependencies: 7
 -- Name: enfermedades_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4245,7 +4245,7 @@ CREATE TABLE enfermedades_pacientes (
 ALTER TABLE public.enfermedades_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1698 (class 1259 OID 32506)
+-- TOC entry 1698 (class 1259 OID 30959)
 -- Dependencies: 7 1697
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4275,13 +4275,13 @@ ALTER SEQUENCE enfermedades_pacientes_id_enf_pac_seq OWNED BY enfermedades_pacie
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 454, true);
+SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 511, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1699 (class 1259 OID 32508)
+-- TOC entry 1699 (class 1259 OID 30961)
 -- Dependencies: 7
 -- Name: estados; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -4296,7 +4296,7 @@ CREATE TABLE estados (
 ALTER TABLE public.estados OWNER TO desarrollo_g;
 
 --
--- TOC entry 1700 (class 1259 OID 32511)
+-- TOC entry 1700 (class 1259 OID 30964)
 -- Dependencies: 1699 7
 -- Name: estados_id_est_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4332,7 +4332,7 @@ SELECT pg_catalog.setval('estados_id_est_seq', 6, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1701 (class 1259 OID 32513)
+-- TOC entry 1701 (class 1259 OID 30966)
 -- Dependencies: 7
 -- Name: examenes_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4366,7 +4366,7 @@ COMMENT ON COLUMN examenes_pacientes.exa_pac_est IS 'Muestra el estado de una en
 
 
 --
--- TOC entry 1702 (class 1259 OID 32516)
+-- TOC entry 1702 (class 1259 OID 30969)
 -- Dependencies: 1701 7
 -- Name: examenes_pacientes_id_exa_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4396,11 +4396,11 @@ ALTER SEQUENCE examenes_pacientes_id_exa_pac_seq OWNED BY examenes_pacientes.id_
 -- Name: examenes_pacientes_id_exa_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('examenes_pacientes_id_exa_pac_seq', 64, true);
+SELECT pg_catalog.setval('examenes_pacientes_id_exa_pac_seq', 116, true);
 
 
 --
--- TOC entry 1703 (class 1259 OID 32518)
+-- TOC entry 1703 (class 1259 OID 30971)
 -- Dependencies: 7
 -- Name: forma_infecciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4414,7 +4414,7 @@ CREATE TABLE forma_infecciones (
 ALTER TABLE public.forma_infecciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1704 (class 1259 OID 32521)
+-- TOC entry 1704 (class 1259 OID 30974)
 -- Dependencies: 7
 -- Name: forma_infecciones__pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4430,8 +4430,8 @@ CREATE TABLE forma_infecciones__pacientes (
 ALTER TABLE public.forma_infecciones__pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1705 (class 1259 OID 32524)
--- Dependencies: 7 1704
+-- TOC entry 1705 (class 1259 OID 30977)
+-- Dependencies: 1704 7
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4460,11 +4460,11 @@ ALTER SEQUENCE forma_infecciones__pacientes_id_for_pac_seq OWNED BY forma_infecc
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 77, true);
+SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 108, true);
 
 
 --
--- TOC entry 1706 (class 1259 OID 32526)
+-- TOC entry 1706 (class 1259 OID 30979)
 -- Dependencies: 7
 -- Name: forma_infecciones__tipos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4479,8 +4479,8 @@ CREATE TABLE forma_infecciones__tipos_micosis (
 ALTER TABLE public.forma_infecciones__tipos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1707 (class 1259 OID 32529)
--- Dependencies: 1706 7
+-- TOC entry 1707 (class 1259 OID 30982)
+-- Dependencies: 7 1706
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4513,8 +4513,8 @@ SELECT pg_catalog.setval('forma_infecciones__tipos_micosis_id_for_inf_tip_mic_se
 
 
 --
--- TOC entry 1708 (class 1259 OID 32531)
--- Dependencies: 7 1703
+-- TOC entry 1708 (class 1259 OID 30984)
+-- Dependencies: 1703 7
 -- Name: forma_infecciones_id_for_inf_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4547,7 +4547,7 @@ SELECT pg_catalog.setval('forma_infecciones_id_for_inf_seq', 12, true);
 
 
 --
--- TOC entry 1709 (class 1259 OID 32533)
+-- TOC entry 1709 (class 1259 OID 30986)
 -- Dependencies: 2068 2069 7
 -- Name: historiales_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4586,8 +4586,8 @@ COMMENT ON COLUMN historiales_pacientes.pag_his IS 'Muestra al cantidad de pagin
 
 
 --
--- TOC entry 1710 (class 1259 OID 32541)
--- Dependencies: 7 1709
+-- TOC entry 1710 (class 1259 OID 30994)
+-- Dependencies: 1709 7
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4616,13 +4616,13 @@ ALTER SEQUENCE historiales_pacientes_id_his_seq OWNED BY historiales_pacientes.i
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 27, true);
+SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 41, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1711 (class 1259 OID 32543)
+-- TOC entry 1711 (class 1259 OID 30996)
 -- Dependencies: 7
 -- Name: lesiones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -4636,7 +4636,7 @@ CREATE TABLE lesiones (
 ALTER TABLE public.lesiones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1712 (class 1259 OID 32546)
+-- TOC entry 1712 (class 1259 OID 30999)
 -- Dependencies: 7 1683
 -- Name: lesiones__partes_cuerpos_id_les_par_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4670,8 +4670,8 @@ SELECT pg_catalog.setval('lesiones__partes_cuerpos_id_les_par_cue_seq', 115, tru
 
 
 --
--- TOC entry 1713 (class 1259 OID 32548)
--- Dependencies: 7 1711
+-- TOC entry 1713 (class 1259 OID 31001)
+-- Dependencies: 1711 7
 -- Name: lesiones_id_les_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4706,7 +4706,7 @@ SELECT pg_catalog.setval('lesiones_id_les_seq', 71, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1714 (class 1259 OID 32550)
+-- TOC entry 1714 (class 1259 OID 31003)
 -- Dependencies: 7
 -- Name: lesiones_partes_cuerpos__pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4741,8 +4741,8 @@ COMMENT ON COLUMN lesiones_partes_cuerpos__pacientes.otr_les_par_cue IS 'Otras l
 
 
 --
--- TOC entry 1715 (class 1259 OID 32553)
--- Dependencies: 1714 7
+-- TOC entry 1715 (class 1259 OID 31006)
+-- Dependencies: 7 1714
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4771,11 +4771,11 @@ ALTER SEQUENCE lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq OWNED B
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 374, true);
+SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 433, true);
 
 
 --
--- TOC entry 1716 (class 1259 OID 32555)
+-- TOC entry 1716 (class 1259 OID 31008)
 -- Dependencies: 7
 -- Name: localizaciones_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4790,7 +4790,7 @@ CREATE TABLE localizaciones_cuerpos (
 ALTER TABLE public.localizaciones_cuerpos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1717 (class 1259 OID 32558)
+-- TOC entry 1717 (class 1259 OID 31011)
 -- Dependencies: 7 1716
 -- Name: localizaciones_cuerpos_id_loc_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4824,7 +4824,7 @@ SELECT pg_catalog.setval('localizaciones_cuerpos_id_loc_cue_seq', 1, false);
 
 
 --
--- TOC entry 1718 (class 1259 OID 32560)
+-- TOC entry 1718 (class 1259 OID 31013)
 -- Dependencies: 7
 -- Name: modulos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4840,7 +4840,7 @@ CREATE TABLE modulos (
 ALTER TABLE public.modulos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1719 (class 1259 OID 32563)
+-- TOC entry 1719 (class 1259 OID 31016)
 -- Dependencies: 7 1718
 -- Name: modulos_id_mod_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4874,7 +4874,7 @@ SELECT pg_catalog.setval('modulos_id_mod_seq', 2, true);
 
 
 --
--- TOC entry 1720 (class 1259 OID 32565)
+-- TOC entry 1720 (class 1259 OID 31018)
 -- Dependencies: 7
 -- Name: muestras_clinicas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4906,7 +4906,7 @@ COMMENT ON COLUMN muestras_clinicas.nom_mue_cli IS 'Nombre muestra clinica';
 
 
 --
--- TOC entry 1721 (class 1259 OID 32568)
+-- TOC entry 1721 (class 1259 OID 31021)
 -- Dependencies: 7 1720
 -- Name: muestras_clinicas_id_mue_cli_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -4940,7 +4940,7 @@ SELECT pg_catalog.setval('muestras_clinicas_id_mue_cli_seq', 1, false);
 
 
 --
--- TOC entry 1722 (class 1259 OID 32570)
+-- TOC entry 1722 (class 1259 OID 31023)
 -- Dependencies: 7
 -- Name: muestras_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4992,7 +4992,7 @@ COMMENT ON COLUMN muestras_pacientes.otr_mue_cli IS 'Otra meustra clinica';
 
 
 --
--- TOC entry 1723 (class 1259 OID 32573)
+-- TOC entry 1723 (class 1259 OID 31026)
 -- Dependencies: 7 1722
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5022,13 +5022,13 @@ ALTER SEQUENCE muestras_pacientes_id_mue_pac_seq OWNED BY muestras_pacientes.id_
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('muestras_pacientes_id_mue_pac_seq', 119, true);
+SELECT pg_catalog.setval('muestras_pacientes_id_mue_pac_seq', 162, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1724 (class 1259 OID 32575)
+-- TOC entry 1724 (class 1259 OID 31028)
 -- Dependencies: 7
 -- Name: municipios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5043,7 +5043,7 @@ CREATE TABLE municipios (
 ALTER TABLE public.municipios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1725 (class 1259 OID 32578)
+-- TOC entry 1725 (class 1259 OID 31031)
 -- Dependencies: 7 1724
 -- Name: municipios_id_mun_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5079,7 +5079,7 @@ SELECT pg_catalog.setval('municipios_id_mun_seq', 335, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1726 (class 1259 OID 32580)
+-- TOC entry 1726 (class 1259 OID 31033)
 -- Dependencies: 2078 7
 -- Name: pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5190,8 +5190,8 @@ COMMENT ON COLUMN pacientes.fec_reg_pac IS 'Fecha de registro del paciente';
 
 
 --
--- TOC entry 1727 (class 1259 OID 32584)
--- Dependencies: 1726 7
+-- TOC entry 1727 (class 1259 OID 31037)
+-- Dependencies: 7 1726
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5220,13 +5220,13 @@ ALTER SEQUENCE pacientes_id_pac_seq OWNED BY pacientes.id_pac;
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('pacientes_id_pac_seq', 63, true);
+SELECT pg_catalog.setval('pacientes_id_pac_seq', 77, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1728 (class 1259 OID 32586)
+-- TOC entry 1728 (class 1259 OID 31039)
 -- Dependencies: 7
 -- Name: paises; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5241,7 +5241,7 @@ CREATE TABLE paises (
 ALTER TABLE public.paises OWNER TO desarrollo_g;
 
 --
--- TOC entry 1729 (class 1259 OID 32589)
+-- TOC entry 1729 (class 1259 OID 31042)
 -- Dependencies: 7 1728
 -- Name: paises_id_pai_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5275,7 +5275,7 @@ SELECT pg_catalog.setval('paises_id_pai_seq', 1, false);
 
 
 --
--- TOC entry 1730 (class 1259 OID 32591)
+-- TOC entry 1730 (class 1259 OID 31044)
 -- Dependencies: 7
 -- Name: parroquias; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5290,8 +5290,8 @@ CREATE TABLE parroquias (
 ALTER TABLE public.parroquias OWNER TO desarrollo_g;
 
 --
--- TOC entry 1731 (class 1259 OID 32594)
--- Dependencies: 1730 7
+-- TOC entry 1731 (class 1259 OID 31047)
+-- Dependencies: 7 1730
 -- Name: parroquias_id_par_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5326,7 +5326,7 @@ SELECT pg_catalog.setval('parroquias_id_par_seq', 1, false);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1732 (class 1259 OID 32596)
+-- TOC entry 1732 (class 1259 OID 31049)
 -- Dependencies: 7
 -- Name: partes_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5342,7 +5342,7 @@ ALTER TABLE public.partes_cuerpos OWNER TO desarrollo_g;
 SET default_tablespace = '';
 
 --
--- TOC entry 1733 (class 1259 OID 32599)
+-- TOC entry 1733 (class 1259 OID 31052)
 -- Dependencies: 7
 -- Name: partes_cuerpos__categorias_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5366,7 +5366,7 @@ COMMENT ON TABLE partes_cuerpos__categorias_cuerpos IS 'Permite seleccionar a qu
 
 
 --
--- TOC entry 1734 (class 1259 OID 32602)
+-- TOC entry 1734 (class 1259 OID 31055)
 -- Dependencies: 7 1733
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5400,8 +5400,8 @@ SELECT pg_catalog.setval('partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_
 
 
 --
--- TOC entry 1735 (class 1259 OID 32604)
--- Dependencies: 1732 7
+-- TOC entry 1735 (class 1259 OID 31057)
+-- Dependencies: 7 1732
 -- Name: partes_cuerpos_id_par_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5434,7 +5434,7 @@ SELECT pg_catalog.setval('partes_cuerpos_id_par_cue_seq', 19, true);
 
 
 --
--- TOC entry 1736 (class 1259 OID 32606)
+-- TOC entry 1736 (class 1259 OID 31059)
 -- Dependencies: 2084 7
 -- Name: tiempo_evoluciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5449,8 +5449,8 @@ CREATE TABLE tiempo_evoluciones (
 ALTER TABLE public.tiempo_evoluciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1737 (class 1259 OID 32610)
--- Dependencies: 1736 7
+-- TOC entry 1737 (class 1259 OID 31063)
+-- Dependencies: 7 1736
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5479,13 +5479,13 @@ ALTER SEQUENCE tiempo_evoluciones_id_tie_evo_seq OWNED BY tiempo_evoluciones.id_
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 13, true);
+SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 27, true);
 
 
 SET default_tablespace = saib;
 
 --
--- TOC entry 1738 (class 1259 OID 32612)
+-- TOC entry 1738 (class 1259 OID 31065)
 -- Dependencies: 7
 -- Name: tipos_consultas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5508,7 +5508,7 @@ COMMENT ON COLUMN tipos_consultas.id_tip_con IS 'id tipos consultas';
 
 
 --
--- TOC entry 1739 (class 1259 OID 32615)
+-- TOC entry 1739 (class 1259 OID 31068)
 -- Dependencies: 7 1738
 -- Name: tipos_consultas_id_tip_con_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5542,7 +5542,7 @@ SELECT pg_catalog.setval('tipos_consultas_id_tip_con_seq', 9, true);
 
 
 --
--- TOC entry 1740 (class 1259 OID 32617)
+-- TOC entry 1740 (class 1259 OID 31070)
 -- Dependencies: 7
 -- Name: tipos_consultas_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5594,7 +5594,7 @@ COMMENT ON COLUMN tipos_consultas_pacientes.otr_tip_con IS 'Otro tipo de consult
 
 
 --
--- TOC entry 1741 (class 1259 OID 32620)
+-- TOC entry 1741 (class 1259 OID 31073)
 -- Dependencies: 7 1740
 -- Name: tipos_consultas_pacientes_id_tip_con_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5624,11 +5624,11 @@ ALTER SEQUENCE tipos_consultas_pacientes_id_tip_con_pac_seq OWNED BY tipos_consu
 -- Name: tipos_consultas_pacientes_id_tip_con_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_consultas_pacientes_id_tip_con_pac_seq', 199, true);
+SELECT pg_catalog.setval('tipos_consultas_pacientes_id_tip_con_pac_seq', 233, true);
 
 
 --
--- TOC entry 1742 (class 1259 OID 32622)
+-- TOC entry 1742 (class 1259 OID 31075)
 -- Dependencies: 7
 -- Name: tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5644,7 +5644,7 @@ CREATE TABLE tipos_estudios_micologicos (
 ALTER TABLE public.tipos_estudios_micologicos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1743 (class 1259 OID 32625)
+-- TOC entry 1743 (class 1259 OID 31078)
 -- Dependencies: 7 1742
 -- Name: tipos_estudios_micologicos_id_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5680,7 +5680,7 @@ SELECT pg_catalog.setval('tipos_estudios_micologicos_id_tip_est_mic_seq', 64, tr
 SET default_tablespace = '';
 
 --
--- TOC entry 1744 (class 1259 OID 32627)
+-- TOC entry 1744 (class 1259 OID 31080)
 -- Dependencies: 7
 -- Name: tipos_examenes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5694,8 +5694,8 @@ CREATE TABLE tipos_examenes (
 ALTER TABLE public.tipos_examenes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1745 (class 1259 OID 32630)
--- Dependencies: 1744 7
+-- TOC entry 1745 (class 1259 OID 31083)
+-- Dependencies: 7 1744
 -- Name: tipos_examenes_id_tip_exa_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5730,7 +5730,7 @@ SELECT pg_catalog.setval('tipos_examenes_id_tip_exa_seq', 3, false);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1746 (class 1259 OID 32632)
+-- TOC entry 1746 (class 1259 OID 31085)
 -- Dependencies: 7
 -- Name: tipos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5744,8 +5744,8 @@ CREATE TABLE tipos_micosis (
 ALTER TABLE public.tipos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1747 (class 1259 OID 32635)
--- Dependencies: 7 1746
+-- TOC entry 1747 (class 1259 OID 31088)
+-- Dependencies: 1746 7
 -- Name: tipos_micosis_id_tip_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5780,7 +5780,7 @@ SELECT pg_catalog.setval('tipos_micosis_id_tip_mic_seq', 4, false);
 SET default_tablespace = '';
 
 --
--- TOC entry 1748 (class 1259 OID 32637)
+-- TOC entry 1748 (class 1259 OID 31090)
 -- Dependencies: 7
 -- Name: tipos_micosis_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5795,7 +5795,7 @@ CREATE TABLE tipos_micosis_pacientes (
 ALTER TABLE public.tipos_micosis_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1749 (class 1259 OID 32640)
+-- TOC entry 1749 (class 1259 OID 31093)
 -- Dependencies: 7
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5820,7 +5820,7 @@ COMMENT ON COLUMN tipos_micosis_pacientes__tipos_estudios_micologicos.otr_tip_es
 
 
 --
--- TOC entry 1750 (class 1259 OID 32643)
+-- TOC entry 1750 (class 1259 OID 31096)
 -- Dependencies: 1749 7
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5850,12 +5850,12 @@ ALTER SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq O
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 150, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 244, true);
 
 
 --
--- TOC entry 1751 (class 1259 OID 32645)
--- Dependencies: 7 1748
+-- TOC entry 1751 (class 1259 OID 31098)
+-- Dependencies: 1748 7
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5884,13 +5884,13 @@ ALTER SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq OWNED BY tipos_micosis
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 181, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 203, true);
 
 
 SET default_tablespace = saib;
 
 --
--- TOC entry 1752 (class 1259 OID 32647)
+-- TOC entry 1752 (class 1259 OID 31100)
 -- Dependencies: 7
 -- Name: tipos_usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5905,7 +5905,7 @@ CREATE TABLE tipos_usuarios (
 ALTER TABLE public.tipos_usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1753 (class 1259 OID 32650)
+-- TOC entry 1753 (class 1259 OID 31103)
 -- Dependencies: 7
 -- Name: tipos_usuarios__usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5921,7 +5921,7 @@ CREATE TABLE tipos_usuarios__usuarios (
 ALTER TABLE public.tipos_usuarios__usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1754 (class 1259 OID 32653)
+-- TOC entry 1754 (class 1259 OID 31106)
 -- Dependencies: 1753 7
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -5951,12 +5951,12 @@ ALTER SEQUENCE tipos_usuarios__usuarios_id_tip_usu_usu_seq OWNED BY tipos_usuari
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 54, true);
+SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 57, true);
 
 
 --
--- TOC entry 1755 (class 1259 OID 32655)
--- Dependencies: 7 1752
+-- TOC entry 1755 (class 1259 OID 31108)
+-- Dependencies: 1752 7
 -- Name: tipos_usuarios_id_tip_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5989,7 +5989,7 @@ SELECT pg_catalog.setval('tipos_usuarios_id_tip_usu_seq', 2, true);
 
 
 --
--- TOC entry 1756 (class 1259 OID 32657)
+-- TOC entry 1756 (class 1259 OID 31110)
 -- Dependencies: 7
 -- Name: transacciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6005,8 +6005,8 @@ CREATE TABLE transacciones (
 ALTER TABLE public.transacciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1757 (class 1259 OID 32660)
--- Dependencies: 1756 7
+-- TOC entry 1757 (class 1259 OID 31113)
+-- Dependencies: 7 1756
 -- Name: transacciones_id_tip_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6039,7 +6039,7 @@ SELECT pg_catalog.setval('transacciones_id_tip_tra_seq', 16, true);
 
 
 --
--- TOC entry 1758 (class 1259 OID 32662)
+-- TOC entry 1758 (class 1259 OID 31115)
 -- Dependencies: 7
 -- Name: transacciones_usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6054,7 +6054,7 @@ CREATE TABLE transacciones_usuarios (
 ALTER TABLE public.transacciones_usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1759 (class 1259 OID 32665)
+-- TOC entry 1759 (class 1259 OID 31118)
 -- Dependencies: 7 1758
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -6084,11 +6084,11 @@ ALTER SEQUENCE transacciones_usuarios_id_tra_usu_seq OWNED BY transacciones_usua
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 161, true);
+SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 185, true);
 
 
 --
--- TOC entry 1760 (class 1259 OID 32667)
+-- TOC entry 1760 (class 1259 OID 31120)
 -- Dependencies: 7
 -- Name: tratamientos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6102,7 +6102,7 @@ CREATE TABLE tratamientos (
 ALTER TABLE public.tratamientos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1761 (class 1259 OID 32670)
+-- TOC entry 1761 (class 1259 OID 31123)
 -- Dependencies: 7 1760
 -- Name: tratamientos_id_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -6136,7 +6136,7 @@ SELECT pg_catalog.setval('tratamientos_id_tra_seq', 1, false);
 
 
 --
--- TOC entry 1762 (class 1259 OID 32672)
+-- TOC entry 1762 (class 1259 OID 31125)
 -- Dependencies: 7
 -- Name: tratamientos_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6188,7 +6188,7 @@ COMMENT ON COLUMN tratamientos_pacientes.otr_tra IS 'Otro tratamiento';
 
 
 --
--- TOC entry 1763 (class 1259 OID 32675)
+-- TOC entry 1763 (class 1259 OID 31128)
 -- Dependencies: 7 1762
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -6218,11 +6218,11 @@ ALTER SEQUENCE tratamientos_pacientes_id_tra_pac_seq OWNED BY tratamientos_pacie
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tratamientos_pacientes_id_tra_pac_seq', 260, true);
+SELECT pg_catalog.setval('tratamientos_pacientes_id_tra_pac_seq', 308, true);
 
 
 --
--- TOC entry 1764 (class 1259 OID 32677)
+-- TOC entry 1764 (class 1259 OID 31130)
 -- Dependencies: 2099 7
 -- Name: usuarios_administrativos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6263,7 +6263,7 @@ COMMENT ON COLUMN usuarios_administrativos.adm_usu IS '
 
 
 --
--- TOC entry 1765 (class 1259 OID 32681)
+-- TOC entry 1765 (class 1259 OID 31134)
 -- Dependencies: 1764 7
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
@@ -6293,11 +6293,11 @@ ALTER SEQUENCE usuarios_administrativos_id_usu_adm_seq OWNED BY usuarios_adminis
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 24, true);
+SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 26, true);
 
 
 --
--- TOC entry 1766 (class 1259 OID 32683)
+-- TOC entry 1766 (class 1259 OID 31136)
 -- Dependencies: 1855 7
 -- Name: view_auditoria_transacciones; Type: VIEW; Schema: public; Owner: desarrollo_g
 --
@@ -6309,7 +6309,7 @@ CREATE VIEW view_auditoria_transacciones AS
 ALTER TABLE public.view_auditoria_transacciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1767 (class 1259 OID 32688)
+-- TOC entry 1767 (class 1259 OID 31141)
 -- Dependencies: 1856 7
 -- Name: view_tipo_enfermedades_mic_pac; Type: VIEW; Schema: public; Owner: desarrollo_g
 --
@@ -6325,7 +6325,7 @@ SET search_path = saib_model, pg_catalog;
 SET default_tablespace = '';
 
 --
--- TOC entry 1768 (class 1259 OID 32692)
+-- TOC entry 1768 (class 1259 OID 31145)
 -- Dependencies: 6
 -- Name: wwwsqldesigner; Type: TABLE; Schema: saib_model; Owner: postgres; Tablespace: 
 --
@@ -6342,7 +6342,7 @@ ALTER TABLE saib_model.wwwsqldesigner OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 2048 (class 2604 OID 32698)
+-- TOC entry 2048 (class 2604 OID 31151)
 -- Dependencies: 1673 1672
 -- Name: id_ani; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6351,7 +6351,7 @@ ALTER TABLE animales ALTER COLUMN id_ani SET DEFAULT nextval('animales_id_ani_se
 
 
 --
--- TOC entry 2049 (class 2604 OID 32699)
+-- TOC entry 2049 (class 2604 OID 31152)
 -- Dependencies: 1675 1674
 -- Name: id_ant_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6360,7 +6360,7 @@ ALTER TABLE antecedentes_pacientes ALTER COLUMN id_ant_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2050 (class 2604 OID 32700)
+-- TOC entry 2050 (class 2604 OID 31153)
 -- Dependencies: 1677 1676
 -- Name: id_ant_per; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6369,7 +6369,7 @@ ALTER TABLE antecedentes_personales ALTER COLUMN id_ant_per SET DEFAULT nextval(
 
 
 --
--- TOC entry 2051 (class 2604 OID 32701)
+-- TOC entry 2051 (class 2604 OID 31154)
 -- Dependencies: 1679 1678
 -- Name: id_aud_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6378,7 +6378,7 @@ ALTER TABLE auditoria_transacciones ALTER COLUMN id_aud_tra SET DEFAULT nextval(
 
 
 --
--- TOC entry 2052 (class 2604 OID 32702)
+-- TOC entry 2052 (class 2604 OID 31155)
 -- Dependencies: 1681 1680
 -- Name: id_cat_cue_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6387,7 +6387,7 @@ ALTER TABLE categorias__cuerpos_micosis ALTER COLUMN id_cat_cue_mic SET DEFAULT 
 
 
 --
--- TOC entry 2053 (class 2604 OID 32703)
+-- TOC entry 2053 (class 2604 OID 31156)
 -- Dependencies: 1684 1682
 -- Name: id_cat_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6396,7 +6396,7 @@ ALTER TABLE categorias_cuerpos ALTER COLUMN id_cat_cue SET DEFAULT nextval('cate
 
 
 --
--- TOC entry 2054 (class 2604 OID 32704)
+-- TOC entry 2054 (class 2604 OID 31157)
 -- Dependencies: 1712 1683
 -- Name: id_cat_cue_les; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6405,7 +6405,7 @@ ALTER TABLE categorias_cuerpos__lesiones ALTER COLUMN id_cat_cue_les SET DEFAULT
 
 
 --
--- TOC entry 2055 (class 2604 OID 32705)
+-- TOC entry 2055 (class 2604 OID 31158)
 -- Dependencies: 1686 1685
 -- Name: id_cen_sal_doc; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6414,7 +6414,7 @@ ALTER TABLE centro_salud_doctores ALTER COLUMN id_cen_sal_doc SET DEFAULT nextva
 
 
 --
--- TOC entry 2057 (class 2604 OID 32706)
+-- TOC entry 2057 (class 2604 OID 31159)
 -- Dependencies: 1690 1689
 -- Name: id_cen_sal_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6423,7 +6423,7 @@ ALTER TABLE centro_salud_pacientes ALTER COLUMN id_cen_sal_pac SET DEFAULT nextv
 
 
 --
--- TOC entry 2056 (class 2604 OID 32707)
+-- TOC entry 2056 (class 2604 OID 31160)
 -- Dependencies: 1688 1687
 -- Name: id_cen_sal; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6432,7 +6432,7 @@ ALTER TABLE centro_saluds ALTER COLUMN id_cen_sal SET DEFAULT nextval('centro_sa
 
 
 --
--- TOC entry 2058 (class 2604 OID 32708)
+-- TOC entry 2058 (class 2604 OID 31161)
 -- Dependencies: 1692 1691
 -- Name: id_con_ani; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6441,7 +6441,7 @@ ALTER TABLE contactos_animales ALTER COLUMN id_con_ani SET DEFAULT nextval('cont
 
 
 --
--- TOC entry 2060 (class 2604 OID 32709)
+-- TOC entry 2060 (class 2604 OID 31162)
 -- Dependencies: 1694 1693
 -- Name: id_doc; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6450,7 +6450,7 @@ ALTER TABLE doctores ALTER COLUMN id_doc SET DEFAULT nextval('doctores_id_doc_se
 
 
 --
--- TOC entry 2061 (class 2604 OID 32710)
+-- TOC entry 2061 (class 2604 OID 31163)
 -- Dependencies: 1696 1695
 -- Name: id_enf_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6459,7 +6459,7 @@ ALTER TABLE enfermedades_micologicas ALTER COLUMN id_enf_mic SET DEFAULT nextval
 
 
 --
--- TOC entry 2062 (class 2604 OID 32711)
+-- TOC entry 2062 (class 2604 OID 31164)
 -- Dependencies: 1698 1697
 -- Name: id_enf_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6468,7 +6468,7 @@ ALTER TABLE enfermedades_pacientes ALTER COLUMN id_enf_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2063 (class 2604 OID 32712)
+-- TOC entry 2063 (class 2604 OID 31165)
 -- Dependencies: 1700 1699
 -- Name: id_est; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6477,7 +6477,7 @@ ALTER TABLE estados ALTER COLUMN id_est SET DEFAULT nextval('estados_id_est_seq'
 
 
 --
--- TOC entry 2064 (class 2604 OID 32713)
+-- TOC entry 2064 (class 2604 OID 31166)
 -- Dependencies: 1702 1701
 -- Name: id_exa_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6486,7 +6486,7 @@ ALTER TABLE examenes_pacientes ALTER COLUMN id_exa_pac SET DEFAULT nextval('exam
 
 
 --
--- TOC entry 2065 (class 2604 OID 32714)
+-- TOC entry 2065 (class 2604 OID 31167)
 -- Dependencies: 1708 1703
 -- Name: id_for_inf; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6495,7 +6495,7 @@ ALTER TABLE forma_infecciones ALTER COLUMN id_for_inf SET DEFAULT nextval('forma
 
 
 --
--- TOC entry 2066 (class 2604 OID 32715)
+-- TOC entry 2066 (class 2604 OID 31168)
 -- Dependencies: 1705 1704
 -- Name: id_for_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6504,7 +6504,7 @@ ALTER TABLE forma_infecciones__pacientes ALTER COLUMN id_for_pac SET DEFAULT nex
 
 
 --
--- TOC entry 2067 (class 2604 OID 32716)
+-- TOC entry 2067 (class 2604 OID 31169)
 -- Dependencies: 1707 1706
 -- Name: id_for_inf_tip_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6513,7 +6513,7 @@ ALTER TABLE forma_infecciones__tipos_micosis ALTER COLUMN id_for_inf_tip_mic SET
 
 
 --
--- TOC entry 2070 (class 2604 OID 32717)
+-- TOC entry 2070 (class 2604 OID 31170)
 -- Dependencies: 1710 1709
 -- Name: id_his; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6522,7 +6522,7 @@ ALTER TABLE historiales_pacientes ALTER COLUMN id_his SET DEFAULT nextval('histo
 
 
 --
--- TOC entry 2071 (class 2604 OID 32718)
+-- TOC entry 2071 (class 2604 OID 31171)
 -- Dependencies: 1713 1711
 -- Name: id_les; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6531,7 +6531,7 @@ ALTER TABLE lesiones ALTER COLUMN id_les SET DEFAULT nextval('lesiones_id_les_se
 
 
 --
--- TOC entry 2072 (class 2604 OID 32719)
+-- TOC entry 2072 (class 2604 OID 31172)
 -- Dependencies: 1715 1714
 -- Name: id_les_par_cue_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6540,7 +6540,7 @@ ALTER TABLE lesiones_partes_cuerpos__pacientes ALTER COLUMN id_les_par_cue_pac S
 
 
 --
--- TOC entry 2073 (class 2604 OID 32720)
+-- TOC entry 2073 (class 2604 OID 31173)
 -- Dependencies: 1717 1716
 -- Name: id_loc_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6549,7 +6549,7 @@ ALTER TABLE localizaciones_cuerpos ALTER COLUMN id_loc_cue SET DEFAULT nextval('
 
 
 --
--- TOC entry 2074 (class 2604 OID 32721)
+-- TOC entry 2074 (class 2604 OID 31174)
 -- Dependencies: 1719 1718
 -- Name: id_mod; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6558,7 +6558,7 @@ ALTER TABLE modulos ALTER COLUMN id_mod SET DEFAULT nextval('modulos_id_mod_seq'
 
 
 --
--- TOC entry 2075 (class 2604 OID 32722)
+-- TOC entry 2075 (class 2604 OID 31175)
 -- Dependencies: 1721 1720
 -- Name: id_mue_cli; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6567,7 +6567,7 @@ ALTER TABLE muestras_clinicas ALTER COLUMN id_mue_cli SET DEFAULT nextval('muest
 
 
 --
--- TOC entry 2076 (class 2604 OID 32723)
+-- TOC entry 2076 (class 2604 OID 31176)
 -- Dependencies: 1723 1722
 -- Name: id_mue_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6576,7 +6576,7 @@ ALTER TABLE muestras_pacientes ALTER COLUMN id_mue_pac SET DEFAULT nextval('mues
 
 
 --
--- TOC entry 2077 (class 2604 OID 32724)
+-- TOC entry 2077 (class 2604 OID 31177)
 -- Dependencies: 1725 1724
 -- Name: id_mun; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6585,7 +6585,7 @@ ALTER TABLE municipios ALTER COLUMN id_mun SET DEFAULT nextval('municipios_id_mu
 
 
 --
--- TOC entry 2079 (class 2604 OID 32725)
+-- TOC entry 2079 (class 2604 OID 31178)
 -- Dependencies: 1727 1726
 -- Name: id_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6594,7 +6594,7 @@ ALTER TABLE pacientes ALTER COLUMN id_pac SET DEFAULT nextval('pacientes_id_pac_
 
 
 --
--- TOC entry 2080 (class 2604 OID 32726)
+-- TOC entry 2080 (class 2604 OID 31179)
 -- Dependencies: 1729 1728
 -- Name: id_pai; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6603,7 +6603,7 @@ ALTER TABLE paises ALTER COLUMN id_pai SET DEFAULT nextval('paises_id_pai_seq'::
 
 
 --
--- TOC entry 2081 (class 2604 OID 32727)
+-- TOC entry 2081 (class 2604 OID 31180)
 -- Dependencies: 1731 1730
 -- Name: id_par; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6612,7 +6612,7 @@ ALTER TABLE parroquias ALTER COLUMN id_par SET DEFAULT nextval('parroquias_id_pa
 
 
 --
--- TOC entry 2082 (class 2604 OID 32728)
+-- TOC entry 2082 (class 2604 OID 31181)
 -- Dependencies: 1735 1732
 -- Name: id_par_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6621,7 +6621,7 @@ ALTER TABLE partes_cuerpos ALTER COLUMN id_par_cue SET DEFAULT nextval('partes_c
 
 
 --
--- TOC entry 2083 (class 2604 OID 32729)
+-- TOC entry 2083 (class 2604 OID 31182)
 -- Dependencies: 1734 1733
 -- Name: id_par_cue_cat_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6630,7 +6630,7 @@ ALTER TABLE partes_cuerpos__categorias_cuerpos ALTER COLUMN id_par_cue_cat_cue S
 
 
 --
--- TOC entry 2085 (class 2604 OID 32730)
+-- TOC entry 2085 (class 2604 OID 31183)
 -- Dependencies: 1737 1736
 -- Name: id_tie_evo; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6639,7 +6639,7 @@ ALTER TABLE tiempo_evoluciones ALTER COLUMN id_tie_evo SET DEFAULT nextval('tiem
 
 
 --
--- TOC entry 2086 (class 2604 OID 32731)
+-- TOC entry 2086 (class 2604 OID 31184)
 -- Dependencies: 1739 1738
 -- Name: id_tip_con; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6648,7 +6648,7 @@ ALTER TABLE tipos_consultas ALTER COLUMN id_tip_con SET DEFAULT nextval('tipos_c
 
 
 --
--- TOC entry 2087 (class 2604 OID 32732)
+-- TOC entry 2087 (class 2604 OID 31185)
 -- Dependencies: 1741 1740
 -- Name: id_tip_con_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6657,7 +6657,7 @@ ALTER TABLE tipos_consultas_pacientes ALTER COLUMN id_tip_con_pac SET DEFAULT ne
 
 
 --
--- TOC entry 2088 (class 2604 OID 32733)
+-- TOC entry 2088 (class 2604 OID 31186)
 -- Dependencies: 1743 1742
 -- Name: id_tip_est_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6666,7 +6666,7 @@ ALTER TABLE tipos_estudios_micologicos ALTER COLUMN id_tip_est_mic SET DEFAULT n
 
 
 --
--- TOC entry 2089 (class 2604 OID 32734)
+-- TOC entry 2089 (class 2604 OID 31187)
 -- Dependencies: 1745 1744
 -- Name: id_tip_exa; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6675,7 +6675,7 @@ ALTER TABLE tipos_examenes ALTER COLUMN id_tip_exa SET DEFAULT nextval('tipos_ex
 
 
 --
--- TOC entry 2090 (class 2604 OID 32735)
+-- TOC entry 2090 (class 2604 OID 31188)
 -- Dependencies: 1747 1746
 -- Name: id_tip_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6684,7 +6684,7 @@ ALTER TABLE tipos_micosis ALTER COLUMN id_tip_mic SET DEFAULT nextval('tipos_mic
 
 
 --
--- TOC entry 2091 (class 2604 OID 32736)
+-- TOC entry 2091 (class 2604 OID 31189)
 -- Dependencies: 1751 1748
 -- Name: id_tip_mic_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6693,7 +6693,7 @@ ALTER TABLE tipos_micosis_pacientes ALTER COLUMN id_tip_mic_pac SET DEFAULT next
 
 
 --
--- TOC entry 2092 (class 2604 OID 32737)
+-- TOC entry 2092 (class 2604 OID 31190)
 -- Dependencies: 1750 1749
 -- Name: id_tip_mic_pac_tip_est_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6702,7 +6702,7 @@ ALTER TABLE tipos_micosis_pacientes__tipos_estudios_micologicos ALTER COLUMN id_
 
 
 --
--- TOC entry 2093 (class 2604 OID 32738)
+-- TOC entry 2093 (class 2604 OID 31191)
 -- Dependencies: 1755 1752
 -- Name: id_tip_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6711,7 +6711,7 @@ ALTER TABLE tipos_usuarios ALTER COLUMN id_tip_usu SET DEFAULT nextval('tipos_us
 
 
 --
--- TOC entry 2094 (class 2604 OID 32739)
+-- TOC entry 2094 (class 2604 OID 31192)
 -- Dependencies: 1754 1753
 -- Name: id_tip_usu_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6720,7 +6720,7 @@ ALTER TABLE tipos_usuarios__usuarios ALTER COLUMN id_tip_usu_usu SET DEFAULT nex
 
 
 --
--- TOC entry 2095 (class 2604 OID 32740)
+-- TOC entry 2095 (class 2604 OID 31193)
 -- Dependencies: 1757 1756
 -- Name: id_tip_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6729,7 +6729,7 @@ ALTER TABLE transacciones ALTER COLUMN id_tip_tra SET DEFAULT nextval('transacci
 
 
 --
--- TOC entry 2096 (class 2604 OID 32741)
+-- TOC entry 2096 (class 2604 OID 31194)
 -- Dependencies: 1759 1758
 -- Name: id_tra_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6738,7 +6738,7 @@ ALTER TABLE transacciones_usuarios ALTER COLUMN id_tra_usu SET DEFAULT nextval('
 
 
 --
--- TOC entry 2097 (class 2604 OID 32742)
+-- TOC entry 2097 (class 2604 OID 31195)
 -- Dependencies: 1761 1760
 -- Name: id_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6747,7 +6747,7 @@ ALTER TABLE tratamientos ALTER COLUMN id_tra SET DEFAULT nextval('tratamientos_i
 
 
 --
--- TOC entry 2098 (class 2604 OID 32743)
+-- TOC entry 2098 (class 2604 OID 31196)
 -- Dependencies: 1763 1762
 -- Name: id_tra_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6756,7 +6756,7 @@ ALTER TABLE tratamientos_pacientes ALTER COLUMN id_tra_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2100 (class 2604 OID 32744)
+-- TOC entry 2100 (class 2604 OID 31197)
 -- Dependencies: 1765 1764
 -- Name: id_usu_adm; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
@@ -6765,7 +6765,7 @@ ALTER TABLE usuarios_administrativos ALTER COLUMN id_usu_adm SET DEFAULT nextval
 
 
 --
--- TOC entry 2323 (class 0 OID 32433)
+-- TOC entry 2323 (class 0 OID 30886)
 -- Dependencies: 1672
 -- Data for Name: animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -6778,22 +6778,67 @@ INSERT INTO animales (id_ani, nom_ani) VALUES (5, 'Otros');
 
 
 --
--- TOC entry 2324 (class 0 OID 32438)
+-- TOC entry 2324 (class 0 OID 30891)
 -- Dependencies: 1674
 -- Data for Name: antecedentes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (90, 1, 56);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (91, 1, 57);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (93, 2, 58);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (98, 2, 63);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (99, 1, 59);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (100, 2, 54);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (101, 3, 54);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (102, 1, 64);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (103, 1, 65);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (104, 2, 65);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (105, 1, 66);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (106, 2, 66);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (107, 1, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (108, 2, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (109, 3, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (110, 4, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (111, 5, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (112, 6, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (113, 7, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (114, 8, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (115, 9, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (116, 10, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (117, 11, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (118, 12, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (119, 13, 67);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (120, 2, 68);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (121, 3, 68);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (122, 5, 69);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (123, 8, 69);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (124, 9, 69);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (125, 10, 69);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (126, 2, 70);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (127, 6, 70);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (128, 7, 70);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (129, 11, 70);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (130, 12, 70);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (131, 2, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (132, 6, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (133, 8, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (134, 9, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (135, 6, 72);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (136, 7, 72);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (137, 8, 72);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (138, 2, 73);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (139, 3, 73);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (140, 5, 73);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (141, 6, 73);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (142, 7, 73);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (143, 2, 74);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (144, 6, 74);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (145, 7, 74);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (146, 8, 74);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (147, 8, 75);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (148, 9, 75);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (149, 11, 75);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (150, 7, 76);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (151, 2, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (152, 3, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (153, 7, 77);
 
 
 --
--- TOC entry 2325 (class 0 OID 32443)
+-- TOC entry 2325 (class 0 OID 30896)
 -- Dependencies: 1676
 -- Data for Name: antecedentes_personales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -6814,7 +6859,7 @@ INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (13, 'Otros
 
 
 --
--- TOC entry 2326 (class 0 OID 32448)
+-- TOC entry 2326 (class 0 OID 30901)
 -- Dependencies: 1678
 -- Data for Name: auditoria_transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7149,10 +7194,162 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Otros </actual><anterior>Otros </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Otros Otros </actual><anterior>Otros Otros </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Otros Otros Otros </actual><anterior>Otros Otros Otros </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Otros Otros Otros Otros </actual><anterior>Otros Otros Otros Otros </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>-111111</actual><anterior>-111111</anterior></campo></tabla></Información_adicional>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (167, '2012-01-22 11:29:57.013', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
 			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Otros </actual><anterior>Otros </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Otros Otros </actual><anterior>Otros Otros </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Otros Otros Otros </actual><anterior>Otros Otros Otros </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Otros Otros Otros Otros </actual><anterior>Otros Otros Otros Otros </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>-111111</actual><anterior>-111111</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (170, '2012-01-25 10:09:14.375', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>58</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>muñoz</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>$jhjh</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>87897987</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1985-01-22</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>04268741232</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>02129358741</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Anaco		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>dddd</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (171, '2012-01-25 10:09:25.468', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>54</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Bggh</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Bggh</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302818</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>36222225555</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135555</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrena%%</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (172, '2012-01-25 10:09:36.64', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>59</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>hsdf</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>fggfg</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17651234</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1985-01-22</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>04268741232</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>02129358741</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Apure</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Biruaca		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>a</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Ninguna </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (204, '2012-01-25 11:05:37.281', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro I ,Instituto </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro I ,Instituto Dermatologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro I ,Instituto Dermatologia Aves </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro I ,Instituto Dermatologia Aves Citotóxicos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>7</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (173, '2012-01-25 10:09:43.156', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>63</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>muñoz</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>fdfadf</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>42325244</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2000-01-08</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>04268741232</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>02129358741</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aragua		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>dddd</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (174, '2012-01-25 10:09:55.265', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>56</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>Lisseth</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>Lozada</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17234567</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2000-01-01</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>12345678</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>04261234567</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Técnico</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Nueva Esparta</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	García		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>aa</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Ninguna </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (175, '2012-01-25 10:10:01.64', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>57</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>luis</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>marin</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17568741</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>1985-01-22</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>04268741232</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>02129358741</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aragua		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>dddd</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Ninguna </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (176, '2012-01-25 10:12:28.468', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Maria</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Torre</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>13376611</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1985-12-17</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Nueva Esparta</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Antolín del Campo		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (177, '2012-01-25 10:14:40.375', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Lucy</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Hernande</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>10357772</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1985-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265168888</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04165168888</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Libertador Caracas		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna ,Obesidad </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (178, '2012-01-25 10:16:24.156', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Yeny</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Alvare</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>13930135</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1987-01-24</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265877711</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>18233987779</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Miranda</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Buroz		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guatire</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna ,Obesidad </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (179, '2012-01-25 10:19:50.703', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Raul</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Perez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>18544323</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1985-01-31</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265883323</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>14933123434</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Distrito Capital</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Libertador Caracas		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>caracas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna ,Obesidad ,Diabetes ,Traumatismo ,Cirugía ,HIV/SIDA ,Cáncer ,inmunosupresión/Neutropenia ,Uso Esteroides ,Embarazo ,Neoplasias ,Inanición ,Otros </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (180, '2012-01-25 10:24:23.062', 17, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>6</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Luis</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Lopez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>39813331</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1984-01-25</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268778912</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04125188824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Barinas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Alberto Arvelo Torrealba		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Chacao</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (181, '2012-01-25 10:34:19.296', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Raul</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Gill</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>29394889</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1985-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265168888</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Bolívar</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Roscio		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Chacao</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Cirugía ,inmunosupresión/Neutropenia ,Uso Esteroides ,Embarazo </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (182, '2012-01-25 10:36:48.687', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Francis</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Trejo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>29394823</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1987-01-24</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268778932</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>14933123434</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Obrero</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Delta Amacuro</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Tucupita		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>caracas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,HIV/SIDA ,Cáncer ,Neoplasias ,Inanición </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (183, '2012-01-25 10:38:12.812', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Andrea</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Canino</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>19903666</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1989-12-17</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265883323</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Obrero</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Carabobo</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Libertador		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Los teques</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,HIV/SIDA ,inmunosupresión/Neutropenia ,Uso Esteroides </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (184, '2012-01-25 10:39:00.312', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Josue</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Camargo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>89056421</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1975-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04165168888</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Delta Amacuro</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Pedernales		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guarico</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>HIV/SIDA ,Cáncer ,inmunosupresión/Neutropenia </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (185, '2012-01-25 10:39:58.921', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Leir</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Ruiz</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>56423971</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1970-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622222</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Bolívar</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Gran Sabana		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guatire</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Cirugía ,HIV/SIDA ,Cáncer </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (186, '2012-01-25 10:42:07.078', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Carlos</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Rodriguez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>13376784</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1959-12-17</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02123622432</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>14943123434</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Apure</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Páez		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Falcon</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,HIV/SIDA ,Cáncer ,inmunosupresión/Neutropenia </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (187, '2012-01-25 10:46:11.859', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Maria Fernanda</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Avendano</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>35289012</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1980-10-15</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>02126622432</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04125158824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Técnico</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Apure</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Biruaca		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guarenas</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>inmunosupresión/Neutropenia ,Uso Esteroides ,Neoplasias </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (188, '2012-01-25 10:47:03.75', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Gerardo</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Perez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>80392095</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1960-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>M</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Extranjero</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265883323</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04125158824</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Obrero</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Apure</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Páez		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Guatire</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Cáncer </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (189, '2012-01-25 10:47:36.343', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Andrea</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Canino</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>19903666</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Fiebre</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>Continua</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 10:47:36.343-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (190, '2012-01-25 10:48:22.531', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro I ,Clínica </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro I ,Clínica Geriatria </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro I ,Clínica Geriatria Aves </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro I ,Clínica Geriatria Aves Glucorticoides ,Radioterapia </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (191, '2012-01-25 10:48:32.437', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro I ,Clínica </actual><anterior>Barrio Adentro I ,Clínica </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro I ,Clínica Geriatria </actual><anterior>Barrio Adentro I ,Clínica Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro I ,Clínica Geriatria Aves </actual><anterior>Barrio Adentro I ,Clínica Geriatria Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro I ,Clínica Geriatria Aves Glucorticoides ,Radioterapia </actual><anterior>Barrio Adentro I ,Clínica Geriatria Aves Glucorticoides ,Radioterapia </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>4</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (192, '2012-01-25 10:49:04.156', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Andrea</actual><anterior>Andrea</anterior></campo><campo nombre="Apellido"><actual>Canino</actual><anterior>Canino</anterior></campo><campo nombre="Cédula"><actual>19903666</actual><anterior>19903666</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (193, '2012-01-25 10:51:32.343', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Carlos</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Rodriguez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13376784</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Hongo pilifonica</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 10:51:32.343-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (194, '2012-01-25 10:52:02.093', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Barrio Adentro III </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato Glucorticoides ,Hormonas Sexuales </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>0</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (205, '2012-01-25 11:06:14.312', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Josue</actual><anterior>Josue</anterior></campo><campo nombre="Apellido"><actual>Camargo</actual><anterior>Camargo</anterior></campo><campo nombre="Cédula"><actual>89056421</actual><anterior>89056421</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (195, '2012-01-25 10:52:14.859', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Barrio Adentro III </actual><anterior>Ambulatorio Rural ,Barrio Adentro III </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia </actual><anterior>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato </actual><anterior>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato Glucorticoides ,Hormonas Sexuales </actual><anterior>Ambulatorio Rural ,Barrio Adentro III Consulta Interna ,Dermatologia Aves ,Gato Glucorticoides ,Hormonas Sexuales </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (196, '2012-01-25 10:52:38.234', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Carlos</actual><anterior>Carlos</anterior></campo><campo nombre="Apellido"><actual>Rodriguez</actual><anterior>Rodriguez</anterior></campo><campo nombre="Cédula"><actual>13376784</actual><anterior>13376784</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (197, '2012-01-25 10:54:03.593', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Francis</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Trejo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>29394823</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Hongo poliferimico</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 10:54:03.593-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (198, '2012-01-25 10:54:39.656', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual></actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Neumologia ,Pediatria </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Neumologia ,Pediatria Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Neumologia ,Pediatria Gato Citotóxicos ,Sistémicos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>34</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (199, '2012-01-25 10:54:56.015', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Francis</actual><anterior>Francis</anterior></campo><campo nombre="Apellido"><actual>Trejo</actual><anterior>Trejo</anterior></campo><campo nombre="Cédula"><actual>29394823</actual><anterior>29394823</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (200, '2012-01-25 10:58:38.046', 49, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Gerardo</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Perez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>80392095</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>presenta lesiones en la piel</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>presenta lesiones en la piel</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 10:58:38.046-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (201, '2012-01-25 11:00:29.031', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Instituto </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Instituto Dermatologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Instituto Dermatologia Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Instituto Dermatologia Gato Tópicos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>7</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (202, '2012-01-25 11:00:49.14', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Gerardo</actual><anterior>Gerardo</anterior></campo><campo nombre="Apellido"><actual>Perez</actual><anterior>Perez</anterior></campo><campo nombre="Cédula"><actual>80392095</actual><anterior>80392095</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (203, '2012-01-25 11:04:58.64', 49, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Josue</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Camargo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>89056421</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>lesion en el pie</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 11:04:58.64-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (206, '2012-01-25 11:27:26.562', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Leir</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Ruiz</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>56423971</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>lesiones en la cabeza</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 11:27:26.562-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (207, '2012-01-25 11:47:24.828', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Lucy</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Hernande</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>10357772</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>lesiones profundas</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 11:47:24.828-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (208, '2012-01-25 11:48:08.281', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Instituto </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Instituto Neumologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Instituto Neumologia Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Instituto Neumologia Gato Glucorticoides </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (209, '2012-01-25 11:48:18.421', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural ,Instituto </actual><anterior>Ambulatorio Rural ,Instituto </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural ,Instituto Neumologia </actual><anterior>Ambulatorio Rural ,Instituto Neumologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural ,Instituto Neumologia Gato </actual><anterior>Ambulatorio Rural ,Instituto Neumologia Gato </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural ,Instituto Neumologia Gato Glucorticoides </actual><anterior>Ambulatorio Rural ,Instituto Neumologia Gato Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>10</actual><anterior>10</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (210, '2012-01-25 11:48:39.265', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Lucy</actual><anterior>Lucy</anterior></campo><campo nombre="Apellido"><actual>Hernande</actual><anterior>Hernande</anterior></campo><campo nombre="Cédula"><actual>10357772</actual><anterior>10357772</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (211, '2012-01-25 11:50:40.906', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Luis</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Lopez</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>39813331</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 11:50:40.906-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (212, '2012-01-25 11:51:56.562', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro I </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro I Consulta </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro I Consulta Otros </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro I Consulta Otros Otros </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>3</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (213, '2012-01-25 11:52:35.859', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Luis</actual><anterior>Luis</anterior></campo><campo nombre="Apellido"><actual>Lopez</actual><anterior>Lopez</anterior></campo><campo nombre="Cédula"><actual>39813331</actual><anterior>39813331</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (214, '2012-01-25 11:52:51.187', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Luis</actual><anterior>Luis</anterior></campo><campo nombre="Apellido"><actual>Lopez</actual><anterior>Lopez</anterior></campo><campo nombre="Cédula"><actual>39813331</actual><anterior>39813331</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (215, '2012-01-25 11:53:01.546', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Luis</actual><anterior>Luis</anterior></campo><campo nombre="Apellido"><actual>Lopez</actual><anterior>Lopez</anterior></campo><campo nombre="Cédula"><actual>39813331</actual><anterior>39813331</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (216, '2012-01-25 11:58:18.781', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Maria</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Torre</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13376611</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>jkhjkh</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>jhjkh</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 11:58:18.781-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>0</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (217, '2012-01-25 11:59:09.718', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Dispensario </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Dispensario Consulta Interna </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Dispensario Consulta Interna Perro </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Dispensario Consulta Interna Perro Citotóxicos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>6</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (218, '2012-01-25 11:59:48.515', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Dispensario </actual><anterior>Dispensario </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Dispensario Consulta Interna </actual><anterior>Dispensario Consulta Interna </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Dispensario Consulta Interna Perro </actual><anterior>Dispensario Consulta Interna Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Dispensario Consulta Interna Perro Citotóxicos </actual><anterior>Dispensario Consulta Interna Perro Citotóxicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>6</actual><anterior>6</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (219, '2012-01-25 12:06:16.718', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural Dermatologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural Dermatologia Animales de Corral </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural Dermatologia Animales de Corral Citotóxicos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>12</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (220, '2012-01-25 12:06:36.093', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Rural </actual><anterior>Ambulatorio Rural </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Rural Dermatologia </actual><anterior>Ambulatorio Rural Dermatologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Rural Dermatologia Animales de Corral </actual><anterior>Ambulatorio Rural Dermatologia Animales de Corral </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Rural Dermatologia Animales de Corral Citotóxicos </actual><anterior>Ambulatorio Rural Dermatologia Animales de Corral Citotóxicos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>12</actual><anterior>12</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (221, '2012-01-25 12:07:05.328', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Paciente</actual><anterior>Paciente</anterior></campo><campo nombre="Apellido"><actual>Paciente</actual><anterior>Paciente</anterior></campo><campo nombre="Cédula"><actual>17302857</actual><anterior>17302857</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (222, '2012-01-25 12:07:45.234', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Raul</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Gill</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>29394889</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>uhjkhjkh</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>kjkjkjkl</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:07:45.234-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (223, '2012-01-25 12:08:12.64', 56, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Hospital General </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Hospital General Pediatria </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Hospital General Pediatria Perro </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Hospital General Pediatria Perro Glucorticoides </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (224, '2012-01-25 12:08:42.625', 56, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Raul</actual><anterior>Raul</anterior></campo><campo nombre="Apellido"><actual>Gill</actual><anterior>Gill</anterior></campo><campo nombre="Cédula"><actual>29394889</actual><anterior>29394889</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (225, '2012-01-25 12:14:13.828', 56, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Maria Fernanda</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Avendano</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>35289012</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>jkhjkhjh</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:14:13.828-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (226, '2012-01-25 12:28:49.671', 54, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>Adriana</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>Mujica</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>32049534</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1970-01-08</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268778932</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>04165168332</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Barinas</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Cruz Paredes		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>Maturin</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Cáncer </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (227, '2012-01-25 12:29:15.984', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Adriana</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Mujica</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>32049534</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Fiebre</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:29:15.984-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (228, '2012-01-25 12:29:53.296', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Urbano ,Barrio Adentro II </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Aves </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Aves Glucorticoides ,Sistémicos ,Tópicos ,Uso Antimicóticos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>34</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (229, '2012-01-25 12:30:25.875', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Mujica</actual><anterior>Mujica</anterior></campo><campo nombre="Cédula"><actual>32049534</actual><anterior>32049534</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (230, '2012-01-25 12:33:14.609', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Leir</actual><anterior>Leir</anterior></campo><campo nombre="Apellido"><actual>Ruiz</actual><anterior>Ruiz</anterior></campo><campo nombre="Cédula"><actual>56423971</actual><anterior>56423971</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (231, '2012-01-25 12:33:53.656', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro III </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro III Dermatologia ,Infectologia ,Neumologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro III Dermatologia ,Infectologia ,Neumologia Animales de Corral ,Aves ,Gato ,Perro </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro III Dermatologia ,Infectologia ,Neumologia Animales de Corral ,Aves ,Gato ,Perro Citotóxicos ,Glucorticoides ,Hormonas Sexuales ,Inmunosupresores ,Radioterapia ,Sistémicos ,Tópicos ,Uso Antibióticos ,Uso Antimicóticos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (232, '2012-01-25 12:35:21.921', 54, 13, '<?xml version="1.0" standalone="yes"?><modificacion_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Maria Fernanda</actual><anterior>Maria Fernanda</anterior></campo><campo nombre="Apellido Paciente"><actual>Avendano</actual><anterior>Avendano</anterior></campo><campo nombre="Cédula Paciente"><actual>35289012</actual><anterior>35289012</anterior></campo><campo nombre="Descripción de la Historia"><actual>prueba</actual><anterior>jkhjkhjh</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior></anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:14:13.828-04:30</actual><anterior>2012-01-25 12:14:13.828-04:30</anterior></campo></tabla></modificacion_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (233, '2012-01-25 12:35:56.062', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Hospital General </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Hospital General Geriatria ,Infectologia ,urologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Hospital General Geriatria ,Infectologia ,urologia Aves ,Gato ,Otros </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Hospital General Geriatria ,Infectologia ,urologia Aves ,Gato ,Otros Tópicos ,Uso Antibióticos ,Uso Antimicóticos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>2</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (234, '2012-01-25 12:36:15.796', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Maria Fernanda</actual><anterior>Maria Fernanda</anterior></campo><campo nombre="Apellido"><actual>Avendano</actual><anterior>Avendano</anterior></campo><campo nombre="Cédula"><actual>35289012</actual><anterior>35289012</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (235, '2012-01-25 12:37:33.515', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Urbano ,Hospital General </actual><anterior>Hospital General </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Urbano ,Hospital General Consulta Interna ,Pediatria </actual><anterior>Hospital General Pediatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Urbano ,Hospital General Consulta Interna ,Pediatria Gato ,Perro </actual><anterior>Hospital General Pediatria Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Urbano ,Hospital General Consulta Interna ,Pediatria Gato ,Perro Glucorticoides </actual><anterior>Hospital General Pediatria Perro Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>4</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (236, '2012-01-25 12:37:48.562', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Raul</actual><anterior>Raul</anterior></campo><campo nombre="Apellido"><actual>Gill</actual><anterior>Gill</anterior></campo><campo nombre="Cédula"><actual>29394889</actual><anterior>29394889</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (237, '2012-01-25 12:38:21.343', 54, 13, '<?xml version="1.0" standalone="yes"?><modificacion_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Raul</actual><anterior>Raul</anterior></campo><campo nombre="Apellido Paciente"><actual>Gill</actual><anterior>Gill</anterior></campo><campo nombre="Cédula Paciente"><actual>29394889</actual><anterior>29394889</anterior></campo><campo nombre="Descripción de la Historia"><actual>Ejemplo</actual><anterior>uhjkhjkh</anterior></campo><campo nombre="Descripción Adicional"><actual>Ejemplo</actual><anterior>kjkjkjkl</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:07:45.234-04:30</actual><anterior>2012-01-25 12:07:45.234-04:30</anterior></campo></tabla></modificacion_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (238, '2012-01-25 12:38:49.75', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Yeny</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Alvare</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13930135</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Dermatofitosis</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:38:49.75-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (239, '2012-01-25 12:39:22.968', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Barrio Adentro III ,Dispensario ,Hospital General </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Barrio Adentro III ,Dispensario ,Hospital General Infectologia ,Neumologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Barrio Adentro III ,Dispensario ,Hospital General Infectologia ,Neumologia Animales de Corral ,Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Barrio Adentro III ,Dispensario ,Hospital General Infectologia ,Neumologia Animales de Corral ,Gato Citotóxicos ,Uso Antibióticos ,Uso Antimicóticos </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (240, '2012-01-25 12:39:47.828', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Yeny</actual><anterior>Yeny</anterior></campo><campo nombre="Apellido"><actual>Alvare</actual><anterior>Alvare</anterior></campo><campo nombre="Cédula"><actual>13930135</actual><anterior>13930135</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (241, '2012-01-25 12:42:17.703', 54, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Yeny</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Alvare</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>13930135</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>Derfigotripolitomia</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual></actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-01-25 12:42:17.703-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (242, '2012-01-25 12:43:31.531', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Clínica ,Dispensario </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Clínica ,Dispensario Infectologia </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Clínica ,Dispensario Infectologia Animales de Corral ,Perro </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Clínica ,Dispensario Infectologia Animales de Corral ,Perro Citotóxicos ,Glucorticoides </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (243, '2012-01-25 12:44:02.875', 54, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Clínica ,Dispensario </actual><anterior>Clínica ,Dispensario </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Clínica ,Dispensario Infectologia </actual><anterior>Clínica ,Dispensario Infectologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Clínica ,Dispensario Infectologia Animales de Corral ,Perro </actual><anterior>Clínica ,Dispensario Infectologia Animales de Corral ,Perro </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Clínica ,Dispensario Infectologia Animales de Corral ,Perro Citotóxicos ,Glucorticoides </actual><anterior>Clínica ,Dispensario Infectologia Animales de Corral ,Perro Citotóxicos ,Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>5</actual><anterior>5</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (244, '2012-01-25 12:44:40.515', 54, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Yeny</actual><anterior>Yeny</anterior></campo><campo nombre="Apellido"><actual>Alvare</actual><anterior>Alvare</anterior></campo><campo nombre="Cédula"><actual>13930135</actual><anterior>13930135</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (245, '2012-01-25 15:28:25.062', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Ambulatorio Urbano ,Barrio Adentro II </actual><anterior>Ambulatorio Urbano ,Barrio Adentro II </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia </actual><anterior>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Otros </actual><anterior>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Aves </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Otros Glucorticoides ,Sistémicos ,Tópicos ,Uso Antimicóticos </actual><anterior>Ambulatorio Urbano ,Barrio Adentro II Consulta Interna ,Infectologia Animales de Corral ,Aves Glucorticoides ,Sistémicos ,Tópicos ,Uso Antimicóticos </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>34</actual><anterior>34</anterior></campo></tabla></Información_adicional>');
 
 
 --
--- TOC entry 2327 (class 0 OID 32456)
+-- TOC entry 2327 (class 0 OID 30909)
 -- Dependencies: 1680
 -- Data for Name: categorias__cuerpos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7165,7 +7362,7 @@ INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic)
 
 
 --
--- TOC entry 2328 (class 0 OID 32461)
+-- TOC entry 2328 (class 0 OID 30914)
 -- Dependencies: 1682
 -- Data for Name: categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7178,7 +7375,7 @@ INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (5, 'Cuerpo');
 
 
 --
--- TOC entry 2329 (class 0 OID 32464)
+-- TOC entry 2329 (class 0 OID 30917)
 -- Dependencies: 1683
 -- Data for Name: categorias_cuerpos__lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7258,7 +7455,7 @@ INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VA
 
 
 --
--- TOC entry 2330 (class 0 OID 32469)
+-- TOC entry 2330 (class 0 OID 30922)
 -- Dependencies: 1685
 -- Data for Name: centro_salud_doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7268,22 +7465,44 @@ INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_s
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (9, 5, 34, NULL);
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (11, 7, 32, NULL);
 INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (14, 5, 28, NULL);
-INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (15, 12, 35, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (16, 12, 35, NULL);
+INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_sal) VALUES (17, 5, 36, NULL);
 
 
 --
--- TOC entry 2332 (class 0 OID 32479)
+-- TOC entry 2332 (class 0 OID 30932)
 -- Dependencies: 1689
 -- Data for Name: centro_salud_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (209, 24, 5, NULL);
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (210, 24, 7, NULL);
-INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (228, 25, 12, 'Biopsia Piel; Biopsia Otros Órganos; Líquido Peritoneal; Líquido Sinovial; Cefalorraquídeo (LC); uña');
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (231, 28, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (232, 28, 7, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (235, 29, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (236, 29, 11, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (237, 31, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (238, 31, 6, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (239, 32, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (240, 32, 6, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (243, 34, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (244, 34, 6, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (245, 35, 9, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (247, 36, 8, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (249, 22, 5, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (253, 33, 11, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (254, 38, 1, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (255, 37, 4, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (256, 37, 1, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (257, 40, 11, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (258, 40, 8, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (259, 40, 1, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (262, 41, 7, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (263, 41, 8, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (264, 39, 4, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (265, 39, 10, NULL);
 
 
 --
--- TOC entry 2331 (class 0 OID 32474)
+-- TOC entry 2331 (class 0 OID 30927)
 -- Dependencies: 1687
 -- Data for Name: centro_saluds; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7303,31 +7522,55 @@ INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (12, 'Ot
 
 
 --
--- TOC entry 2333 (class 0 OID 32484)
+-- TOC entry 2333 (class 0 OID 30937)
 -- Dependencies: 1691
 -- Data for Name: contactos_animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (181, 25, 5, 'Biopsia Piel; Biopsia Otros Órganos; Líquido Peritoneal; Líquido Sinovial; Cefalorraquídeo (LC); uña');
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (183, 28, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (186, 29, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (187, 29, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (188, 30, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (189, 31, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (190, 32, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (192, 34, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (193, 35, 5, 'piojos');
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (195, 36, 1, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (197, 22, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (201, 33, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (202, 33, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (203, 33, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (204, 33, 1, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (205, 38, 3, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (206, 38, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (207, 38, 5, 'otro');
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (208, 37, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (209, 37, 1, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (210, 40, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (211, 40, 2, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (214, 41, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (215, 41, 1, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (216, 39, 4, NULL);
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (217, 39, 5, 'Oso');
 
 
 --
--- TOC entry 2334 (class 0 OID 32489)
+-- TOC entry 2334 (class 0 OID 30942)
 -- Dependencies: 1693
 -- Data for Name: doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (27, 'SAIB', 'SAIB', NULL, '83422503bcfc01d303030e8a7cc80efc', '3622824', NULL, 'SAIB', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (33, 'Mary', 'Lopez', '8752299', '9f4b04c2eac4a3cfa351aff1564f7995', '54564545646', 'mlopez@gmail.com', 'mlopez', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (6, 'Luis', 'Marin', '17302857', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'ninja.aoshi@gmail.com', 'lmarin', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (34, 'Luis', 'Marin', '17302858', '3e46a122f1961a8ec71f2a369f6d16ee', '3622222', 'lrm.prigramador@gmail.com', 'lmarinn', '2011-07-08 15:58:52.908-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (32, 'Lisseth', 'Lozada', '17651233', '3e46a122f1961a8ec71f2a369f6d16ee', '04269150722', 'risusefu15@gmail.com', 'llozada', '2011-06-26 01:06:59.641-04:30');
 INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (28, 'Mireya', 'Gonzalez', '17302859', 'b107e9a7ba2cd6d9e878c1a1c277554c', '04265168824', 'marmont04@hotmail.com', 'mgonzalez', '2011-06-26 01:06:59.641-04:30');
-INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (35, 'Moises', 'Perez', '18403190', 'bbc5d47920c1adc1ab1f4d43a1832282', '04123818120', 'moisevic@hotmail.com', 'Moises', '2012-01-16 10:02:40.54-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (35, 'Moises', 'Perez', '18403190', '3e46a122f1961a8ec71f2a369f6d16ee', '04123818120', 'moisevic@hotmail.com', 'Moises', '2012-01-16 10:02:40.54-04:30');
+INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_doc, log_doc, fec_reg_doc) VALUES (36, 'saib', 'saib', '12345667', '949db4d232c18d744a42ac3bdc93ddb0', '76786786786', 'saib@gmail.com', 'saib', '2012-01-25 11:25:14-04:30');
 
 
 --
--- TOC entry 2335 (class 0 OID 32498)
+-- TOC entry 2335 (class 0 OID 30951)
 -- Dependencies: 1695
 -- Data for Name: enfermedades_micologicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7364,23 +7607,65 @@ INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUE
 
 
 --
--- TOC entry 2336 (class 0 OID 32503)
+-- TOC entry 2336 (class 0 OID 30956)
 -- Dependencies: 1697
 -- Data for Name: enfermedades_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (426, 2, NULL, NULL, 109);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (427, 1, NULL, NULL, 109);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (449, 24, NULL, NULL, 180);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (450, 28, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', NULL, 180);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (451, 20, NULL, NULL, 181);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (452, 27, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', NULL, 181);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (453, 8, NULL, NULL, 179);
-INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (454, 18, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', NULL, 179);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (457, 21, NULL, NULL, 183);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (458, 22, NULL, NULL, 183);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (459, 19, NULL, NULL, 184);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (460, 20, NULL, NULL, 184);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (461, 21, NULL, NULL, 184);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (462, 20, NULL, NULL, 185);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (463, 1, NULL, NULL, 186);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (464, 24, NULL, NULL, 187);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (465, 25, NULL, NULL, 187);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (466, 26, NULL, NULL, 187);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (467, 19, NULL, NULL, 188);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (468, 20, NULL, NULL, 188);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (469, 21, NULL, NULL, 188);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (470, 22, NULL, NULL, 188);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (471, 23, NULL, NULL, 188);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (472, 1, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (473, 2, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (474, 3, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (475, 5, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (476, 6, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (477, 7, NULL, NULL, 189);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (478, 24, NULL, NULL, 190);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (479, 25, NULL, NULL, 190);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (480, 26, NULL, NULL, 190);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (481, 19, NULL, NULL, 191);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (482, 23, NULL, NULL, 191);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (483, 24, NULL, NULL, 192);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (484, 24, NULL, NULL, 193);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (486, 25, NULL, NULL, 195);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (487, 1, NULL, NULL, 182);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (488, 5, NULL, NULL, 182);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (489, 7, NULL, NULL, 182);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (490, 1, NULL, NULL, 194);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (491, 5, NULL, NULL, 194);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (493, 5, NULL, NULL, 197);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (497, 20, NULL, NULL, 198);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (498, 22, NULL, NULL, 198);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (499, 23, NULL, NULL, 198);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (500, 24, NULL, NULL, 199);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (501, 25, NULL, NULL, 199);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (502, 5, NULL, NULL, 196);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (503, 25, NULL, NULL, 200);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (504, 26, NULL, NULL, 200);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (505, 19, NULL, NULL, 201);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (506, 21, NULL, NULL, 201);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (507, 22, NULL, NULL, 201);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (508, 19, NULL, NULL, 202);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (509, 21, NULL, NULL, 202);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (510, 22, NULL, NULL, 202);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (511, 1, NULL, NULL, 203);
 
 
 --
--- TOC entry 2337 (class 0 OID 32508)
+-- TOC entry 2337 (class 0 OID 30961)
 -- Dependencies: 1699
 -- Data for Name: estados; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7412,21 +7697,59 @@ INSERT INTO estados (id_est, des_est, id_pai) VALUES (25, 'Amazonas', 1);
 
 
 --
--- TOC entry 2338 (class 0 OID 32513)
+-- TOC entry 2338 (class 0 OID 30966)
 -- Dependencies: 1701
 -- Data for Name: examenes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (59, 180, 0, 1);
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (60, 180, 0, 2);
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (61, 181, 3, 1);
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (62, 181, 3, 2);
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (63, 179, 0, 1);
-INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (64, 179, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (67, 183, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (68, 183, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (69, 184, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (70, 184, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (71, 185, 1, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (72, 185, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (73, 186, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (74, 186, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (75, 187, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (76, 187, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (77, 188, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (78, 188, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (79, 189, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (80, 189, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (81, 190, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (82, 190, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (83, 191, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (84, 191, 1, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (85, 192, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (86, 192, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (87, 193, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (88, 193, 1, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (91, 195, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (92, 195, 3, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (93, 182, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (94, 182, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (95, 194, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (96, 194, 3, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (99, 197, 3, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (100, 197, 3, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (103, 198, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (104, 198, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (105, 199, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (106, 199, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (107, 196, 3, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (108, 196, 3, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (109, 200, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (110, 200, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (111, 201, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (112, 201, 0, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (113, 202, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (114, 202, 1, 2);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (115, 203, 0, 1);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa) VALUES (116, 203, 0, 2);
 
 
 --
--- TOC entry 2339 (class 0 OID 32518)
+-- TOC entry 2339 (class 0 OID 30971)
 -- Dependencies: 1703
 -- Data for Name: forma_infecciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7446,19 +7769,46 @@ INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (12, 'Otros');
 
 
 --
--- TOC entry 2340 (class 0 OID 32521)
+-- TOC entry 2340 (class 0 OID 30974)
 -- Dependencies: 1704
 -- Data for Name: forma_infecciones__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (74, 10, NULL, 180);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (75, 12, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 180);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (76, 5, NULL, 181);
-INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (77, 8, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 181);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (78, 4, NULL, 183);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (79, 1, NULL, 183);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (80, 2, NULL, 184);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (81, 5, NULL, 184);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (82, 2, NULL, 185);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (83, 1, NULL, 185);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (84, 3, NULL, 185);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (85, 9, NULL, 187);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (86, 10, NULL, 187);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (87, 11, NULL, 187);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (88, 2, NULL, 188);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (89, 6, NULL, 188);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (90, 9, NULL, 190);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (91, 2, NULL, 191);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (92, 11, NULL, 192);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (93, 10, NULL, 193);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (94, 9, NULL, 195);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (95, 4, NULL, 198);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (96, 6, NULL, 198);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (97, 9, NULL, 199);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (98, 10, NULL, 199);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (99, 11, NULL, 199);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (100, 9, NULL, 200);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (101, 10, NULL, 200);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (102, 2, NULL, 201);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (103, 6, NULL, 201);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (104, 1, NULL, 201);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (105, 7, NULL, 201);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (106, 2, NULL, 202);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (107, 4, NULL, 202);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (108, 5, NULL, 202);
 
 
 --
--- TOC entry 2341 (class 0 OID 32526)
+-- TOC entry 2341 (class 0 OID 30979)
 -- Dependencies: 1706
 -- Data for Name: forma_infecciones__tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7478,18 +7828,30 @@ INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id
 
 
 --
--- TOC entry 2342 (class 0 OID 32533)
+-- TOC entry 2342 (class 0 OID 30986)
 -- Dependencies: 1709
 -- Data for Name: historiales_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (22, 16, 'prueba', 28, 'prueba', '2012-01-16 02:18:35.698-04:30', 1);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (24, 56, '', 28, '', '2012-01-16 23:04:09.453-04:30', 1);
-INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (25, 54, 'demo', 6, 'dem', '2012-01-22 10:27:09.579-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (28, 71, 'Fiebre', 35, 'Continua', '2012-01-25 10:47:36.343-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (29, 74, 'Hongo pilifonica', 35, '', '2012-01-25 10:51:32.343-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (30, 70, 'Hongo poliferimico', 35, '', '2012-01-25 10:54:03.593-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (31, 76, 'presenta lesiones en la piel', 32, 'presenta lesiones en la piel', '2012-01-25 10:58:38.046-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (32, 72, 'lesion en el pie', 32, '', '2012-01-25 11:04:58.64-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (33, 73, 'lesiones en la cabeza', 36, '', '2012-01-25 11:27:26.562-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (34, 65, 'lesiones profundas', 36, '', '2012-01-25 11:47:24.828-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (35, 68, '', 36, '', '2012-01-25 11:50:40.906-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (36, 64, 'jkhjkh', 36, 'jhjkh', '2012-01-25 11:58:18.781-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (39, 77, 'Fiebre', 35, '', '2012-01-25 12:29:15.984-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (38, 75, 'prueba', 36, '', '2012-01-25 12:14:13.828-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (37, 69, 'Ejemplo', 36, 'Ejemplo', '2012-01-25 12:07:45.234-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (40, 66, 'Dermatofitosis', 35, '', '2012-01-25 12:38:49.75-04:30', 1);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (41, 66, 'Derfigotripolitomia', 35, '', '2012-01-25 12:42:17.703-04:30', 2);
 
 
 --
--- TOC entry 2343 (class 0 OID 32543)
+-- TOC entry 2343 (class 0 OID 30996)
 -- Dependencies: 1711
 -- Data for Name: lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7568,31 +7930,68 @@ INSERT INTO lesiones (id_les, nom_les) VALUES (71, 'Otros');
 
 
 --
--- TOC entry 2344 (class 0 OID 32550)
+-- TOC entry 2344 (class 0 OID 31003)
 -- Dependencies: 1714
 -- Data for Name: lesiones_partes_cuerpos__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (329, NULL, 3, 1, 109);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (330, NULL, 7, 1, 109);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (331, NULL, 11, 3, 109);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (332, NULL, 12, 3, 109);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (363, NULL, 100, 6, 180);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (364, NULL, 101, 6, 180);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (365, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 115, 6, 180);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (366, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 98, 5, 181);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (367, NULL, 6, 1, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (368, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 22, 1, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (369, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 22, 2, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (370, NULL, 10, 3, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (371, NULL, 17, 3, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (372, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 23, 3, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (373, NULL, 20, 4, 179);
-INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (374, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña', 23, 4, 179);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (380, NULL, 68, 5, 183);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (381, NULL, 67, 5, 183);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (382, NULL, 69, 5, 184);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (383, NULL, 70, 5, 184);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (384, NULL, 70, 5, 185);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (385, NULL, 71, 5, 185);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (386, NULL, 72, 5, 185);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (387, NULL, 7, 1, 186);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (388, NULL, 9, 1, 186);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (389, NULL, 4, 1, 186);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (390, NULL, 12, 3, 186);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (391, NULL, 14, 3, 186);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (392, NULL, 99, 6, 187);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (393, NULL, 100, 6, 187);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (394, NULL, 110, 6, 187);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (395, NULL, 66, 5, 188);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (396, NULL, 68, 5, 188);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (397, NULL, 3, 1, 189);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (398, NULL, 7, 1, 189);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (399, NULL, 9, 1, 189);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (400, NULL, 4, 1, 189);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (401, NULL, 5, 1, 189);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (402, NULL, 99, 6, 190);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (403, NULL, 100, 6, 190);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (404, NULL, 101, 6, 190);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (405, NULL, 66, 5, 191);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (406, NULL, 68, 5, 191);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (407, NULL, 103, 6, 192);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (408, NULL, 99, 6, 193);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (410, NULL, 105, 6, 195);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (411, NULL, 4, 1, 182);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (412, NULL, 6, 1, 182);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (413, NULL, 7, 1, 182);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (414, NULL, 7, 2, 182);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (415, NULL, 9, 2, 182);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (416, NULL, 3, 1, 194);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (417, NULL, 7, 1, 197);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (418, NULL, 70, 5, 198);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (419, NULL, 71, 5, 198);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (420, NULL, 100, 6, 199);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (421, NULL, 102, 6, 199);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (422, NULL, 103, 6, 199);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (423, NULL, 99, 6, 200);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (424, NULL, 105, 6, 200);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (425, NULL, 107, 6, 200);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (426, NULL, 67, 5, 201);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (427, NULL, 74, 5, 201);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (428, NULL, 78, 5, 201);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (429, NULL, 66, 5, 202);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (430, NULL, 69, 5, 202);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (431, NULL, 71, 5, 202);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (432, NULL, 72, 5, 202);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (433, NULL, 3, 2, 203);
 
 
 --
--- TOC entry 2345 (class 0 OID 32555)
+-- TOC entry 2345 (class 0 OID 31008)
 -- Dependencies: 1716
 -- Data for Name: localizaciones_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7600,7 +7999,7 @@ INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_
 
 
 --
--- TOC entry 2346 (class 0 OID 32560)
+-- TOC entry 2346 (class 0 OID 31013)
 -- Dependencies: 1718
 -- Data for Name: modulos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7610,7 +8009,7 @@ INSERT INTO modulos (id_mod, cod_mod, des_mod, id_tip_usu) VALUES (2, 'R', 'Repo
 
 
 --
--- TOC entry 2347 (class 0 OID 32565)
+-- TOC entry 2347 (class 0 OID 31018)
 -- Dependencies: 1720
 -- Data for Name: muestras_clinicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -7654,21 +8053,55 @@ INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (19, 'Sangre');
 
 
 --
--- TOC entry 2348 (class 0 OID 32570)
+-- TOC entry 2348 (class 0 OID 31023)
 -- Dependencies: 1722
 -- Data for Name: muestras_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (105, 24, 1, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (106, 24, 2, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (107, 24, 3, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (117, 25, 1, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (118, 25, 35, NULL);
-INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (119, 25, 36, 'Biopsia Piel; Biopsia Otros Órganos; Líquido Peritoneal; Líquido Sinovial; Cefalorraquídeo (LC); uña');
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (120, 28, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (121, 28, 5, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (122, 28, 6, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (123, 28, 10, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (124, 29, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (125, 29, 6, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (126, 29, 8, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (127, 29, 9, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (128, 30, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (129, 30, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (130, 30, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (131, 30, 5, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (132, 31, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (133, 32, 2, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (134, 32, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (135, 34, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (136, 34, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (139, 35, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (140, 22, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (142, 39, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (143, 39, 5, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (144, 33, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (145, 33, 7, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (146, 38, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (147, 38, 6, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (148, 38, 34, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (149, 38, 35, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (150, 38, 19, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (151, 37, 6, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (152, 37, 12, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (153, 40, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (154, 40, 10, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (155, 40, 11, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (156, 40, 32, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (157, 40, 19, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (158, 41, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (159, 41, 7, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (160, 41, 9, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (161, 41, 13, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (162, 41, 16, NULL);
 
 
 --
--- TOC entry 2349 (class 0 OID 32575)
+-- TOC entry 2349 (class 0 OID 31028)
 -- Dependencies: 1724
 -- Data for Name: municipios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8011,22 +8444,30 @@ INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (335, '	Valmore Rodrígu
 
 
 --
--- TOC entry 2350 (class 0 OID 32580)
+-- TOC entry 2350 (class 0 OID 31033)
 -- Dependencies: 1726
 -- Data for Name: pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (16, 'Paciente', 'Paciente', '17302857', '2011-07-09', '1', '3622824', '17302857', '1', 'Guarenas', 1, 1, 69, NULL, 6, 6, '2011-07-08 18:14:22.448-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (56, 'Lozada', 'Lisseth', '17234567', '2000-01-01', '1', '12345678', '04261234567', '2', 'aa', 1, 16, 214, NULL, 17, 28, '2012-01-16 23:03:31.012-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (57, 'marin', 'luis', '17568741', '1985-01-22', '1', '04268741232', '02129358741', '1', 'dddd', 1, 2, 10, NULL, 4, 32, '2012-01-22 02:51:35.348-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (58, '$jhjh', 'muñoz', '87897987', '1985-01-22', '1', '04268741232', '02129358741', '1', 'dddd', 1, 2, 9, NULL, 5, 32, '2012-01-22 05:16:05.98-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (63, 'fdfadf', 'muñoz', '42325244', '2000-01-08', '1', '04268741232', '02129358741', '2', 'dddd', 1, 2, 10, NULL, 7, 32, '2012-01-22 05:25:42.791-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (59, 'fggfg', 'hsdf', '17651234', '1985-01-22', '1', '04268741232', '02129358741', '1', 'a', 1, 3, 31, NULL, 6, 32, '2012-01-22 05:19:04.184-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (54, 'Bggh', 'Bggh', '17302818', '2012-01-16', '1', '36222225555', '15930135555', '1', 'GUrena%%', 1, 15, 199, NULL, 17, 6, '2012-01-16 20:04:18.942-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (64, 'Torre', 'Maria', '13376611', '1985-12-17', '1', '02123622222', '04265168824', '1', 'Guarenas', 1, 16, 211, NULL, 2, 6, '2012-01-25 10:12:28.468-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (65, 'Hernande', 'Lucy', '10357772', '1985-01-08', '1', '04265168888', '04165168888', '1', 'Guarenas', 1, 1, 1, NULL, 3, 6, '2012-01-25 10:14:40.375-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (66, 'Alvare', 'Yeny', '13930135', '1987-01-24', '1', '04265877711', '18233987779', '1', 'Guatire', 1, 14, 181, NULL, 4, 6, '2012-01-25 10:16:24.156-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (67, 'Perez', 'Raul', '18544323', '1985-01-31', '2', '04265883323', '14933123434', '1', 'caracas', 1, 1, 1, NULL, 5, 6, '2012-01-25 10:19:50.703-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (68, 'Lopez', 'Luis', '39813331', '1984-01-25', '1', '04268778912', '04125188824', '1', 'Chacao', 1, 5, 55, NULL, 6, 6, '2012-01-25 10:24:23.062-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (69, 'Gill', 'Raul', '29394889', '1985-01-08', '2', '04265168888', '04265168824', '4', 'Chacao', 1, 6, 74, NULL, 7, 35, '2012-01-25 10:34:19.296-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (70, 'Trejo', 'Francis', '29394823', '1987-01-24', '2', '04268778932', '14933123434', '3', 'caracas', 1, 9, 104, NULL, 8, 35, '2012-01-25 10:36:48.687-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (71, 'Canino', 'Andrea', '19903666', '1989-12-17', '1', '04265883323', '04265168824', '3', 'Los teques', 1, 7, 83, NULL, 9, 35, '2012-01-25 10:38:12.812-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (72, 'Camargo', 'Josue', '89056421', '1975-01-08', '2', '02123622222', '04165168888', '4', 'Guarico', 1, 9, 103, NULL, 10, 35, '2012-01-25 10:39:00.312-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (73, 'Ruiz', 'Leir', '56423971', '1970-01-08', '2', '02123622222', '04265168824', '4', 'Guatire', 1, 6, 70, NULL, 11, 35, '2012-01-25 10:39:58.921-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (74, 'Rodriguez', 'Carlos', '13376784', '1959-12-17', '2', '02123622432', '14943123434', '4', 'Falcon', 1, 3, 33, NULL, 12, 35, '2012-01-25 10:42:07.078-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (75, 'Avendano', 'Maria Fernanda', '35289012', '1980-10-15', '1', '02126622432', '04125158824', '2', 'Guarenas', 1, 3, 31, NULL, 13, 35, '2012-01-25 10:46:11.859-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (76, 'Perez', 'Gerardo', '80392095', '1960-01-08', '2', '04265883323', '04125158824', '3', 'Guatire', 1, 3, 33, NULL, 14, 35, '2012-01-25 10:47:03.75-04:30', 'M');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (77, 'Mujica', 'Adriana', '32049534', '1970-01-08', '1', '04268778932', '04165168332', '4', 'Maturin', 1, 5, 61, NULL, 15, 35, '2012-01-25 12:28:49.671-04:30', 'F');
 
 
 --
--- TOC entry 2351 (class 0 OID 32586)
+-- TOC entry 2351 (class 0 OID 31039)
 -- Dependencies: 1728
 -- Data for Name: paises; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8035,7 +8476,7 @@ INSERT INTO paises (id_pai, des_pai, cod_pai) VALUES (1, 'Venezuela', 'VEN');
 
 
 --
--- TOC entry 2352 (class 0 OID 32591)
+-- TOC entry 2352 (class 0 OID 31044)
 -- Dependencies: 1730
 -- Data for Name: parroquias; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8043,7 +8484,7 @@ INSERT INTO paises (id_pai, des_pai, cod_pai) VALUES (1, 'Venezuela', 'VEN');
 
 
 --
--- TOC entry 2353 (class 0 OID 32596)
+-- TOC entry 2353 (class 0 OID 31049)
 -- Dependencies: 1732
 -- Data for Name: partes_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8067,7 +8508,7 @@ INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (19, 'Huesos');
 
 
 --
--- TOC entry 2354 (class 0 OID 32599)
+-- TOC entry 2354 (class 0 OID 31052)
 -- Dependencies: 1733
 -- Data for Name: partes_cuerpos__categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8081,18 +8522,30 @@ INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, 
 
 
 --
--- TOC entry 2355 (class 0 OID 32606)
+-- TOC entry 2355 (class 0 OID 31059)
 -- Dependencies: 1736
 -- Data for Name: tiempo_evoluciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (8, 22, 0);
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (10, 24, 0);
-INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (11, 25, -111111);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (14, 28, 4);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (15, 29, 4);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (16, 30, 34);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (17, 31, 7);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (18, 32, 7);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (20, 34, 10);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (21, 35, 3);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (22, 36, 6);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (8, 22, 12);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (19, 33, 5);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (24, 38, 2);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (23, 37, 4);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (26, 40, 5);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (27, 41, 5);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (25, 39, 34);
 
 
 --
--- TOC entry 2356 (class 0 OID 32612)
+-- TOC entry 2356 (class 0 OID 31065)
 -- Dependencies: 1738
 -- Data for Name: tipos_consultas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8109,17 +8562,39 @@ INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (9, 'Otros');
 
 
 --
--- TOC entry 2357 (class 0 OID 32617)
+-- TOC entry 2357 (class 0 OID 31070)
 -- Dependencies: 1740
 -- Data for Name: tipos_consultas_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (193, 4, 24, NULL);
-INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (199, 9, 25, 'Biopsia Piel; Biopsia Otros Órganos; Líquido Peritoneal; Líquido Sinovial; Cefalorraquídeo (LC); uña');
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (201, 6, 28, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (204, 5, 29, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (205, 2, 29, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (206, 4, 30, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (207, 3, 30, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (208, 2, 31, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (209, 2, 32, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (211, 4, 34, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (212, 1, 35, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (214, 5, 36, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (216, 2, 22, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (220, 2, 33, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (221, 8, 33, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (222, 4, 33, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (223, 6, 38, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (224, 8, 38, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (225, 7, 38, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (226, 5, 37, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (227, 3, 37, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (228, 8, 40, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (229, 4, 40, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (231, 8, 41, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (232, 5, 39, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (233, 8, 39, NULL);
 
 
 --
--- TOC entry 2358 (class 0 OID 32622)
+-- TOC entry 2358 (class 0 OID 31075)
 -- Dependencies: 1742
 -- Data for Name: tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8191,7 +8666,7 @@ INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_
 
 
 --
--- TOC entry 2359 (class 0 OID 32627)
+-- TOC entry 2359 (class 0 OID 31080)
 -- Dependencies: 1744
 -- Data for Name: tipos_examenes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8201,7 +8676,7 @@ INSERT INTO tipos_examenes (id_tip_exa, nom_tip_exa) VALUES (2, 'Agente Aislado'
 
 
 --
--- TOC entry 2360 (class 0 OID 32632)
+-- TOC entry 2360 (class 0 OID 31085)
 -- Dependencies: 1746
 -- Data for Name: tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8212,44 +8687,135 @@ INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (2, 'Subcutaneas');
 
 
 --
--- TOC entry 2361 (class 0 OID 32637)
+-- TOC entry 2361 (class 0 OID 31090)
 -- Dependencies: 1748
 -- Data for Name: tipos_micosis_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (105, 1, 22);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (109, 1, 24);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (179, 1, 25);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (180, 3, 25);
-INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (181, 2, 25);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (182, 1, 28);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (183, 2, 28);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (184, 2, 29);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (185, 2, 30);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (186, 1, 31);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (187, 3, 31);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (188, 2, 31);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (189, 1, 32);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (190, 3, 32);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (191, 2, 32);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (192, 3, 34);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (193, 3, 35);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (194, 1, 36);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (195, 3, 37);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (196, 1, 38);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (197, 1, 29);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (198, 2, 39);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (199, 3, 33);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (200, 3, 40);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (201, 2, 40);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (202, 2, 41);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (203, 1, 39);
 
 
 --
--- TOC entry 2362 (class 0 OID 32640)
+-- TOC entry 2362 (class 0 OID 31093)
 -- Dependencies: 1749
 -- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (96, 109, 4, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (97, 109, 5, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (98, 109, 11, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (99, 109, 12, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (139, 180, 57, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (140, 180, 58, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (141, 180, 60, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (142, 180, 62, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (143, 181, 31, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (144, 181, 53, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (145, 179, 5, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (146, 179, 8, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (147, 179, 63, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (148, 179, 13, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (149, 179, 24, NULL);
-INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (150, 179, 64, 'Biopsia Piel, Biopsia Otros Órganos, Líquido Peritoneal, Líquido Sinovial, Cefalorraquídeo (LC), uña');
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (155, 183, 28, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (156, 183, 34, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (157, 183, 36, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (158, 184, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (159, 184, 28, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (160, 184, 29, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (161, 184, 35, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (162, 184, 36, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (163, 185, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (164, 185, 28, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (165, 185, 29, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (166, 185, 32, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (167, 185, 38, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (168, 185, 39, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (169, 185, 50, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (170, 185, 51, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (171, 185, 52, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (172, 186, 2, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (173, 186, 21, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (174, 187, 54, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (175, 187, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (176, 187, 56, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (177, 187, 57, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (178, 187, 59, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (179, 187, 60, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (180, 187, 61, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (181, 188, 25, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (182, 188, 26, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (183, 188, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (184, 188, 29, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (185, 188, 32, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (186, 188, 34, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (187, 189, 4, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (188, 189, 5, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (189, 189, 21, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (190, 189, 11, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (191, 190, 54, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (192, 190, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (193, 190, 56, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (194, 190, 59, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (195, 190, 60, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (196, 191, 25, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (197, 191, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (198, 191, 29, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (199, 191, 32, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (200, 191, 34, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (201, 191, 36, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (202, 192, 57, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (203, 192, 61, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (204, 193, 56, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (205, 193, 59, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (207, 195, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (208, 182, 7, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (209, 182, 3, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (210, 182, 11, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (211, 182, 13, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (212, 194, 4, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (213, 197, 4, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (214, 198, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (215, 198, 30, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (216, 198, 33, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (217, 198, 34, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (218, 199, 54, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (219, 199, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (220, 199, 59, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (221, 199, 60, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (222, 196, 7, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (223, 196, 3, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (224, 196, 12, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (225, 196, 24, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (226, 196, 20, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (227, 200, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (228, 200, 57, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (229, 200, 59, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (230, 200, 61, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (231, 201, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (232, 201, 29, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (233, 201, 30, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (234, 201, 33, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (235, 201, 38, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (236, 201, 39, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (237, 202, 25, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (238, 202, 27, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (239, 202, 28, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (240, 202, 33, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (241, 202, 37, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (242, 202, 39, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (243, 203, 5, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (244, 203, 11, NULL);
 
 
 --
--- TOC entry 2363 (class 0 OID 32647)
+-- TOC entry 2363 (class 0 OID 31100)
 -- Dependencies: 1752
 -- Data for Name: tipos_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8259,15 +8825,13 @@ INSERT INTO tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) VALUES (2, 'me
 
 
 --
--- TOC entry 2364 (class 0 OID 32650)
+-- TOC entry 2364 (class 0 OID 31103)
 -- Dependencies: 1753
 -- Data for Name: tipos_usuarios__usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (17, 6, NULL, 2);
-INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (36, NULL, 17, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (41, NULL, 21, 1);
-INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (43, 27, NULL, 2);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (44, 28, NULL, 2);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (45, NULL, 22, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (49, 32, NULL, 2);
@@ -8276,10 +8840,13 @@ INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (52, NULL, 23, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (53, NULL, 24, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (54, 35, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (55, NULL, 25, 1);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (56, 36, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (57, NULL, 26, 1);
 
 
 --
--- TOC entry 2365 (class 0 OID 32657)
+-- TOC entry 2365 (class 0 OID 31110)
 -- Dependencies: 1756
 -- Data for Name: transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8299,7 +8866,7 @@ INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES 
 
 
 --
--- TOC entry 2366 (class 0 OID 32662)
+-- TOC entry 2366 (class 0 OID 31115)
 -- Dependencies: 1758
 -- Data for Name: transacciones_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8315,10 +8882,6 @@ INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALU
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 51, 106);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 51, 107);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 51, 108);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 43, 48);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 43, 49);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 43, 50);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 43, 51);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 49, 113);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 49, 114);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 49, 115);
@@ -8334,22 +8897,34 @@ INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALU
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 44, 147);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 44, 148);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 44, 149);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 54, 150);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 54, 151);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 54, 152);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 54, 153);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (9, 54, 154);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (10, 54, 155);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (11, 54, 156);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (12, 54, 157);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (13, 54, 158);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 54, 159);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 54, 160);
-INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 54, 161);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 54, 162);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 54, 163);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 54, 164);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 54, 165);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (9, 54, 166);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (10, 54, 167);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (11, 54, 168);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (12, 54, 169);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (13, 54, 170);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 54, 171);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 54, 172);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 54, 173);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (1, 56, 174);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 56, 175);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 56, 176);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 56, 177);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (9, 56, 178);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (10, 56, 179);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (11, 56, 180);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (12, 56, 181);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (13, 56, 182);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (14, 56, 183);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (15, 56, 184);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (16, 56, 185);
 
 
 --
--- TOC entry 2367 (class 0 OID 32667)
+-- TOC entry 2367 (class 0 OID 31120)
 -- Dependencies: 1760
 -- Data for Name: tratamientos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8367,17 +8942,49 @@ INSERT INTO tratamientos (id_tra, nom_tra) VALUES (10, 'Otros');
 
 
 --
--- TOC entry 2368 (class 0 OID 32672)
+-- TOC entry 2368 (class 0 OID 31125)
 -- Dependencies: 1762
 -- Data for Name: tratamientos_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (254, 24, 9, NULL);
-INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (260, 25, 10, 'Biopsia Piel; Biopsia Otros Órganos; Líquido Peritoneal; Líquido Sinovial; Cefalorraquídeo (LC); uña');
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (263, 28, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (264, 28, 8, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (267, 29, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (268, 29, 5, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (269, 30, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (270, 30, 4, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (271, 31, 3, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (272, 32, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (274, 34, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (275, 35, 10, 'shampus');
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (277, 36, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (279, 22, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (285, 33, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (286, 33, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (287, 33, 5, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (288, 33, 9, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (289, 33, 8, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (290, 33, 4, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (291, 33, 3, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (292, 33, 2, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (293, 33, 1, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (294, 38, 3, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (295, 38, 2, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (296, 38, 1, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (297, 37, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (298, 40, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (299, 40, 2, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (300, 40, 1, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (303, 41, 7, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (304, 41, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (305, 39, 6, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (306, 39, 4, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (307, 39, 3, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (308, 39, 1, NULL);
 
 
 --
--- TOC entry 2369 (class 0 OID 32677)
+-- TOC entry 2369 (class 0 OID 31130)
 -- Dependencies: 1764
 -- Data for Name: usuarios_administrativos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
@@ -8385,14 +8992,15 @@ INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES 
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (21, 'Luis', 'Marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin', '04265168824', '2011-06-10 20:02:12.07', true);
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (23, 'lmarin', 'marin', '3e46a122f1961a8ec71f2a369f6d16ee', 'lmarin2', '36222222', '2011-07-08 16:10:19.402', true);
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (22, 'Lisseth', 'Lozada', '3e46a122f1961a8ec71f2a369f6d16ee', 'llozada', '04269150722', '2011-06-24 15:22:46.934', true);
-INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (17, 'SAIB', 'SAIB', 'b107e9a7ba2cd6d9e878c1a1c277554c', 'SAIB', '04162102903', '2011-06-04 14:24:44.315', true);
-INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (24, 'Moises', 'Perez', 'bbc5d47920c1adc1ab1f4d43a1832282', 'Moises', '04123818120', '2012-01-16 10:01:40.862', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (24, 'Moises', 'Perez', '3e46a122f1961a8ec71f2a369f6d16ee', 'Moises', '04123818120', '2012-01-16 10:01:40.862', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (25, 'saib', 'saib', '949db4d232c18d744a42ac3bdc93ddb0', 'saib', '04123818120', '2012-01-25 11:20:45.218', true);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu) VALUES (26, 'maria', 'avendano', '949db4d232c18d744a42ac3bdc93ddb0', 'mariaa', '04123818120', '2012-01-25 15:06:51.64', true);
 
 
 SET search_path = saib_model, pg_catalog;
 
 --
--- TOC entry 2370 (class 0 OID 32692)
+-- TOC entry 2370 (class 0 OID 31145)
 -- Dependencies: 1768
 -- Data for Name: wwwsqldesigner; Type: TABLE DATA; Schema: saib_model; Owner: postgres
 --
@@ -9624,7 +10232,7 @@ INSERT INTO wwwsqldesigner (keyword, xmldata, dt) VALUES ('saib', '<?xml version
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 2103 (class 2606 OID 32747)
+-- TOC entry 2103 (class 2606 OID 31200)
 -- Dependencies: 1672 1672
 -- Name: animales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9634,7 +10242,7 @@ ALTER TABLE ONLY animales
 
 
 --
--- TOC entry 2105 (class 2606 OID 32749)
+-- TOC entry 2105 (class 2606 OID 31202)
 -- Dependencies: 1674 1674
 -- Name: antecedentes_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9644,7 +10252,7 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2108 (class 2606 OID 32751)
+-- TOC entry 2108 (class 2606 OID 31204)
 -- Dependencies: 1676 1676
 -- Name: antecedentes_personales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9656,7 +10264,7 @@ ALTER TABLE ONLY antecedentes_personales
 SET default_tablespace = saib;
 
 --
--- TOC entry 2110 (class 2606 OID 32753)
+-- TOC entry 2110 (class 2606 OID 31206)
 -- Dependencies: 1678 1678
 -- Name: auditoria_transacciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -9668,7 +10276,7 @@ ALTER TABLE ONLY auditoria_transacciones
 SET default_tablespace = '';
 
 --
--- TOC entry 2113 (class 2606 OID 32755)
+-- TOC entry 2113 (class 2606 OID 31208)
 -- Dependencies: 1680 1680
 -- Name: categorias__cuerpos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9678,7 +10286,7 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2115 (class 2606 OID 32757)
+-- TOC entry 2115 (class 2606 OID 31210)
 -- Dependencies: 1680 1680 1680
 -- Name: categorias__cuerpos_micosis_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9688,7 +10296,7 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2120 (class 2606 OID 32759)
+-- TOC entry 2120 (class 2606 OID 31212)
 -- Dependencies: 1683 1683 1683
 -- Name: categorias_cuerpos__lesiones_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9698,7 +10306,7 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2118 (class 2606 OID 32761)
+-- TOC entry 2118 (class 2606 OID 31214)
 -- Dependencies: 1682 1682
 -- Name: categorias_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9708,7 +10316,7 @@ ALTER TABLE ONLY categorias_cuerpos
 
 
 --
--- TOC entry 2126 (class 2606 OID 32763)
+-- TOC entry 2126 (class 2606 OID 31216)
 -- Dependencies: 1685 1685
 -- Name: centro_salud_doctores_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9718,7 +10326,7 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2128 (class 2606 OID 32765)
+-- TOC entry 2128 (class 2606 OID 31218)
 -- Dependencies: 1685 1685 1685
 -- Name: centro_salud_doctores_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9728,7 +10336,7 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2134 (class 2606 OID 32767)
+-- TOC entry 2134 (class 2606 OID 31220)
 -- Dependencies: 1689 1689
 -- Name: centro_salud_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9738,7 +10346,7 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2136 (class 2606 OID 32769)
+-- TOC entry 2136 (class 2606 OID 31222)
 -- Dependencies: 1689 1689 1689
 -- Name: centro_salud_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9748,7 +10356,7 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2131 (class 2606 OID 32771)
+-- TOC entry 2131 (class 2606 OID 31224)
 -- Dependencies: 1687 1687
 -- Name: centro_salud_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9758,7 +10366,7 @@ ALTER TABLE ONLY centro_saluds
 
 
 --
--- TOC entry 2139 (class 2606 OID 32773)
+-- TOC entry 2139 (class 2606 OID 31226)
 -- Dependencies: 1691 1691
 -- Name: contactos_animales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9768,7 +10376,7 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2141 (class 2606 OID 32775)
+-- TOC entry 2141 (class 2606 OID 31228)
 -- Dependencies: 1691 1691 1691
 -- Name: contactos_animales_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9778,7 +10386,7 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2143 (class 2606 OID 32777)
+-- TOC entry 2143 (class 2606 OID 31230)
 -- Dependencies: 1693 1693
 -- Name: doctores_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9788,7 +10396,7 @@ ALTER TABLE ONLY doctores
 
 
 --
--- TOC entry 2146 (class 2606 OID 32779)
+-- TOC entry 2146 (class 2606 OID 31232)
 -- Dependencies: 1695 1695
 -- Name: enfermedades_micologicas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9798,7 +10406,7 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 
 --
--- TOC entry 2148 (class 2606 OID 32781)
+-- TOC entry 2148 (class 2606 OID 31234)
 -- Dependencies: 1697 1697
 -- Name: enfermedades_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9808,7 +10416,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2150 (class 2606 OID 32783)
+-- TOC entry 2150 (class 2606 OID 31236)
 -- Dependencies: 1697 1697 1697
 -- Name: enfermedades_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9818,7 +10426,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2152 (class 2606 OID 32785)
+-- TOC entry 2152 (class 2606 OID 31238)
 -- Dependencies: 1699 1699
 -- Name: estados_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9828,7 +10436,7 @@ ALTER TABLE ONLY estados
 
 
 --
--- TOC entry 2154 (class 2606 OID 32787)
+-- TOC entry 2154 (class 2606 OID 31240)
 -- Dependencies: 1701 1701
 -- Name: examenes_pacientes_pk; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9838,7 +10446,7 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2156 (class 2606 OID 32789)
+-- TOC entry 2156 (class 2606 OID 31242)
 -- Dependencies: 1701 1701 1701
 -- Name: examenes_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9848,7 +10456,7 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2162 (class 2606 OID 32791)
+-- TOC entry 2162 (class 2606 OID 31244)
 -- Dependencies: 1704 1704
 -- Name: forma_infecciones__pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9858,7 +10466,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2164 (class 2606 OID 32793)
+-- TOC entry 2164 (class 2606 OID 31246)
 -- Dependencies: 1704 1704 1704
 -- Name: forma_infecciones__pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9868,7 +10476,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2167 (class 2606 OID 32795)
+-- TOC entry 2167 (class 2606 OID 31248)
 -- Dependencies: 1706 1706
 -- Name: forma_infecciones__tipos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9878,7 +10486,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2169 (class 2606 OID 32797)
+-- TOC entry 2169 (class 2606 OID 31250)
 -- Dependencies: 1706 1706 1706
 -- Name: forma_infecciones__tipos_micosis_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9888,7 +10496,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2159 (class 2606 OID 32799)
+-- TOC entry 2159 (class 2606 OID 31252)
 -- Dependencies: 1703 1703
 -- Name: forma_infecciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9898,7 +10506,7 @@ ALTER TABLE ONLY forma_infecciones
 
 
 --
--- TOC entry 2172 (class 2606 OID 32801)
+-- TOC entry 2172 (class 2606 OID 31254)
 -- Dependencies: 1709 1709
 -- Name: historiales_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9908,7 +10516,7 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2123 (class 2606 OID 32803)
+-- TOC entry 2123 (class 2606 OID 31256)
 -- Dependencies: 1683 1683
 -- Name: lesiones__partes_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9918,7 +10526,7 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2174 (class 2606 OID 32805)
+-- TOC entry 2174 (class 2606 OID 31258)
 -- Dependencies: 1711 1711
 -- Name: lesiones_id_les_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9928,7 +10536,7 @@ ALTER TABLE ONLY lesiones
 
 
 --
--- TOC entry 2177 (class 2606 OID 32807)
+-- TOC entry 2177 (class 2606 OID 31260)
 -- Dependencies: 1714 1714
 -- Name: lesiones_partes_cuerpos__pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9938,7 +10546,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2179 (class 2606 OID 32809)
+-- TOC entry 2179 (class 2606 OID 31262)
 -- Dependencies: 1714 1714 1714 1714
 -- Name: lesiones_partes_cuerpos__pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9948,7 +10556,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2182 (class 2606 OID 32811)
+-- TOC entry 2182 (class 2606 OID 31264)
 -- Dependencies: 1716 1716
 -- Name: localizaciones_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9958,7 +10566,7 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 
 --
--- TOC entry 2184 (class 2606 OID 32813)
+-- TOC entry 2184 (class 2606 OID 31266)
 -- Dependencies: 1718 1718 1718
 -- Name: modulos_cod_mod_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9968,7 +10576,7 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2186 (class 2606 OID 32815)
+-- TOC entry 2186 (class 2606 OID 31268)
 -- Dependencies: 1718 1718
 -- Name: modulos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9978,7 +10586,7 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2189 (class 2606 OID 32817)
+-- TOC entry 2189 (class 2606 OID 31270)
 -- Dependencies: 1720 1720
 -- Name: muestras_clinicas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9988,7 +10596,7 @@ ALTER TABLE ONLY muestras_clinicas
 
 
 --
--- TOC entry 2191 (class 2606 OID 32819)
+-- TOC entry 2191 (class 2606 OID 31272)
 -- Dependencies: 1722 1722
 -- Name: muestras_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -9998,7 +10606,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2193 (class 2606 OID 32821)
+-- TOC entry 2193 (class 2606 OID 31274)
 -- Dependencies: 1722 1722 1722
 -- Name: muestras_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10008,7 +10616,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2195 (class 2606 OID 32823)
+-- TOC entry 2195 (class 2606 OID 31276)
 -- Dependencies: 1724 1724
 -- Name: municipios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10018,7 +10626,7 @@ ALTER TABLE ONLY municipios
 
 
 --
--- TOC entry 2198 (class 2606 OID 32825)
+-- TOC entry 2198 (class 2606 OID 31278)
 -- Dependencies: 1726 1726
 -- Name: pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10028,7 +10636,7 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2200 (class 2606 OID 32827)
+-- TOC entry 2200 (class 2606 OID 31280)
 -- Dependencies: 1728 1728
 -- Name: paises_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10038,7 +10646,7 @@ ALTER TABLE ONLY paises
 
 
 --
--- TOC entry 2202 (class 2606 OID 32829)
+-- TOC entry 2202 (class 2606 OID 31282)
 -- Dependencies: 1730 1730
 -- Name: parroquias_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10048,7 +10656,7 @@ ALTER TABLE ONLY parroquias
 
 
 --
--- TOC entry 2207 (class 2606 OID 32831)
+-- TOC entry 2207 (class 2606 OID 31284)
 -- Dependencies: 1733 1733
 -- Name: partes_cuerpos__categorias_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10058,7 +10666,7 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2209 (class 2606 OID 32833)
+-- TOC entry 2209 (class 2606 OID 31286)
 -- Dependencies: 1733 1733 1733
 -- Name: partes_cuerpos__categorias_cuerpos_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10068,7 +10676,7 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2205 (class 2606 OID 32835)
+-- TOC entry 2205 (class 2606 OID 31288)
 -- Dependencies: 1732 1732
 -- Name: partes_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10078,7 +10686,7 @@ ALTER TABLE ONLY partes_cuerpos
 
 
 --
--- TOC entry 2211 (class 2606 OID 32837)
+-- TOC entry 2211 (class 2606 OID 31290)
 -- Dependencies: 1736 1736
 -- Name: tiempo_evoluciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10088,7 +10696,7 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 
 --
--- TOC entry 2217 (class 2606 OID 32839)
+-- TOC entry 2217 (class 2606 OID 31292)
 -- Dependencies: 1740 1740
 -- Name: tipos_consultas_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10098,7 +10706,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2219 (class 2606 OID 32841)
+-- TOC entry 2219 (class 2606 OID 31294)
 -- Dependencies: 1740 1740 1740
 -- Name: tipos_consultas_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10108,7 +10716,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2214 (class 2606 OID 32843)
+-- TOC entry 2214 (class 2606 OID 31296)
 -- Dependencies: 1738 1738
 -- Name: tipos_consultas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10118,7 +10726,7 @@ ALTER TABLE ONLY tipos_consultas
 
 
 --
--- TOC entry 2222 (class 2606 OID 32845)
+-- TOC entry 2222 (class 2606 OID 31298)
 -- Dependencies: 1742 1742
 -- Name: tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10128,7 +10736,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2224 (class 2606 OID 32847)
+-- TOC entry 2224 (class 2606 OID 31300)
 -- Dependencies: 1744 1744
 -- Name: tipos_examenes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10138,7 +10746,7 @@ ALTER TABLE ONLY tipos_examenes
 
 
 --
--- TOC entry 2233 (class 2606 OID 32849)
+-- TOC entry 2233 (class 2606 OID 31302)
 -- Dependencies: 1749 1749
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10148,7 +10756,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2235 (class 2606 OID 32851)
+-- TOC entry 2235 (class 2606 OID 31304)
 -- Dependencies: 1749 1749 1749
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10158,7 +10766,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2229 (class 2606 OID 32853)
+-- TOC entry 2229 (class 2606 OID 31306)
 -- Dependencies: 1748 1748
 -- Name: tipos_micosis_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10168,7 +10776,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2231 (class 2606 OID 32855)
+-- TOC entry 2231 (class 2606 OID 31308)
 -- Dependencies: 1748 1748 1748
 -- Name: tipos_micosis_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10178,7 +10786,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2227 (class 2606 OID 32857)
+-- TOC entry 2227 (class 2606 OID 31310)
 -- Dependencies: 1746 1746
 -- Name: tipos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10188,7 +10796,7 @@ ALTER TABLE ONLY tipos_micosis
 
 
 --
--- TOC entry 2241 (class 2606 OID 32859)
+-- TOC entry 2241 (class 2606 OID 31312)
 -- Dependencies: 1753 1753
 -- Name: tipos_usuarios__usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10198,7 +10806,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2237 (class 2606 OID 32861)
+-- TOC entry 2237 (class 2606 OID 31314)
 -- Dependencies: 1752 1752
 -- Name: tipos_usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10210,7 +10818,7 @@ ALTER TABLE ONLY tipos_usuarios
 SET default_tablespace = saib;
 
 --
--- TOC entry 2239 (class 2606 OID 32863)
+-- TOC entry 2239 (class 2606 OID 31316)
 -- Dependencies: 1752 1752
 -- Name: tipos_usuarios_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10222,7 +10830,7 @@ ALTER TABLE ONLY tipos_usuarios
 SET default_tablespace = '';
 
 --
--- TOC entry 2245 (class 2606 OID 32865)
+-- TOC entry 2245 (class 2606 OID 31318)
 -- Dependencies: 1756 1756 1756
 -- Name: transacciones_cod_tip_tra__id_mod; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10232,7 +10840,7 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2247 (class 2606 OID 32867)
+-- TOC entry 2247 (class 2606 OID 31320)
 -- Dependencies: 1756 1756
 -- Name: transacciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10242,7 +10850,7 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2249 (class 2606 OID 32869)
+-- TOC entry 2249 (class 2606 OID 31322)
 -- Dependencies: 1758 1758
 -- Name: transacciones_usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10252,7 +10860,7 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2255 (class 2606 OID 32871)
+-- TOC entry 2255 (class 2606 OID 31324)
 -- Dependencies: 1762 1762
 -- Name: tratamientos_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10262,7 +10870,7 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2257 (class 2606 OID 32873)
+-- TOC entry 2257 (class 2606 OID 31326)
 -- Dependencies: 1762 1762 1762
 -- Name: tratamientos_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10272,7 +10880,7 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2252 (class 2606 OID 32875)
+-- TOC entry 2252 (class 2606 OID 31328)
 -- Dependencies: 1760 1760
 -- Name: tratamientos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10282,7 +10890,7 @@ ALTER TABLE ONLY tratamientos
 
 
 --
--- TOC entry 2243 (class 2606 OID 32877)
+-- TOC entry 2243 (class 2606 OID 31330)
 -- Dependencies: 1753 1753 1753 1753
 -- Name: unique_tipos_usuarios__usuarios; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10292,7 +10900,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2259 (class 2606 OID 32879)
+-- TOC entry 2259 (class 2606 OID 31332)
 -- Dependencies: 1764 1764
 -- Name: usuarios_administrativos_log_usu_adm_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10304,7 +10912,7 @@ ALTER TABLE ONLY usuarios_administrativos
 SET default_tablespace = saib;
 
 --
--- TOC entry 2261 (class 2606 OID 32881)
+-- TOC entry 2261 (class 2606 OID 31334)
 -- Dependencies: 1764 1764
 -- Name: usuarios_administrativos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10318,7 +10926,7 @@ SET search_path = saib_model, pg_catalog;
 SET default_tablespace = '';
 
 --
--- TOC entry 2263 (class 2606 OID 32883)
+-- TOC entry 2263 (class 2606 OID 31336)
 -- Dependencies: 1768 1768
 -- Name: wwwsqldesigner_pkey; Type: CONSTRAINT; Schema: saib_model; Owner: postgres; Tablespace: 
 --
@@ -10332,7 +10940,7 @@ SET search_path = public, pg_catalog;
 SET default_tablespace = saib;
 
 --
--- TOC entry 2101 (class 1259 OID 32884)
+-- TOC entry 2101 (class 1259 OID 31337)
 -- Dependencies: 1672
 -- Name: animales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10341,7 +10949,7 @@ CREATE INDEX animales_index ON animales USING btree (id_ani);
 
 
 --
--- TOC entry 2106 (class 1259 OID 32885)
+-- TOC entry 2106 (class 1259 OID 31338)
 -- Dependencies: 1676
 -- Name: antecedentes_personales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10350,7 +10958,7 @@ CREATE INDEX antecedentes_personales_index ON antecedentes_personales USING btre
 
 
 --
--- TOC entry 2111 (class 1259 OID 32886)
+-- TOC entry 2111 (class 1259 OID 31339)
 -- Dependencies: 1680
 -- Name: categorias__cuerpos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10359,7 +10967,7 @@ CREATE INDEX categorias__cuerpos_micosis_index ON categorias__cuerpos_micosis US
 
 
 --
--- TOC entry 2116 (class 1259 OID 32887)
+-- TOC entry 2116 (class 1259 OID 31340)
 -- Dependencies: 1682
 -- Name: categorias_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10370,7 +10978,7 @@ CREATE INDEX categorias_cuerpos_index ON categorias_cuerpos USING btree (id_cat_
 SET default_tablespace = '';
 
 --
--- TOC entry 2124 (class 1259 OID 32888)
+-- TOC entry 2124 (class 1259 OID 31341)
 -- Dependencies: 1685 1685 1685
 -- Name: centro_salud_doctores_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -10381,7 +10989,7 @@ CREATE INDEX centro_salud_doctores_index ON centro_salud_doctores USING btree (i
 SET default_tablespace = saib;
 
 --
--- TOC entry 2129 (class 1259 OID 32889)
+-- TOC entry 2129 (class 1259 OID 31342)
 -- Dependencies: 1687
 -- Name: centro_salud_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10390,7 +10998,7 @@ CREATE INDEX centro_salud_index ON centro_saluds USING btree (id_cen_sal);
 
 
 --
--- TOC entry 2132 (class 1259 OID 32890)
+-- TOC entry 2132 (class 1259 OID 31343)
 -- Dependencies: 1689 1689 1689
 -- Name: centro_salud_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10399,7 +11007,7 @@ CREATE INDEX centro_salud_pacientes_index ON centro_salud_pacientes USING btree 
 
 
 --
--- TOC entry 2137 (class 1259 OID 32891)
+-- TOC entry 2137 (class 1259 OID 31344)
 -- Dependencies: 1691 1691 1691
 -- Name: contactos_animales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10408,7 +11016,7 @@ CREATE INDEX contactos_animales_index ON contactos_animales USING btree (id_con_
 
 
 --
--- TOC entry 2144 (class 1259 OID 32892)
+-- TOC entry 2144 (class 1259 OID 31345)
 -- Dependencies: 1695
 -- Name: enfermedades_micologicas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10417,7 +11025,7 @@ CREATE INDEX enfermedades_micologicas_index ON enfermedades_micologicas USING bt
 
 
 --
--- TOC entry 2160 (class 1259 OID 32893)
+-- TOC entry 2160 (class 1259 OID 31346)
 -- Dependencies: 1704
 -- Name: forma_infecciones__pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10426,7 +11034,7 @@ CREATE INDEX forma_infecciones__pacientes_index ON forma_infecciones__pacientes 
 
 
 --
--- TOC entry 2165 (class 1259 OID 32894)
+-- TOC entry 2165 (class 1259 OID 31347)
 -- Dependencies: 1706
 -- Name: forma_infecciones__tipos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10435,7 +11043,7 @@ CREATE INDEX forma_infecciones__tipos_micosis_index ON forma_infecciones__tipos_
 
 
 --
--- TOC entry 2157 (class 1259 OID 32895)
+-- TOC entry 2157 (class 1259 OID 31348)
 -- Dependencies: 1703
 -- Name: forma_infecciones_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10444,7 +11052,7 @@ CREATE INDEX forma_infecciones_index ON forma_infecciones USING btree (id_for_in
 
 
 --
--- TOC entry 2170 (class 1259 OID 32896)
+-- TOC entry 2170 (class 1259 OID 31349)
 -- Dependencies: 1709
 -- Name: historiales_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10453,7 +11061,7 @@ CREATE INDEX historiales_pacientes_index ON historiales_pacientes USING btree (i
 
 
 --
--- TOC entry 2121 (class 1259 OID 32897)
+-- TOC entry 2121 (class 1259 OID 31350)
 -- Dependencies: 1683
 -- Name: lesiones__partes_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10462,7 +11070,7 @@ CREATE INDEX lesiones__partes_cuerpos_index ON categorias_cuerpos__lesiones USIN
 
 
 --
--- TOC entry 2175 (class 1259 OID 32898)
+-- TOC entry 2175 (class 1259 OID 31351)
 -- Dependencies: 1714
 -- Name: lesiones_partes_cuerpos__pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10471,7 +11079,7 @@ CREATE INDEX lesiones_partes_cuerpos__pacientes_index ON lesiones_partes_cuerpos
 
 
 --
--- TOC entry 2180 (class 1259 OID 32899)
+-- TOC entry 2180 (class 1259 OID 31352)
 -- Dependencies: 1716
 -- Name: localizaciones_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10480,7 +11088,7 @@ CREATE INDEX localizaciones_cuerpos_index ON localizaciones_cuerpos USING btree 
 
 
 --
--- TOC entry 2187 (class 1259 OID 32900)
+-- TOC entry 2187 (class 1259 OID 31353)
 -- Dependencies: 1720
 -- Name: muestras_clinicas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10489,7 +11097,7 @@ CREATE INDEX muestras_clinicas_index ON muestras_clinicas USING btree (id_mue_cl
 
 
 --
--- TOC entry 2196 (class 1259 OID 32901)
+-- TOC entry 2196 (class 1259 OID 31354)
 -- Dependencies: 1726
 -- Name: pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10498,7 +11106,7 @@ CREATE INDEX pacientes_index ON pacientes USING btree (id_pac);
 
 
 --
--- TOC entry 2203 (class 1259 OID 32902)
+-- TOC entry 2203 (class 1259 OID 31355)
 -- Dependencies: 1732
 -- Name: partes_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10507,7 +11115,7 @@ CREATE INDEX partes_cuerpos_index ON partes_cuerpos USING btree (id_par_cue);
 
 
 --
--- TOC entry 2212 (class 1259 OID 32903)
+-- TOC entry 2212 (class 1259 OID 31356)
 -- Dependencies: 1738
 -- Name: tipos_consultas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10516,7 +11124,7 @@ CREATE INDEX tipos_consultas_index ON tipos_consultas USING btree (id_tip_con);
 
 
 --
--- TOC entry 2215 (class 1259 OID 32904)
+-- TOC entry 2215 (class 1259 OID 31357)
 -- Dependencies: 1740 1740 1740
 -- Name: tipos_consultas_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10525,7 +11133,7 @@ CREATE INDEX tipos_consultas_pacientes_index ON tipos_consultas_pacientes USING 
 
 
 --
--- TOC entry 2220 (class 1259 OID 32905)
+-- TOC entry 2220 (class 1259 OID 31358)
 -- Dependencies: 1742
 -- Name: tipos_estudios_micologicos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10534,7 +11142,7 @@ CREATE INDEX tipos_estudios_micologicos_index ON tipos_estudios_micologicos USIN
 
 
 --
--- TOC entry 2225 (class 1259 OID 32906)
+-- TOC entry 2225 (class 1259 OID 31359)
 -- Dependencies: 1746
 -- Name: tipos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10543,7 +11151,7 @@ CREATE INDEX tipos_micosis_index ON tipos_micosis USING btree (id_tip_mic);
 
 
 --
--- TOC entry 2250 (class 1259 OID 32907)
+-- TOC entry 2250 (class 1259 OID 31360)
 -- Dependencies: 1760
 -- Name: tratamientos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10552,7 +11160,7 @@ CREATE INDEX tratamientos_index ON tratamientos USING btree (id_tra);
 
 
 --
--- TOC entry 2253 (class 1259 OID 32908)
+-- TOC entry 2253 (class 1259 OID 31361)
 -- Dependencies: 1762 1762 1762
 -- Name: tratamientos_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -10561,8 +11169,8 @@ CREATE INDEX tratamientos_pacientes_index ON tratamientos_pacientes USING btree 
 
 
 --
--- TOC entry 2264 (class 2606 OID 32909)
--- Dependencies: 2107 1676 1674
+-- TOC entry 2264 (class 2606 OID 31362)
+-- Dependencies: 1674 2107 1676
 -- Name: antecedentes_pacientes_id_ant_per_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10571,8 +11179,8 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2265 (class 2606 OID 32914)
--- Dependencies: 2197 1726 1674
+-- TOC entry 2265 (class 2606 OID 31367)
+-- Dependencies: 1726 1674 2197
 -- Name: antecedentes_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10581,8 +11189,8 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2266 (class 2606 OID 32919)
--- Dependencies: 1678 1756 2246
+-- TOC entry 2266 (class 2606 OID 31372)
+-- Dependencies: 1678 2246 1756
 -- Name: auditoria_transacciones_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10591,8 +11199,8 @@ ALTER TABLE ONLY auditoria_transacciones
 
 
 --
--- TOC entry 2267 (class 2606 OID 32924)
--- Dependencies: 2240 1753 1678
+-- TOC entry 2267 (class 2606 OID 31377)
+-- Dependencies: 1678 1753 2240
 -- Name: auditoria_transacciones_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10601,8 +11209,8 @@ ALTER TABLE ONLY auditoria_transacciones
 
 
 --
--- TOC entry 2270 (class 2606 OID 32929)
--- Dependencies: 1682 1683 2117
+-- TOC entry 2270 (class 2606 OID 31382)
+-- Dependencies: 1683 1682 2117
 -- Name: categoria_cuerpos__partes_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10611,8 +11219,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2268 (class 2606 OID 32934)
--- Dependencies: 1682 2117 1680
+-- TOC entry 2268 (class 2606 OID 31387)
+-- Dependencies: 1680 1682 2117
 -- Name: categorias__cuerpos_micosis_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10621,8 +11229,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2269 (class 2606 OID 32939)
--- Dependencies: 1680 1746 2226
+-- TOC entry 2269 (class 2606 OID 31392)
+-- Dependencies: 1746 1680 2226
 -- Name: categorias__cuerpos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10631,8 +11239,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2272 (class 2606 OID 32944)
--- Dependencies: 1687 2130 1685
+-- TOC entry 2272 (class 2606 OID 31397)
+-- Dependencies: 2130 1687 1685
 -- Name: centro_salud_doctores_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10641,8 +11249,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2273 (class 2606 OID 32949)
--- Dependencies: 1693 2142 1685
+-- TOC entry 2273 (class 2606 OID 31402)
+-- Dependencies: 2142 1685 1693
 -- Name: centro_salud_doctores_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10651,8 +11259,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2274 (class 2606 OID 32954)
--- Dependencies: 1687 2130 1689
+-- TOC entry 2274 (class 2606 OID 31407)
+-- Dependencies: 2130 1687 1689
 -- Name: centro_salud_pacientes_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10661,8 +11269,8 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2275 (class 2606 OID 32959)
--- Dependencies: 1689 1709 2171
+-- TOC entry 2275 (class 2606 OID 31412)
+-- Dependencies: 2171 1709 1689
 -- Name: centro_salud_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10671,7 +11279,7 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2276 (class 2606 OID 32964)
+-- TOC entry 2276 (class 2606 OID 31417)
 -- Dependencies: 2102 1691 1672
 -- Name: contactos_animales_id_ani_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -10681,8 +11289,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2277 (class 2606 OID 32969)
--- Dependencies: 2171 1709 1691
+-- TOC entry 2277 (class 2606 OID 31422)
+-- Dependencies: 1691 1709 2171
 -- Name: contactos_animales_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10691,8 +11299,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2278 (class 2606 OID 32974)
--- Dependencies: 1746 2226 1695
+-- TOC entry 2278 (class 2606 OID 31427)
+-- Dependencies: 1746 1695 2226
 -- Name: enfermedades_micologicas_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10701,8 +11309,8 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 
 --
--- TOC entry 2279 (class 2606 OID 32979)
--- Dependencies: 1695 2145 1697
+-- TOC entry 2279 (class 2606 OID 31432)
+-- Dependencies: 1695 1697 2145
 -- Name: enfermedades_pacientes_id_enf_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10711,8 +11319,8 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2280 (class 2606 OID 32984)
--- Dependencies: 1748 2228 1697
+-- TOC entry 2280 (class 2606 OID 31437)
+-- Dependencies: 1697 1748 2228
 -- Name: enfermedades_pacientes_id_tip_enf_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10721,7 +11329,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2281 (class 2606 OID 32989)
+-- TOC entry 2281 (class 2606 OID 31442)
 -- Dependencies: 1699 1728 2199
 -- Name: estados_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -10731,8 +11339,8 @@ ALTER TABLE ONLY estados
 
 
 --
--- TOC entry 2282 (class 2606 OID 32994)
--- Dependencies: 1701 1744 2223
+-- TOC entry 2282 (class 2606 OID 31447)
+-- Dependencies: 1701 2223 1744
 -- Name: examenes_pacientes__id_tip_exa_fk; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10741,8 +11349,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2284 (class 2606 OID 32999)
--- Dependencies: 1704 2158 1703
+-- TOC entry 2284 (class 2606 OID 31452)
+-- Dependencies: 1704 1703 2158
 -- Name: forma_infecciones__pacientes_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10751,7 +11359,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2285 (class 2606 OID 33004)
+-- TOC entry 2285 (class 2606 OID 31457)
 -- Dependencies: 1748 1704 2228
 -- Name: forma_infecciones__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -10761,8 +11369,8 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2286 (class 2606 OID 33009)
--- Dependencies: 1706 1703 2158
+-- TOC entry 2286 (class 2606 OID 31462)
+-- Dependencies: 2158 1703 1706
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10771,8 +11379,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2287 (class 2606 OID 33014)
--- Dependencies: 1706 1746 2226
+-- TOC entry 2287 (class 2606 OID 31467)
+-- Dependencies: 1746 1706 2226
 -- Name: forma_infecciones__tipos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10781,8 +11389,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2288 (class 2606 OID 33019)
--- Dependencies: 1709 1693 2142
+-- TOC entry 2288 (class 2606 OID 31472)
+-- Dependencies: 2142 1709 1693
 -- Name: historiales_pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10791,8 +11399,8 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2289 (class 2606 OID 33024)
--- Dependencies: 1709 1726 2197
+-- TOC entry 2289 (class 2606 OID 31477)
+-- Dependencies: 2197 1726 1709
 -- Name: historiales_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10801,8 +11409,8 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2271 (class 2606 OID 33029)
--- Dependencies: 1683 1711 2173
+-- TOC entry 2271 (class 2606 OID 31482)
+-- Dependencies: 1683 2173 1711
 -- Name: lesiones__partes_cuerpos_id_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10811,8 +11419,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2290 (class 2606 OID 33034)
--- Dependencies: 1714 1683 2122
+-- TOC entry 2290 (class 2606 OID 31487)
+-- Dependencies: 2122 1683 1714
 -- Name: lesiones_partes_cuerpos__pacientes_id_cat_cue_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10821,8 +11429,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2291 (class 2606 OID 33039)
--- Dependencies: 1714 1733 2206
+-- TOC entry 2291 (class 2606 OID 31492)
+-- Dependencies: 2206 1714 1733
 -- Name: lesiones_partes_cuerpos__pacientes_id_par_cue_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10831,8 +11439,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2292 (class 2606 OID 33044)
--- Dependencies: 1714 1748 2228
+-- TOC entry 2292 (class 2606 OID 31497)
+-- Dependencies: 1748 2228 1714
 -- Name: lesiones_partes_cuerpos__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10841,8 +11449,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2293 (class 2606 OID 33049)
--- Dependencies: 1716 2204 1732
+-- TOC entry 2293 (class 2606 OID 31502)
+-- Dependencies: 1716 1732 2204
 -- Name: localizaciones_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10851,8 +11459,8 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 
 --
--- TOC entry 2294 (class 2606 OID 33054)
--- Dependencies: 1752 1718 2236
+-- TOC entry 2294 (class 2606 OID 31507)
+-- Dependencies: 2236 1752 1718
 -- Name: modulos_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10861,8 +11469,8 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2295 (class 2606 OID 33059)
--- Dependencies: 2171 1709 1722
+-- TOC entry 2295 (class 2606 OID 31512)
+-- Dependencies: 2171 1722 1709
 -- Name: muestras_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10871,8 +11479,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2296 (class 2606 OID 33064)
--- Dependencies: 2188 1722 1720
+-- TOC entry 2296 (class 2606 OID 31517)
+-- Dependencies: 2188 1720 1722
 -- Name: muestras_pacientes_id_mue_cli_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10881,8 +11489,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2297 (class 2606 OID 33069)
--- Dependencies: 2151 1724 1699
+-- TOC entry 2297 (class 2606 OID 31522)
+-- Dependencies: 1724 1699 2151
 -- Name: municipios_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10891,8 +11499,8 @@ ALTER TABLE ONLY municipios
 
 
 --
--- TOC entry 2298 (class 2606 OID 33074)
--- Dependencies: 1726 1693 2142
+-- TOC entry 2298 (class 2606 OID 31527)
+-- Dependencies: 2142 1693 1726
 -- Name: pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10901,8 +11509,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2299 (class 2606 OID 33079)
--- Dependencies: 1699 2151 1726
+-- TOC entry 2299 (class 2606 OID 31532)
+-- Dependencies: 2151 1726 1699
 -- Name: pacientes_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10911,8 +11519,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2300 (class 2606 OID 33084)
--- Dependencies: 1724 2194 1726
+-- TOC entry 2300 (class 2606 OID 31537)
+-- Dependencies: 2194 1724 1726
 -- Name: pacientes_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10921,8 +11529,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2301 (class 2606 OID 33089)
--- Dependencies: 2199 1726 1728
+-- TOC entry 2301 (class 2606 OID 31542)
+-- Dependencies: 1728 1726 2199
 -- Name: pacientes_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10931,8 +11539,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2302 (class 2606 OID 33094)
--- Dependencies: 1726 1730 2201
+-- TOC entry 2302 (class 2606 OID 31547)
+-- Dependencies: 2201 1726 1730
 -- Name: pacientes_id_par_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10941,8 +11549,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2303 (class 2606 OID 33099)
--- Dependencies: 2194 1730 1724
+-- TOC entry 2303 (class 2606 OID 31552)
+-- Dependencies: 2194 1724 1730
 -- Name: parroquias_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10951,8 +11559,8 @@ ALTER TABLE ONLY parroquias
 
 
 --
--- TOC entry 2304 (class 2606 OID 33104)
--- Dependencies: 1682 2117 1733
+-- TOC entry 2304 (class 2606 OID 31557)
+-- Dependencies: 1682 1733 2117
 -- Name: partes_cuerpos__categorias_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10961,7 +11569,7 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2305 (class 2606 OID 33109)
+-- TOC entry 2305 (class 2606 OID 31562)
 -- Dependencies: 1733 1732 2204
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -10971,8 +11579,8 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2306 (class 2606 OID 33114)
--- Dependencies: 1736 1709 2171
+-- TOC entry 2306 (class 2606 OID 31567)
+-- Dependencies: 1736 2171 1709
 -- Name: tiempo_evoluciones_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10981,8 +11589,8 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 
 --
--- TOC entry 2307 (class 2606 OID 33119)
--- Dependencies: 2171 1740 1709
+-- TOC entry 2307 (class 2606 OID 31572)
+-- Dependencies: 2171 1709 1740
 -- Name: tipos_consultas_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -10991,8 +11599,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2308 (class 2606 OID 33124)
--- Dependencies: 1740 2213 1738
+-- TOC entry 2308 (class 2606 OID 31577)
+-- Dependencies: 2213 1740 1738
 -- Name: tipos_consultas_pacientes_id_tip_con_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11001,8 +11609,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2309 (class 2606 OID 33129)
--- Dependencies: 1742 2223 1744
+-- TOC entry 2309 (class 2606 OID 31582)
+-- Dependencies: 2223 1742 1744
 -- Name: tipos_estudios_micologicos_id_tip_exa_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11011,8 +11619,8 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2310 (class 2606 OID 33134)
--- Dependencies: 1742 2226 1746
+-- TOC entry 2310 (class 2606 OID 31587)
+-- Dependencies: 1742 1746 2226
 -- Name: tipos_estudios_micologicos_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11021,7 +11629,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2313 (class 2606 OID 33139)
+-- TOC entry 2313 (class 2606 OID 31592)
 -- Dependencies: 1749 2221 1742
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_est_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -11031,8 +11639,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2314 (class 2606 OID 33144)
--- Dependencies: 1748 1749 2228
+-- TOC entry 2314 (class 2606 OID 31597)
+-- Dependencies: 2228 1749 1748
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11041,8 +11649,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2311 (class 2606 OID 33149)
--- Dependencies: 2171 1709 1748
+-- TOC entry 2311 (class 2606 OID 31602)
+-- Dependencies: 1709 1748 2171
 -- Name: tipos_micosis_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11051,7 +11659,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2312 (class 2606 OID 33154)
+-- TOC entry 2312 (class 2606 OID 31607)
 -- Dependencies: 2226 1748 1746
 -- Name: tipos_micosis_pacientes_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -11061,8 +11669,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2283 (class 2606 OID 33159)
--- Dependencies: 1701 1748 2228
+-- TOC entry 2283 (class 2606 OID 31612)
+-- Dependencies: 2228 1748 1701
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11071,8 +11679,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2315 (class 2606 OID 33164)
--- Dependencies: 1753 2142 1693
+-- TOC entry 2315 (class 2606 OID 31617)
+-- Dependencies: 1693 2142 1753
 -- Name: tipos_usuarios__usuarios_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11081,7 +11689,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2316 (class 2606 OID 33169)
+-- TOC entry 2316 (class 2606 OID 31622)
 -- Dependencies: 1753 2236 1752
 -- Name: tipos_usuarios__usuarios_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
@@ -11091,8 +11699,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2317 (class 2606 OID 33174)
--- Dependencies: 2260 1753 1764
+-- TOC entry 2317 (class 2606 OID 31627)
+-- Dependencies: 1764 1753 2260
 -- Name: tipos_usuarios__usuarios_id_usu_adm_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11101,8 +11709,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2318 (class 2606 OID 33179)
--- Dependencies: 2185 1756 1718
+-- TOC entry 2318 (class 2606 OID 31632)
+-- Dependencies: 1756 1718 2185
 -- Name: transacciones_id_mod_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11111,8 +11719,8 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2319 (class 2606 OID 33184)
--- Dependencies: 1756 2246 1758
+-- TOC entry 2319 (class 2606 OID 31637)
+-- Dependencies: 1756 1758 2246
 -- Name: transacciones_usuarios_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11121,8 +11729,8 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2320 (class 2606 OID 33189)
--- Dependencies: 1753 1758 2240
+-- TOC entry 2320 (class 2606 OID 31642)
+-- Dependencies: 1758 1753 2240
 -- Name: transacciones_usuarios_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11131,8 +11739,8 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2321 (class 2606 OID 33194)
--- Dependencies: 1709 1762 2171
+-- TOC entry 2321 (class 2606 OID 31647)
+-- Dependencies: 1762 1709 2171
 -- Name: tratamientos_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11141,8 +11749,8 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2322 (class 2606 OID 33199)
--- Dependencies: 2251 1762 1760
+-- TOC entry 2322 (class 2606 OID 31652)
+-- Dependencies: 1760 1762 2251
 -- Name: tratamientos_pacientes_id_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11162,7 +11770,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2012-01-22 11:42:25
+-- Completed on 2012-01-26 22:48:09
 
 --
 -- PostgreSQL database dump complete
