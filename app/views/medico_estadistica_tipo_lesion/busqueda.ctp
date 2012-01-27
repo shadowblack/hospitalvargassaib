@@ -11,7 +11,7 @@ FECHA DE CREACIÓN: 30/10/2011
 ?>
 <script language="Javascript">
     function exe_combo(){
-        jQuery("#sel_tip_les").load("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/event_enfermedad_micologica") ?>/"+id_tip_mic,function(){});
+        jQuery("#sel_tip_les").load("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/event_enfermedad_micologica") ?>/"+jQuery("[id='sel_tip_mic']").val(),function(){});
     }
     
      jQuery(function(){
