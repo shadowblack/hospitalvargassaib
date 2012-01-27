@@ -12,7 +12,7 @@ SIGIS. C.A
 ?>
 <script>
     jQuery(function(){ 
-        jQuery.post("grafico",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
+        jQuery.post("grafico",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>",tip_mic:<?php echo $tip_mic ?>},function(data){
             jQuery("#div_grafico_tip_les").html(data);
         },"html");
         

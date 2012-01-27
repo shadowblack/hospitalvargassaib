@@ -11,7 +11,8 @@ SIGIS. C.A
 //die($result);
 ?>
 <script>
-    jQuery(function(){ 
+    jQuery(function(){
+        parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery.post("grafico",{fil: "<?php print $result;?>"},function(data){
             jQuery("#div_grafico").html(data);
         },"html");

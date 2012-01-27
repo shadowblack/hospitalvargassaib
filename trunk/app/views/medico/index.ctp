@@ -88,7 +88,7 @@
                                         <!--/span-->
                                 </a>
                                  
-                                <a class="dock-item" href="#">
+                                <a class="dock-item" target="_BLANK" href="<?php echo $this->webroot?>/manual.pdf">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" />
                                         <!-- span style="padding-left: 80px;">
                                             Ayuda
