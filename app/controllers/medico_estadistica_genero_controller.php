@@ -48,7 +48,8 @@
             }
                                       
             $data = Array(
-                "result"  => $where     
+                "result"  => $where,
+                "title" =>  __("Porcentaje de pacientes por Género",true)     
             ); 
             
             $this->set($data);          
@@ -117,7 +118,7 @@
                     ".$where."
                 	GROUP BY sex_pac";
            
-                    
+              //debug($sql);      
             $arr_query = ($this->Paciente->query($sql));
             $genero = ($this->SqlData->array_to_objects($arr_query)); 
                     

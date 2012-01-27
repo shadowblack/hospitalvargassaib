@@ -37,6 +37,12 @@
         function event_listar(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
+            if (count($_POST) > 0){
+                $this->Session->write("medico.paginacion",$_POST);
+            } else {
+                $_POST = $this->Session->read("medico.paginacion");         
+            }
+            
             $ced_pac = $_POST["txt_ced_pac"];
             $nom_pac = $_POST["txt_nom_pac"];
             $ape_pac = $_POST["txt_ape_pac"];

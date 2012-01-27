@@ -10,8 +10,12 @@ FECHA DE CREACIÓN: 30/10/2011
 */
 ?>
 <script language="Javascript">
-
+    function exe_combo(){
+        jQuery("#sel_tip_les").load("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/event_enfermedad_micologica") ?>/"+id_tip_mic,function(){});
+    }
+    
      jQuery(function(){
+        exe_combo();
         jQuery("#tabs-1").css("display","block");
         jQuery("#tabs").tabs();     
         parent.jQuery("#title_content").html("<?php echo $title;?>");
@@ -24,9 +28,11 @@ FECHA DE CREACIÓN: 30/10/2011
             inline:true
 		});
         
+        
+        
         jQuery("[id='sel_tip_mic']").change(function(){
            var id_tip_mic = this.value;
-           jQuery("#sel_tip_les").load("<?php echo $this->Html->url("/MedicoEstadisticaTipoLesion/event_enfermedad_micologica") ?>/"+id_tip_mic,function(){});
+           exe_combo();           
         });
     });
     

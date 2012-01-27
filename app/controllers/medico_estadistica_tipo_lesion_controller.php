@@ -76,8 +76,9 @@
             }
                                       
             $data = Array(
-                "result"  => $where,
-                "result_fec" => $where_fec     
+                "result"        => $where,
+                "result_fec"    => $where_fec,
+                "tip_mic"       => $_POST["sel_tip_mic"]                
             ); 
             
             $this->set($data);          

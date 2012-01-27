@@ -114,7 +114,7 @@
             $this->Ofc->init();
             $this->Ofc->setup();
             $this->Ofc->set_ofc_data( $cant );
-            $this->Ofc->bar( 3, 5, '#0CB760','', 'Downloads', 10);
+            $this->Ofc->bar( 55, 5, '#0CB760','', 'Downloads', 10);
             echo $this->Ofc->ofc_render();
            
             die();
