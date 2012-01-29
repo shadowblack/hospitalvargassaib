@@ -48,8 +48,10 @@
             }
                                       
             $data = Array(
+                "fec_ini"    => $_POST['txt_fec_ini'],
+                "fec_fin"    => $_POST['txt_fec_fin'],
                 "result"  => $where,
-                "title" =>  __("Porcentaje de pacientes por Género",true)     
+                "title" =>  __("Porcentaje de pacientes por Género, Masculino y Femenino para la fecha",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"     
             ); 
             
             $this->set($data);          

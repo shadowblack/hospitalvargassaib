@@ -43,7 +43,7 @@ SIGIS. C.A
 									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
+                                            <td class="standar_font" align="center"><?php echo "<font style='color:red'>".$porcentaje."</font>/<font style='color:blue'>100 %</font>"; ?></td>
                                             <td class="standar_font" align="center"><?php echo $row->nom_tip_mic;?></td>
         				  			    </tr>
         								<?php								

@@ -12,6 +12,7 @@ SIGIS. C.A
 ?>
 <script>
     jQuery(function(){ 
+         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery.post("grafico",{fil_fec: "<?php print $where_fec;?>", fil_tm: "<?php print $where_tm;?>"},function(data){
             jQuery("#div_grafico_tip_mic").html(data);
             jQuery("#loading").css("display","none");
@@ -22,7 +23,15 @@ SIGIS. C.A
         },"html");
     });
 </script>
-<table style="width:540px;margin-top: 20px;overflow: auto; " border="0" align="center" cellpadding="0" cellspacing="0">
+<table style="width:100%" align="center">
+    <tr>
+        <td class="standar_font" align="center">
+            <?php __("A continuacion se muestra una distribucion de las enfermedades micologicas de una determinada poblacion de pacientes comprendidas dentra las fechas ");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+        </td>
+    </tr>
+</table>
+<div style="width: 100%;overflow-y: auto;height: 400px; ">
+<table style="width:540px;overflow: auto; " border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
 		<td style="text-align: center;height:110px;">
 			<div id="div_resumen_tip_mic" style="text-align: center;"></div>
@@ -48,3 +57,4 @@ SIGIS. C.A
 		</td>
 	</tr>
 </table>
+</div>
