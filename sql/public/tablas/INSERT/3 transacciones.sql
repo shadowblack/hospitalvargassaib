@@ -48,7 +48,8 @@ INSERT INTO transacciones
 VALUES
 	('AUA','Agregar usuario administrador',4),
 	('MUA','Modificar usuario administrador',4),
-	('EUA','Eliminar usuario administrador',4);
+	('EUA','Eliminar usuario administrador',4)
+	('RCA','Restablecer contraseña del usuario administrador',4);
 
 
 INSERT INTO transacciones 
@@ -56,6 +57,7 @@ INSERT INTO transacciones
 VALUES
 	('AUO','Agregar usuario operador',5),
 	('MUO','Modificar usuario operador',5),
-	('EUO','Eliminar usuario operador',5);
+	('EUO','Eliminar usuario operador',5),
+	('RCO','Restablecer contraseña del usuario operador',5);
 
 

@@ -2,13 +2,17 @@
     $_V_LIST    = "event_listar";
     $_V_EDIT    = "modificar";
     $_V_DEL     = "event_eliminar";
+    $_V_RES     = "event_restablecer";
     $_V_DEL_MEN = __("¿Desea eliminar al operador",TRUE);
+    $_V_RES_MEN = __("¿Desea restablecer la contraseña del usuario operador?",TRUE);
     //include_once("../libs/_list_ajax.php");
     echo $this->element("list_ajax",Array(
         "_V_LIST"       => $_V_LIST,
         "_V_EDIT"       => $_V_EDIT,
         "_V_DEL"        => $_V_DEL,
-        "_V_DEL_MEN"    => $_V_DEL_MEN
+        "_V_DEL_MEN"    => $_V_DEL_MEN,
+        "_V_RES"        => $_V_RES,
+        "_V_RES_MEN"    => $_V_RES_MEN
     ));
 ?>
 

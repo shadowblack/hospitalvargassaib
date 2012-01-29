@@ -158,7 +158,7 @@
                         	ORDER BY em.nom_enf_mic
                         )
                         AS epac GROUP BY epac.nom_enf_mic";
-                    
+            //debug($sql);        
             $arr_query = ($this->Paciente->query($sql));
             $tip_les = ($this->SqlData->array_to_objects($arr_query)); 
                     

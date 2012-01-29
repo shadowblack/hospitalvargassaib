@@ -158,7 +158,7 @@
                         		),
                         		(SELECT count(*) FROM pacientes $where_fec) AS total_pac,
                         		'Ninguna'";
-                    
+            //debug($sql);        
             $arr_query = ($this->Paciente->query($sql));
             $tip_mic = ($this->SqlData->array_to_objects($arr_query)); 
                     
