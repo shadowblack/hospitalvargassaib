@@ -83,7 +83,7 @@
                     UNION ALL
                     	SELECT 	(
                         		 (SELECT count(*) FROM pacientes $where_fec) - 
-                        		 (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec)
+                        		 (SELECT COUNT(*) FROM (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec GROUP BY p.id_pac) tot_pac_enf)
                         		),
                         		(SELECT count(*) FROM pacientes $where_fec) AS total_pac,
                         		'Ninguna'";
@@ -144,8 +144,8 @@
                     
                     UNION ALL
                     	SELECT 	(
-                        		 (SELECT count(*) FROM pacientes $where_fec) - 
-                        		 (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec)
+                        		 (SELECT count(*) FROM pacientes $where_fec) -                         		 
+                                 (SELECT COUNT(*) FROM (SELECT count(p.id_pac) AS cantidad FROM pacientes p JOIN historiales_pacientes hp ON(p.id_pac = hp.id_pac) JOIN tipos_micosis_pacientes tmp ON(hp.id_his = tmp.id_his) $where_fec GROUP BY p.id_pac) tot_pac_enf)
                         		),
                         		(SELECT count(*) FROM pacientes $where_fec) AS total_pac,
                         		'Ninguna'";
