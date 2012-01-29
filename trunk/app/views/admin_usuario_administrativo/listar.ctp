@@ -2,13 +2,17 @@
     $_V_LIST    = $this->Html->url("/AdminUsuarioAdministrativo/event_listar");
     $_V_EDIT    = $this->Html->url("/AdminUsuarioAdministrativo/modificar");
     $_V_DEL     = $this->Html->url("/AdminUsuarioAdministrativo/event_eliminar");
+    $_V_RES     = $this->Html->url("/AdminUsuarioAdministrativo/event_restablecer");
     $_V_DEL_MEN = __("¿Desea eliminar el usuario administrativo?",TRUE);
+    $_V_RES_MEN = __("¿Desea restablecer la contraseña del usuario administrativo?",TRUE);
     //include_once("../libs/_list_ajax.php");
     echo $this->element("list_ajax",Array(
         "_V_LIST"       => $_V_LIST,
         "_V_EDIT"       => $_V_EDIT,
         "_V_DEL"        => $_V_DEL,
-        "_V_DEL_MEN"    => $_V_DEL_MEN
+        "_V_DEL_MEN"    => $_V_DEL_MEN,
+        "_V_RES"        => $_V_RES,
+        "_V_RES_MEN"    => $_V_RES_MEN
     ));
 ?>
 

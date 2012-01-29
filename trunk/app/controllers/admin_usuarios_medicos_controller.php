@@ -267,6 +267,38 @@
                      die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu\' no se encuentra registrado en el sistema."));                    
                     break;                            
             }         
-         }        
+         }
+         
+         
+         
+          /**
+         * Restablecer contraseña del usuario operador
+         */
+         
+         function event_restablecer($id,$log_usu=""){
+            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
+               
+            $new_pas = md5("Ope123456");
+            $tra_usu = "RCO";
+            
+             $sql = "SELECT adm_restablecer_contrasena_ope(ARRAY[
+                        '$id',
+                        '$new_pas',
+                        '$tra_usu'                                 
+                    ]) AS result";
+           // print $sql;            
+            $arr_query = ($this->Doctore->query($sql));
+            $result = ($this->SqlData->array_to_object($arr_query));                             
+            $result = $this->SqlData->ResultNum($arr_query);            
+                        
+            switch($result){
+                case 1:
+                    die($this->FormatMessege->BoxStyle($result,"La contraseña del usuario operador se restableció con éxito."));
+                    break;
+                case 0:
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu\' no se encuentra registrado en el sistema."));                    
+                    break;                            
+            }         
+         }             
     }
 ?>
