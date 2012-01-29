@@ -17,12 +17,10 @@
         <td align="center" class="standar_font lista_fondo">
             <?php __("Apellido")?>
         </td>
-        <td align="center" class="standar_font lista_fondo">
-            <?php __("Modificar")?>
+        <td align="center" class="standar_font lista_fondo" colspan="3">
+            <?php __("Opciones")?>
         </td>
-        <td align="center" class="standar_font lista_fondo">
-            <?php __("Eliminar")?>
-        </td>        
+               
     </tr>
 
 <?php    
@@ -38,6 +36,7 @@
                 <td class="standar_font"><?php echo $row->UsuariosAdministrativo->ape_usu_adm ?></td>
                 <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar usuario administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/page_white_edit.png"></a></td>
                 <td class="standar_font" align="center"><a onclick="del('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>','<?php echo $row->UsuariosAdministrativo->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar usuario administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/cancel.png"></a></td>
+                <td class="standar_font" align="center"><a onclick="res('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>','<?php echo $row->UsuariosAdministrativo->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Restablecer contraseña del usuario administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/restablecer_clave.gif"></a></td>
             </tr>        
         <?php
     }

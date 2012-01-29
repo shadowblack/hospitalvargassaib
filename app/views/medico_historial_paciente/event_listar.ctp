@@ -19,7 +19,7 @@
             <?php __("Descripción adicional del paciente")?>
         </td>
         <td align="center" class="standar_font lista_fondo" style="width: 120px;" >
-            <?php __("Nombre del médico")?>
+            <?php __("Nombre del operador")?>
         </td>
         <td align="center" class="standar_font lista_fondo">
            &nbsp;

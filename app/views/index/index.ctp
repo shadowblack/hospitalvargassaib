@@ -36,7 +36,7 @@
                             <div class="boton_medico_conf" id="boton_medico_conf" >
                                 <a href="<?php echo $html->url("/medico/login")?>">
                                     <br/>
-                                    <?php echo __("Médico",true)?></a>
+                                    <?php echo __("Operador",true)?></a>
                                 </a>
                             </div>                                                
                         </td>

@@ -16,7 +16,7 @@
         function registrar(){            
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
                         
-            $sql = "SELECT * FROM modulos m JOIN transacciones t ON (m.id_mod = t.id_mod)";
+            $sql = "SELECT * FROM modulos m JOIN transacciones t ON (m.id_mod = t.id_mod) WHERE id_tip_usu = 2 ORDER BY m.des_mod, t.des_tip_tra";
             $arr_query = ($this->Doctore->query($sql));            
             $result = $this->SqlData->array_to_objects($arr_query);
             
@@ -24,7 +24,7 @@
             $arr_query = ($this->Doctore->query($sql));
             $centros_salud = ($this->SqlData->array_to_objects($arr_query));       
             
-            $title =  __("Agregar usuarios médicos",true);
+            $title =  __("Agregar usuario operador",true);
             
             $data = Array(               
                 "title"         => $title,
@@ -90,7 +90,7 @@
         */
         function listar(){    
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");            
-            $title =  __("Lista de usuarios médicos",true);            
+            $title =  __("Listar usuario operador",true);            
             $data = Array(                
                 "title"     => $title                
             ); 
@@ -150,9 +150,10 @@
                     SELECT tuu.id_tip_usu_usu, tu.id_tip_tra 
                     FROM transacciones_usuarios tu 
                         JOIN tipos_usuarios__usuarios tuu ON (tuu.id_tip_usu_usu = tu.id_tip_usu_usu )
-                    WHERE tuu.id_doc = $id
+                    WHERE tuu.id_doc = $id AND  tuu.id_tip_usu = 2     
                 ) tuu
-                ON (t.id_tip_tra = tuu.id_tip_tra)                
+                ON (t.id_tip_tra = tuu.id_tip_tra)
+                WHERE  m.id_tip_usu = 2                
             ";
             //die($sql);
             $arr_query = ($this->Doctore->query($sql));            
@@ -177,7 +178,7 @@
             $arr_query = ($this->Doctore->query($sql));
             $result_cen_sal = ($this->SqlData->array_to_objects($arr_query));             
                         
-            $title =  __("Modificación de usuarios médicos",true);
+            $title =  __("Modificación del usuario operador",true);
             
             $data = Array(
                 "result"        => $result,

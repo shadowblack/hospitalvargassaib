@@ -102,7 +102,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Datos del médico",true)?>
+                    <?php echo __("Datos del operador",true)?>
                 </a>
             </li>            
         </ul>
@@ -116,27 +116,27 @@
                             <table style='width:483px' border="0" align="center">
                                 <tr>
                                     <td class="tam_cel" valign="top">
-                                         <label for="nom_doc"  class="standar_font"><?php echo __("Nombre");?>:</label>
+                                         <label for="nom_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Nombre");?>:</label>
                         			     <input type="text" id="nom_doc" name="nom_doc" class="text required" minlength="3" maxlength="100"  value="<?php echo $result->nom_doc?>"/>
                                     </td>
                                     <td class="tam_cel" valign="top">    
-                                         <label for="ape_doc" class="standar_font"><?php echo __("Apellido");?>:</label>
+                                         <label for="ape_doc" class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Apellido");?>:</label>
                         			     <input type="text" id="ape_doc" name="ape_doc" class="text required" minlength="3" maxlength="100" value="<?php echo $result->ape_doc?>"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                         <label for="ced_usu_doc"  class="standar_font"><?php echo __("Cédula");?>:</label>
-                                         <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="8" maxlength="8" value="<?php echo $result->ced_doc?>"/>
+                                         <label for="ced_usu_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Cédula");?>:</label>
+                                         <input type="text" id="ced_usu_doc" name="ced_usu_doc" class="number required" minlength="6" maxlength="8" value="<?php echo $result->ced_doc?>"/>
                                     </td>
                                     <td valign="top">
-                                         <label for="log_doc"  class="standar_font"><?php echo __("Usuario");?>:</label>
+                                         <label for="log_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Usuario");?>:</label>
                         			     <input type="text" id="log_doc" name="log_doc" readonly="readonly" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_doc?>"/>
                                     </td>
                                 </tr>  
                                 <tr>
                                     <td valign="top">
-                                         <label for="pas_doc"  class="standar_font"><?php echo __("Clave");?>:</label>
+                                         <label for="pas_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Clave");?>:</label>
                         			     <input type="password" id="pas_doc" name="pas_doc" class="password" minlength="3" maxlength="100"/>
                                     </td>
                                     <td valign="top">
@@ -150,21 +150,21 @@
                                 </tr>
                                 <tr>
                                     <td valign="top">    
-                                         <label for="rep_pas_doc" class="standar_font"><?php echo __("Repetir Clave");?>:</label>
+                                         <label for="rep_pas_doc" class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Repetir Clave");?>:</label>
                         			     <input type="password" id="rep_pas_doc" name="rep_pas_doc" class="required" minlength="3" maxlength="100" />
                                     </td>                                
                                     <td valign="top">    
-                                         <label for="tel_doc" class="standar_font"><?php echo __("Teléfono");?>:</label>
+                                         <label for="tel_doc" class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Teléfono");?>:</label>
                         			     <input type="text" id="tel_doc" name="tel_doc" class="number required" minlength="11" maxlength="11" value="<?php echo $result->tel_doc?>"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td valign="top">
-                                         <label for="cor_usu_doc"  class="standar_font"><?php echo __("Correo");?>:</label>
+                                         <label for="cor_usu_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Correo");?>:</label>
                         			     <input type="text" id="cor_usu_doc" name="cor_usu_doc" class="email required" minlength="10" maxlength="100" value="<?php echo $result->cor_doc?>"/>
                                     </td>
                                     <td class="font-standar" valign="top">
-                                        <?php echo __("Centro de Salud")?>:
+                                        <span class="standar_asterisco">* </span><?php echo __("Centro de Salud")?>:
                                         <select id="sel_cen_sal" name="sel_cen_sal" class="required" style="width: 109px;;">
                                             <option value="">--<?php echo __("Seleccione",true)?>--</option>
                                             <?php foreach($result_cen_sal as $row){?>   
@@ -172,9 +172,14 @@
                                             <?php }?>
                                         </select>                             
                                     </td>
-                                </tr>                   
+                                </tr>
                                 <tr>
-                                    <td height="20px;"></td>
+									<td colspan="4" align="left" class="font-standar" style="font-size:10px">
+										<span class="standar_asterisco">* </span><?php print __('Nota', true).':'.__('Los campos con asteriscos son obligatorios', true); ?>
+									</td>
+								</tr>                   
+                                <tr>
+                                    <td height="10px;"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4" style="height: ;">
@@ -191,7 +196,7 @@
                                                                 <input style="width:10px" type="checkbox" id="mod_chk_<?php echo $row->id_mod;?>" name="mod_chk_<?php echo $row->cod_mod;?>" value="<?php echo $row->id_mod;?>">
                                                             </td>
                                                             <td class="standar_font">
-                                                                <span>
+                                                                <span style="font-weight: bold;">
                                                                     <?php echo $row->des_mod?>
                                                                 </span>
                                                             </td>
