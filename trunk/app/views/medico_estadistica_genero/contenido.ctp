@@ -15,6 +15,7 @@ SIGIS. C.A
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery.post("grafico",{fil: "<?php print $result;?>"},function(data){
             jQuery("#div_grafico").html(data);
+            jQuery("#loading").css("display","none");
         },"html");
         
         jQuery.post("resumen",{fil: "<?php print $result;?>"},function(data){
@@ -24,13 +25,14 @@ SIGIS. C.A
 </script>
 <table style="width:540px;margin-top: 20px;" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
-		<td style="text-align: center;">
+		<td style="text-align: center;height:81px">
 			<div id="div_resumen" style="text-align: center;"></div>
 		</td>
 	</tr>
     <tr><td height="20px"></td></tr>
     <tr>
-        <td style="text-align: center;">
+        <td style="text-align: center;height:250px;vertical-align: center;">
+            <img id="loading" src="<?php echo $this->webroot?>img/icon/load_list.gif"/>
             <div id="div_grafico" style="text-align: center;" ></div>
         </td>
     </tr>
