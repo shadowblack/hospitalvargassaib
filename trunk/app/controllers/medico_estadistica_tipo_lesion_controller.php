@@ -76,8 +76,11 @@
             }
                                       
             $data = Array(
+                "fec_ini"    => $_POST['txt_fec_ini'],
+                "fec_fin"    => $_POST['txt_fec_fin'],
                 "result"  => $where,
-                "result_fec" => $where_fec     
+                "result_fec" => $where_fec,
+                "title" =>  __("Enfermedades micológicas presentes en pacientes durante la fecha",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"        
             ); 
             
             $this->set($data);          

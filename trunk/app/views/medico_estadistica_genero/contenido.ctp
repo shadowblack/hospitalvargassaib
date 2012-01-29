@@ -23,6 +23,13 @@ SIGIS. C.A
         },"html");
     });
 </script>
+<table style="width:100%" align="center">
+    <tr>
+        <td class="standar_font" align="center">
+            <?php __("A continuacion se muestra una distribución de pacientes registrados y agrupados por género durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+        </td>
+    </tr>
+</table>
 <table style="width:540px;margin-top: 20px;" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
 		<td style="text-align: center;height:81px">

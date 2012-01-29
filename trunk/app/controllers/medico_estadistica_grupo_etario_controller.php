@@ -62,8 +62,11 @@
             }
                                       
             $data = Array(
+                "fec_ini"    => $_POST['txt_fec_ini'],
+                "fec_fin"    => $_POST['txt_fec_fin'],
                 "where_fec"  => $where_fec,
-                "where_gru"  => $where_gru  
+                "where_gru"  => $where_gru,
+                "title" =>  __("Grupo Etario de pacientes registrados durante la fecha",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"     
             ); 
             
             $this->set($data);          

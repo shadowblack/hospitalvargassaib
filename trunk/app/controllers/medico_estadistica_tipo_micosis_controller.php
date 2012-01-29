@@ -53,8 +53,11 @@
             }
                                       
             $data = Array(
+                "fec_ini"    => $_POST['txt_fec_ini'],
+                "fec_fin"    => $_POST['txt_fec_fin'],
                 "where_fec"  => $where_fec,
-                "where_tm"   => $where_tm    
+                "where_tm"   => $where_tm,
+                "title"      => __("Distribucion de enfermedades micologicas de una muestra de pacientes entre",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"    
             ); 
             
             $this->set($data);          
@@ -95,27 +98,33 @@
             $this->Ofc->set_ofc_webroot($this->webroot);
             $this->Ofc->set_ofc_size(450,230);
             
-            
-            $this->Ofc->set_ofc_title('Tipo de Micosis', '{font-size: 15px; color: #0CB760}');
-            $this->Ofc->init();
-            $this->Ofc->setup();
-            
              //pie chart
             $cant = array();
             $data = array();
                        
             foreach($tip_mic as $row){  
-               $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
+               $porcentaje = (($row->cantidad * 100 / $row->total_pac));
                $cant[] =   $porcentaje;     
                $data[] =   $row->nom_tip_mic;
             }
-                           
-            $this->Ofc->set_ofc_data($cant);
-            $this->Ofc->pie_values($data);  
-           
-            $this->Ofc->pie(60,'#505050','{font-size: 12px; color: #404040;');  
-            $this->Ofc->pie_slice_colors(array('#1ECEB4','#9E9735','#ED4321'));
+                         
+            $this->Ofc->set_ofc_x_info($data, array('size'=>12,'color'=>'0x000000','orientation'=>0,'step'=>1));     
+            $this->Ofc->set_ofc_y_info(100,10,array('text'=>__("Pacientes",true),'size'=>12,'color'=>'#736AFF')); 
             
+            $this->Ofc->set_ofc_title('Tipo de Micosis', '{font-size: 15px; color: #0CB760}');
+            $this->Ofc->init();
+            $this->Ofc->setup();
+            
+            
+               
+            $this->Ofc->set_ofc_data($cant);
+            //$this->Ofc->pie_values($data);  
+           
+           
+           
+            /*$this->Ofc->pie(60,'#505050','{font-size: 12px; color: #404040;');  
+            $this->Ofc->pie_slice_colors(array('#1ECEB4','#9E9735','#ED4321'));*/
+             $this->Ofc->bar(25, '0x80a033', 'Muestra', 10 );
             echo $this->Ofc->ofc_render(); 
            
             die();
