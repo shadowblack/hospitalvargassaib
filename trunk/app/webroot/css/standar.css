@@ -198,3 +198,9 @@ span.standar_not_register{
     font-family: Arial;
     font-size: 9pt;
 }
+
+.standar_asterisco{
+    color:red;
+    font-size:12pt;
+    vertical-align:top;
+}

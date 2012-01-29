@@ -15,10 +15,16 @@
         */
         function registrar(){            
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+            
+            $sql = "SELECT * FROM modulos m JOIN transacciones t ON (m.id_mod = t.id_mod) WHERE id_tip_usu = 1 ORDER BY m.des_mod, t.des_tip_tra";
+            $arr_query = ($this->UsuariosAdministrativo->query($sql));            
+            $result = $this->SqlData->array_to_objects($arr_query);
+            
             $title =  __("Agregar usuarios administrativos",true);
             
             $data = Array(               
-                "title"     => $title,               
+                "title"     => $title, 
+                "result"    => $result              
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);    
@@ -31,19 +37,27 @@
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
             $nom_usu_adm = $_POST["nom_usu_adm"];
             $ape_usu_adm = $_POST["ape_usu_adm"];
-            $pas_usu_adm = $_POST["pas_usu_adm"];
+            $pas_usu_adm = md5($_POST["pas_usu_adm"]);
             $log_usu_adm = $_POST["log_usu_adm"];
-            $tel_usu_adm = $_POST["tel_usu_adm"]; 
-            $id_tip_usu_usu = $this->Session->read("admin.id_tip_usu_usu");          
+            $tel_usu_adm = $_POST["tel_usu_adm"];
+            $ced_usu_adm = $_POST["ced_usu_adm"];
+            $cor_usu_adm = $_POST["cor_usu_adm"]; 
+            $trans_usu   = $_POST["val_str_tra"];
+            
+            //$id_tip_usu_usu = $this->Session->read("admin.id_tip_usu_usu");          
                         
             $sql = "SELECT adm_registrar_usuario_admin(ARRAY[
                 '$nom_usu_adm', 
                 '$ape_usu_adm', 
                 '$pas_usu_adm',  
                 '$log_usu_adm',
-                '$tel_usu_adm',                
-                '$id_tip_usu_usu'
+                '$tel_usu_adm', 
+                '$ced_usu_adm',
+                '$cor_usu_adm',
+                '$trans_usu'
             ]) AS result";
+            
+            //die($sql);
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              
             $result = $this->SqlData->ResultNum($arr_query);
@@ -59,9 +73,10 @@
                 case 0:
                      die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu_adm\' ya se encuentra registrado en el sistema"));                    
                     break;
-                    
-            }                   
-            
+                case 2:
+                     die($this->FormatMessege->BoxStyle($result,"El usuario/a con la cédula \'$ced_usu_adm\' ya se encuentra registrado en el sistema."));                    
+                    break;
+            }
             die;
         }
         
@@ -119,16 +134,38 @@
         */ 
         function modificar($id){
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+            $this->Login->no_cache();
+            
             $sql = "SELECT * FROM usuarios_administrativos WHERE id_usu_adm=$id";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
-            $result = ($this->SqlData->array_to_object($arr_query));        
+            $result = ($this->SqlData->array_to_object($arr_query));
+            
+            $sql = "
+                SELECT m.id_mod,m.cod_mod,m.des_mod,t.id_tip_tra,t.cod_tip_tra,t.des_tip_tra,tuu.id_tip_usu_usu
+                    FROM modulos m 
+                    JOIN transacciones t ON (m.id_mod = t.id_mod) 
+                LEFT JOIN
+                (
+                    SELECT tuu.id_tip_usu_usu, tu.id_tip_tra 
+                    FROM transacciones_usuarios tu 
+                        JOIN tipos_usuarios__usuarios tuu ON (tuu.id_tip_usu_usu = tu.id_tip_usu_usu )
+                    WHERE tuu.id_usu_adm = $id AND tuu.id_tip_usu = 1
+                ) tuu
+                ON (t.id_tip_tra = tuu.id_tip_tra) 
+                WHERE  m.id_tip_usu = 1               
+            ";
+            //die($sql);
+            $arr_query = ($this->UsuariosAdministrativo->query($sql));            
+            $result_tran = $this->SqlData->array_to_objects($arr_query);  
+                    
                         
             $title =  __("Modificación de usuarios administrativos",true);
             
             $data = Array(
-                "result"    => $result,
-                "title"     => $title,
-                "id"        => $id
+                "result"        => $result,
+                "result_tran"   => $result_tran,
+                "title"         => $title,
+                "id"            => $id
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);            
@@ -143,20 +180,25 @@
             $id_usu_adm     = $_POST["id_usu_adm"];
             $nom_usu_adm    = $_POST["nom_usu_adm"];
             $ape_usu_adm    = $_POST["ape_usu_adm"];
-            $pas_usu_adm    = $_POST["pas_usu_adm"];
+            $ced_usu_adm    = $_POST["ced_usu_adm"];
             $log_usu_adm    = $_POST["log_usu_adm"];
-            $tel_usu_adm    = $_POST["tel_usu_adm"];  
-            $id_tip_usu_usu = $this->Session->read("id_tip_usu_usu");
+            $tel_usu_adm    = $_POST["tel_usu_adm"];
+            $cor_usu_adm    = $_POST["cor_usu_adm"];
+            $val_str_tra    = $_POST["val_str_tra"];  
+            
                         
             $sql = "SELECT adm_modificar_usuario_admin(ARRAY[
                 '$id_usu_adm',
                 '$log_usu_adm',
                 '$nom_usu_adm', 
                 '$ape_usu_adm', 
-                '$pas_usu_adm',                  
+                '$ced_usu_adm',                
                 '$tel_usu_adm',
-                '$id_tip_usu_usu'
+                '$cor_usu_adm',
+                '$val_str_tra'
             ]) AS result";
+            
+           // print $sql;
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              
             $result = $this->SqlData->ResultNum($arr_query);            
@@ -170,7 +212,10 @@
                     break;  
                 case 2:
                     die($this->FormatMessege->BoxStyle($result,"Existe un usuario con el login \'$log_usu_adm\' por favor intente con otro."));                  
-                    break;            
+                    break; 
+                case 3:
+                    die($this->FormatMessege->BoxStyle($result,"Existe un usuario con la cédula \'$ced_usu_adm\' por favor intente con otro."));                  
+                    break;           
             }                               
             die;
         }

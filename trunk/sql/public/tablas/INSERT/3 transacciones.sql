@@ -1,9 +1,9 @@
 ﻿INSERT INTO transacciones 
-	(id_tip_tra, cod_tip_tra, des_tip_tra,id_mod)
+	(cod_tip_tra, des_tip_tra,id_mod)
 VALUES
-	('1', 'RED','Registrar Enfermedades Dermatológicas',1),
-	('2', 'MED','Modificar Enfermedades Dermatológicas',1),
-	('3', 'EED','Eliminar Enfermedades Dermatológicas',1);
+	('RED','Registrar Enfermedades Dermatológicas',1),
+	('MED','Modificar Enfermedades Dermatológicas',1),
+	('EED','Eliminar Enfermedades Dermatológicas',1);
 
 
 INSERT INTO transacciones 
@@ -26,5 +26,36 @@ INSERT INTO transacciones
 VALUES
 	('MCP','Muestra Clínica del paciente',1),
 	('IAP','Información Adicional del Paciente',1);
+	
+	
+INSERT INTO transacciones 
+	(cod_tip_tra, des_tip_tra,id_mod)
+VALUES
+	('EG','Género',3),
+	('EGE','Grupo etario',3),
+	('EEM','Enfermedades micológicas',3),
+	('ETM','Tipo de micosis',3);
+	
+INSERT INTO transacciones 
+	(cod_tip_tra, des_tip_tra,id_mod)
+VALUES
+	('RTU','Transacciones de Usuarios',2),
+	('EMP','Enfermedades Micológicas del Paciente ',2);
+	
+	
+INSERT INTO transacciones 
+	(cod_tip_tra, des_tip_tra,id_mod)
+VALUES
+	('AUA','Agregar usuario administrador',4),
+	('MUA','Modificar usuario administrador',4),
+	('EUA','Eliminar usuario administrador',4);
+
+
+INSERT INTO transacciones 
+	(cod_tip_tra, des_tip_tra,id_mod)
+VALUES
+	('AUO','Agregar usuario operador',5),
+	('MUO','Modificar usuario operador',5),
+	('EUO','Eliminar usuario operador',5);
 
 

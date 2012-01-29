@@ -81,7 +81,7 @@
                                 </td>
                                 <td class="top_menu_window_top_center" style="width:200px" valign="top">
                                     <!-- Dinamic -->
-                                    <div class="standar_font" style="margin: 6px;"><?php echo __("Menú")?></div>
+                                    <div class="standar_font" style="margin: 6px;"><?php echo __("Menú del Sistema Administrativo")?></div>
                                     &nbsp;
                                 </td>
                                 <td class="top_menu_window_top_right">                    
@@ -108,7 +108,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="standar_font_menu">
-                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
+                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administrador")?></a>
                                                         </td>
                                                     </tr>
                                                 </table>                                                                                                                                                                                                          
@@ -116,18 +116,18 @@
                                             </div>
                             			</div>                                        
                             			<div>
-                            				<h3><a href="#"><?php __("Usuarios Médicos")?></a></h3>
+                            				<h3><a href="#"><?php __("Usuarios Operadores")?></a></h3>
                             				<div>
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                               
                                                     <table>
                                                         <tr>
                                                             <td class="standar_font_menu">
-                                                                <a id="reg_usu_med" href="javascript:void(0)" ><?php __("Agregar Médicos")?></a>
+                                                                <a id="reg_usu_med" href="javascript:void(0)"><?php __("Agregar Operador")?></a>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="standar_font_menu">
-                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Médicos")?></a>
+                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Operador")?></a>
                                                             </td>
                                                         </tr>
                                                     </table>                                                                                                                                                                                                          

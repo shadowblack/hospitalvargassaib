@@ -2,7 +2,7 @@
     $_V_LIST    = "event_listar";
     $_V_EDIT    = "modificar";
     $_V_DEL     = "event_eliminar";
-    $_V_DEL_MEN = __("¿Desea eliminar el médico",TRUE);
+    $_V_DEL_MEN = __("¿Desea eliminar al operador",TRUE);
     //include_once("../libs/_list_ajax.php");
     echo $this->element("list_ajax",Array(
         "_V_LIST"       => $_V_LIST,
