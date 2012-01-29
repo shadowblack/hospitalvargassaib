@@ -14,6 +14,7 @@ SIGIS. C.A
     jQuery(function(){ 
         jQuery.post("grafico",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
             jQuery("#div_grafico_tip_les").html(data);
+            jQuery("#loading").css("display","none");
         },"html");
         
         jQuery.post("resumen",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
@@ -23,13 +24,14 @@ SIGIS. C.A
 </script>
 <table style="width:540px;margin-top: 20px;overflow: auto; " border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
-		<td style="text-align: center;">
+		<td style="text-align: center;height:110px;">
 			<div id="div_resumen_tip_les" style="text-align: center;"></div>
 		</td>
 	</tr>
     <tr><td height="20px"></td></tr>
     <tr>
-        <td style="text-align: center;">
+        <td style="text-align: center;height:230px;vertical-align: center;">
+            <img id="loading" src="<?php echo $this->webroot?>img/icon/load_list.gif"/>
             <div id="div_grafico_tip_les" style="text-align: center;" ></div>
         </td>
     </tr>

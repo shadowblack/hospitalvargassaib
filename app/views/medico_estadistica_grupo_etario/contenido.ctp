@@ -14,6 +14,7 @@ SIGIS. C.A
     jQuery(function(){ 
         jQuery.post("grafico",{fil_fec: "<?php print $where_fec;?>",fil_gru: "<?php print $where_gru;?>"},function(data){
             jQuery("#div_grafico_gru_eta").html(data);
+            jQuery("#loading").css("display","none");
         },"html");
         
         jQuery.post("resumen",{fil_fec: "<?php print $where_fec;?>",fil_gru: "<?php print $where_gru;?>"},function(data){
@@ -23,13 +24,14 @@ SIGIS. C.A
 </script>
 <table style="width:540px;margin-top: 20px;overflow: auto; " border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
-		<td style="text-align: center;">
+		<td style="text-align: center;height:100px">
 			<div id="div_resumen_gru_eta" style="text-align: center;"></div>
 		</td>
 	</tr>
     <tr><td height="20px"></td></tr>
     <tr>
-        <td style="text-align: center;">
+        <td style="text-align: center;height:200px;vertical-align: center;">
+            <img id="loading" src="<?php echo $this->webroot?>img/icon/load_list.gif"/>
             <div id="div_grafico_gru_eta" style="text-align: center;" ></div>
         </td>
     </tr>
