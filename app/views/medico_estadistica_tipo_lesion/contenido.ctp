@@ -15,11 +15,12 @@ SIGIS. C.A
         parent.jQuery("#title_content").html("<?php echo $title;?>");
         jQuery.post("grafico",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
             jQuery("#div_grafico_tip_les").html(data);
-            jQuery("#loading").css("display","none");
+            jQuery("#loading").css("display","none");            
         },"html");
         
         jQuery.post("resumen",{fil_enf: "<?php print $result;?>",fil_fec: "<?php print $result_fec;?>"},function(data){
-            jQuery("#div_resumen_tip_les").html(data);
+            jQuery("#div_resumen_tip_les").html(data);            
+            jQuery("#num_pac").html(jQuery("#scantidad").val());
         },"html");
     });
 </script>
@@ -27,7 +28,7 @@ SIGIS. C.A
 <table style="width:100%" align="center">
     <tr>
         <td class="standar_font" align="center">
-            <?php __("A continuación se observa una distribución de lesiones encontrados en pacientes durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font> de las Micosis ".$tip_mic->TiposMicosi->nom_tip_mic;?>
+            <?php __("A continuación se observa una distribución de lesiones encontrados en <font style='color:red' id='num_pac'></font> pacientes durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font> de las Micosis ".$tip_mic->TiposMicosi->nom_tip_mic;?>
         </td>
     </tr>
 </table>

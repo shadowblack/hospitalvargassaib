@@ -20,13 +20,14 @@ SIGIS. C.A
         
         jQuery.post("resumen",{fil_fec: "<?php print $where_fec;?>", fil_tm: "<?php print $where_tm;?>"},function(data){
             jQuery("#div_resumen_tip_mic").html(data);
+            jQuery("#num_pac").html(jQuery("#scantidad").val());
         },"html");
     });
 </script>
 <table style="width:100%" align="center">
     <tr>
         <td class="standar_font" align="center">
-            <?php __("A continuación se muestra una distribución de las enfermedades micológicas de una determinada población de pacientes comprendidas dentra las fechas ");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+            <?php __("A continuación se muestra una distribución de las enfermedades micológicas encontrados en <font style='color:red' id='num_pac'></font> pacientes comprendidos entre las fechas ");echo " <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
         </td>
     </tr>
 </table>

@@ -124,7 +124,7 @@
            
             /*$this->Ofc->pie(60,'#505050','{font-size: 12px; color: #404040;');  
             $this->Ofc->pie_slice_colors(array('#1ECEB4','#9E9735','#ED4321'));*/
-             $this->Ofc->bar(25, '0x80a033', 'Muestra', 10 );
+             $this->Ofc->bar(50, '0x80a033', 'Muestra', 10 );
             echo $this->Ofc->ofc_render(); 
            
             die();
