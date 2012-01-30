@@ -28,15 +28,16 @@ SIGIS. C.A
 						<div class="div_reportes" style="overflow: auto; height: 70px;">
 							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%" >
 								<tr class="celdas_gris_reporte" align="center">
+                                    <td align="left" class="standar_font lista_fondo">
+                                        <?php print __('Tipo de Enfermedades Micológicas',true);?>
+                                    </td>
                                     <td align="center" class="standar_font lista_fondo">
                                         <?php print __('Número',true);?>
                                     </td>
                                     <td align="center" class="standar_font lista_fondo">
-                                        <?php print __('Cantidad',true);?>
+                                        <?php print __('%',true);?>
                                     </td>
-                                     <td align="center" class="standar_font lista_fondo">
-                                        <?php print __('Tipo de Enfermedades Micológicas',true);?>
-                                    </td>
+                                     
 								</tr>
 								<?php
 								if (count($tip_les) > 0)
@@ -46,9 +47,9 @@ SIGIS. C.A
 									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $row->cantidad;?></td>
-                                            <td class="standar_font" align="center"><?php echo $row->total_pac." * ".$row->cantidad.' / 100 = '.$porcentaje; ?></td>
-                                            <td class="standar_font" align="center"><?php echo $row->nom_enf_mic;?></td>
+                                            <td class="standar_font" align="left"><?php echo $row->nom_enf_mic;?></td>
+                                            <td class="standar_font" align="center"><?php echo $row->cantidad;?><input type="hidden" id="scantidad" value="<?php echo $row->total_pac;?>"></td>
+                                            <td class="standar_font" align="center"><?php echo $porcentaje; ?></td>                                            
         				  			    </tr>
         								<?php								
 									}

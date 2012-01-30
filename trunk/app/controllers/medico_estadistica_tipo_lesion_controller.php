@@ -132,8 +132,8 @@
             $this->Ofc->init();
             $this->Ofc->setup();
             $this->Ofc->set_ofc_data($cant);
-            $this->Ofc->area_hollow(2,3,25,'0x80a033','',10);
-            //$this->Ofc->bar( 3, 5, '#0CB760', 'Downloads', 10);
+            //$this->Ofc->area_hollow(2,3,25,'0x80a033','',10);            
+            $this->Ofc->bar(50, '0x80a033', 'Muestra', 10 );
             echo $this->Ofc->ofc_render();
            
             die();
