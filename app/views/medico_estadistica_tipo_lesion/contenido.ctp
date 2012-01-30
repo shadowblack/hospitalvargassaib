@@ -27,7 +27,7 @@ SIGIS. C.A
 <table style="width:100%" align="center">
     <tr>
         <td class="standar_font" align="center">
-            <?php __("A continuacion se muestra una distribución de enfermedades micologicas de una muestra de pacientes durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+            <?php __("A continuación se observa una distribución de lesiones encontrados en pacientes durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font> de las Micosis ".$tip_mic->TiposMicosi->nom_tip_mic;?>
         </td>
     </tr>
 </table>

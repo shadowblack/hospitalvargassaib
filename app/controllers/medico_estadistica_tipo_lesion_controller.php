@@ -2,7 +2,7 @@
     class MedicoEstadisticaTipoLesionController extends Controller{
         
         var $name = "MedicoEstadisticaTipoLesion";
-        var $uses = Array("Paciente");
+        var $uses = Array("Paciente","TiposMicosi");
         var $components =   Array("Login","SqlData","FormatMessege","Session","History","Ofc");
         var $helpers =      Array("Paginator");
         protected $group_session = "medico";        
@@ -74,13 +74,15 @@
             else{
                 $where = "";
             }
-                                      
+            
+            $tip_mic = $this->SqlData->CakeArrayToObject($this->TiposMicosi->find("first",Array("conditions"=>Array("TiposMicosi.id_tip_mic"=>$_POST['sel_tip_mic']))));                                
             $data = Array(
+                "tip_mic"    => $tip_mic,
                 "fec_ini"    => $_POST['txt_fec_ini'],
                 "fec_fin"    => $_POST['txt_fec_fin'],
                 "result"  => $where,
                 "result_fec" => $where_fec,
-                "title" =>  __("Enfermedades micológicas presentes en pacientes durante la fecha",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"        
+                "title" =>  __("Lesiones presentes en pacientes con Micosis ".$tip_mic->TiposMicosi->nom_tip_mic." durante la fecha",true)." <font style='color:blue'>".$_POST['txt_fec_ini']."</font> y <font style='color:red'>".$_POST['txt_fec_fin']."</font>"        
             ); 
             
             $this->set($data);          

@@ -29,6 +29,9 @@ SIGIS. C.A
 							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%" >
 								<tr class="celdas_gris_reporte" align="center">
                                     <td align="center" class="standar_font lista_fondo">
+                                        <?php print __('Número',true);?>
+                                    </td>
+                                    <td align="center" class="standar_font lista_fondo">
                                         <?php print __('Cantidad',true);?>
                                     </td>
                                      <td align="center" class="standar_font lista_fondo">
@@ -43,7 +46,8 @@ SIGIS. C.A
 									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
         								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
+                                            <td class="standar_font" align="center"><?php echo $row->cantidad;?></td>
+                                            <td class="standar_font" align="center"><?php echo $row->total_pac." * ".$row->cantidad.' / 100 = '.$porcentaje; ?></td>
                                             <td class="standar_font" align="center"><?php echo $row->nom_enf_mic;?></td>
         				  			    </tr>
         								<?php								

@@ -26,7 +26,7 @@ SIGIS. C.A
 <table style="width:100%" align="center">
     <tr>
         <td class="standar_font" align="center">
-            <?php __("A continuacion se muestra una distribución de pacientes registrados y agrupados por género durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+            <?php __("A continuación se observa una distribución de pacientes registrados y agrupados por género durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
         </td>
     </tr>
 </table>
