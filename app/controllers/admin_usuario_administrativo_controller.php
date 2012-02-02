@@ -262,7 +262,7 @@
                         '$new_pas',
                         '$tra_usu'                                 
                     ]) AS result";
-           // print $sql;            
+                        
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->ResultNum($arr_query);            

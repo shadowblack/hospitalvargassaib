@@ -26,7 +26,11 @@
 		});
         jQuery("#lis_usu_med").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuarios_medicos/listar')?>");
-		});          
+		});
+        jQuery("#cam_pas_usu").click(function(){            
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_cambiar_contrasena/modificar')?>");
+		});
+                  
        
     
     });
@@ -108,7 +112,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="standar_font_menu">
-                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administrador")?></a>
+                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
                                                         </td>
                                                     </tr>
                                                 </table>                                                                                                                                                                                                          
@@ -127,13 +131,27 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="standar_font_menu">
-                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Operador")?></a>
+                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Operadores")?></a>
                                                             </td>
                                                         </tr>
                                                     </table>                                                                                                                                                                                                          
                                                 </div>
                                             </div>
-                            			</div>                            		
+                            			</div> 
+                                        <div>
+                            				<h3><a href="#"><?php __("Contraseña")?></a></h3>
+                            				<div>
+                                                <div style="height: 45px;text-align: left;width: 150px;">                                               
+                                                    <table>
+                                                        <tr>
+                                                            <td class="standar_font_menu">
+                                                                <a id="cam_pas_usu" href="javascript:void(0)"><?php __("Cambiar Contraseña")?></a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>                                                                                                                                                                                                          
+                                                </div>
+                                            </div>
+                            			</div>                              		
                             		</div>                                  
                                 </td>
                                 <td class="top_menu_window_body_right">                    
