@@ -201,7 +201,6 @@
             $nom_doc = $_POST["nom_doc"];
             $ced_doc = $_POST["ced_usu_doc"];
             $ape_doc = $_POST["ape_doc"];           
-            $pas_doc = $_POST["pas_doc"];
             $log_doc = $_POST["log_doc"];
             $tel_doc = $_POST["tel_doc"]; 
             $cor_doc = $_POST["cor_usu_doc"];
@@ -212,8 +211,7 @@
                 '$log_doc',
                 '$ced_doc',
                 '$nom_doc', 
-                '$ape_doc', 
-                '$pas_doc',                  
+                '$ape_doc',                  
                 '$tel_doc',
                 '$cor_doc',
                 '$cen_sal',
@@ -286,7 +284,7 @@
                         '$new_pas',
                         '$tra_usu'                                 
                     ]) AS result";
-           // print $sql;            
+           // DIE($sql) ;            
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             
             $result = $this->SqlData->ResultNum($arr_query);            
@@ -299,6 +297,6 @@
                      die($this->FormatMessege->BoxStyle($result,"El usuario/a \'$log_usu\' no se encuentra registrado en el sistema."));                    
                     break;                            
             }         
-         }             
+         }
     }
 ?>

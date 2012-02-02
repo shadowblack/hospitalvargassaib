@@ -29,23 +29,12 @@
                     
        parent.jQuery("#title_content").html("<?php echo $title;?>");        
        jQuery("#mod_usu_adm").validate({
-    		rules: {    			
-    			pas_doc: {    				
-    				minlength: 5
-    			},
-    			rep_pas_doc: {
-    				required: true,
-    				minlength: 5,
-    				equalTo: "#pas_doc"
-    			}
-    		},
-            submitHandler: function(form) { 
+    		submitHandler: function(form) { 
                 
                 <?php echo $this->Event->Update($this->Html->url("/AdminUsuariosMedicos/event_modificar"),"form",$this->Html->url("listar"))?>                   	                           
             }
     	});         
-        jQuery("#pas_doc").valid();
-              
+                      
         /*Seleccionando todas las transacciones hijos al seleccionar el módulo padre*/          
         jQuery("[id^='mod_chk_']").click(function(){
             var _mod = jQuery(this).attr("value"); 
@@ -133,36 +122,18 @@
                                          <label for="log_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Usuario");?>:</label>
                         			     <input type="text" id="log_doc" name="log_doc" readonly="readonly" class="text required" minlength="3" maxlength="100" value="<?php echo $result->log_doc?>"/>
                                     </td>
-                                </tr>  
-                                <tr>
-                                    <td valign="top">
-                                         <label for="pas_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Clave");?>:</label>
-                        			     <input type="password" id="pas_doc" name="pas_doc" class="password" minlength="3" maxlength="100"/>
-                                    </td>
-                                    <td valign="top">
-                                        <div class="password-meter " style="width: 210px;height: 3px;text-align: right;">
-                                    		<div class="password-meter-message" style="font-size: 9pt;" style="height: 3px;">&nbsp;</div>
-                                    		<div class="password-meter-bg" style="height: 3px;">
-                                    			<div class="password-meter-bar" style="height: 2px;"></div>
-                                    		</div>
-                                    	</div>
-                                    </td>                                
                                 </tr>
                                 <tr>
-                                    <td valign="top">    
-                                         <label for="rep_pas_doc" class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Repetir Clave");?>:</label>
-                        			     <input type="password" id="rep_pas_doc" name="rep_pas_doc" class="required" minlength="3" maxlength="100" />
-                                    </td>                                
                                     <td valign="top">    
                                          <label for="tel_doc" class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Teléfono");?>:</label>
                         			     <input type="text" id="tel_doc" name="tel_doc" class="number required" minlength="11" maxlength="11" value="<?php echo $result->tel_doc?>"/>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td valign="top">
                                          <label for="cor_usu_doc"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __("Correo");?>:</label>
                         			     <input type="text" id="cor_usu_doc" name="cor_usu_doc" class="email required" minlength="10" maxlength="100" value="<?php echo $result->cor_doc?>"/>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td class="font-standar" valign="top">
                                         <span class="standar_asterisco">* </span><?php echo __("Centro de Salud")?>:
                                         <select id="sel_cen_sal" name="sel_cen_sal" class="required" style="width: 109px;;">

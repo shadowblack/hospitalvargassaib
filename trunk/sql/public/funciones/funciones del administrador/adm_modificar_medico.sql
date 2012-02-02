@@ -11,7 +11,6 @@ DECLARE
 	_ced_doc	doctores.ced_doc%TYPE;
 	_nom_doc 	doctores.nom_doc%TYPE;
 	_ape_doc 	doctores.ape_doc%TYPE;
-	_pas_doc	doctores.pas_doc%TYPE;
 	_log_doc	doctores.log_doc%TYPE;
 	_tel_doc 	doctores.tel_doc%TYPE;
 	_cor_doc 	doctores.cor_doc%TYPE;
@@ -28,12 +27,11 @@ BEGIN
 	_log_doc 	:= datos[2];
 	_ced_doc	:= datos[3];
 	_nom_doc 	:= datos[4];
-	_ape_doc 	:= datos[5];
-	_pas_doc	:= md5(datos[6]);		
-	_tel_doc 	:= datos[7];
-	_cor_doc 	:= datos[8];
-	_cen_sal 	:= datos[9];
-	_trans_doc	:= datos[10];
+	_ape_doc 	:= datos[5];		
+	_tel_doc 	:= datos[6];
+	_cor_doc 	:= datos[7];
+	_cen_sal 	:= datos[8];
+	_trans_doc	:= datos[9];
 	
 	
 	IF EXISTS(SELECT 1 FROM doctores WHERE id_doc = _id_doc)THEN
@@ -46,7 +44,6 @@ BEGIN
 					
 					nom_doc = _nom_doc,
 					ape_doc = _ape_doc,
-					pas_doc = _pas_doc,
 					ced_doc	= _ced_doc,
 					log_doc = _log_doc,
 					tel_doc = _tel_doc,
@@ -117,11 +114,10 @@ PARAMETROS: Recibe 7 Parámetros
 	3:  Cédula del usuario doctor
 	4:  Nombre del usuario doctor
 	5:  Apellido del usuario doctor
-	6:  Password del usuario doctor	
-	7:  Teléfono del usuario doctor
-	8:  Correo Electrónico del usuario doctor
-	9:  Centro de salud del usuario doctor 
-	10: Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
+	6:  Teléfono del usuario doctor
+	7:  Correo Electrónico del usuario doctor
+	8:  Centro de salud del usuario doctor 
+	9:  Tipo de usuario (id_tip_usu_usu Usuarios, desde la tabla tipos_usuarios_usuarios)
 	
 DESCRIPCION: 
 	Almacena la información del doctor
@@ -135,11 +131,11 @@ RETORNO:
 	
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_modificar_medico(ARRAY[''1'',''Lisseth'', ''Lozada'', ''123'', ''llozada'',''04269150722'',''risusefu@gmail.com'',''4'',''1,2,3'']);
+	SELECT adm_modificar_medico(ARRAY[''1'',''Lisseth'', ''Lozada'', ''llozada'',''04269150722'',''risusefu@gmail.com'',''4'',''1,2,3'']);
 
 AUTOR DE CREACIÓN: Luis Marin
 FECHA DE CREACIÓN: 09/05/2011
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 24/06/2011
+FECHA DE MODIFICACIÓN: 01/02/2012
 ';

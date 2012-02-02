@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION adm_restablecer_contrasena_admin(character varying[])
+﻿-- Function: adm_restablecer_contrasena_admin(character varying[])
+
+-- DROP FUNCTION adm_restablecer_contrasena_admin(character varying[]);
+
+CREATE OR REPLACE FUNCTION adm_restablecer_contrasena_admin(character varying[])
   RETURNS smallint AS
 $BODY$
 
@@ -22,18 +26,18 @@ BEGIN
 	_pas_usu_adm 	:= _data[2];
 	_tra_usu	:= _data[3];
 	
-	IF EXISTS(SELECT 1 FROM usuarios_administrativos WHERE _id_usu_adm = _id_usu_adm)THEN
+	IF EXISTS(SELECT 1 FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm)THEN
 
 		/*Busco el registro anterior del usuario administrador*/
-		SELECT * INTO _reg_ant FROM usuarios_administrativos WHERE _id_usu_adm = _id_usu_adm;
+		SELECT * INTO _reg_ant FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm;
 
 		/*Restablecer contraseña del usuario administrador*/
 		UPDATE usuarios_administrativos SET 		
 			pas_usu_adm = _pas_usu_adm				
-		WHERE _id_usu_adm = _id_usu_adm;
+		WHERE id_usu_adm = _id_usu_adm;
 
 		/*Busco el registro actual del usuario administrador*/
-		SELECT * INTO _reg_act FROM usuarios_administrativos WHERE _id_usu_adm = _id_usu_adm;
+		SELECT * INTO _reg_act FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm;
 
 		/* Se coloca el encabezado para los valores de los campos, así como el tag raíz y el inicio del tag tabla */
 		_valorcampos := '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><restablecer_contraseña>
@@ -49,7 +53,7 @@ BEGIN
 
 			
 		/*Obtengo el Id del tipo de usuario deacuerdo al usuario logueado*/
-		SELECT id_tip_usu_usu INTO _reg_usu FROM tipos_usuarios__usuarios WHERE  _id_usu_adm = _id_usu_adm;
+		SELECT id_tip_usu_usu INTO _reg_usu FROM tipos_usuarios__usuarios WHERE  id_usu_adm = _id_usu_adm;
 
 		/*Obtengo el Id del tipo de transaccion deacuerdo a la transaccion del usuario*/
 		SELECT id_tip_tra INTO _reg_tra FROM transacciones WHERE cod_tip_tra = _tra_usu;
@@ -103,5 +107,5 @@ EJEMPLO DE LLAMADA:
 
 
 AUTOR DE CREACIÓN: Lisseth Lozada
-FECHA DE CREACIÓN: 29/01/2012
+FECHA DE CREACIÓN: 01/02/2012
 ';
