@@ -42,7 +42,10 @@
             $tel_usu_adm = $_POST["tel_usu_adm"];
             $ced_usu_adm = $_POST["ced_usu_adm"];
             $cor_usu_adm = $_POST["cor_usu_adm"]; 
-            $trans_usu   = $_POST["val_str_tra"];
+            $val_str_tra = $_POST["val_str_tra"];
+            
+            $id_usu_log     = $this->Session->read("admin.id_usu"); 
+            $tra_usu        = "AUA";  
             
             //$id_tip_usu_usu = $this->Session->read("admin.id_tip_usu_usu");          
                         
@@ -54,7 +57,11 @@
                 '$tel_usu_adm', 
                 '$ced_usu_adm',
                 '$cor_usu_adm',
-                '$trans_usu'
+                '$val_str_tra',
+                
+                '$id_usu_log',
+                '$tra_usu'
+                
             ]) AS result";
             
             //die($sql);
@@ -186,7 +193,10 @@
             $cor_usu_adm    = $_POST["cor_usu_adm"];
             $val_str_tra    = $_POST["val_str_tra"];  
             
-                        
+                     
+            $id_usu_log     = $this->Session->read("admin.id_usu"); 
+            $tra_usu        = "MUA";  
+               
             $sql = "SELECT adm_modificar_usuario_admin(ARRAY[
                 '$id_usu_adm',
                 '$log_usu_adm',
@@ -195,10 +205,13 @@
                 '$ced_usu_adm',                
                 '$tel_usu_adm',
                 '$cor_usu_adm',
-                '$val_str_tra'
+                '$val_str_tra',
+                
+                '$id_usu_log',
+                '$tra_usu'
             ]) AS result";
             
-           // print $sql;
+           // die($sql);
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
                              
             $result = $this->SqlData->ResultNum($arr_query);            
@@ -226,9 +239,14 @@
          
          function event_eliminar($id,$log_usu=""){
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
-                                   
+                
+            $id_usu_log     = $this->Session->read("admin.id_usu"); 
+            $tra_usu        = "EUA";  
+                               
             $sql = "SELECT adm_eliminar_usuario_admin(
-                '$id'              
+                '$id',
+                '$id_usu_log',
+                '$tra_usu'              
             ) AS result";
                         
             $arr_query = ($this->UsuariosAdministrativo->query($sql));

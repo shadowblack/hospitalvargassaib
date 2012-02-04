@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION adm_registrar_usuario_admin(character varying[])
 $BODY$
 DECLARE
 	datos ALIAS 	FOR $1;
-
+	
 	_nom_usu_adm 	usuarios_administrativos.nom_usu_adm%TYPE;
 	_ape_usu_adm 	usuarios_administrativos.ape_usu_adm%TYPE;
 	_pas_usu_adm	usuarios_administrativos.pas_usu_adm%TYPE;
@@ -16,11 +16,19 @@ DECLARE
 	_ced_usu_adm 	usuarios_administrativos.ced_usu_adm%TYPE;
 	_cor_usu_adm 	usuarios_administrativos.cor_usu_adm%TYPE;
 
-
+	_des_tip_tra 	VARCHAR:='';	
+	
 	_trans_adm	TEXT; 	-- transacciones a las cuales tiene permiso el usuario administrador, o mejor dicho niveles de acceso
 	_arr_trans_adm	INTEGER[]; -- transacciones a las cuales tiene permiso el usuario administrador, o mejor dicho niveles de acceso
+
+	_valorcampos 	VARCHAR := '';
+	_id_usu_adm 	usuarios_administrativos.id_usu_adm%TYPE;
+	_tra_usu	transacciones.cod_tip_tra%TYPE;
+
 	
-	
+	_info		RECORD;
+	_reg_usu	RECORD;
+	_reg_tra	RECORD;
 BEGIN
 
 	_nom_usu_adm 	:= datos[1];
@@ -30,7 +38,9 @@ BEGIN
 	_tel_usu_adm 	:= datos[5];
 	_ced_usu_adm 	:= datos[6];
 	_cor_usu_adm 	:= datos[7];
-	_trans_adm	:= datos[8];	
+	_trans_adm	:= datos[8];
+	_id_usu_adm	:= datos[9];
+	_tra_usu	:= datos[10];
 	
 	
 
@@ -61,7 +71,21 @@ BEGIN
 				NOW(),
 				_ced_usu_adm,
 				_cor_usu_adm
-			);		
+			);	
+
+
+				_valorcampos := '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><registro_usuario_administrador>
+					 <tabla nombre="usuarios_administrativos">';
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('Nombre',  		coalesce(_nom_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Apellido', 		coalesce(_ape_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Cédula', 		coalesce(_ced_usu_adm::text, 'ninguno'), 	'ninguno')||  
+					formato_campo_xml('Teléfono', 		coalesce(_tel_usu_adm::text, 'ninguno'), 	'ninguno')|| 
+					formato_campo_xml('Correo', 		coalesce(_cor_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Login', 		coalesce(_log_usu_adm::text, 'ninguno'), 	'ninguno');  
+				/*ªª Se cierra el tag de la tabla */
+				_valorcampos := _valorcampos || '</tabla>';
+			
 			
 			/*Insertando tipo de usuario como administrador*/
 			INSERT INTO tipos_usuarios__usuarios(
@@ -73,6 +97,17 @@ BEGIN
 				(CURRVAL('usuarios_administrativos_id_usu_adm_seq')),
 				(SELECT id_tip_usu FROM tipos_usuarios WHERE cod_tip_usu = 'adm')
 			);
+				
+
+				/* Se identifica la tabla en el formato xml */
+				_valorcampos := _valorcampos || '<tabla nombre="tipos_usuarios__usuarios">';
+				/* Se completa el tag con el valor del campo */
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('ID', 		coalesce(CURRVAL('usuarios_administrativos_id_usu_adm_seq')::text, 'ninguno'), 'ninguno')||
+					formato_campo_xml('Tipo Usuario', 	coalesce('Administrador', 'ninguno'), 	'ninguno'); 
+				_valorcampos := _valorcampos || '</tabla>';
+
+			
 
 			/* Insertando las transacciones del usuario*/
 			_arr_trans_adm := STRING_TO_ARRAY(_trans_adm,',');
@@ -87,10 +122,55 @@ BEGIN
 						(CURRVAL('tipos_usuarios__usuarios_id_tip_usu_usu_seq')),
 						_arr_trans_adm[i]
 					);
+
+					SELECT des_tip_tra INTO _info 
+					FROM transacciones_usuarios tu
+						LEFT JOIN transacciones t ON tu.id_tip_tra = t.id_tip_tra
+					WHERE tu.id_tip_tra = _arr_trans_adm[i];
+					
+					_des_tip_tra := _des_tip_tra || _info.des_tip_tra || ' ,';
 				END LOOP;
 			END IF;
-			
 
+			
+			/* Se le quita la última de las comas a la variable */
+			IF length(_des_tip_tra) > 0 THEN
+				_des_tip_tra := substr(_des_tip_tra, 1, length(_des_tip_tra) - 1);
+			END IF;	
+
+				/* Se identifica la tabla en el formato xml */
+				_valorcampos := _valorcampos || '<tabla nombre="transacciones_usuarios">';
+				/* Se completa el tag con el valor del campo */
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('Tipo de transaccion', coalesce(_des_tip_tra::text, 'ninguno'), 'ninguno');
+				/* Se cierra el tag de la tabla */
+				_valorcampos := _valorcampos || '</tabla>';
+				
+			_valorcampos := _valorcampos || '</registro_usuario_administrador>';	
+
+
+			/*Obtengo el Id del tipo de usuario deacuerdo al usuario logueado*/
+			SELECT id_tip_usu_usu INTO _reg_usu FROM tipos_usuarios__usuarios WHERE id_usu_adm = _id_usu_adm;
+
+			/*Obtengo el Id del tipo de transaccion deacuerdo a la transaccion del usuario*/
+			SELECT id_tip_tra INTO _reg_tra FROM transacciones WHERE cod_tip_tra = _tra_usu;
+			
+			INSERT INTO auditoria_transacciones
+			(
+				fec_aud_tra, 
+				id_tip_usu_usu,
+				id_tip_tra, 
+				data_xml
+			)
+			VALUES 
+			(
+				 NOW(), 
+				_reg_usu.id_tip_usu_usu, 
+				_reg_tra.id_tip_tra, 
+				_valorcampos::XML
+			);
+
+					
 			-- La función se ejecutó exitosamente
 			RETURN 1;
 			
@@ -131,13 +211,12 @@ RETORNO:
 	2: Existe un usuario administrativo con la misma cédula
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_registrar_usuario_admin(ARRAY[ ''Lisseth'', ''lozada'', ''d6c002bf04cd6019786e58df9d251e62'', ''risusefu'', ''04269150722'', ''17651244'', ''risusefu@gmail.com'', ''25,27,26,22,24,23'' ]) AS result
-
+	SELECT adm_registrar_usuario_admin(ARRAY[ ''jesus'', ''alfredo'', ''d6c002bf04cd6019786e58df9d251e62'', ''jalfredo'', ''04123818120'', ''83214989'', ''jalfredo@gmail.com'', ''25,26,22,23'', ''22'', ''AUA'' ]) AS result
 
 AUTOR DE CREACIÓN: Lisseth Lozada
 FECHA DE CREACIÓN: 27/03/2011
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 28/01/2012
+FECHA DE MODIFICACIÓN: 02/02/2012
 
 ';
