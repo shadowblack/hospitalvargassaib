@@ -551,7 +551,7 @@ class PaginatorHelper extends AppHelper {
 			array(
 				'model' => $this->defaultModel(),
 				'format' => 'pages',
-				'separator' => __(' of ', true)
+				'separator' => __(' de ', true)
 			),
 		$options);
 
@@ -629,7 +629,7 @@ class PaginatorHelper extends AppHelper {
 
 		$defaults = array(
 			'tag' => 'span', 'before' => null, 'after' => null, 'model' => $this->defaultModel(),
-			'modulus' => '8', 'separator' => ' | ', 'first' => null, 'last' => null,
+			'modulus' => '4', 'separator' => ' | ', 'first' => null, 'last' => null,
 		);
 		$options += $defaults;
 
@@ -736,7 +736,7 @@ class PaginatorHelper extends AppHelper {
  * @return string numbers string.
  * @access public
  */
-	function first($first = '<< first', $options = array()) {
+	function first($first = '|<<', $options = array()) {
 		$options = array_merge(
 			array(
 				'tag' => 'span',
@@ -790,7 +790,7 @@ class PaginatorHelper extends AppHelper {
  * @return string numbers string.
  * @access public
  */
-	function last($last = 'last >>', $options = array()) {
+	function last($last = '>>|', $options = array()) {
 		$options = array_merge(
 			array(
 				'tag' => 'span',

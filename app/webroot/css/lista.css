@@ -27,3 +27,22 @@ td.lista_fondo{
 .listar_margin_transacciones{
     margin-left: 20px;
 }
+
+.pag_first{
+    color: #0DB661;
+    
+}
+
+.pag_numbers{
+    color: #0DB661;
+    font-weight: bold;
+}
+
+.pag_last{
+    color: #0DB661;
+}
+
+.link{
+    color:#0DB661;
+    font-weight: bold;
+}

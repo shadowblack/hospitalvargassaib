@@ -1,19 +1,12 @@
-﻿<?php   
-    //echo $url_img =  $this->webroot."img/menu_top/"; 
-    //echo "http://127.0.0.1$url_img"."img/menu_top/8_01.jpg";die;
-    //$this->error(404, 'Not found', 'This page was not found, sorry');die;
-?>
+﻿<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <script type="text/javascript">
 	jQuery(function(){
 	   jQuery("body:eq(0)").addClass("standar_fondo");
 		// Accordion
-		jQuery("#accordion").accordion({
-		      header: "h3",              
-              autoHeight:false,
-              alwaysOpen: false		
-
-                   
-        });
+        jQuery("#accordion").accordion({
+            header: "h3",                        
+            event: "mouseover"
+        }); 
         
         jQuery("#reg_usu_adm").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_usuario_administrativo/registrar')?>");
@@ -30,14 +23,16 @@
         jQuery("#cam_pas_usu").click(function(){            
            jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_cambiar_contrasena/modificar')?>");
 		});
-                  
-       
-    
+        jQuery("#tra_usu_adm").click(function(){            
+           jQuery("#frame_content").attr("src","<?php echo $this->Html->url('/admin_auditoria/busqueda')?>");
+		});
     });
 </script>
 <style type="text/css">
-   
-</style>
+    .ui-widget{        
+        font-weight: bold;       
+    }
+ </style>
   <div class="standar_content">
   
    <table style="width:100%" border="0" class="menu_top_window" align="center">
@@ -49,19 +44,21 @@
     <tr>
          <td style="height: 35px;">
             <!--Botones Superiores-->        
-            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
                 <tr>        
-                    <td align="right">                                        
+                    <td align="right" width="75%">                                        
                         <div class="dock" id="dock">
                             <div class="dock-container">                                
                                 <a class="dock-item" href="<?php echo $this->Html->url("/Admin/salir");?>">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" />
-                                        <!-- span style="padding-left: 100px;">
-                                            Salir
-                                        </span-->
                                 </a>   
                             </div>
                         </div>                                                
+                    </td>
+                    <td>
+                        <div class="standar_font">
+                            <span style="font-weight: bold;"><?php echo __("Usuario", true)?>: </span><?php echo $nomb_usu;?>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -104,18 +101,26 @@
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
                             				<div style="">                                               
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                                
-                                                <table>
-                                                    <tr>
-                                                        <td class="standar_font_menu">
-                                                            <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="standar_font_menu">
-                                                            <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
-                                                        </td>
-                                                    </tr>
-                                                </table>                                                                                                                                                                                                          
+                                                    <table>
+                                                        <tr>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="reg_usu_adm" href="javascript:void(0)" ><?php __("Agregar Administrador")?></a>
+                                                                    </li>
+                                                                </ul> 
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="lis_usu_adm" href="javascript:void(0)" ><?php __("Listar Administradores")?></a>
+                                                                    </li>
+                                                                </ul> 
+                                                            </td>
+                                                        </tr>
+                                                    </table>                                                                                                                                                                                                          
                                                 </div>
                                             </div>
                             			</div>                                        
@@ -125,13 +130,21 @@
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                               
                                                     <table>
                                                         <tr>
-                                                            <td class="standar_font_menu">
-                                                                <a id="reg_usu_med" href="javascript:void(0)"><?php __("Agregar Operador")?></a>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="reg_usu_med" href="javascript:void(0)"><?php __("Agregar Operador")?></a>
+                                                                    </li>
+                                                                </ul> 
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="standar_font_menu">
-                                                                <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Operadores")?></a>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="lis_usu_med" href="javascript:void(0)" ><?php __("Listar Operadores")?></a>
+                                                                    </li>
+                                                                </ul> 
                                                             </td>
                                                         </tr>
                                                     </table>                                                                                                                                                                                                          
@@ -144,8 +157,30 @@
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                               
                                                     <table>
                                                         <tr>
-                                                            <td class="standar_font_menu">
-                                                                <a id="cam_pas_usu" href="javascript:void(0)"><?php __("Cambiar Contraseña")?></a>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="cam_pas_usu" href="javascript:void(0)"><?php __("Cambiar Contraseña")?></a>
+                                                                    </li>
+                                                                </ul> 
+                                                            </td>
+                                                        </tr>
+                                                    </table>                                                                                                                                                                                                          
+                                                </div>
+                                            </div>
+                            			</div>
+                                        <div>
+                            				<h3><a href="#"><?php __("Transacciones del usuario")?></a></h3>
+                            				<div>
+                                                <div style="height: 45px;text-align: left;width: 150px;">                                               
+                                                    <table>
+                                                        <tr>
+                                                            <td> 
+                                                                <ul>
+                                                                    <li>
+                                                                        <a id="tra_usu_adm" href="javascript:void(0)"><?php __("Buscar transacciones")?></a>
+                                                                    </li>
+                                                                </ul> 
                                                             </td>
                                                         </tr>
                                                     </table>                                                                                                                                                                                                          
@@ -233,5 +268,5 @@
         </td>                
     </tr>    
    </table>
-   </div>
+</div>
        
