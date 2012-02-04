@@ -24,7 +24,7 @@
             $arr_query = ($this->Doctore->query($sql));
             $centros_salud = ($this->SqlData->array_to_objects($arr_query));       
             
-            $title =  __("Agregar usuario operador",true);
+            $title =  __("Agregar operador",true);
             
             $data = Array(               
                 "title"         => $title,
@@ -90,7 +90,7 @@
         */
         function listar(){    
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");            
-            $title =  __("Listar usuario operador",true);            
+            $title =  __("Listar operadores",true);            
             $data = Array(                
                 "title"     => $title                
             ); 
@@ -178,7 +178,7 @@
             $arr_query = ($this->Doctore->query($sql));
             $result_cen_sal = ($this->SqlData->array_to_objects($arr_query));             
                         
-            $title =  __("Modificación del usuario operador",true);
+            $title =  __("Modificar operador",true);
             
             $data = Array(
                 "result"        => $result,

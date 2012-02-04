@@ -19,7 +19,15 @@
            $data = Array(
             "cua"=>$this->Login->validar_permisos($mod,"cua")
            );
-           $this->set($data);  */     
+           $this->set($data);  */  
+           
+           $nomb_usu = $this->Session->read("admin.nom_usu").' '.$this->Session->read("admin.ape_usu");
+           
+           $data = Array(
+                "nomb_usu"=> $nomb_usu
+           );
+           $this->set($data); 
+              
         }
         
         

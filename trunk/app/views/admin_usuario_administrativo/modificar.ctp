@@ -93,7 +93,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Datos del usuario administrativo",true)?>
+                    <?php echo __("Datos del administrador",true)?>
                 </a>
             </li>            
         </ul>

@@ -20,7 +20,7 @@
             $arr_query = ($this->UsuariosAdministrativo->query($sql));            
             $result = $this->SqlData->array_to_objects($arr_query);
             
-            $title =  __("Agregar usuarios administrativos",true);
+            $title =  __("Agregar Administrador",true);
             
             $data = Array(               
                 "title"     => $title, 
@@ -92,7 +92,7 @@
         */
         function listar(){    
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
-            $title =  __("Lista de usuarios administrativos",true);            
+            $title =  __("Listar Administradores",true);            
             $data = Array(                
                 "title"     => $title                
             ); 
@@ -166,7 +166,7 @@
             $result_tran = $this->SqlData->array_to_objects($arr_query);  
                     
                         
-            $title =  __("Modificación de usuarios administrativos",true);
+            $title =  __("Modificar administrador",true);
             
             $data = Array(
                 "result"        => $result,

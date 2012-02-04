@@ -46,7 +46,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Medicos",true)?>
+                    <?php echo __("Operadores",true)?>
                 </a>
             </li>            
         </ul>
@@ -55,38 +55,41 @@
                 <table style="width: 100%;" border="0" >
                 <tr>
                     <td align="center">
-                        <table style="" border="0">
-                            <tr>
-                                <td class="standar_font">
-                                    <?php echo __("Nombre",true)?>:
-                                </td>
-                                <td>
-                                    <input type="text" id="nom_usu_adm" name="nom_usu_adm">
-                                </td>                    
-                                <td class="standar_font">
-                                    <?php echo __("Apellido",true)?>:
-                                </td>                   
-                                <td>
-                                    <input type="text" id="ape_usu_adm" name="ape_usu_adm">
-                                </td>                                        
-                            </tr>    
-                            <tr>
-                                <td class="standar_font">
-                                    <?php echo __("Login",true)?>:
-                                </td>
-                                <td>
-                                    <input type="text" id="log_usu_adm" name="log_usu_adm">
-                                </td>                    
-                                <td colspan="0" align="right">                        
-                                    <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
-                                </td>
-                            </tr>                            
-                        </table>
+                        <fieldset style="width: 460px;">
+                            <legend  style="font-weight: bold;"><?php echo __("Condiciones de Búsqueda",true)?></legend>
+                            <table style="" border="0">
+                                <tr>
+                                    <td class="standar_font">
+                                        <?php echo __("Nombre",true)?>:
+                                    </td>
+                                    <td>
+                                        <input type="text" id="nom_usu_adm" name="nom_usu_adm">
+                                    </td>                    
+                                    <td class="standar_font">
+                                        <?php echo __("Apellido",true)?>:
+                                    </td>                   
+                                    <td>
+                                        <input type="text" id="ape_usu_adm" name="ape_usu_adm">
+                                    </td>                                        
+                                </tr>    
+                                <tr>
+                                    <td class="standar_font">
+                                        <?php echo __("Login",true)?>:
+                                    </td>
+                                    <td>
+                                        <input type="text" id="log_usu_adm" name="log_usu_adm">
+                                    </td>                    
+                                    <td colspan="0" align="right">                        
+                                        <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
+                                    </td>
+                                </tr>                            
+                            </table>
+                        </fieldset>
                     </td>    
                 </tr>
                 <tr>
                     <td align="center" style="">
-                        <div id="content" style="height: 270px;width:460px ; overflow-y:auto ;" class="lista_standar">
+                        <div id="content" style="height: 260px;width:460px ; overflow-y:auto;overflow-x: hidden;" class="lista_standar">
                             <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: block;">
                         </div>
                     </td>
