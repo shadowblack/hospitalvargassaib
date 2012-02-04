@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2012-02-02 00:48:11
+-- Started on 2012-02-04 09:18:40
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -314,7 +314,7 @@ DESCRIPCIÓN: Modificación de las estructuras de control
 
 --
 -- TOC entry 21 (class 1255 OID 46452)
--- Dependencies: 7 483
+-- Dependencies: 483 7
 -- Name: adm_modificar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -465,7 +465,7 @@ FECHA DE MODIFICACIÓN: 01/02/2012
 
 
 --
--- TOC entry 22 (class 1255 OID 46453)
+-- TOC entry 23 (class 1255 OID 46453)
 -- Dependencies: 483 7
 -- Name: adm_modificar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -484,12 +484,25 @@ DECLARE
 	_log_usu_adm 	usuarios_administrativos.log_usu_adm%TYPE;
 	_cor_usu_adm	usuarios_administrativos.cor_usu_adm%TYPE;
 
+	_des_tip_tra		VARCHAR := '';
+	_des_tip_tra_ant	VARCHAR := '';
+
 	_trans_adm	TEXT; 		-- transacciones a las cuales tiene permiso el administrador, o mejor dicho niveles de acceso
 	_arr_trans_adm	INTEGER[]; 	-- transacciones a las cuales tiene permiso el administrador, o mejor dicho niveles de acceso
 	_id_tip_usu_usu	INTEGER;
 
+
+	_valorcampos 	VARCHAR := '';
+	_id_usu_log 	usuarios_administrativos.id_usu_adm%TYPE;
+	_tra_usu	transacciones.cod_tip_tra%TYPE;
+
+	
 	--Variable record
 	_var_rec	RECORD;
+	_reg_act	RECORD;
+	_info		RECORD;
+	_reg_usu	RECORD;
+	_reg_tra	RECORD;
 
 BEGIN
 	_id_usu_adm	:= datos[1];
@@ -499,7 +512,9 @@ BEGIN
 	_ced_usu_adm 	:= datos[5];
 	_tel_usu_adm 	:= datos[6];
 	_cor_usu_adm 	:= datos[7];
-	_trans_adm	:= datos[8];	
+	_trans_adm	:= datos[8];
+	_id_usu_log	:= datos[9];
+	_tra_usu	:= datos[10];	
 
 	/* Si se encuentra el usuario administrativo se modifica*/
 	IF NOT EXISTS(SELECT 1 FROM usuarios_administrativos WHERE id_usu_adm <> _id_usu_adm AND log_usu_adm = _log_usu_adm)THEN
@@ -523,6 +538,24 @@ BEGIN
 					
 				WHERE id_usu_adm = _id_usu_adm;
 
+				SELECT INTO _reg_act * FROM usuarios_administrativos WHERE id_usu_adm = _id_usu_adm;
+
+				/* Se coloca el encabezado para los valores de los campos, así como el tag raíz y el inicio del tag tabla */
+				_valorcampos := '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes">';
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('Nombre',  		coalesce(_nom_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.nom_usu_adm::text, 'ninguno'))||
+					formato_campo_xml('Apellido', 		coalesce(_ape_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.ape_usu_adm::text, 'ninguno'))||
+					formato_campo_xml('Cédula', 		coalesce(_ced_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.ced_usu_adm::text, 'ninguno'))||  
+					formato_campo_xml('Teléfono',	 	coalesce(_tel_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.tel_usu_adm::text, 'ninguno'))||  
+					formato_campo_xml('Login', 		coalesce(_log_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.log_usu_adm::text, 'ninguno'))||  
+					formato_campo_xml('Correo	', 	coalesce(_cor_usu_adm::text, 'ninguno'), 	coalesce(_reg_act.cor_usu_adm::text, 'ninguno'));  
+				/*ªª Se cierra el tag de la tabla */
+				_valorcampos := _valorcampos || '</tabla>';
+				_valorcampos := _valorcampos || '</modificacion_de_pacientes>';	
+						
+			
+
 				/* Insertando las transacciones del usuario*/
 				_id_tip_usu_usu := (SELECT id_tip_usu_usu FROM tipos_usuarios__usuarios WHERE id_usu_adm = _id_usu_adm);
 				DELETE FROM transacciones_usuarios WHERE id_tip_usu_usu = _id_tip_usu_usu;	
@@ -540,9 +573,39 @@ BEGIN
 							_id_tip_usu_usu,
 							_arr_trans_adm[i]
 						);
+
+						SELECT des_tip_tra INTO _info 
+						FROM transacciones_usuarios tu
+							LEFT JOIN transacciones t ON tu.id_tip_tra = t.id_tip_tra
+						WHERE tu.id_tip_tra = _arr_trans_adm[i];
+						
+						_des_tip_tra := _des_tip_tra || _info.des_tip_tra || ' ,';
+				
 					END LOOP;
 				END IF;
+
+				/*Obtengo el Id del tipo de usuario deacuerdo al usuario logueado*/
+				SELECT id_tip_usu_usu INTO _reg_usu FROM tipos_usuarios__usuarios WHERE id_usu_adm = _id_usu_log;
+
+				/*Obtengo el Id del tipo de transaccion deacuerdo a la transaccion del usuario*/
+				SELECT id_tip_tra INTO _reg_tra FROM transacciones WHERE cod_tip_tra = _tra_usu;
 				
+				INSERT INTO auditoria_transacciones
+				(
+					fec_aud_tra, 
+					id_tip_usu_usu,
+					id_tip_tra, 
+					data_xml
+				)
+				VALUES 
+				(
+					 NOW(), 
+					_reg_usu.id_tip_usu_usu, 
+					_reg_tra.id_tip_tra, 
+					_valorcampos::XML
+				);
+
+				--raise notice '%',_valorcampos;
 
 				/* La función se ejecutó exitosamente*/
 				RETURN 1;
@@ -566,7 +629,7 @@ ALTER FUNCTION public.adm_modificar_usuario_admin(character varying[]) OWNER TO 
 
 --
 -- TOC entry 2386 (class 0 OID 0)
--- Dependencies: 22
+-- Dependencies: 23
 -- Name: FUNCTION adm_modificar_usuario_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -593,7 +656,7 @@ RETORNO:
 	0: No existe el usuario
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_modificar_usuario_admin(ARRAY[ ''23'', ''lmarin2'', ''lmarin'', ''marin'', ''45645645'', ''36222222'', ''lmarin@gmail.com'', ''22,23,24,25,26,27'' ]) AS result
+	SELECT adm_modificar_usuario_admin(ARRAY[ ''23'', ''lmarin2'', ''lmarin'', ''marin'', ''45645645'', ''36222222'', ''lmarin@gmail.com'', ''22,23,24,25,26,27'' , ''22'', ''MUA'']) AS result
 
 AUTOR DE CREACIÓN: Lisseth Lozada
 FECHA DE CREACIÓN: 27/03/2011   
@@ -603,13 +666,13 @@ FECHA DE MODIFICACIÓN: 22/04/2011
 DESCRIPCIÓN: Validación de log del usuario  
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 28/01/2012  
+FECHA DE MODIFICACIÓN: 02/02/2012  
  
 ';
 
 
 --
--- TOC entry 23 (class 1255 OID 46454)
+-- TOC entry 22 (class 1255 OID 46454)
 -- Dependencies: 483 7
 -- Name: adm_registrar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -731,7 +794,7 @@ ALTER FUNCTION public.adm_registrar_medico(character varying[]) OWNER TO desarro
 
 --
 -- TOC entry 2387 (class 0 OID 0)
--- Dependencies: 23
+-- Dependencies: 22
 -- Name: FUNCTION adm_registrar_medico(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -770,7 +833,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 
 --
--- TOC entry 24 (class 1255 OID 46455)
+-- TOC entry 26 (class 1255 OID 46455)
 -- Dependencies: 483 7
 -- Name: adm_registrar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -780,7 +843,7 @@ CREATE FUNCTION adm_registrar_usuario_admin(character varying[]) RETURNS smallin
     AS $_$
 DECLARE
 	datos ALIAS 	FOR $1;
-
+	
 	_nom_usu_adm 	usuarios_administrativos.nom_usu_adm%TYPE;
 	_ape_usu_adm 	usuarios_administrativos.ape_usu_adm%TYPE;
 	_pas_usu_adm	usuarios_administrativos.pas_usu_adm%TYPE;
@@ -789,11 +852,19 @@ DECLARE
 	_ced_usu_adm 	usuarios_administrativos.ced_usu_adm%TYPE;
 	_cor_usu_adm 	usuarios_administrativos.cor_usu_adm%TYPE;
 
-
+	_des_tip_tra 	VARCHAR:='';	
+	
 	_trans_adm	TEXT; 	-- transacciones a las cuales tiene permiso el usuario administrador, o mejor dicho niveles de acceso
 	_arr_trans_adm	INTEGER[]; -- transacciones a las cuales tiene permiso el usuario administrador, o mejor dicho niveles de acceso
+
+	_valorcampos 	VARCHAR := '';
+	_id_usu_adm 	usuarios_administrativos.id_usu_adm%TYPE;
+	_tra_usu	transacciones.cod_tip_tra%TYPE;
+
 	
-	
+	_info		RECORD;
+	_reg_usu	RECORD;
+	_reg_tra	RECORD;
 BEGIN
 
 	_nom_usu_adm 	:= datos[1];
@@ -803,7 +874,9 @@ BEGIN
 	_tel_usu_adm 	:= datos[5];
 	_ced_usu_adm 	:= datos[6];
 	_cor_usu_adm 	:= datos[7];
-	_trans_adm	:= datos[8];	
+	_trans_adm	:= datos[8];
+	_id_usu_adm	:= datos[9];
+	_tra_usu	:= datos[10];
 	
 	
 
@@ -834,7 +907,21 @@ BEGIN
 				NOW(),
 				_ced_usu_adm,
 				_cor_usu_adm
-			);		
+			);	
+
+
+				_valorcampos := '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><registro_usuario_administrador>
+					 <tabla nombre="usuarios_administrativos">';
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('Nombre',  		coalesce(_nom_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Apellido', 		coalesce(_ape_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Cédula', 		coalesce(_ced_usu_adm::text, 'ninguno'), 	'ninguno')||  
+					formato_campo_xml('Teléfono', 		coalesce(_tel_usu_adm::text, 'ninguno'), 	'ninguno')|| 
+					formato_campo_xml('Correo', 		coalesce(_cor_usu_adm::text, 'ninguno'), 	'ninguno')||
+					formato_campo_xml('Login', 		coalesce(_log_usu_adm::text, 'ninguno'), 	'ninguno');  
+				/*ªª Se cierra el tag de la tabla */
+				_valorcampos := _valorcampos || '</tabla>';
+			
 			
 			/*Insertando tipo de usuario como administrador*/
 			INSERT INTO tipos_usuarios__usuarios(
@@ -846,6 +933,17 @@ BEGIN
 				(CURRVAL('usuarios_administrativos_id_usu_adm_seq')),
 				(SELECT id_tip_usu FROM tipos_usuarios WHERE cod_tip_usu = 'adm')
 			);
+				
+
+				/* Se identifica la tabla en el formato xml */
+				_valorcampos := _valorcampos || '<tabla nombre="tipos_usuarios__usuarios">';
+				/* Se completa el tag con el valor del campo */
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('ID', 		coalesce(CURRVAL('usuarios_administrativos_id_usu_adm_seq')::text, 'ninguno'), 'ninguno')||
+					formato_campo_xml('Tipo Usuario', 	coalesce('Administrador', 'ninguno'), 	'ninguno'); 
+				_valorcampos := _valorcampos || '</tabla>';
+
+			
 
 			/* Insertando las transacciones del usuario*/
 			_arr_trans_adm := STRING_TO_ARRAY(_trans_adm,',');
@@ -860,10 +958,62 @@ BEGIN
 						(CURRVAL('tipos_usuarios__usuarios_id_tip_usu_usu_seq')),
 						_arr_trans_adm[i]
 					);
+
+					SELECT des_tip_tra INTO _info 
+					FROM transacciones_usuarios tu
+						LEFT JOIN transacciones t ON tu.id_tip_tra = t.id_tip_tra
+					WHERE tu.id_tip_tra = _arr_trans_adm[i];
+					
+					_des_tip_tra := _des_tip_tra || _info.des_tip_tra || ' ,';
 				END LOOP;
 			END IF;
+
+			raise notice '_des_tip_tra---%',_des_tip_tra;
+
 			
 
+			/* Se le quita la última de las comas a la variable */
+			IF length(_des_tip_tra) > 0 THEN
+				_des_tip_tra := substr(_des_tip_tra, 1, length(_des_tip_tra) - 1);
+			END IF;	
+
+				/* Se identifica la tabla en el formato xml */
+				_valorcampos := _valorcampos || '<tabla nombre="transacciones_usuarios">';
+				/* Se completa el tag con el valor del campo */
+					_valorcampos := _valorcampos || 
+					formato_campo_xml('Tipo de transaccion', coalesce(_des_tip_tra::text, 'ninguno'), 'ninguno');
+				/* Se cierra el tag de la tabla */
+				_valorcampos := _valorcampos || '</tabla>';
+				
+			_valorcampos := _valorcampos || '</registro_usuario_administrador>';	
+			
+
+
+			/*Obtengo el Id del tipo de usuario deacuerdo al usuario logueado*/
+			SELECT id_tip_usu_usu INTO _reg_usu FROM tipos_usuarios__usuarios WHERE id_usu_adm = _id_usu_adm;
+
+			/*Obtengo el Id del tipo de transaccion deacuerdo a la transaccion del usuario*/
+			SELECT id_tip_tra INTO _reg_tra FROM transacciones WHERE cod_tip_tra = _tra_usu;
+			
+			INSERT INTO auditoria_transacciones
+			(
+				fec_aud_tra, 
+				id_tip_usu_usu,
+				id_tip_tra, 
+				data_xml
+			)
+			VALUES 
+			(
+				 NOW(), 
+				_reg_usu.id_tip_usu_usu, 
+				_reg_tra.id_tip_tra, 
+				_valorcampos::XML
+			);
+
+			raise notice '%',_valorcampos;
+
+
+		
 			-- La función se ejecutó exitosamente
 			RETURN 1;
 			
@@ -885,7 +1035,7 @@ ALTER FUNCTION public.adm_registrar_usuario_admin(character varying[]) OWNER TO 
 
 --
 -- TOC entry 2388 (class 0 OID 0)
--- Dependencies: 24
+-- Dependencies: 26
 -- Name: FUNCTION adm_registrar_usuario_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -911,21 +1061,20 @@ RETORNO:
 	2: Existe un usuario administrativo con la misma cédula
 	 
 EJEMPLO DE LLAMADA:
-	SELECT adm_registrar_usuario_admin(ARRAY[ ''Lisseth'', ''lozada'', ''d6c002bf04cd6019786e58df9d251e62'', ''risusefu'', ''04269150722'', ''17651244'', ''risusefu@gmail.com'', ''25,27,26,22,24,23'' ]) AS result
-
+	SELECT adm_registrar_usuario_admin(ARRAY[ ''jesus'', ''alfredo'', ''d6c002bf04cd6019786e58df9d251e62'', ''jalfredo'', ''04123818120'', ''83214989'', ''jalfredo@gmail.com'', ''25,26,22,23'', ''22'', ''AUA'' ]) AS result
 
 AUTOR DE CREACIÓN: Lisseth Lozada
 FECHA DE CREACIÓN: 27/03/2011
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 28/01/2012
+FECHA DE MODIFICACIÓN: 02/02/2012
 
 ';
 
 
 --
 -- TOC entry 39 (class 1255 OID 46456)
--- Dependencies: 483 7
+-- Dependencies: 7 483
 -- Name: adm_restablecer_contrasena_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1168,7 +1317,7 @@ FECHA DE CREACIÓN: 01/02/2012
 
 
 --
--- TOC entry 25 (class 1255 OID 46457)
+-- TOC entry 24 (class 1255 OID 46457)
 -- Dependencies: 7 483
 -- Name: formato_campo_xml(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1194,7 +1343,7 @@ ALTER FUNCTION public.formato_campo_xml(character varying, character varying, ch
 
 --
 -- TOC entry 2391 (class 0 OID 0)
--- Dependencies: 25
+-- Dependencies: 24
 -- Name: FUNCTION formato_campo_xml(character varying, character varying, character varying); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1222,7 +1371,7 @@ FECHA DE CREACIÓN: 08/08/2011
 
 
 --
--- TOC entry 26 (class 1255 OID 46458)
+-- TOC entry 25 (class 1255 OID 46458)
 -- Dependencies: 7 483
 -- Name: med_eliminar_historial(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
@@ -1306,7 +1455,7 @@ ALTER FUNCTION public.med_eliminar_historial(character varying[]) OWNER TO desar
 
 --
 -- TOC entry 2392 (class 0 OID 0)
--- Dependencies: 26
+-- Dependencies: 25
 -- Name: FUNCTION med_eliminar_historial(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2021,7 +2170,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 31 (class 1255 OID 46464)
--- Dependencies: 7 483
+-- Dependencies: 483 7
 -- Name: med_modificar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2620,7 +2769,7 @@ DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
 
 --
 -- TOC entry 33 (class 1255 OID 46467)
--- Dependencies: 7 483
+-- Dependencies: 483 7
 -- Name: med_muestra_clinica_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2801,7 +2950,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 34 (class 1255 OID 46468)
--- Dependencies: 483 7
+-- Dependencies: 7 483
 -- Name: med_registrar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2965,7 +3114,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 35 (class 1255 OID 46469)
--- Dependencies: 483 7
+-- Dependencies: 7 483
 -- Name: med_registrar_informacion_adicional(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3394,7 +3543,7 @@ DESCRIPCIÓN: Se agregó la opción de poder agregar otros animales.
 
 --
 -- TOC entry 36 (class 1255 OID 46471)
--- Dependencies: 483 7
+-- Dependencies: 7 483
 -- Name: med_registrar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3755,7 +3904,7 @@ FECHA DE CREACIÓN: 05/06/2011
 
 --
 -- TOC entry 38 (class 1255 OID 46474)
--- Dependencies: 7 329 483
+-- Dependencies: 483 329 7
 -- Name: validar_usuarios(text, text, text); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3897,7 +4046,7 @@ ALTER TABLE public.animales OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1677 (class 1259 OID 46478)
--- Dependencies: 7 1676
+-- Dependencies: 1676 7
 -- Name: animales_id_ani_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3946,7 +4095,7 @@ ALTER TABLE public.antecedentes_pacientes OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1679 (class 1259 OID 46483)
--- Dependencies: 1678 7
+-- Dependencies: 7 1678
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -3994,7 +4143,7 @@ ALTER TABLE public.antecedentes_personales OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1681 (class 1259 OID 46488)
--- Dependencies: 7 1680
+-- Dependencies: 1680 7
 -- Name: antecedentes_personales_id_ant_per_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4063,7 +4212,7 @@ COMMENT ON COLUMN auditoria_transacciones.data_xml IS 'Se guarda las modificacio
 
 --
 -- TOC entry 1683 (class 1259 OID 46496)
--- Dependencies: 7 1682
+-- Dependencies: 1682 7
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4092,7 +4241,7 @@ ALTER SEQUENCE auditoria_transacciones_id_aud_tra_seq OWNED BY auditoria_transac
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 248, true);
+SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 256, true);
 
 
 --
@@ -4112,7 +4261,7 @@ ALTER TABLE public.categorias__cuerpos_micosis OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1685 (class 1259 OID 46501)
--- Dependencies: 1684 7
+-- Dependencies: 7 1684
 -- Name: categorias__cuerpos_micosis_id_cat_cue_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4175,7 +4324,7 @@ ALTER TABLE public.categorias_cuerpos__lesiones OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1688 (class 1259 OID 46509)
--- Dependencies: 1686 7
+-- Dependencies: 7 1686
 -- Name: categorias_cuerpos_id_cat_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4314,7 +4463,7 @@ ALTER TABLE public.centro_saluds OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1692 (class 1259 OID 46519)
--- Dependencies: 1691 7
+-- Dependencies: 7 1691
 -- Name: centro_salud_id_cen_sal_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4364,7 +4513,7 @@ ALTER TABLE public.centro_salud_pacientes OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1694 (class 1259 OID 46524)
--- Dependencies: 1693 7
+-- Dependencies: 7 1693
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4550,7 +4699,7 @@ COMMENT ON COLUMN doctores.log_doc IS 'Login con el que se loguara el doctor';
 
 --
 -- TOC entry 1698 (class 1259 OID 46538)
--- Dependencies: 7 1697
+-- Dependencies: 1697 7
 -- Name: doctores_id_doc_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4599,7 +4748,7 @@ ALTER TABLE public.enfermedades_micologicas OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1700 (class 1259 OID 46543)
--- Dependencies: 7 1699
+-- Dependencies: 1699 7
 -- Name: enfermedades_micologicas_id_enf_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5075,7 +5224,7 @@ SELECT pg_catalog.setval('lesiones__partes_cuerpos_id_les_par_cue_seq', 115, tru
 
 --
 -- TOC entry 1717 (class 1259 OID 46590)
--- Dependencies: 1715 7
+-- Dependencies: 7 1715
 -- Name: lesiones_id_les_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5311,7 +5460,7 @@ COMMENT ON COLUMN muestras_clinicas.nom_mue_cli IS 'Nombre muestra clinica';
 
 --
 -- TOC entry 1725 (class 1259 OID 46610)
--- Dependencies: 1724 7
+-- Dependencies: 7 1724
 -- Name: muestras_clinicas_id_mue_cli_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5397,7 +5546,7 @@ COMMENT ON COLUMN muestras_pacientes.otr_mue_cli IS 'Otra meustra clinica';
 
 --
 -- TOC entry 1727 (class 1259 OID 46615)
--- Dependencies: 1726 7
+-- Dependencies: 7 1726
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5448,7 +5597,7 @@ ALTER TABLE public.municipios OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1729 (class 1259 OID 46620)
--- Dependencies: 1728 7
+-- Dependencies: 7 1728
 -- Name: municipios_id_mun_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5595,7 +5744,7 @@ COMMENT ON COLUMN pacientes.fec_reg_pac IS 'Fecha de registro del paciente';
 
 --
 -- TOC entry 1731 (class 1259 OID 46626)
--- Dependencies: 1730 7
+-- Dependencies: 7 1730
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5695,7 +5844,7 @@ ALTER TABLE public.parroquias OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1735 (class 1259 OID 46636)
--- Dependencies: 1734 7
+-- Dependencies: 7 1734
 -- Name: parroquias_id_par_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5805,7 +5954,7 @@ SELECT pg_catalog.setval('partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_
 
 --
 -- TOC entry 1739 (class 1259 OID 46646)
--- Dependencies: 7 1736
+-- Dependencies: 1736 7
 -- Name: partes_cuerpos_id_par_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6049,7 +6198,7 @@ ALTER TABLE public.tipos_estudios_micologicos OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1747 (class 1259 OID 46667)
--- Dependencies: 7 1746
+-- Dependencies: 1746 7
 -- Name: tipos_estudios_micologicos_id_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6149,7 +6298,7 @@ ALTER TABLE public.tipos_micosis OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1751 (class 1259 OID 46677)
--- Dependencies: 1750 7
+-- Dependencies: 7 1750
 -- Name: tipos_micosis_id_tip_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6225,7 +6374,7 @@ COMMENT ON COLUMN tipos_micosis_pacientes__tipos_estudios_micologicos.otr_tip_es
 
 --
 -- TOC entry 1754 (class 1259 OID 46685)
--- Dependencies: 7 1753
+-- Dependencies: 1753 7
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6355,7 +6504,7 @@ ALTER SEQUENCE tipos_usuarios__usuarios_id_tip_usu_usu_seq OWNED BY tipos_usuari
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 62, true);
+SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 67, true);
 
 
 --
@@ -6459,7 +6608,7 @@ ALTER TABLE public.transacciones_usuarios OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1763 (class 1259 OID 46707)
--- Dependencies: 1762 7
+-- Dependencies: 7 1762
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6488,7 +6637,7 @@ ALTER SEQUENCE transacciones_usuarios_id_tra_usu_seq OWNED BY transacciones_usua
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 263, true);
+SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 299, true);
 
 
 --
@@ -6507,7 +6656,7 @@ ALTER TABLE public.tratamientos OWNER TO desarrollo_g;
 
 --
 -- TOC entry 1765 (class 1259 OID 46712)
--- Dependencies: 7 1764
+-- Dependencies: 1764 7
 -- Name: tratamientos_id_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6593,7 +6742,7 @@ COMMENT ON COLUMN tratamientos_pacientes.otr_tra IS 'Otro tratamiento';
 
 --
 -- TOC entry 1767 (class 1259 OID 46717)
--- Dependencies: 7 1766
+-- Dependencies: 1766 7
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6699,7 +6848,7 @@ ALTER SEQUENCE usuarios_administrativos_id_usu_adm_seq OWNED BY usuarios_adminis
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 30, true);
+SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 35, true);
 
 
 --
@@ -7506,6 +7655,8 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>48</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302809</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (115, '2012-01-18 00:17:56.477', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>49</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302810</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (253, '2012-02-02 23:45:58.625', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (116, '2012-01-18 00:17:59.562', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>50</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302811</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (117, '2012-01-18 00:18:03.743', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
@@ -7516,6 +7667,8 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>43</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302854</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (120, '2012-01-18 00:18:15.081', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>41</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>A</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302803</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>02123622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>17302857</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Amazonas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Alto Orinoco		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>Miranda</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (254, '2012-02-02 23:46:56.765', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (121, '2012-01-18 00:18:17.993', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>ninguno</actual><anterior>53</anterior></campo><campo nombre="Nombre"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula"><actual>ninguno</actual><anterior>17302814</anterior></campo><campo nombre="Fecha Nacimiento"><actual>ninguno</actual><anterior>2012-01-16</anterior></campo><campo nombre="Nacionalidad"><actual>ninguno</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>ninguno</actual><anterior>3622222</anterior></campo><campo nombre="Teléfono Célular"><actual>ninguno</actual><anterior>15930135</anterior></campo><campo nombre="Ocupación"><actual>ninguno</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>ninguno</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>ninguno</actual><anterior>Monagas</anterior></campo><campo nombre="Municipio"><actual>ninguno</actual><anterior>	Aguasay		 </anterior></campo><campo nombre="Ciudad"><actual>ninguno</actual><anterior>GUrenas</anterior></campo></tabla><tabla nombre="antecedentes_pacientes"><campo nombre="Antecedentes Personales"><actual>ninguno</actual><anterior>Obesidad ,Diabetes </anterior></campo></tabla></eliminacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (122, '2012-01-18 00:18:20.713', 17, 11, '<?xml version="1.0" standalone="yes"?><eliminacion_de_pacientes>
@@ -7546,6 +7699,8 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 			 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Apellido Paciente"><actual>ninguno</actual><anterior>B</anterior></campo><campo nombre="Cédula Paciente"><actual>ninguno</actual><anterior>17302815</anterior></campo><campo nombre="Descripción de la Historia"><actual>ninguno</actual><anterior>fdsfsdfdsfsdf</anterior></campo><campo nombre="Descripción Adicional"><actual>ninguno</actual><anterior>dsfsdf</anterior></campo><campo nombre="Fecha de Historia"><actual>ninguno</actual><anterior>2012-01-22 04:05:48.16-04:30</anterior></campo></tabla></eliminacion_del_historial_paciente>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (136, '2012-01-22 05:05:58.561', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
 			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual></actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual></actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual></actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual></actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>0</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (255, '2012-02-02 23:48:49.671', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (138, '2012-01-22 05:16:05.98', 49, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
 				 <tabla nombre="pacientes"><campo nombre="ID"><actual>32</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>&#039;jhsdf</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>$jhjh</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>87897987</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1985-01-22</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268741232</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>02129358741</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Anzoátegui</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Anaco		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>dddd</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (139, '2012-01-22 05:16:40.705', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
@@ -7758,6 +7913,12 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 			 <tabla nombre="usuarios_administrativos"><campo nombre="Nombre"><actual>nuevo</actual><anterior>nuevo</anterior></campo><campo nombre="Apellido"><actual>nuevo</actual><anterior>nuevo</anterior></campo><campo nombre="Cédula"><actual>54564654</actual><anterior>54564654</anterior></campo><campo nombre="Contraseña"><actual>be05977add575832dc52655d4ad5c42e</actual><anterior>d6c002bf04cd6019786e58df9d251e62</anterior></campo></tabla></restablecer_contraseña>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (248, '2012-02-01 21:14:40.218', 62, 29, '<?xml version="1.0" standalone="yes"?><restablecer_contraseña>
 			 <tabla nombre="doctores"><campo nombre="Nombre"><actual>www</actual><anterior>www</anterior></campo><campo nombre="Apellido"><actual>www</actual><anterior>www</anterior></campo><campo nombre="Cédula"><actual>1765555</actual><anterior>1765555</anterior></campo><campo nombre="Contraseña"><actual>25aa1214846cab21e6a4fb96089e1f00</actual><anterior>d6c002bf04cd6019786e58df9d251e62</anterior></campo></tabla></restablecer_contraseña>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (249, '2012-02-02 22:18:31.343', 45, 25, '<?xml version="1.0" standalone="yes"?><registro_usuario_administrador>
+					 <tabla nombre="usuarios_administrativos"><campo nombre="Nombre"><actual>jesus</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>ninguno</anterior></campo><campo nombre="Correo"><actual>jalfredo@gmail.com</actual><anterior>ninguno</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tipos_usuarios__usuarios"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Tipo Usuario"><actual>Administrador</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="transacciones_usuarios"><campo nombre="Tipo de transaccion"><actual>Agregar usuario administrador ,Modificar usuario administrador ,Agregar usuario operador ,Modificar usuario operador </actual><anterior>ninguno</anterior></campo></tabla></registro_usuario_administrador>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (252, '2012-02-02 23:33:18.25', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (256, '2012-02-02 23:51:50.015', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
 
 
 --
@@ -9265,6 +9426,7 @@ INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (60, NULL, 29, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (61, NULL, 30, 1);
 INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (62, 37, NULL, 2);
+INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip_usu) VALUES (67, NULL, 35, 1);
 
 
 --
@@ -9386,6 +9548,10 @@ INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALU
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (2, 17, 261);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (3, 17, 262);
 INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (4, 17, 263);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (22, 67, 296);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (23, 67, 297);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (25, 67, 298);
+INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALUES (26, 67, 299);
 
 
 --
@@ -9464,6 +9630,7 @@ INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu, ced_usu_adm, cor_usu_adm) VALUES (30, 'Antonio', 'Salgado', 'd6c002bf04cd6019786e58df9d251e62', 'asalgado', '04269150722', '2012-01-28 10:50:51.2', true, '56456477', 'asalgado@gmail.com');
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu, ced_usu_adm, cor_usu_adm) VALUES (29, 'nuevo', 'nuevo', 'be05977add575832dc52655d4ad5c42e', 'nuevo', '54564564564', '2012-01-28 10:49:49.385', false, '54564654', 'nuevo@gmail.com');
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu, ced_usu_adm, cor_usu_adm) VALUES (22, 'Lisseth', 'Lozada', 'd6c002bf04cd6019786e58df9d251e62', 'llozada', '04269150722', '2011-06-24 15:22:46.934', false, NULL, NULL);
+INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu, ced_usu_adm, cor_usu_adm) VALUES (35, 'jesus', 'alfredo', 'd6c002bf04cd6019786e58df9d251e62', 'jalfredo', '04123818120', '2012-02-02 22:18:31.343', false, '83214989', 'jalfredo@gmail.com');
 
 
 SET search_path = saib_model, pg_catalog;
@@ -11639,7 +11806,7 @@ CREATE INDEX tratamientos_pacientes_index ON tratamientos_pacientes USING btree 
 
 --
 -- TOC entry 2269 (class 2606 OID 46955)
--- Dependencies: 1678 2112 1680
+-- Dependencies: 1680 1678 2112
 -- Name: antecedentes_pacientes_id_ant_per_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11649,7 +11816,7 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 --
 -- TOC entry 2270 (class 2606 OID 46960)
--- Dependencies: 1730 2202 1678
+-- Dependencies: 1730 1678 2202
 -- Name: antecedentes_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11669,7 +11836,7 @@ ALTER TABLE ONLY auditoria_transacciones
 
 --
 -- TOC entry 2272 (class 2606 OID 46970)
--- Dependencies: 2245 1682 1757
+-- Dependencies: 1757 1682 2245
 -- Name: auditoria_transacciones_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11679,7 +11846,7 @@ ALTER TABLE ONLY auditoria_transacciones
 
 --
 -- TOC entry 2275 (class 2606 OID 46975)
--- Dependencies: 1686 1687 2122
+-- Dependencies: 2122 1687 1686
 -- Name: categoria_cuerpos__partes_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11699,7 +11866,7 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 --
 -- TOC entry 2274 (class 2606 OID 46985)
--- Dependencies: 2231 1684 1750
+-- Dependencies: 1750 1684 2231
 -- Name: categorias__cuerpos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11709,7 +11876,7 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 --
 -- TOC entry 2277 (class 2606 OID 46990)
--- Dependencies: 1689 1691 2135
+-- Dependencies: 1691 1689 2135
 -- Name: centro_salud_doctores_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11719,7 +11886,7 @@ ALTER TABLE ONLY centro_salud_doctores
 
 --
 -- TOC entry 2278 (class 2606 OID 46995)
--- Dependencies: 2147 1689 1697
+-- Dependencies: 1697 2147 1689
 -- Name: centro_salud_doctores_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11739,7 +11906,7 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 --
 -- TOC entry 2280 (class 2606 OID 47005)
--- Dependencies: 1693 2176 1713
+-- Dependencies: 1693 1713 2176
 -- Name: centro_salud_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11749,7 +11916,7 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 --
 -- TOC entry 2281 (class 2606 OID 47010)
--- Dependencies: 1695 2107 1676
+-- Dependencies: 1676 2107 1695
 -- Name: contactos_animales_id_ani_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11759,7 +11926,7 @@ ALTER TABLE ONLY contactos_animales
 
 --
 -- TOC entry 2282 (class 2606 OID 47015)
--- Dependencies: 1695 2176 1713
+-- Dependencies: 2176 1713 1695
 -- Name: contactos_animales_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11769,7 +11936,7 @@ ALTER TABLE ONLY contactos_animales
 
 --
 -- TOC entry 2283 (class 2606 OID 47020)
--- Dependencies: 2231 1750 1699
+-- Dependencies: 1699 2231 1750
 -- Name: enfermedades_micologicas_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11779,7 +11946,7 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 --
 -- TOC entry 2284 (class 2606 OID 47025)
--- Dependencies: 1701 2150 1699
+-- Dependencies: 2150 1699 1701
 -- Name: enfermedades_pacientes_id_enf_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11789,7 +11956,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 --
 -- TOC entry 2285 (class 2606 OID 47030)
--- Dependencies: 1752 2233 1701
+-- Dependencies: 2233 1752 1701
 -- Name: enfermedades_pacientes_id_tip_enf_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11799,7 +11966,7 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 --
 -- TOC entry 2286 (class 2606 OID 47035)
--- Dependencies: 2204 1703 1732
+-- Dependencies: 1703 2204 1732
 -- Name: estados_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11809,7 +11976,7 @@ ALTER TABLE ONLY estados
 
 --
 -- TOC entry 2287 (class 2606 OID 47040)
--- Dependencies: 1748 2228 1705
+-- Dependencies: 1705 2228 1748
 -- Name: examenes_pacientes__id_tip_exa_fk; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11819,7 +11986,7 @@ ALTER TABLE ONLY examenes_pacientes
 
 --
 -- TOC entry 2289 (class 2606 OID 47045)
--- Dependencies: 1707 2163 1708
+-- Dependencies: 2163 1707 1708
 -- Name: forma_infecciones__pacientes_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11829,7 +11996,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 --
 -- TOC entry 2290 (class 2606 OID 47050)
--- Dependencies: 1708 2233 1752
+-- Dependencies: 2233 1752 1708
 -- Name: forma_infecciones__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11839,7 +12006,7 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 --
 -- TOC entry 2291 (class 2606 OID 47055)
--- Dependencies: 1710 2163 1707
+-- Dependencies: 2163 1707 1710
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11849,7 +12016,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 --
 -- TOC entry 2292 (class 2606 OID 47060)
--- Dependencies: 1710 1750 2231
+-- Dependencies: 2231 1750 1710
 -- Name: forma_infecciones__tipos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11859,7 +12026,7 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 --
 -- TOC entry 2293 (class 2606 OID 47065)
--- Dependencies: 2147 1713 1697
+-- Dependencies: 1713 1697 2147
 -- Name: historiales_pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11869,7 +12036,7 @@ ALTER TABLE ONLY historiales_pacientes
 
 --
 -- TOC entry 2294 (class 2606 OID 47070)
--- Dependencies: 2202 1713 1730
+-- Dependencies: 1713 2202 1730
 -- Name: historiales_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11879,7 +12046,7 @@ ALTER TABLE ONLY historiales_pacientes
 
 --
 -- TOC entry 2276 (class 2606 OID 47075)
--- Dependencies: 2178 1715 1687
+-- Dependencies: 1715 2178 1687
 -- Name: lesiones__partes_cuerpos_id_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11889,7 +12056,7 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 --
 -- TOC entry 2295 (class 2606 OID 47080)
--- Dependencies: 2127 1718 1687
+-- Dependencies: 2127 1687 1718
 -- Name: lesiones_partes_cuerpos__pacientes_id_cat_cue_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11899,7 +12066,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2296 (class 2606 OID 47085)
--- Dependencies: 2211 1718 1737
+-- Dependencies: 1718 2211 1737
 -- Name: lesiones_partes_cuerpos__pacientes_id_par_cue_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11909,7 +12076,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2297 (class 2606 OID 47090)
--- Dependencies: 1752 1718 2233
+-- Dependencies: 1718 2233 1752
 -- Name: lesiones_partes_cuerpos__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11919,7 +12086,7 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 --
 -- TOC entry 2298 (class 2606 OID 47095)
--- Dependencies: 1720 2209 1736
+-- Dependencies: 2209 1720 1736
 -- Name: localizaciones_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11929,7 +12096,7 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 --
 -- TOC entry 2299 (class 2606 OID 47100)
--- Dependencies: 2241 1756 1722
+-- Dependencies: 1722 1756 2241
 -- Name: modulos_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11939,7 +12106,7 @@ ALTER TABLE ONLY modulos
 
 --
 -- TOC entry 2300 (class 2606 OID 47105)
--- Dependencies: 1726 1713 2176
+-- Dependencies: 2176 1713 1726
 -- Name: muestras_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11949,7 +12116,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 --
 -- TOC entry 2301 (class 2606 OID 47110)
--- Dependencies: 2193 1726 1724
+-- Dependencies: 1724 2193 1726
 -- Name: muestras_pacientes_id_mue_cli_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11959,7 +12126,7 @@ ALTER TABLE ONLY muestras_pacientes
 
 --
 -- TOC entry 2302 (class 2606 OID 47115)
--- Dependencies: 1728 1703 2156
+-- Dependencies: 1703 2156 1728
 -- Name: municipios_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11969,7 +12136,7 @@ ALTER TABLE ONLY municipios
 
 --
 -- TOC entry 2303 (class 2606 OID 47120)
--- Dependencies: 1697 1730 2147
+-- Dependencies: 1697 2147 1730
 -- Name: pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11979,7 +12146,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2304 (class 2606 OID 47125)
--- Dependencies: 1730 1703 2156
+-- Dependencies: 2156 1730 1703
 -- Name: pacientes_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11989,7 +12156,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2305 (class 2606 OID 47130)
--- Dependencies: 2199 1730 1728
+-- Dependencies: 1730 1728 2199
 -- Name: pacientes_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11999,7 +12166,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2306 (class 2606 OID 47135)
--- Dependencies: 1732 1730 2204
+-- Dependencies: 2204 1730 1732
 -- Name: pacientes_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12009,7 +12176,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2307 (class 2606 OID 47140)
--- Dependencies: 2206 1734 1730
+-- Dependencies: 1734 1730 2206
 -- Name: pacientes_id_par_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12019,7 +12186,7 @@ ALTER TABLE ONLY pacientes
 
 --
 -- TOC entry 2308 (class 2606 OID 47145)
--- Dependencies: 2199 1734 1728
+-- Dependencies: 2199 1728 1734
 -- Name: parroquias_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12039,7 +12206,7 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 --
 -- TOC entry 2310 (class 2606 OID 47155)
--- Dependencies: 1737 1736 2209
+-- Dependencies: 2209 1737 1736
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12049,7 +12216,7 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 --
 -- TOC entry 2311 (class 2606 OID 47160)
--- Dependencies: 2176 1713 1740
+-- Dependencies: 1740 1713 2176
 -- Name: tiempo_evoluciones_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12059,7 +12226,7 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 --
 -- TOC entry 2312 (class 2606 OID 47165)
--- Dependencies: 1713 2176 1744
+-- Dependencies: 2176 1713 1744
 -- Name: tipos_consultas_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12069,7 +12236,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 --
 -- TOC entry 2313 (class 2606 OID 47170)
--- Dependencies: 1744 2218 1742
+-- Dependencies: 2218 1742 1744
 -- Name: tipos_consultas_pacientes_id_tip_con_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12079,7 +12246,7 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 --
 -- TOC entry 2314 (class 2606 OID 47175)
--- Dependencies: 2228 1748 1746
+-- Dependencies: 1748 2228 1746
 -- Name: tipos_estudios_micologicos_id_tip_exa_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12089,7 +12256,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 --
 -- TOC entry 2315 (class 2606 OID 47180)
--- Dependencies: 1746 2231 1750
+-- Dependencies: 2231 1750 1746
 -- Name: tipos_estudios_micologicos_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12099,7 +12266,7 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 --
 -- TOC entry 2318 (class 2606 OID 47185)
--- Dependencies: 1746 2226 1753
+-- Dependencies: 1753 2226 1746
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_est_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12109,7 +12276,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 --
 -- TOC entry 2319 (class 2606 OID 47190)
--- Dependencies: 1753 1752 2233
+-- Dependencies: 1753 2233 1752
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12119,7 +12286,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 --
 -- TOC entry 2316 (class 2606 OID 47195)
--- Dependencies: 1752 2176 1713
+-- Dependencies: 2176 1713 1752
 -- Name: tipos_micosis_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12129,7 +12296,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 --
 -- TOC entry 2317 (class 2606 OID 47200)
--- Dependencies: 1752 2231 1750
+-- Dependencies: 2231 1750 1752
 -- Name: tipos_micosis_pacientes_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12139,7 +12306,7 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 --
 -- TOC entry 2288 (class 2606 OID 47205)
--- Dependencies: 1705 2233 1752
+-- Dependencies: 2233 1752 1705
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12149,7 +12316,7 @@ ALTER TABLE ONLY examenes_pacientes
 
 --
 -- TOC entry 2320 (class 2606 OID 47210)
--- Dependencies: 1757 2147 1697
+-- Dependencies: 1757 1697 2147
 -- Name: tipos_usuarios__usuarios_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12159,7 +12326,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 --
 -- TOC entry 2321 (class 2606 OID 47215)
--- Dependencies: 1757 2241 1756
+-- Dependencies: 2241 1757 1756
 -- Name: tipos_usuarios__usuarios_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12169,7 +12336,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 --
 -- TOC entry 2322 (class 2606 OID 47220)
--- Dependencies: 2265 1768 1757
+-- Dependencies: 1768 1757 2265
 -- Name: tipos_usuarios__usuarios_id_usu_adm_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12179,7 +12346,7 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 --
 -- TOC entry 2323 (class 2606 OID 47225)
--- Dependencies: 1722 2190 1760
+-- Dependencies: 1722 1760 2190
 -- Name: transacciones_id_mod_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12189,7 +12356,7 @@ ALTER TABLE ONLY transacciones
 
 --
 -- TOC entry 2324 (class 2606 OID 47230)
--- Dependencies: 1760 2251 1762
+-- Dependencies: 1760 1762 2251
 -- Name: transacciones_usuarios_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12199,7 +12366,7 @@ ALTER TABLE ONLY transacciones_usuarios
 
 --
 -- TOC entry 2325 (class 2606 OID 47235)
--- Dependencies: 1762 2245 1757
+-- Dependencies: 1757 1762 2245
 -- Name: transacciones_usuarios_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12209,7 +12376,7 @@ ALTER TABLE ONLY transacciones_usuarios
 
 --
 -- TOC entry 2326 (class 2606 OID 47240)
--- Dependencies: 1713 1766 2176
+-- Dependencies: 1766 2176 1713
 -- Name: tratamientos_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12219,7 +12386,7 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 --
 -- TOC entry 2327 (class 2606 OID 47245)
--- Dependencies: 1766 2256 1764
+-- Dependencies: 1764 2256 1766
 -- Name: tratamientos_pacientes_id_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12239,7 +12406,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2012-02-02 00:48:27
+-- Completed on 2012-02-04 09:19:23
 
 --
 -- PostgreSQL database dump complete
