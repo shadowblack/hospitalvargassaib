@@ -27,7 +27,12 @@
                             </tr>
                         </table>
                     </td>                   
-                </tr>  
+                </tr> 
+                <tr>
+                    <td colspan="2">
+                        <input type="text" style="width: 99%;" id="observaciones__<?php echo $row->id_tip_exa?>" name="observaciones__<?php echo $row->id_tip_exa?>" value="<?php echo $row->obs_exa_pac?>"/>
+                    </td>
+                </tr> 
                 <?php
             } 
         ?>
