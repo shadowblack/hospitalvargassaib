@@ -204,3 +204,9 @@ span.standar_not_register{
     font-size:12pt;
     vertical-align:top;
 }
+
+.standar_div{
+    height: 320px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}

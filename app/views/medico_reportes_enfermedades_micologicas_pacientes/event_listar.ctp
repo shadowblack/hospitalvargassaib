@@ -22,7 +22,7 @@ SIGIS. C.A
     
     function generarReporte(id_tip_mic_pac){
         var url = "<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/reporte");?>/"+id_tip_mic_pac;
-        parent.util.openWindow("prueba","<?php echo __("Reporte de Enfermedades micológicas",true)?>",url,0,0,400,380); 
+        parent.util.openWindow("prueba","<?php echo __("Reporte de Enfermedades micológicas",true)?>",url,0,0,500,380); 
     }
 </script>
 
@@ -31,7 +31,7 @@ SIGIS. C.A
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 685px;">
-                   <?php print __('Listado de Enfermedades Micológicas del Paciente', true); ?>
+                   <?php print __('Listado', true); ?>
                 </a>
             </li>            
         </ul>
@@ -85,7 +85,9 @@ SIGIS. C.A
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ced_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->nom_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
-                                                        <td class="standar_font" align="center" onclick="generarReporte('<?php echo $row->vtemp->id_tip_mic_pac;?>');"><?php echo $row->vtemp->nom_tip_mic; ?></td>
+                                                        <td class="standar_font" align="center" onclick="generarReporte('<?php echo $row->vtemp->id_tip_mic_pac;?>');">
+                                                            <span class="link"><?php echo $row->vtemp->nom_tip_mic; ?></span>
+                                                        </td>
                                                     </tr>
                     								<?php								
             									}

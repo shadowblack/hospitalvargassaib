@@ -87,7 +87,7 @@ SIGIS. C.A
                 										{
                                                         ?>
                                                         <a class="texto_link" href="javascript:visualizarDetalle('<?php print ($i);?>',450,350);">
-                											<?php print '&nbsp;'.$row->vat->detalle; ?>
+                											<span class="link"><?php print '&nbsp;'.$row->vat->detalle; ?></span>
                 										</a>
                                                         <form action="<?php echo $this->Html->url("/MedicoXml/event_listar_xml")?>" method="post" id="<?php print ($i);?>" target="Detalle">
         													<input name="data_xml"     type="hidden" value="<?php echo urlencode($row->vat->data_xml); ?>">
@@ -125,12 +125,14 @@ SIGIS. C.A
             							<?php 
             							}
             							?>
+                            <tr><td height="10px"></td></tr>  
                             <tr>
                                 <td colspan="5" align="center">                                    
-                                   <?php echo $paginator->numbers();?>
+                                    <span class="pag_first"><?php echo $paginator->first();?></span>
+                                    <span class="pag_numbers"><?php echo $paginator->numbers();?></span>
+                                    <span class="pag_last"><?php echo $paginator->last();?></span>
                                 </td>
                             </tr>
-            	
             			</table>
             		</td>
             	</tr>
