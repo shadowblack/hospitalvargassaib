@@ -134,13 +134,13 @@ FECHA DE CREACIÓN: 24/09/2011
                 				    <tr><td height="10px"></td></tr>
                        	            <tr>
     					          		<td align="right" class="font-standar">
-    						          		*<?php print __('Fecha Inicial', true); ?>:
+    						          		<span class="standar_asterisco">* </span><?php print __('Fecha Inicial', true); ?>:
                                         </td>
                                         <td class="font-standar"  valign="top">
                                             <input readonly="readonly" name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
                                         </td>
     									<td align="right" class="font-standar">
-    										*<?php print __('Fecha Final', true); ?>:
+    										<span class="standar_asterisco">* </span><?php print __('Fecha Final', true); ?>:
     									</td>
                                         <td class="font-standar"  valign="top">
     										<input readonly="readonly" name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
@@ -148,7 +148,7 @@ FECHA DE CREACIÓN: 24/09/2011
     								</tr>
                                     <tr>
     									<td colspan="4"   align="center" class="font-standar" style="font-size:10px">
-    										**<?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
+    										<span class="standar_asterisco">** </span><?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
     									</td>
     								</tr>
                 					<tr><td height="20px"></td></tr>

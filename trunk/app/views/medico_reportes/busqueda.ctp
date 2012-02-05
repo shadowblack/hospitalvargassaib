@@ -25,9 +25,6 @@ SIGIS. C.A
 			buttonImageOnly: true,
             inline:true
 		});
-        
-        
-        
     });
     
     
@@ -127,7 +124,7 @@ SIGIS. C.A
                 					</tr>
                 					<tr>
                 						<td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
-                							*<?php print __('Seleccione los Usuarios', true); ?>:
+                							<span class="standar_asterisco">* </span><?php print __('Seleccione los Usuarios', true); ?>:
                 							<input type="button" name="SelTodo" value="<?php print __('Sel. Todos', true);?>" onclick="trabajo_lista(document.frmBusqueda.cmb_usuarios)" style="margin-left: 30px;font-size:xx-small;">
     	                                </td>
                 						<td align="left">
@@ -139,7 +136,7 @@ SIGIS. C.A
                 							</select>
                 						</td>
                 						<td align="right" class="standar_margin lista_standar" valign="top" style="margin-right: 5px;" >
-                							*<?php print __('Seleccione las Transacciones', true); ?>:
+                							<span class="standar_asterisco">* </span><?php print __('Seleccione las Transacciones', true); ?>:
                                             <input type="button" name="SelTodo" value="<?php print __('Sel. Todos', true);?>" onclick="trabajo_lista(document.frmBusqueda.cmb_transacciones)" style="margin-left:30px;font-size:xx-small;"></div>
                 						</td>
                 						<td align="right" class="standar_margin lista_standar">
@@ -156,7 +153,7 @@ SIGIS. C.A
                 					</tr>
                 					<tr>
                 						<td colspan="4" align="center" class="font-standar" style="font-size:10px"> 
-                							**<?php print __('Nota', true); ?>: 
+                							<span class="standar_asterisco">** </span><?php print __('Nota', true); ?>: 
                                             <?php print __('Puede hacer selección múltiple en la lista mediante el uso de las teclas', true); ?> <i>Ctrl</i> <?php print __('o bien', true); ?> <i>Shift</i>.
                 						</td>
                 					</tr>
@@ -168,17 +165,17 @@ SIGIS. C.A
                 							<table width="100%" border="0" cellpadding="0" cellspacing="0">
                 								<tr style="text-align: center; width: 100%">
                 					          		<td width="50%" class="font-standar">
-                						          		*<?php print __('Fecha Inicial', true); ?>:
+                						          		<span class="standar_asterisco">* </span><?php print __('Fecha Inicial', true); ?>:
                                                         <input readonly="readonly" name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
                 									</td>
                 									<td width="50%" class="font-standar">
-                										*<?php print __('Fecha Final', true); ?>:
+                										<span class="standar_asterisco">* </span><?php print __('Fecha Final', true); ?>:
                 										<input readonly="readonly" name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
                 									</td>
                 								</tr>
                 								<tr>
                 									<td colspan="4"   align="center" class="font-standar" style="font-size:10px">
-                										**<?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
+                										<span class="standar_asterisco">** </span><?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
                 									</td>
                 								</tr>
                 							</table>

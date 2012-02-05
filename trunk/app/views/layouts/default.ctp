@@ -17,6 +17,7 @@
               
         <!-- Css acordion -->
         <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."js/jquery/jquery-ui-1.8.11.custom/css/cupertino/jquery-ui-1.8.11.custom.css"?>"/>        
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."css/imprimir.css"?>" media="print"/>
     
         
         <?php #echo $this->Html->script("jquery/jquery-1.5.2.js"); ?>

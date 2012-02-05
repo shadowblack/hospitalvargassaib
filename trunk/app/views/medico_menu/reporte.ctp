@@ -22,6 +22,11 @@
             {            
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/busqueda")?>");
             });   
+            
+            jQuery("#inf_med_pac").click(function()
+            {            
+                window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReporteInformeMedico/busqueda")?>");
+            });
         });
 </script>      
  <style type="text/css">
@@ -59,6 +64,18 @@
                                     <li>                                    
                                         <a id="enf_mic_pac" href="javascript:void(0)" >
                                             <?php __("Enfermedades Micológicas")?>
+                                        </a>
+                                    </li>
+                                </ul> 
+                            </td>
+                        </tr> 
+                        <tr><td style="height: 10px;;"></td></tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>                                    
+                                        <a id="inf_med_pac" href="javascript:void(0)" >
+                                            <?php __("Informe Médico")?>
                                         </a>
                                     </li>
                                 </ul> 

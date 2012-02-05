@@ -148,12 +148,54 @@
             ";
             $les_cat = ($this->SqlData->array_to_objects($this->TiposMicosi->query($sql))); 
             
+            
+             // estudios micologicos          
+            $sql = "
+                SELECT nom_tip_est_mic, nom_tip_exa, te.id_tip_exa,otr_tip_est_mic
+                FROM tipos_micosis_pacientes tmp
+                JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
+                JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
+                JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
+                JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+                ORDER BY nom_tip_exa DESC              
+            ";
+            $estudios_micologicos = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
+                $sql
+            ))); 
+            
+            // forma de infeccion   
+            $sql = "
+                SELECT des_for_inf,otr_for_inf 
+                FROM tipos_micosis_pacientes tmp 
+                JOIN forma_infecciones__pacientes fip ON (fip.id_tip_mic_pac = tmp.id_tip_mic_pac)
+                JOIN forma_infecciones	fi ON(fi.id_for_inf = fip.id_for_inf)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+                ORDER BY des_for_inf              
+            ";
+            $for_inf = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql)));
+            
+            $sql = "SELECT  to_char(hp.fec_his, 'DD/MM/YYYY HH12:MI:SS AM'::text) AS fec_his,
+                        	hp.id_his,
+                        	p.nom_pac||' '||p.ape_pac ||' ('||p.ced_pac||')' AS nom_pac
+                        	
+                    FROM pacientes p
+                    LEFT JOIN historiales_pacientes hp USING(id_pac)
+                    LEFT JOIN tipos_micosis_pacientes tmp ON (hp.id_his = tmp.id_his)
+                    WHERE id_tip_mic_pac = $id_tip_mic_pac"; 
+            
+            $dat_pac = ($this->SqlData->array_to_object($this->HistorialesPaciente->query($sql)));
+            
             $title = __("Reporte de Enfermedades Micológicas",true);
+           
            
             $data = Array(
                 "tip_mic" => $tip_mic,
                 "enf_mic" => $enf_mic,
                 "les_cat" => $les_cat,
+                "est_mic" => $estudios_micologicos,
+                "for_inf" => $for_inf,
+                "dat_pac" => $dat_pac,
                 "title"   => $title
             );
           
