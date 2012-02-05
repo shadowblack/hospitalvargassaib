@@ -11,7 +11,12 @@
             jQuery("#med_con_pac").click(function()
             {            
                 window.parent.frame_content.location=("../medico_configuracion_paciente/listar");
-            });                          
+            });
+            
+            jQuery("#med_cam_pas").click(function()
+            {            
+                window.parent.frame_content.location=("../medico_cambiar_contrasena/modificar");
+            });                           
             
             jQuery("#edi_med_enf").click(function()
             {            
@@ -29,7 +34,7 @@
           <div>
             <h3>
                 <a href="#">
-                    <?php __("Pacientes")?>
+                    <?php __("Configurar");?>
                 </a>
             </h3>
             <div style="">                              
@@ -42,6 +47,20 @@
                                     <li>
                                         <a id="med_con_pac"  href="javascript:void(0)" >
                                             <?php __("Configurar Paciente")?>
+                                        </a>
+                                    </li>
+                                </ul> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 10px;"></td>
+                        </tr>
+                        <tr>
+                            <td> 
+                                <ul>
+                                    <li>
+                                        <a id="med_cam_pas"  href="javascript:void(0)" >
+                                            <?php __("Cambiar Contraseña")?>
                                         </a>
                                     </li>
                                 </ul> 

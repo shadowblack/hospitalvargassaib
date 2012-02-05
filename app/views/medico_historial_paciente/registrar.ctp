@@ -27,7 +27,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Agregar",true)?>
+                    <?php echo __("Datos del historial",true)?>
                 </a>
             </li>            
         </ul>

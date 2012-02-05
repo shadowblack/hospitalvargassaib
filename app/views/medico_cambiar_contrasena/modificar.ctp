@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 ?>
 <!-- Css validator-->
@@ -28,7 +28,7 @@
     			}
             },
             submitHandler: function(form) { 
-                <?php echo $this->Event->Update($this->Html->url("/AdminCambiarContrasena/event_modificar"),"form")?>                   	                           
+                <?php echo $this->Event->Update($this->Html->url("/MedicoCambiarContrasena/event_modificar"),"form")?>                   	                           
             }
         });         
         jQuery("#pas_new_usu").valid();

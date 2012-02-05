@@ -14,13 +14,6 @@
            //$this->cakeError('errors404');          
            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session);
                 
-           //$mod = $this->Session->read("str_mods");
-           /*
-           $data = Array(
-            "cua"=>$this->Login->validar_permisos($mod,"cua")
-           );
-           $this->set($data);  */  
-           
            $nomb_usu = $this->Session->read("admin.nom_usu").' '.$this->Session->read("admin.ape_usu");
            
            $data = Array(

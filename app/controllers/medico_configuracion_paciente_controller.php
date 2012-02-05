@@ -21,7 +21,7 @@
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             //$this->cacheAction = true;  
             //echo Router::url($this->here,false)  ;             
-            $title =  __("Configuración de Pacientes",true);            
+            $title =  __("Configurar Pacientes",true);            
             $data = Array(                
                 "title"     => $title,
                 "history"   =>  $this->History->GetHistory("a",true)              
@@ -122,7 +122,7 @@
             $arr_query = ($this->Doctore->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                                                
             
-            $title =  __("Consuta de pacientes",true);
+            $title =  __("Consultar paciente",true);
             
             $data = Array(
                 "result"    => $result,                
@@ -169,7 +169,7 @@
             );               
                
                   
-            $title =  __("Modificación de pacientes",true);
+            $title =  __("Modificar paciente",true);
             
             $data = Array(
                 "result"    => $result,

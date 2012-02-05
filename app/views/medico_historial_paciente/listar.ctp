@@ -56,7 +56,7 @@
             <ul>
                 <li>
                     <a href="#tabs-1" style="width: 680px;">
-                        <?php echo __("Páginas de historias",true)?>
+                        <?php echo __("Listar Historial",true)?>
                     </a>
                 </li>            
             </ul>
@@ -65,44 +65,47 @@
                     <table style="width: 100%;" border="0" class="">
                     <tr>
                         <td align="center">
-                            <table style="" border="0">
-                                <tr>
-                                    <td class="standar_font" style="width:150px;" align="left">
-                                        <?php echo __("Número de historia",true)?>:
-                                    </td>
-                                    <td>
-                                        <input type="text" id="num_his" name="num_his" align="left">
-                                    </td>                    
-                                    <td class="standar_font" align="left">
-                                        <?php echo __("Descripción de la historia",true)?>:
-                                    </td>                   
-                                    <td align="left">
-                                        <input type="text" id="des_his" name="des_his">
-                                    </td>
-                                    <td align="left">
-                                        <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>">
-                                    </td>                                        
-                                </tr>    
-                                <tr>
-                                    <td class="standar_font" align="left">
-                                        <?php echo __("Nombre del doctor",true)?>:
-                                    </td>
-                                    <td align="left">
-                                        <input type="text" id="nom_doc" name="nom_doc">
-                                    </td> 
-                                    <td colspan="2">
-                                        &nbsp;
-                                    </td>                   
-                                    <td colspan="0" align="right" align="left">                        
-                                        <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
-                                    </td>
-                                </tr>                            
-                            </table>
+                            <fieldset style="width: 630px;">
+                                <legend style="font-weight: bold;"><?php echo __("Condiciones de Búsqueda",true)?></legend>
+                                <table style="" border="0">
+                                    <tr>
+                                        <td class="standar_font" style="width:150px;" align="left">
+                                            <?php echo __("Número de historia",true)?>:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="num_his" name="num_his" align="left">
+                                        </td>                    
+                                        <td class="standar_font" align="left">
+                                            <?php echo __("Descripción de la historia",true)?>:
+                                        </td>                   
+                                        <td align="left">
+                                            <input type="text" id="des_his" name="des_his">
+                                        </td>
+                                        <td align="left">
+                                            <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>" title="<?php echo __("Crear historial del paciente",true)?>">
+                                        </td>                                        
+                                    </tr>    
+                                    <tr>
+                                        <td class="standar_font" align="left">
+                                            <?php echo __("Nombre del doctor",true)?>:
+                                        </td>
+                                        <td align="left">
+                                            <input type="text" id="nom_doc" name="nom_doc">
+                                        </td> 
+                                        <td colspan="2">
+                                            &nbsp;
+                                        </td>                   
+                                        <td colspan="0" align="right" align="left">                        
+                                            <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
+                                        </td>
+                                    </tr>                            
+                                </table>
+                            </fieldset>
                         </td>    
                     </tr>
                     <tr>
                         <td align="center" style="">
-                            <div id="content" style="height: 274px;width:630px ; overflow-y:auto ;" class="lista_standar">
+                            <div id="content" style="height: 270px;width:630px ; overflow-y:auto ;" class="lista_standar">
                                 <img id="cargador" src="<?php echo $this->webroot?>img/icon/load_list.gif" style="margin-top: 120px;display: none;">
                             </div>
                         </td>

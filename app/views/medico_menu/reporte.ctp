@@ -52,13 +52,13 @@
                                 </ul>
                             </td>
                         </tr>
-                        <tr><td style="height: 5px;;"></td></tr>
+                        <tr><td style="height: 10px;;"></td></tr>
                         <tr>
                             <td>
                                 <ul>
                                     <li>                                    
                                         <a id="enf_mic_pac" href="javascript:void(0)" >
-                                            <?php __("Enfermedades Micológicas del Paciente")?>
+                                            <?php __("Enfermedades Micológicas")?>
                                         </a>
                                     </li>
                                 </ul> 

@@ -11,6 +11,13 @@
         function index(){
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
+            
+            $nomb_usu = $this->Session->read("medico.nom_usu").' '.$this->Session->read("medico.ape_usu");
+           
+            $data = Array(
+                "nomb_usu"=> $nomb_usu
+            );
+            $this->set($data); 
         }
         /**
          * Entrando a la aplicacion administrativa

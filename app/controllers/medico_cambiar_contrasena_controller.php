@@ -1,22 +1,22 @@
-﻿<?php
+<?php
 
-     class AdminCambiarContrasenaController extends Controller{
-        var $name = "AdminCambiarContrasena";
-        var $uses = Array("UsuariosAdministrativo");
+     class MedicoCambiarContrasenaController extends Controller{
+        var $name = "MedicoCambiarContrasena";
+        var $uses = Array("doctores");
         var $components = Array("Login","SqlData","FormatMessege","Session");
         var $helpers    = Array("Paginator","Loader","Event");
-       protected $group_session = "admin";
+       protected $group_session = "medico";
        
         function index(){   
-            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
         }
         
                
         /**
-        * View modificar contraseña de usuarios administrativos
+        * View modificar contraseña de usuarios operadores
         */
         function modificar(){
-           $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+           $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
            $this->Login->no_cache();
             
             $title =  __("Cambiar Contraseña",true);
@@ -30,23 +30,23 @@
         }
         
         /**
-        * cambiando la contraseña del usuario administrador
+        * cambiando la contraseña del usuario operador
         */ 
         function event_modificar(){
-            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"json");
-            $id_usu_adm     = $this->Session->read("admin.id_usu");;
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"json");
+            $id_doc         = $this->Session->read("medico.id_usu");;
             $pas_old_usu    = md5($_POST["pas_old_usu"]);
             $pas_new_usu    = md5($_POST["pas_new_usu"]);
             
                         
-            $sql = "SELECT adm_cambiar_contrasena_admin(ARRAY[
-                        '$id_usu_adm',
+            $sql = "SELECT med_cambiar_contrasena_ope(ARRAY[
+                        '$id_doc',
                         '$pas_old_usu',
                         '$pas_new_usu'
                     ]) AS result";
             
            // die ($sql);
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));
+            $arr_query = ($this->doctores->query($sql));
                              
             $result = $this->SqlData->ResultNum($arr_query);            
             //die ($result);         

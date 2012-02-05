@@ -9,7 +9,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Agregar Paciente",true)?>
+                    <?php echo __("Consultar historial",true)?>
                 </a>
             </li>            
         </ul>

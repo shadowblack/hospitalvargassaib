@@ -17,7 +17,7 @@
         */
         function listar($id_pac){              
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                
-            $title =  __("Historial del paciente",true);            
+            $title =  __("Historiales del paciente",true);            
             $data = Array(                
                 "title"         => $title,
                 "id_pac"        => $id_pac,
@@ -84,7 +84,7 @@
             //$this->Login->no_cache();            
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                                                                                                 
                                                           
-            $title = __("Registro del Historial de paciente",true);
+            $title = __("Crear historial del paciente",true);
             
             $data = Array(                                                      
                 "title"                 => $title,
@@ -110,7 +110,7 @@
                 )        
             ));                                                                                                 
             
-            $title =  __("Consuta de pacientes",true);
+            $title =  __("Consultar historial",true);
             
             $data = Array(
                 "result"    => $this->SqlData->CakeArrayToObject($result),                
@@ -135,7 +135,7 @@
                 )
             );        
                                    
-            $title =  __("Modificación de historial",true);
+            $title =  __("Modificar historial",true);
             
             $data = Array(
                 "result"    => $result,                
