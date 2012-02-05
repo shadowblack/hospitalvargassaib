@@ -1,5 +1,6 @@
 <script type="text/javascript">
     jQuery(function(){
+         parent.jQuery("#title_content").html("<?php echo $title;?>");
          jQuery("#tabs-1").css("display","block");
          jQuery( "#tabs" ).tabs();     
     })
@@ -9,7 +10,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Agregar Paciente",true)?>
+                    <?php echo __("Consultar Paciente",true)?>
                 </a>
             </li>            
         </ul>

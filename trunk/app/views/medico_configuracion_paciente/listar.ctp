@@ -56,7 +56,7 @@
             <ul>
                 <li>
                     <a href="#tabs-1" style="width: 680px;">
-                        <?php echo __("Listar Paciente",true)?>
+                        <?php echo __("Pacientes",true)?>
                     </a>
                 </li>            
             </ul>
@@ -69,39 +69,42 @@
                     <table style="width: 100%;" border="0" >
                         <tr>
                             <td align="center">
-                                <table style="" border="0" style="margin-top: 10px;;">
-                                    <tr>
-                                        <td class="standar_font" style="width:70px;" align="left">
-                                            <?php echo __("Nombre",true)?>:
-                                        </td>
-                                        <td>
-                                            <input type="text" id="nom_pac" name="nom_pac">
-                                        </td>                    
-                                        <td class="standar_font" align="left">
-                                            <?php echo __("Apellido",true)?>:
-                                        </td>                   
-                                        <td align="left">
-                                            <input type="text" id="ape_pac" name="ape_pac">
-                                        </td>
-                                        <td align="left">
-                                            <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>">
-                                        </td>                                        
-                                    </tr>    
-                                    <tr>
-                                        <td class="standar_font" align="left">
-                                            <?php echo __("Cédula",true)?>:
-                                        </td>
-                                        <td align="left">
-                                            <input type="text" id="ced_pac" name="ced_pac">
-                                        </td> 
-                                        <td colspan="2" align="left">
-                                            &nbsp;
-                                        </td>                   
-                                        <td colspan="0" align="right" align="left">                        
-                                            <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
-                                        </td>
-                                    </tr>                            
-                                </table>
+                                <fieldset style="width: 460px;">
+                                    <legend style="font-weight: bold;"><?php echo __("Condiciones de Búsqueda",true)?></legend>
+                                    <table style="" border="0" style="margin-top: 10px;;">
+                                        <tr>
+                                            <td class="standar_font" style="width:70px;" align="left">
+                                                <?php echo __("Nombre",true)?>:
+                                            </td>
+                                            <td>
+                                                <input type="text" id="nom_pac" name="nom_pac">
+                                            </td>                    
+                                            <td class="standar_font" align="left">
+                                                <?php echo __("Apellido",true)?>:
+                                            </td>                   
+                                            <td align="left">
+                                                <input type="text" id="ape_pac" name="ape_pac">
+                                            </td>
+                                            <td align="left">
+                                                <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>" title="<?php echo __("Crear Paciente",true)?>">
+                                            </td>                                        
+                                        </tr>    
+                                        <tr>
+                                            <td class="standar_font" align="left">
+                                                <?php echo __("Cédula",true)?>:
+                                            </td>
+                                            <td align="left">
+                                                <input type="text" id="ced_pac" name="ced_pac">
+                                            </td> 
+                                            <td colspan="2" align="left">
+                                                &nbsp;
+                                            </td>                   
+                                            <td colspan="0" align="right" align="left">                        
+                                                <input type="button" id="btn_buscar" name="btn_buscar" value="<?php echo __("Buscar",true)?>">                    
+                                            </td>
+                                        </tr>                            
+                                    </table>
+                                </fieldset>
                             </td>    
                         </tr>
                     <tr>

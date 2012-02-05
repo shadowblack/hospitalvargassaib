@@ -18,8 +18,12 @@ SIGIS. C.A
         jQuery("#tabs-1").css("display","block");
         jQuery("#tabs").tabs();     
         parent.jQuery("#title_content").html("<?php echo $title;?>");
-       
-    });
+      });
+    
+    function generarReporte(id_tip_mic_pac){
+        var url = "<?php echo $this->Html->url("/MedicoReportesEnfermedadesMicologicasPacientes/reporte");?>/"+id_tip_mic_pac;
+        parent.util.openWindow("prueba","<?php echo __("Reporte de Enfermedades micológicas",true)?>",url,0,0,400,380); 
+    }
 </script>
 
 <div id="tabs-1" style="display: none;">    		
@@ -81,7 +85,7 @@ SIGIS. C.A
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ced_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->nom_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->vtemp->nom_tip_mic; ?></td>
+                                                        <td class="standar_font" align="center" onclick="generarReporte('<?php echo $row->vtemp->id_tip_mic_pac;?>');"><?php echo $row->vtemp->nom_tip_mic; ?></td>
                                                     </tr>
                     								<?php								
             									}
@@ -108,9 +112,12 @@ SIGIS. C.A
             							<?php 
             							}
             							?>
+                            <tr><td height="10px"></td></tr>  
                             <tr>
                                 <td colspan="5" align="center">                                    
-                                   <?php echo $paginator->numbers();?>
+                                    <span class="pag_first"><?php echo $paginator->first();?></span>
+                                    <span class="pag_numbers"><?php echo $paginator->numbers();?></span>
+                                    <span class="pag_last"><?php echo $paginator->last();?></span>
                                 </td>
                             </tr>
             	

@@ -33,7 +33,7 @@ echo $this->element("dialog",Array("T_V_TYPE" => 1));
     <ul>
         <li>
             <a href="#tabs-1" style="width: 680px;">
-                <?php echo __("Modificar", true) ?>
+                <?php echo __("Datos del historial", true) ?>
             </a>
         </li>            
     </ul>

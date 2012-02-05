@@ -57,7 +57,7 @@
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
-                    <?php echo __("Agregar Paciente",true)?>
+                    <?php echo __("Datos del Paciente",true)?>
                 </a>
             </li>            
         </ul>
@@ -68,19 +68,19 @@
             <table style="width:540px;margin-top: 20px;" border="0" align="center" bgcolor="" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="184" class="font-standar" valign="top">
-                        <label for="txt_nom_pac"  class="standar_font"><?php echo __( "Nombre",true)?></label>
+                        <label for="txt_nom_pac"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __( "Nombre",true)?></label>
                     </td>
                     <td width="9" class="font-standar">
                         &nbsp;
                     </td>
                     <td width="189" class="font-standar" valign="top">
-                        <label for="txt_ape_pac" class="standar_font"><?php echo __( "Apellido",true)?></label>
+                        <label for="txt_ape_pac" class="standar_font"><span class="standar_asterisco">* </span><?php echo __( "Apellido",true)?></label>
                     </td>
                     <td width="8" class="font-standar" valign="top">
                         &nbsp;
                     </td>
                     <td width="150" class="font-standar" valign="top">
-                        <label for="txt_ced_pac"  class="standar_font"><?php __("Cédula");?></label>                        
+                        <label for="txt_ced_pac"  class="standar_font"><span class="standar_asterisco">* </span><?php __("Cédula");?></label>                        
                     </td>
                 </tr>
                 <tr>
@@ -102,19 +102,19 @@
                 </tr>
                 <tr>
                     <td class="font-standar"valign="top">                                
-                        <?php echo __("Fecha de Nacimiento",true)?>                                
+                        <span class="standar_asterisco">* </span><?php echo __("Fecha de Nacimiento",true)?>                                
                     </td>
                     <td>
                         &nbsp;
                     </td>
                     <td class="font-standar" valign="top">                                
-                        <?php echo __("Sexo")?>
+                        <span class="standar_asterisco">* </span><?php echo __("Sexo")?>
                     </td>                            
                     <td>
                         &nbsp;
                     </td>
                      <td class="font-standar" valign="top">                                
-                        <?php echo __("Nacionalidad")?>
+                        <span class="standar_asterisco">* </span><?php echo __("Nacionalidad")?>
                     </td>                            
                     <td>
                         &nbsp;
@@ -150,19 +150,19 @@
                 </tr>
                  <tr>
                     <td class="font-standar" valign="top">
-                        <?php echo __("Ocupación")?>                                
+                        <span class="standar_asterisco">* </span><?php echo __("Ocupación")?>                                
                     </td>
                      <td>
                         &nbsp;
                     </td>
                     <td class="font-standar" valign="top" >                                
-                        <label for="txt_tel_pac" class="standar_font"><?php echo __("Teléfono",true)?></label>                       
+                        <span class="standar_asterisco">* </span><label for="txt_tel_pac" class="standar_font"><?php echo __("Teléfono",true)?></label>                       
                     </td>
                     <td>
                         &nbsp;
                     </td>
                      <td class="font-standar" valign="top">                                
-                        <label for="txt_cel_pac" class="standar_font"><?php echo __("Celular")?></label>
+                        <span class="standar_asterisco">* </span><label for="txt_cel_pac" class="standar_font"><?php echo __("Celular")?></label>
                     </td>                            
                     <td>
                         &nbsp;
@@ -215,19 +215,19 @@
                 </tr>
                 <tr>
                     <td class="font-standar" valign="top">
-                        <?php echo __("Ciudad de Residencia")?>                                
+                        <span class="standar_asterisco">* </span><?php echo __("Ciudad de Residencia")?>                                
                     </td>
                      <td>
                         &nbsp;
                     </td>
                     <td  class="font-standar" valign="top">
-                        <?php echo __("Estado")?>
+                        <span class="standar_asterisco">* </span><?php echo __("Estado")?>
                     </td>
                     <td>
                         &nbsp;
                     </td>
                     <td  class="font-standar" valign="top">
-                        <?php echo __("Municipio")?>
+                        <span class="standar_asterisco">* </span><?php echo __("Municipio")?>
                     </td>
                     <td>
                         &nbsp;
@@ -270,13 +270,24 @@
                     </td>
                 </tr>
                 <tr>
+                    <td height="5px;"></td>
+                </tr>
+                <tr>
+					<td colspan="4" align="left" class="font-standar" style="font-size:10px">
+						<span class="standar_asterisco">* </span><?php print __('Nota', true).':'.__('Los campos con asteriscos son obligatorios', true); ?>
+					</td>
+				</tr>
+                <tr>
+                    <td height="5px;"></td>
+                </tr>
+                <tr>
                     <td class="font-standar" colspan="5">
                         <?php __("Antecedentes personales") ?>                        
                     </td>                    
                 </tr>
                 <tr>
                     <td colspan="5">
-                         <div class="standar_margin lista_standar" style="overflow-y: auto; height: 140px;">
+                         <div class="standar_margin lista_standar" style="overflow-y: auto; height: 120px;">
                             <ol class="standar_list">
                                 <?php foreach($ante_pers as $row): ?>
                                     <li>                                     
@@ -289,6 +300,7 @@
             </table>
             </div>                      
             <table style="width: 100%;" border="0">
+                <tr><td height="15px"></td></tr>  
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">
                         <input type="submit" name="btn_aceptar" value="Aceptar">

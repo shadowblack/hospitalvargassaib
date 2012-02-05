@@ -61,7 +61,8 @@
     </tr>    
     <tr>
          <td style="height: 35px;">
-            <!--Botones Superiores-->        
+            <!--Botones Superiores--> 
+                   
             <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: -30px;">
                 <tr>        
                     <td align="right">                                        
@@ -69,42 +70,38 @@
                             <div class="dock-container">
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/registrar");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/registrar.png" alt="Registrar" />
-                                        <!-- span style="padding-left: 15px;"-->
-                                            <!--?php print __('Configurar', true); ?-->
-                                        <!--/span-->
                                 </a>                                
                                 
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/reporte");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/reporte.png" alt="Reporte" />
-                                        <!-- span style="padding-left: 40px;"-->
-                                            <!--?php print __('Reporte', true); ?-->
-                                        <!--/span-->
                                 </a>
                                  
                                 <a class="dock-item" href="<?php echo $this->Html->url("/MedicoMenu/estadistica");?>" target="men_izq_reg">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/estadistica.png" alt="Estadistica" />
-                                        <!-- span style="padding-left: 60px;"-->
-                                            <!--?php print __('Estadisticas', true); ?-->
-                                        <!--/span-->
                                 </a>
                                  
                                 <a class="dock-item" target="_BLANK" href="<?php echo $this->webroot?>/manual.pdf">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/ayuda.png" alt="Ayuda" />
-                                        <!-- span style="padding-left: 80px;">
-                                            Ayuda
-                                        </span-->
                                 </a>
                                  
                                 <a class="dock-item" href="<?php echo $this->Html->url("/Medico/salir");?>">
                                     <img src="<?php echo $this->webroot?>/js/men_mac/images/salir.png" alt="Salir" />
-                                        <!-- span style="padding-left: 100px;">
-                                            Salir
-                                        </span-->
                                 </a>   
                             </div>
-                        </div>                                                
+                        </div>
+                                                                      
                     </td>
+                    
                 </tr>
+            </table>
+            <table  width="40%" border="0" align="right">
+                 <tr>        
+                    <td align="center"> 
+                        <div class="standar_font">
+                            <span style="font-weight: bold;"><?php echo __("Operador", true)?>: </span><?php echo $nomb_usu;?>
+                        </div>
+                    </td>
+                 </tr> 
             </table>
             <!--Fin de los Botones Superiores-->                                    
         </td>
