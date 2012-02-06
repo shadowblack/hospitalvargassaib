@@ -37,7 +37,7 @@
     echo $this->element("dialog",Array("T_V_TYPE" => 1));
 ?>
 
-<div id="tabs-1" style="display: none;">    		
+<div id="tabs-1" style="display: none;" >    		
     <div id="tabs">
         <ul>
             <li>
@@ -255,7 +255,12 @@
                         </td>
                     </tr>
                     <tr>
-						<td colspan="4" align="left" class="font-standar" style="font-size:10px">
+                        <td width="184" class="font-standar" valign="top">
+                            <label for="txt_ord_por"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __( "Ordenado por",true)?></label><br />
+                            <input type="text" name="txt_ord_por" value="" class="text required" minlength="3" maxlength="100">
+                        </td>
+                       
+                        <td colspan="4" align="left" class="font-standar" style="font-size:10px">
 							<span class="standar_asterisco">* </span><?php print __('Nota', true).':'.__('Los campos con asteriscos son obligatorios', true); ?>
 						</td>
 					</tr>
@@ -269,7 +274,7 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                             <div class="standar_margin lista_standar" style="overflow-y: auto; height: 120px;">
+                             <div class="standar_margin lista_standar" style="overflow-y: auto; height: 100px;">
                                 <ol class="standar_list">
                                     <?php foreach($ante_pers as $row): ?>
                                         <li><input name="chk_ant_per_<?php echo $row->AntecedentesPersonale->id_ant_per?>" class="standar_input_checkbox" type="checkbox" value="<?php echo $row->AntecedentesPersonale->id_ant_per?>"><?php echo $row->AntecedentesPersonale->nom_ant_per?></li>
@@ -277,11 +282,10 @@
                                 </ol>
                             </div>
                         </td>
-                    </tr>
-                                                        
+                    </tr>                              
                 </table>
              </div>                
-             <table style="width: 100%; border="0" class="">
+             <table style="width: 100%; border="0">
                 <tr><td height="15px"></td></tr>  
                 <tr>
                     <td  align="right" style="height: 0" valign="bottom">

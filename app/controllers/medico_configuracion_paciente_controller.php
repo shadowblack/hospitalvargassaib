@@ -203,7 +203,8 @@
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $sex_pac        = $_POST["sel_sex_pac"];
             $id_doc         = $this->Session->read("medico.id_usu");          
-            $tra_usu        = "RP";                                
+            $tra_usu        = "RP";
+            $ord_por        = $_POST["txt_ord_por"];                        
             $sql = "SELECT med_registrar_paciente(ARRAY[
                 '$nom_pac', 
                 '$ape_pac', 
@@ -220,7 +221,8 @@
                 '$hdd_chk_ant_per',
                 '$id_doc',
                 '$tra_usu',
-                '$sex_pac'
+                '$sex_pac',
+                '$ord_por'
             ]) AS result";
            // print $sql;
             $arr_query = ($this->Doctore->query($sql));
@@ -265,7 +267,8 @@
             $sex_pac        = $_POST["sel_sex_pac"];
             $hdd_chk_ant_per= $_POST["hdd_chk_ant_per"];
             $id_doc         = $this->Session->read("medico.id_usu"); 
-            $tra_usu        = "MP";                      
+            $tra_usu        = "MP";
+            $ord_por        = $_POST["txt_ord_por"];                      
                                             
             $sql = "SELECT med_modificar_paciente(ARRAY[
                 '$id_pac',
@@ -284,7 +287,8 @@
                 '$hdd_chk_ant_per',
                 '$id_doc',
                 '$tra_usu',
-                '$sex_pac'
+                '$sex_pac',
+                '$ord_por'
             ]) AS result";
             
             $arr_query = ($this->Doctore->query($sql));            

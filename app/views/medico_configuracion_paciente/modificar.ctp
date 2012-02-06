@@ -273,7 +273,12 @@
                     <td height="5px;"></td>
                 </tr>
                 <tr>
-					<td colspan="4" align="left" class="font-standar" style="font-size:10px">
+                    <td width="184" class="font-standar" valign="top">
+                        <label for="txt_ord_por"  class="standar_font"><span class="standar_asterisco">* </span><?php echo __( "Ordenado por",true)?></label><br />
+                        <input type="text" name="txt_ord_por" class="text required" minlength="3" maxlength="100" value="<?php echo $result->ord_por;?>">
+                    </td>
+                   
+                    <td colspan="4" align="left" class="font-standar" style="font-size:10px">
 						<span class="standar_asterisco">* </span><?php print __('Nota', true).':'.__('Los campos con asteriscos son obligatorios', true); ?>
 					</td>
 				</tr>
@@ -287,7 +292,7 @@
                 </tr>
                 <tr>
                     <td colspan="5">
-                         <div class="standar_margin lista_standar" style="overflow-y: auto; height: 120px;">
+                         <div class="standar_margin lista_standar" style="overflow-y: auto; height: 100px;">
                             <ol class="standar_list">
                                 <?php foreach($ante_pers as $row): ?>
                                     <li>                                     
