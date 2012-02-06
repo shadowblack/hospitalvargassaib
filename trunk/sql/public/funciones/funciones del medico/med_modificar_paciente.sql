@@ -1,4 +1,8 @@
-﻿CREATE OR REPLACE FUNCTION med_modificar_paciente(character varying[])
+﻿-- Function: med_modificar_paciente(character varying[])
+
+-- DROP FUNCTION med_modificar_paciente(character varying[]);
+
+CREATE OR REPLACE FUNCTION med_modificar_paciente(character varying[])
   RETURNS smallint AS
 $BODY$
 DECLARE
@@ -20,6 +24,7 @@ DECLARE
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;
 	_sex_pac	pacientes.sex_pac%TYPE;
+	_ord_por	pacientes.ord_por%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
@@ -57,7 +62,7 @@ BEGIN
 	_id_doc		:= _datos[15];
 	_tra_usu	:= _datos[16];
 	_sex_pac	:= _datos[17];
-
+	_ord_por	:= _datos[18];
 	-- centros de salud pacientes
 	
 	
@@ -65,7 +70,7 @@ BEGIN
 	IF EXISTS (SELECT 1 FROM pacientes WHERE id_pac = _id_pac::integer) THEN  
 
 		/*Busco el registro anterior del paciente*/
-		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun,sex_pac, 
+		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun,sex_pac,ord_por, 
 			CASE 
 				WHEN nac_pac = '1' THEN 'Venezolano' ELSE 'Extranjero' 
 			END AS nac_pac,
@@ -104,8 +109,8 @@ BEGIN
 			id_pai 		= _id_pai,		
 			id_est 		= _id_est,		
 			id_mun 		= _id_mun,
-			sex_pac		= _sex_pac			
-
+			sex_pac		= _sex_pac,			
+			ord_por		= _ord_por
 			WHERE id_pac = _id_pac
 		;
 
@@ -141,7 +146,8 @@ BEGIN
 				formato_campo_xml('Apellido', 		coalesce(_ape_pac::text, 'ninguno'), 		coalesce(_reg_pac.ape_pac::text, 'ninguno'))||
 				formato_campo_xml('Cédula', 		coalesce(_ced_pac::text, 'ninguno'), 		coalesce(_reg_pac.ced_pac::text, 'ninguno'))||  
 				formato_campo_xml('Fecha Nacimiento', 	coalesce(_fec_nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.fec_nac_pac::text, 'ninguno'))||  
-				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		coalesce(_reg_pac.sex_pac::text, 'ninguno'))||  
+				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		coalesce(_reg_pac.sex_pac::text, 'ninguno'))|| 
+				formato_campo_xml('Ordenado por',	coalesce(_ord_por::text, 'ninguno'), 		coalesce(_reg_pac.ord_por::text, 'ninguno'))|| 
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_act.nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.nac_pac::text, 'ninguno'))||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_hab_pac::text, 'ninguno'))||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_cel_pac::text, 'ninguno'))|| 
@@ -227,7 +233,9 @@ BEGIN
 	END IF;
 
 END;$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION med_modificar_paciente(character varying[]) OWNER TO desarrollo_g;
 COMMENT ON FUNCTION med_modificar_paciente(character varying[]) IS '
 NOMBRE: med_modificar_paciente
 TIPO: Function (store procedure)
@@ -250,6 +258,7 @@ PARAMETROS: Recibe 12 Parámetros
 	15: Id del doctor quien realizo la transacción
 	16: Código de la transaccion
 	17: Sexo del paciente
+	18: Ordenado por
 
 DESCRIPCION: 
 	Modifica la información de los pacientes
@@ -276,7 +285,8 @@ EJEMPLO DE LLAMADA:
                 ''2,3,4,5,8'',
                 ''32'',
                 ''MP'',
-                ''F''
+                ''F'',
+                ''pepito''
             ]) AS result;
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -287,6 +297,6 @@ FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 24/10/2011
-DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
+FECHA DE MODIFICACIÓN: 05/02/2012
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac y el campo ord_por.
 ';

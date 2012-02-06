@@ -23,7 +23,9 @@ DECLARE
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;	
 	_sex_pac	pacientes.sex_pac%TYPE;
+	_ord_por	pacientes.ord_por%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
+	
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
 	_valorcampos 	VARCHAR := '';
@@ -59,6 +61,7 @@ BEGIN
 	_id_doc		:= _datos[14];
 	_tra_usu	:= _datos[15];
 	_sex_pac	:= _datos[16];
+	_ord_por	:= _datos[17];
 
 	-- centros de salud pacientes
 	
@@ -83,7 +86,8 @@ BEGIN
 			id_mun,
 			num_pac,
 			id_doc,
-			sex_pac		
+			sex_pac,
+			ord_por	
 		)
 		VALUES 
 		(
@@ -101,7 +105,8 @@ BEGIN
 			_id_mun,
 			((SELECT COUNT(id_pac) FROM pacientes )::INTEGER)+1,
 			_id_doc,
-			_sex_pac
+			_sex_pac,
+			_ord_por
 		);
 
 		/*Busco el registro anterior del paciente*/
@@ -140,6 +145,7 @@ BEGIN
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_pac.nac_pac::text, 'ninguno'), 	'ninguno')||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	'ninguno')|| 
+				formato_campo_xml('Ordenado por', 	coalesce(_ord_por::text, 'ninguno'), 		'ninguno')|| 
 				formato_campo_xml('Ocupación', 		coalesce(_reg_pac.ocu_pac::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('País', 		coalesce(_reg_pac.des_pai::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('Estado', 		coalesce(_reg_pac.des_est::text, 'ninguno'), 	'ninguno')||
@@ -237,7 +243,7 @@ PARAMETROS: Recibe 12 Parámetros
 	14: Id del doctor quien realizo la transacción
 	15: Código de la transaccion
 	16: Sexo del paciente
-	
+	17: Ordenado por 
 
 DESCRIPCION: 
 	Almacena la información de los pacientes
@@ -262,8 +268,9 @@ EJEMPLO DE LLAMADA:
                 ''193'',
                 ''2,3,4,8'',
                 ''32'',
-                ''RP''
-                ''F''
+                ''RP'',
+                ''F'',
+                ''Pepe perez''
             ]) AS result
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -274,6 +281,6 @@ FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 24/10/2011
-DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
+FECHA DE MODIFICACIÓN: 05/02/2012
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac y el campo ord_por.
 ';
