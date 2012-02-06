@@ -20,7 +20,14 @@
             
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_modificar") ?>/"+id_tip_mic_pac,function(){                 
                     <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_", "#pacientes") ?>;
-                    <?php echo $this->Otros->Script()?>                             
+                    <?php echo $this->Otros->Script()?>
+                    
+                    /*Permite marcar el campo de las observa*/  
+                    jQuery("input[name^='positivo__']").click(function(){                        
+                        var _arr        = jQuery(this).attr("name").split("__");                                               
+                        var _observacion= jQuery(this).val() == 1;
+                        jQuery("#observaciones__"+_arr[1]).css("display",(_observacion ? "block":"none"));                      
+                    });                         
             });    
             
             jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_modificar") ?>/"+id_tip_mic_pac,function(){                 
@@ -49,7 +56,7 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
         jQuery(function() {
                         
             jQuery("#tabs").css("display","block");
-            jQuery( "#tabs" ).tabs();            
+            jQuery( "#tabs" ).tabs();                                    
            
             jQuery("#pacientes").validate({                
                 submitHandler: function(form) {
@@ -94,8 +101,8 @@ $this->Html->url("event_lesiones_modificar") ?>/"+jQuery("[name='hdd_tipos_micos
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
-                    });
-                    jQuery("#hdd_str_pos").val(_arr_ele.join("~@~"));
+                    });                    
+                    jQuery("#hdd_str_pos").val(_arr_ele.join("~@~"));                                        
                     
                     <?php echo $this->Event->Update($this->Html->url("event_modificar"),
 "form", "back") ?>                   

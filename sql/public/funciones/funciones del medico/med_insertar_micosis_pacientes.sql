@@ -236,7 +236,7 @@ BEGIN
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_arr_4 := STRING_TO_ARRAY(_arr_3[i],'~@@~');
-			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer);
+			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est, obs_exa_pac) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer, _arr_4[3]);
 		END LOOP;
 	END IF;		
 

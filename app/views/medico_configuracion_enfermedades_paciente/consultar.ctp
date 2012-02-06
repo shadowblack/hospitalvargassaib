@@ -106,8 +106,13 @@
                             ?>
                             <tr>                               
                                 <td class="standar_font_sub lista_fondo" >
-                                    <?php __("Estudios para (".$row->nom_tip_exa.")")?>
+                                    <?php __("Estudios para (".$row->nom_tip_exa.")")?> <?php __("Positivo")?>: <?php echo ($row->exa_pac_est == 0 ? __("Si") : ($row->exa_pac_est == 1 ? __("No") : "N/A"))?>
                                 </td>                   
+                            </tr>
+                            <tr style="<?php echo($row->exa_pac_est == 1 ? "display:block" : "display:none")?>">
+                                <td style="background-color: white; width:540px">
+                                    <?php echo __("Descripción")?>: <?php echo $row->obs_exa_pac?>
+                                </td>
                             </tr>   
                     <?php } ?> 
                                            

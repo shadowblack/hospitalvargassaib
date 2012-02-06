@@ -30,7 +30,7 @@
                 </tr> 
                 <tr>
                     <td colspan="2">
-                        <input type="text" style="width: 99%;" id="observaciones__<?php echo $row->id_tip_exa?>" name="observaciones__<?php echo $row->id_tip_exa?>" value="<?php echo $row->obs_exa_pac?>"/>
+                        <input maxlength="200" type="text" style="width: 99%; <?php echo ($row->exa_pac_est == 1 ? "display:block'" : "display:none") ?>;" id="observaciones__<?php echo $row->id_tip_exa?>" value="<?php echo $row->obs_exa_pac?>"/>
                     </td>
                 </tr> 
                 <?php

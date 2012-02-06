@@ -19,6 +19,13 @@
             jQuery("#tabs-3").load("<?php echo $this->Html->url("event_estudios_micologicos_registrar")?>/"+id_tip_mic, function(){
                 <?php echo $this->Checkbox->Multiple("chk_tip_est_mic_","#pacientes",true)?>
                 <?php echo $this->Otros->Script()?>
+                
+                /*Permite marcar el campo de las observa*/  
+                jQuery("input[name^='positivo__']").click(function(){                        
+                    var _arr        = jQuery(this).attr("name").split("__");                                               
+                    var _observacion= jQuery(this).val() == 1;
+                    jQuery("#observaciones__"+_arr[1]).css("display",(_observacion ? "block":"none"));                      
+                }); 
             }); 
             jQuery("#tabs-4").load("<?php echo $this->Html->url("event_forma_infeccion_registrar")?>/"+id_tip_mic, function(){
                 <?php echo $this->Checkbox->Multiple("chk_for_inf_","#pacientes",true)?>
@@ -95,7 +102,7 @@
                         if (jQuery(this).val() != ""){
                             _str = jQuery(this).attr("name");                            
                             var _arr = _str.split("__");
-                            _str = _arr[1]+ "~@@~" +jQuery(this).val();
+                            _str = _arr[1]+ "~@@~" +jQuery(this).val() + "~@@~" + jQuery("#observaciones__"+_arr[1]).val();
                             _arr_ele[_i] = _str;                                                        
                             _i++;
                         }
