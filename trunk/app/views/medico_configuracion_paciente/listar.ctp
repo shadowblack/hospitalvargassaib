@@ -86,7 +86,9 @@
                                                 <input type="text" id="ape_pac" name="ape_pac">
                                             </td>
                                             <td align="left">
+                                             <?php if ($crear):?>  
                                                 <input type="button" id="btn_crear" name="btn_crear" value="<?php echo __("Crear",true)?>" title="<?php echo __("Crear Paciente",true)?>">
+                                             <?php endif;?>
                                             </td>                                        
                                         </tr>    
                                         <tr>

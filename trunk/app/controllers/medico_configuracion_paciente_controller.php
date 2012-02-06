@@ -19,12 +19,14 @@
             //$this->cacheAction = array('recalled/' => 86400);
             
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            $crear = $this->Login->isPermittedBoolean("RP",$this->Session->read("medico.str_trans"));
             //$this->cacheAction = true;  
             //echo Router::url($this->here,false)  ;             
             $title =  __("Configurar Pacientes",true);            
             $data = Array(                
                 "title"     => $title,
-                "history"   =>  $this->History->GetHistory("a",true)              
+                "history"   =>  $this->History->GetHistory("a",true),
+                "crear"     =>  $crear              
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);
@@ -36,8 +38,9 @@
         */
         function event_listar(){           
             //$this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");  
-                      
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");                                                  
+            $editar     = $this->Login->isPermittedBoolean("MP",$this->Session->read("medico.str_trans"));
+            $eliminar   = $this->Login->isPermittedBoolean("EP",$this->Session->read("medico.str_trans"));                      
             
             $nombre     = $_POST["nom_pac"];
             $apellido   = $_POST["ape_pac"];
@@ -63,7 +66,9 @@
             
             
             $data = Array(                
-                "results" =>$this->SqlData->CakeArrayToObjects($this->paginate("Paciente"))
+                "results"   =>$this->SqlData->CakeArrayToObjects($this->paginate("Paciente")),
+                "editar"    =>$editar,
+                "eliminar"  =>$eliminar                                              
             );  
             
             
@@ -74,7 +79,9 @@
    
         function registrar(){
             //$this->Login->no_cache();
-            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe"); 
+            $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
+            
+            $this->Login->isPermitted("MP",$this->Session->read("medico.str_trans"));             
                                                                                                                
             $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
             $arr_query = ($this->Doctore->query($sql,"hola"));

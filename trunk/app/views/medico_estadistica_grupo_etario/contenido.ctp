@@ -20,13 +20,14 @@ SIGIS. C.A
         
         jQuery.post("resumen",{fil_fec: "<?php print $where_fec;?>",fil_gru: "<?php print $where_gru;?>"},function(data){
             jQuery("#div_resumen_gru_eta").html(data);
+            jQuery("#num_pac").html(jQuery("#scantidad").val());
         },"html");
     });
 </script>
 <table style="width:100%" align="center">
     <tr>
         <td class="standar_font" align="center">
-            <?php __("A continuación se observa una distribución de pacientes registrados por edad durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
+            <?php __("A continuación se observa una distribución de <font style='color:red' id='num_pac'></font> pacientes registrados por edad durante la fecha");echo" <font style='color:blue'>$fec_ini</font> y <font style='color:red'>$fec_fin</font>"?>
         </td>
     </tr>
 </table>

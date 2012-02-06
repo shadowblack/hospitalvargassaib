@@ -30,13 +30,16 @@ SIGIS. C.A
 					<td valign="top" >
 						<div class="div_reportes" style="overflow: auto; height: 50px;">
 							<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
-								<tr class="celdas_gris_reporte" align="center">
+								<tr class="celdas_gris_reporte" align="center">                                    
+                                     <td align="left" class="standar_font lista_fondo">
+                                        <?php print __('Género',true);?>
+                                    </td>
                                     <td align="center" class="standar_font lista_fondo">
                                         <?php print __('Cantidad',true);?>
                                     </td>
-                                     <td align="center" class="standar_font lista_fondo">
-                                        <?php print __('Género',true);?>
-                                    </td>
+                                    <td align="center" class="standar_font lista_fondo">
+                                        <?php print __('%',true);?>
+                                    </td>                                    
 								</tr>
 								<?php
 								if (count($genero) > 0)
@@ -45,9 +48,10 @@ SIGIS. C.A
 									{		
 									    $porcentaje = round(($row->cantidad * 100 / $row->total_pac),'2');
         								?>
-        								<tr class="celda_blanco_text_azul" >
-                                            <td class="standar_font" align="center"><?php echo $porcentaje.' %'; ?></td>
-                                            <td class="standar_font" align="center"><?php echo $row->genero;?></td>
+        								<tr class="celda_blanco_text_azul" >                                            
+                                            <td class="standar_font" align="left"><?php echo $row->genero;?></td>
+                                            <td class="standar_font" align="center"><?php echo $row->cantidad;?></td>
+                                            <td class="standar_font" align="center"><?php echo $porcentaje.''; ?><input type="hidden" id="scantidad" value="<?php echo $row->total_pac;?>"></td>
         				  			    </tr>
         								<?php								
 									}
