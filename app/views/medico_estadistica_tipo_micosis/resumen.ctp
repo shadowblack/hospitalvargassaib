@@ -32,7 +32,7 @@ SIGIS. C.A
                                         <?php print __('Tipo de Micosis',true);?>
                                     </td>
                                     <td align="center" class="standar_font lista_fondo">
-                                        <?php print __('Número',true);?>
+                                        <?php print __('Cantidad de casos',true);?>
                                     </td>  
                                     <td align="center" class="standar_font lista_fondo">
                                         <?php print __('%',true);?>
