@@ -17,7 +17,7 @@
         function busqueda(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $title = __("Búsqueda por Género",true);
+            $title = __("Buscar Género",true);
            
             $data = Array(
                "title" => $title

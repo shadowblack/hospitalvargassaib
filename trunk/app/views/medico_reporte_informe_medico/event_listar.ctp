@@ -80,14 +80,23 @@ SIGIS. C.A
                     								?>
                     								<tr class="celda_blanco_text_azul" >
                                                         <td class="standar_font" align="center"><?php echo $paginator->NumRowPre(); ?></td>
-                                                        <td class="standar_font" align="center" onclick="generarInforme('<?php echo $row->vtemp->id_tip_mic_pac;?>');">
-                                                            <span class="link"><?php echo $this->FormatString->NumbersZero($row->vtemp->num_his,6); ?></span>
-                                                        </td>
+                                                        <td class="standar_font" align="center"><?php echo $this->FormatString->NumbersZero($row->vtemp->num_his,6); ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->vtemp->fec_his;?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ced_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->nom_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
-                                                        <td class="standar_font" align="center"><?php echo $row->vtemp->nom_tip_mic; ?></td>
+                                                        <td class="standar_font" align="center" onclick="generarInforme('<?php echo $row->vtemp->id_tip_mic_pac;?>');">
+                                                            <div class="listar_reporte">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a>
+                                                                            <?php echo $row->vtemp->nom_tip_mic; ?>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            
+                                                        </td>
                                                     </tr>
                     								<?php								
             									}

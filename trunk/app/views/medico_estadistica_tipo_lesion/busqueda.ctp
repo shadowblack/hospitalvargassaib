@@ -121,7 +121,7 @@ FECHA DE CREACIÓN: 30/10/2011
                 					<tr><td height="20px"></td></tr>
                 					<tr>                                    
                                         <td align="right" class="font-standar" valign="top" style="margin-right: 5px;width: 230px;" >
-                							<?php print __('Tipo de Micosis', true); ?>:
+                							<span class="standar_asterisco">* </span><?php print __('Tipo de Micosis', true); ?>:
                                         </td>
                                         <td valign="top">
                                             <select id="sel_tip_mic" name="sel_tip_mic" class="required" style="width: 120px;">
@@ -132,7 +132,7 @@ FECHA DE CREACIÓN: 30/10/2011
                                             </select>
                                         </td>                                 
                                         <td align="right" class="font-standar" valign="top" style="margin-right: 5px;" >
-                							*<?php print __('Enfermedades Micológicas', true); ?>:
+                						  <span class="standar_asterisco">* </span><?php print __('Enfermedades Micológicas', true); ?>:
                                             <input type="button" name="SelTodo" value="<?php print __('Sel. Todos', true);?>" onclick="trabajo_lista(document.frmBusqueda.sel_tip_les)" style="margin-left:30px;font-size:xx-small;"></div>
                 						</td>
                 						<td align="right" class="standar_margin lista_standar">
@@ -146,7 +146,7 @@ FECHA DE CREACIÓN: 30/10/2011
                 					</tr>
                 					<tr>
                 						<td colspan="4" align="center" class="font-standar" style="font-size:10px"> 
-                							**<?php print __('Nota', true); ?>: 
+                							<span class="standar_asterisco">** </span><?php print __('Nota', true); ?>: 
                                             <?php print __('Puede hacer selección múltiple en la lista mediante el uso de las teclas', true); ?> <i>Ctrl</i> <?php print __('o bien', true); ?> <i>Shift</i>.
                 						</td>
                 					</tr>
@@ -159,13 +159,13 @@ FECHA DE CREACIÓN: 30/10/2011
                                     <tr><td height="20px"></td></tr>
                        	            <tr>
     					          		<td align="right" class="font-standar">
-    						          		*<?php print __('Fecha Inicial', true); ?>:
+    						          		<span class="standar_asterisco">* </span><?php print __('Fecha Inicial', true); ?>:
                                         </td>
                                         <td class="font-standar"  valign="top">
                                             <input readonly="readonly" name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
                                         </td>
     									<td align="right" class="font-standar">
-    										*<?php print __('Fecha Final', true); ?>:
+    										<span class="standar_asterisco">* </span><?php print __('Fecha Final', true); ?>:
     									</td>
                                         <td class="font-standar"  valign="top">
     										<input readonly="readonly" name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
@@ -173,7 +173,7 @@ FECHA DE CREACIÓN: 30/10/2011
     								</tr>
                                     <tr>
     									<td colspan="4"   align="center" class="font-standar" style="font-size:10px">
-    										**<?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
+    										<span class="standar_asterisco">** </span><?php print __('Nota', true).':'.__('El formato de la fecha es (dd/mm/aaaa)', true); ?>
     									</td>
     								</tr>
                 					<tr><td height="20px"></td></tr>

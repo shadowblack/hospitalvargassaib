@@ -22,7 +22,7 @@
            	$arr_query = $this->Paciente->query($sql);
             $tipo_micosis = $this->SqlData->array_to_objects($arr_query);
             
-            $title = __("Búsqueda por Tipo de Micosis",true);
+            $title = __("Buscar Tipo de Micosis",true);
                         
             $data = Array(
                "tipo_micosis" => $tipo_micosis,
