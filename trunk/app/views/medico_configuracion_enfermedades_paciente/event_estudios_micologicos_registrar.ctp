@@ -27,7 +27,12 @@
                             </tr>
                         </table>
                     </td>                   
-                </tr>   
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input maxlength="200" type="text" style="width: 99%; display:none" id="observaciones__<?php echo $row->id_tip_exa?>" value=""/>
+                    </td>
+                </tr> 
                 <?php
             }           
         ?>     
