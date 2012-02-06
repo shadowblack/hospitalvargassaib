@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.0.3
 -- Dumped by pg_dump version 9.0.3
--- Started on 2012-02-05 04:12:23
+-- Started on 2012-02-05 09:15:51
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -13,31 +13,11 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET escape_string_warning = off;
 
---
--- TOC entry 6 (class 2615 OID 34851)
--- Name: saib_model; Type: SCHEMA; Schema: -; Owner: postgres
---
-
-CREATE SCHEMA saib_model;
-
-
-ALTER SCHEMA saib_model OWNER TO postgres;
-
---
--- TOC entry 484 (class 2612 OID 11574)
--- Name: plpgsql; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: postgres
---
-
-CREATE OR REPLACE PROCEDURAL LANGUAGE plpgsql;
-
-
-ALTER PROCEDURAL LANGUAGE plpgsql OWNER TO postgres;
-
 SET search_path = public, pg_catalog;
 
 --
 -- TOC entry 330 (class 1247 OID 34854)
--- Dependencies: 7 1676
+-- Dependencies: 7 1677
 -- Name: t_validar_usuarios; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -59,7 +39,7 @@ CREATE TYPE t_validar_usuarios AS (
 ALTER TYPE public.t_validar_usuarios OWNER TO postgres;
 
 --
--- TOC entry 2382 (class 0 OID 0)
+-- TOC entry 2379 (class 0 OID 0)
 -- Dependencies: 330
 -- Name: TYPE t_validar_usuarios; Type: COMMENT; Schema: public; Owner: postgres
 --
@@ -76,7 +56,7 @@ FECHA: 20/03/2011
 
 --
 -- TOC entry 19 (class 1255 OID 34855)
--- Dependencies: 7 484
+-- Dependencies: 7 485
 -- Name: adm_cambiar_contrasena_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -116,7 +96,7 @@ END;$_$;
 ALTER FUNCTION public.adm_cambiar_contrasena_admin(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2383 (class 0 OID 0)
+-- TOC entry 2380 (class 0 OID 0)
 -- Dependencies: 19
 -- Name: FUNCTION adm_cambiar_contrasena_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -155,7 +135,7 @@ FECHA DE CREACIÓN: 02/02/2012
 
 --
 -- TOC entry 20 (class 1255 OID 34856)
--- Dependencies: 7 484
+-- Dependencies: 485 7
 -- Name: adm_eliminar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -205,7 +185,7 @@ END;$_$;
 ALTER FUNCTION public.adm_eliminar_medico(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2384 (class 0 OID 0)
+-- TOC entry 2381 (class 0 OID 0)
 -- Dependencies: 20
 -- Name: FUNCTION adm_eliminar_medico(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -236,7 +216,7 @@ FECHA DE CREACIÓN: 10/05/2011
 
 --
 -- TOC entry 21 (class 1255 OID 34857)
--- Dependencies: 7 484
+-- Dependencies: 7 485
 -- Name: adm_eliminar_usuario_admin(character varying); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -280,7 +260,7 @@ END;$_$;
 ALTER FUNCTION public.adm_eliminar_usuario_admin(character varying) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2385 (class 0 OID 0)
+-- TOC entry 2382 (class 0 OID 0)
 -- Dependencies: 21
 -- Name: FUNCTION adm_eliminar_usuario_admin(character varying); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -314,7 +294,7 @@ DESCRIPCIÓN: Modificación de las estructuras de control
 
 --
 -- TOC entry 22 (class 1255 OID 34858)
--- Dependencies: 7 484
+-- Dependencies: 7 485
 -- Name: adm_modificar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -422,7 +402,7 @@ END;$_$;
 ALTER FUNCTION public.adm_modificar_medico(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2386 (class 0 OID 0)
+-- TOC entry 2383 (class 0 OID 0)
 -- Dependencies: 22
 -- Name: FUNCTION adm_modificar_medico(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -466,7 +446,7 @@ FECHA DE MODIFICACIÓN: 01/02/2012
 
 --
 -- TOC entry 23 (class 1255 OID 34859)
--- Dependencies: 7 484
+-- Dependencies: 7 485
 -- Name: adm_modificar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -628,7 +608,7 @@ END;$_$;
 ALTER FUNCTION public.adm_modificar_usuario_admin(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2387 (class 0 OID 0)
+-- TOC entry 2384 (class 0 OID 0)
 -- Dependencies: 23
 -- Name: FUNCTION adm_modificar_usuario_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -673,7 +653,7 @@ FECHA DE MODIFICACIÓN: 02/02/2012
 
 --
 -- TOC entry 24 (class 1255 OID 34861)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: adm_registrar_medico(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -793,7 +773,7 @@ END;$_$;
 ALTER FUNCTION public.adm_registrar_medico(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2388 (class 0 OID 0)
+-- TOC entry 2385 (class 0 OID 0)
 -- Dependencies: 24
 -- Name: FUNCTION adm_registrar_medico(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -834,7 +814,7 @@ FECHA DE MODIFICACIÓN: 24/06/2011
 
 --
 -- TOC entry 25 (class 1255 OID 34862)
--- Dependencies: 484 7
+-- Dependencies: 485 7
 -- Name: adm_registrar_usuario_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1034,7 +1014,7 @@ END;$_$;
 ALTER FUNCTION public.adm_registrar_usuario_admin(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2389 (class 0 OID 0)
+-- TOC entry 2386 (class 0 OID 0)
 -- Dependencies: 25
 -- Name: FUNCTION adm_registrar_usuario_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1074,7 +1054,7 @@ FECHA DE MODIFICACIÓN: 02/02/2012
 
 --
 -- TOC entry 26 (class 1255 OID 34864)
--- Dependencies: 484 7
+-- Dependencies: 485 7
 -- Name: adm_restablecer_contrasena_admin(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1161,7 +1141,7 @@ END;$_$;
 ALTER FUNCTION public.adm_restablecer_contrasena_admin(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2390 (class 0 OID 0)
+-- TOC entry 2387 (class 0 OID 0)
 -- Dependencies: 26
 -- Name: FUNCTION adm_restablecer_contrasena_admin(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1196,7 +1176,7 @@ FECHA DE CREACIÓN: 01/02/2012
 
 --
 -- TOC entry 27 (class 1255 OID 34865)
--- Dependencies: 7 484
+-- Dependencies: 7 485
 -- Name: adm_restablecer_contrasena_ope(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1283,7 +1263,7 @@ END;$_$;
 ALTER FUNCTION public.adm_restablecer_contrasena_ope(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2391 (class 0 OID 0)
+-- TOC entry 2388 (class 0 OID 0)
 -- Dependencies: 27
 -- Name: FUNCTION adm_restablecer_contrasena_ope(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1318,7 +1298,7 @@ FECHA DE CREACIÓN: 01/02/2012
 
 --
 -- TOC entry 28 (class 1255 OID 34866)
--- Dependencies: 7 484
+-- Dependencies: 485 7
 -- Name: formato_campo_xml(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1342,7 +1322,7 @@ END;$_$;
 ALTER FUNCTION public.formato_campo_xml(character varying, character varying, character varying) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2392 (class 0 OID 0)
+-- TOC entry 2389 (class 0 OID 0)
 -- Dependencies: 28
 -- Name: FUNCTION formato_campo_xml(character varying, character varying, character varying); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1371,8 +1351,8 @@ FECHA DE CREACIÓN: 08/08/2011
 
 
 --
--- TOC entry 36 (class 1255 OID 35670)
--- Dependencies: 7 484
+-- TOC entry 34 (class 1255 OID 35670)
+-- Dependencies: 485 7
 -- Name: med_cambiar_contrasena_ope(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1412,8 +1392,8 @@ END;$_$;
 ALTER FUNCTION public.med_cambiar_contrasena_ope(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2393 (class 0 OID 0)
--- Dependencies: 36
+-- TOC entry 2390 (class 0 OID 0)
+-- Dependencies: 34
 -- Name: FUNCTION med_cambiar_contrasena_ope(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -1451,7 +1431,7 @@ FECHA DE CREACIÓN: 04/02/2012
 
 --
 -- TOC entry 29 (class 1255 OID 34867)
--- Dependencies: 7 484
+-- Dependencies: 485 7
 -- Name: med_eliminar_historial(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1533,7 +1513,7 @@ END;$_$;
 ALTER FUNCTION public.med_eliminar_historial(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2394 (class 0 OID 0)
+-- TOC entry 2391 (class 0 OID 0)
 -- Dependencies: 29
 -- Name: FUNCTION med_eliminar_historial(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1569,7 +1549,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 30 (class 1255 OID 34868)
--- Dependencies: 484 7
+-- Dependencies: 485 7
 -- Name: med_eliminar_micosis_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1608,7 +1588,7 @@ END;$_$;
 ALTER FUNCTION public.med_eliminar_micosis_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2395 (class 0 OID 0)
+-- TOC entry 2392 (class 0 OID 0)
 -- Dependencies: 30
 -- Name: FUNCTION med_eliminar_micosis_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1641,7 +1621,7 @@ DESCRIPCIÓN: Eliminación de enfermedades del paciente.
 
 --
 -- TOC entry 31 (class 1255 OID 34869)
--- Dependencies: 7 484
+-- Dependencies: 485 7
 -- Name: med_eliminar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -1773,7 +1753,7 @@ END;$_$;
 ALTER FUNCTION public.med_eliminar_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2396 (class 0 OID 0)
+-- TOC entry 2393 (class 0 OID 0)
 -- Dependencies: 31
 -- Name: FUNCTION med_eliminar_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -1810,7 +1790,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 32 (class 1255 OID 34871)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_insertar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2048,7 +2028,7 @@ BEGIN
 	IF (ARRAY_UPPER(_arr_3,1) > 0)THEN
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
 			_arr_4 := STRING_TO_ARRAY(_arr_3[i],'~@@~');
-			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer);
+			INSERT INTO examenes_pacientes (id_tip_mic_pac,id_tip_exa, exa_pac_est, obs_exa_pac) VALUES (_id_tip_mic_pac,_arr_4[1]::integer,_arr_4[2]::integer, _arr_4[3]);
 		END LOOP;
 	END IF;		
 
@@ -2060,7 +2040,7 @@ END;$_$;
 ALTER FUNCTION public.med_insertar_micosis_pacientes(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2397 (class 0 OID 0)
+-- TOC entry 2394 (class 0 OID 0)
 -- Dependencies: 32
 -- Name: FUNCTION med_insertar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -2114,7 +2094,7 @@ DESCRIPCIÓN: Estableciendo campo otros para los estudios micológicos
 
 --
 -- TOC entry 33 (class 1255 OID 34872)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_modificar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2212,7 +2192,7 @@ END;$_$;
 ALTER FUNCTION public.med_modificar_hitorial_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2398 (class 0 OID 0)
+-- TOC entry 2395 (class 0 OID 0)
 -- Dependencies: 33
 -- Name: FUNCTION med_modificar_hitorial_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -2248,8 +2228,8 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 
 --
--- TOC entry 34 (class 1255 OID 34873)
--- Dependencies: 484 7
+-- TOC entry 36 (class 1255 OID 34873)
+-- Dependencies: 7 485
 -- Name: med_modificar_micosis_pacientes(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2356,9 +2336,13 @@ BEGIN
 		
 		
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
+		
 			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i] ,'(',''),')',''),'~@@~');
+			raise notice '%',_arr_str_data_otr;
 			IF (_arr_str_data_otr IS NOT NULL)THEN
+			
+			
 				<<mifor>>
 				FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
 					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],'~@@~');
@@ -2369,6 +2353,7 @@ BEGIN
 					END IF;
 				END LOOP mifor;
 			END IF;
+			
 			--coloca los comentarios de los otros en lesiones
 			IF _bol_otr THEN
 
@@ -2395,9 +2380,11 @@ BEGIN
 					_arr_2[1],
 					_arr_2[2]				
 				);
-			
+				
 			END IF;
+			
 		END LOOP;
+		
 	END IF;
 
 	-- estudios micologicos
@@ -2487,8 +2474,8 @@ END;$_$;
 ALTER FUNCTION public.med_modificar_micosis_pacientes(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2399 (class 0 OID 0)
--- Dependencies: 34
+-- TOC entry 2396 (class 0 OID 0)
+-- Dependencies: 36
 -- Name: FUNCTION med_modificar_micosis_pacientes(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -2539,7 +2526,7 @@ FECHA DE MODIFICACION: 29/12/2011
 
 --
 -- TOC entry 35 (class 1255 OID 34874)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_modificar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2565,6 +2552,7 @@ DECLARE
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;
 	_sex_pac	pacientes.sex_pac%TYPE;
+	_ord_por	pacientes.ord_por%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
@@ -2602,7 +2590,7 @@ BEGIN
 	_id_doc		:= _datos[15];
 	_tra_usu	:= _datos[16];
 	_sex_pac	:= _datos[17];
-
+	_ord_por	:= _datos[18];
 	-- centros de salud pacientes
 	
 	
@@ -2610,7 +2598,7 @@ BEGIN
 	IF EXISTS (SELECT 1 FROM pacientes WHERE id_pac = _id_pac::integer) THEN  
 
 		/*Busco el registro anterior del paciente*/
-		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun,sex_pac, 
+		SELECT 	id_pac,ape_pac,nom_pac,ced_pac,fec_nac_pac,tel_hab_pac,tel_cel_pac,ciu_pac,id_pai,id_est,id_mun,sex_pac,ord_por, 
 			CASE 
 				WHEN nac_pac = '1' THEN 'Venezolano' ELSE 'Extranjero' 
 			END AS nac_pac,
@@ -2649,8 +2637,8 @@ BEGIN
 			id_pai 		= _id_pai,		
 			id_est 		= _id_est,		
 			id_mun 		= _id_mun,
-			sex_pac		= _sex_pac			
-
+			sex_pac		= _sex_pac,			
+			ord_por		= _ord_por
 			WHERE id_pac = _id_pac
 		;
 
@@ -2686,7 +2674,8 @@ BEGIN
 				formato_campo_xml('Apellido', 		coalesce(_ape_pac::text, 'ninguno'), 		coalesce(_reg_pac.ape_pac::text, 'ninguno'))||
 				formato_campo_xml('Cédula', 		coalesce(_ced_pac::text, 'ninguno'), 		coalesce(_reg_pac.ced_pac::text, 'ninguno'))||  
 				formato_campo_xml('Fecha Nacimiento', 	coalesce(_fec_nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.fec_nac_pac::text, 'ninguno'))||  
-				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		coalesce(_reg_pac.sex_pac::text, 'ninguno'))||  
+				formato_campo_xml('Sexo', 		coalesce(_sex_pac::text, 'ninguno'), 		coalesce(_reg_pac.sex_pac::text, 'ninguno'))|| 
+				formato_campo_xml('Ordenado por',	coalesce(_ord_por::text, 'ninguno'), 		coalesce(_reg_pac.ord_por::text, 'ninguno'))|| 
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_act.nac_pac::text, 'ninguno'), 	coalesce(_reg_pac.nac_pac::text, 'ninguno'))||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_hab_pac::text, 'ninguno'))||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	coalesce(_reg_pac.tel_cel_pac::text, 'ninguno'))|| 
@@ -2777,7 +2766,7 @@ END;$_$;
 ALTER FUNCTION public.med_modificar_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2400 (class 0 OID 0)
+-- TOC entry 2397 (class 0 OID 0)
 -- Dependencies: 35
 -- Name: FUNCTION med_modificar_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -2804,6 +2793,7 @@ PARAMETROS: Recibe 12 Parámetros
 	15: Id del doctor quien realizo la transacción
 	16: Código de la transaccion
 	17: Sexo del paciente
+	18: Ordenado por
 
 DESCRIPCION: 
 	Modifica la información de los pacientes
@@ -2830,7 +2820,8 @@ EJEMPLO DE LLAMADA:
                 ''2,3,4,5,8'',
                 ''32'',
                 ''MP'',
-                ''F''
+                ''F'',
+                ''pepito''
             ]) AS result;
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -2841,14 +2832,14 @@ FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 24/10/2011
-DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
+FECHA DE MODIFICACIÓN: 05/02/2012
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac y el campo ord_por.
 ';
 
 
 --
 -- TOC entry 37 (class 1255 OID 34876)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_muestra_clinica_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -2987,7 +2978,7 @@ END;$_$;
 ALTER FUNCTION public.med_muestra_clinica_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2401 (class 0 OID 0)
+-- TOC entry 2398 (class 0 OID 0)
 -- Dependencies: 37
 -- Name: FUNCTION med_muestra_clinica_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -3029,7 +3020,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 38 (class 1255 OID 34877)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_registrar_hitorial_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3157,7 +3148,7 @@ END;$_$;
 ALTER FUNCTION public.med_registrar_hitorial_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2402 (class 0 OID 0)
+-- TOC entry 2399 (class 0 OID 0)
 -- Dependencies: 38
 -- Name: FUNCTION med_registrar_hitorial_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -3193,7 +3184,7 @@ DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de 
 
 --
 -- TOC entry 39 (class 1255 OID 34878)
--- Dependencies: 484 7
+-- Dependencies: 7 485
 -- Name: med_registrar_informacion_adicional(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3569,7 +3560,7 @@ END;$_$;
 ALTER FUNCTION public.med_registrar_informacion_adicional(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2403 (class 0 OID 0)
+-- TOC entry 2400 (class 0 OID 0)
 -- Dependencies: 39
 -- Name: FUNCTION med_registrar_informacion_adicional(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -3621,8 +3612,8 @@ DESCRIPCIÓN: Se agregó la opción de poder agregar otros animales.
 
 
 --
--- TOC entry 40 (class 1255 OID 34880)
--- Dependencies: 7 484
+-- TOC entry 41 (class 1255 OID 34880)
+-- Dependencies: 7 485
 -- Name: med_registrar_paciente(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3647,7 +3638,9 @@ DECLARE
 	_id_mun		pacientes.id_mun%TYPE;
 	_id_par		pacientes.id_par%TYPE;	
 	_sex_pac	pacientes.sex_pac%TYPE;
+	_ord_por	pacientes.ord_por%TYPE;
 	_tra_usu	transacciones.cod_tip_tra%TYPE;
+	
 	_str_ant_per	TEXT;
 	_arr_ant_per	INTEGER[];
 	_valorcampos 	VARCHAR := '';
@@ -3683,6 +3676,7 @@ BEGIN
 	_id_doc		:= _datos[14];
 	_tra_usu	:= _datos[15];
 	_sex_pac	:= _datos[16];
+	_ord_por	:= _datos[17];
 
 	-- centros de salud pacientes
 	
@@ -3707,7 +3701,8 @@ BEGIN
 			id_mun,
 			num_pac,
 			id_doc,
-			sex_pac		
+			sex_pac,
+			ord_por	
 		)
 		VALUES 
 		(
@@ -3725,7 +3720,8 @@ BEGIN
 			_id_mun,
 			((SELECT COUNT(id_pac) FROM pacientes )::INTEGER)+1,
 			_id_doc,
-			_sex_pac
+			_sex_pac,
+			_ord_por
 		);
 
 		/*Busco el registro anterior del paciente*/
@@ -3764,6 +3760,7 @@ BEGIN
 				formato_campo_xml('Nacionalidad', 	coalesce(_reg_pac.nac_pac::text, 'ninguno'), 	'ninguno')||  
 				formato_campo_xml('Teléfono Habitación',coalesce(_tel_hab_pac::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('Teléfono Célular', 	coalesce(_tel_cel_pac::text, 'ninguno'), 	'ninguno')|| 
+				formato_campo_xml('Ordenado por', 	coalesce(_ord_por::text, 'ninguno'), 		'ninguno')|| 
 				formato_campo_xml('Ocupación', 		coalesce(_reg_pac.ocu_pac::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('País', 		coalesce(_reg_pac.des_pai::text, 'ninguno'), 	'ninguno')||
 				formato_campo_xml('Estado', 		coalesce(_reg_pac.des_est::text, 'ninguno'), 	'ninguno')||
@@ -3842,8 +3839,8 @@ END;$_$;
 ALTER FUNCTION public.med_registrar_paciente(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2404 (class 0 OID 0)
--- Dependencies: 40
+-- TOC entry 2401 (class 0 OID 0)
+-- Dependencies: 41
 -- Name: FUNCTION med_registrar_paciente(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3868,7 +3865,7 @@ PARAMETROS: Recibe 12 Parámetros
 	14: Id del doctor quien realizo la transacción
 	15: Código de la transaccion
 	16: Sexo del paciente
-	
+	17: Ordenado por 
 
 DESCRIPCION: 
 	Almacena la información de los pacientes
@@ -3893,8 +3890,9 @@ EJEMPLO DE LLAMADA:
                 ''193'',
                 ''2,3,4,8'',
                 ''32'',
-                ''RP''
-                ''F''
+                ''RP'',
+                ''F'',
+                ''Pepe perez''
             ]) AS result
 
 AUTOR DE CREACIÓN: Luis Marin
@@ -3905,14 +3903,14 @@ FECHA DE MODIFICACIÓN: 16/08/2011
 DESCRIPCIÓN: Se agregó en la función el armado del xml para la inserción de la auditoría de las transacciones.
 
 AUTOR DE MODIFICACIÓN: Lisseth Lozada
-FECHA DE MODIFICACIÓN: 24/10/2011
-DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac.
+FECHA DE MODIFICACIÓN: 05/02/2012
+DESCRIPCIÓN: Se agregó en la función un nuevo campo sex_pac y el campo ord_por.
 ';
 
 
 --
--- TOC entry 41 (class 1255 OID 34882)
--- Dependencies: 484 7
+-- TOC entry 40 (class 1255 OID 34882)
+-- Dependencies: 485 7
 -- Name: reg_transacciones(character varying[]); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -3952,8 +3950,8 @@ $_$;
 ALTER FUNCTION public.reg_transacciones(character varying[]) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2405 (class 0 OID 0)
--- Dependencies: 41
+-- TOC entry 2402 (class 0 OID 0)
+-- Dependencies: 40
 -- Name: FUNCTION reg_transacciones(character varying[]); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -3983,7 +3981,7 @@ FECHA DE CREACIÓN: 05/06/2011
 
 --
 -- TOC entry 42 (class 1255 OID 34883)
--- Dependencies: 484 7 330
+-- Dependencies: 7 485 330
 -- Name: validar_usuarios(text, text, text); Type: FUNCTION; Schema: public; Owner: desarrollo_g
 --
 
@@ -4087,7 +4085,7 @@ $_$;
 ALTER FUNCTION public.validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text) OWNER TO desarrollo_g;
 
 --
--- TOC entry 2406 (class 0 OID 0)
+-- TOC entry 2403 (class 0 OID 0)
 -- Dependencies: 42
 -- Name: FUNCTION validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text); Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
@@ -4110,7 +4108,7 @@ SET default_tablespace = saib;
 SET default_with_oids = false;
 
 --
--- TOC entry 1677 (class 1259 OID 34884)
+-- TOC entry 1678 (class 1259 OID 34884)
 -- Dependencies: 7
 -- Name: animales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4124,8 +4122,8 @@ CREATE TABLE animales (
 ALTER TABLE public.animales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1678 (class 1259 OID 34887)
--- Dependencies: 1677 7
+-- TOC entry 1679 (class 1259 OID 34887)
+-- Dependencies: 7 1678
 -- Name: animales_id_ani_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4140,8 +4138,8 @@ CREATE SEQUENCE animales_id_ani_seq
 ALTER TABLE public.animales_id_ani_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2407 (class 0 OID 0)
--- Dependencies: 1678
+-- TOC entry 2404 (class 0 OID 0)
+-- Dependencies: 1679
 -- Name: animales_id_ani_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4149,8 +4147,8 @@ ALTER SEQUENCE animales_id_ani_seq OWNED BY animales.id_ani;
 
 
 --
--- TOC entry 2408 (class 0 OID 0)
--- Dependencies: 1678
+-- TOC entry 2405 (class 0 OID 0)
+-- Dependencies: 1679
 -- Name: animales_id_ani_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4158,7 +4156,7 @@ SELECT pg_catalog.setval('animales_id_ani_seq', 1, false);
 
 
 --
--- TOC entry 1679 (class 1259 OID 34889)
+-- TOC entry 1680 (class 1259 OID 34889)
 -- Dependencies: 7
 -- Name: antecedentes_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4173,8 +4171,8 @@ CREATE TABLE antecedentes_pacientes (
 ALTER TABLE public.antecedentes_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1680 (class 1259 OID 34892)
--- Dependencies: 1679 7
+-- TOC entry 1681 (class 1259 OID 34892)
+-- Dependencies: 1680 7
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4189,8 +4187,8 @@ CREATE SEQUENCE antecedentes_pacientes_id_ant_pac_seq
 ALTER TABLE public.antecedentes_pacientes_id_ant_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2409 (class 0 OID 0)
--- Dependencies: 1680
+-- TOC entry 2406 (class 0 OID 0)
+-- Dependencies: 1681
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4198,16 +4196,16 @@ ALTER SEQUENCE antecedentes_pacientes_id_ant_pac_seq OWNED BY antecedentes_pacie
 
 
 --
--- TOC entry 2410 (class 0 OID 0)
--- Dependencies: 1680
+-- TOC entry 2407 (class 0 OID 0)
+-- Dependencies: 1681
 -- Name: antecedentes_pacientes_id_ant_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 153, true);
+SELECT pg_catalog.setval('antecedentes_pacientes_id_ant_pac_seq', 167, true);
 
 
 --
--- TOC entry 1681 (class 1259 OID 34894)
+-- TOC entry 1682 (class 1259 OID 34894)
 -- Dependencies: 7
 -- Name: antecedentes_personales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4221,8 +4219,8 @@ CREATE TABLE antecedentes_personales (
 ALTER TABLE public.antecedentes_personales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1682 (class 1259 OID 34897)
--- Dependencies: 1681 7
+-- TOC entry 1683 (class 1259 OID 34897)
+-- Dependencies: 1682 7
 -- Name: antecedentes_personales_id_ant_per_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4237,8 +4235,8 @@ CREATE SEQUENCE antecedentes_personales_id_ant_per_seq
 ALTER TABLE public.antecedentes_personales_id_ant_per_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2411 (class 0 OID 0)
--- Dependencies: 1682
+-- TOC entry 2408 (class 0 OID 0)
+-- Dependencies: 1683
 -- Name: antecedentes_personales_id_ant_per_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4246,8 +4244,8 @@ ALTER SEQUENCE antecedentes_personales_id_ant_per_seq OWNED BY antecedentes_pers
 
 
 --
--- TOC entry 2412 (class 0 OID 0)
--- Dependencies: 1682
+-- TOC entry 2409 (class 0 OID 0)
+-- Dependencies: 1683
 -- Name: antecedentes_personales_id_ant_per_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4255,7 +4253,7 @@ SELECT pg_catalog.setval('antecedentes_personales_id_ant_per_seq', 1, false);
 
 
 --
--- TOC entry 1683 (class 1259 OID 34899)
+-- TOC entry 1684 (class 1259 OID 34899)
 -- Dependencies: 7
 -- Name: auditoria_transacciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4272,8 +4270,8 @@ CREATE TABLE auditoria_transacciones (
 ALTER TABLE public.auditoria_transacciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 2413 (class 0 OID 0)
--- Dependencies: 1683
+-- TOC entry 2410 (class 0 OID 0)
+-- Dependencies: 1684
 -- Name: TABLE auditoria_transacciones; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4281,8 +4279,8 @@ COMMENT ON TABLE auditoria_transacciones IS 'Se guarda todos los eventos generad
 
 
 --
--- TOC entry 2414 (class 0 OID 0)
--- Dependencies: 1683
+-- TOC entry 2411 (class 0 OID 0)
+-- Dependencies: 1684
 -- Name: COLUMN auditoria_transacciones.data_xml; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4290,8 +4288,8 @@ COMMENT ON COLUMN auditoria_transacciones.data_xml IS 'Se guarda las modificacio
 
 
 --
--- TOC entry 1684 (class 1259 OID 34905)
--- Dependencies: 1683 7
+-- TOC entry 1685 (class 1259 OID 34905)
+-- Dependencies: 1684 7
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4306,8 +4304,8 @@ CREATE SEQUENCE auditoria_transacciones_id_aud_tra_seq
 ALTER TABLE public.auditoria_transacciones_id_aud_tra_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2415 (class 0 OID 0)
--- Dependencies: 1684
+-- TOC entry 2412 (class 0 OID 0)
+-- Dependencies: 1685
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4315,16 +4313,16 @@ ALTER SEQUENCE auditoria_transacciones_id_aud_tra_seq OWNED BY auditoria_transac
 
 
 --
--- TOC entry 2416 (class 0 OID 0)
--- Dependencies: 1684
+-- TOC entry 2413 (class 0 OID 0)
+-- Dependencies: 1685
 -- Name: auditoria_transacciones_id_aud_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 256, true);
+SELECT pg_catalog.setval('auditoria_transacciones_id_aud_tra_seq', 267, true);
 
 
 --
--- TOC entry 1685 (class 1259 OID 34907)
+-- TOC entry 1686 (class 1259 OID 34907)
 -- Dependencies: 7
 -- Name: categorias__cuerpos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4339,8 +4337,8 @@ CREATE TABLE categorias__cuerpos_micosis (
 ALTER TABLE public.categorias__cuerpos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1686 (class 1259 OID 34910)
--- Dependencies: 7 1685
+-- TOC entry 1687 (class 1259 OID 34910)
+-- Dependencies: 1686 7
 -- Name: categorias__cuerpos_micosis_id_cat_cue_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4355,8 +4353,8 @@ CREATE SEQUENCE categorias__cuerpos_micosis_id_cat_cue_mic_seq
 ALTER TABLE public.categorias__cuerpos_micosis_id_cat_cue_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2417 (class 0 OID 0)
--- Dependencies: 1686
+-- TOC entry 2414 (class 0 OID 0)
+-- Dependencies: 1687
 -- Name: categorias__cuerpos_micosis_id_cat_cue_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4364,8 +4362,8 @@ ALTER SEQUENCE categorias__cuerpos_micosis_id_cat_cue_mic_seq OWNED BY categoria
 
 
 --
--- TOC entry 2418 (class 0 OID 0)
--- Dependencies: 1686
+-- TOC entry 2415 (class 0 OID 0)
+-- Dependencies: 1687
 -- Name: categorias__cuerpos_micosis_id_cat_cue_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4373,7 +4371,7 @@ SELECT pg_catalog.setval('categorias__cuerpos_micosis_id_cat_cue_mic_seq', 17, t
 
 
 --
--- TOC entry 1687 (class 1259 OID 34912)
+-- TOC entry 1688 (class 1259 OID 34912)
 -- Dependencies: 7
 -- Name: categorias_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4387,7 +4385,7 @@ CREATE TABLE categorias_cuerpos (
 ALTER TABLE public.categorias_cuerpos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1688 (class 1259 OID 34915)
+-- TOC entry 1689 (class 1259 OID 34915)
 -- Dependencies: 7
 -- Name: categorias_cuerpos__lesiones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4402,8 +4400,8 @@ CREATE TABLE categorias_cuerpos__lesiones (
 ALTER TABLE public.categorias_cuerpos__lesiones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1689 (class 1259 OID 34918)
--- Dependencies: 7 1687
+-- TOC entry 1690 (class 1259 OID 34918)
+-- Dependencies: 7 1688
 -- Name: categorias_cuerpos_id_cat_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4418,8 +4416,8 @@ CREATE SEQUENCE categorias_cuerpos_id_cat_cue_seq
 ALTER TABLE public.categorias_cuerpos_id_cat_cue_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2419 (class 0 OID 0)
--- Dependencies: 1689
+-- TOC entry 2416 (class 0 OID 0)
+-- Dependencies: 1690
 -- Name: categorias_cuerpos_id_cat_cue_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4427,8 +4425,8 @@ ALTER SEQUENCE categorias_cuerpos_id_cat_cue_seq OWNED BY categorias_cuerpos.id_
 
 
 --
--- TOC entry 2420 (class 0 OID 0)
--- Dependencies: 1689
+-- TOC entry 2417 (class 0 OID 0)
+-- Dependencies: 1690
 -- Name: categorias_cuerpos_id_cat_cue_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4438,7 +4436,7 @@ SELECT pg_catalog.setval('categorias_cuerpos_id_cat_cue_seq', 4, true);
 SET default_tablespace = '';
 
 --
--- TOC entry 1690 (class 1259 OID 34920)
+-- TOC entry 1691 (class 1259 OID 34920)
 -- Dependencies: 7
 -- Name: centro_salud_doctores; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -4454,8 +4452,8 @@ CREATE TABLE centro_salud_doctores (
 ALTER TABLE public.centro_salud_doctores OWNER TO desarrollo_g;
 
 --
--- TOC entry 2421 (class 0 OID 0)
--- Dependencies: 1690
+-- TOC entry 2418 (class 0 OID 0)
+-- Dependencies: 1691
 -- Name: COLUMN centro_salud_doctores.id_cen_sal_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4463,8 +4461,8 @@ COMMENT ON COLUMN centro_salud_doctores.id_cen_sal_doc IS 'Identificación del C
 
 
 --
--- TOC entry 2422 (class 0 OID 0)
--- Dependencies: 1690
+-- TOC entry 2419 (class 0 OID 0)
+-- Dependencies: 1691
 -- Name: COLUMN centro_salud_doctores.id_cen_sal; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4472,8 +4470,8 @@ COMMENT ON COLUMN centro_salud_doctores.id_cen_sal IS 'Identificación del Centr
 
 
 --
--- TOC entry 2423 (class 0 OID 0)
--- Dependencies: 1690
+-- TOC entry 2420 (class 0 OID 0)
+-- Dependencies: 1691
 -- Name: COLUMN centro_salud_doctores.id_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4481,8 +4479,8 @@ COMMENT ON COLUMN centro_salud_doctores.id_doc IS 'Identificación del doctor';
 
 
 --
--- TOC entry 2424 (class 0 OID 0)
--- Dependencies: 1690
+-- TOC entry 2421 (class 0 OID 0)
+-- Dependencies: 1691
 -- Name: COLUMN centro_salud_doctores.otr_cen_sal; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4490,8 +4488,8 @@ COMMENT ON COLUMN centro_salud_doctores.otr_cen_sal IS 'Otro Centro de Salud';
 
 
 --
--- TOC entry 1691 (class 1259 OID 34923)
--- Dependencies: 1690 7
+-- TOC entry 1692 (class 1259 OID 34923)
+-- Dependencies: 1691 7
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4506,8 +4504,8 @@ CREATE SEQUENCE centro_salud_doctores_id_cen_sal_doc_seq
 ALTER TABLE public.centro_salud_doctores_id_cen_sal_doc_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2425 (class 0 OID 0)
--- Dependencies: 1691
+-- TOC entry 2422 (class 0 OID 0)
+-- Dependencies: 1692
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4515,8 +4513,8 @@ ALTER SEQUENCE centro_salud_doctores_id_cen_sal_doc_seq OWNED BY centro_salud_do
 
 
 --
--- TOC entry 2426 (class 0 OID 0)
--- Dependencies: 1691
+-- TOC entry 2423 (class 0 OID 0)
+-- Dependencies: 1692
 -- Name: centro_salud_doctores_id_cen_sal_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4526,7 +4524,7 @@ SELECT pg_catalog.setval('centro_salud_doctores_id_cen_sal_doc_seq', 19, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1692 (class 1259 OID 34925)
+-- TOC entry 1693 (class 1259 OID 34925)
 -- Dependencies: 7
 -- Name: centro_saluds; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4541,8 +4539,8 @@ CREATE TABLE centro_saluds (
 ALTER TABLE public.centro_saluds OWNER TO desarrollo_g;
 
 --
--- TOC entry 1693 (class 1259 OID 34928)
--- Dependencies: 1692 7
+-- TOC entry 1694 (class 1259 OID 34928)
+-- Dependencies: 1693 7
 -- Name: centro_salud_id_cen_sal_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4557,8 +4555,8 @@ CREATE SEQUENCE centro_salud_id_cen_sal_seq
 ALTER TABLE public.centro_salud_id_cen_sal_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2427 (class 0 OID 0)
--- Dependencies: 1693
+-- TOC entry 2424 (class 0 OID 0)
+-- Dependencies: 1694
 -- Name: centro_salud_id_cen_sal_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4566,8 +4564,8 @@ ALTER SEQUENCE centro_salud_id_cen_sal_seq OWNED BY centro_saluds.id_cen_sal;
 
 
 --
--- TOC entry 2428 (class 0 OID 0)
--- Dependencies: 1693
+-- TOC entry 2425 (class 0 OID 0)
+-- Dependencies: 1694
 -- Name: centro_salud_id_cen_sal_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4575,7 +4573,7 @@ SELECT pg_catalog.setval('centro_salud_id_cen_sal_seq', 35, true);
 
 
 --
--- TOC entry 1694 (class 1259 OID 34930)
+-- TOC entry 1695 (class 1259 OID 34930)
 -- Dependencies: 7
 -- Name: centro_salud_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4591,8 +4589,8 @@ CREATE TABLE centro_salud_pacientes (
 ALTER TABLE public.centro_salud_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1695 (class 1259 OID 34933)
--- Dependencies: 7 1694
+-- TOC entry 1696 (class 1259 OID 34933)
+-- Dependencies: 7 1695
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4607,8 +4605,8 @@ CREATE SEQUENCE centro_salud_pacientes_id_cen_sal_pac_seq
 ALTER TABLE public.centro_salud_pacientes_id_cen_sal_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2429 (class 0 OID 0)
--- Dependencies: 1695
+-- TOC entry 2426 (class 0 OID 0)
+-- Dependencies: 1696
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4616,16 +4614,16 @@ ALTER SEQUENCE centro_salud_pacientes_id_cen_sal_pac_seq OWNED BY centro_salud_p
 
 
 --
--- TOC entry 2430 (class 0 OID 0)
--- Dependencies: 1695
+-- TOC entry 2427 (class 0 OID 0)
+-- Dependencies: 1696
 -- Name: centro_salud_pacientes_id_cen_sal_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('centro_salud_pacientes_id_cen_sal_pac_seq', 265, true);
+SELECT pg_catalog.setval('centro_salud_pacientes_id_cen_sal_pac_seq', 271, true);
 
 
 --
--- TOC entry 1696 (class 1259 OID 34935)
+-- TOC entry 1697 (class 1259 OID 34935)
 -- Dependencies: 7
 -- Name: contactos_animales; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4641,8 +4639,8 @@ CREATE TABLE contactos_animales (
 ALTER TABLE public.contactos_animales OWNER TO desarrollo_g;
 
 --
--- TOC entry 1697 (class 1259 OID 34938)
--- Dependencies: 7 1696
+-- TOC entry 1698 (class 1259 OID 34938)
+-- Dependencies: 7 1697
 -- Name: contactos_animales_id_con_ani_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4657,8 +4655,8 @@ CREATE SEQUENCE contactos_animales_id_con_ani_seq
 ALTER TABLE public.contactos_animales_id_con_ani_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2431 (class 0 OID 0)
--- Dependencies: 1697
+-- TOC entry 2428 (class 0 OID 0)
+-- Dependencies: 1698
 -- Name: contactos_animales_id_con_ani_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4666,17 +4664,17 @@ ALTER SEQUENCE contactos_animales_id_con_ani_seq OWNED BY contactos_animales.id_
 
 
 --
--- TOC entry 2432 (class 0 OID 0)
--- Dependencies: 1697
+-- TOC entry 2429 (class 0 OID 0)
+-- Dependencies: 1698
 -- Name: contactos_animales_id_con_ani_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('contactos_animales_id_con_ani_seq', 217, true);
+SELECT pg_catalog.setval('contactos_animales_id_con_ani_seq', 219, true);
 
 
 --
--- TOC entry 1698 (class 1259 OID 34940)
--- Dependencies: 2064 7
+-- TOC entry 1699 (class 1259 OID 34940)
+-- Dependencies: 2065 7
 -- Name: doctores; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -4696,8 +4694,8 @@ CREATE TABLE doctores (
 ALTER TABLE public.doctores OWNER TO desarrollo_g;
 
 --
--- TOC entry 2433 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2430 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: TABLE doctores; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4705,8 +4703,8 @@ COMMENT ON TABLE doctores IS 'Registro de todos los doctores que del aplicativo'
 
 
 --
--- TOC entry 2434 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2431 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.id_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4714,8 +4712,8 @@ COMMENT ON COLUMN doctores.id_doc IS 'identificador único para los doctores';
 
 
 --
--- TOC entry 2435 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2432 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.nom_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4723,8 +4721,8 @@ COMMENT ON COLUMN doctores.nom_doc IS 'Nombre del doctor';
 
 
 --
--- TOC entry 2436 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2433 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.ape_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4732,8 +4730,8 @@ COMMENT ON COLUMN doctores.ape_doc IS 'Apellido del doctor';
 
 
 --
--- TOC entry 2437 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2434 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.ced_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4741,8 +4739,8 @@ COMMENT ON COLUMN doctores.ced_doc IS 'Cédula del doctor';
 
 
 --
--- TOC entry 2438 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2435 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.pas_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4750,8 +4748,8 @@ COMMENT ON COLUMN doctores.pas_doc IS 'Contraseña del doctor';
 
 
 --
--- TOC entry 2439 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2436 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.tel_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4759,8 +4757,8 @@ COMMENT ON COLUMN doctores.tel_doc IS 'Teléfono del doctor';
 
 
 --
--- TOC entry 2440 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2437 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.cor_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4768,8 +4766,8 @@ COMMENT ON COLUMN doctores.cor_doc IS 'Correo electronico del doctor';
 
 
 --
--- TOC entry 2441 (class 0 OID 0)
--- Dependencies: 1698
+-- TOC entry 2438 (class 0 OID 0)
+-- Dependencies: 1699
 -- Name: COLUMN doctores.log_doc; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4777,8 +4775,8 @@ COMMENT ON COLUMN doctores.log_doc IS 'Login con el que se loguara el doctor';
 
 
 --
--- TOC entry 1699 (class 1259 OID 34947)
--- Dependencies: 7 1698
+-- TOC entry 1700 (class 1259 OID 34947)
+-- Dependencies: 7 1699
 -- Name: doctores_id_doc_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4793,8 +4791,8 @@ CREATE SEQUENCE doctores_id_doc_seq
 ALTER TABLE public.doctores_id_doc_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2442 (class 0 OID 0)
--- Dependencies: 1699
+-- TOC entry 2439 (class 0 OID 0)
+-- Dependencies: 1700
 -- Name: doctores_id_doc_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4802,8 +4800,8 @@ ALTER SEQUENCE doctores_id_doc_seq OWNED BY doctores.id_doc;
 
 
 --
--- TOC entry 2443 (class 0 OID 0)
--- Dependencies: 1699
+-- TOC entry 2440 (class 0 OID 0)
+-- Dependencies: 1700
 -- Name: doctores_id_doc_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4811,7 +4809,7 @@ SELECT pg_catalog.setval('doctores_id_doc_seq', 37, true);
 
 
 --
--- TOC entry 1700 (class 1259 OID 34949)
+-- TOC entry 1701 (class 1259 OID 34949)
 -- Dependencies: 7
 -- Name: enfermedades_micologicas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4826,8 +4824,8 @@ CREATE TABLE enfermedades_micologicas (
 ALTER TABLE public.enfermedades_micologicas OWNER TO desarrollo_g;
 
 --
--- TOC entry 1701 (class 1259 OID 34952)
--- Dependencies: 1700 7
+-- TOC entry 1702 (class 1259 OID 34952)
+-- Dependencies: 7 1701
 -- Name: enfermedades_micologicas_id_enf_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4842,8 +4840,8 @@ CREATE SEQUENCE enfermedades_micologicas_id_enf_mic_seq
 ALTER TABLE public.enfermedades_micologicas_id_enf_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2444 (class 0 OID 0)
--- Dependencies: 1701
+-- TOC entry 2441 (class 0 OID 0)
+-- Dependencies: 1702
 -- Name: enfermedades_micologicas_id_enf_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4851,8 +4849,8 @@ ALTER SEQUENCE enfermedades_micologicas_id_enf_mic_seq OWNED BY enfermedades_mic
 
 
 --
--- TOC entry 2445 (class 0 OID 0)
--- Dependencies: 1701
+-- TOC entry 2442 (class 0 OID 0)
+-- Dependencies: 1702
 -- Name: enfermedades_micologicas_id_enf_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4860,7 +4858,7 @@ SELECT pg_catalog.setval('enfermedades_micologicas_id_enf_mic_seq', 28, true);
 
 
 --
--- TOC entry 1702 (class 1259 OID 34954)
+-- TOC entry 1703 (class 1259 OID 34954)
 -- Dependencies: 7
 -- Name: enfermedades_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4877,8 +4875,8 @@ CREATE TABLE enfermedades_pacientes (
 ALTER TABLE public.enfermedades_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1703 (class 1259 OID 34957)
--- Dependencies: 7 1702
+-- TOC entry 1704 (class 1259 OID 34957)
+-- Dependencies: 1703 7
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4893,8 +4891,8 @@ CREATE SEQUENCE enfermedades_pacientes_id_enf_pac_seq
 ALTER TABLE public.enfermedades_pacientes_id_enf_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2446 (class 0 OID 0)
--- Dependencies: 1703
+-- TOC entry 2443 (class 0 OID 0)
+-- Dependencies: 1704
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4902,18 +4900,18 @@ ALTER SEQUENCE enfermedades_pacientes_id_enf_pac_seq OWNED BY enfermedades_pacie
 
 
 --
--- TOC entry 2447 (class 0 OID 0)
--- Dependencies: 1703
+-- TOC entry 2444 (class 0 OID 0)
+-- Dependencies: 1704
 -- Name: enfermedades_pacientes_id_enf_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 547, true);
+SELECT pg_catalog.setval('enfermedades_pacientes_id_enf_pac_seq', 550, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1704 (class 1259 OID 34959)
+-- TOC entry 1705 (class 1259 OID 34959)
 -- Dependencies: 7
 -- Name: estados; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -4928,8 +4926,8 @@ CREATE TABLE estados (
 ALTER TABLE public.estados OWNER TO desarrollo_g;
 
 --
--- TOC entry 1705 (class 1259 OID 34962)
--- Dependencies: 7 1704
+-- TOC entry 1706 (class 1259 OID 34962)
+-- Dependencies: 7 1705
 -- Name: estados_id_est_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -4944,8 +4942,8 @@ CREATE SEQUENCE estados_id_est_seq
 ALTER TABLE public.estados_id_est_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2448 (class 0 OID 0)
--- Dependencies: 1705
+-- TOC entry 2445 (class 0 OID 0)
+-- Dependencies: 1706
 -- Name: estados_id_est_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -4953,8 +4951,8 @@ ALTER SEQUENCE estados_id_est_seq OWNED BY estados.id_est;
 
 
 --
--- TOC entry 2449 (class 0 OID 0)
--- Dependencies: 1705
+-- TOC entry 2446 (class 0 OID 0)
+-- Dependencies: 1706
 -- Name: estados_id_est_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -4964,7 +4962,7 @@ SELECT pg_catalog.setval('estados_id_est_seq', 6, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1706 (class 1259 OID 34964)
+-- TOC entry 1707 (class 1259 OID 34964)
 -- Dependencies: 7
 -- Name: examenes_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -4981,8 +4979,8 @@ CREATE TABLE examenes_pacientes (
 ALTER TABLE public.examenes_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2450 (class 0 OID 0)
--- Dependencies: 1706
+-- TOC entry 2447 (class 0 OID 0)
+-- Dependencies: 1707
 -- Name: TABLE examenes_pacientes; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4990,8 +4988,8 @@ COMMENT ON TABLE examenes_pacientes IS 'Muestra el estado de una enfermedad del 
 
 
 --
--- TOC entry 2451 (class 0 OID 0)
--- Dependencies: 1706
+-- TOC entry 2448 (class 0 OID 0)
+-- Dependencies: 1707
 -- Name: COLUMN examenes_pacientes.exa_pac_est; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -4999,8 +4997,8 @@ COMMENT ON COLUMN examenes_pacientes.exa_pac_est IS 'Muestra el estado de una en
 
 
 --
--- TOC entry 2452 (class 0 OID 0)
--- Dependencies: 1706
+-- TOC entry 2449 (class 0 OID 0)
+-- Dependencies: 1707
 -- Name: COLUMN examenes_pacientes.obs_exa_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5008,8 +5006,8 @@ COMMENT ON COLUMN examenes_pacientes.obs_exa_pac IS 'Muesta la informacion de lo
 
 
 --
--- TOC entry 1707 (class 1259 OID 34967)
--- Dependencies: 1706 7
+-- TOC entry 1708 (class 1259 OID 34967)
+-- Dependencies: 7 1707
 -- Name: examenes_pacientes_id_exa_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5024,8 +5022,8 @@ CREATE SEQUENCE examenes_pacientes_id_exa_pac_seq
 ALTER TABLE public.examenes_pacientes_id_exa_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2453 (class 0 OID 0)
--- Dependencies: 1707
+-- TOC entry 2450 (class 0 OID 0)
+-- Dependencies: 1708
 -- Name: examenes_pacientes_id_exa_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5033,16 +5031,16 @@ ALTER SEQUENCE examenes_pacientes_id_exa_pac_seq OWNED BY examenes_pacientes.id_
 
 
 --
--- TOC entry 2454 (class 0 OID 0)
--- Dependencies: 1707
+-- TOC entry 2451 (class 0 OID 0)
+-- Dependencies: 1708
 -- Name: examenes_pacientes_id_exa_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('examenes_pacientes_id_exa_pac_seq', 140, true);
+SELECT pg_catalog.setval('examenes_pacientes_id_exa_pac_seq', 144, true);
 
 
 --
--- TOC entry 1708 (class 1259 OID 34969)
+-- TOC entry 1709 (class 1259 OID 34969)
 -- Dependencies: 7
 -- Name: forma_infecciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5056,7 +5054,7 @@ CREATE TABLE forma_infecciones (
 ALTER TABLE public.forma_infecciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1709 (class 1259 OID 34972)
+-- TOC entry 1710 (class 1259 OID 34972)
 -- Dependencies: 7
 -- Name: forma_infecciones__pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5072,8 +5070,8 @@ CREATE TABLE forma_infecciones__pacientes (
 ALTER TABLE public.forma_infecciones__pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1710 (class 1259 OID 34975)
--- Dependencies: 7 1709
+-- TOC entry 1711 (class 1259 OID 34975)
+-- Dependencies: 7 1710
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5088,8 +5086,8 @@ CREATE SEQUENCE forma_infecciones__pacientes_id_for_pac_seq
 ALTER TABLE public.forma_infecciones__pacientes_id_for_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2455 (class 0 OID 0)
--- Dependencies: 1710
+-- TOC entry 2452 (class 0 OID 0)
+-- Dependencies: 1711
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5097,16 +5095,16 @@ ALTER SEQUENCE forma_infecciones__pacientes_id_for_pac_seq OWNED BY forma_infecc
 
 
 --
--- TOC entry 2456 (class 0 OID 0)
--- Dependencies: 1710
+-- TOC entry 2453 (class 0 OID 0)
+-- Dependencies: 1711
 -- Name: forma_infecciones__pacientes_id_for_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 132, true);
+SELECT pg_catalog.setval('forma_infecciones__pacientes_id_for_pac_seq', 133, true);
 
 
 --
--- TOC entry 1711 (class 1259 OID 34977)
+-- TOC entry 1712 (class 1259 OID 34977)
 -- Dependencies: 7
 -- Name: forma_infecciones__tipos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5121,8 +5119,8 @@ CREATE TABLE forma_infecciones__tipos_micosis (
 ALTER TABLE public.forma_infecciones__tipos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1712 (class 1259 OID 34980)
--- Dependencies: 1711 7
+-- TOC entry 1713 (class 1259 OID 34980)
+-- Dependencies: 7 1712
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5137,8 +5135,8 @@ CREATE SEQUENCE forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq
 ALTER TABLE public.forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2457 (class 0 OID 0)
--- Dependencies: 1712
+-- TOC entry 2454 (class 0 OID 0)
+-- Dependencies: 1713
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5146,8 +5144,8 @@ ALTER SEQUENCE forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq OWNED BY 
 
 
 --
--- TOC entry 2458 (class 0 OID 0)
--- Dependencies: 1712
+-- TOC entry 2455 (class 0 OID 0)
+-- Dependencies: 1713
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5155,8 +5153,8 @@ SELECT pg_catalog.setval('forma_infecciones__tipos_micosis_id_for_inf_tip_mic_se
 
 
 --
--- TOC entry 1713 (class 1259 OID 34982)
--- Dependencies: 1708 7
+-- TOC entry 1714 (class 1259 OID 34982)
+-- Dependencies: 7 1709
 -- Name: forma_infecciones_id_for_inf_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5171,8 +5169,8 @@ CREATE SEQUENCE forma_infecciones_id_for_inf_seq
 ALTER TABLE public.forma_infecciones_id_for_inf_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2459 (class 0 OID 0)
--- Dependencies: 1713
+-- TOC entry 2456 (class 0 OID 0)
+-- Dependencies: 1714
 -- Name: forma_infecciones_id_for_inf_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5180,8 +5178,8 @@ ALTER SEQUENCE forma_infecciones_id_for_inf_seq OWNED BY forma_infecciones.id_fo
 
 
 --
--- TOC entry 2460 (class 0 OID 0)
--- Dependencies: 1713
+-- TOC entry 2457 (class 0 OID 0)
+-- Dependencies: 1714
 -- Name: forma_infecciones_id_for_inf_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5189,8 +5187,8 @@ SELECT pg_catalog.setval('forma_infecciones_id_for_inf_seq', 12, true);
 
 
 --
--- TOC entry 1714 (class 1259 OID 34984)
--- Dependencies: 2073 2074 7
+-- TOC entry 1715 (class 1259 OID 34984)
+-- Dependencies: 2074 2075 7
 -- Name: historiales_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -5208,8 +5206,8 @@ CREATE TABLE historiales_pacientes (
 ALTER TABLE public.historiales_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2461 (class 0 OID 0)
--- Dependencies: 1714
+-- TOC entry 2458 (class 0 OID 0)
+-- Dependencies: 1715
 -- Name: COLUMN historiales_pacientes.des_adi_pac_his; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5219,8 +5217,8 @@ COMMENT ON COLUMN historiales_pacientes.des_adi_pac_his IS '
 
 
 --
--- TOC entry 2462 (class 0 OID 0)
--- Dependencies: 1714
+-- TOC entry 2459 (class 0 OID 0)
+-- Dependencies: 1715
 -- Name: COLUMN historiales_pacientes.pag_his; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5228,8 +5226,8 @@ COMMENT ON COLUMN historiales_pacientes.pag_his IS 'Muestra al cantidad de pagin
 
 
 --
--- TOC entry 1715 (class 1259 OID 34992)
--- Dependencies: 1714 7
+-- TOC entry 1716 (class 1259 OID 34992)
+-- Dependencies: 1715 7
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5244,8 +5242,8 @@ CREATE SEQUENCE historiales_pacientes_id_his_seq
 ALTER TABLE public.historiales_pacientes_id_his_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2463 (class 0 OID 0)
--- Dependencies: 1715
+-- TOC entry 2460 (class 0 OID 0)
+-- Dependencies: 1716
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5253,18 +5251,18 @@ ALTER SEQUENCE historiales_pacientes_id_his_seq OWNED BY historiales_pacientes.i
 
 
 --
--- TOC entry 2464 (class 0 OID 0)
--- Dependencies: 1715
+-- TOC entry 2461 (class 0 OID 0)
+-- Dependencies: 1716
 -- Name: historiales_pacientes_id_his_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 41, true);
+SELECT pg_catalog.setval('historiales_pacientes_id_his_seq', 42, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1716 (class 1259 OID 34994)
+-- TOC entry 1717 (class 1259 OID 34994)
 -- Dependencies: 7
 -- Name: lesiones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5278,8 +5276,8 @@ CREATE TABLE lesiones (
 ALTER TABLE public.lesiones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1717 (class 1259 OID 34997)
--- Dependencies: 1688 7
+-- TOC entry 1718 (class 1259 OID 34997)
+-- Dependencies: 1689 7
 -- Name: lesiones__partes_cuerpos_id_les_par_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5294,8 +5292,8 @@ CREATE SEQUENCE lesiones__partes_cuerpos_id_les_par_cue_seq
 ALTER TABLE public.lesiones__partes_cuerpos_id_les_par_cue_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2465 (class 0 OID 0)
--- Dependencies: 1717
+-- TOC entry 2462 (class 0 OID 0)
+-- Dependencies: 1718
 -- Name: lesiones__partes_cuerpos_id_les_par_cue_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5303,8 +5301,8 @@ ALTER SEQUENCE lesiones__partes_cuerpos_id_les_par_cue_seq OWNED BY categorias_c
 
 
 --
--- TOC entry 2466 (class 0 OID 0)
--- Dependencies: 1717
+-- TOC entry 2463 (class 0 OID 0)
+-- Dependencies: 1718
 -- Name: lesiones__partes_cuerpos_id_les_par_cue_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5312,8 +5310,8 @@ SELECT pg_catalog.setval('lesiones__partes_cuerpos_id_les_par_cue_seq', 115, tru
 
 
 --
--- TOC entry 1718 (class 1259 OID 34999)
--- Dependencies: 1716 7
+-- TOC entry 1719 (class 1259 OID 34999)
+-- Dependencies: 1717 7
 -- Name: lesiones_id_les_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5328,8 +5326,8 @@ CREATE SEQUENCE lesiones_id_les_seq
 ALTER TABLE public.lesiones_id_les_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2467 (class 0 OID 0)
--- Dependencies: 1718
+-- TOC entry 2464 (class 0 OID 0)
+-- Dependencies: 1719
 -- Name: lesiones_id_les_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5337,8 +5335,8 @@ ALTER SEQUENCE lesiones_id_les_seq OWNED BY lesiones.id_les;
 
 
 --
--- TOC entry 2468 (class 0 OID 0)
--- Dependencies: 1718
+-- TOC entry 2465 (class 0 OID 0)
+-- Dependencies: 1719
 -- Name: lesiones_id_les_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5348,7 +5346,7 @@ SELECT pg_catalog.setval('lesiones_id_les_seq', 71, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1719 (class 1259 OID 35001)
+-- TOC entry 1720 (class 1259 OID 35001)
 -- Dependencies: 7
 -- Name: lesiones_partes_cuerpos__pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5365,8 +5363,8 @@ CREATE TABLE lesiones_partes_cuerpos__pacientes (
 ALTER TABLE public.lesiones_partes_cuerpos__pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2469 (class 0 OID 0)
--- Dependencies: 1719
+-- TOC entry 2466 (class 0 OID 0)
+-- Dependencies: 1720
 -- Name: COLUMN lesiones_partes_cuerpos__pacientes.id_les_par_cue_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5374,8 +5372,8 @@ COMMENT ON COLUMN lesiones_partes_cuerpos__pacientes.id_les_par_cue_pac IS 'Leci
 
 
 --
--- TOC entry 2470 (class 0 OID 0)
--- Dependencies: 1719
+-- TOC entry 2467 (class 0 OID 0)
+-- Dependencies: 1720
 -- Name: COLUMN lesiones_partes_cuerpos__pacientes.otr_les_par_cue; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5383,8 +5381,8 @@ COMMENT ON COLUMN lesiones_partes_cuerpos__pacientes.otr_les_par_cue IS 'Otras l
 
 
 --
--- TOC entry 1720 (class 1259 OID 35004)
--- Dependencies: 1719 7
+-- TOC entry 1721 (class 1259 OID 35004)
+-- Dependencies: 7 1720
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5399,8 +5397,8 @@ CREATE SEQUENCE lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq
 ALTER TABLE public.lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2471 (class 0 OID 0)
--- Dependencies: 1720
+-- TOC entry 2468 (class 0 OID 0)
+-- Dependencies: 1721
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5408,16 +5406,16 @@ ALTER SEQUENCE lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq OWNED B
 
 
 --
--- TOC entry 2472 (class 0 OID 0)
--- Dependencies: 1720
+-- TOC entry 2469 (class 0 OID 0)
+-- Dependencies: 1721
 -- Name: lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 457, true);
+SELECT pg_catalog.setval('lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq', 459, true);
 
 
 --
--- TOC entry 1721 (class 1259 OID 35006)
+-- TOC entry 1722 (class 1259 OID 35006)
 -- Dependencies: 7
 -- Name: localizaciones_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5432,8 +5430,8 @@ CREATE TABLE localizaciones_cuerpos (
 ALTER TABLE public.localizaciones_cuerpos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1722 (class 1259 OID 35009)
--- Dependencies: 7 1721
+-- TOC entry 1723 (class 1259 OID 35009)
+-- Dependencies: 1722 7
 -- Name: localizaciones_cuerpos_id_loc_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5448,8 +5446,8 @@ CREATE SEQUENCE localizaciones_cuerpos_id_loc_cue_seq
 ALTER TABLE public.localizaciones_cuerpos_id_loc_cue_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2473 (class 0 OID 0)
--- Dependencies: 1722
+-- TOC entry 2470 (class 0 OID 0)
+-- Dependencies: 1723
 -- Name: localizaciones_cuerpos_id_loc_cue_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5457,8 +5455,8 @@ ALTER SEQUENCE localizaciones_cuerpos_id_loc_cue_seq OWNED BY localizaciones_cue
 
 
 --
--- TOC entry 2474 (class 0 OID 0)
--- Dependencies: 1722
+-- TOC entry 2471 (class 0 OID 0)
+-- Dependencies: 1723
 -- Name: localizaciones_cuerpos_id_loc_cue_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5466,7 +5464,7 @@ SELECT pg_catalog.setval('localizaciones_cuerpos_id_loc_cue_seq', 1, false);
 
 
 --
--- TOC entry 1723 (class 1259 OID 35011)
+-- TOC entry 1724 (class 1259 OID 35011)
 -- Dependencies: 7
 -- Name: modulos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5482,8 +5480,8 @@ CREATE TABLE modulos (
 ALTER TABLE public.modulos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1724 (class 1259 OID 35014)
--- Dependencies: 1723 7
+-- TOC entry 1725 (class 1259 OID 35014)
+-- Dependencies: 1724 7
 -- Name: modulos_id_mod_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5498,8 +5496,8 @@ CREATE SEQUENCE modulos_id_mod_seq
 ALTER TABLE public.modulos_id_mod_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2475 (class 0 OID 0)
--- Dependencies: 1724
+-- TOC entry 2472 (class 0 OID 0)
+-- Dependencies: 1725
 -- Name: modulos_id_mod_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5507,8 +5505,8 @@ ALTER SEQUENCE modulos_id_mod_seq OWNED BY modulos.id_mod;
 
 
 --
--- TOC entry 2476 (class 0 OID 0)
--- Dependencies: 1724
+-- TOC entry 2473 (class 0 OID 0)
+-- Dependencies: 1725
 -- Name: modulos_id_mod_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5516,7 +5514,7 @@ SELECT pg_catalog.setval('modulos_id_mod_seq', 5, true);
 
 
 --
--- TOC entry 1725 (class 1259 OID 35016)
+-- TOC entry 1726 (class 1259 OID 35016)
 -- Dependencies: 7
 -- Name: muestras_clinicas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5530,8 +5528,8 @@ CREATE TABLE muestras_clinicas (
 ALTER TABLE public.muestras_clinicas OWNER TO desarrollo_g;
 
 --
--- TOC entry 2477 (class 0 OID 0)
--- Dependencies: 1725
+-- TOC entry 2474 (class 0 OID 0)
+-- Dependencies: 1726
 -- Name: COLUMN muestras_clinicas.id_mue_cli; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5539,8 +5537,8 @@ COMMENT ON COLUMN muestras_clinicas.id_mue_cli IS 'Identificacion de la muestra 
 
 
 --
--- TOC entry 2478 (class 0 OID 0)
--- Dependencies: 1725
+-- TOC entry 2475 (class 0 OID 0)
+-- Dependencies: 1726
 -- Name: COLUMN muestras_clinicas.nom_mue_cli; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5548,8 +5546,8 @@ COMMENT ON COLUMN muestras_clinicas.nom_mue_cli IS 'Nombre muestra clinica';
 
 
 --
--- TOC entry 1726 (class 1259 OID 35019)
--- Dependencies: 1725 7
+-- TOC entry 1727 (class 1259 OID 35019)
+-- Dependencies: 1726 7
 -- Name: muestras_clinicas_id_mue_cli_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5564,8 +5562,8 @@ CREATE SEQUENCE muestras_clinicas_id_mue_cli_seq
 ALTER TABLE public.muestras_clinicas_id_mue_cli_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2479 (class 0 OID 0)
--- Dependencies: 1726
+-- TOC entry 2476 (class 0 OID 0)
+-- Dependencies: 1727
 -- Name: muestras_clinicas_id_mue_cli_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5573,8 +5571,8 @@ ALTER SEQUENCE muestras_clinicas_id_mue_cli_seq OWNED BY muestras_clinicas.id_mu
 
 
 --
--- TOC entry 2480 (class 0 OID 0)
--- Dependencies: 1726
+-- TOC entry 2477 (class 0 OID 0)
+-- Dependencies: 1727
 -- Name: muestras_clinicas_id_mue_cli_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5582,7 +5580,7 @@ SELECT pg_catalog.setval('muestras_clinicas_id_mue_cli_seq', 1, false);
 
 
 --
--- TOC entry 1727 (class 1259 OID 35021)
+-- TOC entry 1728 (class 1259 OID 35021)
 -- Dependencies: 7
 -- Name: muestras_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5598,8 +5596,8 @@ CREATE TABLE muestras_pacientes (
 ALTER TABLE public.muestras_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2481 (class 0 OID 0)
--- Dependencies: 1727
+-- TOC entry 2478 (class 0 OID 0)
+-- Dependencies: 1728
 -- Name: COLUMN muestras_pacientes.id_mue_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5607,8 +5605,8 @@ COMMENT ON COLUMN muestras_pacientes.id_mue_pac IS 'Id de la meustra del pacient
 
 
 --
--- TOC entry 2482 (class 0 OID 0)
--- Dependencies: 1727
+-- TOC entry 2479 (class 0 OID 0)
+-- Dependencies: 1728
 -- Name: COLUMN muestras_pacientes.id_his; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5616,8 +5614,8 @@ COMMENT ON COLUMN muestras_pacientes.id_his IS 'Id del historial';
 
 
 --
--- TOC entry 2483 (class 0 OID 0)
--- Dependencies: 1727
+-- TOC entry 2480 (class 0 OID 0)
+-- Dependencies: 1728
 -- Name: COLUMN muestras_pacientes.id_mue_cli; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5625,8 +5623,8 @@ COMMENT ON COLUMN muestras_pacientes.id_mue_cli IS 'Id muestra cli';
 
 
 --
--- TOC entry 2484 (class 0 OID 0)
--- Dependencies: 1727
+-- TOC entry 2481 (class 0 OID 0)
+-- Dependencies: 1728
 -- Name: COLUMN muestras_pacientes.otr_mue_cli; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5634,8 +5632,8 @@ COMMENT ON COLUMN muestras_pacientes.otr_mue_cli IS 'Otra meustra clinica';
 
 
 --
--- TOC entry 1728 (class 1259 OID 35024)
--- Dependencies: 1727 7
+-- TOC entry 1729 (class 1259 OID 35024)
+-- Dependencies: 7 1728
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5650,8 +5648,8 @@ CREATE SEQUENCE muestras_pacientes_id_mue_pac_seq
 ALTER TABLE public.muestras_pacientes_id_mue_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2485 (class 0 OID 0)
--- Dependencies: 1728
+-- TOC entry 2482 (class 0 OID 0)
+-- Dependencies: 1729
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5659,18 +5657,18 @@ ALTER SEQUENCE muestras_pacientes_id_mue_pac_seq OWNED BY muestras_pacientes.id_
 
 
 --
--- TOC entry 2486 (class 0 OID 0)
--- Dependencies: 1728
+-- TOC entry 2483 (class 0 OID 0)
+-- Dependencies: 1729
 -- Name: muestras_pacientes_id_mue_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('muestras_pacientes_id_mue_pac_seq', 162, true);
+SELECT pg_catalog.setval('muestras_pacientes_id_mue_pac_seq', 166, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1729 (class 1259 OID 35026)
+-- TOC entry 1730 (class 1259 OID 35026)
 -- Dependencies: 7
 -- Name: municipios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5685,8 +5683,8 @@ CREATE TABLE municipios (
 ALTER TABLE public.municipios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1730 (class 1259 OID 35029)
--- Dependencies: 1729 7
+-- TOC entry 1731 (class 1259 OID 35029)
+-- Dependencies: 1730 7
 -- Name: municipios_id_mun_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5701,8 +5699,8 @@ CREATE SEQUENCE municipios_id_mun_seq
 ALTER TABLE public.municipios_id_mun_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2487 (class 0 OID 0)
--- Dependencies: 1730
+-- TOC entry 2484 (class 0 OID 0)
+-- Dependencies: 1731
 -- Name: municipios_id_mun_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5710,8 +5708,8 @@ ALTER SEQUENCE municipios_id_mun_seq OWNED BY municipios.id_mun;
 
 
 --
--- TOC entry 2488 (class 0 OID 0)
--- Dependencies: 1730
+-- TOC entry 2485 (class 0 OID 0)
+-- Dependencies: 1731
 -- Name: municipios_id_mun_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5721,8 +5719,8 @@ SELECT pg_catalog.setval('municipios_id_mun_seq', 335, true);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1731 (class 1259 OID 35031)
--- Dependencies: 2083 7
+-- TOC entry 1732 (class 1259 OID 35031)
+-- Dependencies: 2084 7
 -- Name: pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -5744,15 +5742,25 @@ CREATE TABLE pacientes (
     num_pac integer,
     id_doc integer,
     fec_reg_pac timestamp with time zone DEFAULT now(),
-    sex_pac character(1) NOT NULL
+    sex_pac character(1) NOT NULL,
+    ord_por character varying(50)
 );
 
 
 ALTER TABLE public.pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2489 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2486 (class 0 OID 0)
+-- Dependencies: 1732
+-- Name: TABLE pacientes; Type: COMMENT; Schema: public; Owner: desarrollo_g
+--
+
+COMMENT ON TABLE pacientes IS 'Especifica el médico que realiza el llenado manual de  los datos del paciente cuando llega al instituto.';
+
+
+--
+-- TOC entry 2487 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.id_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5760,8 +5768,8 @@ COMMENT ON COLUMN pacientes.id_pac IS 'Id paciente';
 
 
 --
--- TOC entry 2490 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2488 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.ape_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5769,8 +5777,8 @@ COMMENT ON COLUMN pacientes.ape_pac IS 'Apellido del paciente';
 
 
 --
--- TOC entry 2491 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2489 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.nom_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5778,8 +5786,8 @@ COMMENT ON COLUMN pacientes.nom_pac IS 'Nombre del paciente';
 
 
 --
--- TOC entry 2492 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2490 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.ced_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5787,8 +5795,8 @@ COMMENT ON COLUMN pacientes.ced_pac IS 'Cedula del paciente';
 
 
 --
--- TOC entry 2493 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2491 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.fec_nac_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5796,8 +5804,8 @@ COMMENT ON COLUMN pacientes.fec_nac_pac IS 'Fecha de nacimiento del paciente';
 
 
 --
--- TOC entry 2494 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2492 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.nac_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5805,8 +5813,8 @@ COMMENT ON COLUMN pacientes.nac_pac IS 'Nacionalidad del paciente';
 
 
 --
--- TOC entry 2495 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2493 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.ocu_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5814,8 +5822,8 @@ COMMENT ON COLUMN pacientes.ocu_pac IS 'Ocupacion del paciente';
 
 
 --
--- TOC entry 2496 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2494 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.ciu_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5823,8 +5831,8 @@ COMMENT ON COLUMN pacientes.ciu_pac IS 'Ciudad del paciente';
 
 
 --
--- TOC entry 2497 (class 0 OID 0)
--- Dependencies: 1731
+-- TOC entry 2495 (class 0 OID 0)
+-- Dependencies: 1732
 -- Name: COLUMN pacientes.fec_reg_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -5832,8 +5840,8 @@ COMMENT ON COLUMN pacientes.fec_reg_pac IS 'Fecha de registro del paciente';
 
 
 --
--- TOC entry 1732 (class 1259 OID 35035)
--- Dependencies: 1731 7
+-- TOC entry 1733 (class 1259 OID 35035)
+-- Dependencies: 1732 7
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5848,8 +5856,8 @@ CREATE SEQUENCE pacientes_id_pac_seq
 ALTER TABLE public.pacientes_id_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2498 (class 0 OID 0)
--- Dependencies: 1732
+-- TOC entry 2496 (class 0 OID 0)
+-- Dependencies: 1733
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5857,18 +5865,18 @@ ALTER SEQUENCE pacientes_id_pac_seq OWNED BY pacientes.id_pac;
 
 
 --
--- TOC entry 2499 (class 0 OID 0)
--- Dependencies: 1732
+-- TOC entry 2497 (class 0 OID 0)
+-- Dependencies: 1733
 -- Name: pacientes_id_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('pacientes_id_pac_seq', 77, true);
+SELECT pg_catalog.setval('pacientes_id_pac_seq', 78, true);
 
 
 SET default_tablespace = '';
 
 --
--- TOC entry 1733 (class 1259 OID 35037)
+-- TOC entry 1734 (class 1259 OID 35037)
 -- Dependencies: 7
 -- Name: paises; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5883,8 +5891,8 @@ CREATE TABLE paises (
 ALTER TABLE public.paises OWNER TO desarrollo_g;
 
 --
--- TOC entry 1734 (class 1259 OID 35040)
--- Dependencies: 1733 7
+-- TOC entry 1735 (class 1259 OID 35040)
+-- Dependencies: 7 1734
 -- Name: paises_id_pai_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5899,8 +5907,8 @@ CREATE SEQUENCE paises_id_pai_seq
 ALTER TABLE public.paises_id_pai_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2500 (class 0 OID 0)
--- Dependencies: 1734
+-- TOC entry 2498 (class 0 OID 0)
+-- Dependencies: 1735
 -- Name: paises_id_pai_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5908,8 +5916,8 @@ ALTER SEQUENCE paises_id_pai_seq OWNED BY paises.id_pai;
 
 
 --
--- TOC entry 2501 (class 0 OID 0)
--- Dependencies: 1734
+-- TOC entry 2499 (class 0 OID 0)
+-- Dependencies: 1735
 -- Name: paises_id_pai_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5917,7 +5925,7 @@ SELECT pg_catalog.setval('paises_id_pai_seq', 1, false);
 
 
 --
--- TOC entry 1735 (class 1259 OID 35042)
+-- TOC entry 1736 (class 1259 OID 35042)
 -- Dependencies: 7
 -- Name: parroquias; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5932,8 +5940,8 @@ CREATE TABLE parroquias (
 ALTER TABLE public.parroquias OWNER TO desarrollo_g;
 
 --
--- TOC entry 1736 (class 1259 OID 35045)
--- Dependencies: 7 1735
+-- TOC entry 1737 (class 1259 OID 35045)
+-- Dependencies: 7 1736
 -- Name: parroquias_id_par_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -5948,8 +5956,8 @@ CREATE SEQUENCE parroquias_id_par_seq
 ALTER TABLE public.parroquias_id_par_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2502 (class 0 OID 0)
--- Dependencies: 1736
+-- TOC entry 2500 (class 0 OID 0)
+-- Dependencies: 1737
 -- Name: parroquias_id_par_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -5957,8 +5965,8 @@ ALTER SEQUENCE parroquias_id_par_seq OWNED BY parroquias.id_par;
 
 
 --
--- TOC entry 2503 (class 0 OID 0)
--- Dependencies: 1736
+-- TOC entry 2501 (class 0 OID 0)
+-- Dependencies: 1737
 -- Name: parroquias_id_par_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -5968,7 +5976,7 @@ SELECT pg_catalog.setval('parroquias_id_par_seq', 1, false);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1737 (class 1259 OID 35047)
+-- TOC entry 1738 (class 1259 OID 35047)
 -- Dependencies: 7
 -- Name: partes_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -5984,7 +5992,7 @@ ALTER TABLE public.partes_cuerpos OWNER TO desarrollo_g;
 SET default_tablespace = '';
 
 --
--- TOC entry 1738 (class 1259 OID 35050)
+-- TOC entry 1739 (class 1259 OID 35050)
 -- Dependencies: 7
 -- Name: partes_cuerpos__categorias_cuerpos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -5999,8 +6007,8 @@ CREATE TABLE partes_cuerpos__categorias_cuerpos (
 ALTER TABLE public.partes_cuerpos__categorias_cuerpos OWNER TO desarrollo_g;
 
 --
--- TOC entry 2504 (class 0 OID 0)
--- Dependencies: 1738
+-- TOC entry 2502 (class 0 OID 0)
+-- Dependencies: 1739
 -- Name: TABLE partes_cuerpos__categorias_cuerpos; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6008,8 +6016,8 @@ COMMENT ON TABLE partes_cuerpos__categorias_cuerpos IS 'Permite seleccionar a qu
 
 
 --
--- TOC entry 1739 (class 1259 OID 35053)
--- Dependencies: 1738 7
+-- TOC entry 1740 (class 1259 OID 35053)
+-- Dependencies: 7 1739
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6024,8 +6032,8 @@ CREATE SEQUENCE partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq
 ALTER TABLE public.partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2505 (class 0 OID 0)
--- Dependencies: 1739
+-- TOC entry 2503 (class 0 OID 0)
+-- Dependencies: 1740
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6033,8 +6041,8 @@ ALTER SEQUENCE partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq OWNED B
 
 
 --
--- TOC entry 2506 (class 0 OID 0)
--- Dependencies: 1739
+-- TOC entry 2504 (class 0 OID 0)
+-- Dependencies: 1740
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6042,8 +6050,8 @@ SELECT pg_catalog.setval('partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_
 
 
 --
--- TOC entry 1740 (class 1259 OID 35055)
--- Dependencies: 7 1737
+-- TOC entry 1741 (class 1259 OID 35055)
+-- Dependencies: 7 1738
 -- Name: partes_cuerpos_id_par_cue_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6058,8 +6066,8 @@ CREATE SEQUENCE partes_cuerpos_id_par_cue_seq
 ALTER TABLE public.partes_cuerpos_id_par_cue_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2507 (class 0 OID 0)
--- Dependencies: 1740
+-- TOC entry 2505 (class 0 OID 0)
+-- Dependencies: 1741
 -- Name: partes_cuerpos_id_par_cue_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6067,8 +6075,8 @@ ALTER SEQUENCE partes_cuerpos_id_par_cue_seq OWNED BY partes_cuerpos.id_par_cue;
 
 
 --
--- TOC entry 2508 (class 0 OID 0)
--- Dependencies: 1740
+-- TOC entry 2506 (class 0 OID 0)
+-- Dependencies: 1741
 -- Name: partes_cuerpos_id_par_cue_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6076,8 +6084,8 @@ SELECT pg_catalog.setval('partes_cuerpos_id_par_cue_seq', 19, true);
 
 
 --
--- TOC entry 1741 (class 1259 OID 35057)
--- Dependencies: 2089 7
+-- TOC entry 1742 (class 1259 OID 35057)
+-- Dependencies: 2090 7
 -- Name: tiempo_evoluciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -6091,8 +6099,8 @@ CREATE TABLE tiempo_evoluciones (
 ALTER TABLE public.tiempo_evoluciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1742 (class 1259 OID 35061)
--- Dependencies: 1741 7
+-- TOC entry 1743 (class 1259 OID 35061)
+-- Dependencies: 1742 7
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6107,8 +6115,8 @@ CREATE SEQUENCE tiempo_evoluciones_id_tie_evo_seq
 ALTER TABLE public.tiempo_evoluciones_id_tie_evo_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2509 (class 0 OID 0)
--- Dependencies: 1742
+-- TOC entry 2507 (class 0 OID 0)
+-- Dependencies: 1743
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6116,18 +6124,18 @@ ALTER SEQUENCE tiempo_evoluciones_id_tie_evo_seq OWNED BY tiempo_evoluciones.id_
 
 
 --
--- TOC entry 2510 (class 0 OID 0)
--- Dependencies: 1742
+-- TOC entry 2508 (class 0 OID 0)
+-- Dependencies: 1743
 -- Name: tiempo_evoluciones_id_tie_evo_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 27, true);
+SELECT pg_catalog.setval('tiempo_evoluciones_id_tie_evo_seq', 28, true);
 
 
 SET default_tablespace = saib;
 
 --
--- TOC entry 1743 (class 1259 OID 35063)
+-- TOC entry 1744 (class 1259 OID 35063)
 -- Dependencies: 7
 -- Name: tipos_consultas; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6141,8 +6149,8 @@ CREATE TABLE tipos_consultas (
 ALTER TABLE public.tipos_consultas OWNER TO desarrollo_g;
 
 --
--- TOC entry 2511 (class 0 OID 0)
--- Dependencies: 1743
+-- TOC entry 2509 (class 0 OID 0)
+-- Dependencies: 1744
 -- Name: COLUMN tipos_consultas.id_tip_con; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6150,8 +6158,8 @@ COMMENT ON COLUMN tipos_consultas.id_tip_con IS 'id tipos consultas';
 
 
 --
--- TOC entry 1744 (class 1259 OID 35066)
--- Dependencies: 1743 7
+-- TOC entry 1745 (class 1259 OID 35066)
+-- Dependencies: 1744 7
 -- Name: tipos_consultas_id_tip_con_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6166,8 +6174,8 @@ CREATE SEQUENCE tipos_consultas_id_tip_con_seq
 ALTER TABLE public.tipos_consultas_id_tip_con_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2512 (class 0 OID 0)
--- Dependencies: 1744
+-- TOC entry 2510 (class 0 OID 0)
+-- Dependencies: 1745
 -- Name: tipos_consultas_id_tip_con_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6175,8 +6183,8 @@ ALTER SEQUENCE tipos_consultas_id_tip_con_seq OWNED BY tipos_consultas.id_tip_co
 
 
 --
--- TOC entry 2513 (class 0 OID 0)
--- Dependencies: 1744
+-- TOC entry 2511 (class 0 OID 0)
+-- Dependencies: 1745
 -- Name: tipos_consultas_id_tip_con_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6184,7 +6192,7 @@ SELECT pg_catalog.setval('tipos_consultas_id_tip_con_seq', 9, true);
 
 
 --
--- TOC entry 1745 (class 1259 OID 35068)
+-- TOC entry 1746 (class 1259 OID 35068)
 -- Dependencies: 7
 -- Name: tipos_consultas_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6200,8 +6208,8 @@ CREATE TABLE tipos_consultas_pacientes (
 ALTER TABLE public.tipos_consultas_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2514 (class 0 OID 0)
--- Dependencies: 1745
+-- TOC entry 2512 (class 0 OID 0)
+-- Dependencies: 1746
 -- Name: COLUMN tipos_consultas_pacientes.id_tip_con_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6209,8 +6217,8 @@ COMMENT ON COLUMN tipos_consultas_pacientes.id_tip_con_pac IS 'Id tipos de consu
 
 
 --
--- TOC entry 2515 (class 0 OID 0)
--- Dependencies: 1745
+-- TOC entry 2513 (class 0 OID 0)
+-- Dependencies: 1746
 -- Name: COLUMN tipos_consultas_pacientes.id_tip_con; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6218,8 +6226,8 @@ COMMENT ON COLUMN tipos_consultas_pacientes.id_tip_con IS 'Id tipos de consulta'
 
 
 --
--- TOC entry 2516 (class 0 OID 0)
--- Dependencies: 1745
+-- TOC entry 2514 (class 0 OID 0)
+-- Dependencies: 1746
 -- Name: COLUMN tipos_consultas_pacientes.id_his; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6227,8 +6235,8 @@ COMMENT ON COLUMN tipos_consultas_pacientes.id_his IS 'Id historico';
 
 
 --
--- TOC entry 2517 (class 0 OID 0)
--- Dependencies: 1745
+-- TOC entry 2515 (class 0 OID 0)
+-- Dependencies: 1746
 -- Name: COLUMN tipos_consultas_pacientes.otr_tip_con; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6236,8 +6244,8 @@ COMMENT ON COLUMN tipos_consultas_pacientes.otr_tip_con IS 'Otro tipo de consult
 
 
 --
--- TOC entry 1746 (class 1259 OID 35071)
--- Dependencies: 1745 7
+-- TOC entry 1747 (class 1259 OID 35071)
+-- Dependencies: 1746 7
 -- Name: tipos_consultas_pacientes_id_tip_con_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6252,8 +6260,8 @@ CREATE SEQUENCE tipos_consultas_pacientes_id_tip_con_pac_seq
 ALTER TABLE public.tipos_consultas_pacientes_id_tip_con_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2518 (class 0 OID 0)
--- Dependencies: 1746
+-- TOC entry 2516 (class 0 OID 0)
+-- Dependencies: 1747
 -- Name: tipos_consultas_pacientes_id_tip_con_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6261,16 +6269,16 @@ ALTER SEQUENCE tipos_consultas_pacientes_id_tip_con_pac_seq OWNED BY tipos_consu
 
 
 --
--- TOC entry 2519 (class 0 OID 0)
--- Dependencies: 1746
+-- TOC entry 2517 (class 0 OID 0)
+-- Dependencies: 1747
 -- Name: tipos_consultas_pacientes_id_tip_con_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_consultas_pacientes_id_tip_con_pac_seq', 233, true);
+SELECT pg_catalog.setval('tipos_consultas_pacientes_id_tip_con_pac_seq', 237, true);
 
 
 --
--- TOC entry 1747 (class 1259 OID 35073)
+-- TOC entry 1748 (class 1259 OID 35073)
 -- Dependencies: 7
 -- Name: tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6286,8 +6294,8 @@ CREATE TABLE tipos_estudios_micologicos (
 ALTER TABLE public.tipos_estudios_micologicos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1748 (class 1259 OID 35076)
--- Dependencies: 1747 7
+-- TOC entry 1749 (class 1259 OID 35076)
+-- Dependencies: 1748 7
 -- Name: tipos_estudios_micologicos_id_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6302,8 +6310,8 @@ CREATE SEQUENCE tipos_estudios_micologicos_id_tip_est_mic_seq
 ALTER TABLE public.tipos_estudios_micologicos_id_tip_est_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2520 (class 0 OID 0)
--- Dependencies: 1748
+-- TOC entry 2518 (class 0 OID 0)
+-- Dependencies: 1749
 -- Name: tipos_estudios_micologicos_id_tip_est_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6311,8 +6319,8 @@ ALTER SEQUENCE tipos_estudios_micologicos_id_tip_est_mic_seq OWNED BY tipos_estu
 
 
 --
--- TOC entry 2521 (class 0 OID 0)
--- Dependencies: 1748
+-- TOC entry 2519 (class 0 OID 0)
+-- Dependencies: 1749
 -- Name: tipos_estudios_micologicos_id_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6322,7 +6330,7 @@ SELECT pg_catalog.setval('tipos_estudios_micologicos_id_tip_est_mic_seq', 64, tr
 SET default_tablespace = '';
 
 --
--- TOC entry 1749 (class 1259 OID 35078)
+-- TOC entry 1750 (class 1259 OID 35078)
 -- Dependencies: 7
 -- Name: tipos_examenes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -6336,8 +6344,8 @@ CREATE TABLE tipos_examenes (
 ALTER TABLE public.tipos_examenes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1750 (class 1259 OID 35081)
--- Dependencies: 1749 7
+-- TOC entry 1751 (class 1259 OID 35081)
+-- Dependencies: 7 1750
 -- Name: tipos_examenes_id_tip_exa_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6352,8 +6360,8 @@ CREATE SEQUENCE tipos_examenes_id_tip_exa_seq
 ALTER TABLE public.tipos_examenes_id_tip_exa_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2522 (class 0 OID 0)
--- Dependencies: 1750
+-- TOC entry 2520 (class 0 OID 0)
+-- Dependencies: 1751
 -- Name: tipos_examenes_id_tip_exa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6361,8 +6369,8 @@ ALTER SEQUENCE tipos_examenes_id_tip_exa_seq OWNED BY tipos_examenes.id_tip_exa;
 
 
 --
--- TOC entry 2523 (class 0 OID 0)
--- Dependencies: 1750
+-- TOC entry 2521 (class 0 OID 0)
+-- Dependencies: 1751
 -- Name: tipos_examenes_id_tip_exa_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6372,7 +6380,7 @@ SELECT pg_catalog.setval('tipos_examenes_id_tip_exa_seq', 3, false);
 SET default_tablespace = saib;
 
 --
--- TOC entry 1751 (class 1259 OID 35083)
+-- TOC entry 1752 (class 1259 OID 35083)
 -- Dependencies: 7
 -- Name: tipos_micosis; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6386,8 +6394,8 @@ CREATE TABLE tipos_micosis (
 ALTER TABLE public.tipos_micosis OWNER TO desarrollo_g;
 
 --
--- TOC entry 1752 (class 1259 OID 35086)
--- Dependencies: 7 1751
+-- TOC entry 1753 (class 1259 OID 35086)
+-- Dependencies: 7 1752
 -- Name: tipos_micosis_id_tip_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6402,8 +6410,8 @@ CREATE SEQUENCE tipos_micosis_id_tip_mic_seq
 ALTER TABLE public.tipos_micosis_id_tip_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2524 (class 0 OID 0)
--- Dependencies: 1752
+-- TOC entry 2522 (class 0 OID 0)
+-- Dependencies: 1753
 -- Name: tipos_micosis_id_tip_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6411,8 +6419,8 @@ ALTER SEQUENCE tipos_micosis_id_tip_mic_seq OWNED BY tipos_micosis.id_tip_mic;
 
 
 --
--- TOC entry 2525 (class 0 OID 0)
--- Dependencies: 1752
+-- TOC entry 2523 (class 0 OID 0)
+-- Dependencies: 1753
 -- Name: tipos_micosis_id_tip_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6422,7 +6430,7 @@ SELECT pg_catalog.setval('tipos_micosis_id_tip_mic_seq', 4, false);
 SET default_tablespace = '';
 
 --
--- TOC entry 1753 (class 1259 OID 35088)
+-- TOC entry 1754 (class 1259 OID 35088)
 -- Dependencies: 7
 -- Name: tipos_micosis_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -6437,7 +6445,7 @@ CREATE TABLE tipos_micosis_pacientes (
 ALTER TABLE public.tipos_micosis_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 1754 (class 1259 OID 35091)
+-- TOC entry 1755 (class 1259 OID 35091)
 -- Dependencies: 7
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
@@ -6453,8 +6461,8 @@ CREATE TABLE tipos_micosis_pacientes__tipos_estudios_micologicos (
 ALTER TABLE public.tipos_micosis_pacientes__tipos_estudios_micologicos OWNER TO desarrollo_g;
 
 --
--- TOC entry 2526 (class 0 OID 0)
--- Dependencies: 1754
+-- TOC entry 2524 (class 0 OID 0)
+-- Dependencies: 1755
 -- Name: COLUMN tipos_micosis_pacientes__tipos_estudios_micologicos.otr_tip_est_mic; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6462,8 +6470,8 @@ COMMENT ON COLUMN tipos_micosis_pacientes__tipos_estudios_micologicos.otr_tip_es
 
 
 --
--- TOC entry 1755 (class 1259 OID 35094)
--- Dependencies: 7 1754
+-- TOC entry 1756 (class 1259 OID 35094)
+-- Dependencies: 1755 7
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6478,8 +6486,8 @@ CREATE SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq
 ALTER TABLE public.tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2527 (class 0 OID 0)
--- Dependencies: 1755
+-- TOC entry 2525 (class 0 OID 0)
+-- Dependencies: 1756
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6487,17 +6495,17 @@ ALTER SEQUENCE tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq O
 
 
 --
--- TOC entry 2528 (class 0 OID 0)
--- Dependencies: 1755
+-- TOC entry 2526 (class 0 OID 0)
+-- Dependencies: 1756
 -- Name: tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 293, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq', 297, true);
 
 
 --
--- TOC entry 1756 (class 1259 OID 35096)
--- Dependencies: 1753 7
+-- TOC entry 1757 (class 1259 OID 35096)
+-- Dependencies: 1754 7
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6512,8 +6520,8 @@ CREATE SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq
 ALTER TABLE public.tipos_micosis_pacientes_id_tip_mic_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2529 (class 0 OID 0)
--- Dependencies: 1756
+-- TOC entry 2527 (class 0 OID 0)
+-- Dependencies: 1757
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6521,18 +6529,18 @@ ALTER SEQUENCE tipos_micosis_pacientes_id_tip_mic_pac_seq OWNED BY tipos_micosis
 
 
 --
--- TOC entry 2530 (class 0 OID 0)
--- Dependencies: 1756
+-- TOC entry 2528 (class 0 OID 0)
+-- Dependencies: 1757
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 204, true);
+SELECT pg_catalog.setval('tipos_micosis_pacientes_id_tip_mic_pac_seq', 206, true);
 
 
 SET default_tablespace = saib;
 
 --
--- TOC entry 1757 (class 1259 OID 35098)
+-- TOC entry 1758 (class 1259 OID 35098)
 -- Dependencies: 7
 -- Name: tipos_usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6547,7 +6555,7 @@ CREATE TABLE tipos_usuarios (
 ALTER TABLE public.tipos_usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1758 (class 1259 OID 35101)
+-- TOC entry 1759 (class 1259 OID 35101)
 -- Dependencies: 7
 -- Name: tipos_usuarios__usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6563,8 +6571,8 @@ CREATE TABLE tipos_usuarios__usuarios (
 ALTER TABLE public.tipos_usuarios__usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1759 (class 1259 OID 35104)
--- Dependencies: 7 1758
+-- TOC entry 1760 (class 1259 OID 35104)
+-- Dependencies: 7 1759
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6579,8 +6587,8 @@ CREATE SEQUENCE tipos_usuarios__usuarios_id_tip_usu_usu_seq
 ALTER TABLE public.tipos_usuarios__usuarios_id_tip_usu_usu_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2531 (class 0 OID 0)
--- Dependencies: 1759
+-- TOC entry 2529 (class 0 OID 0)
+-- Dependencies: 1760
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6588,8 +6596,8 @@ ALTER SEQUENCE tipos_usuarios__usuarios_id_tip_usu_usu_seq OWNED BY tipos_usuari
 
 
 --
--- TOC entry 2532 (class 0 OID 0)
--- Dependencies: 1759
+-- TOC entry 2530 (class 0 OID 0)
+-- Dependencies: 1760
 -- Name: tipos_usuarios__usuarios_id_tip_usu_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6597,8 +6605,8 @@ SELECT pg_catalog.setval('tipos_usuarios__usuarios_id_tip_usu_usu_seq', 67, true
 
 
 --
--- TOC entry 1760 (class 1259 OID 35106)
--- Dependencies: 1757 7
+-- TOC entry 1761 (class 1259 OID 35106)
+-- Dependencies: 1758 7
 -- Name: tipos_usuarios_id_tip_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6613,8 +6621,8 @@ CREATE SEQUENCE tipos_usuarios_id_tip_usu_seq
 ALTER TABLE public.tipos_usuarios_id_tip_usu_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2533 (class 0 OID 0)
--- Dependencies: 1760
+-- TOC entry 2531 (class 0 OID 0)
+-- Dependencies: 1761
 -- Name: tipos_usuarios_id_tip_usu_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6622,8 +6630,8 @@ ALTER SEQUENCE tipos_usuarios_id_tip_usu_seq OWNED BY tipos_usuarios.id_tip_usu;
 
 
 --
--- TOC entry 2534 (class 0 OID 0)
--- Dependencies: 1760
+-- TOC entry 2532 (class 0 OID 0)
+-- Dependencies: 1761
 -- Name: tipos_usuarios_id_tip_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6631,7 +6639,7 @@ SELECT pg_catalog.setval('tipos_usuarios_id_tip_usu_seq', 2, true);
 
 
 --
--- TOC entry 1761 (class 1259 OID 35108)
+-- TOC entry 1762 (class 1259 OID 35108)
 -- Dependencies: 7
 -- Name: transacciones; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6647,8 +6655,8 @@ CREATE TABLE transacciones (
 ALTER TABLE public.transacciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1762 (class 1259 OID 35111)
--- Dependencies: 1761 7
+-- TOC entry 1763 (class 1259 OID 35111)
+-- Dependencies: 7 1762
 -- Name: transacciones_id_tip_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6663,8 +6671,8 @@ CREATE SEQUENCE transacciones_id_tip_tra_seq
 ALTER TABLE public.transacciones_id_tip_tra_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2535 (class 0 OID 0)
--- Dependencies: 1762
+-- TOC entry 2533 (class 0 OID 0)
+-- Dependencies: 1763
 -- Name: transacciones_id_tip_tra_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6672,8 +6680,8 @@ ALTER SEQUENCE transacciones_id_tip_tra_seq OWNED BY transacciones.id_tip_tra;
 
 
 --
--- TOC entry 2536 (class 0 OID 0)
--- Dependencies: 1762
+-- TOC entry 2534 (class 0 OID 0)
+-- Dependencies: 1763
 -- Name: transacciones_id_tip_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6681,7 +6689,7 @@ SELECT pg_catalog.setval('transacciones_id_tip_tra_seq', 30, true);
 
 
 --
--- TOC entry 1763 (class 1259 OID 35113)
+-- TOC entry 1764 (class 1259 OID 35113)
 -- Dependencies: 7
 -- Name: transacciones_usuarios; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6696,8 +6704,8 @@ CREATE TABLE transacciones_usuarios (
 ALTER TABLE public.transacciones_usuarios OWNER TO desarrollo_g;
 
 --
--- TOC entry 1764 (class 1259 OID 35116)
--- Dependencies: 1763 7
+-- TOC entry 1765 (class 1259 OID 35116)
+-- Dependencies: 7 1764
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6712,8 +6720,8 @@ CREATE SEQUENCE transacciones_usuarios_id_tra_usu_seq
 ALTER TABLE public.transacciones_usuarios_id_tra_usu_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2537 (class 0 OID 0)
--- Dependencies: 1764
+-- TOC entry 2535 (class 0 OID 0)
+-- Dependencies: 1765
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6721,8 +6729,8 @@ ALTER SEQUENCE transacciones_usuarios_id_tra_usu_seq OWNED BY transacciones_usua
 
 
 --
--- TOC entry 2538 (class 0 OID 0)
--- Dependencies: 1764
+-- TOC entry 2536 (class 0 OID 0)
+-- Dependencies: 1765
 -- Name: transacciones_usuarios_id_tra_usu_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6730,7 +6738,7 @@ SELECT pg_catalog.setval('transacciones_usuarios_id_tra_usu_seq', 299, true);
 
 
 --
--- TOC entry 1765 (class 1259 OID 35118)
+-- TOC entry 1766 (class 1259 OID 35118)
 -- Dependencies: 7
 -- Name: tratamientos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6744,8 +6752,8 @@ CREATE TABLE tratamientos (
 ALTER TABLE public.tratamientos OWNER TO desarrollo_g;
 
 --
--- TOC entry 1766 (class 1259 OID 35121)
--- Dependencies: 1765 7
+-- TOC entry 1767 (class 1259 OID 35121)
+-- Dependencies: 1766 7
 -- Name: tratamientos_id_tra_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6760,8 +6768,8 @@ CREATE SEQUENCE tratamientos_id_tra_seq
 ALTER TABLE public.tratamientos_id_tra_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2539 (class 0 OID 0)
--- Dependencies: 1766
+-- TOC entry 2537 (class 0 OID 0)
+-- Dependencies: 1767
 -- Name: tratamientos_id_tra_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6769,8 +6777,8 @@ ALTER SEQUENCE tratamientos_id_tra_seq OWNED BY tratamientos.id_tra;
 
 
 --
--- TOC entry 2540 (class 0 OID 0)
--- Dependencies: 1766
+-- TOC entry 2538 (class 0 OID 0)
+-- Dependencies: 1767
 -- Name: tratamientos_id_tra_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6778,7 +6786,7 @@ SELECT pg_catalog.setval('tratamientos_id_tra_seq', 1, false);
 
 
 --
--- TOC entry 1767 (class 1259 OID 35123)
+-- TOC entry 1768 (class 1259 OID 35123)
 -- Dependencies: 7
 -- Name: tratamientos_pacientes; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
@@ -6794,8 +6802,8 @@ CREATE TABLE tratamientos_pacientes (
 ALTER TABLE public.tratamientos_pacientes OWNER TO desarrollo_g;
 
 --
--- TOC entry 2541 (class 0 OID 0)
--- Dependencies: 1767
+-- TOC entry 2539 (class 0 OID 0)
+-- Dependencies: 1768
 -- Name: COLUMN tratamientos_pacientes.id_tra_pac; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6803,8 +6811,8 @@ COMMENT ON COLUMN tratamientos_pacientes.id_tra_pac IS 'Id transaccion paciente'
 
 
 --
--- TOC entry 2542 (class 0 OID 0)
--- Dependencies: 1767
+-- TOC entry 2540 (class 0 OID 0)
+-- Dependencies: 1768
 -- Name: COLUMN tratamientos_pacientes.id_his; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6812,8 +6820,8 @@ COMMENT ON COLUMN tratamientos_pacientes.id_his IS 'Id historico';
 
 
 --
--- TOC entry 2543 (class 0 OID 0)
--- Dependencies: 1767
+-- TOC entry 2541 (class 0 OID 0)
+-- Dependencies: 1768
 -- Name: COLUMN tratamientos_pacientes.id_tra; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6821,8 +6829,8 @@ COMMENT ON COLUMN tratamientos_pacientes.id_tra IS 'Id tratamiento';
 
 
 --
--- TOC entry 2544 (class 0 OID 0)
--- Dependencies: 1767
+-- TOC entry 2542 (class 0 OID 0)
+-- Dependencies: 1768
 -- Name: COLUMN tratamientos_pacientes.otr_tra; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6830,8 +6838,8 @@ COMMENT ON COLUMN tratamientos_pacientes.otr_tra IS 'Otro tratamiento';
 
 
 --
--- TOC entry 1768 (class 1259 OID 35126)
--- Dependencies: 1767 7
+-- TOC entry 1769 (class 1259 OID 35126)
+-- Dependencies: 1768 7
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6846,8 +6854,8 @@ CREATE SEQUENCE tratamientos_pacientes_id_tra_pac_seq
 ALTER TABLE public.tratamientos_pacientes_id_tra_pac_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2545 (class 0 OID 0)
--- Dependencies: 1768
+-- TOC entry 2543 (class 0 OID 0)
+-- Dependencies: 1769
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6855,17 +6863,17 @@ ALTER SEQUENCE tratamientos_pacientes_id_tra_pac_seq OWNED BY tratamientos_pacie
 
 
 --
--- TOC entry 2546 (class 0 OID 0)
--- Dependencies: 1768
+-- TOC entry 2544 (class 0 OID 0)
+-- Dependencies: 1769
 -- Name: tratamientos_pacientes_id_tra_pac_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
-SELECT pg_catalog.setval('tratamientos_pacientes_id_tra_pac_seq', 308, true);
+SELECT pg_catalog.setval('tratamientos_pacientes_id_tra_pac_seq', 310, true);
 
 
 --
--- TOC entry 1769 (class 1259 OID 35128)
--- Dependencies: 2104 2105 7
+-- TOC entry 1770 (class 1259 OID 35128)
+-- Dependencies: 2105 2106 7
 -- Name: usuarios_administrativos; Type: TABLE; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -6886,8 +6894,8 @@ CREATE TABLE usuarios_administrativos (
 ALTER TABLE public.usuarios_administrativos OWNER TO desarrollo_g;
 
 --
--- TOC entry 2547 (class 0 OID 0)
--- Dependencies: 1769
+-- TOC entry 2545 (class 0 OID 0)
+-- Dependencies: 1770
 -- Name: COLUMN usuarios_administrativos.fec_reg_usu_adm; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6895,8 +6903,8 @@ COMMENT ON COLUMN usuarios_administrativos.fec_reg_usu_adm IS 'Fecha de registro
 
 
 --
--- TOC entry 2548 (class 0 OID 0)
--- Dependencies: 1769
+-- TOC entry 2546 (class 0 OID 0)
+-- Dependencies: 1770
 -- Name: COLUMN usuarios_administrativos.adm_usu; Type: COMMENT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6907,8 +6915,8 @@ COMMENT ON COLUMN usuarios_administrativos.adm_usu IS '
 
 
 --
--- TOC entry 1770 (class 1259 OID 35136)
--- Dependencies: 1769 7
+-- TOC entry 1771 (class 1259 OID 35136)
+-- Dependencies: 1770 7
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE; Schema: public; Owner: desarrollo_g
 --
 
@@ -6923,8 +6931,8 @@ CREATE SEQUENCE usuarios_administrativos_id_usu_adm_seq
 ALTER TABLE public.usuarios_administrativos_id_usu_adm_seq OWNER TO desarrollo_g;
 
 --
--- TOC entry 2549 (class 0 OID 0)
--- Dependencies: 1770
+-- TOC entry 2547 (class 0 OID 0)
+-- Dependencies: 1771
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: desarrollo_g
 --
 
@@ -6932,8 +6940,8 @@ ALTER SEQUENCE usuarios_administrativos_id_usu_adm_seq OWNED BY usuarios_adminis
 
 
 --
--- TOC entry 2550 (class 0 OID 0)
--- Dependencies: 1770
+-- TOC entry 2548 (class 0 OID 0)
+-- Dependencies: 1771
 -- Name: usuarios_administrativos_id_usu_adm_seq; Type: SEQUENCE SET; Schema: public; Owner: desarrollo_g
 --
 
@@ -6941,8 +6949,8 @@ SELECT pg_catalog.setval('usuarios_administrativos_id_usu_adm_seq', 35, true);
 
 
 --
--- TOC entry 1772 (class 1259 OID 35660)
--- Dependencies: 1860 7
+-- TOC entry 1773 (class 1259 OID 35660)
+-- Dependencies: 1861 7
 -- Name: view_auditoria_transacciones; Type: VIEW; Schema: public; Owner: desarrollo_g
 --
 
@@ -6953,8 +6961,8 @@ CREATE VIEW view_auditoria_transacciones AS
 ALTER TABLE public.view_auditoria_transacciones OWNER TO desarrollo_g;
 
 --
--- TOC entry 1773 (class 1259 OID 35666)
--- Dependencies: 1861 7
+-- TOC entry 1774 (class 1259 OID 35666)
+-- Dependencies: 1862 7
 -- Name: view_tipo_enfermedades_mic_pac; Type: VIEW; Schema: public; Owner: desarrollo_g
 --
 
@@ -6964,30 +6972,9 @@ CREATE VIEW view_tipo_enfermedades_mic_pac AS
 
 ALTER TABLE public.view_tipo_enfermedades_mic_pac OWNER TO desarrollo_g;
 
-SET search_path = saib_model, pg_catalog;
-
-SET default_tablespace = '';
-
 --
--- TOC entry 1771 (class 1259 OID 35147)
--- Dependencies: 6
--- Name: wwwsqldesigner; Type: TABLE; Schema: saib_model; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE wwwsqldesigner (
-    keyword character varying(30) NOT NULL,
-    xmldata text,
-    dt timestamp without time zone
-);
-
-
-ALTER TABLE saib_model.wwwsqldesigner OWNER TO postgres;
-
-SET search_path = public, pg_catalog;
-
---
--- TOC entry 2053 (class 2604 OID 35153)
--- Dependencies: 1678 1677
+-- TOC entry 2054 (class 2604 OID 35153)
+-- Dependencies: 1679 1678
 -- Name: id_ani; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -6995,8 +6982,8 @@ ALTER TABLE animales ALTER COLUMN id_ani SET DEFAULT nextval('animales_id_ani_se
 
 
 --
--- TOC entry 2054 (class 2604 OID 35154)
--- Dependencies: 1680 1679
+-- TOC entry 2055 (class 2604 OID 35154)
+-- Dependencies: 1681 1680
 -- Name: id_ant_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7004,8 +6991,8 @@ ALTER TABLE antecedentes_pacientes ALTER COLUMN id_ant_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2055 (class 2604 OID 35155)
--- Dependencies: 1682 1681
+-- TOC entry 2056 (class 2604 OID 35155)
+-- Dependencies: 1683 1682
 -- Name: id_ant_per; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7013,8 +7000,8 @@ ALTER TABLE antecedentes_personales ALTER COLUMN id_ant_per SET DEFAULT nextval(
 
 
 --
--- TOC entry 2056 (class 2604 OID 35156)
--- Dependencies: 1684 1683
+-- TOC entry 2057 (class 2604 OID 35156)
+-- Dependencies: 1685 1684
 -- Name: id_aud_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7022,8 +7009,8 @@ ALTER TABLE auditoria_transacciones ALTER COLUMN id_aud_tra SET DEFAULT nextval(
 
 
 --
--- TOC entry 2057 (class 2604 OID 35157)
--- Dependencies: 1686 1685
+-- TOC entry 2058 (class 2604 OID 35157)
+-- Dependencies: 1687 1686
 -- Name: id_cat_cue_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7031,8 +7018,8 @@ ALTER TABLE categorias__cuerpos_micosis ALTER COLUMN id_cat_cue_mic SET DEFAULT 
 
 
 --
--- TOC entry 2058 (class 2604 OID 35158)
--- Dependencies: 1689 1687
+-- TOC entry 2059 (class 2604 OID 35158)
+-- Dependencies: 1690 1688
 -- Name: id_cat_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7040,8 +7027,8 @@ ALTER TABLE categorias_cuerpos ALTER COLUMN id_cat_cue SET DEFAULT nextval('cate
 
 
 --
--- TOC entry 2059 (class 2604 OID 35159)
--- Dependencies: 1717 1688
+-- TOC entry 2060 (class 2604 OID 35159)
+-- Dependencies: 1718 1689
 -- Name: id_cat_cue_les; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7049,8 +7036,8 @@ ALTER TABLE categorias_cuerpos__lesiones ALTER COLUMN id_cat_cue_les SET DEFAULT
 
 
 --
--- TOC entry 2060 (class 2604 OID 35160)
--- Dependencies: 1691 1690
+-- TOC entry 2061 (class 2604 OID 35160)
+-- Dependencies: 1692 1691
 -- Name: id_cen_sal_doc; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7058,8 +7045,8 @@ ALTER TABLE centro_salud_doctores ALTER COLUMN id_cen_sal_doc SET DEFAULT nextva
 
 
 --
--- TOC entry 2062 (class 2604 OID 35161)
--- Dependencies: 1695 1694
+-- TOC entry 2063 (class 2604 OID 35161)
+-- Dependencies: 1696 1695
 -- Name: id_cen_sal_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7067,8 +7054,8 @@ ALTER TABLE centro_salud_pacientes ALTER COLUMN id_cen_sal_pac SET DEFAULT nextv
 
 
 --
--- TOC entry 2061 (class 2604 OID 35162)
--- Dependencies: 1693 1692
+-- TOC entry 2062 (class 2604 OID 35162)
+-- Dependencies: 1694 1693
 -- Name: id_cen_sal; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7076,8 +7063,8 @@ ALTER TABLE centro_saluds ALTER COLUMN id_cen_sal SET DEFAULT nextval('centro_sa
 
 
 --
--- TOC entry 2063 (class 2604 OID 35163)
--- Dependencies: 1697 1696
+-- TOC entry 2064 (class 2604 OID 35163)
+-- Dependencies: 1698 1697
 -- Name: id_con_ani; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7085,8 +7072,8 @@ ALTER TABLE contactos_animales ALTER COLUMN id_con_ani SET DEFAULT nextval('cont
 
 
 --
--- TOC entry 2065 (class 2604 OID 35164)
--- Dependencies: 1699 1698
+-- TOC entry 2066 (class 2604 OID 35164)
+-- Dependencies: 1700 1699
 -- Name: id_doc; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7094,8 +7081,8 @@ ALTER TABLE doctores ALTER COLUMN id_doc SET DEFAULT nextval('doctores_id_doc_se
 
 
 --
--- TOC entry 2066 (class 2604 OID 35165)
--- Dependencies: 1701 1700
+-- TOC entry 2067 (class 2604 OID 35165)
+-- Dependencies: 1702 1701
 -- Name: id_enf_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7103,8 +7090,8 @@ ALTER TABLE enfermedades_micologicas ALTER COLUMN id_enf_mic SET DEFAULT nextval
 
 
 --
--- TOC entry 2067 (class 2604 OID 35166)
--- Dependencies: 1703 1702
+-- TOC entry 2068 (class 2604 OID 35166)
+-- Dependencies: 1704 1703
 -- Name: id_enf_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7112,8 +7099,8 @@ ALTER TABLE enfermedades_pacientes ALTER COLUMN id_enf_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2068 (class 2604 OID 35167)
--- Dependencies: 1705 1704
+-- TOC entry 2069 (class 2604 OID 35167)
+-- Dependencies: 1706 1705
 -- Name: id_est; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7121,8 +7108,8 @@ ALTER TABLE estados ALTER COLUMN id_est SET DEFAULT nextval('estados_id_est_seq'
 
 
 --
--- TOC entry 2069 (class 2604 OID 35168)
--- Dependencies: 1707 1706
+-- TOC entry 2070 (class 2604 OID 35168)
+-- Dependencies: 1708 1707
 -- Name: id_exa_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7130,8 +7117,8 @@ ALTER TABLE examenes_pacientes ALTER COLUMN id_exa_pac SET DEFAULT nextval('exam
 
 
 --
--- TOC entry 2070 (class 2604 OID 35169)
--- Dependencies: 1713 1708
+-- TOC entry 2071 (class 2604 OID 35169)
+-- Dependencies: 1714 1709
 -- Name: id_for_inf; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7139,8 +7126,8 @@ ALTER TABLE forma_infecciones ALTER COLUMN id_for_inf SET DEFAULT nextval('forma
 
 
 --
--- TOC entry 2071 (class 2604 OID 35170)
--- Dependencies: 1710 1709
+-- TOC entry 2072 (class 2604 OID 35170)
+-- Dependencies: 1711 1710
 -- Name: id_for_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7148,8 +7135,8 @@ ALTER TABLE forma_infecciones__pacientes ALTER COLUMN id_for_pac SET DEFAULT nex
 
 
 --
--- TOC entry 2072 (class 2604 OID 35171)
--- Dependencies: 1712 1711
+-- TOC entry 2073 (class 2604 OID 35171)
+-- Dependencies: 1713 1712
 -- Name: id_for_inf_tip_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7157,8 +7144,8 @@ ALTER TABLE forma_infecciones__tipos_micosis ALTER COLUMN id_for_inf_tip_mic SET
 
 
 --
--- TOC entry 2075 (class 2604 OID 35172)
--- Dependencies: 1715 1714
+-- TOC entry 2076 (class 2604 OID 35172)
+-- Dependencies: 1716 1715
 -- Name: id_his; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7166,8 +7153,8 @@ ALTER TABLE historiales_pacientes ALTER COLUMN id_his SET DEFAULT nextval('histo
 
 
 --
--- TOC entry 2076 (class 2604 OID 35173)
--- Dependencies: 1718 1716
+-- TOC entry 2077 (class 2604 OID 35173)
+-- Dependencies: 1719 1717
 -- Name: id_les; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7175,8 +7162,8 @@ ALTER TABLE lesiones ALTER COLUMN id_les SET DEFAULT nextval('lesiones_id_les_se
 
 
 --
--- TOC entry 2077 (class 2604 OID 35174)
--- Dependencies: 1720 1719
+-- TOC entry 2078 (class 2604 OID 35174)
+-- Dependencies: 1721 1720
 -- Name: id_les_par_cue_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7184,8 +7171,8 @@ ALTER TABLE lesiones_partes_cuerpos__pacientes ALTER COLUMN id_les_par_cue_pac S
 
 
 --
--- TOC entry 2078 (class 2604 OID 35175)
--- Dependencies: 1722 1721
+-- TOC entry 2079 (class 2604 OID 35175)
+-- Dependencies: 1723 1722
 -- Name: id_loc_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7193,8 +7180,8 @@ ALTER TABLE localizaciones_cuerpos ALTER COLUMN id_loc_cue SET DEFAULT nextval('
 
 
 --
--- TOC entry 2079 (class 2604 OID 35176)
--- Dependencies: 1724 1723
+-- TOC entry 2080 (class 2604 OID 35176)
+-- Dependencies: 1725 1724
 -- Name: id_mod; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7202,8 +7189,8 @@ ALTER TABLE modulos ALTER COLUMN id_mod SET DEFAULT nextval('modulos_id_mod_seq'
 
 
 --
--- TOC entry 2080 (class 2604 OID 35177)
--- Dependencies: 1726 1725
+-- TOC entry 2081 (class 2604 OID 35177)
+-- Dependencies: 1727 1726
 -- Name: id_mue_cli; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7211,8 +7198,8 @@ ALTER TABLE muestras_clinicas ALTER COLUMN id_mue_cli SET DEFAULT nextval('muest
 
 
 --
--- TOC entry 2081 (class 2604 OID 35178)
--- Dependencies: 1728 1727
+-- TOC entry 2082 (class 2604 OID 35178)
+-- Dependencies: 1729 1728
 -- Name: id_mue_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7220,8 +7207,8 @@ ALTER TABLE muestras_pacientes ALTER COLUMN id_mue_pac SET DEFAULT nextval('mues
 
 
 --
--- TOC entry 2082 (class 2604 OID 35179)
--- Dependencies: 1730 1729
+-- TOC entry 2083 (class 2604 OID 35179)
+-- Dependencies: 1731 1730
 -- Name: id_mun; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7229,8 +7216,8 @@ ALTER TABLE municipios ALTER COLUMN id_mun SET DEFAULT nextval('municipios_id_mu
 
 
 --
--- TOC entry 2084 (class 2604 OID 35180)
--- Dependencies: 1732 1731
+-- TOC entry 2085 (class 2604 OID 35180)
+-- Dependencies: 1733 1732
 -- Name: id_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7238,8 +7225,8 @@ ALTER TABLE pacientes ALTER COLUMN id_pac SET DEFAULT nextval('pacientes_id_pac_
 
 
 --
--- TOC entry 2085 (class 2604 OID 35181)
--- Dependencies: 1734 1733
+-- TOC entry 2086 (class 2604 OID 35181)
+-- Dependencies: 1735 1734
 -- Name: id_pai; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7247,8 +7234,8 @@ ALTER TABLE paises ALTER COLUMN id_pai SET DEFAULT nextval('paises_id_pai_seq'::
 
 
 --
--- TOC entry 2086 (class 2604 OID 35182)
--- Dependencies: 1736 1735
+-- TOC entry 2087 (class 2604 OID 35182)
+-- Dependencies: 1737 1736
 -- Name: id_par; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7256,8 +7243,8 @@ ALTER TABLE parroquias ALTER COLUMN id_par SET DEFAULT nextval('parroquias_id_pa
 
 
 --
--- TOC entry 2087 (class 2604 OID 35183)
--- Dependencies: 1740 1737
+-- TOC entry 2088 (class 2604 OID 35183)
+-- Dependencies: 1741 1738
 -- Name: id_par_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7265,8 +7252,8 @@ ALTER TABLE partes_cuerpos ALTER COLUMN id_par_cue SET DEFAULT nextval('partes_c
 
 
 --
--- TOC entry 2088 (class 2604 OID 35184)
--- Dependencies: 1739 1738
+-- TOC entry 2089 (class 2604 OID 35184)
+-- Dependencies: 1740 1739
 -- Name: id_par_cue_cat_cue; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7274,8 +7261,8 @@ ALTER TABLE partes_cuerpos__categorias_cuerpos ALTER COLUMN id_par_cue_cat_cue S
 
 
 --
--- TOC entry 2090 (class 2604 OID 35185)
--- Dependencies: 1742 1741
+-- TOC entry 2091 (class 2604 OID 35185)
+-- Dependencies: 1743 1742
 -- Name: id_tie_evo; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7283,8 +7270,8 @@ ALTER TABLE tiempo_evoluciones ALTER COLUMN id_tie_evo SET DEFAULT nextval('tiem
 
 
 --
--- TOC entry 2091 (class 2604 OID 35186)
--- Dependencies: 1744 1743
+-- TOC entry 2092 (class 2604 OID 35186)
+-- Dependencies: 1745 1744
 -- Name: id_tip_con; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7292,8 +7279,8 @@ ALTER TABLE tipos_consultas ALTER COLUMN id_tip_con SET DEFAULT nextval('tipos_c
 
 
 --
--- TOC entry 2092 (class 2604 OID 35187)
--- Dependencies: 1746 1745
+-- TOC entry 2093 (class 2604 OID 35187)
+-- Dependencies: 1747 1746
 -- Name: id_tip_con_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7301,8 +7288,8 @@ ALTER TABLE tipos_consultas_pacientes ALTER COLUMN id_tip_con_pac SET DEFAULT ne
 
 
 --
--- TOC entry 2093 (class 2604 OID 35188)
--- Dependencies: 1748 1747
+-- TOC entry 2094 (class 2604 OID 35188)
+-- Dependencies: 1749 1748
 -- Name: id_tip_est_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7310,8 +7297,8 @@ ALTER TABLE tipos_estudios_micologicos ALTER COLUMN id_tip_est_mic SET DEFAULT n
 
 
 --
--- TOC entry 2094 (class 2604 OID 35189)
--- Dependencies: 1750 1749
+-- TOC entry 2095 (class 2604 OID 35189)
+-- Dependencies: 1751 1750
 -- Name: id_tip_exa; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7319,8 +7306,8 @@ ALTER TABLE tipos_examenes ALTER COLUMN id_tip_exa SET DEFAULT nextval('tipos_ex
 
 
 --
--- TOC entry 2095 (class 2604 OID 35190)
--- Dependencies: 1752 1751
+-- TOC entry 2096 (class 2604 OID 35190)
+-- Dependencies: 1753 1752
 -- Name: id_tip_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7328,8 +7315,8 @@ ALTER TABLE tipos_micosis ALTER COLUMN id_tip_mic SET DEFAULT nextval('tipos_mic
 
 
 --
--- TOC entry 2096 (class 2604 OID 35191)
--- Dependencies: 1756 1753
+-- TOC entry 2097 (class 2604 OID 35191)
+-- Dependencies: 1757 1754
 -- Name: id_tip_mic_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7337,8 +7324,8 @@ ALTER TABLE tipos_micosis_pacientes ALTER COLUMN id_tip_mic_pac SET DEFAULT next
 
 
 --
--- TOC entry 2097 (class 2604 OID 35192)
--- Dependencies: 1755 1754
+-- TOC entry 2098 (class 2604 OID 35192)
+-- Dependencies: 1756 1755
 -- Name: id_tip_mic_pac_tip_est_mic; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7346,8 +7333,8 @@ ALTER TABLE tipos_micosis_pacientes__tipos_estudios_micologicos ALTER COLUMN id_
 
 
 --
--- TOC entry 2098 (class 2604 OID 35193)
--- Dependencies: 1760 1757
+-- TOC entry 2099 (class 2604 OID 35193)
+-- Dependencies: 1761 1758
 -- Name: id_tip_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7355,8 +7342,8 @@ ALTER TABLE tipos_usuarios ALTER COLUMN id_tip_usu SET DEFAULT nextval('tipos_us
 
 
 --
--- TOC entry 2099 (class 2604 OID 35194)
--- Dependencies: 1759 1758
+-- TOC entry 2100 (class 2604 OID 35194)
+-- Dependencies: 1760 1759
 -- Name: id_tip_usu_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7364,8 +7351,8 @@ ALTER TABLE tipos_usuarios__usuarios ALTER COLUMN id_tip_usu_usu SET DEFAULT nex
 
 
 --
--- TOC entry 2100 (class 2604 OID 35195)
--- Dependencies: 1762 1761
+-- TOC entry 2101 (class 2604 OID 35195)
+-- Dependencies: 1763 1762
 -- Name: id_tip_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7373,8 +7360,8 @@ ALTER TABLE transacciones ALTER COLUMN id_tip_tra SET DEFAULT nextval('transacci
 
 
 --
--- TOC entry 2101 (class 2604 OID 35196)
--- Dependencies: 1764 1763
+-- TOC entry 2102 (class 2604 OID 35196)
+-- Dependencies: 1765 1764
 -- Name: id_tra_usu; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7382,8 +7369,8 @@ ALTER TABLE transacciones_usuarios ALTER COLUMN id_tra_usu SET DEFAULT nextval('
 
 
 --
--- TOC entry 2102 (class 2604 OID 35197)
--- Dependencies: 1766 1765
+-- TOC entry 2103 (class 2604 OID 35197)
+-- Dependencies: 1767 1766
 -- Name: id_tra; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7391,8 +7378,8 @@ ALTER TABLE tratamientos ALTER COLUMN id_tra SET DEFAULT nextval('tratamientos_i
 
 
 --
--- TOC entry 2103 (class 2604 OID 35198)
--- Dependencies: 1768 1767
+-- TOC entry 2104 (class 2604 OID 35198)
+-- Dependencies: 1769 1768
 -- Name: id_tra_pac; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7400,8 +7387,8 @@ ALTER TABLE tratamientos_pacientes ALTER COLUMN id_tra_pac SET DEFAULT nextval('
 
 
 --
--- TOC entry 2106 (class 2604 OID 35199)
--- Dependencies: 1770 1769
+-- TOC entry 2107 (class 2604 OID 35199)
+-- Dependencies: 1771 1770
 -- Name: id_usu_adm; Type: DEFAULT; Schema: public; Owner: desarrollo_g
 --
 
@@ -7409,8 +7396,8 @@ ALTER TABLE usuarios_administrativos ALTER COLUMN id_usu_adm SET DEFAULT nextval
 
 
 --
--- TOC entry 2329 (class 0 OID 34884)
--- Dependencies: 1677
+-- TOC entry 2328 (class 0 OID 34884)
+-- Dependencies: 1678
 -- Data for Name: animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -7422,8 +7409,8 @@ INSERT INTO animales (id_ani, nom_ani) VALUES (5, 'Otros');
 
 
 --
--- TOC entry 2330 (class 0 OID 34889)
--- Dependencies: 1679
+-- TOC entry 2329 (class 0 OID 34889)
+-- Dependencies: 1680
 -- Data for Name: antecedentes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -7456,10 +7443,6 @@ INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (127,
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (128, 7, 70);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (129, 11, 70);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (130, 12, 70);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (131, 2, 71);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (132, 6, 71);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (133, 8, 71);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (134, 9, 71);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (135, 6, 72);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (136, 7, 72);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (137, 8, 72);
@@ -7476,14 +7459,19 @@ INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (147,
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (148, 9, 75);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (149, 11, 75);
 INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (150, 7, 76);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (151, 2, 77);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (152, 3, 77);
-INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (153, 7, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (160, 1, 78);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (161, 2, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (162, 3, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (163, 7, 77);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (164, 2, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (165, 6, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (166, 8, 71);
+INSERT INTO antecedentes_pacientes (id_ant_pac, id_ant_per, id_pac) VALUES (167, 9, 71);
 
 
 --
--- TOC entry 2331 (class 0 OID 34894)
--- Dependencies: 1681
+-- TOC entry 2330 (class 0 OID 34894)
+-- Dependencies: 1682
 -- Data for Name: antecedentes_personales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -7503,8 +7491,8 @@ INSERT INTO antecedentes_personales (id_ant_per, nom_ant_per) VALUES (13, 'Otros
 
 
 --
--- TOC entry 2332 (class 0 OID 34899)
--- Dependencies: 1683
+-- TOC entry 2331 (class 0 OID 34899)
+-- Dependencies: 1684
 -- Data for Name: auditoria_transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8008,11 +7996,33 @@ INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id
 					 <tabla nombre="usuarios_administrativos"><campo nombre="Nombre"><actual>jesus</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>ninguno</anterior></campo><campo nombre="Correo"><actual>jalfredo@gmail.com</actual><anterior>ninguno</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tipos_usuarios__usuarios"><campo nombre="ID"><actual>35</actual><anterior>ninguno</anterior></campo><campo nombre="Tipo Usuario"><actual>Administrador</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="transacciones_usuarios"><campo nombre="Tipo de transaccion"><actual>Agregar usuario administrador ,Modificar usuario administrador ,Agregar usuario operador ,Modificar usuario operador </actual><anterior>ninguno</anterior></campo></tabla></registro_usuario_administrador>');
 INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (252, '2012-02-02 23:33:18.25', 45, 26, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
 					 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>jesus</actual><anterior>jesus</anterior></campo><campo nombre="Apellido"><actual>alfredo</actual><anterior>alfredo</anterior></campo><campo nombre="Cédula"><actual>83214989</actual><anterior>83214989</anterior></campo><campo nombre="Teléfono"><actual>04123818120</actual><anterior>04123818120</anterior></campo><campo nombre="Login"><actual>jalfredo</actual><anterior>jalfredo</anterior></campo><campo nombre="Correo	"><actual>jalfredo@gmail.com</actual><anterior>jalfredo@gmail.com</anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (257, '2012-02-05 05:27:46.663', 49, 12, '<?xml version="1.0" standalone="yes"?><registro_del_historial_paciente>
+		 <tabla nombre="historiales_pacientes"><campo nombre="Nombre Paciente"><actual>Adriana</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido Paciente"><actual>Mujica</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula Paciente"><actual>32049534</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción de la Historia"><actual>gsgsfgsdgsdg</actual><anterior>ninguno</anterior></campo><campo nombre="Descripción Adicional"><actual>dsgsdgsdg</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha de Historia"><actual>2012-02-05 05:27:46.663-04:30</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Tiempo de Evolución"><actual>4</actual><anterior>ninguno</anterior></campo></tabla></registro_del_historial_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (258, '2012-02-05 05:28:33.695', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario </actual><anterior></anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria </actual><anterior></anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato </actual><anterior></anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato Glucorticoides </actual><anterior></anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>0</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (259, '2012-02-05 05:28:40.277', 49, 16, '<?xml version="1.0" standalone="yes"?><Información_adicional>
+			 <tabla nombre="centro_salud_pacientes"><campo nombre="Centros de Salud"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario </actual><anterior>Hospital Especializado ,Hospital General ,Hospital Universitario </anterior></campo></tabla><tabla nombre="tipos_consultas_pacientes"><campo nombre="Tipos de Consultas"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria </actual><anterior>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria </anterior></campo></tabla><tabla nombre="contactos_animales"><campo nombre="Animales"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato </actual><anterior>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato </anterior></campo></tabla><tabla nombre="tratamientos_pacientes"><campo nombre="Tratamientos"><actual>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato Glucorticoides </actual><anterior>Hospital Especializado ,Hospital General ,Hospital Universitario Dermatologia ,Geriatria Gato Glucorticoides </anterior></campo></tabla><tabla nombre="tiempo_evoluciones"><campo nombre="Evolución"><actual>4</actual><anterior>4</anterior></campo></tabla></Información_adicional>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (260, '2012-02-05 05:29:19.247', 49, 15, '<?xml version="1.0" standalone="yes"?><registrar_muestra_clínica_paciente>
+			 <tabla nombre="muestras_pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Mujica</actual><anterior>Mujica</anterior></campo><campo nombre="Cédula"><actual>32049534</actual><anterior>32049534</anterior></campo><campo nombre="Muestra Clínica"><actual>ninguno</actual><anterior>ninguno</anterior></campo></tabla></registrar_muestra_clínica_paciente>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (261, '2012-02-05 07:08:00.645', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Mujica</actual><anterior>Mujica</anterior></campo><campo nombre="Cédula"><actual>32049534</actual><anterior>32049534</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1970-01-08</actual><anterior>1970-01-08</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268778932</actual><anterior>04268778932</anterior></campo><campo nombre="Teléfono Célular"><actual>04165168332</actual><anterior>04165168332</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>Agricultor</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Barinas</actual><anterior>Barinas</anterior></campo><campo nombre="Municipio"><actual>	Cruz Paredes		 </actual><anterior>	Cruz Paredes		 </anterior></campo><campo nombre="Ciudad"><actual>Maturin</actual><anterior>Maturin</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Cáncer </actual><anterior>Obesidad ,Diabetes ,Cáncer </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (262, '2012-02-05 07:28:43.101', 49, 9, '<?xml version="1.0" standalone="yes"?><registro_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="ID"><actual>32</actual><anterior>ninguno</anterior></campo><campo nombre="Nombre"><actual>dddd</actual><anterior>ninguno</anterior></campo><campo nombre="Apellido"><actual>dddd</actual><anterior>ninguno</anterior></campo><campo nombre="Cédula"><actual>87687687</actual><anterior>ninguno</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-02-02</actual><anterior>ninguno</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Habitación"><actual>53454354353</actual><anterior>ninguno</anterior></campo><campo nombre="Teléfono Célular"><actual>54353454354</actual><anterior>ninguno</anterior></campo><campo nombre="Ordenado por"><actual>ttttttt</actual><anterior>ninguno</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>ninguno</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>ninguno</anterior></campo><campo nombre="Estado"><actual>Anzoátegui</actual><anterior>ninguno</anterior></campo><campo nombre="Municipio"><actual>	Aragua		 </actual><anterior>ninguno</anterior></campo><campo nombre="Ciudad"><actual>ggg</actual><anterior>ninguno</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna </actual><anterior>ninguno</anterior></campo></tabla></registro_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (263, '2012-02-05 07:31:56.335', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Apellido"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Cédula"><actual>87687687</actual><anterior>87687687</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-02-02</actual><anterior>2012-02-02</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Ordenado por"><actual>ttttttt</actual><anterior>ttttttt</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>53454354353</actual><anterior>53454354353</anterior></campo><campo nombre="Teléfono Célular"><actual>54353454354</actual><anterior>54353454354</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Anzoátegui</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>	Aragua		 </actual><anterior>	Aragua		 </anterior></campo><campo nombre="Ciudad"><actual>ggg</actual><anterior>ggg</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna </actual><anterior>Ninguna </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (264, '2012-02-05 07:32:14.048', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Apellido"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Cédula"><actual>87687687</actual><anterior>87687687</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-02-02</actual><anterior>2012-02-02</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Ordenado por"><actual>yyyyyyy</actual><anterior>ttttttt</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>53454354353</actual><anterior>53454354353</anterior></campo><campo nombre="Teléfono Célular"><actual>54353454354</actual><anterior>54353454354</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Anzoátegui</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>	Aragua		 </actual><anterior>	Aragua		 </anterior></campo><campo nombre="Ciudad"><actual>ggg</actual><anterior>ggg</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna </actual><anterior>Ninguna </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (265, '2012-02-05 07:32:34.13', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Apellido"><actual>dddd</actual><anterior>dddd</anterior></campo><campo nombre="Cédula"><actual>87687687</actual><anterior>87687687</anterior></campo><campo nombre="Fecha Nacimiento"><actual>2012-02-02</actual><anterior>2012-02-02</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Ordenado por"><actual>pedro perez</actual><anterior>yyyyyyy</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>53454354353</actual><anterior>53454354353</anterior></campo><campo nombre="Teléfono Célular"><actual>54353454354</actual><anterior>54353454354</anterior></campo><campo nombre="Ocupación"><actual>Profesional</actual><anterior>Profesional</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Anzoátegui</actual><anterior>Anzoátegui</anterior></campo><campo nombre="Municipio"><actual>	Aragua		 </actual><anterior>	Aragua		 </anterior></campo><campo nombre="Ciudad"><actual>ggg</actual><anterior>ggg</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Ninguna </actual><anterior>Ninguna </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (266, '2012-02-05 07:33:07.121', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Adriana</actual><anterior>Adriana</anterior></campo><campo nombre="Apellido"><actual>Mujica</actual><anterior>Mujica</anterior></campo><campo nombre="Cédula"><actual>32049534</actual><anterior>32049534</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1970-01-08</actual><anterior>1970-01-08</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Ordenado por"><actual>pepito mendez</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>04268778932</actual><anterior>04268778932</anterior></campo><campo nombre="Teléfono Célular"><actual>04165168332</actual><anterior>04165168332</anterior></campo><campo nombre="Ocupación"><actual>Agricultor</actual><anterior>Agricultor</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Barinas</actual><anterior>Barinas</anterior></campo><campo nombre="Municipio"><actual>	Cruz Paredes		 </actual><anterior>	Cruz Paredes		 </anterior></campo><campo nombre="Ciudad"><actual>Maturin</actual><anterior>Maturin</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,Diabetes ,Cáncer </actual><anterior>Obesidad ,Diabetes ,Cáncer </anterior></campo></tabla></modificacion_de_pacientes>');
+INSERT INTO auditoria_transacciones (id_aud_tra, fec_aud_tra, id_tip_usu_usu, id_tip_tra, data_xml) VALUES (267, '2012-02-05 07:33:25.884', 49, 10, '<?xml version="1.0" standalone="yes"?><modificacion_de_pacientes>
+				 <tabla nombre="pacientes"><campo nombre="Nombre"><actual>Andrea</actual><anterior>Andrea</anterior></campo><campo nombre="Apellido"><actual>Canino</actual><anterior>Canino</anterior></campo><campo nombre="Cédula"><actual>19903666</actual><anterior>19903666</anterior></campo><campo nombre="Fecha Nacimiento"><actual>1989-12-17</actual><anterior>1989-12-17</anterior></campo><campo nombre="Sexo"><actual>F</actual><anterior>F</anterior></campo><campo nombre="Ordenado por"><actual>carlos</actual><anterior>ninguno</anterior></campo><campo nombre="Nacionalidad"><actual>Venezolano</actual><anterior>Venezolano</anterior></campo><campo nombre="Teléfono Habitación"><actual>04265883323</actual><anterior>04265883323</anterior></campo><campo nombre="Teléfono Célular"><actual>04265168824</actual><anterior>04265168824</anterior></campo><campo nombre="Ocupación"><actual>Obrero</actual><anterior>Obrero</anterior></campo><campo nombre="País"><actual>Venezuela</actual><anterior>Venezuela</anterior></campo><campo nombre="Estado"><actual>Carabobo</actual><anterior>Carabobo</anterior></campo><campo nombre="Municipio"><actual>	Libertador		 </actual><anterior>	Libertador		 </anterior></campo><campo nombre="Ciudad"><actual>Los teques</actual><anterior>Los teques</anterior></campo></tabla><tabla nombre="antecedentes_personales"><campo nombre="Antecedentes Personales"><actual>Obesidad ,HIV/SIDA ,inmunosupresión/Neutropenia ,Uso Esteroides </actual><anterior>Obesidad ,HIV/SIDA ,inmunosupresión/Neutropenia ,Uso Esteroides </anterior></campo></tabla></modificacion_de_pacientes>');
 
 
 --
--- TOC entry 2333 (class 0 OID 34907)
--- Dependencies: 1685
+-- TOC entry 2332 (class 0 OID 34907)
+-- Dependencies: 1686
 -- Data for Name: categorias__cuerpos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8024,8 +8034,8 @@ INSERT INTO categorias__cuerpos_micosis (id_cat_cue_mic, id_cat_cue, id_tip_mic)
 
 
 --
--- TOC entry 2334 (class 0 OID 34912)
--- Dependencies: 1687
+-- TOC entry 2333 (class 0 OID 34912)
+-- Dependencies: 1688
 -- Data for Name: categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8037,8 +8047,8 @@ INSERT INTO categorias_cuerpos (id_cat_cue, nom_cat_cue) VALUES (5, 'Cuerpo');
 
 
 --
--- TOC entry 2335 (class 0 OID 34915)
--- Dependencies: 1688
+-- TOC entry 2334 (class 0 OID 34915)
+-- Dependencies: 1689
 -- Data for Name: categorias_cuerpos__lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8117,8 +8127,8 @@ INSERT INTO categorias_cuerpos__lesiones (id_cat_cue_les, id_les, id_cat_cue) VA
 
 
 --
--- TOC entry 2336 (class 0 OID 34920)
--- Dependencies: 1690
+-- TOC entry 2335 (class 0 OID 34920)
+-- Dependencies: 1691
 -- Data for Name: centro_salud_doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8133,8 +8143,8 @@ INSERT INTO centro_salud_doctores (id_cen_sal_doc, id_cen_sal, id_doc, otr_cen_s
 
 
 --
--- TOC entry 2338 (class 0 OID 34930)
--- Dependencies: 1694
+-- TOC entry 2337 (class 0 OID 34930)
+-- Dependencies: 1695
 -- Data for Name: centro_salud_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8162,11 +8172,14 @@ INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_
 INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (263, 41, 8, NULL);
 INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (264, 39, 4, NULL);
 INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (265, 39, 10, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (269, 42, 3, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (270, 42, 1, NULL);
+INSERT INTO centro_salud_pacientes (id_cen_sal_pac, id_his, id_cen_sal, otr_cen_sal) VALUES (271, 42, 2, NULL);
 
 
 --
--- TOC entry 2337 (class 0 OID 34925)
--- Dependencies: 1692
+-- TOC entry 2336 (class 0 OID 34925)
+-- Dependencies: 1693
 -- Data for Name: centro_saluds; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8185,8 +8198,8 @@ INSERT INTO centro_saluds (id_cen_sal, nom_cen_sal, des_cen_sal) VALUES (12, 'Ot
 
 
 --
--- TOC entry 2339 (class 0 OID 34935)
--- Dependencies: 1696
+-- TOC entry 2338 (class 0 OID 34935)
+-- Dependencies: 1697
 -- Data for Name: contactos_animales; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8215,11 +8228,12 @@ INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (214
 INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (215, 41, 1, NULL);
 INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (216, 39, 4, NULL);
 INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (217, 39, 5, 'Oso');
+INSERT INTO contactos_animales (id_con_ani, id_his, id_ani, otr_ani) VALUES (219, 42, 2, NULL);
 
 
 --
--- TOC entry 2340 (class 0 OID 34940)
--- Dependencies: 1698
+-- TOC entry 2339 (class 0 OID 34940)
+-- Dependencies: 1699
 -- Data for Name: doctores; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8234,8 +8248,8 @@ INSERT INTO doctores (id_doc, nom_doc, ape_doc, ced_doc, pas_doc, tel_doc, cor_d
 
 
 --
--- TOC entry 2341 (class 0 OID 34949)
--- Dependencies: 1700
+-- TOC entry 2340 (class 0 OID 34949)
+-- Dependencies: 1701
 -- Data for Name: enfermedades_micologicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8271,8 +8285,8 @@ INSERT INTO enfermedades_micologicas (id_enf_mic, nom_enf_mic, id_tip_mic) VALUE
 
 
 --
--- TOC entry 2342 (class 0 OID 34954)
--- Dependencies: 1702
+-- TOC entry 2341 (class 0 OID 34954)
+-- Dependencies: 1703
 -- Data for Name: enfermedades_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8329,11 +8343,14 @@ INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (545, 24, NULL, NULL, 204);
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (546, 25, NULL, NULL, 204);
 INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (547, 26, NULL, NULL, 204);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (548, 1, NULL, NULL, 205);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (549, 2, NULL, NULL, 205);
+INSERT INTO enfermedades_pacientes (id_enf_pac, id_enf_mic, otr_enf_mic, esp_enf_mic, id_tip_mic_pac) VALUES (550, 24, NULL, NULL, 206);
 
 
 --
--- TOC entry 2343 (class 0 OID 34959)
--- Dependencies: 1704
+-- TOC entry 2342 (class 0 OID 34959)
+-- Dependencies: 1705
 -- Data for Name: estados; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8364,8 +8381,8 @@ INSERT INTO estados (id_est, des_est, id_pai) VALUES (25, 'Amazonas', 1);
 
 
 --
--- TOC entry 2344 (class 0 OID 34964)
--- Dependencies: 1706
+-- TOC entry 2343 (class 0 OID 34964)
+-- Dependencies: 1707
 -- Data for Name: examenes_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8415,11 +8432,15 @@ INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_
 INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (138, 198, 0, 2, 'b');
 INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (139, 204, 3, 1, NULL);
 INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (140, 204, 3, 2, NULL);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (141, 205, 0, 1, NULL);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (142, 205, 3, 2, NULL);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (143, 206, 3, 1, NULL);
+INSERT INTO examenes_pacientes (id_exa_pac, id_tip_mic_pac, exa_pac_est, id_tip_exa, obs_exa_pac) VALUES (144, 206, 3, 2, NULL);
 
 
 --
--- TOC entry 2345 (class 0 OID 34969)
--- Dependencies: 1708
+-- TOC entry 2344 (class 0 OID 34969)
+-- Dependencies: 1709
 -- Data for Name: forma_infecciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8438,8 +8459,8 @@ INSERT INTO forma_infecciones (id_for_inf, des_for_inf) VALUES (12, 'Otros');
 
 
 --
--- TOC entry 2346 (class 0 OID 34972)
--- Dependencies: 1709
+-- TOC entry 2345 (class 0 OID 34972)
+-- Dependencies: 1710
 -- Data for Name: forma_infecciones__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8476,11 +8497,12 @@ INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, i
 INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (130, 6, NULL, 198);
 INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (131, 9, NULL, 204);
 INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (132, 11, NULL, 204);
+INSERT INTO forma_infecciones__pacientes (id_for_pac, id_for_inf, otr_for_inf, id_tip_mic_pac) VALUES (133, 10, NULL, 206);
 
 
 --
--- TOC entry 2347 (class 0 OID 34977)
--- Dependencies: 1711
+-- TOC entry 2346 (class 0 OID 34977)
+-- Dependencies: 1712
 -- Data for Name: forma_infecciones__tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8499,8 +8521,8 @@ INSERT INTO forma_infecciones__tipos_micosis (id_for_inf_tip_mic, id_tip_mic, id
 
 
 --
--- TOC entry 2348 (class 0 OID 34984)
--- Dependencies: 1714
+-- TOC entry 2347 (class 0 OID 34984)
+-- Dependencies: 1715
 -- Data for Name: historiales_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8519,11 +8541,12 @@ INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_
 INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (37, 69, 'Ejemplo', 36, 'Ejemplo', '2012-01-25 12:07:45.234-04:30', 1);
 INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (40, 66, 'Dermatofitosis', 35, '', '2012-01-25 12:38:49.75-04:30', 1);
 INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (41, 66, 'Derfigotripolitomia', 35, '', '2012-01-25 12:42:17.703-04:30', 2);
+INSERT INTO historiales_pacientes (id_his, id_pac, des_his, id_doc, des_adi_pac_his, fec_his, pag_his) VALUES (42, 77, 'gsgsfgsdgsdg', 32, 'dsgsdgsdg', '2012-02-05 05:27:46.663-04:30', 2);
 
 
 --
--- TOC entry 2349 (class 0 OID 34994)
--- Dependencies: 1716
+-- TOC entry 2348 (class 0 OID 34994)
+-- Dependencies: 1717
 -- Data for Name: lesiones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8601,8 +8624,8 @@ INSERT INTO lesiones (id_les, nom_les) VALUES (71, 'Otros');
 
 
 --
--- TOC entry 2350 (class 0 OID 35001)
--- Dependencies: 1719
+-- TOC entry 2349 (class 0 OID 35001)
+-- Dependencies: 1720
 -- Data for Name: lesiones_partes_cuerpos__pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8661,19 +8684,21 @@ INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_
 INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (455, NULL, 71, 5, 198);
 INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (456, NULL, 99, 6, 204);
 INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (457, NULL, 100, 6, 204);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (458, NULL, 3, 1, 205);
+INSERT INTO lesiones_partes_cuerpos__pacientes (id_les_par_cue_pac, otr_les_par_cue, id_cat_cue_les, id_par_cue_cat_cue, id_tip_mic_pac) VALUES (459, NULL, 101, 6, 206);
 
 
 --
--- TOC entry 2351 (class 0 OID 35006)
--- Dependencies: 1721
+-- TOC entry 2350 (class 0 OID 35006)
+-- Dependencies: 1722
 -- Data for Name: localizaciones_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 
 
 --
--- TOC entry 2352 (class 0 OID 35011)
--- Dependencies: 1723
+-- TOC entry 2351 (class 0 OID 35011)
+-- Dependencies: 1724
 -- Data for Name: modulos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8685,8 +8710,8 @@ INSERT INTO modulos (id_mod, cod_mod, des_mod, id_tip_usu) VALUES (5, 'UO', 'Usu
 
 
 --
--- TOC entry 2353 (class 0 OID 35016)
--- Dependencies: 1725
+-- TOC entry 2352 (class 0 OID 35016)
+-- Dependencies: 1726
 -- Data for Name: muestras_clinicas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8729,8 +8754,8 @@ INSERT INTO muestras_clinicas (id_mue_cli, nom_mue_cli) VALUES (19, 'Sangre');
 
 
 --
--- TOC entry 2354 (class 0 OID 35021)
--- Dependencies: 1727
+-- TOC entry 2353 (class 0 OID 35021)
+-- Dependencies: 1728
 -- Data for Name: muestras_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -8774,11 +8799,15 @@ INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VAL
 INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (160, 41, 9, NULL);
 INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (161, 41, 13, NULL);
 INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (162, 41, 16, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (163, 42, 1, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (164, 42, 3, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (165, 42, 4, NULL);
+INSERT INTO muestras_pacientes (id_mue_pac, id_his, id_mue_cli, otr_mue_cli) VALUES (166, 42, 6, NULL);
 
 
 --
--- TOC entry 2355 (class 0 OID 35026)
--- Dependencies: 1729
+-- TOC entry 2354 (class 0 OID 35026)
+-- Dependencies: 1730
 -- Data for Name: municipios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9120,31 +9149,32 @@ INSERT INTO municipios (id_mun, des_mun, id_est) VALUES (335, '	Valmore Rodrígu
 
 
 --
--- TOC entry 2356 (class 0 OID 35031)
--- Dependencies: 1731
+-- TOC entry 2355 (class 0 OID 35031)
+-- Dependencies: 1732
 -- Data for Name: pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (16, 'Paciente', 'Paciente', '17302857', '2011-07-09', '1', '3622824', '17302857', '1', 'Guarenas', 1, 1, 69, NULL, 6, 6, '2011-07-08 18:14:22.448-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (64, 'Torre', 'Maria', '13376611', '1985-12-17', '1', '02123622222', '04265168824', '1', 'Guarenas', 1, 16, 211, NULL, 2, 6, '2012-01-25 10:12:28.468-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (65, 'Hernande', 'Lucy', '10357772', '1985-01-08', '1', '04265168888', '04165168888', '1', 'Guarenas', 1, 1, 1, NULL, 3, 6, '2012-01-25 10:14:40.375-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (66, 'Alvare', 'Yeny', '13930135', '1987-01-24', '1', '04265877711', '18233987779', '1', 'Guatire', 1, 14, 181, NULL, 4, 6, '2012-01-25 10:16:24.156-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (67, 'Perez', 'Raul', '18544323', '1985-01-31', '2', '04265883323', '14933123434', '1', 'caracas', 1, 1, 1, NULL, 5, 6, '2012-01-25 10:19:50.703-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (68, 'Lopez', 'Luis', '39813331', '1984-01-25', '1', '04268778912', '04125188824', '1', 'Chacao', 1, 5, 55, NULL, 6, 6, '2012-01-25 10:24:23.062-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (69, 'Gill', 'Raul', '29394889', '1985-01-08', '2', '04265168888', '04265168824', '4', 'Chacao', 1, 6, 74, NULL, 7, 35, '2012-01-25 10:34:19.296-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (70, 'Trejo', 'Francis', '29394823', '1987-01-24', '2', '04268778932', '14933123434', '3', 'caracas', 1, 9, 104, NULL, 8, 35, '2012-01-25 10:36:48.687-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (71, 'Canino', 'Andrea', '19903666', '1989-12-17', '1', '04265883323', '04265168824', '3', 'Los teques', 1, 7, 83, NULL, 9, 35, '2012-01-25 10:38:12.812-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (72, 'Camargo', 'Josue', '89056421', '1975-01-08', '2', '02123622222', '04165168888', '4', 'Guarico', 1, 9, 103, NULL, 10, 35, '2012-01-25 10:39:00.312-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (73, 'Ruiz', 'Leir', '56423971', '1970-01-08', '2', '02123622222', '04265168824', '4', 'Guatire', 1, 6, 70, NULL, 11, 35, '2012-01-25 10:39:58.921-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (74, 'Rodriguez', 'Carlos', '13376784', '1959-12-17', '2', '02123622432', '14943123434', '4', 'Falcon', 1, 3, 33, NULL, 12, 35, '2012-01-25 10:42:07.078-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (75, 'Avendano', 'Maria Fernanda', '35289012', '1980-10-15', '1', '02126622432', '04125158824', '2', 'Guarenas', 1, 3, 31, NULL, 13, 35, '2012-01-25 10:46:11.859-04:30', 'F');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (76, 'Perez', 'Gerardo', '80392095', '1960-01-08', '2', '04265883323', '04125158824', '3', 'Guatire', 1, 3, 33, NULL, 14, 35, '2012-01-25 10:47:03.75-04:30', 'M');
-INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac) VALUES (77, 'Mujica', 'Adriana', '32049534', '1970-01-08', '1', '04268778932', '04165168332', '4', 'Maturin', 1, 5, 61, NULL, 15, 35, '2012-01-25 12:28:49.671-04:30', 'F');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (78, 'dddd', 'dddd', '87687687', '2012-02-02', '1', '53454354353', '54353454354', '1', 'ggg', 1, 2, 10, NULL, 16, 32, '2012-02-05 07:28:43.101-04:30', 'F', 'pedro perez');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (77, 'Mujica', 'Adriana', '32049534', '1970-01-08', '1', '04268778932', '04165168332', '4', 'Maturin', 1, 5, 61, NULL, 15, 35, '2012-01-25 12:28:49.671-04:30', 'F', 'pepito mendez');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (71, 'Canino', 'Andrea', '19903666', '1989-12-17', '1', '04265883323', '04265168824', '3', 'Los teques', 1, 7, 83, NULL, 9, 35, '2012-01-25 10:38:12.812-04:30', 'F', 'carlos');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (16, 'Paciente', 'Paciente', '17302857', '2011-07-09', '1', '3622824', '17302857', '1', 'Guarenas', 1, 1, 69, NULL, 6, 6, '2011-07-08 18:14:22.448-04:30', 'M', 'maria');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (64, 'Torre', 'Maria', '13376611', '1985-12-17', '1', '02123622222', '04265168824', '1', 'Guarenas', 1, 16, 211, NULL, 2, 6, '2012-01-25 10:12:28.468-04:30', 'M', 'Sandra alvarez');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (65, 'Hernande', 'Lucy', '10357772', '1985-01-08', '1', '04265168888', '04165168888', '1', 'Guarenas', 1, 1, 1, NULL, 3, 6, '2012-01-25 10:14:40.375-04:30', 'F', 'Juliana Silva');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (66, 'Alvare', 'Yeny', '13930135', '1987-01-24', '1', '04265877711', '18233987779', '1', 'Guatire', 1, 14, 181, NULL, 4, 6, '2012-01-25 10:16:24.156-04:30', 'M', 'Raul Marin');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (67, 'Perez', 'Raul', '18544323', '1985-01-31', '2', '04265883323', '14933123434', '1', 'caracas', 1, 1, 1, NULL, 5, 6, '2012-01-25 10:19:50.703-04:30', 'M', 'Adriana lopez');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (68, 'Lopez', 'Luis', '39813331', '1984-01-25', '1', '04268778912', '04125188824', '1', 'Chacao', 1, 5, 55, NULL, 6, 6, '2012-01-25 10:24:23.062-04:30', 'F', 'dshfjdksh');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (69, 'Gill', 'Raul', '29394889', '1985-01-08', '2', '04265168888', '04265168824', '4', 'Chacao', 1, 6, 74, NULL, 7, 35, '2012-01-25 10:34:19.296-04:30', 'M', 'vcxvxvx');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (70, 'Trejo', 'Francis', '29394823', '1987-01-24', '2', '04268778932', '14933123434', '3', 'caracas', 1, 9, 104, NULL, 8, 35, '2012-01-25 10:36:48.687-04:30', 'M', 'cvvcxvxcv');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (72, 'Camargo', 'Josue', '89056421', '1975-01-08', '2', '02123622222', '04165168888', '4', 'Guarico', 1, 9, 103, NULL, 10, 35, '2012-01-25 10:39:00.312-04:30', 'M', 'cvxvxcvf');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (73, 'Ruiz', 'Leir', '56423971', '1970-01-08', '2', '02123622222', '04265168824', '4', 'Guatire', 1, 6, 70, NULL, 11, 35, '2012-01-25 10:39:58.921-04:30', 'M', 'dsfsdfsf');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (74, 'Rodriguez', 'Carlos', '13376784', '1959-12-17', '2', '02123622432', '14943123434', '4', 'Falcon', 1, 3, 33, NULL, 12, 35, '2012-01-25 10:42:07.078-04:30', 'M', 'dsfsfdsf');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (75, 'Avendano', 'Maria Fernanda', '35289012', '1980-10-15', '1', '02126622432', '04125158824', '2', 'Guarenas', 1, 3, 31, NULL, 13, 35, '2012-01-25 10:46:11.859-04:30', 'F', 'dsfsfdsf');
+INSERT INTO pacientes (id_pac, ape_pac, nom_pac, ced_pac, fec_nac_pac, nac_pac, tel_hab_pac, tel_cel_pac, ocu_pac, ciu_pac, id_pai, id_est, id_mun, id_par, num_pac, id_doc, fec_reg_pac, sex_pac, ord_por) VALUES (76, 'Perez', 'Gerardo', '80392095', '1960-01-08', '2', '04265883323', '04125158824', '3', 'Guatire', 1, 3, 33, NULL, 14, 35, '2012-01-25 10:47:03.75-04:30', 'M', 'dsfdsfdsf');
 
 
 --
--- TOC entry 2357 (class 0 OID 35037)
--- Dependencies: 1733
+-- TOC entry 2356 (class 0 OID 35037)
+-- Dependencies: 1734
 -- Data for Name: paises; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9152,16 +9182,16 @@ INSERT INTO paises (id_pai, des_pai, cod_pai) VALUES (1, 'Venezuela', 'VEN');
 
 
 --
--- TOC entry 2358 (class 0 OID 35042)
--- Dependencies: 1735
+-- TOC entry 2357 (class 0 OID 35042)
+-- Dependencies: 1736
 -- Data for Name: parroquias; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
 
 
 --
--- TOC entry 2359 (class 0 OID 35047)
--- Dependencies: 1737
+-- TOC entry 2358 (class 0 OID 35047)
+-- Dependencies: 1738
 -- Data for Name: partes_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9184,8 +9214,8 @@ INSERT INTO partes_cuerpos (id_par_cue, nom_par_cue) VALUES (19, 'Huesos');
 
 
 --
--- TOC entry 2360 (class 0 OID 35050)
--- Dependencies: 1738
+-- TOC entry 2359 (class 0 OID 35050)
+-- Dependencies: 1739
 -- Data for Name: partes_cuerpos__categorias_cuerpos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9198,8 +9228,8 @@ INSERT INTO partes_cuerpos__categorias_cuerpos (id_par_cue_cat_cue, id_cat_cue, 
 
 
 --
--- TOC entry 2361 (class 0 OID 35057)
--- Dependencies: 1741
+-- TOC entry 2360 (class 0 OID 35057)
+-- Dependencies: 1742
 -- Data for Name: tiempo_evoluciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9218,11 +9248,12 @@ INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (23, 37, 4);
 INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (26, 40, 5);
 INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (27, 41, 5);
 INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (25, 39, 34);
+INSERT INTO tiempo_evoluciones (id_tie_evo, id_his, tie_evo) VALUES (28, 42, 4);
 
 
 --
--- TOC entry 2362 (class 0 OID 35063)
--- Dependencies: 1743
+-- TOC entry 2361 (class 0 OID 35063)
+-- Dependencies: 1744
 -- Data for Name: tipos_consultas; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9238,8 +9269,8 @@ INSERT INTO tipos_consultas (id_tip_con, nom_tip_con) VALUES (9, 'Otros');
 
 
 --
--- TOC entry 2363 (class 0 OID 35068)
--- Dependencies: 1745
+-- TOC entry 2362 (class 0 OID 35068)
+-- Dependencies: 1746
 -- Data for Name: tipos_consultas_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9267,11 +9298,13 @@ INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_t
 INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (231, 8, 41, NULL);
 INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (232, 5, 39, NULL);
 INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (233, 8, 39, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (236, 2, 42, NULL);
+INSERT INTO tipos_consultas_pacientes (id_tip_con_pac, id_tip_con, id_his, otr_tip_con) VALUES (237, 6, 42, NULL);
 
 
 --
--- TOC entry 2364 (class 0 OID 35073)
--- Dependencies: 1747
+-- TOC entry 2363 (class 0 OID 35073)
+-- Dependencies: 1748
 -- Data for Name: tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9342,8 +9375,8 @@ INSERT INTO tipos_estudios_micologicos (id_tip_est_mic, id_tip_mic, nom_tip_est_
 
 
 --
--- TOC entry 2365 (class 0 OID 35078)
--- Dependencies: 1749
+-- TOC entry 2364 (class 0 OID 35078)
+-- Dependencies: 1750
 -- Data for Name: tipos_examenes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9352,8 +9385,8 @@ INSERT INTO tipos_examenes (id_tip_exa, nom_tip_exa) VALUES (2, 'Agente Aislado'
 
 
 --
--- TOC entry 2366 (class 0 OID 35083)
--- Dependencies: 1751
+-- TOC entry 2365 (class 0 OID 35083)
+-- Dependencies: 1752
 -- Data for Name: tipos_micosis; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9363,8 +9396,8 @@ INSERT INTO tipos_micosis (id_tip_mic, nom_tip_mic) VALUES (2, 'Subcutaneas');
 
 
 --
--- TOC entry 2367 (class 0 OID 35088)
--- Dependencies: 1753
+-- TOC entry 2366 (class 0 OID 35088)
+-- Dependencies: 1754
 -- Data for Name: tipos_micosis_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9392,11 +9425,13 @@ INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES 
 INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (202, 2, 41);
 INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (203, 1, 39);
 INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (204, 3, 39);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (205, 1, 42);
+INSERT INTO tipos_micosis_pacientes (id_tip_mic_pac, id_tip_mic, id_his) VALUES (206, 3, 42);
 
 
 --
--- TOC entry 2368 (class 0 OID 35091)
--- Dependencies: 1754
+-- TOC entry 2367 (class 0 OID 35091)
+-- Dependencies: 1755
 -- Data for Name: tipos_micosis_pacientes__tipos_estudios_micologicos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9494,11 +9529,15 @@ INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_
 INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (291, 204, 56, NULL);
 INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (292, 204, 59, NULL);
 INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (293, 204, 60, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (294, 205, 4, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (295, 206, 55, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (296, 206, 56, NULL);
+INSERT INTO tipos_micosis_pacientes__tipos_estudios_micologicos (id_tip_mic_pac_tip_est_mic, id_tip_mic_pac, id_tip_est_mic, otr_tip_est_mic) VALUES (297, 206, 60, NULL);
 
 
 --
--- TOC entry 2369 (class 0 OID 35098)
--- Dependencies: 1757
+-- TOC entry 2368 (class 0 OID 35098)
+-- Dependencies: 1758
 -- Data for Name: tipos_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9507,8 +9546,8 @@ INSERT INTO tipos_usuarios (id_tip_usu, cod_tip_usu, des_tip_usu) VALUES (2, 'me
 
 
 --
--- TOC entry 2370 (class 0 OID 35101)
--- Dependencies: 1758
+-- TOC entry 2369 (class 0 OID 35101)
+-- Dependencies: 1759
 -- Data for Name: tipos_usuarios__usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9534,8 +9573,8 @@ INSERT INTO tipos_usuarios__usuarios (id_tip_usu_usu, id_doc, id_usu_adm, id_tip
 
 
 --
--- TOC entry 2371 (class 0 OID 35108)
--- Dependencies: 1761
+-- TOC entry 2370 (class 0 OID 35108)
+-- Dependencies: 1762
 -- Data for Name: transacciones; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9567,8 +9606,8 @@ INSERT INTO transacciones (id_tip_tra, cod_tip_tra, des_tip_tra, id_mod) VALUES 
 
 
 --
--- TOC entry 2372 (class 0 OID 35113)
--- Dependencies: 1763
+-- TOC entry 2371 (class 0 OID 35113)
+-- Dependencies: 1764
 -- Data for Name: transacciones_usuarios; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9659,8 +9698,8 @@ INSERT INTO transacciones_usuarios (id_tip_tra, id_tip_usu_usu, id_tra_usu) VALU
 
 
 --
--- TOC entry 2373 (class 0 OID 35118)
--- Dependencies: 1765
+-- TOC entry 2372 (class 0 OID 35118)
+-- Dependencies: 1766
 -- Data for Name: tratamientos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9677,8 +9716,8 @@ INSERT INTO tratamientos (id_tra, nom_tra) VALUES (10, 'Otros');
 
 
 --
--- TOC entry 2374 (class 0 OID 35123)
--- Dependencies: 1767
+-- TOC entry 2373 (class 0 OID 35123)
+-- Dependencies: 1768
 -- Data for Name: tratamientos_pacientes; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9716,11 +9755,12 @@ INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES 
 INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (306, 39, 4, NULL);
 INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (307, 39, 3, NULL);
 INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (308, 39, 1, NULL);
+INSERT INTO tratamientos_pacientes (id_tra_pac, id_his, id_tra, otr_tra) VALUES (310, 42, 6, NULL);
 
 
 --
--- TOC entry 2375 (class 0 OID 35128)
--- Dependencies: 1769
+-- TOC entry 2374 (class 0 OID 35128)
+-- Dependencies: 1770
 -- Data for Name: usuarios_administrativos; Type: TABLE DATA; Schema: public; Owner: desarrollo_g
 --
 
@@ -9737,1246 +9777,11 @@ INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_
 INSERT INTO usuarios_administrativos (id_usu_adm, nom_usu_adm, ape_usu_adm, pas_usu_adm, log_usu_adm, tel_usu_adm, fec_reg_usu_adm, adm_usu, ced_usu_adm, cor_usu_adm) VALUES (35, 'jesus', 'alfredo', 'd6c002bf04cd6019786e58df9d251e62', 'jalfredo', '04123818120', '2012-02-02 22:18:31.343', false, '83214989', 'jalfredo@gmail.com');
 
 
-SET search_path = saib_model, pg_catalog;
+SET default_tablespace = '';
 
 --
--- TOC entry 2376 (class 0 OID 35147)
--- Dependencies: 1771
--- Data for Name: wwwsqldesigner; Type: TABLE DATA; Schema: saib_model; Owner: postgres
---
-
-INSERT INTO wwwsqldesigner (keyword, xmldata, dt) VALUES ('saib', '<?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: http://127.0.0.1/wwwsqldesigner-2.6/ -->
-<sql>
-<datatypes db="postgresql">
-
-	<group label="Numeric" color="rgb(238,238,170)">
-
-		<type label="Integer" length="0" sql="INTEGER" re="INT" quote=""/>
-
-		<type label="Small Integer" length="0" sql="SMALLINT" quote=""/>
-
-		<type label="Big Integer" length="0" sql="BIGINT" quote=""/>
-
-		<type label="Decimal" length="1" sql="DECIMAL" re="numeric" quote=""/>
-
-		<type label="Serial" length="0" sql="SERIAL" re="SERIAL4" fk="Integer" quote=""/>
-
-		<type label="Big Serial" length="0" sql="BIGSERIAL" re="SERIAL8" fk="Big Integer" quote=""/>
-
-		<type label="Real" length="0" sql="BIGINT" quote=""/>
-
-		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
-
-		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-
-	</group>
-
-
-
-	<group label="Character" color="rgb(255,200,200)">
-
-		<type label="Char" length="1" sql="CHAR" quote="''"/>
-
-		<type label="Varchar" length="1" sql="VARCHAR" re="CHARACTER VARYING" quote="''"/>
-
-		<type label="Text" length="0" sql="TEXT" quote="''"/>
-
-		<type label="Binary" length="1" sql="BYTEA" quote="''"/>
-
-		<type label="Boolean" length="0" sql="BOOLEAN" quote="''"/>
-
-	</group>
-
-
-
-	<group label="Date &amp; Time" color="rgb(200,255,200)">
-
-		<type label="Date" length="0" sql="DATE" quote="''"/>
-
-		<type label="Time" length="1" sql="TIME" quote="''"/>
-
-		<type label="Time w/ TZ" length="0" sql="TIME WITH TIME ZONE" quote="''"/>
-
-		<type label="Interval" length="1" sql="INTERVAL" quote="''"/>
-
-		<type label="Timestamp" length="1" sql="TIMESTAMP" quote="''"/>
-
-		<type label="Timestamp w/ TZ" length="0" sql="TIMESTAMP WITH TIME ZONE" quote="''"/>
-
-		<type label="Timestamp wo/ TZ" length="0" sql="TIMESTAMP WITHOUT TIME ZONE" quote="''"/>
-
-	</group>
-
-
-
-	<group label="Miscellaneous" color="rgb(200,200,255)">
-
-		<type label="XML" length="1" sql="XML" quote="''"/>
-
-		<type label="Bit" length="1" sql="BIT" quote="''"/>
-
-		<type label="Bit Varying" length="1" sql="VARBIT" re="BIT VARYING" quote="''"/>
-
-		<type label="Inet Host Addr" length="0" sql="INET" quote="''"/>
-
-		<type label="Inet CIDR Addr" length="0" sql="CIDR" quote="''"/>
-
-		<type label="Geometry" length="0" sql="GEOMETRY" quote="''"/>
-
-	</group>
-
-</datatypes><table x="1233" y="495" name="historiales_pacientes">
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''historiales_pacientes_id_his_seq''::regclass)</default></row>
-<row name="id_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="pacientes" row="id_pac" />
-</row>
-<row name="des_his" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_doc" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="doctores" row="id_doc" />
-</row>
-<row name="des_adi_pac_his" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>
-	Discripción adicional de si el paciente padece o no una enfermedad u otra cosa adicional.
-</comment>
-</row>
-<row name="fec_his" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITH TIME ZONE</datatype>
-<default>''now()''</default></row>
-<row name="pag_his" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17204_1_not_null">
-</key>
-<key type="CHECK" name="17105_17204_2_not_null">
-</key>
-<key type="PRIMARY" name="historiales_pacientes_pkey">
-<part>id_his</part>
-</key>
-</table>
-<table x="488" y="228" name="pacientes">
-<row name="id_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''pacientes_id_pac_seq''::regclass)</default><comment>Id paciente</comment>
-</row>
-<row name="ape_pac" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<comment>Apellido del paciente</comment>
-</row>
-<row name="nom_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Nombre del paciente</comment>
-</row>
-<row name="ced_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Cedula del paciente</comment>
-</row>
-<row name="fec_nac_pac" null="0" autoincrement="0">
-<datatype>DATE</datatype>
-<comment>Fecha de nacimiento del paciente</comment>
-</row>
-<row name="nac_pac" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<comment>Nacionalidad del paciente</comment>
-</row>
-<row name="tel_hab_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="tel_cel_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="ocu_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Ocupacion del paciente</comment>
-</row>
-<row name="ciu_pac" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Ciudad del paciente</comment>
-</row>
-<row name="id_pai" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="paises" row="id_pai" />
-</row>
-<row name="id_est" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="estados" row="id_est" />
-</row>
-<row name="id_mun" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="municipios" row="id_mun" />
-</row>
-<row name="id_par" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="parroquias" row="id_par" />
-</row>
-<row name="num_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="id_doc" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="doctores" row="id_doc" />
-</row>
-<row name="fec_reg_pac" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITH TIME ZONE</datatype>
-<default>''now()''</default><comment>Fecha de registro del paciente</comment>
-</row>
-<row name="sex_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-</row>
-<key type="CHECK" name="17105_17244_1_not_null">
-</key>
-<key type="CHECK" name="17105_17244_2_not_null">
-</key>
-<key type="CHECK" name="17105_17244_23_not_null">
-</key>
-<key type="CHECK" name="17105_17244_5_not_null">
-</key>
-<key type="CHECK" name="17105_17244_6_not_null">
-</key>
-<key type="PRIMARY" name="pacientes_pkey">
-<part>id_pac</part>
-</key>
-</table>
-<table x="2054" y="781" name="tipos_micosis_pacientes">
-<row name="id_tip_mic_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_micosis_pacientes_id_tip_mic_pac_seq''::regclass)</default></row>
-<row name="id_tip_mic" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_micosis" row="id_tip_mic" />
-</row>
-<row name="id_his" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="historiales_pacientes" row="id_his" />
-</row>
-<key type="CHECK" name="17105_19170_1_not_null">
-</key>
-<key type="PRIMARY" name="tipos_micosis_pacientes_pkey">
-<part>id_tip_mic_pac</part>
-</key>
-<key type="UNIQUE" name="tipos_micosis_pacientes_unique">
-<part>id_his</part>
-<part>id_tip_mic</part>
-</key>
-</table>
-<table x="2896" y="714" name="tipos_micosis">
-<row name="id_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_micosis_id_tip_mic_seq''::regclass)</default></row>
-<row name="nom_tip_mic" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17277_1_not_null">
-</key>
-<key type="PRIMARY" name="tipos_micosis_pkey">
-<part>id_tip_mic</part>
-</key>
-</table>
-<table x="21" y="32" name="tipos_usuarios__usuarios">
-<row name="id_tip_usu_usu" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_usuarios__usuarios_id_tip_usu_usu_seq''::regclass)</default></row>
-<row name="id_doc" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="doctores" row="id_doc" />
-</row>
-<row name="id_usu_adm" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="usuarios_administrativos" row="id_usu_adm" />
-</row>
-<row name="id_tip_usu" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_usuarios" row="id_tip_usu" />
-</row>
-<key type="CHECK" name="17105_17285_1_not_null">
-</key>
-<key type="CHECK" name="17105_17285_4_not_null">
-</key>
-<key type="PRIMARY" name="tipos_usuarios__usuarios_pkey">
-<part>id_tip_usu_usu</part>
-</key>
-<key type="UNIQUE" name="unique_tipos_usuarios__usuarios">
-<part>id_tip_usu</part>
-<part>id_usu_adm</part>
-<part>id_doc</part>
-</key>
-</table>
-<table x="978" y="164" name="doctores">
-<row name="id_doc" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''doctores_id_doc_seq''::regclass)</default><comment>identificador único para los doctores</comment>
-</row>
-<row name="nom_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Nombre del doctor</comment>
-</row>
-<row name="ape_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Apellido del doctor</comment>
-</row>
-<row name="ced_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Cédula del doctor</comment>
-</row>
-<row name="pas_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Contraseña del doctor</comment>
-</row>
-<row name="tel_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Teléfono del doctor</comment>
-</row>
-<row name="cor_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Correo electronico del doctor</comment>
-</row>
-<row name="log_doc" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Login con el que se loguara el doctor</comment>
-</row>
-<row name="fec_reg_doc" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITH TIME ZONE</datatype>
-<default>''now()''</default></row>
-<key type="CHECK" name="17105_17166_1_not_null">
-</key>
-<key type="PRIMARY" name="doctores_pkey">
-<part>id_doc</part>
-</key>
-<comment>Registro de todos los doctores que del aplicativo</comment>
-</table>
-<table x="158" y="773" name="municipios">
-<row name="id_mun" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''municipios_id_mun_seq''::regclass)</default></row>
-<row name="des_mun" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_est" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="estados" row="id_est" />
-</row>
-<key type="CHECK" name="17105_18428_1_not_null">
-</key>
-<key type="PRIMARY" name="municipios_pkey">
-<part>id_mun</part>
-</key>
-</table>
-<table x="86" y="651" name="estados">
-<row name="id_est" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''estados_id_est_seq''::regclass)</default></row>
-<row name="des_est" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_pai" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="paises" row="id_pai" />
-</row>
-<key type="CHECK" name="17105_18420_1_not_null">
-</key>
-<key type="PRIMARY" name="estados_pkey">
-<part>id_est</part>
-</key>
-</table>
-<table x="799" y="1142" name="partes_cuerpos__categorias_cuerpos">
-<row name="id_par_cue_cat_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''partes_cuerpos__categorias_cuerpos_id_par_cue_cat_cue_seq''::regclass)</default></row>
-<row name="id_cat_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="categorias_cuerpos" row="id_cat_cue" />
-</row>
-<row name="id_par_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="partes_cuerpos" row="id_par_cue" />
-</row>
-<key type="CHECK" name="17105_19125_1_not_null">
-</key>
-<key type="CHECK" name="17105_19125_2_not_null">
-</key>
-<key type="CHECK" name="17105_19125_3_not_null">
-</key>
-<key type="PRIMARY" name="partes_cuerpos__categorias_cuerpos_pkey">
-<part>id_par_cue_cat_cue</part>
-</key>
-<key type="UNIQUE" name="partes_cuerpos__categorias_cuerpos_unique">
-<part>id_par_cue</part>
-<part>id_cat_cue</part>
-</key>
-<comment>Permite seleccionar a que categoria pertenece la parte del cuerpo</comment>
-</table>
-<table x="1194" y="1013" name="categorias_cuerpos">
-<row name="id_cat_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''categorias_cuerpos_id_cat_cue_seq''::regclass)</default></row>
-<row name="nom_cat_cue" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17131_1_not_null">
-</key>
-<key type="PRIMARY" name="categorias_cuerpos_pkey">
-<part>id_cat_cue</part>
-</key>
-</table>
-<table x="1506" y="914" name="categorias_cuerpos__lesiones">
-<row name="id_cat_cue_les" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''lesiones__partes_cuerpos_id_les_par_cue_seq''::regclass)</default></row>
-<row name="id_les" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="lesiones" row="id_les" />
-</row>
-<row name="id_cat_cue" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categorias_cuerpos" row="id_cat_cue" />
-</row>
-<key type="CHECK" name="17105_17209_1_not_null">
-</key>
-<key type="PRIMARY" name="lesiones__partes_cuerpos_pkey">
-<part>id_cat_cue_les</part>
-</key>
-</table>
-<table x="1473" y="1150" name="lesiones_partes_cuerpos__pacientes">
-<row name="id_les_par_cue_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''lesiones_partes_cuerpos__pacientes_id_les_par_cue_pac_seq''::regclass)</default><comment>Leciones parted del cuerpo paciente</comment>
-</row>
-<row name="otr_les_par_cue" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Otras leciones de la parte del cuerpo del paciente</comment>
-</row>
-<row name="id_cat_cue_les" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categorias_cuerpos__lesiones" row="id_cat_cue_les" />
-</row>
-<row name="id_par_cue_cat_cue" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="partes_cuerpos__categorias_cuerpos" row="id_par_cue_cat_cue" />
-</row>
-<row name="id_tip_mic_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
-</row>
-<key type="CHECK" name="17105_17214_1_not_null">
-</key>
-<key type="PRIMARY" name="lesiones_partes_cuerpos__pacientes_pkey">
-<part>id_les_par_cue_pac</part>
-</key>
-<key type="UNIQUE" name="lesiones_partes_cuerpos__pacientes_unique">
-<part>id_par_cue_cat_cue</part>
-<part>id_cat_cue_les</part>
-<part>id_tip_mic_pac</part>
-</key>
-</table>
-<table x="2753" y="963" name="tipos_estudios_micologicos">
-<row name="id_tip_est_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_estudios_micologicos_id_tip_est_mic_seq''::regclass)</default></row>
-<row name="id_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_micosis" row="id_tip_mic" />
-</row>
-<row name="nom_tip_est_mic" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_tip_exa" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_examenes" row="id_tip_exa" />
-</row>
-<key type="CHECK" name="17105_17272_1_not_null">
-</key>
-<key type="CHECK" name="17105_17272_2_not_null">
-</key>
-<key type="PRIMARY" name="tipos_estudios_micologicos_pkey">
-<part>id_tip_est_mic</part>
-</key>
-</table>
-<table x="1134" y="2443" name="transacciones">
-<row name="id_tip_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''transacciones_id_tip_tra_seq''::regclass)</default></row>
-<row name="cod_tip_tra" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="des_tip_tra" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_mod" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="modulos" row="id_mod" />
-</row>
-<key type="CHECK" name="17105_17292_1_not_null">
-</key>
-<key type="CHECK" name="17105_17292_2_not_null">
-</key>
-<key type="UNIQUE" name="transacciones_cod_tip_tra__id_mod">
-<part>cod_tip_tra</part>
-<part>id_mod</part>
-</key>
-<key type="PRIMARY" name="transacciones_pkey">
-<part>id_tip_tra</part>
-</key>
-</table>
-<table x="2392" y="605" name="centro_salud_doctores">
-<row name="id_cen_sal_doc" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''centro_salud_doctores_id_cen_sal_doc_seq''::regclass)</default><comment>Identificación del Centro de Salud del doctor</comment>
-</row>
-<row name="id_cen_sal" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="centro_saluds" row="id_cen_sal" />
-<comment>Identificación del Centro de Salud</comment>
-</row>
-<row name="id_doc" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="doctores" row="id_doc" />
-<comment>Identificación del doctor</comment>
-</row>
-<row name="otr_cen_sal" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Otro Centro de Salud</comment>
-</row>
-<key type="CHECK" name="17105_18773_1_not_null">
-</key>
-<key type="CHECK" name="17105_18773_2_not_null">
-</key>
-<key type="CHECK" name="17105_18773_3_not_null">
-</key>
-<key type="PRIMARY" name="centro_salud_doctores_pkey">
-<part>id_cen_sal_doc</part>
-</key>
-<key type="UNIQUE" name="centro_salud_doctores_unique">
-<part>id_doc</part>
-<part>id_cen_sal</part>
-</key>
-</table>
-<table x="69" y="903" name="parroquias">
-<row name="id_par" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''parroquias_id_par_seq''::regclass)</default></row>
-<row name="des_par" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_mun" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="municipios" row="id_mun" />
-</row>
-<key type="CHECK" name="17105_18436_1_not_null">
-</key>
-<key type="PRIMARY" name="parroquias_pkey">
-<part>id_par</part>
-</key>
-</table>
-<table x="57" y="525" name="paises">
-<row name="id_pai" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''paises_id_pai_seq''::regclass)</default></row>
-<row name="des_pai" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="cod_pai" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_18412_1_not_null">
-</key>
-<key type="PRIMARY" name="paises_pkey">
-<part>id_pai</part>
-</key>
-</table>
-<table x="1770" y="1496" name="tipos_micosis_pacientes__tipos_estudios_micologicos">
-<row name="id_tip_mic_pac_tip_est_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_micosis_pacientes__tipos_e_id_tip_mic_pac_tip_est_mic_seq''::regclass)</default></row>
-<row name="id_tip_mic_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
-</row>
-<row name="id_tip_est_mic" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_estudios_micologicos" row="id_tip_est_mic" />
-</row>
-<row name="otr_tip_est_mic" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default><comment>Otros tipos de estudio micologico asociado a muestras pacientes</comment>
-</row>
-<key type="CHECK" name="17105_19305_1_not_null">
-</key>
-<key type="PRIMARY" name="tipos_micosis_pacientes__tipos_estudios_micologicos_pkey">
-<part>id_tip_mic_pac_tip_est_mic</part>
-</key>
-</table>
-<table x="1623" y="2740" name="auditoria_transacciones">
-<row name="id_aud_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''auditoria_transacciones_id_aud_tra_seq''::regclass)</default></row>
-<row name="fec_aud_tra" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
-<default>NULL</default></row>
-<row name="id_tip_usu_usu" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />
-</row>
-<row name="id_tip_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="transacciones" row="id_tip_tra" />
-</row>
-<row name="data_xml" null="1" autoincrement="0">
-<datatype>XML</datatype>
-<default>NULL</default><comment>Se guarda las modificaciones de la tabla y atributos realizada por los usuarios, todo en forma de XML</comment>
-</row>
-<key type="CHECK" name="17105_17121_1_not_null">
-</key>
-<key type="CHECK" name="17105_17121_3_not_null">
-</key>
-<key type="CHECK" name="17105_17121_4_not_null">
-</key>
-<key type="PRIMARY" name="auditoria_transacciones_pkey">
-<part>id_aud_tra</part>
-</key>
-<comment>Se guarda todos los eventos generados por los usuarios</comment>
-</table>
-<table x="1453" y="1468" name="antecedentes_pacientes">
-<row name="id_ant_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''antecedentes_pacientes_id_ant_pac_seq''::regclass)</default></row>
-<row name="id_ant_per" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="antecedentes_personales" row="id_ant_per" />
-</row>
-<row name="id_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="pacientes" row="id_pac" />
-</row>
-<key type="CHECK" name="17105_17111_1_not_null">
-</key>
-<key type="CHECK" name="17105_17111_2_not_null">
-</key>
-<key type="PRIMARY" name="antecedentes_pacientes_pkey">
-<part>id_ant_pac</part>
-</key>
-</table>
-<table x="1949" y="1058" name="categorias__cuerpos_micosis">
-<row name="id_cat_cue_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''categorias__cuerpos_micosis_id_cat_cue_mic_seq''::regclass)</default></row>
-<row name="id_cat_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="categorias_cuerpos" row="id_cat_cue" />
-</row>
-<row name="id_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_micosis" row="id_tip_mic" />
-</row>
-<key type="CHECK" name="17105_17126_1_not_null">
-</key>
-<key type="CHECK" name="17105_17126_2_not_null">
-</key>
-<key type="CHECK" name="17105_17126_3_not_null">
-</key>
-<key type="PRIMARY" name="categorias__cuerpos_micosis_pkey">
-<part>id_cat_cue_mic</part>
-</key>
-<key type="UNIQUE" name="categorias__cuerpos_micosis_unique">
-<part>id_tip_mic</part>
-<part>id_cat_cue</part>
-</key>
-</table>
-<table x="2364" y="1108" name="enfermedades_micologicas">
-<row name="id_enf_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''enfermedades_micologicas_id_enf_mic_seq''::regclass)</default></row>
-<row name="nom_enf_mic" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="id_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_micosis" row="id_tip_mic" />
-</row>
-<key type="CHECK" name="17105_17174_1_not_null">
-</key>
-<key type="CHECK" name="17105_17174_2_not_null">
-</key>
-<key type="CHECK" name="17105_17174_3_not_null">
-</key>
-<key type="PRIMARY" name="enfermedades_micologicas_pkey">
-<part>id_enf_mic</part>
-</key>
-</table>
-<table x="1838" y="1266" name="enfermedades_pacientes">
-<row name="id_enf_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''enfermedades_pacientes_id_enf_pac_seq''::regclass)</default></row>
-<row name="id_enf_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="enfermedades_micologicas" row="id_enf_mic" />
-</row>
-<row name="otr_enf_mic" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="esp_enf_mic" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_tip_mic_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
-</row>
-<key type="CHECK" name="17105_17179_1_not_null">
-</key>
-<key type="CHECK" name="17105_17179_3_not_null">
-</key>
-<key type="PRIMARY" name="enfermedades_pacientes_pkey">
-<part>id_enf_pac</part>
-</key>
-</table>
-<table x="2045" y="256" name="centro_salud_pacientes">
-<row name="id_cen_sal_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''centro_salud_pacientes_id_cen_sal_pac_seq''::regclass)</default></row>
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="historiales_pacientes" row="id_his" />
-</row>
-<row name="id_cen_sal" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="centro_saluds" row="id_cen_sal" />
-</row>
-<row name="otr_cen_sal" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17146_1_not_null">
-</key>
-<key type="CHECK" name="17105_17146_2_not_null">
-</key>
-<key type="CHECK" name="17105_17146_3_not_null">
-</key>
-<key type="PRIMARY" name="centro_salud_pacientes_pkey">
-<part>id_cen_sal_pac</part>
-</key>
-<key type="UNIQUE" name="centro_salud_pacientes_unique">
-<part>id_his</part>
-<part>id_cen_sal</part>
-</key>
-</table>
-<table x="2360" y="1458" name="contactos_animales">
-<row name="id_con_ani" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''contactos_animales_id_con_ani_seq''::regclass)</default></row>
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="historiales_pacientes" row="id_his" />
-</row>
-<row name="id_ani" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="animales" row="id_ani" />
-</row>
-<row name="otr_ani" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17161_1_not_null">
-</key>
-<key type="CHECK" name="17105_17161_2_not_null">
-</key>
-<key type="CHECK" name="17105_17161_3_not_null">
-</key>
-<key type="PRIMARY" name="contactos_animales_pkey">
-<part>id_con_ani</part>
-</key>
-<key type="UNIQUE" name="contactos_animales_unique">
-<part>id_his</part>
-<part>id_ani</part>
-</key>
-</table>
-<table x="2768" y="419" name="centro_saluds">
-<row name="id_cen_sal" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''centro_salud_id_cen_sal_seq''::regclass)</default></row>
-<row name="nom_cen_sal" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="des_cen_sal" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17141_1_not_null">
-</key>
-<key type="CHECK" name="17105_17141_2_not_null">
-</key>
-<key type="PRIMARY" name="centro_salud_pkey">
-<part>id_cen_sal</part>
-</key>
-</table>
-<table x="3829" y="721" name="forma_infecciones__tipos_micosis">
-<row name="id_for_inf_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''forma_infecciones__tipos_micosis_id_for_inf_tip_mic_seq''::regclass)</default></row>
-<row name="id_tip_mic" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_micosis" row="id_tip_mic" />
-</row>
-<row name="id_for_inf" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="forma_infecciones" row="id_for_inf" />
-</row>
-<key type="CHECK" name="17105_17197_1_not_null">
-</key>
-<key type="CHECK" name="17105_17197_2_not_null">
-</key>
-<key type="CHECK" name="17105_17197_3_not_null">
-</key>
-<key type="PRIMARY" name="forma_infecciones__tipos_micosis_pkey">
-<part>id_for_inf_tip_mic</part>
-</key>
-<key type="UNIQUE" name="forma_infecciones__tipos_micosis_unique">
-<part>id_tip_mic</part>
-<part>id_for_inf</part>
-</key>
-</table>
-<table x="903" y="2316" name="modulos">
-<row name="id_mod" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''modulos_id_mod_seq''::regclass)</default></row>
-<row name="cod_mod" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="des_mod" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_tip_usu" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_usuarios" row="id_tip_usu" />
-</row>
-<key type="CHECK" name="17105_17229_1_not_null">
-</key>
-<key type="UNIQUE" name="modulos_cod_mod_unique">
-<part>cod_mod</part>
-<part>id_tip_usu</part>
-</key>
-<key type="PRIMARY" name="modulos_pkey">
-<part>id_mod</part>
-</key>
-</table>
-<table x="3153" y="845" name="forma_infecciones__pacientes">
-<row name="id_for_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''forma_infecciones__pacientes_id_for_pac_seq''::regclass)</default></row>
-<row name="id_for_inf" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="forma_infecciones" row="id_for_inf" />
-</row>
-<row name="otr_for_inf" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_tip_mic_pac" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
-</row>
-<key type="CHECK" name="17105_17192_1_not_null">
-</key>
-<key type="CHECK" name="17105_17192_2_not_null">
-</key>
-<key type="PRIMARY" name="forma_infecciones__pacientes_pkey">
-<part>id_for_pac</part>
-</key>
-<key type="UNIQUE" name="forma_infecciones__pacientes_unique">
-<part>id_tip_mic_pac</part>
-<part>id_for_inf</part>
-</key>
-</table>
-<table x="3550" y="798" name="forma_infecciones">
-<row name="id_for_inf" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''forma_infecciones_id_for_inf_seq''::regclass)</default></row>
-<row name="des_for_inf" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17189_1_not_null">
-</key>
-<key type="PRIMARY" name="forma_infecciones_pkey">
-<part>id_for_inf</part>
-</key>
-</table>
-<table x="1963" y="1797" name="muestras_pacientes">
-<row name="id_mue_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''muestras_pacientes_id_mue_pac_seq''::regclass)</default><comment>Id de la meustra del paciente</comment>
-</row>
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="historiales_pacientes" row="id_his" />
-<comment>Id del historial</comment>
-</row>
-<row name="id_mue_cli" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="muestras_clinicas" row="id_mue_cli" />
-<comment>Id muestra cli</comment>
-</row>
-<row name="otr_mue_cli" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Otra meustra clinica</comment>
-</row>
-<key type="CHECK" name="17105_17239_1_not_null">
-</key>
-<key type="CHECK" name="17105_17239_2_not_null">
-</key>
-<key type="CHECK" name="17105_17239_3_not_null">
-</key>
-<key type="PRIMARY" name="muestras_pacientes_pkey">
-<part>id_mue_pac</part>
-</key>
-<key type="UNIQUE" name="muestras_pacientes_unique">
-<part>id_mue_cli</part>
-<part>id_his</part>
-</key>
-</table>
-<table x="1989" y="2519" name="transacciones_usuarios">
-<row name="id_tip_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="transacciones" row="id_tip_tra" />
-</row>
-<row name="id_tip_usu_usu" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_usuarios__usuarios" row="id_tip_usu_usu" />
-</row>
-<row name="id_tra_usu" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''transacciones_usuarios_id_tra_usu_seq''::regclass)</default></row>
-<key type="CHECK" name="17105_17297_2_not_null">
-</key>
-<key type="CHECK" name="17105_17297_6_not_null">
-</key>
-<key type="PRIMARY" name="transacciones_usuarios_pkey">
-<part>id_tra_usu</part>
-</key>
-</table>
-<table x="157" y="1807" name="tipos_consultas_pacientes">
-<row name="id_tip_con_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_consultas_pacientes_id_tip_con_pac_seq''::regclass)</default><comment>Id tipos de consulta paciente</comment>
-</row>
-<row name="id_tip_con" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tipos_consultas" row="id_tip_con" />
-<comment>Id tipos de consulta</comment>
-</row>
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="historiales_pacientes" row="id_his" />
-<comment>Id historico</comment>
-</row>
-<row name="otr_tip_con" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Otro tipo de consulta</comment>
-</row>
-<key type="CHECK" name="17105_17267_1_not_null">
-</key>
-<key type="CHECK" name="17105_17267_2_not_null">
-</key>
-<key type="CHECK" name="17105_17267_3_not_null">
-</key>
-<key type="PRIMARY" name="tipos_consultas_pacientes_pkey">
-<part>id_tip_con_pac</part>
-</key>
-<key type="UNIQUE" name="tipos_consultas_pacientes_unique">
-<part>id_tip_con</part>
-<part>id_his</part>
-</key>
-</table>
-<table x="510" y="1061" name="partes_cuerpos">
-<row name="id_par_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''partes_cuerpos_id_par_cue_seq''::regclass)</default></row>
-<row name="nom_par_cue" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17252_1_not_null">
-</key>
-<key type="PRIMARY" name="partes_cuerpos_pkey">
-<part>id_par_cue</part>
-</key>
-</table>
-<table x="624" y="1849" name="tratamientos_pacientes">
-<row name="id_tra_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tratamientos_pacientes_id_tra_pac_seq''::regclass)</default><comment>Id transaccion paciente</comment>
-</row>
-<row name="id_his" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="historiales_pacientes" row="id_his" />
-<comment>Id historico</comment>
-</row>
-<row name="id_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="tratamientos" row="id_tra" />
-<comment>Id tratamiento</comment>
-</row>
-<row name="otr_tra" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>Otro tratamiento</comment>
-</row>
-<key type="CHECK" name="17105_17307_1_not_null">
-</key>
-<key type="CHECK" name="17105_17307_2_not_null">
-</key>
-<key type="CHECK" name="17105_17307_3_not_null">
-</key>
-<key type="PRIMARY" name="tratamientos_pacientes_pkey">
-<part>id_tra_pac</part>
-</key>
-<key type="UNIQUE" name="tratamientos_pacientes_unique">
-<part>id_his</part>
-<part>id_tra</part>
-</key>
-</table>
-<table x="988" y="1803" name="tipos_usuarios">
-<row name="id_tip_usu" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_usuarios_id_tip_usu_seq''::regclass)</default></row>
-<row name="cod_tip_usu" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="des_tip_usu" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17282_1_not_null">
-</key>
-<key type="CHECK" name="17105_17282_2_not_null">
-</key>
-<key type="PRIMARY" name="tipos_usuarios_pkey">
-<part>id_tip_usu</part>
-</key>
-<key type="UNIQUE" name="tipos_usuarios_unique">
-<part>cod_tip_usu</part>
-</key>
-</table>
-<table x="1101" y="869" name="lesiones">
-<row name="id_les" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''lesiones_id_les_seq''::regclass)</default></row>
-<row name="nom_les" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_19087_1_not_null">
-</key>
-<key type="PRIMARY" name="lesiones_id_les_pkey">
-<part>id_les</part>
-</key>
-</table>
-<table x="1232" y="730" name="tiempo_evoluciones">
-<row name="id_tie_evo" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tiempo_evoluciones_id_tie_evo_seq''::regclass)</default></row>
-<row name="id_his" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="historiales_pacientes" row="id_his" />
-</row>
-<row name="tie_evo" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>0</default></row>
-<key type="CHECK" name="17105_18883_1_not_null">
-</key>
-<key type="PRIMARY" name="tiempo_evoluciones_pkey">
-<part>id_tie_evo</part>
-</key>
-</table>
-<table x="3224" y="675" name="tipos_examenes">
-<row name="id_tip_exa" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_examenes_id_tip_exa_seq''::regclass)</default></row>
-<row name="nom_tip_exa" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_19279_1_not_null">
-</key>
-<key type="PRIMARY" name="tipos_examenes_pkey">
-<part>id_tip_exa</part>
-</key>
-</table>
-<table x="18" y="2282" name="antecedentes_personales">
-<row name="id_ant_per" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''antecedentes_personales_id_ant_per_seq''::regclass)</default></row>
-<row name="nom_ant_per" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17116_1_not_null">
-</key>
-<key type="PRIMARY" name="antecedentes_personales_pkey">
-<part>id_ant_per</part>
-</key>
-</table>
-<table x="2660" y="1246" name="animales">
-<row name="id_ani" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''animales_id_ani_seq''::regclass)</default></row>
-<row name="nom_ani" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17106_1_not_null">
-</key>
-<key type="PRIMARY" name="animales_pkey">
-<part>id_ani</part>
-</key>
-</table>
-<table x="471" y="1582" name="tipos_consultas">
-<row name="id_tip_con" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_consultas_id_tip_con_seq''::regclass)</default><comment>id tipos consultas</comment>
-</row>
-<row name="nom_tip_con" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<key type="CHECK" name="17105_17262_1_not_null">
-</key>
-<key type="CHECK" name="17105_17262_2_not_null">
-</key>
-<key type="PRIMARY" name="tipos_consultas_pkey">
-<part>id_tip_con</part>
-</key>
-</table>
-<table x="1454" y="1931" name="muestras_clinicas">
-<row name="id_mue_cli" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''muestras_clinicas_id_mue_cli_seq''::regclass)</default><comment>Identificacion de la muestra clinica</comment>
-</row>
-<row name="nom_mue_cli" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<comment>Nombre muestra clinica</comment>
-</row>
-<key type="CHECK" name="17105_17234_1_not_null">
-</key>
-<key type="CHECK" name="17105_17234_2_not_null">
-</key>
-<key type="PRIMARY" name="muestras_clinicas_pkey">
-<part>id_mue_cli</part>
-</key>
-</table>
-<table x="726" y="1338" name="localizaciones_cuerpos">
-<row name="id_loc_cue" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''localizaciones_cuerpos_id_loc_cue_seq''::regclass)</default></row>
-<row name="nom_loc_cue" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="id_par_cue" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="partes_cuerpos" row="id_par_cue" />
-</row>
-<key type="CHECK" name="17105_17219_1_not_null">
-</key>
-<key type="CHECK" name="17105_17219_2_not_null">
-</key>
-<key type="PRIMARY" name="localizaciones_cuerpos_pkey">
-<part>id_loc_cue</part>
-</key>
-</table>
-<table x="1460" y="82" name="usuarios_administrativos">
-<row name="id_usu_adm" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''usuarios_administrativos_id_usu_adm_seq''::regclass)</default></row>
-<row name="nom_usu_adm" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="ape_usu_adm" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="pas_usu_adm" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="log_usu_adm" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="tel_usu_adm" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="fec_reg_usu_adm" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
-<default>''now()''</default><comment>Fecha de registro de los usuarios</comment>
-</row>
-<row name="adm_usu" null="1" autoincrement="0">
-<datatype>BOOLEAN</datatype>
-<default>NULL</default><comment>
-	TRUE: si es un super usuario
-	FALSE: si es usuario com limitaciones
-</comment>
-</row>
-<key type="CHECK" name="17105_17312_1_not_null">
-</key>
-<key type="UNIQUE" name="usuarios_administrativos_log_usu_adm_unique">
-<part>log_usu_adm</part>
-</key>
-<key type="PRIMARY" name="usuarios_administrativos_pkey">
-<part>id_usu_adm</part>
-</key>
-</table>
-<table x="1709" y="2106" name="tratamientos">
-<row name="id_tra" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tratamientos_id_tra_seq''::regclass)</default></row>
-<row name="nom_tra" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="17105_17302_1_not_null">
-</key>
-<key type="PRIMARY" name="tratamientos_pkey">
-<part>id_tra</part>
-</key>
-</table>
-<table x="1771" y="2254" name="wwwsqldesigner">
-<row name="keyword" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-</row>
-<row name="xmldata" null="1" autoincrement="0">
-<datatype>TEXT</datatype>
-<default>NULL</default></row>
-<row name="dt" null="1" autoincrement="0">
-<datatype>TIMESTAMP WITHOUT TIME ZONE</datatype>
-<default>NULL</default></row>
-<key type="CHECK" name="27541_27542_1_not_null">
-</key>
-<key type="PRIMARY" name="wwwsqldesigner_pkey">
-<part>keyword</part>
-</key>
-</table>
-<table x="3221" y="415" name="examenes_pacientes">
-<row name="id_exa_pac" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default><comment>Id auto incremetnal de los tipos de examenes del paciente.</comment>
-</row>
-<row name="id_tip_mic_pac" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>nextval(''tipos_micosis_pacientes_id_tip_mic_pac_seq''::regclass)</default><relation table="tipos_micosis_pacientes" row="id_tip_mic_pac" />
-</row>
-<row name="id_tip_exa" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tipos_examenes" row="id_tip_exa" />
-</row>
-<row name="exa_pac_est" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="obs_exa_pac" null="1" autoincrement="0">
-<datatype>VARCHAR(255)</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id_exa_pac</part>
-</key>
-<comment>Contiene los examenes asociados al paciente, aqui tambien se almacena si el examen si es positivo o no.</comment>
-</table>
-</sql>
-', NULL);
-
-
-SET search_path = public, pg_catalog;
-
---
--- TOC entry 2109 (class 2606 OID 35202)
--- Dependencies: 1677 1677
+-- TOC entry 2110 (class 2606 OID 35202)
+-- Dependencies: 1678 1678
 -- Name: animales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -10985,8 +9790,8 @@ ALTER TABLE ONLY animales
 
 
 --
--- TOC entry 2111 (class 2606 OID 35204)
--- Dependencies: 1679 1679
+-- TOC entry 2112 (class 2606 OID 35204)
+-- Dependencies: 1680 1680
 -- Name: antecedentes_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -10995,8 +9800,8 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2114 (class 2606 OID 35206)
--- Dependencies: 1681 1681
+-- TOC entry 2115 (class 2606 OID 35206)
+-- Dependencies: 1682 1682
 -- Name: antecedentes_personales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11007,8 +9812,8 @@ ALTER TABLE ONLY antecedentes_personales
 SET default_tablespace = saib;
 
 --
--- TOC entry 2116 (class 2606 OID 35208)
--- Dependencies: 1683 1683
+-- TOC entry 2117 (class 2606 OID 35208)
+-- Dependencies: 1684 1684
 -- Name: auditoria_transacciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11019,8 +9824,8 @@ ALTER TABLE ONLY auditoria_transacciones
 SET default_tablespace = '';
 
 --
--- TOC entry 2119 (class 2606 OID 35210)
--- Dependencies: 1685 1685
+-- TOC entry 2120 (class 2606 OID 35210)
+-- Dependencies: 1686 1686
 -- Name: categorias__cuerpos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11029,8 +9834,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2121 (class 2606 OID 35212)
--- Dependencies: 1685 1685 1685
+-- TOC entry 2122 (class 2606 OID 35212)
+-- Dependencies: 1686 1686 1686
 -- Name: categorias__cuerpos_micosis_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11039,8 +9844,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2126 (class 2606 OID 35214)
--- Dependencies: 1688 1688 1688
+-- TOC entry 2127 (class 2606 OID 35214)
+-- Dependencies: 1689 1689 1689
 -- Name: categorias_cuerpos__lesiones_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11049,8 +9854,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2124 (class 2606 OID 35216)
--- Dependencies: 1687 1687
+-- TOC entry 2125 (class 2606 OID 35216)
+-- Dependencies: 1688 1688
 -- Name: categorias_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11059,8 +9864,8 @@ ALTER TABLE ONLY categorias_cuerpos
 
 
 --
--- TOC entry 2132 (class 2606 OID 35218)
--- Dependencies: 1690 1690
+-- TOC entry 2133 (class 2606 OID 35218)
+-- Dependencies: 1691 1691
 -- Name: centro_salud_doctores_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11069,8 +9874,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2134 (class 2606 OID 35220)
--- Dependencies: 1690 1690 1690
+-- TOC entry 2135 (class 2606 OID 35220)
+-- Dependencies: 1691 1691 1691
 -- Name: centro_salud_doctores_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11079,8 +9884,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2140 (class 2606 OID 35222)
--- Dependencies: 1694 1694
+-- TOC entry 2141 (class 2606 OID 35222)
+-- Dependencies: 1695 1695
 -- Name: centro_salud_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11089,8 +9894,8 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2142 (class 2606 OID 35224)
--- Dependencies: 1694 1694 1694
+-- TOC entry 2143 (class 2606 OID 35224)
+-- Dependencies: 1695 1695 1695
 -- Name: centro_salud_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11099,8 +9904,8 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2137 (class 2606 OID 35226)
--- Dependencies: 1692 1692
+-- TOC entry 2138 (class 2606 OID 35226)
+-- Dependencies: 1693 1693
 -- Name: centro_salud_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11109,8 +9914,8 @@ ALTER TABLE ONLY centro_saluds
 
 
 --
--- TOC entry 2145 (class 2606 OID 35228)
--- Dependencies: 1696 1696
+-- TOC entry 2146 (class 2606 OID 35228)
+-- Dependencies: 1697 1697
 -- Name: contactos_animales_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11119,8 +9924,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2147 (class 2606 OID 35230)
--- Dependencies: 1696 1696 1696
+-- TOC entry 2148 (class 2606 OID 35230)
+-- Dependencies: 1697 1697 1697
 -- Name: contactos_animales_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11129,8 +9934,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2149 (class 2606 OID 35232)
--- Dependencies: 1698 1698
+-- TOC entry 2150 (class 2606 OID 35232)
+-- Dependencies: 1699 1699
 -- Name: doctores_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11139,8 +9944,8 @@ ALTER TABLE ONLY doctores
 
 
 --
--- TOC entry 2152 (class 2606 OID 35234)
--- Dependencies: 1700 1700
+-- TOC entry 2153 (class 2606 OID 35234)
+-- Dependencies: 1701 1701
 -- Name: enfermedades_micologicas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11149,8 +9954,8 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 
 --
--- TOC entry 2154 (class 2606 OID 35236)
--- Dependencies: 1702 1702
+-- TOC entry 2155 (class 2606 OID 35236)
+-- Dependencies: 1703 1703
 -- Name: enfermedades_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11159,8 +9964,8 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2156 (class 2606 OID 35238)
--- Dependencies: 1702 1702 1702
+-- TOC entry 2157 (class 2606 OID 35238)
+-- Dependencies: 1703 1703 1703
 -- Name: enfermedades_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11169,8 +9974,8 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2158 (class 2606 OID 35240)
--- Dependencies: 1704 1704
+-- TOC entry 2159 (class 2606 OID 35240)
+-- Dependencies: 1705 1705
 -- Name: estados_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11179,8 +9984,8 @@ ALTER TABLE ONLY estados
 
 
 --
--- TOC entry 2160 (class 2606 OID 35242)
--- Dependencies: 1706 1706
+-- TOC entry 2161 (class 2606 OID 35242)
+-- Dependencies: 1707 1707
 -- Name: examenes_pacientes_pk; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11189,8 +9994,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2162 (class 2606 OID 35244)
--- Dependencies: 1706 1706 1706
+-- TOC entry 2163 (class 2606 OID 35244)
+-- Dependencies: 1707 1707 1707
 -- Name: examenes_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11199,8 +10004,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2168 (class 2606 OID 35246)
--- Dependencies: 1709 1709
+-- TOC entry 2169 (class 2606 OID 35246)
+-- Dependencies: 1710 1710
 -- Name: forma_infecciones__pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11209,8 +10014,8 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2170 (class 2606 OID 35248)
--- Dependencies: 1709 1709 1709
+-- TOC entry 2171 (class 2606 OID 35248)
+-- Dependencies: 1710 1710 1710
 -- Name: forma_infecciones__pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11219,8 +10024,8 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2173 (class 2606 OID 35250)
--- Dependencies: 1711 1711
+-- TOC entry 2174 (class 2606 OID 35250)
+-- Dependencies: 1712 1712
 -- Name: forma_infecciones__tipos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11229,8 +10034,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2175 (class 2606 OID 35252)
--- Dependencies: 1711 1711 1711
+-- TOC entry 2176 (class 2606 OID 35252)
+-- Dependencies: 1712 1712 1712
 -- Name: forma_infecciones__tipos_micosis_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11239,8 +10044,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2165 (class 2606 OID 35254)
--- Dependencies: 1708 1708
+-- TOC entry 2166 (class 2606 OID 35254)
+-- Dependencies: 1709 1709
 -- Name: forma_infecciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11249,8 +10054,8 @@ ALTER TABLE ONLY forma_infecciones
 
 
 --
--- TOC entry 2178 (class 2606 OID 35256)
--- Dependencies: 1714 1714
+-- TOC entry 2179 (class 2606 OID 35256)
+-- Dependencies: 1715 1715
 -- Name: historiales_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11259,8 +10064,8 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2129 (class 2606 OID 35258)
--- Dependencies: 1688 1688
+-- TOC entry 2130 (class 2606 OID 35258)
+-- Dependencies: 1689 1689
 -- Name: lesiones__partes_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11269,8 +10074,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2180 (class 2606 OID 35260)
--- Dependencies: 1716 1716
+-- TOC entry 2181 (class 2606 OID 35260)
+-- Dependencies: 1717 1717
 -- Name: lesiones_id_les_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11279,8 +10084,8 @@ ALTER TABLE ONLY lesiones
 
 
 --
--- TOC entry 2183 (class 2606 OID 35262)
--- Dependencies: 1719 1719
+-- TOC entry 2184 (class 2606 OID 35262)
+-- Dependencies: 1720 1720
 -- Name: lesiones_partes_cuerpos__pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11289,8 +10094,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2185 (class 2606 OID 35264)
--- Dependencies: 1719 1719 1719 1719
+-- TOC entry 2186 (class 2606 OID 35264)
+-- Dependencies: 1720 1720 1720 1720
 -- Name: lesiones_partes_cuerpos__pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11299,8 +10104,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2188 (class 2606 OID 35266)
--- Dependencies: 1721 1721
+-- TOC entry 2189 (class 2606 OID 35266)
+-- Dependencies: 1722 1722
 -- Name: localizaciones_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11309,8 +10114,8 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 
 --
--- TOC entry 2190 (class 2606 OID 35268)
--- Dependencies: 1723 1723 1723
+-- TOC entry 2191 (class 2606 OID 35268)
+-- Dependencies: 1724 1724 1724
 -- Name: modulos_cod_mod_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11319,8 +10124,8 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2192 (class 2606 OID 35270)
--- Dependencies: 1723 1723
+-- TOC entry 2193 (class 2606 OID 35270)
+-- Dependencies: 1724 1724
 -- Name: modulos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11329,8 +10134,8 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2195 (class 2606 OID 35272)
--- Dependencies: 1725 1725
+-- TOC entry 2196 (class 2606 OID 35272)
+-- Dependencies: 1726 1726
 -- Name: muestras_clinicas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11339,8 +10144,8 @@ ALTER TABLE ONLY muestras_clinicas
 
 
 --
--- TOC entry 2197 (class 2606 OID 35274)
--- Dependencies: 1727 1727
+-- TOC entry 2198 (class 2606 OID 35274)
+-- Dependencies: 1728 1728
 -- Name: muestras_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11349,8 +10154,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2199 (class 2606 OID 35276)
--- Dependencies: 1727 1727 1727
+-- TOC entry 2200 (class 2606 OID 35276)
+-- Dependencies: 1728 1728 1728
 -- Name: muestras_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11359,8 +10164,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2201 (class 2606 OID 35278)
--- Dependencies: 1729 1729
+-- TOC entry 2202 (class 2606 OID 35278)
+-- Dependencies: 1730 1730
 -- Name: municipios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11369,8 +10174,8 @@ ALTER TABLE ONLY municipios
 
 
 --
--- TOC entry 2204 (class 2606 OID 35280)
--- Dependencies: 1731 1731
+-- TOC entry 2205 (class 2606 OID 35280)
+-- Dependencies: 1732 1732
 -- Name: pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11379,8 +10184,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2206 (class 2606 OID 35282)
--- Dependencies: 1733 1733
+-- TOC entry 2207 (class 2606 OID 35282)
+-- Dependencies: 1734 1734
 -- Name: paises_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11389,8 +10194,8 @@ ALTER TABLE ONLY paises
 
 
 --
--- TOC entry 2208 (class 2606 OID 35284)
--- Dependencies: 1735 1735
+-- TOC entry 2209 (class 2606 OID 35284)
+-- Dependencies: 1736 1736
 -- Name: parroquias_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11399,8 +10204,8 @@ ALTER TABLE ONLY parroquias
 
 
 --
--- TOC entry 2213 (class 2606 OID 35286)
--- Dependencies: 1738 1738
+-- TOC entry 2214 (class 2606 OID 35286)
+-- Dependencies: 1739 1739
 -- Name: partes_cuerpos__categorias_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11409,8 +10214,8 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2215 (class 2606 OID 35288)
--- Dependencies: 1738 1738 1738
+-- TOC entry 2216 (class 2606 OID 35288)
+-- Dependencies: 1739 1739 1739
 -- Name: partes_cuerpos__categorias_cuerpos_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11419,8 +10224,8 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2211 (class 2606 OID 35290)
--- Dependencies: 1737 1737
+-- TOC entry 2212 (class 2606 OID 35290)
+-- Dependencies: 1738 1738
 -- Name: partes_cuerpos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11429,8 +10234,8 @@ ALTER TABLE ONLY partes_cuerpos
 
 
 --
--- TOC entry 2217 (class 2606 OID 35292)
--- Dependencies: 1741 1741
+-- TOC entry 2218 (class 2606 OID 35292)
+-- Dependencies: 1742 1742
 -- Name: tiempo_evoluciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11439,8 +10244,8 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 
 --
--- TOC entry 2223 (class 2606 OID 35294)
--- Dependencies: 1745 1745
+-- TOC entry 2224 (class 2606 OID 35294)
+-- Dependencies: 1746 1746
 -- Name: tipos_consultas_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11449,8 +10254,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2225 (class 2606 OID 35296)
--- Dependencies: 1745 1745 1745
+-- TOC entry 2226 (class 2606 OID 35296)
+-- Dependencies: 1746 1746 1746
 -- Name: tipos_consultas_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11459,8 +10264,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2220 (class 2606 OID 35298)
--- Dependencies: 1743 1743
+-- TOC entry 2221 (class 2606 OID 35298)
+-- Dependencies: 1744 1744
 -- Name: tipos_consultas_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11469,8 +10274,8 @@ ALTER TABLE ONLY tipos_consultas
 
 
 --
--- TOC entry 2228 (class 2606 OID 35300)
--- Dependencies: 1747 1747
+-- TOC entry 2229 (class 2606 OID 35300)
+-- Dependencies: 1748 1748
 -- Name: tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11479,8 +10284,8 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2230 (class 2606 OID 35302)
--- Dependencies: 1749 1749
+-- TOC entry 2231 (class 2606 OID 35302)
+-- Dependencies: 1750 1750
 -- Name: tipos_examenes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11489,8 +10294,8 @@ ALTER TABLE ONLY tipos_examenes
 
 
 --
--- TOC entry 2239 (class 2606 OID 35304)
--- Dependencies: 1754 1754
+-- TOC entry 2240 (class 2606 OID 35304)
+-- Dependencies: 1755 1755
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11499,8 +10304,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2241 (class 2606 OID 35306)
--- Dependencies: 1754 1754 1754
+-- TOC entry 2242 (class 2606 OID 35306)
+-- Dependencies: 1755 1755 1755
 -- Name: tipos_micosis_pacientes__tipos_estudios_micologicos_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11509,8 +10314,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2235 (class 2606 OID 35308)
--- Dependencies: 1753 1753
+-- TOC entry 2236 (class 2606 OID 35308)
+-- Dependencies: 1754 1754
 -- Name: tipos_micosis_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11519,8 +10324,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2237 (class 2606 OID 35310)
--- Dependencies: 1753 1753 1753
+-- TOC entry 2238 (class 2606 OID 35310)
+-- Dependencies: 1754 1754 1754
 -- Name: tipos_micosis_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11529,8 +10334,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2233 (class 2606 OID 35312)
--- Dependencies: 1751 1751
+-- TOC entry 2234 (class 2606 OID 35312)
+-- Dependencies: 1752 1752
 -- Name: tipos_micosis_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11539,8 +10344,8 @@ ALTER TABLE ONLY tipos_micosis
 
 
 --
--- TOC entry 2247 (class 2606 OID 35314)
--- Dependencies: 1758 1758
+-- TOC entry 2248 (class 2606 OID 35314)
+-- Dependencies: 1759 1759
 -- Name: tipos_usuarios__usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11549,8 +10354,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2243 (class 2606 OID 35316)
--- Dependencies: 1757 1757
+-- TOC entry 2244 (class 2606 OID 35316)
+-- Dependencies: 1758 1758
 -- Name: tipos_usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11561,8 +10366,8 @@ ALTER TABLE ONLY tipos_usuarios
 SET default_tablespace = saib;
 
 --
--- TOC entry 2245 (class 2606 OID 35318)
--- Dependencies: 1757 1757
+-- TOC entry 2246 (class 2606 OID 35318)
+-- Dependencies: 1758 1758
 -- Name: tipos_usuarios_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11573,8 +10378,8 @@ ALTER TABLE ONLY tipos_usuarios
 SET default_tablespace = '';
 
 --
--- TOC entry 2251 (class 2606 OID 35320)
--- Dependencies: 1761 1761 1761
+-- TOC entry 2252 (class 2606 OID 35320)
+-- Dependencies: 1762 1762 1762
 -- Name: transacciones_cod_tip_tra__id_mod; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11583,8 +10388,8 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2253 (class 2606 OID 35322)
--- Dependencies: 1761 1761
+-- TOC entry 2254 (class 2606 OID 35322)
+-- Dependencies: 1762 1762
 -- Name: transacciones_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11593,8 +10398,8 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2255 (class 2606 OID 35324)
--- Dependencies: 1763 1763
+-- TOC entry 2256 (class 2606 OID 35324)
+-- Dependencies: 1764 1764
 -- Name: transacciones_usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11603,8 +10408,8 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2261 (class 2606 OID 35326)
--- Dependencies: 1767 1767
+-- TOC entry 2262 (class 2606 OID 35326)
+-- Dependencies: 1768 1768
 -- Name: tratamientos_pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11613,8 +10418,8 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2263 (class 2606 OID 35328)
--- Dependencies: 1767 1767 1767
+-- TOC entry 2264 (class 2606 OID 35328)
+-- Dependencies: 1768 1768 1768
 -- Name: tratamientos_pacientes_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11623,8 +10428,8 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2258 (class 2606 OID 35330)
--- Dependencies: 1765 1765
+-- TOC entry 2259 (class 2606 OID 35330)
+-- Dependencies: 1766 1766
 -- Name: tratamientos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11633,8 +10438,8 @@ ALTER TABLE ONLY tratamientos
 
 
 --
--- TOC entry 2249 (class 2606 OID 35332)
--- Dependencies: 1758 1758 1758 1758
+-- TOC entry 2250 (class 2606 OID 35332)
+-- Dependencies: 1759 1759 1759 1759
 -- Name: unique_tipos_usuarios__usuarios; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11643,8 +10448,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2265 (class 2606 OID 35334)
--- Dependencies: 1769 1769
+-- TOC entry 2266 (class 2606 OID 35334)
+-- Dependencies: 1770 1770
 -- Name: usuarios_administrativos_log_usu_adm_unique; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11655,8 +10460,8 @@ ALTER TABLE ONLY usuarios_administrativos
 SET default_tablespace = saib;
 
 --
--- TOC entry 2267 (class 2606 OID 35336)
--- Dependencies: 1769 1769
+-- TOC entry 2268 (class 2606 OID 35336)
+-- Dependencies: 1770 1770
 -- Name: usuarios_administrativos_pkey; Type: CONSTRAINT; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11664,27 +10469,9 @@ ALTER TABLE ONLY usuarios_administrativos
     ADD CONSTRAINT usuarios_administrativos_pkey PRIMARY KEY (id_usu_adm);
 
 
-SET search_path = saib_model, pg_catalog;
-
-SET default_tablespace = '';
-
 --
--- TOC entry 2269 (class 2606 OID 35338)
--- Dependencies: 1771 1771
--- Name: wwwsqldesigner_pkey; Type: CONSTRAINT; Schema: saib_model; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY wwwsqldesigner
-    ADD CONSTRAINT wwwsqldesigner_pkey PRIMARY KEY (keyword);
-
-
-SET search_path = public, pg_catalog;
-
-SET default_tablespace = saib;
-
---
--- TOC entry 2107 (class 1259 OID 35339)
--- Dependencies: 1677
+-- TOC entry 2108 (class 1259 OID 35339)
+-- Dependencies: 1678
 -- Name: animales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11692,8 +10479,8 @@ CREATE INDEX animales_index ON animales USING btree (id_ani);
 
 
 --
--- TOC entry 2112 (class 1259 OID 35340)
--- Dependencies: 1681
+-- TOC entry 2113 (class 1259 OID 35340)
+-- Dependencies: 1682
 -- Name: antecedentes_personales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11701,8 +10488,8 @@ CREATE INDEX antecedentes_personales_index ON antecedentes_personales USING btre
 
 
 --
--- TOC entry 2117 (class 1259 OID 35341)
--- Dependencies: 1685
+-- TOC entry 2118 (class 1259 OID 35341)
+-- Dependencies: 1686
 -- Name: categorias__cuerpos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11710,8 +10497,8 @@ CREATE INDEX categorias__cuerpos_micosis_index ON categorias__cuerpos_micosis US
 
 
 --
--- TOC entry 2122 (class 1259 OID 35342)
--- Dependencies: 1687
+-- TOC entry 2123 (class 1259 OID 35342)
+-- Dependencies: 1688
 -- Name: categorias_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11721,8 +10508,8 @@ CREATE INDEX categorias_cuerpos_index ON categorias_cuerpos USING btree (id_cat_
 SET default_tablespace = '';
 
 --
--- TOC entry 2130 (class 1259 OID 35343)
--- Dependencies: 1690 1690 1690
+-- TOC entry 2131 (class 1259 OID 35343)
+-- Dependencies: 1691 1691 1691
 -- Name: centro_salud_doctores_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: 
 --
 
@@ -11732,8 +10519,8 @@ CREATE INDEX centro_salud_doctores_index ON centro_salud_doctores USING btree (i
 SET default_tablespace = saib;
 
 --
--- TOC entry 2135 (class 1259 OID 35344)
--- Dependencies: 1692
+-- TOC entry 2136 (class 1259 OID 35344)
+-- Dependencies: 1693
 -- Name: centro_salud_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11741,8 +10528,8 @@ CREATE INDEX centro_salud_index ON centro_saluds USING btree (id_cen_sal);
 
 
 --
--- TOC entry 2138 (class 1259 OID 35345)
--- Dependencies: 1694 1694 1694
+-- TOC entry 2139 (class 1259 OID 35345)
+-- Dependencies: 1695 1695 1695
 -- Name: centro_salud_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11750,8 +10537,8 @@ CREATE INDEX centro_salud_pacientes_index ON centro_salud_pacientes USING btree 
 
 
 --
--- TOC entry 2143 (class 1259 OID 35346)
--- Dependencies: 1696 1696 1696
+-- TOC entry 2144 (class 1259 OID 35346)
+-- Dependencies: 1697 1697 1697
 -- Name: contactos_animales_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11759,8 +10546,8 @@ CREATE INDEX contactos_animales_index ON contactos_animales USING btree (id_con_
 
 
 --
--- TOC entry 2150 (class 1259 OID 35347)
--- Dependencies: 1700
+-- TOC entry 2151 (class 1259 OID 35347)
+-- Dependencies: 1701
 -- Name: enfermedades_micologicas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11768,8 +10555,8 @@ CREATE INDEX enfermedades_micologicas_index ON enfermedades_micologicas USING bt
 
 
 --
--- TOC entry 2166 (class 1259 OID 35348)
--- Dependencies: 1709
+-- TOC entry 2167 (class 1259 OID 35348)
+-- Dependencies: 1710
 -- Name: forma_infecciones__pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11777,8 +10564,8 @@ CREATE INDEX forma_infecciones__pacientes_index ON forma_infecciones__pacientes 
 
 
 --
--- TOC entry 2171 (class 1259 OID 35349)
--- Dependencies: 1711
+-- TOC entry 2172 (class 1259 OID 35349)
+-- Dependencies: 1712
 -- Name: forma_infecciones__tipos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11786,8 +10573,8 @@ CREATE INDEX forma_infecciones__tipos_micosis_index ON forma_infecciones__tipos_
 
 
 --
--- TOC entry 2163 (class 1259 OID 35350)
--- Dependencies: 1708
+-- TOC entry 2164 (class 1259 OID 35350)
+-- Dependencies: 1709
 -- Name: forma_infecciones_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11795,8 +10582,8 @@ CREATE INDEX forma_infecciones_index ON forma_infecciones USING btree (id_for_in
 
 
 --
--- TOC entry 2176 (class 1259 OID 35351)
--- Dependencies: 1714
+-- TOC entry 2177 (class 1259 OID 35351)
+-- Dependencies: 1715
 -- Name: historiales_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11804,8 +10591,8 @@ CREATE INDEX historiales_pacientes_index ON historiales_pacientes USING btree (i
 
 
 --
--- TOC entry 2127 (class 1259 OID 35352)
--- Dependencies: 1688
+-- TOC entry 2128 (class 1259 OID 35352)
+-- Dependencies: 1689
 -- Name: lesiones__partes_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11813,8 +10600,8 @@ CREATE INDEX lesiones__partes_cuerpos_index ON categorias_cuerpos__lesiones USIN
 
 
 --
--- TOC entry 2181 (class 1259 OID 35353)
--- Dependencies: 1719
+-- TOC entry 2182 (class 1259 OID 35353)
+-- Dependencies: 1720
 -- Name: lesiones_partes_cuerpos__pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11822,8 +10609,8 @@ CREATE INDEX lesiones_partes_cuerpos__pacientes_index ON lesiones_partes_cuerpos
 
 
 --
--- TOC entry 2186 (class 1259 OID 35354)
--- Dependencies: 1721
+-- TOC entry 2187 (class 1259 OID 35354)
+-- Dependencies: 1722
 -- Name: localizaciones_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11831,8 +10618,8 @@ CREATE INDEX localizaciones_cuerpos_index ON localizaciones_cuerpos USING btree 
 
 
 --
--- TOC entry 2193 (class 1259 OID 35355)
--- Dependencies: 1725
+-- TOC entry 2194 (class 1259 OID 35355)
+-- Dependencies: 1726
 -- Name: muestras_clinicas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11840,8 +10627,8 @@ CREATE INDEX muestras_clinicas_index ON muestras_clinicas USING btree (id_mue_cl
 
 
 --
--- TOC entry 2202 (class 1259 OID 35356)
--- Dependencies: 1731
+-- TOC entry 2203 (class 1259 OID 35356)
+-- Dependencies: 1732
 -- Name: pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11849,8 +10636,8 @@ CREATE INDEX pacientes_index ON pacientes USING btree (id_pac);
 
 
 --
--- TOC entry 2209 (class 1259 OID 35357)
--- Dependencies: 1737
+-- TOC entry 2210 (class 1259 OID 35357)
+-- Dependencies: 1738
 -- Name: partes_cuerpos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11858,8 +10645,8 @@ CREATE INDEX partes_cuerpos_index ON partes_cuerpos USING btree (id_par_cue);
 
 
 --
--- TOC entry 2218 (class 1259 OID 35358)
--- Dependencies: 1743
+-- TOC entry 2219 (class 1259 OID 35358)
+-- Dependencies: 1744
 -- Name: tipos_consultas_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11867,8 +10654,8 @@ CREATE INDEX tipos_consultas_index ON tipos_consultas USING btree (id_tip_con);
 
 
 --
--- TOC entry 2221 (class 1259 OID 35359)
--- Dependencies: 1745 1745 1745
+-- TOC entry 2222 (class 1259 OID 35359)
+-- Dependencies: 1746 1746 1746
 -- Name: tipos_consultas_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11876,8 +10663,8 @@ CREATE INDEX tipos_consultas_pacientes_index ON tipos_consultas_pacientes USING 
 
 
 --
--- TOC entry 2226 (class 1259 OID 35360)
--- Dependencies: 1747
+-- TOC entry 2227 (class 1259 OID 35360)
+-- Dependencies: 1748
 -- Name: tipos_estudios_micologicos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11885,8 +10672,8 @@ CREATE INDEX tipos_estudios_micologicos_index ON tipos_estudios_micologicos USIN
 
 
 --
--- TOC entry 2231 (class 1259 OID 35361)
--- Dependencies: 1751
+-- TOC entry 2232 (class 1259 OID 35361)
+-- Dependencies: 1752
 -- Name: tipos_micosis_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11894,8 +10681,8 @@ CREATE INDEX tipos_micosis_index ON tipos_micosis USING btree (id_tip_mic);
 
 
 --
--- TOC entry 2256 (class 1259 OID 35362)
--- Dependencies: 1765
+-- TOC entry 2257 (class 1259 OID 35362)
+-- Dependencies: 1766
 -- Name: tratamientos_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11903,8 +10690,8 @@ CREATE INDEX tratamientos_index ON tratamientos USING btree (id_tra);
 
 
 --
--- TOC entry 2259 (class 1259 OID 35363)
--- Dependencies: 1767 1767 1767
+-- TOC entry 2260 (class 1259 OID 35363)
+-- Dependencies: 1768 1768 1768
 -- Name: tratamientos_pacientes_index; Type: INDEX; Schema: public; Owner: desarrollo_g; Tablespace: saib
 --
 
@@ -11912,8 +10699,8 @@ CREATE INDEX tratamientos_pacientes_index ON tratamientos_pacientes USING btree 
 
 
 --
--- TOC entry 2270 (class 2606 OID 35364)
--- Dependencies: 1679 1681 2113
+-- TOC entry 2269 (class 2606 OID 35364)
+-- Dependencies: 1682 2114 1680
 -- Name: antecedentes_pacientes_id_ant_per_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11922,8 +10709,8 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2271 (class 2606 OID 35369)
--- Dependencies: 1679 1731 2203
+-- TOC entry 2270 (class 2606 OID 35369)
+-- Dependencies: 1732 2204 1680
 -- Name: antecedentes_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11932,8 +10719,8 @@ ALTER TABLE ONLY antecedentes_pacientes
 
 
 --
--- TOC entry 2272 (class 2606 OID 35374)
--- Dependencies: 1683 2252 1761
+-- TOC entry 2271 (class 2606 OID 35374)
+-- Dependencies: 1684 2253 1762
 -- Name: auditoria_transacciones_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11942,8 +10729,8 @@ ALTER TABLE ONLY auditoria_transacciones
 
 
 --
--- TOC entry 2273 (class 2606 OID 35379)
--- Dependencies: 1758 2246 1683
+-- TOC entry 2272 (class 2606 OID 35379)
+-- Dependencies: 1759 1684 2247
 -- Name: auditoria_transacciones_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11952,8 +10739,8 @@ ALTER TABLE ONLY auditoria_transacciones
 
 
 --
--- TOC entry 2276 (class 2606 OID 35384)
--- Dependencies: 1688 1687 2123
+-- TOC entry 2275 (class 2606 OID 35384)
+-- Dependencies: 1689 2124 1688
 -- Name: categoria_cuerpos__partes_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11962,8 +10749,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2274 (class 2606 OID 35389)
--- Dependencies: 2123 1687 1685
+-- TOC entry 2273 (class 2606 OID 35389)
+-- Dependencies: 1688 2124 1686
 -- Name: categorias__cuerpos_micosis_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11972,8 +10759,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2275 (class 2606 OID 35394)
--- Dependencies: 1685 1751 2232
+-- TOC entry 2274 (class 2606 OID 35394)
+-- Dependencies: 2233 1752 1686
 -- Name: categorias__cuerpos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11982,8 +10769,8 @@ ALTER TABLE ONLY categorias__cuerpos_micosis
 
 
 --
--- TOC entry 2278 (class 2606 OID 35399)
--- Dependencies: 2136 1692 1690
+-- TOC entry 2277 (class 2606 OID 35399)
+-- Dependencies: 1691 1693 2137
 -- Name: centro_salud_doctores_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -11992,8 +10779,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2279 (class 2606 OID 35404)
--- Dependencies: 1698 1690 2148
+-- TOC entry 2278 (class 2606 OID 35404)
+-- Dependencies: 2149 1691 1699
 -- Name: centro_salud_doctores_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12002,8 +10789,8 @@ ALTER TABLE ONLY centro_salud_doctores
 
 
 --
--- TOC entry 2280 (class 2606 OID 35409)
--- Dependencies: 1692 2136 1694
+-- TOC entry 2279 (class 2606 OID 35409)
+-- Dependencies: 1695 1693 2137
 -- Name: centro_salud_pacientes_id_cen_sal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12012,8 +10799,8 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2281 (class 2606 OID 35414)
--- Dependencies: 1714 2177 1694
+-- TOC entry 2280 (class 2606 OID 35414)
+-- Dependencies: 1715 1695 2178
 -- Name: centro_salud_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12022,8 +10809,8 @@ ALTER TABLE ONLY centro_salud_pacientes
 
 
 --
--- TOC entry 2282 (class 2606 OID 35419)
--- Dependencies: 2108 1696 1677
+-- TOC entry 2281 (class 2606 OID 35419)
+-- Dependencies: 1678 1697 2109
 -- Name: contactos_animales_id_ani_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12032,8 +10819,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2283 (class 2606 OID 35424)
--- Dependencies: 1714 2177 1696
+-- TOC entry 2282 (class 2606 OID 35424)
+-- Dependencies: 1715 1697 2178
 -- Name: contactos_animales_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12042,8 +10829,8 @@ ALTER TABLE ONLY contactos_animales
 
 
 --
--- TOC entry 2284 (class 2606 OID 35429)
--- Dependencies: 2232 1751 1700
+-- TOC entry 2283 (class 2606 OID 35429)
+-- Dependencies: 2233 1752 1701
 -- Name: enfermedades_micologicas_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12052,8 +10839,8 @@ ALTER TABLE ONLY enfermedades_micologicas
 
 
 --
--- TOC entry 2285 (class 2606 OID 35434)
--- Dependencies: 1700 2151 1702
+-- TOC entry 2284 (class 2606 OID 35434)
+-- Dependencies: 2152 1701 1703
 -- Name: enfermedades_pacientes_id_enf_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12062,8 +10849,8 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2286 (class 2606 OID 35439)
--- Dependencies: 1702 1753 2234
+-- TOC entry 2285 (class 2606 OID 35439)
+-- Dependencies: 1703 1754 2235
 -- Name: enfermedades_pacientes_id_tip_enf_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12072,8 +10859,8 @@ ALTER TABLE ONLY enfermedades_pacientes
 
 
 --
--- TOC entry 2287 (class 2606 OID 35444)
--- Dependencies: 2205 1704 1733
+-- TOC entry 2286 (class 2606 OID 35444)
+-- Dependencies: 2206 1734 1705
 -- Name: estados_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12082,8 +10869,8 @@ ALTER TABLE ONLY estados
 
 
 --
--- TOC entry 2288 (class 2606 OID 35449)
--- Dependencies: 2229 1706 1749
+-- TOC entry 2287 (class 2606 OID 35449)
+-- Dependencies: 1707 2230 1750
 -- Name: examenes_pacientes__id_tip_exa_fk; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12092,8 +10879,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2290 (class 2606 OID 35454)
--- Dependencies: 1709 1708 2164
+-- TOC entry 2289 (class 2606 OID 35454)
+-- Dependencies: 1709 2165 1710
 -- Name: forma_infecciones__pacientes_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12102,8 +10889,8 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2291 (class 2606 OID 35459)
--- Dependencies: 1709 1753 2234
+-- TOC entry 2290 (class 2606 OID 35459)
+-- Dependencies: 1710 2235 1754
 -- Name: forma_infecciones__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12112,8 +10899,8 @@ ALTER TABLE ONLY forma_infecciones__pacientes
 
 
 --
--- TOC entry 2292 (class 2606 OID 35464)
--- Dependencies: 1708 2164 1711
+-- TOC entry 2291 (class 2606 OID 35464)
+-- Dependencies: 2165 1709 1712
 -- Name: forma_infecciones__tipos_micosis_id_for_inf_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12122,8 +10909,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2293 (class 2606 OID 35469)
--- Dependencies: 1711 1751 2232
+-- TOC entry 2292 (class 2606 OID 35469)
+-- Dependencies: 2233 1712 1752
 -- Name: forma_infecciones__tipos_micosis_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12132,8 +10919,8 @@ ALTER TABLE ONLY forma_infecciones__tipos_micosis
 
 
 --
--- TOC entry 2294 (class 2606 OID 35474)
--- Dependencies: 1714 1698 2148
+-- TOC entry 2293 (class 2606 OID 35474)
+-- Dependencies: 2149 1699 1715
 -- Name: historiales_pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12142,8 +10929,8 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2295 (class 2606 OID 35479)
--- Dependencies: 1714 1731 2203
+-- TOC entry 2294 (class 2606 OID 35479)
+-- Dependencies: 2204 1732 1715
 -- Name: historiales_pacientes_id_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12152,8 +10939,8 @@ ALTER TABLE ONLY historiales_pacientes
 
 
 --
--- TOC entry 2277 (class 2606 OID 35484)
--- Dependencies: 1688 1716 2179
+-- TOC entry 2276 (class 2606 OID 35484)
+-- Dependencies: 1689 1717 2180
 -- Name: lesiones__partes_cuerpos_id_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12162,8 +10949,8 @@ ALTER TABLE ONLY categorias_cuerpos__lesiones
 
 
 --
--- TOC entry 2296 (class 2606 OID 35489)
--- Dependencies: 2128 1688 1719
+-- TOC entry 2295 (class 2606 OID 35489)
+-- Dependencies: 1689 1720 2129
 -- Name: lesiones_partes_cuerpos__pacientes_id_cat_cue_les_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12172,8 +10959,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2297 (class 2606 OID 35494)
--- Dependencies: 1719 1738 2212
+-- TOC entry 2296 (class 2606 OID 35494)
+-- Dependencies: 1720 1739 2213
 -- Name: lesiones_partes_cuerpos__pacientes_id_par_cue_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12182,8 +10969,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2298 (class 2606 OID 35499)
--- Dependencies: 2234 1719 1753
+-- TOC entry 2297 (class 2606 OID 35499)
+-- Dependencies: 1754 2235 1720
 -- Name: lesiones_partes_cuerpos__pacientes_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12192,8 +10979,8 @@ ALTER TABLE ONLY lesiones_partes_cuerpos__pacientes
 
 
 --
--- TOC entry 2299 (class 2606 OID 35504)
--- Dependencies: 1721 2210 1737
+-- TOC entry 2298 (class 2606 OID 35504)
+-- Dependencies: 2211 1722 1738
 -- Name: localizaciones_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12202,8 +10989,8 @@ ALTER TABLE ONLY localizaciones_cuerpos
 
 
 --
--- TOC entry 2300 (class 2606 OID 35509)
--- Dependencies: 1757 2242 1723
+-- TOC entry 2299 (class 2606 OID 35509)
+-- Dependencies: 2243 1724 1758
 -- Name: modulos_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12212,8 +10999,8 @@ ALTER TABLE ONLY modulos
 
 
 --
--- TOC entry 2301 (class 2606 OID 35514)
--- Dependencies: 2177 1727 1714
+-- TOC entry 2300 (class 2606 OID 35514)
+-- Dependencies: 1728 2178 1715
 -- Name: muestras_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12222,8 +11009,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2302 (class 2606 OID 35519)
--- Dependencies: 2194 1727 1725
+-- TOC entry 2301 (class 2606 OID 35519)
+-- Dependencies: 1726 2195 1728
 -- Name: muestras_pacientes_id_mue_cli_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12232,8 +11019,8 @@ ALTER TABLE ONLY muestras_pacientes
 
 
 --
--- TOC entry 2303 (class 2606 OID 35524)
--- Dependencies: 1729 1704 2157
+-- TOC entry 2302 (class 2606 OID 35524)
+-- Dependencies: 1705 2158 1730
 -- Name: municipios_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12242,8 +11029,8 @@ ALTER TABLE ONLY municipios
 
 
 --
--- TOC entry 2304 (class 2606 OID 35529)
--- Dependencies: 2148 1731 1698
+-- TOC entry 2303 (class 2606 OID 35529)
+-- Dependencies: 1732 2149 1699
 -- Name: pacientes_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12252,8 +11039,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2305 (class 2606 OID 35534)
--- Dependencies: 2157 1704 1731
+-- TOC entry 2304 (class 2606 OID 35534)
+-- Dependencies: 2158 1732 1705
 -- Name: pacientes_id_est_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12262,8 +11049,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2306 (class 2606 OID 35539)
--- Dependencies: 1731 1729 2200
+-- TOC entry 2305 (class 2606 OID 35539)
+-- Dependencies: 1732 1730 2201
 -- Name: pacientes_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12272,8 +11059,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2307 (class 2606 OID 35544)
--- Dependencies: 1731 1733 2205
+-- TOC entry 2306 (class 2606 OID 35544)
+-- Dependencies: 1734 1732 2206
 -- Name: pacientes_id_pai_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12282,8 +11069,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2308 (class 2606 OID 35549)
--- Dependencies: 1731 1735 2207
+-- TOC entry 2307 (class 2606 OID 35549)
+-- Dependencies: 2208 1736 1732
 -- Name: pacientes_id_par_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12292,8 +11079,8 @@ ALTER TABLE ONLY pacientes
 
 
 --
--- TOC entry 2309 (class 2606 OID 35554)
--- Dependencies: 1735 1729 2200
+-- TOC entry 2308 (class 2606 OID 35554)
+-- Dependencies: 1730 2201 1736
 -- Name: parroquias_id_mun_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12302,8 +11089,8 @@ ALTER TABLE ONLY parroquias
 
 
 --
--- TOC entry 2310 (class 2606 OID 35559)
--- Dependencies: 1738 1687 2123
+-- TOC entry 2309 (class 2606 OID 35559)
+-- Dependencies: 1739 2124 1688
 -- Name: partes_cuerpos__categorias_cuerpos_id_cat_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12312,8 +11099,8 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2311 (class 2606 OID 35564)
--- Dependencies: 2210 1737 1738
+-- TOC entry 2310 (class 2606 OID 35564)
+-- Dependencies: 1739 1738 2211
 -- Name: partes_cuerpos__categorias_cuerpos_id_par_cue_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12322,8 +11109,8 @@ ALTER TABLE ONLY partes_cuerpos__categorias_cuerpos
 
 
 --
--- TOC entry 2312 (class 2606 OID 35569)
--- Dependencies: 1714 2177 1741
+-- TOC entry 2311 (class 2606 OID 35569)
+-- Dependencies: 1715 2178 1742
 -- Name: tiempo_evoluciones_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12332,8 +11119,8 @@ ALTER TABLE ONLY tiempo_evoluciones
 
 
 --
--- TOC entry 2313 (class 2606 OID 35574)
--- Dependencies: 2177 1714 1745
+-- TOC entry 2312 (class 2606 OID 35574)
+-- Dependencies: 1715 1746 2178
 -- Name: tipos_consultas_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12342,8 +11129,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2314 (class 2606 OID 35579)
--- Dependencies: 1745 1743 2219
+-- TOC entry 2313 (class 2606 OID 35579)
+-- Dependencies: 2220 1744 1746
 -- Name: tipos_consultas_pacientes_id_tip_con_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12352,8 +11139,8 @@ ALTER TABLE ONLY tipos_consultas_pacientes
 
 
 --
--- TOC entry 2315 (class 2606 OID 35584)
--- Dependencies: 2229 1749 1747
+-- TOC entry 2314 (class 2606 OID 35584)
+-- Dependencies: 1750 2230 1748
 -- Name: tipos_estudios_micologicos_id_tip_exa_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12362,8 +11149,8 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2316 (class 2606 OID 35589)
--- Dependencies: 1747 2232 1751
+-- TOC entry 2315 (class 2606 OID 35589)
+-- Dependencies: 1748 1752 2233
 -- Name: tipos_estudios_micologicos_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12372,8 +11159,8 @@ ALTER TABLE ONLY tipos_estudios_micologicos
 
 
 --
--- TOC entry 2319 (class 2606 OID 35594)
--- Dependencies: 1754 2227 1747
+-- TOC entry 2318 (class 2606 OID 35594)
+-- Dependencies: 1748 2228 1755
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_est_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12382,8 +11169,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2320 (class 2606 OID 35599)
--- Dependencies: 1753 1754 2234
+-- TOC entry 2319 (class 2606 OID 35599)
+-- Dependencies: 2235 1754 1755
 -- Name: tipos_micosis_pacientes__tipos_estudios_mic_id_tip_mic_pac_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12392,8 +11179,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes__tipos_estudios_micologicos
 
 
 --
--- TOC entry 2317 (class 2606 OID 35604)
--- Dependencies: 2177 1714 1753
+-- TOC entry 2316 (class 2606 OID 35604)
+-- Dependencies: 1715 2178 1754
 -- Name: tipos_micosis_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12402,8 +11189,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2318 (class 2606 OID 35609)
--- Dependencies: 1753 1751 2232
+-- TOC entry 2317 (class 2606 OID 35609)
+-- Dependencies: 2233 1752 1754
 -- Name: tipos_micosis_pacientes_id_tip_mic_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12412,8 +11199,8 @@ ALTER TABLE ONLY tipos_micosis_pacientes
 
 
 --
--- TOC entry 2289 (class 2606 OID 35614)
--- Dependencies: 2234 1753 1706
+-- TOC entry 2288 (class 2606 OID 35614)
+-- Dependencies: 1707 2235 1754
 -- Name: tipos_micosis_pacientes_id_tip_mic_pac; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12422,8 +11209,8 @@ ALTER TABLE ONLY examenes_pacientes
 
 
 --
--- TOC entry 2321 (class 2606 OID 35619)
--- Dependencies: 2148 1698 1758
+-- TOC entry 2320 (class 2606 OID 35619)
+-- Dependencies: 2149 1759 1699
 -- Name: tipos_usuarios__usuarios_id_doc_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12432,8 +11219,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2322 (class 2606 OID 35624)
--- Dependencies: 1757 2242 1758
+-- TOC entry 2321 (class 2606 OID 35624)
+-- Dependencies: 1758 1759 2243
 -- Name: tipos_usuarios__usuarios_id_tip_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12442,8 +11229,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2323 (class 2606 OID 35629)
--- Dependencies: 1769 2266 1758
+-- TOC entry 2322 (class 2606 OID 35629)
+-- Dependencies: 1770 2267 1759
 -- Name: tipos_usuarios__usuarios_id_usu_adm_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12452,8 +11239,8 @@ ALTER TABLE ONLY tipos_usuarios__usuarios
 
 
 --
--- TOC entry 2324 (class 2606 OID 35634)
--- Dependencies: 2191 1723 1761
+-- TOC entry 2323 (class 2606 OID 35634)
+-- Dependencies: 2192 1724 1762
 -- Name: transacciones_id_mod_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12462,8 +11249,8 @@ ALTER TABLE ONLY transacciones
 
 
 --
--- TOC entry 2325 (class 2606 OID 35639)
--- Dependencies: 1761 1763 2252
+-- TOC entry 2324 (class 2606 OID 35639)
+-- Dependencies: 1764 2253 1762
 -- Name: transacciones_usuarios_id_tip_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12472,8 +11259,8 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2326 (class 2606 OID 35644)
--- Dependencies: 1758 2246 1763
+-- TOC entry 2325 (class 2606 OID 35644)
+-- Dependencies: 2247 1764 1759
 -- Name: transacciones_usuarios_id_tip_usu_usu_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12482,8 +11269,8 @@ ALTER TABLE ONLY transacciones_usuarios
 
 
 --
--- TOC entry 2327 (class 2606 OID 35649)
--- Dependencies: 1767 2177 1714
+-- TOC entry 2326 (class 2606 OID 35649)
+-- Dependencies: 2178 1768 1715
 -- Name: tratamientos_pacientes_id_his_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12492,8 +11279,8 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2328 (class 2606 OID 35654)
--- Dependencies: 2257 1767 1765
+-- TOC entry 2327 (class 2606 OID 35654)
+-- Dependencies: 1766 2258 1768
 -- Name: tratamientos_pacientes_id_tra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: desarrollo_g
 --
 
@@ -12502,7 +11289,7 @@ ALTER TABLE ONLY tratamientos_pacientes
 
 
 --
--- TOC entry 2381 (class 0 OID 0)
+-- TOC entry 2378 (class 0 OID 0)
 -- Dependencies: 7
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -12513,7 +11300,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2012-02-05 04:12:26
+-- Completed on 2012-02-05 09:15:55
 
 --
 -- PostgreSQL database dump complete
