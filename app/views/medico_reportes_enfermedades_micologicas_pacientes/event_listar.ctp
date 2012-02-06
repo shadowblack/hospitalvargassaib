@@ -90,11 +90,11 @@ SIGIS. C.A
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
                                                         <td class="standar_font" align="center" onclick="generarReporte('<?php echo $row->vtemp->id_tip_mic_pac;?>');">
                                                             <div class="listar_reporte">
-                                                            <ul><li>
-                                                            <a href="">
-                                                            <?php echo $row->vtemp->nom_tip_mic; ?>
-                                                            </a>
-                                                            </li></ul>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href=""><?php echo $row->vtemp->nom_tip_mic; ?></a>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
                                                         </td>
                                                     </tr>

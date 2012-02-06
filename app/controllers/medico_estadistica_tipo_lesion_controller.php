@@ -23,7 +23,7 @@
             $tipo_micosis = $this->SqlData->array_to_objects($arr_query);
             
           
-            $title = __("Búsqueda por Tipo de Enfermedades Micológicas",true);
+            $title = __("Buscar Tipo de Enfermedades Micológicas",true);
                   
             $data = Array(
                "tipo_micosis" => $tipo_micosis,

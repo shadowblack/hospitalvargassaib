@@ -17,7 +17,7 @@
         function busqueda(){
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session);
             
-            $title = __("Búsqueda por Grupo Etario",true);
+            $title = __("Buscar Grupo Etario",true);
            
             $data = Array(
                "title" => $title

@@ -59,6 +59,7 @@
                 $fec_fin = $this->SqlData->date_to_postgres($_POST["txt_fec_fin"])." 23:59";
             }
             
+                       
             $this->paginate = array(
                 'limit' => 18,
                 'fields' => Array(
@@ -74,7 +75,7 @@
                 ),
                 "joins" => array(
                     Array(
-                        "table"      => "view_auditoria_transacciones",
+                        "table"      => "view_auditoria_transacciones_operadores",
                         "alias"      => "vat",
                         "conditions" => "vat.id_tip_tra = Transaccione.id_tip_tra"
                     )
@@ -90,7 +91,7 @@
    
             $arr_query = $this->paginate("Transaccione");
             $auditoria = $this->SqlData->CakeArrayToObjects($arr_query);             
-            
+           
             $title = __("Listar Transacciones del usuario",true);
             $data = Array(
                 "auditoria" => $auditoria,

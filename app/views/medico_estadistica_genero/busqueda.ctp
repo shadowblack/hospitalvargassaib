@@ -98,13 +98,13 @@ FECHA DE CREACIÓN: 30/10/2011
                                     <tr><td height="20px"></td></tr>
                        	            <tr>
     					          		<td align="right" class="font-standar">
-    						          		*<?php print __('Fecha Inicial', true); ?>:
+    						          		<span class="standar_asterisco">* </span><?php print __('Fecha Inicial', true); ?>:
                                         </td>
                                         <td class="font-standar"  valign="top">
                                             <input readonly="readonly" name="txt_fec_ini" id="txt_fec_ini" value="" size="12" class="date required" />
                                         </td>
     									<td align="right" class="font-standar">
-    										*<?php print __('Fecha Final', true); ?>:
+    										<span class="standar_asterisco">* </span><?php print __('Fecha Final', true); ?>:
     									</td>
                                         <td class="font-standar"  valign="top">
     										<input readonly="readonly" name="txt_fec_fin" id="txt_fec_fin" value="" size="12" class="date required" />
