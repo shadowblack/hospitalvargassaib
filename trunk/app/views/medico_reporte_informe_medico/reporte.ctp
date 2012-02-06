@@ -28,7 +28,7 @@
                                 </tr>
                                 <tr><td height="10px" colspan="10"></td></tr>
                              </table> 
-                             <table style="width:100%;margin-left: 10px;" border="1" align="center" cellpadding="0" cellspacing="0">
+                             <table style="width:100%;margin-left: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td colspan="10" width="184" class="standar_font_sub lista_fondo" style="font-weight: bold;" valign="top">
                                         <?php echo __("Ordenado Por",true)?>
@@ -47,7 +47,7 @@
                                 </tr>
                                 <tr><td height="10px" colspan="10"></td></tr>
                              </table> 
-                             <table style="width:100%;margin-left: 10px;" border="1" align="center" cellpadding="0" cellspacing="0">
+                             <table style="width:100%;margin-left: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td colspan="10" width="184" class="standar_font_sub lista_fondo" style="font-weight: bold;" valign="top">
                                         <?php echo __("Nombre del paciente",true)?>
@@ -64,8 +64,48 @@
                                         <span class="standar_font"><?php echo $dat_pac->ced_pac;?></span>                                                        
                                     </td>               
                                 </tr>
-                            </table> 
-                             
+                                <tr><td height="10px" colspan="10"></td></tr>
+                             </table> 
+                             <table style="width:100%;margin-left: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="184" class="standar_font_sub lista_fondo" style="font-weight: bold;" valign="top">
+                                        <?php echo __("Material de la muestra clínica",true)?>
+                                    </td>                        
+                                </tr>
+                                <?php 
+                                if (count($mue_cli)==0)
+                                {  
+                                ?>
+                                <tr>
+                                    <td valign="top">
+                                        <div class="standar_not_register">
+                                            <span class="standar_not_register"><?php echo __("Ninguno",true)?></span>
+                                        </div>
+                                    </td>
+                                </tr>            
+                                <?php 
+                                } 
+                                else 
+                                { 
+                                ?>   
+                                <tr>
+                                    <td valign="top">        
+                                        <div style="line-height: 10px;">
+                                            <table >                                                                    
+                                            <?php foreach($mue_cli as $row):?>
+                                                <tr>
+                                                    <td class="standar_font"><?php echo $row->nom_mue_cli.($row->otr_mue_cli == "" ? "" : " (".$row->otr_mue_cli.")")?></td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                            </table>
+                                        </div>
+                                    </td>                       
+                                </tr>
+                                <?php 
+                                } 
+                                ?> 
+                                <tr><td height="10px" colspan="10"></td></tr>                                                                                            
+                            </table>
                               
                                                                      
                             <table style="width:100%;margin-left: 10px;" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -81,7 +121,7 @@
                                 <tr>
                                     <td valign="top">
                                         <div class="standar_not_register">
-                                            <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
+                                            <span class="standar_not_register"><?php echo __("Ninguna",true)?></span>
                                         </div>
                                     </td>
                                 </tr>            
@@ -111,15 +151,9 @@
                                 
                             <table border="0" align="center" style="width: 100%;margin-left: 10px;" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td class="standar_font_sub lista_fondo" style="font-weight: bold;">
-                                        <?php __("Categoría")?>
-                                    </td>
-                                    <td class="standar_font_sub lista_fondo" style="font-weight: bold;">
-                                        <?php __("Parte del cuerpo")?>
-                                    </td>
-                                    <td class="standar_font_sub lista_fondo" style="font-weight: bold;">
-                                        <?php __("Nombre de la lesión")?>
-                                    </td>                        
+                                    <td colspan="5" class="standar_font_sub lista_fondo" style="font-weight: bold;">
+                                        <?php __("Región afectada")?>
+                                    </td>                
                                 </tr>
                                 <?php 
                                 if (count($les_cat)==0)
@@ -128,7 +162,7 @@
                                 <tr>
                                     <td valign="top">
                                         <div class="standar_not_register">
-                                            <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
+                                            <span class="standar_not_register"><?php echo __("Ninguna",true)?></span>
                                         </div> 
                                     </td>
                                 </tr>           
@@ -151,46 +185,56 @@
                                 
                                 
                             <table border="0" align="center" style="width: 100%;margin-left: 10px;" cellpadding="0" cellspacing="0">                    
-                                <?php
-                                $id_tip_exa = "";  
-                                foreach($est_mic as $row):                               
-                                    if ($id_tip_exa <> $row->id_tip_exa)
-                                    {
-                                        $id_tip_exa = $row->id_tip_exa;                
-                                    ?><tr><td height="10px" colspan="10"></td></tr>
-                                    <tr>                               
-                                        <td class="standar_font_sub lista_fondo" >
-                                            <?php __("Estudios para (".$row->nom_tip_exa.")")?>
-                                        </td>
-                                                           
-                                    </tr>
-                                        
-                                    <?php   
-                                    } 
-                                    if (count($est_mic)==0)
-                                    {  
-                                    ?>
-                                    <tr>
-                                        <td valign="top">
-                                            <div class="standar_not_register">
-                                                <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
-                                            </div>
-                                        </td>
-                                    </tr>            
-                                    <?php  
-                                    } 
-                                    else 
-                                    { 
-                                    ?>          
-                                    <tr>
-                                        <td class="standar_font"><?php echo (strtoupper($row->nom_tip_est_mic) == "OTROS" ? $row->nom_tip_est_mic." (".$row->otr_tip_est_mic.")" : $row->nom_tip_est_mic)?></td>                                         
-                                    </tr>
-                                    <?php 
-                                    } 
-                                    ?>  
                                 <?php 
-                                endforeach;
+                                if (count($est_mic)==0)
+                                {  
                                 ?>
+                                <tr>
+                                    <td>
+                                		<div class="standar_not_register">
+                                			<span class="standar_not_register"><?php echo __("Ninguna",true)?></span>
+                                		</div>
+                                    </td> 
+                                </tr>           
+                            	<?php  
+                                } 
+                                else 
+                                { 
+                                ?>
+                            	<table border="0" align="center" style="width: 550px;margin-left: 10px;" cellpadding="0" cellspacing="0">                    
+                            		<?php
+                        			$id_tip_exa = "";  
+                        			foreach($est_mic as $row):                               
+                        				if ($id_tip_exa <> $row->id_tip_exa)
+                                        {
+                        					$id_tip_exa = $row->id_tip_exa;                
+                        				?>
+                        				<tr>                               
+                        					<td class="standar_font_sub lista_fondo" >
+                        						<?php __("$row->nom_tip_exa")?> <?php __(" Positivo")?>: <?php echo ($row->exa_pac_est == 0 ? __("Si") : ($row->exa_pac_est == 1 ? __("No") : "N/A"))?>
+                        					</td>                   
+                        				</tr>
+                        				<tr style="<?php echo($row->exa_pac_est == 1 ? "display:block" : "display:none")?>">
+                        					<td class="standar_font" style="background-color: white; width:540px">
+                        						<span style="font-weight: bold;"><?php echo __("Observación")?>:</span> <?php echo $row->obs_exa_pac?>
+                        					</td>
+                        				</tr>
+                                           
+                            		  <?php 
+                                      } 
+                                      ?>
+                                      			   
+                            			<tr>
+                            				<td class="standar_font"><?php echo (strtoupper($row->nom_tip_est_mic) == "OTROS" ? $row->nom_tip_est_mic." (".$row->otr_tip_est_mic.")" : $row->nom_tip_est_mic)?></td>                                         
+                            			</tr>
+                                        <tr><td height="10px" colspan="10"></td></tr> 
+                            		<?php 
+                                    endforeach;
+                                    ?>
+                            	</table> 
+                            	<?php 
+                                } 
+                                ?>  
                                 <tr><td height="10px" colspan="10"></td></tr> 
                             </table>                           
                              
@@ -205,9 +249,13 @@
                                 if (count($for_inf)==0)
                                 {  
                                 ?>
-                                <div class="standar_not_register">
-                                    <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
-                                </div>            
+                                <tr>
+                                    <td valign="top">
+                                        <div class="standar_not_register">
+                                            <span class="standar_not_register"><?php echo __("Ninguna",true)?></span>
+                                        </div> 
+                                    </td>
+                                </tr>           
                                 <?php  
                                 } 
                                 else 

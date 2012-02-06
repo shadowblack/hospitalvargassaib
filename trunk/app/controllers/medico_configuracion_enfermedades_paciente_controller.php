@@ -255,32 +255,32 @@
             $sql = "
             
                 (SELECT nom_tip_est_mic, nom_tip_exa, te.id_tip_exa,otr_tip_est_mic, (CASE WHEN exa_pac_est IS NULL THEN 3 ELSE exa_pac_est END) AS exa_pac_est, obs_exa_pac
-FROM tipos_micosis_pacientes tmp
-JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
-JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
-JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
-JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
-JOIN examenes_pacientes ep ON (ep.id_tip_exa = te.id_tip_exa AND ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
-WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
-ORDER BY nom_tip_exa DESC) 
-
-UNION 
-
-(SELECT 'N/A' nom_tip_est_mic, nom_tip_exa, te.id_tip_exa, '' otr_tip_est_mic, (CASE WHEN exa_pac_est IS NULL THEN 3 ELSE exa_pac_est END) AS exa_pac_est, obs_exa_pac
-
-FROM tipos_micosis_pacientes tmp
-JOIN examenes_pacientes ep ON (ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
-JOIN tipos_examenes te ON(te.id_tip_exa = ep.id_tip_exa)
-WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac AND
-	(SELECT COUNT(*)
-	FROM tipos_micosis_pacientes tmp
-	JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
-	JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
-	JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
-	JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
-WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac) = 0
-
-ORDER BY nom_tip_exa DESC) ORDER BY nom_tip_exa DESC;
+                FROM tipos_micosis_pacientes tmp
+                JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
+                JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
+                JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
+                JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
+                JOIN examenes_pacientes ep ON (ep.id_tip_exa = te.id_tip_exa AND ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
+                ORDER BY nom_tip_exa DESC) 
+                
+                UNION 
+                
+                (SELECT 'N/A' nom_tip_est_mic, nom_tip_exa, te.id_tip_exa, '' otr_tip_est_mic, (CASE WHEN exa_pac_est IS NULL THEN 3 ELSE exa_pac_est END) AS exa_pac_est, obs_exa_pac
+                
+                FROM tipos_micosis_pacientes tmp
+                JOIN examenes_pacientes ep ON (ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
+                JOIN tipos_examenes te ON(te.id_tip_exa = ep.id_tip_exa)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac AND
+                	(SELECT COUNT(*)
+                	FROM tipos_micosis_pacientes tmp
+                	JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
+                	JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
+                	JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
+                	JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac) = 0
+                
+                ORDER BY nom_tip_exa DESC) ORDER BY nom_tip_exa DESC;
             
             ";                        
             

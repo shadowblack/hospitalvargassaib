@@ -182,9 +182,13 @@
                                 if (count($for_inf)==0)
                                 {  
                                 ?>
-                                <div class="standar_not_register">
-                                    <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
-                                </div>            
+                                <tr>
+                                    <td valign="top">
+                                        <div class="standar_not_register">
+                                            <span class="standar_not_register"><?php echo __("No hay registros asociados",true)?></span>
+                                        </div> 
+                                    </td>
+                                </tr>            
                                 <?php  
                                 } 
                                 else 
