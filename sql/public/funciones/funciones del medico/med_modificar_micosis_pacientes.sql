@@ -105,9 +105,13 @@ BEGIN
 		
 		
 		FOR i IN 1..(ARRAY_UPPER(_arr_3,1)) LOOP
+		
 			_bol_otr := FALSE;
 			_arr_2 := STRING_TO_ARRAY(replace(replace(_arr_3[i] ,'(',''),')',''),'~@@~');
+			raise notice '%',_arr_str_data_otr;
 			IF (_arr_str_data_otr IS NOT NULL)THEN
+			
+			
 				<<mifor>>
 				FOR i IN 1..(ARRAY_UPPER(_arr_str_data_otr,1))LOOP			
 					_arr_str_data_otr_elm := STRING_TO_ARRAY(_arr_str_data_otr[i],'~@@~');
@@ -118,6 +122,7 @@ BEGIN
 					END IF;
 				END LOOP mifor;
 			END IF;
+			
 			--coloca los comentarios de los otros en lesiones
 			IF _bol_otr THEN
 
@@ -144,9 +149,11 @@ BEGIN
 					_arr_2[1],
 					_arr_2[2]				
 				);
-			
+				
 			END IF;
+			
 		END LOOP;
+		
 	END IF;
 
 	-- estudios micologicos

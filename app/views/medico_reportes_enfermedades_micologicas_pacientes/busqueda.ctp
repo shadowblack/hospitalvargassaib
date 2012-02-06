@@ -22,7 +22,10 @@ FECHA DE CREACIÓN: 24/09/2011
 			showOn: "button",
 			buttonImage: "<?php echo $this->webroot?>/img/icon/calendar.png",
 			buttonImageOnly: true,
-            inline:true
+            inline:true,
+            changeMonth: true,
+			changeYear: true
+            
 		});
     });
     

@@ -71,6 +71,7 @@
                 <tr>
                     <td  valign="top">
                         <!-- windows -->
+                        <div class="contenedor">                        
                         <table class="" border="0" cellpadding="0" cellspacing="0" >
                            <!--Top-->
                             <tr>
@@ -96,6 +97,7 @@
                                 </td>                
                                 <td align="center" valign="top" class="top_menu_window_body_center" colspan="2"  style="width:*;height: 150px;">
                                     <!-- Dinamic -->
+                                    
                                     <div id="accordion" style="width: 220px;text-align: left;">                                       
                             			<div>
                             				<h3><a href="#"><?php __("Usuarios Administrativos")?></a></h3>
@@ -208,6 +210,7 @@
                                 </td>
                             </tr>
                         </table>
+                    </div>                        
                     </td>
                     <td>
                         &nbsp;

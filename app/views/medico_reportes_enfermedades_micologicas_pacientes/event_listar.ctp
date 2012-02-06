@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <?php
 /*
 -----------------------------------------------------------------------------------------------
@@ -70,6 +71,8 @@ SIGIS. C.A
                                                     <?php  print __('Tipo de Micosis',true);?>
                                                 </td>
             								</tr>
+                                            
+                                            
             								<?php
             								if (count($tip_enf_mic_pac) > 0)
             								{
@@ -86,12 +89,19 @@ SIGIS. C.A
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->nom_pac; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->Paciente->ape_pac; ?></td>
                                                         <td class="standar_font" align="center" onclick="generarReporte('<?php echo $row->vtemp->id_tip_mic_pac;?>');">
-                                                            <span class="link"><?php echo $row->vtemp->nom_tip_mic; ?></span>
+                                                            <div class="listar_reporte">
+                                                            <ul><li>
+                                                            <a href="">
+                                                            <?php echo $row->vtemp->nom_tip_mic; ?>
+                                                            </a>
+                                                            </li></ul>
+                                                            </div>
                                                         </td>
                                                     </tr>
                     								<?php								
             									}
             								?>
+                                            
             							</table>
             						</div>
             					</td>

@@ -24,7 +24,8 @@
         <?php echo $this->Html->script("jquery/jquery-1.5.1.min.js"); ?>                            
         <?php echo $this->Html->script("jquery/jquery-validation-1.8.0/jquery.validate.min.js"); ?>        
         <?php echo $this->Html->script("jquery/jquery-validation-1.8.0/localization/messages_es.js"); ?>                                                                       
-        <?php echo $this->Html->script("jquery/jquery-ui-1.8.11.custom/js/jquery-ui-1.8.11.custom.min.js"); ?>        
+        <?php echo $this->Html->script("jquery/jquery-ui-1.8.11.custom/js/jquery-ui-1.8.11.custom.min.js"); ?>
+        <?php echo $this->Html->script("jquery/jquery-ui-1.8.11.custom/jquery.ui.datepicker-es.js"); ?>        
 
         <?php echo $scripts_for_layout; ?>       
         

@@ -92,6 +92,7 @@ class DATABASE_CONFIG {
 		'password' => '1234',
 		'database' => 'saib',
 		'prefix' => '',
+        'port'=>'5433'
 	);
     
 	var $test = array(

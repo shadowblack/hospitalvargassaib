@@ -23,7 +23,10 @@ SIGIS. C.A
 			showOn: "button",
 			buttonImage: "<?php echo $this->webroot?>/img/icon/calendar.png",
 			buttonImageOnly: true,
-            inline:true
+            inline:true,
+            changeMonth: true,
+			changeYear: true
+            
 		});
     });
     

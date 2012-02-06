@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot."/css/esti_esta.css"?>"/>
 <?php
 /*
 -----------------------------------------------------------------------------------------------
@@ -78,17 +79,33 @@ SIGIS. C.A
                                                         <td class="standar_font" align="center"><?php echo $row->Transaccione->des_tip_tra; ?></td>
                                                         <td class="standar_font" align="center"><?php echo $row->vat->fecha_tran; ?></td>
                                                         <td class="standar_font" align="center">
+                                                        
+                                                        <div class="listar_reporte">
+                                                        <ul><li>
                                                         <?php 
                                                         if ($row->vat->detalle != 'Si')
                 										{
-                											print '&nbsp;'.$row->vat->detalle;
+                											print $row->vat->detalle;
+                                                            ?>
+                                                            <img src="<?php echo $this->webroot?>/img/no.png" width="10" height="10"/>
+                                                            <?php
+                                                            
                 										}
                 										else
                 										{
                                                         ?>
-                                                        <a class="texto_link" href="javascript:visualizarDetalle('<?php print ($i);?>',450,350);">
-                											<span class="link"><?php print '&nbsp;'.$row->vat->detalle; ?></span>
+                                                        
+                                                        <a  href="javascript:visualizarDetalle('<?php print ($i);?>',450,350);">
+                											<span >
+                                                                <!--?php print $row->vat->detalle; ?-->
+                                                                <img src="<?php echo $this->webroot?>/img/si.png" width="10" height="10"/>
+                                                            </span>
                 										</a>
+                                                        </li>
+                                                        </ul>
+                                                        </div>
+                                                        
+                                                        
                                                         <form action="<?php echo $this->Html->url("/MedicoXml/event_listar_xml")?>" method="post" id="<?php print ($i);?>" target="Detalle">
         													<input name="data_xml"     type="hidden" value="<?php echo urlencode($row->vat->data_xml); ?>">
         													<input name="id_tip_tra"   type="hidden" value="<?php echo $row->vat->id_tip_tra; ?>">
@@ -98,6 +115,7 @@ SIGIS. C.A
                 										<?php 
                 										}
                 										?>
+                                                       
                                                         </td>
                     				  			    </tr>
                     								<?php								

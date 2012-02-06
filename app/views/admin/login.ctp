@@ -6,6 +6,13 @@
 <script type="text/javascript">
     jQuery("body:eq(0)").addClass("standar_fondo_login");    
     jQuery(function(){
+        
+        jQuery("#link_aceptar").click(function(){
+            jQuery("#login").submit();
+        })
+        
+        
+        
        jQuery("#login").validate({  
             submitHandler: function(form) {
                 <?php echo $this->Event->Valid($this->Html->url("/admin/validar_usuario"),"input[type=text],input[type=password]",$this->Html->url("/admin"))?>                             
@@ -92,16 +99,44 @@
                             </tr>
                             
                             <tr>
-                                <td align="center" colspan="3" style="height: 73px;">
-                                	<a href="<?php echo $this->Html->url("/")?>" >Home</a>                                
-                            	</td>                    
+                               
+                                
+                                
+                                 <table>
+                                    <tr><br/>
+                                    <td>
+                                     
+                                    
+                                    <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+                                            <a href="javascript:void(0)" id="link_aceptar" name="link_aceptar">
+                                                <br/>
+                                                <?php echo __("Aceptar",true)?></a>
+                                            </a>
+                                        </div>
+                                    </td>
+                                 
+                                    <td>
+                                    
+                                    
+                                    <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+                                                                                        
+                                            
+                                            <a href="<?php echo $this->Html->url("/")?>" id="link_aceptar" name="link_aceptar">
+                                                <br/>
+                                                <?php echo __("Inicio",true)?></a>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    
+                                    </table>
+                                
+                                
+                                
+                                
+                                             
                             </tr>
                             
-                            <tr>
-                                <td align="center" colspan="3" class="standar_font">                    
-                                    <input type="submit" value="Aceptar" name="btn_ace" id="btn_ace">                                    
-                                </td>
-                            </tr>
+                           
                         </table>
                     </td>
                 </tr>
