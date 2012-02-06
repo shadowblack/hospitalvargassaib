@@ -28,6 +28,8 @@
             { 
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoEstadisticaTipoMicosis/busqueda")?>");
             });
+            jQuery("#est_gen_pac").trigger("click");
+            
         });
 </script>      
  <style type="text/css">

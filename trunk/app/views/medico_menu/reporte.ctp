@@ -27,6 +27,8 @@
             {            
                 window.parent.frame_content.location=("<?php echo $this->Html->url("/MedicoReporteInformeMedico/busqueda")?>");
             });
+            
+            jQuery("#med_tra_usu").trigger("click");
         });
 </script>      
  <style type="text/css">

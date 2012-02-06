@@ -87,19 +87,41 @@
                                         &nbsp;
                                     </td>                    
                                 </tr>
-                                <tr>
-                                    <td align="center"colspan="3" style="height: 43px;">
-                                        <a style="margin-top: 50px;" href="<?php echo $this->Html->url("/")?>" >Home</a>
-                                    </td>                    
-                                </tr>
+                                
                                 <tr>
                                     <td align="center" colspan="3" class="standar_font">                    
-                                        <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+                                        
+                                    
+                                    
+                                    
+                                    <table>
+                                    <tr>
+                                    <td>
+                                    
+                                    
+                                    <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
                                             <a href="javascript:void(0)" id="link_aceptar" name="link_aceptar">
                                                 <br/>
                                                 <?php echo __("Aceptar",true)?></a>
                                             </a>
-                                        </div>                                                                         
+                                        </div>
+                                    </td>
+                                 
+                                    <td>
+                                    
+                                    
+                                    <div class="boton_medico_conf" id="boton_medico_conf" style="margin-top: 5px;">
+                                                                                        
+                                            
+                                            <a href="<?php echo $this->Html->url("/")?>" id="link_aceptar" name="link_aceptar">
+                                                <br/>
+                                                <?php echo __("Inicio",true)?></a>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    
+                                    </table>
+                                    
                                     </td>
                                 </tr>
                             </table>

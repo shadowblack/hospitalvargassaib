@@ -17,3 +17,29 @@
     /*text-decoration: underline;*/
     color: #69B632;
 }
+
+
+.listar_reporte ul
+{    
+    /*list-style-image:url(../img/icono_verde.png);*/
+    list-style-type: none;
+    height: 10px;
+    
+}
+
+.listar_reporte li a
+{
+    
+    font-weight: bold;
+    text-align: center;
+    color: #69B632;
+}
+
+.listar_reporte a:hover
+{
+    /*text-decoration: underline;*/
+    color:#52C5AD;
+    font-weight: bold;
+    text-decoration: underline;
+    
+}
