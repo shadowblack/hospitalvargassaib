@@ -28,7 +28,7 @@ SIGIS. C.A
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 685px;">
-                   <?php print __('Listado de Transacciones del Sistema', true); ?>
+                   <?php print __('Listado', true); ?>
                 </a>
             </li>            
         </ul>
@@ -98,7 +98,7 @@ SIGIS. C.A
                                                         <a  href="javascript:visualizarDetalle('<?php print ($i);?>',450,350);">
                 											<span >
                                                                 <!--?php print $row->vat->detalle; ?-->
-                                                                <img src="<?php echo $this->webroot?>/img/si.png" width="10" height="10"/>
+                                                                <img src="<?php echo $this->webroot?>/img/si.png" width="10" height="10" title="<?php  print __('Generar Reporte de Auditoría',true);?>"/>
                                                             </span>
                 										</a>
                                                         </li>

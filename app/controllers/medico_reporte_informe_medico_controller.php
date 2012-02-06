@@ -149,20 +149,39 @@
             $les_cat = ($this->SqlData->array_to_objects($this->TiposMicosi->query($sql))); 
             
             
-             // estudios micologicos          
+            // examenes estudios micologicos                      
             $sql = "
-                SELECT nom_tip_est_mic, nom_tip_exa, te.id_tip_exa,otr_tip_est_mic
+            
+                (SELECT nom_tip_est_mic, nom_tip_exa, te.id_tip_exa,otr_tip_est_mic, (CASE WHEN exa_pac_est IS NULL THEN 3 ELSE exa_pac_est END) AS exa_pac_est, obs_exa_pac
                 FROM tipos_micosis_pacientes tmp
                 JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
                 JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
                 JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
                 JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
+                JOIN examenes_pacientes ep ON (ep.id_tip_exa = te.id_tip_exa AND ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
                 WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac
-                ORDER BY nom_tip_exa DESC              
-            ";
-            $estudios_micologicos = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query(
-                $sql
-            ))); 
+                ORDER BY nom_tip_exa DESC) 
+                
+                UNION 
+                
+                (SELECT 'N/A' nom_tip_est_mic, nom_tip_exa, te.id_tip_exa, '' otr_tip_est_mic, (CASE WHEN exa_pac_est IS NULL THEN 3 ELSE exa_pac_est END) AS exa_pac_est, obs_exa_pac
+                
+                FROM tipos_micosis_pacientes tmp
+                JOIN examenes_pacientes ep ON (ep.id_tip_mic_pac = tmp.id_tip_mic_pac)
+                JOIN tipos_examenes te ON(te.id_tip_exa = ep.id_tip_exa)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac AND
+                	(SELECT COUNT(*)
+                	FROM tipos_micosis_pacientes tmp
+                	JOIN tipos_micosis tm ON (tm.id_tip_mic = tmp.id_tip_mic)
+                	JOIN tipos_estudios_micologicos tem ON (tem.id_tip_mic = tm.id_tip_mic)
+                	JOIN tipos_examenes te ON(te.id_tip_exa = tem.id_tip_exa)
+                	JOIN tipos_micosis_pacientes__tipos_estudios_micologicos tmptem ON (tmptem.id_tip_est_mic = tem.id_tip_est_mic AND tmp.id_tip_mic_pac = tmptem.id_tip_mic_pac)
+                WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac) = 0
+                
+                ORDER BY nom_tip_exa DESC) ORDER BY nom_tip_exa DESC;
+            ";                        
+            $estudios_micologicos = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql)));
+            
             
             // forma de infeccion   
             $sql = "
@@ -175,6 +194,8 @@
             ";
             $for_inf = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql)));
             
+            
+            //Datos del paciente
             $sql = "SELECT  to_char(hp.fec_his, 'DD/MM/YYYY HH12:MI:SS AM'::text) AS fec_his,
                         	hp.id_his,
                         	p.nom_pac||' '||p.ape_pac AS nom_pac,p.ord_por,
@@ -184,9 +205,18 @@
                     LEFT JOIN historiales_pacientes hp USING(id_pac)
                     LEFT JOIN tipos_micosis_pacientes tmp ON (hp.id_his = tmp.id_his)
                     WHERE id_tip_mic_pac = $id_tip_mic_pac"; 
-            
             $dat_pac = ($this->SqlData->array_to_object($this->HistorialesPaciente->query($sql)));
             
+            
+            //muestras clinicas del paciente
+            $sql = "SELECT mc.nom_mue_cli,mp.otr_mue_cli
+                    FROM muestras_clinicas mc 
+                        LEFT JOIN muestras_pacientes mp ON (mc.id_mue_cli = mp.id_mue_cli)
+                        LEFT JOIN historiales_pacientes hp on (mp.id_his = hp.id_his)
+                        LEFT JOIN tipos_micosis_pacientes tmp ON (hp.id_his = tmp.id_his)
+                    WHERE tmp.id_tip_mic_pac = $id_tip_mic_pac";
+            $mue_cli = ($this->SqlData->array_to_objects($this->HistorialesPaciente->query($sql)));
+                    
             $title = __("Reporte de Enfermedades Micológicas",true);
            
            
@@ -197,6 +227,7 @@
                 "est_mic" => $estudios_micologicos,
                 "for_inf" => $for_inf,
                 "dat_pac" => $dat_pac,
+                "mue_cli" => $mue_cli,
                 "title"   => $title
             );
           

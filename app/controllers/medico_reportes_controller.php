@@ -30,7 +30,7 @@
 		   	$arr_query = $this->Transaccione->query($sql);
             $transacciones = $this->SqlData->array_to_objects($arr_query);     
             
-            $title = __("Búsqueda de transacciones",true);
+            $title = __("Buscar transacciones del usuario",true);
            
             $data = Array(
                 "usuarios_medico" => $usuarios_medico,
@@ -91,7 +91,7 @@
             $arr_query = $this->paginate("Transaccione");
             $auditoria = $this->SqlData->CakeArrayToObjects($arr_query);             
             
-            $title = __("Reporte de transacciones",true);
+            $title = __("Listar Transacciones del usuario",true);
             $data = Array(
                 "auditoria" => $auditoria,
                 "title"     => $title
