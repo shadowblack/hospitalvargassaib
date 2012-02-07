@@ -13,14 +13,17 @@
            //$this->Login->no_cache();
            //$this->cakeError('errors404');          
            $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session);
+           $isPermitedCrearAdmin = $this->Login->isPermittedBoolean("AUA",$this->Session->read("admin.str_trans"));
+           $isPermitedCrearOpe   = $this->Login->isPermittedBoolean("AUO",$this->Session->read("admin.str_trans"));
                 
            $nomb_usu = $this->Session->read("admin.nom_usu").' '.$this->Session->read("admin.ape_usu");
            
            $data = Array(
-                "nomb_usu"=> $nomb_usu
+                "nomb_usu"=> $nomb_usu,
+                "isPermitedCrearAdmin" => $isPermitedCrearAdmin,
+                "isPermitedCrearOpe"   => $isPermitedCrearOpe
            );
-           $this->set($data); 
-              
+           $this->set($data);
         }
         
         
@@ -31,14 +34,6 @@
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
         }
         
-        /*
-        function __construct(){            
-           parent::__construct();
-        }*/
-        
-        /*
-        * Mostrando pagina de inicio de login
-        */
         function login(){
             
         }
@@ -73,6 +68,7 @@
                     $this->Session->write("admin.cod_tip_usu",$usuario->cod_tip_usu);
                     $this->Session->write("admin.str_trans",$usuario->str_trans);
                     $this->Session->write("admin.des_tip_usu",$usuario->des_tip_usu);
+                    $this->Session->write("admin.adm_usu",$usuario->adm_usu);
 
                     die($this->FormatMessege->BoxStyle(1,"Usuario verificado."));
                 } else {

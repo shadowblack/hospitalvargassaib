@@ -105,6 +105,14 @@
         */
         function event_listar($str){
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
+            
+            $isUsuAdminPri = $this->Session->read("admin.adm_usu");
+            $id_usu_log = $this->Session->read("admin.id_usu");
+            
+            $isPermitedModAdmin = $this->Login->isPermittedBoolean("MUA",$this->Session->read("admin.str_trans"));
+            $isPermitedEliAdmin  = $this->Login->isPermittedBoolean("EUA",$this->Session->read("admin.str_trans"));
+            $isPermitedResAdmin  = $this->Login->isPermittedBoolean("RCA",$this->Session->read("admin.str_trans"));
+            
             $param_array = explode(",",$str);
             
             $nombre     = $param_array[0];
@@ -129,7 +137,12 @@
             );
             
             $data = Array(
-                "results" => $this->SqlData->CakeArrayToObjects($this->paginate("UsuariosAdministrativo"))
+                "results"             => $this->SqlData->CakeArrayToObjects($this->paginate("UsuariosAdministrativo")),
+                "isPermitedModAdmin"  => $isPermitedModAdmin,
+                "isPermitedEliAdmin"  => $isPermitedEliAdmin,
+                "isPermitedResAdmin"  => $isPermitedResAdmin,
+                "isUsuAdminPri"       => $isUsuAdminPri,
+                "id_usu_log"          => $id_usu_log
             );  
             $this->set($data);  
             $this->layout = 'ajax';
@@ -142,6 +155,9 @@
         function modificar($id){
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             $this->Login->no_cache();
+            
+            $isUsuAdminPri = $this->Session->read("admin.adm_usu");
+            $id_usu_log = $this->Session->read("admin.id_usu");
             
             $sql = "SELECT * FROM usuarios_administrativos WHERE id_usu_adm=$id";
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
@@ -159,7 +175,8 @@
                     WHERE tuu.id_usu_adm = $id AND tuu.id_tip_usu = 1
                 ) tuu
                 ON (t.id_tip_tra = tuu.id_tip_tra) 
-                WHERE  m.id_tip_usu = 1               
+                WHERE  m.id_tip_usu = 1 
+                ORDER BY m.des_mod              
             ";
             //die($sql);
             $arr_query = ($this->UsuariosAdministrativo->query($sql));            
@@ -169,10 +186,13 @@
             $title =  __("Modificar administrador",true);
             
             $data = Array(
-                "result"        => $result,
-                "result_tran"   => $result_tran,
-                "title"         => $title,
-                "id"            => $id
+                "isUsuAdminPri"     => $isUsuAdminPri,
+                "result"            => $result,
+                "result_tran"       => $result_tran,
+                "title"             => $title,
+                "id"                => $id,
+                "id_usu_log"        => $id_usu_log
+                
             ); 
             $this->set($data);
             $this->set('title_for_layout', $title);            
@@ -242,12 +262,13 @@
                 
             $id_usu_log     = $this->Session->read("admin.id_usu"); 
             $tra_usu        = "EUA";  
-                               
-            $sql = "SELECT adm_eliminar_usuario_admin(
-                '$id',
-                '$id_usu_log',
-                '$tra_usu'              
-            ) AS result";
+               
+             
+            $sql = "SELECT adm_eliminar_usuario_admin(ARRAY[
+                            '$id',
+                            '$id_usu_log',
+                            '$tra_usu'                                
+                    ]) AS result";
                         
             $arr_query = ($this->UsuariosAdministrativo->query($sql));
             $result = ($this->SqlData->array_to_object($arr_query));                             

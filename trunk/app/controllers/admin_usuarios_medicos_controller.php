@@ -104,6 +104,10 @@
         function event_listar($str){  
             $this->Login->autenticacion_usuario($this,"/admin/login",$this->group_session,"iframe");
             
+            $isPermitedModOpe = $this->Login->isPermittedBoolean("MUO",$this->Session->read("admin.str_trans"));
+            $isPermitedEliOpe  = $this->Login->isPermittedBoolean("EUO",$this->Session->read("admin.str_trans"));
+            $isPermitedResOpe  = $this->Login->isPermittedBoolean("RCO",$this->Session->read("admin.str_trans"));
+            
             $param_array = explode(",",$str);
             
             $nombre     = $param_array[0];
@@ -124,7 +128,10 @@
                 )                        
             ;                    
             $data = Array(
-                "results" => $this->SqlData->CakeArrayToObjects($this->paginate("Doctore"))
+                "results" => $this->SqlData->CakeArrayToObjects($this->paginate("Doctore")),
+                "isPermitedModOpe"  => $isPermitedModOpe,
+                "isPermitedEliOpe"  => $isPermitedEliOpe,
+                "isPermitedResOpe"  => $isPermitedResOpe
             );  
             $this->set($data);  
             $this->layout = 'ajax';
