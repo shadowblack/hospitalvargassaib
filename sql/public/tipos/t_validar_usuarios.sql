@@ -1,19 +1,20 @@
-﻿DROP FUNCTION IF EXISTS validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT);
-DROP TYPE IF EXISTS  t_validar_usuarios;
+﻿-- Type: t_validar_usuarios
+
+-- DROP TYPE t_validar_usuarios;
+
 CREATE TYPE t_validar_usuarios AS
-   (
-	id_usu 	INTEGER,
-	nom_usu 	TEXT,
-	ape_usu 	TEXT,
-	pas_usu 	TEXT,
-	log_usu 	TEXT,
-	tel_usu 	TEXT,
-	id_tip_usu 	INTEGER,
-	id_tip_usu_usu 	INTEGER,
-	cod_tip_usu 	TEXT,
-	str_trans	TEXT,
-	des_tip_usu 	TEXT
-   );
+   (id_usu integer,
+    nom_usu text,
+    ape_usu text,
+    pas_usu text,
+    log_usu text,
+    tel_usu text,
+    id_tip_usu integer,
+    id_tip_usu_usu integer,
+    cod_tip_usu text,
+    str_trans text,
+    des_tip_usu text,
+    adm_usu boolean);
 ALTER TYPE t_validar_usuarios OWNER TO postgres;
 COMMENT ON TYPE t_validar_usuarios IS '
 NOMBRE: t_validar_usuarios

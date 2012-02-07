@@ -104,6 +104,7 @@
                             				<div style="">                                               
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                                
                                                     <table>
+                                                        <?php if($isPermitedCrearAdmin) : ?>
                                                         <tr>
                                                             <td> 
                                                                 <ul>
@@ -113,6 +114,8 @@
                                                                 </ul> 
                                                             </td>
                                                         </tr>
+                                                       <?php endif;?>
+                                                       <tr><td style="height: 10px;"></td></tr>
                                                         <tr>
                                                             <td> 
                                                                 <ul>
@@ -131,6 +134,7 @@
                             				<div>
                                                 <div style="height: 45px;text-align: left;width: 150px;">                                               
                                                     <table>
+                                                        <?php if($isPermitedCrearOpe) : ?>
                                                         <tr>
                                                             <td> 
                                                                 <ul>
@@ -140,6 +144,8 @@
                                                                 </ul> 
                                                             </td>
                                                         </tr>
+                                                        <?php endif;?>
+                                                        <tr><td style="height: 10px;"></td></tr>
                                                         <tr>
                                                             <td> 
                                                                 <ul>

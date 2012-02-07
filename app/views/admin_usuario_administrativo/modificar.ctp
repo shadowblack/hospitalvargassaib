@@ -149,13 +149,19 @@
                                              <table style="width: 100%;" border="0">
                                              <?php 
                                                 $id_mod = "";
+                                                $disabled = "";
+                                                if ($isUsuAdminPri == true && $id_usu_log == $id){
+                                                    $disabled =  "disabled='disabled'";
+                                                } 
+                                                
+                                                
                                                 foreach($result_tran as $row){?>
                                                 <?php 
                                                     if ($id_mod <> $row->id_mod){
                                                         ?>
                                                         <tr>
                                                             <td align="right" style="width:10px">
-                                                                <input style="width:10px" type="checkbox" id="mod_chk_<?php echo $row->id_mod;?>" name="mod_chk_<?php echo $row->cod_mod;?>" value="<?php echo $row->id_mod;?>">
+                                                                <input <?php echo $disabled;?> style="width:10px" type="checkbox" id="mod_chk_<?php echo $row->id_mod;?>" name="mod_chk_<?php echo $row->cod_mod;?>" value="<?php echo $row->id_mod;?>">
                                                             </td>
                                                             <td class="standar_font">
                                                                 <span style="font-weight: bold;">
@@ -172,7 +178,7 @@
                                                                 <table style="width: 100%;" class="" border="0">
                                                                     <tr>
                                                                         <td align="right" style="width:40px">
-                                                                            <input style="width:10px" type="checkbox" id="tra_chk_<?php echo $row->id_tip_tra;?>" name="mod_tra_chk_<?php echo $row->id_mod;?>" value="<?php echo $row->id_tip_tra;?>" id_mod="<?php echo $row->id_mod?>" <?php echo ($row->id_tip_usu_usu <> ""  ? "checked='checked'" : "")?> >
+                                                                            <input <?php echo $disabled;?> style="width:10px" type="checkbox" id="tra_chk_<?php echo $row->id_tip_tra;?>" name="mod_tra_chk_<?php echo $row->id_mod;?>" value="<?php echo $row->id_tip_tra;?>" id_mod="<?php echo $row->id_mod?>" <?php echo ($row->id_tip_usu_usu <> ""  ? "checked='checked'" : "")?> >
                                                                         </td>
                                                                         <td>
                                                                             <span>

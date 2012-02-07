@@ -1,9 +1,8 @@
-﻿-- Function: canales.can_insertar_empresa(character varying[])
+﻿-- Function: validar_usuarios(text, text, text)
 
--- DROP FUNCTION canales.can_insertar_empresa(character varying[]);
+-- DROP FUNCTION validar_usuarios(text, text, text);
 
-DROP FUNCTION IF EXISTS validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT);
-CREATE OR REPLACE FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT)
+CREATE OR REPLACE FUNCTION validar_usuarios(_log_usu text, _pas_usu text, _tip_usu text)
   RETURNS SETOF t_validar_usuarios AS
 $BODY$
 
@@ -16,6 +15,7 @@ DECLARE
 	_pas_usu_adm		usuarios_administrativos.pas_usu_adm%TYPE;
 	_log_usu_adm		usuarios_administrativos.log_usu_adm%TYPE;
 	_tel_usu_adm		usuarios_administrativos.tel_usu_adm%TYPE;
+	_adm_usu 		usuarios_administrativos.adm_usu%TYPE;
 	_id_tip_usu		tipos_usuarios.id_tip_usu%TYPE;
 	_cod_tip_usu		tipos_usuarios.cod_tip_usu%TYPE;
 	_t_val_usu		t_validar_usuarios%ROWTYPE;
@@ -29,13 +29,14 @@ BEGIN
 
 			IF EXISTS( SELECT 1 FROM usuarios_administrativos WHERE log_usu_adm = _log_usu) THEN
 				
-				SELECT ua.id_usu_adm, ua.nom_usu_adm, ua.ape_usu_adm, ua.log_usu_adm, ua.tel_usu_adm, tu.id_tip_usu, tu.cod_tip_usu, tu.des_tip_usu, tuu.id_tip_usu_usu INTO _vr_usu  FROM 
-				usuarios_administrativos ua
-				LEFT JOIN tipos_usuarios__usuarios tuu ON (ua.id_usu_adm = tuu.id_usu_adm)
-				LEFT JOIN tipos_usuarios tu ON (tuu.id_tip_usu = tu.id_tip_usu)
+				SELECT 	ua.id_usu_adm, ua.nom_usu_adm, ua.ape_usu_adm, ua.log_usu_adm, ua.tel_usu_adm, tu.id_tip_usu, 
+					tu.cod_tip_usu, tu.des_tip_usu, tuu.id_tip_usu_usu,ua.adm_usu INTO _vr_usu  
+				FROM usuarios_administrativos ua
+					LEFT JOIN tipos_usuarios__usuarios tuu ON (ua.id_usu_adm = tuu.id_usu_adm)
+					LEFT JOIN tipos_usuarios tu ON (tuu.id_tip_usu = tu.id_tip_usu)
 				WHERE ua.log_usu_adm = _log_usu
-				AND ua.pas_usu_adm = md5(_pas_usu)
-				AND tu.cod_tip_usu = _tip_usu;
+					AND ua.pas_usu_adm = md5(_pas_usu)
+					AND tu.cod_tip_usu = _tip_usu;
 				
 				_t_val_usu.str_trans := ARRAY_TO_STRING (
 					ARRAY	(
@@ -57,6 +58,7 @@ BEGIN
 				_t_val_usu.id_tip_usu_usu 	:=	_vr_usu.id_tip_usu_usu;				
 				_t_val_usu.cod_tip_usu 		:=	_vr_usu.cod_tip_usu;				
 				_t_val_usu.des_tip_usu 		:=	_vr_usu.des_tip_usu;
+				_t_val_usu.adm_usu 		:=	_vr_usu.adm_usu;
 				
 			END IF;
 			
@@ -98,10 +100,11 @@ BEGIN
 	
 END;
 $BODY$
-  LANGUAGE 'plpgsql' VOLATILE
-  COST 100;
-ALTER FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT) OWNER TO desarrollo_g;
-COMMENT ON FUNCTION validar_usuarios(_log_usu TEXT,_pas_usu TEXT,_tip_usu TEXT) IS '
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION validar_usuarios(text, text, text) OWNER TO desarrollo_g;
+COMMENT ON FUNCTION validar_usuarios(text, text, text) IS '
 NOMBRE: validar_usuarios
 TIPO: Function (store procedure)
 PARAMETROS: 
@@ -112,6 +115,3 @@ PARAMETROS:
 EJEMPLO: SELECT str_mods FROM validar_usuarios(''hitokiri83'',''123'',''adm'');
 
 ';
-
--- 
-	--SELECT * FROM validar_usuarios('lmarin','Ayanami909','med');

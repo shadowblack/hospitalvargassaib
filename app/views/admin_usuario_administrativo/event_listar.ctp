@@ -17,14 +17,13 @@
         <td align="center" class="standar_font lista_fondo">
             <?php __("Apellido")?>
         </td>
+        <?php if($isPermitedModAdmin || $isPermitedEliAdmin || $isPermitedResAdmin): ?>
         <td align="center" class="standar_font lista_fondo" colspan="3">
             <?php __("Opciones")?>
         </td>
-               
+         <?php endif; ?>       
     </tr>
-
-<?php    
-
+<?php
     $i = 0;
     foreach ($results as $row){
         $i ++;
@@ -34,9 +33,17 @@
                 <td class="standar_font"><?php echo $row->UsuariosAdministrativo->log_usu_adm ?></td>
                 <td class="standar_font"><?php echo $row->UsuariosAdministrativo->nom_usu_adm ?></td>
                 <td class="standar_font"><?php echo $row->UsuariosAdministrativo->ape_usu_adm ?></td>
+                <?php if($isPermitedModAdmin) : ?>
                 <td class="standar_font" align="center"><a onclick="edit('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Modificar administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/page_white_edit.png"></a></td>
+                <?php endif;
+                      if($isPermitedEliAdmin): 
+                        //if($isUsuAdminPri == true):  ?>
                 <td class="standar_font" align="center"><a onclick="del('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>','<?php echo $row->UsuariosAdministrativo->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Eliminar administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/cancel.png"></a></td>
+                <?php   //endif;
+                      endif;
+                      if($isPermitedResAdmin): ?>
                 <td class="standar_font" align="center"><a onclick="res('<?php echo $row->UsuariosAdministrativo->id_usu_adm?>','<?php echo $row->UsuariosAdministrativo->log_usu_adm?>')" href="javascript:void(0)" class="border"><img title="<?php echo __("Restablecer contraseña al administrador",true)." ".$row->UsuariosAdministrativo->log_usu_adm?>" class="border" src="<?php echo $this->webroot?>img/icon/restablecer_clave.gif"></a></td>
+                <?php endif;?>
             </tr>        
         <?php
     }

@@ -81,7 +81,7 @@
             //$this->Login->no_cache();
             $this->Login->autenticacion_usuario($this,"/medico/login",$this->group_session,"iframe");
             
-            $this->Login->isPermitted("MP",$this->Session->read("medico.str_trans"));             
+            $this->Login->isPermitted("RP",$this->Session->read("medico.str_trans"));             
                                                                                                                
             $sql = "SELECT id_est,des_est,id_pai FROM estados WHERE id_pai = 1 ORDER BY des_est ASC";
             $arr_query = ($this->Doctore->query($sql,"hola"));
