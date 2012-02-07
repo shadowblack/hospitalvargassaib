@@ -38,7 +38,7 @@
 ?>
 
 <div id="tabs-1" style="display: none;" >    		
-    <div id="tabs">
+    <div id="tabs" style="overflow-y: auto; overflow-x:hidden;height:425px;">
         <ul>
             <li>
                 <a href="#tabs-1" style="width: 680px;">
@@ -46,9 +46,9 @@
                 </a>
             </li>            
         </ul>
-        <fieldset style="" class="standar_fieldset_content"> 	                                                                       
+        <fieldset style="height:auto" class="standar_fieldset_content"> 	                                                                       
         <form name="pacientes" id="pacientes" > 
-            <div style="" class="standar_fieldset_child">                                          
+            <div style="" class="">                                          
                 <table style="width:540px;margin-top: 20px;" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
                         <td width="184" class="font-standar" valign="top">
