@@ -122,8 +122,10 @@
             $sql = "SELECT * FROM usuarios_administrativos
                     WHERE nom_usu_adm ilike('%$nombre%') 
                     AND ape_usu_adm ilike('%$apellido%')
-                    AND log_usu_adm ilike('%$login%') ORDER BY nom_usu_adm ASC";
-            $arr_query = ($this->UsuariosAdministrativo->query($sql));                   
+                    AND log_usu_adm ilike('%$login%') ORDER BY log_usu_adm ASC";
+            $arr_query = ($this->UsuariosAdministrativo->query($sql)); 
+            
+            $result_usu = $this->SqlData->array_to_objects($arr_query);                  
             
             $this->paginate = Array(
                 "conditions" => Array(
@@ -132,8 +134,7 @@
                     "UsuariosAdministrativo.nom_usu_adm ilike" => "%$nombre%"
                 ),
                 "order" => "UsuariosAdministrativo.nom_usu_adm",
-                "limit" => 12
-                
+                "limit" => 10
             );
             
             $data = Array(
@@ -142,7 +143,8 @@
                 "isPermitedEliAdmin"  => $isPermitedEliAdmin,
                 "isPermitedResAdmin"  => $isPermitedResAdmin,
                 "isUsuAdminPri"       => $isUsuAdminPri,
-                "id_usu_log"          => $id_usu_log
+                "id_usu_log"          => $id_usu_log,
+                "result_usu"          => $result_usu
             );  
             $this->set($data);  
             $this->layout = 'ajax';
