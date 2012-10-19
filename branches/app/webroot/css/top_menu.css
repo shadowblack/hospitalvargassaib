@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.no_mostrar{
+	display:none;
+}
+    /**
+    * Estilos de fondo
+    */
+    /*top*/
+.top_menu_window_top_left{
+    background-image: url('../img/menu_top/windows/images/windows_01.gif');
+    background-repeat: no-repeat;
+    width:5px;
+    height: 48px;
+}
+.top_menu_window_top_circle{
+    background-image: url('../img/menu_top/windows/images/windows_02.gif');
+    background-repeat: no-repeat;
+    width:26px;
+    height: 48px;
+    
+}
+.top_menu_window_top_center{
+    background-image: url('../img/menu_top/windows/images/windows_03.gif');
+    background-repeat:repeat-x; 
+    height: 48px;
+    }
+.top_menu_window_top_right{
+    background-image: url('../img/menu_top/windows/images/windows_05.gif');
+    background-repeat: repeat-x;   
+    height: 48px;
+}
+
+    /*body*/
+.top_menu_window_body_left{
+    background-image: url('../img/menu_top/windows/images/windows_06.gif');
+    background-repeat: repeat-y;
+    width:5px;
+    height: 48px;
+}
+.top_menu_window_body_circle{
+   background-color: white; 
+}
+.top_menu_window_body_center{
+   background-color: white;
+}
+.top_menu_window_body_right{
+    background-image: url('../img/menu_top/windows/images/windows_09.gif');
+    background-repeat: repeat-y;   
+    height: 48px;
+}
+
+    /*footer*/
+.top_menu_window_footer_left{
+    background-image: url('../img/menu_top/windows/images/windows_12.gif');
+    background-repeat: no-repeat;
+    width:5px;
+    height: 5px;
+}
+
+.top_menu_window_footer_center{
+    background-image: url('../img/menu_top/windows/images/windows_13.gif');
+    background-repeat:repeat-x;  
+    height: 5px;
+}
+.top_menu_window_footer_right{
+    background-image: url('../img/menu_top/windows/images/windows_14.gif');
+    background-repeat: no-repeat;   
+    height: 5px;
+    width: 5px;
+}
+
+/**
+*   Login del doctor
+*/
+.top_menu_login_doc_izquierdo{
+    background-image: url('../img/img_formulari_inicio/fondo_inici_izq.png');
+    height: 600px;
+}
+.top_menu_login_doc_center{
+    background-image: url('../img/img_formulari_inicio/fondo_inicio_total.jpg');
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 1024px;
+}
+.top_menu_login_doc_derecho{
+    background-image: url('../img/img_formulari_inicio/fondo_inici_dere.png');
+    height: 600px;
+}
+/*Boton Configuracion*/ 
+.boton_medico_conf 
+    {
+        margin-top: -10px; 
+        font:11px georgia;
+    	font-weight:bold;
+    	text-align:center;
+	}
+
+#boton_medico_conf 
+    {
+    	
+    	width: 125px;
+    	height: 39px;
+    	background-image:url(../img/img_formulari_inicio/medico_bot_0.png);
+ 	}
+	
+#boton_medico_conf a
+    {
+        text-decoration:none;
+        width: 125px;
+        height: 39px;
+        display: block;
+        color:#2779AA;
+    }
+
+#boton_medico_conf a:hover
+    {
+        text-decoration:none;
+        background:url(../img/img_formulari_inicio/medico_bot_1.png);
+        color: white;
+    }
+
+/*css para el index de la aplicacion*/
+
+.top_menu_login_index_izquierdo{
+    background-image: url('../img/img_formulari_index/fondo_inici_izq.png');
+    height: 600px;
+}
+.top_menu_login_index_center{
+    background-image: url('../img/img_formulari_index/img_index.jpg');
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 1024px;
+}
+.top_menu_login_index_derecho{
+    background-image: url('../img/img_formulari_index/fondo_inici_dere.png');
+    height: 600px;
+ }   
+.top_menu_login_index_center_adm{
+    background-image: url('../img/img_formulari_index/img_index_adm.jpg');
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 1024px;
+}

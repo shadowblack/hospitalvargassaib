@@ -1,0 +1,178 @@
+/*body{
+	font: 62.5% "Trebuchet MS", sans-serif;
+	margin: 50px;	
+}*/
+
+.fondo{
+background-image:url(../js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png);
+background-repeat: repeat-x; 
+}
+
+.medico_clase_formulario_fondo{
+    background-image:url(../img/menu_top/fondo.png);
+    background-repeat: repeat-x;    
+}
+
+
+iframe.ContenidoPestana
+{
+
+  border: 0px;
+  background-image:url(../js/jquery/jquery-ui-1.8.8.custom/images/TAB_ATR.png);
+  background-repeat: repeat-x; 
+}
+
+input.textos 
+{
+/*size:25px;*/
+font-size:10px;
+background: #FDF6D4;
+
+}
+laberl.Centrar{
+text-align:center;
+}
+h2.texPrincipal
+{
+font-family: "Palatino Linotype", Tahoma, Arial, sans-serif;
+font-size:15px;
+color: #2092BD;
+}
+h3.texSecundario
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color: #333333;
+}
+
+
+/*Este es el CSS para la Opcion de la ayuda que es una libreria de JQUERY*/
+.demoHeaders { 
+margin-top: 2em; 
+}
+
+#dialog_link {
+padding: .4em 1em .4em 20px;
+text-decoration: none;
+position: relative;
+}
+
+#dialog_link span.ui-icon {
+margin: 0 5px 0 0;
+position: absolute;
+left: .2em;
+top: 50%;
+margin-top: -8px;
+}
+
+ul#icons {
+margin: 0; 
+padding: 0;
+}
+ul#icons li {
+margin: 2px; 
+position: relative; 
+padding: 4px 0; 
+cursor: pointer; 
+float: left;  
+list-style: none;
+}
+
+ul#icons span.ui-icon {
+float: left;
+margin: 0 4px;
+}
+/*Finaliza CSS para la Opcion de la ayuda que es una libreria de JQUERY*/
+
+
+
+
+
+
+/*Inicio de las tablas en la pag4.Html*/
+
+th {
+	font: bold 9px "Trebuchet MS", Verdana, Arial, Helvetica,
+	sans-serif;
+	color: #6D929B;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+        width: 10px;
+	background: #CAE8EA no-repeat;
+}
+
+.circular
+{
+-webkit-border-radius: 5px 10px;  /* Safari  */
+-moz-border-radius: 5px 10px;     /* Firefox */
+}
+
+
+.fontd {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+        width: 10px;
+	color: #6D929B;
+	text-align:center;
+    
+    
+}
+
+.fontd:hover{color: white; background: #BBE3A8; }
+
+
+/*Finaliza las tablas*/
+
+#formulario_check
+ {
+    text-align:center;
+    width: 10px;
+    height: 10px;
+ }
+ #formulario_radio
+ {
+    text-align:center;
+    width: 10px;
+    height: 10px;
+ }
+ 
+ 
+/*Boton Configuracion*/ 
+.boton_medico_conf 
+    {
+        margin-top: -10px; 
+        font:11px georgia;
+    	font-weight:bold;
+    	text-align:center;
+	}
+
+#boton_medico_conf 
+    {
+    	
+    	width: 125px;
+    	height: 39px;
+    	background-image:url(../img/img_formulari_inicio/medico_bot_0.png);
+ 	}
+	
+#boton_medico_conf a
+    {
+        text-decoration:none;
+        width: 125px;
+        height: 39px;
+        display: block;
+        color:#2779AA;
+    }
+
+#boton_medico_conf a:hover
+    {
+        text-decoration:none;
+        background:url(../img/img_formulari_inicio/medico_bot_1.png);
+        color: white;
+    }
